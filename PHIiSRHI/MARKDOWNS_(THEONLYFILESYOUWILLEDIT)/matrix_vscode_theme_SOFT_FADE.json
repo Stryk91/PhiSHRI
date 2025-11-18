@@ -1,0 +1,87 @@
+{
+  "workbench.colorCustomizations": {
+    "terminal.background": "#0D0D0D",
+    "terminal.foreground": "#00EE00",
+    "terminalCursor.background": "#0D0D0D",
+    "terminalCursor.foreground": "#00FF00",
+    
+    "terminal.ansiBlack": "#0D0D0D",
+    "terminal.ansiRed": "#00EE00",
+    "terminal.ansiGreen": "#00DD00",
+    "terminal.ansiYellow": "#00EE00",
+    "terminal.ansiBlue": "#008F11",
+    "terminal.ansiMagenta": "#00DDAA",
+    "terminal.ansiCyan": "#00DDDD",
+    "terminal.ansiWhite": "#CCCCCC",
+    
+    "terminal.ansiBrightBlack": "#151515",
+    "terminal.ansiBrightRed": "#00EE00",
+    "terminal.ansiBrightGreen": "#00DD00",
+    "terminal.ansiBrightYellow": "#00EE00",
+    "terminal.ansiBrightBlue": "#00AA00",
+    "terminal.ansiBrightMagenta": "#00FFAA",
+    "terminal.ansiBrightCyan": "#00DDDD",
+    "terminal.ansiBrightWhite": "#FFFFFF",
+    
+    "terminal.selectionBackground": "#00AA0040",
+    "terminalCommandDecoration.defaultBackground": "#00EE00",
+    "terminalCommandDecoration.successBackground": "#00DD00",
+    "terminalCommandDecoration.errorBackground": "#FF4444",
+    "terminal.border": "#00AA0060",
+    
+    "editor.background": "#0D0D0D",
+    "editor.foreground": "#CCCCCC",
+    "editorLineNumber.foreground": "#00AA00",
+    "editorLineNumber.activeForeground": "#00EE00",
+    "editorCursor.foreground": "#00FF00",
+    "editor.selectionBackground": "#00AA0040",
+    "editor.lineHighlightBackground": "#15151520",
+    
+    "sideBar.background": "#0A0A0A",
+    "sideBar.foreground": "#00AA00",
+    "sideBarSectionHeader.background": "#151515",
+    "sideBarSectionHeader.foreground": "#00EE00",
+    
+    "activityBar.background": "#0A0A0A",
+    "activityBar.foreground": "#00EE00",
+    "activityBarBadge.background": "#00DD00",
+    "activityBarBadge.foreground": "#0D0D0D",
+    
+    "statusBar.background": "#0A0A0A",
+    "statusBar.foreground": "#00AA00",
+    "statusBar.border": "#00AA0060",
+    
+    "titleBar.activeBackground": "#0D0D0D",
+    "titleBar.activeForeground": "#00EE00",
+    "titleBar.inactiveBackground": "#0A0A0A",
+    "titleBar.inactiveForeground": "#00AA00",
+    
+    "panel.background": "#0D0D0D",
+    "panel.border": "#00AA0060",
+    "panelTitle.activeForeground": "#00EE00",
+    "panelTitle.inactiveForeground": "#00AA00"
+  },
+  
+  "terminal.integrated.fontFamily": "White Rabbit, 'Courier New', monospace",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontWeight": "normal",
+  "terminal.integrated.lineHeight": 1.2,
+  "terminal.integrated.cursorStyle": "block",
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.scrollback": 10000,
+  "terminal.integrated.allowChords": false,
+  "terminal.integrated.shellIntegration.enabled": true,
+  "terminal.integrated.gpuAcceleration": "on",
+  
+  "editor.fontFamily": "White Rabbit, 'Courier New', monospace",
+  "editor.fontSize": 14,
+  "editor.lineHeight": 20,
+  "editor.fontWeight": "normal",
+  "editor.cursorBlinking": "smooth",
+  "editor.cursorSmoothCaretAnimation": "on",
+  
+  "workbench.colorTheme": "Default Dark+",
+  
+  "comment": "PhiVector Matrix - Soft Fade Edition for VSCode",
+  "description": "Eye strain reduction with lifted blacks (#0D0D0D) and softer greens (#00EE00/#00DD00/#00AA00)"
+}

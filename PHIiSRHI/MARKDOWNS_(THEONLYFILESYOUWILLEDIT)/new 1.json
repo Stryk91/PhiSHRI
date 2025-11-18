@@ -1,0 +1,464 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": [
+        "$help",
+        "$schema",
+        "actions",
+        "alwaysOnTop",
+        "alwaysShowNotificationIcon",
+        "centerOnLaunch",
+        "compatibility.allowHeadless",
+        "copyFormatting",
+        "copyOnSelect",
+        "defaultProfile",
+        "initialPosition",
+        "keybindings",
+        "launchMode",
+        "newTabMenu",
+        "profiles"
+    ],
+    "properties": {
+        "$help": {
+            "type": "string"
+        },
+        "$schema": {
+            "type": "string"
+        },
+        "actions": {
+            "type": "array"
+        },
+        "alwaysOnTop": {
+            "type": "boolean"
+        },
+        "alwaysShowNotificationIcon": {
+            "type": "boolean"
+        },
+        "centerOnLaunch": {
+            "type": "boolean"
+        },
+        "compatibility.allowHeadless": {
+            "type": "boolean"
+        },
+        "copyFormatting": {
+            "type": "string"
+        },
+        "copyOnSelect": {
+            "type": "boolean"
+        },
+        "defaultProfile": {
+            "type": "string"
+        },
+        "initialPosition": {
+            "type": "string"
+        },
+        "keybindings": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "keys": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "keys"
+                ]
+            }
+        },
+        "launchMode": {
+            "type": "string"
+        },
+        "newTabMenu": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "type"
+                ],
+                "properties": {
+                    "type": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "profiles": {
+            "type": "object",
+            "required": [
+                "defaults",
+                "list"
+            ],
+            "properties": {
+                "defaults": {
+                    "type": "object",
+                    "required": [
+                        "adjustIndistinguishableColors",
+                        "antialiasingMode",
+                        "backgroundImage",
+                        "backgroundImageOpacity",
+                        "backgroundImageStretchMode",
+                        "bellStyle",
+                        "closeOnExit",
+                        "colorScheme",
+                        "compatibility.reloadEnvironmentVariables",
+                        "cursorColor",
+                        "cursorShape",
+                        "elevate",
+                        "experimental.rainbowSuggestions",
+                        "experimental.repositionCursorWithMouse",
+                        "experimental.retroTerminalEffect",
+                        "font",
+                        "intenseTextStyle",
+                        "opacity",
+                        "pathTranslationStyle",
+                        "rightClickContextMenu",
+                        "showMarksOnScrollbar",
+                        "useAcrylic"
+                    ],
+                    "properties": {
+                        "adjustIndistinguishableColors": {
+                            "type": "string"
+                        },
+                        "antialiasingMode": {
+                            "type": "string"
+                        },
+                        "backgroundImage": {
+                            "type": "string"
+                        },
+                        "backgroundImageOpacity": {
+                            "type": "number"
+                        },
+                        "backgroundImageStretchMode": {
+                            "type": "string"
+                        },
+                        "bellStyle": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "closeOnExit": {
+                            "type": "string"
+                        },
+                        "colorScheme": {
+                            "type": "string"
+                        },
+                        "compatibility.reloadEnvironmentVariables": {
+                            "type": "boolean"
+                        },
+                        "cursorColor": {
+                            "type": "string"
+                        },
+                        "cursorShape": {
+                            "type": "string"
+                        },
+                        "elevate": {
+                            "type": "boolean"
+                        },
+                        "experimental.rainbowSuggestions": {
+                            "type": "boolean"
+                        },
+                        "experimental.repositionCursorWithMouse": {
+                            "type": "boolean"
+                        },
+                        "experimental.retroTerminalEffect": {
+                            "type": "boolean"
+                        },
+                        "font": {
+                            "type": "object",
+                            "required": [
+                                "cellHeight",
+                                "cellWidth",
+                                "colorGlyphs",
+                                "face",
+                                "size",
+                                "weight"
+                            ],
+                            "properties": {
+                                "cellHeight": {
+                                    "type": "string"
+                                },
+                                "cellWidth": {
+                                    "type": "string"
+                                },
+                                "colorGlyphs": {
+                                    "type": "boolean"
+                                },
+                                "face": {
+                                    "type": "string"
+                                },
+                                "size": {
+                                    "type": "integer"
+                                },
+                                "weight": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "intenseTextStyle": {
+                            "type": "string"
+                        },
+                        "opacity": {
+                            "type": "integer"
+                        },
+                        "pathTranslationStyle": {
+                            "type": "string"
+                        },
+                        "rightClickContextMenu": {
+                            "type": "boolean"
+                        },
+                        "showMarksOnScrollbar": {
+                            "type": "boolean"
+                        },
+                        "useAcrylic": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "background": {
+                                "type": "string"
+                            },
+                            "foreground": {
+                                "type": "string"
+                            },
+                            "guid": {
+                                "type": "string"
+                            },
+                            "commandline": {
+                                "type": "string"
+                            },
+                            "hidden": {
+                                "type": "boolean"
+                            },
+                            "closeOnExit": {
+                                "type": "string"
+                            },
+                            "icon": {
+                                "type": "string"
+                            },
+                            "showMarksOnScrollbar": {
+                                "type": "boolean"
+                            },
+                            "tabTitle": {
+                                "type": "string"
+                            },
+                            "adjustIndistinguishableColors": {
+                                "type": "string"
+                            },
+                            "backgroundImage": {
+                                "type": "string"
+                            },
+                            "backgroundImageOpacity": {
+                                "type": "number"
+                            },
+                            "backgroundImageStretchMode": {
+                                "type": "string"
+                            },
+                            "cursorColor": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "experimental.retroTerminalEffect": {
+                                "type": "boolean"
+                            },
+                            "font": {
+                                "type": "object",
+                                "properties": {
+                                    "weight": {
+                                        "type": "string"
+                                    },
+                                    "face": {
+                                        "type": "string"
+                                    },
+                                    "size": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "required": [
+                                    "weight"
+                                ]
+                            },
+                            "intenseTextStyle": {
+                                "type": "string"
+                            },
+                            "scrollbarState": {
+                                "type": "string"
+                            },
+                            "source": {
+                                "type": "string"
+                            },
+                            "antialiasingMode": {
+                                "type": "string"
+                            },
+                            "colorScheme": {
+                                "type": "string"
+                            },
+                            "experimental.repositionCursorWithMouse": {
+                                "type": "boolean"
+                            },
+                            "rightClickContextMenu": {
+                                "type": "boolean"
+                            },
+                            "startingDirectory": {
+                                "type": "string"
+                            },
+                            "bellStyle": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "experimental.rainbowSuggestions": {
+                                "type": "boolean"
+                            },
+                            "useAcrylic": {
+                                "type": "boolean"
+                            },
+                            "compatibility.input.forceVT": {
+                                "type": "boolean"
+                            },
+                            "suppressApplicationTitle": {
+                                "type": "boolean"
+                            },
+                            "cursor": {
+                                "type": "string"
+                            },
+                            "cursorAccent": {
+                                "type": "string"
+                            },
+                            "selection": {
+                                "type": "string"
+                            },
+                            "selectionBackground": {
+                                "type": "string"
+                            },
+                            "black": {
+                                "type": "string"
+                            },
+                            "red": {
+                                "type": "string"
+                            },
+                            "green": {
+                                "type": "string"
+                            },
+                            "yellow": {
+                                "type": "string"
+                            },
+                            "blue": {
+                                "type": "string"
+                            },
+                            "purple": {
+                                "type": "string"
+                            },
+                            "cyan": {
+                                "type": "string"
+                            },
+                            "white": {
+                                "type": "string"
+                            },
+                            "brightBlack": {
+                                "type": "string"
+                            },
+                            "brightRed": {
+                                "type": "string"
+                            },
+                            "brightGreen": {
+                                "type": "string"
+                            },
+                            "brightYellow": {
+                                "type": "string"
+                            },
+                            "brightBlue": {
+                                "type": "string"
+                            },
+                            "brightPurple": {
+                                "type": "string"
+                            },
+                            "brightCyan": {
+                                "type": "string"
+                            },
+                            "brightWhite": {
+                                "type": "string"
+                            },
+                            "comment": {
+                                "type": "string"
+                            },
+                            "settings": {
+                                "type": "object",
+                                "required": [
+                                    "acrylicOpacity",
+                                    "cursorHeight",
+                                    "cursorShape",
+                                    "experimental.pixelShaderPath",
+                                    "experimental.retroTerminalEffect",
+                                    "fontFace",
+                                    "fontSize",
+                                    "fontWeight",
+                                    "opacity",
+                                    "padding",
+                                    "snapOnInput",
+                                    "useAcrylic"
+                                ],
+                                "properties": {
+                                    "fontFace": {
+                                        "type": "string"
+                                    },
+                                    "fontSize": {
+                                        "type": "integer"
+                                    },
+                                    "fontWeight": {
+                                        "type": "string"
+                                    },
+                                    "opacity": {
+                                        "type": "integer"
+                                    },
+                                    "useAcrylic": {
+                                        "type": "boolean"
+                                    },
+                                    "acrylicOpacity": {
+                                        "type": "number"
+                                    },
+                                    "padding": {
+                                        "type": "string"
+                                    },
+                                    "snapOnInput": {
+                                        "type": "boolean"
+                                    },
+                                    "cursorShape": {
+                                        "type": "string"
+                                    },
+                                    "cursorHeight": {
+                                        "type": "integer"
+                                    },
+                                    "experimental.retroTerminalEffect": {
+                                        "type": "boolean"
+                                    },
+                                    "experimental.pixelShaderPath": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "required": [
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

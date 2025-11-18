@@ -1,0 +1,27 @@
+{
+  "name": "PhiVector Matrix",
+  "background": "#000000",
+  "foreground": "#00FF00",
+  "cursor": "#00FF00",
+  "cursorAccent": "#000000",
+  "selection": "#003300",
+  "selectionBackground": "#00FF00",
+
+  "black": "#000000",
+  "red": "#00FF00",
+  "green": "#00FF00",
+  "yellow": "#00FF00",
+  "blue": "#008F11",
+  "purple": "#00FF00",
+  "cyan": "#00FF00",
+  "white": "#00FF00",
+
+  "brightBlack": "#003300",
+  "brightRed": "#00FF00",
+  "brightGreen": "#00FF00",
+  "brightYellow": "#00FF00",
+  "brightBlue": "#00CC00",
+  "brightPurple": "#00FF00",
+  "brightCyan": "#00FF00",
+  "brightWhite": "#FFFFFF"
+}

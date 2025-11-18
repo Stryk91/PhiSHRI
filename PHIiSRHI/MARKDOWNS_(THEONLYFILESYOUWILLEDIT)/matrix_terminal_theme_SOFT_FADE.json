@@ -1,0 +1,45 @@
+{
+  "name": "PhiVector Matrix - Soft Fade",
+  "background": "#0D0D0D",
+  "foreground": "#00EE00",
+  "cursor": "#00FF00",
+  "cursorAccent": "#0D0D0D",
+  "selection": "#00AA00",
+  "selectionBackground": "#00EE00",
+
+  "black": "#0D0D0D",
+  "red": "#00EE00",
+  "green": "#00DD00",
+  "yellow": "#00EE00",
+  "blue": "#008F11",
+  "purple": "#00DDAA",
+  "cyan": "#00DDDD",
+  "white": "#CCCCCC",
+
+  "brightBlack": "#151515",
+  "brightRed": "#00EE00",
+  "brightGreen": "#00DD00",
+  "brightYellow": "#00EE00",
+  "brightBlue": "#00AA00",
+  "brightPurple": "#00FFAA",
+  "brightCyan": "#00DDDD",
+  "brightWhite": "#FFFFFF",
+
+  "comment": "Matrix Terminal Theme - Soft Fade Edition (Eye Strain Reduced)",
+  "description": "Lifted blacks (#0D0D0D) and softer greens (#00EE00) for extended use without eye fatigue",
+  "settings": {
+    "fontFace": "White Rabbit",
+    "fontSize": 12,
+    "fontWeight": "normal",
+    "opacity": 95,
+    "useAcrylic": true,
+    "acrylicOpacity": 0.7,
+    "padding": "8, 8, 8, 8",
+    "snapOnInput": true,
+    "cursorShape": "vintage",
+    "cursorHeight": 100,
+
+    "experimental.retroTerminalEffect": false,
+    "note": "Disable retro effect for softer look, or keep for CRT aesthetic"
+  }
+}

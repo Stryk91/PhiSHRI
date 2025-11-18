@@ -1,0 +1,169 @@
+{
+  "philaunch_gui_vscode_tasks": {
+    "description": "Tasks for VS Code Claude to handle - refinements, optimizations, and polish",
+    "priority": "medium",
+    "tasks": [
+      {
+        "id": "gui-polish-1",
+        "title": "Add tooltips to all buttons",
+        "description": "Add QToolTip to all QPushButton instances with helpful descriptions of what each button does",
+        "file": "philaunch_gui.py",
+        "difficulty": "easy",
+        "lines": "Throughout button creation methods"
+      },
+      {
+        "id": "gui-polish-2",
+        "title": "Add keyboard shortcuts",
+        "description": "Implement QShortcut for common operations (Ctrl+R refresh, Ctrl+T terminal, Ctrl+Q quit, etc.)",
+        "file": "philaunch_gui.py",
+        "difficulty": "easy",
+        "lines": "Add in __init__ method after UI setup"
+      },
+      {
+        "id": "gui-optimize-1",
+        "title": "Optimize system status polling",
+        "description": "Refactor _fetch_system_status() to cache results and only update changed values",
+        "file": "philaunch_gui.py",
+        "difficulty": "medium",
+        "lines": "Method _fetch_system_status around line 550"
+      },
+      {
+        "id": "gui-optimize-2",
+        "title": "Add output text limit to prevent memory bloat",
+        "description": "Limit output_text QTextEdit to last 1000 lines, auto-trim older content",
+        "file": "philaunch_gui.py",
+        "difficulty": "easy",
+        "lines": "Method append_output around line 750"
+      },
+      {
+        "id": "gui-feature-1",
+        "title": "Add script editor integration",
+        "description": "Double-click on script opens it in default editor (nano/vim/code)",
+        "file": "philaunch_gui.py",
+        "difficulty": "medium",
+        "lines": "Add itemDoubleClicked signal handler to tree widget"
+      },
+      {
+        "id": "gui-feature-2",
+        "title": "Add favorites/starred scripts",
+        "description": "Right-click context menu to star frequently used scripts, separate tree section",
+        "file": "philaunch_gui.py",
+        "difficulty": "medium",
+        "lines": "Add context menu to tree widget and favorites storage"
+      },
+      {
+        "id": "gui-feature-3",
+        "title": "Add task history log",
+        "description": "Track all executed scripts with timestamp, exit code, duration - display in dedicated tab",
+        "file": "philaunch_gui.py",
+        "difficulty": "hard",
+        "lines": "Add QTabWidget to middle pane, create history tracking"
+      },
+      {
+        "id": "gui-error-1",
+        "title": "Add comprehensive error handling",
+        "description": "Wrap all subprocess calls in try-except with user-friendly error messages and recovery suggestions",
+        "file": "philaunch_gui.py",
+        "difficulty": "medium",
+        "lines": "All methods with subprocess.run/Popen"
+      },
+      {
+        "id": "gui-error-2",
+        "title": "Add input validation",
+        "description": "Validate script paths exist before execution, check tmux is installed, etc.",
+        "file": "philaunch_gui.py",
+        "difficulty": "easy",
+        "lines": "Add validation methods and call before actions"
+      },
+      {
+        "id": "gui-style-1",
+        "title": "Add smooth hover animations",
+        "description": "Use QPropertyAnimation for smooth color transitions on button hovers",
+        "file": "philaunch_gui.py",
+        "difficulty": "medium",
+        "lines": "Refactor button stylesheets to support animations"
+      },
+      {
+        "id": "gui-style-2",
+        "title": "Add custom scrollbar styling",
+        "description": "Style QScrollBar for all scroll areas to match theme (green handle, dark track)",
+        "file": "philaunch_gui.py",
+        "difficulty": "easy",
+        "lines": "Add to stylesheet in setup_ui or widget creation"
+      },
+      {
+        "id": "gui-config-1",
+        "title": "Add settings/config file support",
+        "description": "Save window size, splitter positions, refresh interval to ~/.philaunch_config.json",
+        "file": "philaunch_gui.py",
+        "difficulty": "medium",
+        "lines": "Add save_settings/load_settings methods"
+      },
+      {
+        "id": "gui-config-2",
+        "title": "Add theme switcher",
+        "description": "Allow switching between Matrix (green), Cyberpunk (cyan), Fire (orange) themes",
+        "file": "philaunch_gui.py, philaunch_colors.py",
+        "difficulty": "hard",
+        "lines": "Create multiple color palettes and theme switching mechanism"
+      },
+      {
+        "id": "gui-docs-1",
+        "title": "Add comprehensive docstrings",
+        "description": "Add detailed docstrings to all methods following Google style guide",
+        "file": "philaunch_gui.py",
+        "difficulty": "easy",
+        "lines": "All method definitions"
+      },
+      {
+        "id": "gui-docs-2",
+        "title": "Add inline comments for complex logic",
+        "description": "Explain threading logic, signal/slot connections, and subprocess handling",
+        "file": "philaunch_gui.py",
+        "difficulty": "easy",
+        "lines": "Complex sections like auto_refresh, _fetch_system_status, etc."
+      },
+      {
+        "id": "gui-refactor-1",
+        "title": "Extract reusable widget classes",
+        "description": "Create StatusIndicator, ActionButton, ScriptTreeItem classes for better organization",
+        "file": "philaunch_gui.py (split into multiple files)",
+        "difficulty": "hard",
+        "lines": "Entire file - major refactoring"
+      },
+      {
+        "id": "gui-refactor-2",
+        "title": "Separate business logic from UI",
+        "description": "Create PhiLaunchController class for automation logic, keep UI class for presentation only",
+        "file": "philaunch_gui.py (split into philaunch_gui.py and philaunch_controller.py)",
+        "difficulty": "hard",
+        "lines": "Entire file - major refactoring"
+      },
+      {
+        "id": "gui-test-1",
+        "title": "Add unit tests for automation logic",
+        "description": "Test script loading, task management, subprocess handling with mocks",
+        "file": "test_philaunch_gui.py (new file)",
+        "difficulty": "medium",
+        "lines": "New file - create test suite"
+      }
+    ],
+    "instructions_for_vscode_claude": {
+      "workflow": "Load this divert.json file and work through tasks one at a time",
+      "prioritize": ["easy difficulty tasks", "gui-polish-* tasks", "gui-error-* tasks"],
+      "do_not_touch": [
+        "Color constants in philaunch_colors.py unless theme switcher task",
+        "Core window structure and layout",
+        "DPI fix environment variables"
+      ],
+      "communication": "After completing each task, update this JSON with 'status': 'completed' and add 'completed_by' field",
+      "testing": "Test each change by running ./launch-gui.sh to ensure no breakage"
+    },
+    "notes": {
+      "created_by": "Claude Code",
+      "created_for": "VS Code Claude",
+      "purpose": "Divide GUI refinement work between Claude Code (structure) and VS Code Claude (polish)",
+      "philosophy": "Claude Code builds the foundation, VS Code Claude adds the polish"
+    }
+  }
+}
