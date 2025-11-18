@@ -1,0 +1,122 @@
+{
+  "version": "1.0.0",
+  "description": "Directed acyclic graph of door prerequisites and loading order",
+  "total_doors": 14,
+  "dependency_graph": {
+    "800WINMCP": {
+      "prerequisites": [],
+      "dependents": ["A02VSCC", "P01WAVE", "E01PERM", "E02ENCODE"],
+      "loading_order": 1,
+      "circular_dependencies": false
+    },
+    "810AHK": {
+      "prerequisites": [],
+      "dependents": ["A01DC", "W01COORD"],
+      "loading_order": 1,
+      "circular_dependencies": false
+    },
+    "820PWSH": {
+      "prerequisites": [],
+      "dependents": ["A01DC", "A02VSCC", "A03TERMC", "A00STRYK", "W01COORD"],
+      "loading_order": 1,
+      "circular_dependencies": false
+    },
+    "A00STRYK": {
+      "prerequisites": ["820PWSH"],
+      "dependents": ["W01COORD", "P03VECTOR"],
+      "loading_order": 2,
+      "circular_dependencies": false
+    },
+    "A01DC": {
+      "prerequisites": ["810AHK", "820PWSH"],
+      "dependents": ["A02VSCC", "A03TERMC", "W01COORD", "P03VECTOR"],
+      "loading_order": 2,
+      "circular_dependencies": false
+    },
+    "A02VSCC": {
+      "prerequisites": ["800WINMCP"],
+      "dependents": ["A01DC", "A03TERMC", "W01COORD", "P03VECTOR"],
+      "loading_order": 2,
+      "circular_dependencies": false
+    },
+    "A03TERMC": {
+      "prerequisites": ["820PWSH"],
+      "dependents": ["A01DC", "A02VSCC", "W01COORD", "P01WAVE", "P03VECTOR"],
+      "loading_order": 2,
+      "circular_dependencies": false
+    },
+    "P01WAVE": {
+      "prerequisites": ["800WINMCP", "A03TERMC"],
+      "dependents": ["P03VECTOR"],
+      "loading_order": 3,
+      "circular_dependencies": false
+    },
+    "P03VECTOR": {
+      "prerequisites": ["A00STRYK", "W01COORD", "R01MULTI"],
+      "dependents": ["P04SHRI"],
+      "loading_order": 4,
+      "circular_dependencies": false
+    },
+    "P04SHRI": {
+      "prerequisites": [],
+      "dependents": ["P03VECTOR"],
+      "loading_order": 1,
+      "circular_dependencies": false
+    },
+    "W01COORD": {
+      "prerequisites": ["A00STRYK", "A01DC", "A02VSCC", "A03TERMC"],
+      "dependents": ["P03VECTOR", "R01MULTI"],
+      "loading_order": 3,
+      "circular_dependencies": false
+    },
+    "R01MULTI": {
+      "prerequisites": [],
+      "dependents": ["W01COORD", "A00STRYK", "P03VECTOR", "P04SHRI"],
+      "loading_order": 1,
+      "circular_dependencies": false
+    },
+    "E01PERM": {
+      "prerequisites": [],
+      "dependents": ["800WINMCP", "820PWSH"],
+      "loading_order": 1,
+      "circular_dependencies": false
+    },
+    "E02ENCODE": {
+      "prerequisites": [],
+      "dependents": ["800WINMCP", "820PWSH"],
+      "loading_order": 1,
+      "circular_dependencies": false
+    }
+  },
+  "loading_chains": {
+    "full_phivector_stack": {
+      "description": "Complete PhiVector multi-agent system",
+      "doors": ["R01MULTI", "820PWSH", "810AHK", "800WINMCP", "A01DC", "A02VSCC", "A03TERMC", "W01COORD", "A00STRYK", "P03VECTOR"],
+      "total_doors": 10,
+      "estimated_load_time_ms": 2000
+    },
+    "basic_file_operations": {
+      "description": "Basic file operations with error handling",
+      "doors": ["800WINMCP", "E01PERM", "E02ENCODE"],
+      "total_doors": 3,
+      "estimated_load_time_ms": 500
+    },
+    "agent_coordination": {
+      "description": "Multi-agent coordination workflow",
+      "doors": ["820PWSH", "810AHK", "A01DC", "A02VSCC", "A03TERMC", "W01COORD"],
+      "total_doors": 6,
+      "estimated_load_time_ms": 1500
+    }
+  },
+  "circular_dependency_detection": {
+    "enabled": true,
+    "detected_cycles": [],
+    "resolution_strategy": "break_at_lowest_priority"
+  },
+  "loading_optimization": {
+    "parallel_loading": true,
+    "max_parallel_loads": 3,
+    "cache_loaded_doors": true,
+    "preload_common_chains": true
+  }
+}

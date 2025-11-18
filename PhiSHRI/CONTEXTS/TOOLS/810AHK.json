@@ -1,0 +1,71 @@
+{
+  "door_code": "810AHK",
+  "semantic_path": "TOOLS.AUTOHOTKEY.AUTOMATION",
+  "aliases": [
+    "ahk",
+    "autohotkey",
+    "window_automation",
+    "ui_automation"
+  ],
+  "context_bundle": {
+    "summary": "AutoHotkey automation for Windows UI control, window management, keyboard/mouse simulation, and inter-application messaging. Core tool for DC agent coordination and desktop automation.",
+    "prerequisites": [],
+    "related_doors": [
+      "A01DC",
+      "W01COORD",
+      "811AHK_MSG"
+    ],
+    "onboarding": {
+      "quick_start": "Use AutoHotkey for UI automation. Send window messages for coordination. Simulate keyboard/mouse for control. Handle window focus carefully.",
+      "full_context_path": "/PHIiSRHI/LANGUAGE_COORDS/DC_Browser_Messaging.ahk",
+      "common_patterns": [
+        "Window control: WinActivate, WinWait, WinClose",
+        "Input simulation: Send, SendInput, Click",
+        "Message passing: PostMessage, SendMessage",
+        "Hotkeys: Define with :: syntax"
+      ],
+      "known_errors": [
+        {
+          "error": "Window not found",
+          "cause": "Window title changed or not visible",
+          "solution": "Use WinWait with timeout, check window exists",
+          "prevention": "Use partial window matching with SetTitleMatchMode",
+          "related_door": "E10WIN"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PHIiSRHI/LANGUAGE_COORDS/DC_Browser_Messaging.ahk",
+        "/PHIiSRHI/LANGUAGE_COORDS/DC_VSCC_Messaging.ahk",
+        "/PHIiSRHI/LANGUAGE_COORDS/VSCC_Browser_Messaging.ahk"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-18T01:12:45.770315",
+      "confidence": 0.9,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "autohotkey",
+        "automation",
+        "windows",
+        "ui",
+        "coordination"
+      ],
+      "category": "TOOLS",
+      "subcategory": "AUTOHOTKEY",
+      "version": "1.1",
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "DC"
+      ]
+    }
+  }
+}

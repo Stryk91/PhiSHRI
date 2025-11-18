@@ -1,0 +1,64 @@
+{
+  "door_code": "E01PERM",
+  "semantic_path": "ERRORS.PERMISSIONS.WINDOWS",
+  "aliases": [
+    "permission_error",
+    "access_denied",
+    "winError_5"
+  ],
+  "context_bundle": {
+    "summary": "Windows permission errors (WinError 5: Access Denied) caused by insufficient permissions, locked files, or admin requirements. Common in file operations and system commands.",
+    "prerequisites": [],
+    "related_doors": [
+      "800WINMCP",
+      "820PWSH"
+    ],
+    "onboarding": {
+      "quick_start": "Permission errors occur when accessing restricted resources. Check file permissions with os.access(). Ensure files not locked. Run as admin if needed. Handle gracefully.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Check permissions: os.access(path, os.W_OK)",
+        "Handle locked files: Retry with delay",
+        "Admin elevation: Run as administrator",
+        "Graceful degradation: Fallback to read-only"
+      ],
+      "known_errors": [
+        {
+          "error": "PermissionError: [WinError 5] Access is denied",
+          "cause": "Insufficient permissions or file locked",
+          "solution": "Check permissions, ensure file not open, run as admin",
+          "prevention": "Always check os.access() before operations",
+          "related_door": "800WINMCP"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-18T01:12:45.770348",
+      "confidence": 0.95,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "error",
+        "permission",
+        "windows",
+        "access_denied"
+      ],
+      "category": "ERRORS",
+      "subcategory": "PERMISSIONS",
+      "version": "1.0",
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "ALL"
+      ]
+    }
+  }
+}

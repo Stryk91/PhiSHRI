@@ -1,0 +1,68 @@
+{
+  "door_code": "P03VECTOR",
+  "semantic_path": "PROJECTS.PHIVECTOR.OVERVIEW",
+  "aliases": [
+    "phivector",
+    "orchestration",
+    "multi_agent_system"
+  ],
+  "context_bundle": {
+    "summary": "PhiVector is the multi-agent AI orchestration platform enabling instant AI onboarding, agent coordination, and workflow automation. Core infrastructure for agent-based development.",
+    "prerequisites": [
+      "A00STRYK",
+      "W01COORD",
+      "R01MULTI"
+    ],
+    "related_doors": [
+      "P01WAVE",
+      "P02GEN",
+      "P04SHRI"
+    ],
+    "onboarding": {
+      "quick_start": "PhiVector orchestrates multi-agent AI systems. Enables instant onboarding with minimal instruction. Coordinates agents across platforms. Automates workflows.",
+      "full_context_path": "/PHIiSRHI/MARKDOWNS_/AI_CODER_ENCYCLOPEDIA.md",
+      "common_patterns": [
+        "Agent coordination: Orchestrate multiple agents",
+        "Instant onboarding: Load context quickly",
+        "Workflow automation: Automate development tasks",
+        "Cross-platform: Work across Windows, Linux, etc."
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "/PHIiSRHI/MARKDOWNS_/AI_CODER_ENCYCLOPEDIA.md",
+        "/PHIiSRHI/LANGUAGE_COORDS/ARCHITECTURE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-18T01:12:45.770335",
+      "confidence": 0.95,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "project",
+        "phivector",
+        "orchestration",
+        "multi-agent",
+        "platform"
+      ],
+      "category": "PROJECTS",
+      "subcategory": "PHIVECTOR",
+      "version": "1.0",
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "STRYK",
+        "DC",
+        "VSCC",
+        "TERMC"
+      ]
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "door_code": "A03TERMC",
+  "semantic_path": "AGENTS.TERMC.COORDINATION",
+  "aliases": [
+    "termc",
+    "terminal_claude",
+    "cli_claude",
+    "terminal"
+  ],
+  "context_bundle": {
+    "summary": "Terminal Claude (TERMC) is the command-line agent responsible for terminal operations, script execution, system commands, and CLI automation. Operates in terminal environment with full system access.",
+    "prerequisites": [
+      "820PWSH"
+    ],
+    "related_doors": [
+      "A01DC",
+      "A02VSCC",
+      "W01COORD"
+    ],
+    "onboarding": {
+      "quick_start": "TERMC handles terminal operations and CLI automation. Executes system commands. Coordinates with other agents via MCP. Manages terminal workflows.",
+      "full_context_path": "/PHIiSRHI/MARKDOWNS_/AGENT_SYSTEM_COMPLETE.md",
+      "common_patterns": [
+        "Command execution: Run system commands",
+        "Script automation: Execute scripts",
+        "MCP integration: Use MCP tools",
+        "Agent communication: Post messages to hub"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "/PHIiSRHI/MARKDOWNS_/AGENT_SYSTEM_COMPLETE.md",
+        "/PHIiSRHI/MARKDOWNS_/MCP_QUICK_REFERENCE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-18T01:12:45.770328",
+      "confidence": 0.95,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "agent",
+        "termc",
+        "terminal",
+        "cli",
+        "automation"
+      ],
+      "category": "AGENTS",
+      "subcategory": "TERMC",
+      "version": "1.0",
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "TERMC"
+      ]
+    }
+  }
+}

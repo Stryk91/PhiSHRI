@@ -1,0 +1,59 @@
+{
+  "door_code": "R01MULTI",
+  "semantic_path": "ARCHITECTURE.MULTI_AGENT.DESIGN",
+  "aliases": [
+    "multi_agent_architecture",
+    "agent_design",
+    "system_architecture"
+  ],
+  "context_bundle": {
+    "summary": "Multi-agent system architecture with specialized agents (planner, coder, tester), shared state via JSONL, turn-based coordination, and token optimization. Core design pattern for PhiVector.",
+    "prerequisites": [],
+    "related_doors": [
+      "W01COORD",
+      "A00STRYK",
+      "P03VECTOR"
+    ],
+    "onboarding": {
+      "quick_start": "Design multi-agent systems with specialized roles. Use shared state for coordination. Implement turn-based execution. Optimize token usage. Enable error autonomy.",
+      "full_context_path": "/PHIiSRHI/MARKDOWNS_/AI_CODER_ENCYCLOPEDIA.md",
+      "common_patterns": [
+        "Agent specialization: Planner, coder, tester roles",
+        "Shared state: JSONL or JSON files",
+        "Turn-based: Sequential execution",
+        "Token optimization: Minimize context"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "/PHIiSRHI/MARKDOWNS_/AI_CODER_ENCYCLOPEDIA.md",
+        "/PHIiSRHI/LANGUAGE_COORDS/ARCHITECTURE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-18T01:12:45.770344",
+      "confidence": 0.95,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "architecture",
+        "multi-agent",
+        "design",
+        "pattern"
+      ],
+      "category": "ARCHITECTURE",
+      "subcategory": "MULTI_AGENT",
+      "version": "1.0",
+      "tested_on": [
+        "All platforms"
+      ],
+      "agent_affinity": [
+        "ALL"
+      ]
+    }
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "version": "1.0.0",
+  "description": "Natural language query patterns mapped to door codes",
+  "total_patterns": 0,
+  "query_patterns": {
+    "file_operations": {
+      "keywords": ["file", "write", "read", "create", "delete", "move", "copy", "list", "search"],
+      "contexts": ["windows", "mcp", "filesystem", "io"],
+      "door_codes": ["800WINMCP"],
+      "examples": [
+        "how to write files on windows",
+        "read file with mcp",
+        "list directory contents",
+        "search for files",
+        "windows file operations"
+      ]
+    },
+    "autohotkey_automation": {
+      "keywords": ["autohotkey", "ahk", "window", "automation", "ui", "control", "keyboard", "mouse"],
+      "contexts": ["windows", "desktop", "automation"],
+      "door_codes": ["810AHK"],
+      "examples": [
+        "automate windows ui",
+        "control windows with ahk",
+        "send keyboard input",
+        "window automation",
+        "ui automation windows"
+      ]
+    },
+    "powershell_coordination": {
+      "keywords": ["powershell", "ps1", "coordination", "orchestration", "state", "workflow"],
+      "contexts": ["windows", "scripting", "automation"],
+      "door_codes": ["820PWSH"],
+      "examples": [
+        "powershell coordination",
+        "orchestrate with powershell",
+        "manage state powershell",
+        "workflow automation ps1"
+      ]
+    },
+    "agent_dc": {
+      "keywords": ["dc", "desktop", "claude", "controller", "coordination"],
+      "contexts": ["agent", "desktop", "automation"],
+      "door_codes": ["A01DC"],
+      "examples": [
+        "desktop claude agent",
+        "dc coordination",
+        "desktop controller",
+        "dc agent context"
+      ]
+    },
+    "agent_vscc": {
+      "keywords": ["vscc", "vscode", "ide", "editor", "code", "claude"],
+      "contexts": ["agent", "editor", "code"],
+      "door_codes": ["A02VSCC"],
+      "examples": [
+        "vscode claude agent",
+        "vscc coordination",
+        "ide claude",
+        "code editor agent"
+      ]
+    },
+    "agent_termc": {
+      "keywords": ["termc", "terminal", "cli", "command", "claude"],
+      "contexts": ["agent", "terminal", "cli"],
+      "door_codes": ["A03TERMC"],
+      "examples": [
+        "terminal claude agent",
+        "termc coordination",
+        "cli agent",
+        "command line claude"
+      ]
+    },
+    "agent_stryk": {
+      "keywords": ["stryk", "coordinator", "orchestrator", "strategic"],
+      "contexts": ["agent", "coordination", "orchestration"],
+      "door_codes": ["A00STRYK"],
+      "examples": [
+        "stryk coordinator",
+        "strategic coordinator",
+        "orchestrator agent",
+        "master coordinator"
+      ]
+    },
+    "phiwave_project": {
+      "keywords": ["phiwave", "audio", "binaural", "sound"],
+      "contexts": ["project", "audio"],
+      "door_codes": ["P01WAVE"],
+      "examples": [
+        "phiwave project",
+        "audio processing project",
+        "binaural audio"
+      ]
+    },
+    "phivector_project": {
+      "keywords": ["phivector", "orchestration", "multi-agent", "platform"],
+      "contexts": ["project", "orchestration"],
+      "door_codes": ["P03VECTOR"],
+      "examples": [
+        "phivector project",
+        "multi-agent orchestration",
+        "agent platform"
+      ]
+    },
+    "phishri_project": {
+      "keywords": ["phishri", "phidoor", "keymaster", "index", "navigation"],
+      "contexts": ["project", "index"],
+      "door_codes": ["P04SHRI"],
+      "examples": [
+        "phishri project",
+        "keymaster system",
+        "semantic index",
+        "door navigation"
+      ]
+    },
+    "multi_agent_coordination": {
+      "keywords": ["coordination", "multi-agent", "orchestration", "workflow"],
+      "contexts": ["workflow", "coordination"],
+      "door_codes": ["W01COORD"],
+      "examples": [
+        "multi-agent coordination",
+        "agent orchestration workflow",
+        "coordinate multiple agents",
+        "agent workflow"
+      ]
+    },
+    "multi_agent_architecture": {
+      "keywords": ["architecture", "multi-agent", "design", "pattern", "system"],
+      "contexts": ["architecture", "design"],
+      "door_codes": ["R01MULTI"],
+      "examples": [
+        "multi-agent architecture",
+        "agent system design",
+        "multi-agent pattern",
+        "system architecture"
+      ]
+    },
+    "permission_errors": {
+      "keywords": ["permission", "access", "denied", "error", "winerror"],
+      "contexts": ["error", "windows"],
+      "door_codes": ["E01PERM"],
+      "examples": [
+        "permission error",
+        "access denied",
+        "winerror 5",
+        "file permission error"
+      ]
+    },
+    "encoding_errors": {
+      "keywords": ["encoding", "unicode", "utf8", "decode", "error"],
+      "contexts": ["error", "encoding"],
+      "door_codes": ["E02ENCODE"],
+      "examples": [
+        "encoding error",
+        "unicode error",
+        "utf8 problem",
+        "decode error"
+      ]
+    }
+  },
+  "synonym_mappings": {
+    "file": ["document", "data", "content"],
+    "write": ["create", "save", "output"],
+    "read": ["load", "input", "get"],
+    "agent": ["ai", "assistant", "claude"],
+    "coordination": ["orchestration", "management", "control"],
+    "error": ["problem", "issue", "exception", "failure"]
+  },
+  "context_disambiguation": {
+    "rules": [
+      {
+        "condition": "Multiple matches found",
+        "action": "Return most specific match based on keyword count"
+      },
+      {
+        "condition": "No exact match",
+        "action": "Use fuzzy matching with Levenshtein distance"
+      },
+      {
+        "condition": "Ambiguous query",
+        "action": "Return top 3 matches with confidence scores"
+      }
+    ]
+  }
+}

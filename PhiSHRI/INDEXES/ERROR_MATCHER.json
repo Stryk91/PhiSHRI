@@ -1,0 +1,104 @@
+{
+  "version": "1.0.0",
+  "description": "Maps error signatures to door codes for automatic error resolution",
+  "total_patterns": 0,
+  "error_patterns": {
+    "permission_errors": {
+      "signatures": [
+        "PermissionError",
+        "WinError 5",
+        "Access is denied",
+        "Access denied",
+        "Permission denied",
+        "[Errno 13]"
+      ],
+      "door_code": "E01PERM",
+      "auto_navigate": true,
+      "confidence": 0.95
+    },
+    "encoding_errors": {
+      "signatures": [
+        "UnicodeDecodeError",
+        "UnicodeEncodeError",
+        "codec can't decode",
+        "codec can't encode",
+        "invalid start byte",
+        "utf-8",
+        "utf8",
+        "encoding"
+      ],
+      "door_code": "E02ENCODE",
+      "auto_navigate": true,
+      "confidence": 0.90
+    },
+    "file_not_found": {
+      "signatures": [
+        "FileNotFoundError",
+        "No such file or directory",
+        "[Errno 2]",
+        "cannot find the file",
+        "file does not exist"
+      ],
+      "door_code": "800WINMCP",
+      "auto_navigate": true,
+      "confidence": 0.85
+    },
+    "timeout_errors": {
+      "signatures": [
+        "TimeoutError",
+        "timeout",
+        "timed out",
+        "connection timeout",
+        "read timeout"
+      ],
+      "door_code": "W01COORD",
+      "auto_navigate": false,
+      "confidence": 0.70
+    },
+    "mcp_errors": {
+      "signatures": [
+        "MCP",
+        "mcp server",
+        "mcp connection",
+        "mcp tool"
+      ],
+      "door_code": "800WINMCP",
+      "auto_navigate": true,
+      "confidence": 0.80
+    },
+    "autohotkey_errors": {
+      "signatures": [
+        "AutoHotkey",
+        "ahk",
+        "window not found",
+        "control not found"
+      ],
+      "door_code": "810AHK",
+      "auto_navigate": true,
+      "confidence": 0.85
+    },
+    "powershell_errors": {
+      "signatures": [
+        "PowerShell",
+        "execution policy",
+        "ps1 cannot be loaded",
+        "running scripts is disabled"
+      ],
+      "door_code": "820PWSH",
+      "auto_navigate": true,
+      "confidence": 0.90
+    }
+  },
+  "matching_strategy": {
+    "method": "regex_and_keyword",
+    "case_sensitive": false,
+    "partial_match": true,
+    "min_confidence": 0.70
+  },
+  "auto_navigation_rules": {
+    "enabled": true,
+    "load_prerequisites": true,
+    "load_related_doors": false,
+    "max_auto_loads": 3
+  }
+}

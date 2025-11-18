@@ -1,0 +1,66 @@
+{
+  "door_code": "A00STRYK",
+  "semantic_path": "AGENTS.STRYK.COORDINATION",
+  "aliases": [
+    "stryk",
+    "coordinator",
+    "orchestrator",
+    "strategic_coordinator"
+  ],
+  "context_bundle": {
+    "summary": "STRYK is the strategic coordinator agent responsible for workflow orchestration, task distribution, deadlock detection, token optimization, and system health monitoring. Master coordinator for multi-agent systems.",
+    "prerequisites": [
+      "820PWSH",
+      "W01COORD"
+    ],
+    "related_doors": [
+      "A01DC",
+      "A02VSCC",
+      "A03TERMC",
+      "R01MULTI"
+    ],
+    "onboarding": {
+      "quick_start": "STRYK orchestrates multi-agent workflows. Distributes tasks to agents. Monitors system health. Optimizes token usage. Detects and resolves deadlocks.",
+      "full_context_path": "/PHIiSRHI/LANGUAGE_COORDS/AGENT_REGISTRY.json",
+      "common_patterns": [
+        "Task distribution: Assign tasks to agents",
+        "Workflow orchestration: Coordinate agent activities",
+        "Health monitoring: Track system status",
+        "Token optimization: Minimize token usage"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "/PHIiSRHI/LANGUAGE_COORDS/AGENT_REGISTRY.json",
+        "/PHIiSRHI/LANGUAGE_COORDS/coordination_rules.json"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-18T01:12:45.770330",
+      "confidence": 0.9,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "agent",
+        "stryk",
+        "coordinator",
+        "orchestration",
+        "strategy"
+      ],
+      "category": "AGENTS",
+      "subcategory": "STRYK",
+      "version": "1.0",
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "STRYK"
+      ]
+    }
+  }
+}

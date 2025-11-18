@@ -1,0 +1,66 @@
+{
+  "door_code": "A01DC",
+  "semantic_path": "AGENTS.DC.COORDINATION",
+  "aliases": [
+    "dc",
+    "desktop_claude",
+    "deskc",
+    "desktop_controller"
+  ],
+  "context_bundle": {
+    "summary": "Desktop Claude (DC) is the desktop controller agent responsible for UI automation, window management, cross-application messaging, and agent coordination. Uses AutoHotkey for window control and message routing.",
+    "prerequisites": [
+      "810AHK",
+      "820PWSH"
+    ],
+    "related_doors": [
+      "A02VSCC",
+      "A03TERMC",
+      "W01COORD"
+    ],
+    "onboarding": {
+      "quick_start": "DC handles UI automation and message routing. Uses AutoHotkey for window control. Coordinates with VSCC and other agents. Manages desktop workflows.",
+      "full_context_path": "/PHIiSRHI/LANGUAGE_COORDS/AGENT_REGISTRY.json",
+      "common_patterns": [
+        "Window automation: Activate, focus, control windows",
+        "Message routing: Send messages between agents",
+        "Input simulation: Keyboard and mouse control",
+        "Coordination: Orchestrate multi-agent workflows"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "/PHIiSRHI/LANGUAGE_COORDS/AGENT_REGISTRY.json",
+        "/PHIiSRHI/LANGUAGE_COORDS/DC_Browser_Messaging.ahk",
+        "/PHIiSRHI/LANGUAGE_COORDS/DC_VSCC_Messaging.ahk"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-18T01:12:45.770323",
+      "confidence": 0.95,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "agent",
+        "dc",
+        "desktop",
+        "coordination",
+        "automation"
+      ],
+      "category": "AGENTS",
+      "subcategory": "DC",
+      "version": "1.0",
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "DC"
+      ]
+    }
+  }
+}
