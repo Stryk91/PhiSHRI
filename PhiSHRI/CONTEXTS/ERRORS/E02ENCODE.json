@@ -1,0 +1,64 @@
+{
+  "door_code": "E02ENCODE",
+  "semantic_path": "ERRORS.ENCODING.UTF8",
+  "aliases": [
+    "encoding_error",
+    "unicode_error",
+    "utf8"
+  ],
+  "context_bundle": {
+    "summary": "Unicode/encoding errors (UnicodeDecodeError, UnicodeEncodeError) caused by file encoding mismatches, especially with PowerShell and Windows file operations. Always specify UTF-8 explicitly.",
+    "prerequisites": [],
+    "related_doors": [
+      "800WINMCP",
+      "820PWSH"
+    ],
+    "onboarding": {
+      "quick_start": "Encoding errors occur with non-UTF-8 files. Always specify encoding='utf-8' explicitly. Use errors='ignore' or 'replace' for binary. Detect encoding with chardet.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Explicit encoding: open(file, encoding='utf-8')",
+        "Error handling: errors='ignore' or 'replace'",
+        "Encoding detection: chardet.detect()",
+        "PowerShell: Use [Console]::OutputEncoding = [System.Text.Encoding]::UTF8"
+      ],
+      "known_errors": [
+        {
+          "error": "UnicodeDecodeError on file read",
+          "cause": "File encoding mismatch",
+          "solution": "Specify encoding='utf-8' explicitly",
+          "prevention": "Detect encoding with chardet library",
+          "related_door": "800WINMCP"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-18T01:12:45.770350",
+      "confidence": 0.95,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "error",
+        "encoding",
+        "unicode",
+        "utf8"
+      ],
+      "category": "ERRORS",
+      "subcategory": "ENCODING",
+      "version": "1.0",
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "ALL"
+      ]
+    }
+  }
+}

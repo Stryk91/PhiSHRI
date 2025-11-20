@@ -1,0 +1,61 @@
+{
+  "door_code": "P04SHRI",
+  "semantic_path": "PROJECTS.PHISHRI.OVERVIEW",
+  "aliases": [
+    "phishri",
+    "phidoor",
+    "keymaster",
+    "semantic_index"
+  ],
+  "context_bundle": {
+    "summary": "PhiSHRI (Semantic Hash Repository Index) is the keymaster's index system enabling instant AI agent onboarding through semantic navigation. Provides 3-layer addressing: semantic paths, hash codes, and natural language queries.",
+    "prerequisites": [],
+    "related_doors": [
+      "P03VECTOR",
+      "R01MULTI"
+    ],
+    "onboarding": {
+      "quick_start": "PhiSHRI provides instant context loading for AI agents. Use hash codes, semantic paths, or natural language to find doors. Each door contains complete onboarding context.",
+      "full_context_path": "/PhiDOOR/CEREBRAS_COMPLETE_PROMPT.md",
+      "common_patterns": [
+        "Hash lookup: findDoor('827HHWINC#')",
+        "Semantic path: findDoor('TOOLS.WINDOWS_MCP.FILE_OPERATIONS')",
+        "Natural language: findDoor('how to write files on windows')",
+        "Error-driven: Auto-navigate from error patterns"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "/PhiDOOR/CEREBRAS_COMPLETE_PROMPT.md",
+        "/docs/COMBINED_DOCUMENTATION_SUMMARY.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-18T01:12:45.770336",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "project",
+        "phishri",
+        "phidoor",
+        "index",
+        "navigation",
+        "keymaster"
+      ],
+      "category": "PROJECTS",
+      "subcategory": "PHISHRI",
+      "version": "1.0",
+      "tested_on": [
+        "All platforms"
+      ],
+      "agent_affinity": [
+        "ALL"
+      ]
+    }
+  }
+}

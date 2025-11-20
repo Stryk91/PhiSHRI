@@ -1,0 +1,83 @@
+{
+  "door_code": "800WINMCP",
+  "semantic_path": "TOOLS.WINDOWS_MCP.FILE_OPERATIONS",
+  "aliases": [
+    "winmcp_files",
+    "windows_file_ops",
+    "mcp_write",
+    "mcp_read"
+  ],
+  "context_bundle": {
+    "summary": "Windows MCP file operation tools for reading, writing, listing, searching, moving, and deleting files. Includes permission handling, path validation, and error recovery patterns. Essential for file system automation on Windows.",
+    "prerequisites": [
+      "800WINMCP_SETUP",
+      "S01PATH"
+    ],
+    "related_doors": [
+      "801WINMCP_READ",
+      "E01PERM",
+      "E02ENCODE"
+    ],
+    "onboarding": {
+      "quick_start": "Use Windows MCP for file operations. Always validate paths. Handle UTF-8 encoding explicitly. Check permissions before operations.",
+      "full_context_path": "/PHIiSRHI/MARKDOWNS_/MCP_QUICK_REFERENCE.md",
+      "common_patterns": [
+        "Read file: mcp.file_read(path) with error handling",
+        "Write file: mcp.file_write(path, content, encoding='utf-8')",
+        "List directory: mcp.file_list(path, pattern='*')",
+        "Search files: mcp.file_search(path, query)"
+      ],
+      "known_errors": [
+        {
+          "error": "PermissionError: [WinError 5] Access is denied",
+          "cause": "Insufficient permissions or file locked",
+          "solution": "Check file permissions, ensure file not open, run as admin if needed",
+          "prevention": "Always check os.access() before operations",
+          "related_door": "E01PERM"
+        },
+        {
+          "error": "UnicodeDecodeError on file read",
+          "cause": "File encoding mismatch",
+          "solution": "Specify encoding='utf-8' explicitly",
+          "prevention": "Detect encoding with chardet library",
+          "related_door": "E02ENCODE"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PHIiSRHI/MARKDOWNS_/MCP_QUICK_REFERENCE.md",
+        "/PHIiSRHI/MARKDOWNS_/MCP_QUICK_START.md",
+        "/PHIiSRHI/MARKDOWNS_/MCP_SERVER_SETUP.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-18T01:12:45.770303",
+      "confidence": 0.95,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "windows",
+        "mcp",
+        "file-io",
+        "automation",
+        "essential"
+      ],
+      "category": "TOOLS",
+      "subcategory": "WINDOWS_MCP",
+      "version": "3.0.0",
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "TERMC"
+      ]
+    }
+  }
+}

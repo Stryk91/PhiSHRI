@@ -1,0 +1,95 @@
+{
+  "version": "1.0.0",
+  "system_name": "PhiSHRI",
+  "full_name": "Semantic Hash Repository Index",
+  "description": "The Keymaster's Index System for instant AI agent onboarding",
+  "created": "2025-01-18T00:00:00Z",
+  "last_updated": "2025-11-18T01:12:45.772616",
+  "total_doors": 14,
+  "categories": {
+    "TOOLS": {
+      "count": 3,
+      "prefix": "8XX",
+      "description": "Development tools, MCP servers, automation scripts"
+    },
+    "DOCS": {
+      "count": 0,
+      "prefix": "DXX",
+      "description": "Documentation, guides, references"
+    },
+    "AGENTS": {
+      "count": 4,
+      "prefix": "AXX",
+      "description": "AI agent contexts, coordination protocols"
+    },
+    "PROJECTS": {
+      "count": 3,
+      "prefix": "PXX",
+      "description": "Project-specific contexts (PhiWave, PhiGEN, etc.)"
+    },
+    "WORKFLOWS": {
+      "count": 1,
+      "prefix": "WXX",
+      "description": "Workflow patterns, orchestration, automation"
+    },
+    "ARCHITECTURE": {
+      "count": 1,
+      "prefix": "RXX",
+      "description": "System architecture, design patterns"
+    },
+    "SECURITY": {
+      "count": 0,
+      "prefix": "SXX",
+      "description": "Security patterns, encryption, authentication"
+    },
+    "ERRORS": {
+      "count": 2,
+      "prefix": "EXX",
+      "description": "Error patterns, troubleshooting, solutions"
+    }
+  },
+  "door_code_guide": {
+    "format": "[PREFIX][SEQUENCE][SUFFIX]",
+    "examples": {
+      "827HHWINC#": "Tools category, Windows MCP file operations",
+      "E01PWSH": "Error category, PowerShell encoding issues",
+      "A01DC": "Agent category, Desktop Claude (DC) context",
+      "P01WAVE": "Project category, PhiWave project",
+      "W01COORD": "Workflow category, Agent coordination",
+      "R01MULTI": "Architecture category, Multi-agent architecture",
+      "S01AES": "Security category, AES encryption"
+    },
+    "prefix_mapping": {
+      "8XX": "Tools (800-899)",
+      "DXX": "Documentation (D00-D99)",
+      "AXX": "Agents (A00-A99)",
+      "PXX": "Projects (P00-P99)",
+      "WXX": "Workflows (W00-W99)",
+      "RXX": "Architecture (R00-R99)",
+      "SXX": "Security (S00-S99)",
+      "EXX": "Errors (E00-E99)"
+    }
+  },
+  "navigation_methods": [
+    "hash_code_lookup",
+    "semantic_path_resolution",
+    "natural_language_query",
+    "error_pattern_matching",
+    "prerequisite_chain_loading"
+  ],
+  "performance_targets": {
+    "onboarding_time_seconds": 5,
+    "lookup_time_ms": 100,
+    "context_load_time_ms": 500,
+    "max_doors": 2000
+  },
+  "metadata": {
+    "repository": "Stryk91/PhiSRHI",
+    "branch": "Staging",
+    "documentation_base_size_mb": 4.67,
+    "total_markdown_files": 363,
+    "unique_tools": 76,
+    "unique_agents": 15,
+    "unique_projects": 6
+  }
+}

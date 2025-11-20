@@ -1,4 +1,4 @@
-# PhiSRHI - Semantic Self-Hashing Radial Index (PhiDOOR)
+# PhiSRHI - Semantic Self-Hashing Radial Index 
 
 **The Keymaster's Index - Instant AI Agent Onboarding System**
 
@@ -102,20 +102,7 @@ PG2DISC     → PhiGEN Discord bot context
 
 ---
 
-## Documentation Sources
-
-### E:\PythonProjects (356 files, 3.21 MB)
-- PhiGEN - Discord bots, password vault, agent coordination
-- PhiWave - Binaural beats with golden ratio design
-- FONTBUILDER - Font analysis tools
-- AI Coder Encyclopedia (103 KB) - Multi-agent development guide
-
-### C:\Dev (784 files, 10.64 MB)
-- PhiSRHI - Audio processing (this project)
-- PhiLaunch - Multi-platform automation suite
-- CODEX/PhiDEX (1.2 MB) - Ultimate AI workflow guide
-- Windows-MCP v3 - Windows automation tools
-- skills - Claude agent capabilities
+## Documentation 
 
 **Total:** 1,140 markdown files, 13.85 MB of documentation
 

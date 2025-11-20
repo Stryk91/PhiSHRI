@@ -1,0 +1,72 @@
+{
+  "door_code": "820PWSH",
+  "semantic_path": "TOOLS.POWERSHELL.COORDINATION",
+  "aliases": [
+    "powershell",
+    "ps1",
+    "coordination_engine"
+  ],
+  "context_bundle": {
+    "summary": "PowerShell coordination engine for multi-agent orchestration, state management, workflow control, and token optimization. Core infrastructure for agent communication and task distribution.",
+    "prerequisites": [],
+    "related_doors": [
+      "W01COORD",
+      "A00STRYK",
+      "R01MULTI"
+    ],
+    "onboarding": {
+      "quick_start": "Use PowerShell for agent coordination. Manage state with JSON files. Control workflows with modules. Optimize token usage.",
+      "full_context_path": "/PHIiSRHI/LANGUAGE_COORDS/AgentCoordination.psm1",
+      "common_patterns": [
+        "State management: Read/write JSON state files",
+        "Module loading: Import-Module AgentCoordination",
+        "Task distribution: Invoke-AgentTask",
+        "Error recovery: Try-Catch with logging"
+      ],
+      "known_errors": [
+        {
+          "error": "Execution policy restricted",
+          "cause": "PowerShell execution policy blocks scripts",
+          "solution": "Set-ExecutionPolicy RemoteSigned -Scope CurrentUser",
+          "prevention": "Check execution policy before running",
+          "related_door": "E20PWSH"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PHIiSRHI/LANGUAGE_COORDS/AgentCoordination.psm1",
+        "/PHIiSRHI/LANGUAGE_COORDS/Startup.ps1",
+        "/PHIiSRHI/LANGUAGE_COORDS/VALIDATION_TESTS.ps1"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-18T01:12:45.770320",
+      "confidence": 0.92,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "powershell",
+        "coordination",
+        "orchestration",
+        "state",
+        "workflow"
+      ],
+      "category": "TOOLS",
+      "subcategory": "POWERSHELL",
+      "version": "5.1",
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "STRYK",
+        "DC",
+        "VSCC"
+      ]
+    }
+  }
+}

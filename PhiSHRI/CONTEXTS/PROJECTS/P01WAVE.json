@@ -1,0 +1,65 @@
+{
+  "door_code": "P01WAVE",
+  "semantic_path": "PROJECTS.PHIWAVE.OVERVIEW",
+  "aliases": [
+    "phiwave",
+    "audio_project",
+    "binaural"
+  ],
+  "context_bundle": {
+    "summary": "PhiWave is a multi-agent audio processing project featuring binaural audio generation, preset management, and GUI interface. Uses agent hub for coordination and MCP for tool integration.",
+    "prerequisites": [
+      "800WINMCP",
+      "A03TERMC"
+    ],
+    "related_doors": [
+      "P02GEN",
+      "W01COORD"
+    ],
+    "onboarding": {
+      "quick_start": "PhiWave handles audio processing with multi-agent coordination. Uses MCP agent hub for communication. Implements binaural audio generation with custom presets.",
+      "full_context_path": "/PHIiSRHI/MARKDOWNS_/AGENT_SYSTEM_COMPLETE.md",
+      "common_patterns": [
+        "Agent communication: Use MCP agent hub",
+        "Audio processing: Generate binaural audio",
+        "Preset management: Load and save presets",
+        "GUI interaction: Control via interface"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "/PHIiSRHI/MARKDOWNS_/AGENT_SYSTEM_COMPLETE.md",
+        "/PHIiSRHI/INFO_FROM_OTHER_DRIVE_ENV_PROJ/README.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-18T01:12:45.770331",
+      "confidence": 0.85,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "project",
+        "phiwave",
+        "audio",
+        "binaural",
+        "multi-agent"
+      ],
+      "category": "PROJECTS",
+      "subcategory": "PHIWAVE",
+      "version": "1.0",
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "TERMC",
+        "IDEC",
+        "Junie"
+      ]
+    }
+  }
+}

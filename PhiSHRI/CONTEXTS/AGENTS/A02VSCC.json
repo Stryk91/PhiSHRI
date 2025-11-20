@@ -1,0 +1,66 @@
+{
+  "door_code": "A02VSCC",
+  "semantic_path": "AGENTS.VSCC.COORDINATION",
+  "aliases": [
+    "vscc",
+    "vscode_claude",
+    "ide_claude",
+    "idec",
+    "editor"
+  ],
+  "context_bundle": {
+    "summary": "VS Code Claude (VSCC/IDEC) is the code editor agent responsible for code generation, file operations, content analysis, and script execution. Works within VS Code IDE with full file system access.",
+    "prerequisites": [
+      "800WINMCP"
+    ],
+    "related_doors": [
+      "A01DC",
+      "A03TERMC",
+      "W01COORD"
+    ],
+    "onboarding": {
+      "quick_start": "VSCC handles code generation and file operations. Uses VS Code API for editor control. Coordinates with DC for messaging. Manages code workflows.",
+      "full_context_path": "/PHIiSRHI/LANGUAGE_COORDS/AGENT_REGISTRY.json",
+      "common_patterns": [
+        "Code generation: Create and modify files",
+        "File operations: Read, write, search files",
+        "Content analysis: Parse and validate code",
+        "Script execution: Run and test code"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "/PHIiSRHI/LANGUAGE_COORDS/AGENT_REGISTRY.json",
+        "/PHIiSRHI/LANGUAGE_COORDS/VSCC_Browser_Messaging.ahk"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-18T01:12:45.770326",
+      "confidence": 0.95,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "agent",
+        "vscc",
+        "vscode",
+        "editor",
+        "code"
+      ],
+      "category": "AGENTS",
+      "subcategory": "VSCC",
+      "version": "1.0",
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "IDEC"
+      ]
+    }
+  }
+}

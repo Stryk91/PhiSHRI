@@ -1,0 +1,69 @@
+{
+  "door_code": "W01COORD",
+  "semantic_path": "WORKFLOWS.AGENT_COORDINATION.MULTI_AGENT",
+  "aliases": [
+    "coordination",
+    "multi_agent_workflow",
+    "orchestration"
+  ],
+  "context_bundle": {
+    "summary": "Multi-agent coordination workflow for orchestrating tasks across DC, VSCC, TERMC, and other agents. Includes turn-based execution, state management, message passing, and error recovery.",
+    "prerequisites": [
+      "A00STRYK",
+      "A01DC",
+      "A02VSCC",
+      "A03TERMC"
+    ],
+    "related_doors": [
+      "R01MULTI",
+      "820PWSH",
+      "810AHK"
+    ],
+    "onboarding": {
+      "quick_start": "Coordinate multiple agents with turn-based workflow. Use PowerShell for state management. AutoHotkey for message passing. JSON for task queues. Handle errors gracefully.",
+      "full_context_path": "/PHIiSRHI/LANGUAGE_COORDS/ARCHITECTURE.md",
+      "common_patterns": [
+        "Turn-based execution: One agent at a time",
+        "State management: JSON state files",
+        "Message passing: File IPC and AutoHotkey",
+        "Error recovery: Retry with exponential backoff"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "/PHIiSRHI/LANGUAGE_COORDS/ARCHITECTURE.md",
+        "/PHIiSRHI/LANGUAGE_COORDS/coordination_rules.json",
+        "/PHIiSRHI/MARKDOWNS_/AI_CODER_ENCYCLOPEDIA.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-18T01:12:45.770338",
+      "confidence": 0.92,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "workflow",
+        "coordination",
+        "multi-agent",
+        "orchestration"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "COORDINATION",
+      "version": "1.0",
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "STRYK",
+        "DC",
+        "VSCC",
+        "TERMC"
+      ]
+    }
+  }
+}
