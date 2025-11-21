@@ -1,0 +1,81 @@
+{
+  "door_code": "T65VAULT_ADV",
+  "semantic_path": "TOOLS.SECRETS.VAULT_ADV",
+  "aliases": [
+    "vault advanced",
+    "vault enterprise",
+    "vault ha",
+    "vault replication",
+    "vault raft",
+    "vault performance"
+  ],
+  "context_bundle": {
+    "summary": "Vault Advanced covers enterprise features including high availability, replication, performance standbys, and advanced secrets engines",
+    "prerequisites": [
+      "T27VAULT"
+    ],
+    "related_doors": [
+      "T66SOPS",
+      "T67SEALED_SECRETS",
+      "T68EXTERNAL_SECRETS",
+      "T69KMS"
+    ],
+    "onboarding": {
+      "quick_start": "vault operator init -key-shares=5 -key-threshold=3 && vault operator unseal <unseal_key1> && vault login <root_token>",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/SECRETS/T65VAULT_ADV_GUIDE.md",
+      "common_patterns": [
+        "HA cluster: 'vault operator raft join https://vault-2:8200' for multi-node setup",
+        "Auto-unseal: 'vault write sys/audit/file/file_1 path=/var/log/vault_audit.log' for audit logging",
+        "Secrets engine: 'vault secrets enable -path=pki pki' and 'vault write pki/root/generate/internal common_name=example.com'",
+        "Policy management: 'vault policy write admin admin.hcl' with path 'sys/*' capabilities",
+        "Kubernetes auth: 'vault auth enable kubernetes' and 'vault write auth/kubernetes/config kubernetes_host=https://kubernetes.default.svc:443'",
+        "Transit encryption: 'vault write transit/keys/my-key type=rsa-2048' and 'vault write transit/encrypt/my-key plaintext=$(base64 <<< 'secret data')'"
+      ],
+      "known_errors": [
+        "Sealed after restart: 'vault operator unseal' with threshold keys and consider auto-unseal configuration",
+        "Auth method denied: 'vault read auth/kubernetes/role/my-role' and verify service account token and bound_service_account_names",
+        "Certificate expired: 'vault pki issue' with proper TTL and 'vault pki tidy' to clean up expired certificates",
+        "Storage backend error: 'vault operator migrate -config=vault.hcl' when migrating storage backends",
+        "Permission denied: 'vault token capabilities <token> <path>' to debug policy issues and 'vault policy read <policy_name>'"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/SECRETS/T65VAULT_ADV_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/SECRETS_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:11:40.486463Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "vault advanced",
+        "vault enterprise",
+        "vault ha",
+        "vault replication",
+        "vault raft"
+      ],
+      "category": "TOOLS",
+      "subcategory": "SECRETS",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "door_code": "T77KRATIX",
+  "semantic_path": "TOOLS.PLATFORM.KRATIX",
+  "aliases": [
+    "kratix",
+    "platform engineering",
+    "kratix promise",
+    "kratix marketplace",
+    "kubernetes platform"
+  ],
+  "context_bundle": {
+    "summary": "Kratix is an open-source framework for building a composable internal developer platform on Kubernetes",
+    "prerequisites": [
+      "T26KUBERNETES",
+      "T44CRDS"
+    ],
+    "related_doors": [
+      "T75BACKSTAGE",
+      "T76PORT",
+      "T78IDP",
+      "T79PLATFORM_TEAMS"
+    ],
+    "onboarding": {
+      "quick_start": "helm install kratix https://github.com/syntasso/kratix/releases/download/v0.1.0/kratix-0.1.0.tgz && kubectl apply -f promise.yaml",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/PLATFORM/T77KRATIX_GUIDE.md",
+      "common_patterns": [
+        "Promise installation: 'kubectl apply -f promise.yaml' with 'Promise' custom resource definition",
+        "API workflow: 'apiVersion: platform.kratix.io/v1alpha1 kind: Promise' with metadata and spec",
+        "Resource request: 'kubectl apply -f redis-request.yaml' to request Redis instance",
+        "Promise marketplace: 'kubectl get promises' to list available promises and capabilities",
+        "Dynamic scheduling: 'kubectl get work' to see scheduled workloads across clusters",
+        "Custom promises: 'Promise' with 'apiextensions.k8s.io/v1' CRDs for custom resources"
+      ],
+      "known_errors": [
+        "Promise not ready: 'kubectl get promise <name> -o yaml' and check status conditions",
+        "Resource request failed: 'kubectl get events --field-selector involvedObject.kind=Promise' for error details",
+        "Worker cluster not connecting: 'kubectl get destination' and verify worker cluster registration",
+        "CRD installation error: 'kubectl get crd' and ensure Promise CRDs are properly installed",
+        "Permission denied: 'kubectl auth can-i create promises --as=system:serviceaccount:kratix:kratix-controller'"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/PLATFORM/T77KRATIX_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/PLATFORM_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:12:33.838125Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "kratix",
+        "platform engineering",
+        "kratix promise",
+        "kratix marketplace",
+        "kubernetes platform"
+      ],
+      "category": "TOOLS",
+      "subcategory": "PLATFORM",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

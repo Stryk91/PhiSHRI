@@ -1,0 +1,81 @@
+{
+  "door_code": "T59SPLUNK",
+  "semantic_path": "TOOLS.LOGGING.SPLUNK",
+  "aliases": [
+    "splunk",
+    "splunk enterprise",
+    "splunk cloud",
+    "splunk query",
+    "splunk apps",
+    "splunk forwarder"
+  ],
+  "context_bundle": {
+    "summary": "Splunk is a data platform for searching, monitoring, and analyzing machine-generated big data via a web-style interface",
+    "prerequisites": [
+      "T10OBSERVABILITY"
+    ],
+    "related_doors": [
+      "T55ELK_STACK",
+      "T56LOKI",
+      "T57FLUENTD",
+      "T58VECTOR"
+    ],
+    "onboarding": {
+      "quick_start": "helm install splunk-universal-forwarder splunk/splunk-connect-for-kubernetes --namespace splunk --set splunkHost=splunk.example.com --set splunkPort=8089",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/LOGGING/T59SPLUNK_GUIDE.md",
+      "common_patterns": [
+        "Universal forwarder: 'splunk add forward-server splunk.example.com:9997' for log forwarding",
+        "Data inputs: 'splunk add monitor /var/log/app.log -index myapp' for log collection",
+        "Search queries: 'index=apache sourcetype=access_combined status=500' for error analysis",
+        "Dashboard creation: 'Add dashboard' with visualization panels and saved searches",
+        "Alert rules: 'Create alert' with 'Trigger condition: count > 100' and email notifications",
+        "KV store: '| outputlookup my_lookup.csv' and '| inputlookup my_lookup.csv' for data storage"
+      ],
+      "known_errors": [
+        "Forwarder not connecting: 'netstat -an | grep 9997' and check firewall rules and certificates",
+        "Indexing error: '| _index_earliest=-1m _index_latest=now' to troubleshoot real-time indexing",
+        "Search slow: '| dbinspect index=_internal summary=t' and optimize time ranges and queries",
+        "License violation: 'curl -k https://localhost:8089/services/licenser/pools' and check daily usage",
+        "Dashboard not loading: 'splunk clean eventdata' and restart splunkweb service"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/LOGGING/T59SPLUNK_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/LOGGING_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:12:33.836718Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "splunk",
+        "splunk enterprise",
+        "splunk cloud",
+        "splunk query",
+        "splunk apps"
+      ],
+      "category": "TOOLS",
+      "subcategory": "LOGGING",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

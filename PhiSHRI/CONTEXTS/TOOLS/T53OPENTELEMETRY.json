@@ -1,0 +1,81 @@
+{
+  "door_code": "T53OPENTELEMETRY",
+  "semantic_path": "TOOLS.OBSERVABILITY.OPENTELEMETRY",
+  "aliases": [
+    "opentelemetry",
+    "otel",
+    "otel collector",
+    "otel instrumentation",
+    "otel exporter",
+    "otel sdk"
+  ],
+  "context_bundle": {
+    "summary": "OpenTelemetry provides a set of standardized, vendor-agnostic tools and APIs for creating, collecting, and exporting telemetry data",
+    "prerequisites": [
+      "T10OBSERVABILITY"
+    ],
+    "related_doors": [
+      "T50PROMETHEUS",
+      "T51GRAFANA",
+      "T52JAEGER",
+      "T54DATADOG"
+    ],
+    "onboarding": {
+      "quick_start": "helm install opentelemetry-collector open-telemetry/opentelemetry-collector --namespace observability --set mode=deployment && kubectl apply -f instrumentation.yaml",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/OBSERVABILITY/T53OPENTELEMETRY_GUIDE.md",
+      "common_patterns": [
+        "Collector deployment: 'helm install opentelemetry-collector --set mode=deployment'",
+        "Receivers configuration: 'otlp:' with 'endpoint: 0.0.0.0:4317' for gRPC and 'endpoint: 0.0.0.0:4318' for HTTP",
+        "Processors: 'batch:' with 'timeout: 1s send_batch_size: 1024' for efficient data processing",
+        "Exporters: 'otlphttp:' with 'endpoint: http://jaeger:14268/api/traces' for trace export",
+        "Auto-instrumentation: Java: '-javaagent:opentelemetry-javaagent.jar', Node.js: 'require(&quot;@opentelemetry/auto-instrumentations-node&quot;)()'",
+        "Service mapping: 'resource:' with 'attributes: [service.name: my-service, service.version: 1.0.0]'"
+      ],
+      "known_errors": [
+        "Collector not receiving: 'netstat -tlnp | grep 4317' and verify receiver configuration and endpoints",
+        "Memory high: 'kubectl top pods -n observability' and adjust batch processor configuration",
+        "Data loss: 'curl http://otel-collector:8888/metrics' and check export failures and retry policies",
+        "Agent installation failed: Verify OpenTelemetry SDK version compatibility and auto-instrumentation paths",
+        "Schema conflicts: 'otelcol_config validate' to check receiver/exporter configuration syntax"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/OBSERVABILITY/T53OPENTELEMETRY_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/OBSERVABILITY_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:12:33.835988Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "opentelemetry",
+        "otel",
+        "otel collector",
+        "otel instrumentation",
+        "otel exporter"
+      ],
+      "category": "TOOLS",
+      "subcategory": "OBSERVABILITY",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "door_code": "T72DRIFT_DETECTION",
+  "semantic_path": "TOOLS.GITOPS.DRIFT_DETECTION",
+  "aliases": [
+    "drift detection",
+    "configuration drift",
+    "infrastructure drift",
+    "gitops drift",
+    "terraform drift"
+  ],
+  "context_bundle": {
+    "summary": "Drift detection identifies differences between the desired state in Git and the actual state in infrastructure to ensure consistency",
+    "prerequisites": [
+      "T60TERRAFORM",
+      "T71GITOPS"
+    ],
+    "related_doors": [
+      "T70FLUX",
+      "T71GITOPS",
+      "T73PROGRESSIVE_DELIVERY",
+      "T74IMAGE_AUTOMATION"
+    ],
+    "onboarding": {
+      "quick_start": "terraform plan -detailed-exitcode && kubectl apply --dry-run=client -f k8s/ && git diff HEAD k8s/",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/GITOPS/T72DRIFT_DETECTION_GUIDE.md",
+      "common_patterns": [
+        "Terraform drift: 'terraform plan -detailed-exitcode' and check exit code 2 for drift detected",
+        "Kubernetes drift: 'kubectl get -f deployment.yaml -o yaml > current.yaml && diff deployment.yaml current.yaml'",
+        "Git repository drift: 'git status --porcelain' and 'git diff HEAD --name-only'",
+        "Automated detection: 'kubeconform -strict -summary k8s/*.yaml' for configuration validation",
+        "Drift alerts: 'terraform plan -out=tfplan' and 'terraform show -json tfplan' for programmatic drift analysis",
+        "Scheduled checks: 'cron: '0 */6 * * *' for automated drift detection every 6 hours"
+      ],
+      "known_errors": [
+        "State lock error: 'terraform force-unlock LOCK_ID' after ensuring no other terraform processes",
+        "Permission denied: 'kubectl auth can-i get deployments --as=system:serviceaccount:drift:drift-detector'",
+        "Connection timeout: 'terraform init' and verify provider configuration and network connectivity",
+        "False positives: 'terraform refresh' and ignore computed field changes in drift detection",
+        "Git authentication: 'ssh-keyscan github.com >> ~/.ssh/known_hosts' for repository access"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/GITOPS/T72DRIFT_DETECTION_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/GITOPS_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:12:33.837659Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "drift detection",
+        "configuration drift",
+        "infrastructure drift",
+        "gitops drift",
+        "terraform drift"
+      ],
+      "category": "TOOLS",
+      "subcategory": "GITOPS",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

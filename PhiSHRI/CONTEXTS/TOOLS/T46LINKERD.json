@@ -1,0 +1,82 @@
+{
+  "door_code": "T46LINKERD",
+  "semantic_path": "TOOLS.SERVICE_MESH.LINKERD",
+  "aliases": [
+    "linkerd",
+    "linkerd2",
+    "rust service mesh",
+    "linkerd proxy",
+    "linkerd inject",
+    "linkerd dashboard"
+  ],
+  "context_bundle": {
+    "summary": "Linkerd is a lightweight service mesh for Kubernetes providing security, reliability, and observability features with minimal resource overhead",
+    "prerequisites": [
+      "T26KUBERNETES",
+      "T40K8S_NETWORKING"
+    ],
+    "related_doors": [
+      "T45ISTIO",
+      "T47ENVOY",
+      "T48CONSUL_MESH",
+      "T49TRAEFIK"
+    ],
+    "onboarding": {
+      "quick_start": "linkerd install | kubectl apply -f - && kubectl annotate namespace default linkerd.io/inject=enabled && linkerd check",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/SERVICE_MESH/T46LINKERD_GUIDE.md",
+      "common_patterns": [
+        "Installation: linkerd install | kubectl apply -f - for CLI-based installation",
+        "Namespace injection: kubectl annotate namespace <namespace> linkerd.io/inject=enabled",
+        "Mesh policy: kubectl apply -f -f server-policy.yaml with spec.meshTLS.mode=strict",
+        "Service profiling: linkerd viz profile -n emojivoto web --port service",
+        "Traffic split: TrafficSplit resource with spec.backends and spec.weights",
+        "Health check: linkerd check --pre to verify cluster readiness before installation"
+      ],
+      "known_errors": [
+        "Pods not meshed: 'kubectl get pods -n default -o yaml | grep linkerd' and verify namespace annotation",
+        "mTLS handshake failure: 'linkerd viz edges -n emojivoto' and check service profile configuration",
+        "Certificate expired: 'kubectl get secrets -n linkerd | grep identity-issuer' and restart linkerd-controller",
+        "High memory usage: 'linkerd viz tap deploy/web --to deploy/voting' to analyze traffic and adjust proxy resources",
+        "Installation fails: 'linkerd install --ignore-cluster' and fix RBAC or network policy issues"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/SERVICE_MESH/T46LINKERD_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/SERVICE_MESH_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:11:53.871251Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "linkerd",
+        "linkerd2",
+        "rust service mesh",
+        "linkerd proxy",
+        "linkerd inject"
+      ],
+      "category": "TOOLS",
+      "subcategory": "SERVICE_MESH",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

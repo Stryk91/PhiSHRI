@@ -1,0 +1,82 @@
+{
+  "door_code": "T70FLUX",
+  "semantic_path": "TOOLS.GITOPS.FLUX",
+  "aliases": [
+    "flux",
+    "flux cd",
+    "gitops toolkit",
+    "flux helm",
+    "flux kustomize",
+    "flux sync"
+  ],
+  "context_bundle": {
+    "summary": "Flux CD is a set of continuous and progressive delivery solutions for Kubernetes that are open and extensible",
+    "prerequisites": [
+      "T26KUBERNETES",
+      "T33ARGOCD"
+    ],
+    "related_doors": [
+      "T71GITOPS",
+      "T72DRIFT_DETECTION",
+      "T73PROGRESSIVE_DELIVERY",
+      "T74IMAGE_AUTOMATION"
+    ],
+    "onboarding": {
+      "quick_start": "flux install --namespace=flux-system --components=source-controller,kustomize-controller,helm-controller,notification-controller && flux bootstrap git --url=ssh://git@github.com/user/repo --branch=main",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/GITOPS/T70FLUX_GUIDE.md",
+      "common_patterns": [
+        "Bootstrap: 'flux bootstrap git --url=ssh://git@github.com/user/repo --path=clusters/production'",
+        "Kustomization: 'flux create kustomization apps --source=GitRepository/flux-system --path=./clusters/production/apps --prune=true'",
+        "Helm release: 'flux create hr redis --source=HelmRepository/flux-system --chart=redis --chart-version=14.7.0'",
+        "Image update: 'flux create image update podinfo --image=podinfo --tag-semver=~6.0 --export'",
+        "Reconciliation: 'flux reconcile kustomization apps --with-source' and 'flux get sources all'",
+        "Alerting: 'flux create alert provider slack --type=slack --address=https://hooks.slack.com/... --channel=alerts'"
+      ],
+      "known_errors": [
+        "GitRepository not ready: 'flux get sources git' and 'flux reconcile source git flux-system' to retry connection",
+        "Kustomization stuck: 'flux get kustomizations' and check 'conditions' field for specific failure reasons",
+        "Helm release failed: 'flux get helmreleases' and 'helm get values <release> -n <namespace>' to debug chart values",
+        "Authentication error: 'ssh-keyscan github.com >> ~/.ssh/known_hosts' and verify deploy key has write access",
+        "Image automation not working: 'flux get image updates' and verify image repository credentials are configured"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/GITOPS/T70FLUX_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/GITOPS_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:11:40.486626Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "flux",
+        "flux cd",
+        "gitops toolkit",
+        "flux helm",
+        "flux kustomize"
+      ],
+      "category": "TOOLS",
+      "subcategory": "GITOPS",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

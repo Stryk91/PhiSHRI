@@ -1,0 +1,82 @@
+{
+  "door_code": "T55ELK_STACK",
+  "semantic_path": "TOOLS.LOGGING.ELK_STACK",
+  "aliases": [
+    "elk stack",
+    "elasticsearch",
+    "logstash",
+    "kibana",
+    "elasticsearch logging",
+    "logstash pipeline",
+    "kibana dashboard"
+  ],
+  "context_bundle": {
+    "summary": "ELK Stack is a comprehensive log management solution combining Elasticsearch for storage, Logstash for processing, and Kibana for visualization",
+    "prerequisites": [
+      "T20ELASTICSEARCH"
+    ],
+    "related_doors": [
+      "T56LOKI",
+      "T57FLUENTD",
+      "T58VECTOR",
+      "T59SPLUNK"
+    ],
+    "onboarding": {
+      "quick_start": "docker-compose up -d elasticsearch kibana logstash && curl -X PUT 'localhost:9200/_template/logstash' -H 'Content-Type: application/json' -d @logstash-template.json",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/LOGGING/T55ELK_STACK_GUIDE.md",
+      "common_patterns": [
+        "Elasticsearch: docker run -p 9200:9200 -e 'discovery.type=single-node' elasticsearch:8.11.0",
+        "Logstash pipeline: input { beats { port => 5044 } } filter { mutate { remove_field => ['agent'] } } output { elasticsearch { hosts => ['elasticsearch:9200'] } }",
+        "Kibana index pattern: 'POST /api/saved_objects/_import' with index pattern JSON",
+        "Filebeat configuration: filebeat.inputs: - type: log paths: - /var/log/*.log output.elasticsearch: hosts: ['localhost:9200']",
+        "Log rotation: 'curator_cli --config curator.yml delete_indices --filter_list'",
+        "Index templates: 'PUT _index_template/logs' with mappings and settings for log indices"
+      ],
+      "known_errors": [
+        "Elasticsearch out of memory: 'docker stats elasticsearch' and increase ES_JAVA_OPTS heap size",
+        "Logstash not receiving logs: 'netstat -tlnp | grep 5044' and verify filebeat configuration",
+        "Kibana connection failed: 'curl http://kibana:5601/api/status' and check elasticsearch.url in kibana.yml",
+        "Mapping conflicts: 'GET /logs-*/_mapping' and resolve field type conflicts between log sources",
+        "High disk usage: 'curl localhost:9200/_cat/indices?v' and implement index lifecycle management"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/LOGGING/T55ELK_STACK_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/LOGGING_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:11:53.871898Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "elk stack",
+        "elasticsearch",
+        "logstash",
+        "kibana",
+        "elasticsearch logging"
+      ],
+      "category": "TOOLS",
+      "subcategory": "LOGGING",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

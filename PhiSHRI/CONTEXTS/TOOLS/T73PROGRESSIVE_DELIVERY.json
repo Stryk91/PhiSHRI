@@ -1,0 +1,81 @@
+{
+  "door_code": "T73PROGRESSIVE_DELIVERY",
+  "semantic_path": "TOOLS.GITOPS.PROGRESSIVE_DELIVERY",
+  "aliases": [
+    "progressive delivery",
+    "canary deployment",
+    "blue-green deployment",
+    "feature flags",
+    "a/b testing"
+  ],
+  "context_bundle": {
+    "summary": "Progressive delivery extends GitOps with controlled rollouts using canary deployments, feature flags, and gradual traffic shifting",
+    "prerequisites": [
+      "T33ARGOCD",
+      "T71GITOPS"
+    ],
+    "related_doors": [
+      "T70FLUX",
+      "T71GITOPS",
+      "T72DRIFT_DETECTION",
+      "T74IMAGE_AUTOMATION"
+    ],
+    "onboarding": {
+      "quick_start": "kubectl apply -f canary.yaml && argocd rollouts status rollout -n default my-app --watch",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/GITOPS/T73PROGRESSIVE_DELIVERY_GUIDE.md",
+      "common_patterns": [
+        "Canary deployment: 'argocd rollouts set image rollout my-app container=image:1.2.0' and 'argocd rollouts promote rollout my-app'",
+        "Traffic splitting: 'VirtualService with destination weights: 90 for stable, 10 for canary",
+        "Analysis templates: 'AnalysisTemplate with metrics queries and success criteria thresholds'",
+        "Feature flags: 'launchdarkly sdk key' and 'if (ldClient.variation('new-feature', user, false))'",
+        "Blue-green: 'kubectl apply -f blue.yaml && kubectl patch service my-app -p '{&quot;spec&quot;:{&quot;selector&quot;:{&quot;version&quot;:&quot;blue&quot;}}}'",
+        "A/B testing: 'Istio VirtualService with HTTPRouteDestination and headers matching'"
+      ],
+      "known_errors": [
+        "Rollout stuck: 'argocd rollouts get rollout my-app -o yaml' and check status conditions",
+        "Traffic not shifting: 'istioctl proxy-config routes <pod>' and verify VirtualService configuration",
+        "Analysis failing: 'kubectl get analysisruns' and check metric collection and threshold values",
+        "Feature flag not working: 'ldClient.waitForInitialization()' and verify SDK key and user context",
+        "Service switching error: 'kubectl get endpoints my-app' and verify pod selectors match labels"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/GITOPS/T73PROGRESSIVE_DELIVERY_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/GITOPS_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:12:33.837859Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "progressive delivery",
+        "canary deployment",
+        "blue-green deployment",
+        "feature flags",
+        "a/b testing"
+      ],
+      "category": "TOOLS",
+      "subcategory": "GITOPS",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

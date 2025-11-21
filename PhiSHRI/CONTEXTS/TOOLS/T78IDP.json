@@ -1,0 +1,81 @@
+{
+  "door_code": "T78IDP",
+  "semantic_path": "TOOLS.PLATFORM.IDP",
+  "aliases": [
+    "idp",
+    "internal developer platform",
+    "platform engineering",
+    "paved road",
+    "developer experience"
+  ],
+  "context_bundle": {
+    "summary": "Internal Developer Platform design covers the architecture and principles for building platforms that enhance developer productivity",
+    "prerequisites": [
+      "T75BACKSTAGE",
+      "T76PORT"
+    ],
+    "related_doors": [
+      "T75BACKSTAGE",
+      "T76PORT",
+      "T77KRATIX",
+      "T79PLATFORM_TEAMS"
+    ],
+    "onboarding": {
+      "quick_start": "docker run --name backstage -p 7000:7000 backstage backstage start --config app-config.local.yaml",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/PLATFORM/T78IDP_GUIDE.md",
+      "common_patterns": [
+        "Platform catalog: 'apiVersion: backstage.io/v1alpha1 kind: Component' for service registration",
+        "Software templates: 'scaffolder.local' with 'apiVersion: scaffolder.backstage.io/v1beta3 kind: Template'",
+        "Developer portal: 'organization: domain: example.com name: Acme Corp' for organization configuration",
+        "Tech docs: 'mkdocs.yml' in repositories with 'backstage.io/techdocs-ref' annotations",
+        "CI/CD integration: 'backstage.io/techdocs-ref: type: url target: https://github.com/org/repo/tree/main/docs'",
+        "Plugin architecture: 'packages/app/src/plugins.ts' for plugin registration and configuration"
+      ],
+      "known_errors": [
+        "404 on catalog: 'curl http://localhost:7000/api/catalog/entities' and verify location configuration",
+        "Template not rendering: 'yarn backstage-cli repo build' and check template schema validation",
+        "Tech docs failing: 'mkdocs build' to verify docs configuration before backstage ingestion",
+        "Plugin not loading: 'yarn install' and restart development server after plugin installation",
+        "Database connection: 'POSTGRES_CONNECTION_STRING=postgresql://user:pass@localhost:5432/backstage' for persistent storage"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/PLATFORM/T78IDP_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/PLATFORM_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:12:33.838254Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "idp",
+        "internal developer platform",
+        "platform engineering",
+        "paved road",
+        "developer experience"
+      ],
+      "category": "TOOLS",
+      "subcategory": "PLATFORM",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

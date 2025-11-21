@@ -1,0 +1,83 @@
+{
+  "door_code": "T45ISTIO",
+  "semantic_path": "TOOLS.SERVICE_MESH.ISTIO",
+  "aliases": [
+    "istio",
+    "service mesh",
+    "istio pilot",
+    "istio citadel",
+    "istio galley",
+    "istio sidecar",
+    "istio gateway"
+  ],
+  "context_bundle": {
+    "summary": "Istio is a service mesh providing traffic management, security, and observability for microservices through sidecar proxies",
+    "prerequisites": [
+      "T26KUBERNETES",
+      "T40K8S_NETWORKING"
+    ],
+    "related_doors": [
+      "T46LINKERD",
+      "T47ENVOY",
+      "T48CONSUL_MESH",
+      "T49TRAEFIK"
+    ],
+    "onboarding": {
+      "quick_start": "istioctl install --set profile=demo -y && kubectl get pods -n istio-system && kubectl label namespace default istio-injection=enabled",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/SERVICE_MESH/T45ISTIO_GUIDE.md",
+      "common_patterns": [
+        "Installation: istioctl install --set profile=demo -y for quick setup",
+        "Sidecar injection: kubectl label namespace <namespace> istio-injection=enabled",
+        "Traffic management: kubectl apply -f destination-rule.yaml && kubectl apply -f virtual-service.yaml",
+        "mTLS enforcement: PeerAuthentication resource with mtls.mode=STRICT",
+        "Observability: istioctl dashboard prometheus && istioctl dashboard grafana",
+        "Gateway configuration: Gateway resource with port 80 for HTTP ingress"
+      ],
+      "known_errors": [
+        "Sidecar injection failed: 'kubectl label namespace default istio-injection=enabled --overwrite' and restart pods",
+        "mTLS handshake error: 'istioctl authn tls check' and verify ServiceEntry/PeerAuthentication configuration",
+        "Gateway 503 errors: 'istioctl proxy-config routes <pod>' and verify Gateway/VirtualService selectors",
+        "Pilot CRD missing: 'kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.19/manifests/charts/base/crds.yaml'",
+        "Resource exhaustion: 'kubectl top pods -n istio-system' and increase resource.limits for istio-proxy sidecars"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/SERVICE_MESH/T45ISTIO_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/SERVICE_MESH_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:11:40.485823Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "istio",
+        "service mesh",
+        "istio pilot",
+        "istio citadel",
+        "istio galley"
+      ],
+      "category": "TOOLS",
+      "subcategory": "SERVICE_MESH",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

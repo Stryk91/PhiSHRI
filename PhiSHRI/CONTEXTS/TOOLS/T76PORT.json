@@ -1,0 +1,81 @@
+{
+  "door_code": "T76PORT",
+  "semantic_path": "TOOLS.PLATFORM.PORT",
+  "aliases": [
+    "port",
+    "port io",
+    "developer platform",
+    "internal developer portal",
+    "software catalog",
+    "port scorecards"
+  ],
+  "context_bundle": {
+    "summary": "Port is an Internal Developer Platform that enables developers to self-serve infrastructure through a standardized developer portal",
+    "prerequisites": [
+      "T26KUBERNETES"
+    ],
+    "related_doors": [
+      "T75BACKSTAGE",
+      "T77KRATIX",
+      "T78IDP",
+      "T79PLATFORM_TEAMS"
+    ],
+    "onboarding": {
+      "quick_start": "docker run --name port -p 8080:8080 -e PORT_CLIENT_ID=<client-id> -e PORT_CLIENT_SECRET=<client-secret> portai/port:latest",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/PLATFORM/T76PORT_GUIDE.md",
+      "common_patterns": [
+        "Installation: 'helm install port port/port --namespace port --create-namespace' for Kubernetes deployment",
+        "Blueprint creation: 'port create blueprint --name my-blueprint --file blueprint.json' with entity schema",
+        "Scorecard setup: Configure rules in port.yml and attach to blueprints for quality gates",
+        "Self-service actions: Action entity with trigger: 'create' and integration configuration",
+        "API integration: 'POST https://api.getport.io/v1/blueprints' with authentication headers",
+        "CI/CD pipeline: 'port run-action --action-name deploy --entity-identifier service-123' for automated deployments"
+      ],
+      "known_errors": [
+        "Authentication failed: 'curl -H 'Authorization: Bearer <token>' https://api.getport.io/v1/auth' and verify client credentials",
+        "Blueprint validation error: Check entity schema properties and required fields in blueprint definition",
+        "Action execution timeout: 'port get-action-run --run-id 12345' and check integration configuration",
+        "Scorecard not working: Verify blueprint has scorecard property and rules are properly configured",
+        "Entity sync failed: 'port logs --integration-id 12345' and check webhook or API authentication"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/PLATFORM/T76PORT_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/PLATFORM_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:11:53.872489Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "port",
+        "port io",
+        "developer platform",
+        "internal developer portal",
+        "software catalog"
+      ],
+      "category": "TOOLS",
+      "subcategory": "PLATFORM",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

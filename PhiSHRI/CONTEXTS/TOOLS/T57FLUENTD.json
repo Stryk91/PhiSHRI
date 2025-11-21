@@ -1,0 +1,81 @@
+{
+  "door_code": "T57FLUENTD",
+  "semantic_path": "TOOLS.LOGGING.FLUENTD",
+  "aliases": [
+    "fluentd",
+    "fluent bit",
+    "fluentd plugin",
+    "fluentd filter",
+    "fluentd output",
+    "log collector"
+  ],
+  "context_bundle": {
+    "summary": "Fluentd is an open-source data collector for unified logging layers with a plugin architecture for flexible data processing",
+    "prerequisites": [
+      "T10OBSERVABILITY"
+    ],
+    "related_doors": [
+      "T55ELK_STACK",
+      "T56LOKI",
+      "T58VECTOR",
+      "T59SPLUNK"
+    ],
+    "onboarding": {
+      "quick_start": "helm install fluentd fluent/fluentd --namespace fluentd --set env[0].name=FLUENT_ELASTICSEARCH_HOST --set env[0].value=elasticsearch",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/LOGGING/T57FLUENTD_GUIDE.md",
+      "common_patterns": [
+        "Input plugins: '@type tail' with 'path /var/log/containers/*.log' for log collection",
+        "Filter plugins: '@type kubernetes_metadata' for enriching logs with Kubernetes metadata",
+        "Output plugins: '@type elasticsearch' with 'host elasticsearch' and 'index_name fluentd'",
+        "Buffer configuration: '<buffer @type file path /var/log/fluentd-buffers> with flush and chunk limits",
+        "Plugin management: 'fluent-gem install fluent-plugin-elasticsearch' for additional plugins",
+        "Monitoring: '@type monitor_agent' with 'bind 0.0.0.0' for health monitoring"
+      ],
+      "known_errors": [
+        "Elasticsearch connection failed: 'curl http://elasticsearch:9200/_cluster/health' and verify network connectivity",
+        "High memory usage: 'fluentctl monitor' and adjust buffer chunk_limit_size and flush_interval",
+        "Plugin not found: 'fluent-gem list' and install required plugins with correct versions",
+        "Permission denied: 'chown fluentd /var/log/containers' and fix file permissions for log access",
+        "Backpressure: 'fluentctl debug input_config' and increase worker thread count"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/LOGGING/T57FLUENTD_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/LOGGING_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:12:33.836415Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "fluentd",
+        "fluent bit",
+        "fluentd plugin",
+        "fluentd filter",
+        "fluentd output"
+      ],
+      "category": "TOOLS",
+      "subcategory": "LOGGING",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

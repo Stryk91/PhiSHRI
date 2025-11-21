@@ -1,0 +1,82 @@
+{
+  "door_code": "T56LOKI",
+  "semantic_path": "TOOLS.LOGGING.LOKI",
+  "aliases": [
+    "loki",
+    "grafana loki",
+    "loki log aggregation",
+    "promtail",
+    "loki query",
+    "loki labels"
+  ],
+  "context_bundle": {
+    "summary": "Loki is a horizontally-scalable, highly-available log aggregation system inspired by Prometheus and designed for Kubernetes",
+    "prerequisites": [
+      "T10OBSERVABILITY",
+      "T51GRAFANA"
+    ],
+    "related_doors": [
+      "T55ELK_STACK",
+      "T57FLUENTD",
+      "T58VECTOR",
+      "T59SPLUNK"
+    ],
+    "onboarding": {
+      "quick_start": "helm install loki grafana/loki-stack --namespace loki --set loki.persistence.enabled=true --set promtail.enabled=true && kubectl get svc -n loki loki",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/LOGGING/T56LOKI_GUIDE.md",
+      "common_patterns": [
+        "Loki deployment: 'helm install loki grafana/loki --set persistence.enabled=true'",
+        "Promtail configuration: 'config snippets' with 'scrape_configs' for log file paths and labels",
+        "LogQL queries: '{job=&quot;kubelet&quot;} |= &quot;error&quot;' for log search and filtering",
+        "Grafana integration: Add Loki datasource with URL 'http://loki:3100'",
+        "Retention: 'table_manager.retention_period: 744h' for log retention configuration",
+        "Sharding: 'ingester.lifecycle_hooks.min_ready_duration: 30s' for distributed deployment"
+      ],
+      "known_errors": [
+        "No logs received: 'kubectl logs -n loki promtail-*' and check file paths and scrape configuration",
+        "High disk usage: 'kubectl exec -n loki loki-0 -- df -h' and implement retention policies",
+        "Query timeout: 'curl -G -s http://loki:3100/loki/api/v1/query_range --data-urlencode query=&quot;{job='varlogs'}&quot;' and optimize LogQL",
+        "Grafana connection failed: 'curl http://loki:3100/ready' and verify datasource configuration",
+        "Promtail errors: 'promtail --config.file=/etc/promtail/config.yml --log.level=debug' to debug issues"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/LOGGING/T56LOKI_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/LOGGING_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:12:33.836265Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "loki",
+        "grafana loki",
+        "loki log aggregation",
+        "promtail",
+        "loki query"
+      ],
+      "category": "TOOLS",
+      "subcategory": "LOGGING",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

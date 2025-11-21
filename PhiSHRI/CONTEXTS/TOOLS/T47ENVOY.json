@@ -1,0 +1,82 @@
+{
+  "door_code": "T47ENVOY",
+  "semantic_path": "TOOLS.SERVICE_MESH.ENVOY",
+  "aliases": [
+    "envoy",
+    "envoy proxy",
+    "envoy config",
+    "envoy filters",
+    "envoy clusters",
+    "envoy routes"
+  ],
+  "context_bundle": {
+    "summary": "Envoy is a high-performance edge and service proxy designed for cloud-native applications providing load balancing, TLS termination, and observability",
+    "prerequisites": [
+      "T26KUBERNETES",
+      "T40K8S_NETWORKING"
+    ],
+    "related_doors": [
+      "T45ISTIO",
+      "T46LINKERD",
+      "T48CONSUL_MESH",
+      "T49TRAEFIK"
+    ],
+    "onboarding": {
+      "quick_start": "docker run -d --name envoy -p 8080:8080 -p 9901:9901 envoyproxy/envoy:v1.28-latest -c /etc/envoy/envoy.yaml",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/SERVICE_MESH/T47ENVOY_GUIDE.md",
+      "common_patterns": [
+        "Static config: static_resources with listeners and clusters defined in envoy.yaml",
+        "Load balancing: cluster config with round_robin or least_request lb_policy",
+        "CORS filtering: http_filters with type cors and origin_configs",
+        "Rate limiting: rate_limit_service config and HTTP rate limit filter",
+        "Health checking: health_checks config with timeout and interval settings",
+        "Admin interface: admin config with access_log_path and address 0.0.0.0:9901"
+      ],
+      "known_errors": [
+        "503 no healthy upstream: 'curl localhost:9901/clusters' and verify upstream endpoints are reachable",
+        "Config validation failed: 'envoy -c envoy.yaml --mode validate' to check YAML syntax and references",
+        "High CPU usage: 'curl localhost:9901/stats' and check listener.filter_chain_match_errors",
+        "TLS handshake failure: 'openssl s_client -connect localhost:443' and verify TLS context configuration",
+        "Filter not working: 'curl localhost:9901/config_dump' and check filter chain order and configuration"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/SERVICE_MESH/T47ENVOY_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/SERVICE_MESH_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:11:53.871534Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "envoy",
+        "envoy proxy",
+        "envoy config",
+        "envoy filters",
+        "envoy clusters"
+      ],
+      "category": "TOOLS",
+      "subcategory": "SERVICE_MESH",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

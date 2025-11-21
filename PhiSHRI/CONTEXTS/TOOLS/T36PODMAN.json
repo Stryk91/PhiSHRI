@@ -1,0 +1,81 @@
+{
+  "door_code": "T36PODMAN",
+  "semantic_path": "TOOLS.CONTAINER.PODMAN",
+  "aliases": [
+    "podman",
+    "podman-compose",
+    "podman pods",
+    "rootless containers",
+    "podman desktop",
+    "podman kube"
+  ],
+  "context_bundle": {
+    "summary": "Podman is a daemonless container engine offering Docker-compatible CLI, rootless operation, and native Kubernetes pod concepts",
+    "prerequisites": [
+      "T25DOCKER"
+    ],
+    "related_doors": [
+      "T35DOCKER_ADV",
+      "T37CONTAINERD",
+      "T38BUILDAH",
+      "T39KANIKO"
+    ],
+    "onboarding": {
+      "quick_start": "Initialize Podman Container Engine, configure basic setup, and follow best practices for deployment and management",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/CONTAINER/T36PODMAN_GUIDE.md",
+      "common_patterns": [
+        "Setup: Initial configuration and deployment of Podman Container Engine",
+        "Integration: Connect with existing tools and workflows",
+        "Monitoring: Implement observability and alerting",
+        "Security: Apply security best practices and access controls",
+        "Scaling: Design for growth and high availability",
+        "Automation: Automate routine tasks and operations"
+      ],
+      "known_errors": [
+        "Configuration errors: Validate settings and dependencies",
+        "Network issues: Check connectivity and firewall rules",
+        "Permission problems: Verify access rights and authentication",
+        "Resource constraints: Monitor CPU, memory, and storage",
+        "Version conflicts: Ensure compatibility between components"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/CONTAINER/T36PODMAN_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/CONTAINER_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T21:40:55.464630Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "podman",
+        "podman-compose",
+        "podman pods",
+        "rootless containers",
+        "podman desktop"
+      ],
+      "category": "TOOLS",
+      "subcategory": "CONTAINER",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "door_code": "T69KMS",
+  "semantic_path": "TOOLS.SECRETS.KMS",
+  "aliases": [
+    "kms",
+    "aws kms",
+    "azure key vault",
+    "google cloud kms",
+    "key management",
+    "cloud kms"
+  ],
+  "context_bundle": {
+    "summary": "KMS covers cloud key management services for creating and controlling encryption keys across AWS, Azure, and GCP",
+    "prerequisites": [
+      "S05SECRETS",
+      "S07ENCRYPTION"
+    ],
+    "related_doors": [
+      "T65VAULT_ADV",
+      "T66SOPS",
+      "T67SEALED_SECRETS",
+      "T68EXTERNAL_SECRETS"
+    ],
+    "onboarding": {
+      "quick_start": "aws kms create-key --description 'Application encryption key' --key-usage ENCRYPT_DECRYPT && aws kms create-alias --alias-name alias/my-app-key --target-key-id <key-id>",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/SECRETS/T69KMS_GUIDE.md",
+      "common_patterns": [
+        "Key creation: 'aws kms create-key --policy file://key-policy.json --description &quot;Application key&quot;",
+        "Alias management: 'aws kms create-alias --alias-name alias/my-key --target-key-id <key-id>'",
+        "Encryption: 'aws kms encrypt --key-id alias/my-key --plaintext file://data.txt --output text --query CiphertextBlob'",
+        "Decryption: 'aws kms decrypt --ciphertext-blob file://encrypted.data --output text --query Plaintext'",
+        "Rotation: 'aws kms enable-key-rotation --key-id <key-id>' for automatic key rotation",
+        "Policy management: 'aws kms put-key-policy --key-id <key-id> --policy-name default --policy file://policy.json'"
+      ],
+      "known_errors": [
+        "Access denied: 'aws kms list-keys' and verify IAM policies for kms:CreateKey, kms:Encrypt, kms:Decrypt",
+        "Key not found: 'aws kms describe-key --key-id <key-id>' and verify key ID or alias is correct",
+        "Invalid ciphertext: 'aws kms decrypt --ciphertext-blob file://data.b64' and ensure base64 encoding is correct",
+        "Key disabled: 'aws kms enable-key --key-id <key-id>' to re-enable disabled keys",
+        "Region mismatch: 'aws configure get region' and verify key and operations are in same AWS region"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/SECRETS/T69KMS_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/SECRETS_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:12:33.837530Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "kms",
+        "aws kms",
+        "azure key vault",
+        "google cloud kms",
+        "key management"
+      ],
+      "category": "TOOLS",
+      "subcategory": "SECRETS",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

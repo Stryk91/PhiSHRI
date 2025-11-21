@@ -1,0 +1,81 @@
+{
+  "door_code": "T42KUSTOMIZE",
+  "semantic_path": "TOOLS.KUBERNETES.KUSTOMIZE",
+  "aliases": [
+    "kustomize",
+    "kustomize overlay",
+    "kustomize base",
+    "kustomize patch",
+    "kustomize config",
+    "kustomize build"
+  ],
+  "context_bundle": {
+    "summary": "Kustomize enables template-free customization of Kubernetes configuration through overlays, patches, and base configurations",
+    "prerequisites": [
+      "T26KUBERNETES"
+    ],
+    "related_doors": [
+      "T40K8S_NETWORKING",
+      "T41HELM",
+      "T43OPERATORS",
+      "T44CRDS"
+    ],
+    "onboarding": {
+      "quick_start": "Initialize Kustomize Kubernetes Configuration, configure basic setup, and follow best practices for deployment and management",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/KUBERNETES/T42KUSTOMIZE_GUIDE.md",
+      "common_patterns": [
+        "Setup: Initial configuration and deployment of Kustomize Kubernetes Configuration",
+        "Integration: Connect with existing tools and workflows",
+        "Monitoring: Implement observability and alerting",
+        "Security: Apply security best practices and access controls",
+        "Scaling: Design for growth and high availability",
+        "Automation: Automate routine tasks and operations"
+      ],
+      "known_errors": [
+        "Configuration errors: Validate settings and dependencies",
+        "Network issues: Check connectivity and firewall rules",
+        "Permission problems: Verify access rights and authentication",
+        "Resource constraints: Monitor CPU, memory, and storage",
+        "Version conflicts: Ensure compatibility between components"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/KUBERNETES/T42KUSTOMIZE_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/KUBERNETES_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T21:40:55.465170Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "kustomize",
+        "kustomize overlay",
+        "kustomize base",
+        "kustomize patch",
+        "kustomize config"
+      ],
+      "category": "TOOLS",
+      "subcategory": "KUBERNETES",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

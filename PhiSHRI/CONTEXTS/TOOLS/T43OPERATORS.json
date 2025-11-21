@@ -1,0 +1,81 @@
+{
+  "door_code": "T43OPERATORS",
+  "semantic_path": "TOOLS.KUBERNETES.OPERATORS",
+  "aliases": [
+    "kubernetes operators",
+    "operator sdk",
+    "operator lifecycle manager",
+    "operator framework",
+    "custom operators"
+  ],
+  "context_bundle": {
+    "summary": "Kubernetes Operators are software extensions that use custom resources to manage applications and their components on Kubernetes",
+    "prerequisites": [
+      "T26KUBERNETES",
+      "T44CRDS"
+    ],
+    "related_doors": [
+      "T40K8S_NETWORKING",
+      "T41HELM",
+      "T42KUSTOMIZE",
+      "T44CRDS"
+    ],
+    "onboarding": {
+      "quick_start": "Initialize Kubernetes Operators, configure basic setup, and follow best practices for deployment and management",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/KUBERNETES/T43OPERATORS_GUIDE.md",
+      "common_patterns": [
+        "Setup: Initial configuration and deployment of Kubernetes Operators",
+        "Integration: Connect with existing tools and workflows",
+        "Monitoring: Implement observability and alerting",
+        "Security: Apply security best practices and access controls",
+        "Scaling: Design for growth and high availability",
+        "Automation: Automate routine tasks and operations"
+      ],
+      "known_errors": [
+        "Configuration errors: Validate settings and dependencies",
+        "Network issues: Check connectivity and firewall rules",
+        "Permission problems: Verify access rights and authentication",
+        "Resource constraints: Monitor CPU, memory, and storage",
+        "Version conflicts: Ensure compatibility between components"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/KUBERNETES/T43OPERATORS_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/KUBERNETES_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T21:40:55.465239Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "kubernetes operators",
+        "operator sdk",
+        "operator lifecycle manager",
+        "operator framework",
+        "custom operators"
+      ],
+      "category": "TOOLS",
+      "subcategory": "KUBERNETES",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

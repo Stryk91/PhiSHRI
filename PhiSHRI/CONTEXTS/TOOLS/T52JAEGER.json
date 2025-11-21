@@ -1,0 +1,81 @@
+{
+  "door_code": "T52JAEGER",
+  "semantic_path": "TOOLS.OBSERVABILITY.JAEGER",
+  "aliases": [
+    "jaeger",
+    "distributed tracing",
+    "jaeger ui",
+    "jaeger agent",
+    "jaeger collector",
+    "opentracing"
+  ],
+  "context_bundle": {
+    "summary": "Jaeger is a distributed tracing system for monitoring and troubleshooting transactions in complex microservices environments",
+    "prerequisites": [
+      "T10OBSERVABILITY"
+    ],
+    "related_doors": [
+      "T50PROMETHEUS",
+      "T51GRAFANA",
+      "T53OPENTELEMETRY",
+      "T54DATADOG"
+    ],
+    "onboarding": {
+      "quick_start": "kubectl create namespace observability && helm install jaeger jaegertracing/jaeger --namespace observability --set allInOne.enabled=true && kubectl get svc -n observability jaeger-query",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/OBSERVABILITY/T52JAEGER_GUIDE.md",
+      "common_patterns": [
+        "All-in-one deployment: 'helm install jaeger jaegertracing/jaeger --set allInOne.enabled=true'",
+        "Production deployment: 'helm install --set production.enabled=true --set storage.type=elasticsearch'",
+        "Tracing instrumentation: 'opentelemetry.auto-instrumentation.enabled=true' in application deployment",
+        "Query UI: Access at http://jaeger-query:16686 and search by service name and operation",
+        "Sampling: 'helm install --set collector.sampling.type=probabilistic --set collector.sampling.param=0.1'",
+        "Storage backend: '--set storage.type=elasticsearch --set elasticsearch.server-urls=http://elasticsearch:9200'"
+      ],
+      "known_errors": [
+        "No traces found: 'curl http://jaeger-collector:14268/api/traces' and verify application instrumentation",
+        "Storage connection failed: 'kubectl logs -n observability jaeger-collector' and check Elasticsearch connection",
+        "High memory usage: 'helm upgrade --set allInOne.resources.requests.memory=1Gi' and adjust resource limits",
+        "Query timeout: 'kubectl port-forward svc/jaeger-query 16686:16686' and check network connectivity",
+        "Agent not collecting: 'kubectl logs -n observability jaeger-agent' and verify host network and ports"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/OBSERVABILITY/T52JAEGER_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/OBSERVABILITY_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:12:33.835840Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "jaeger",
+        "distributed tracing",
+        "jaeger ui",
+        "jaeger agent",
+        "jaeger collector"
+      ],
+      "category": "TOOLS",
+      "subcategory": "OBSERVABILITY",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

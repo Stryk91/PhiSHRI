@@ -1,0 +1,81 @@
+{
+  "door_code": "T35DOCKER_ADV",
+  "semantic_path": "TOOLS.CONTAINER.DOCKER_ADV",
+  "aliases": [
+    "docker advanced",
+    "docker compose",
+    "docker swarm",
+    "docker multi-stage",
+    "docker networking",
+    "docker volumes"
+  ],
+  "context_bundle": {
+    "summary": "Docker Advanced covers multi-stage builds, Docker Compose orchestration, Swarm clustering, networking, volumes, and production optimization",
+    "prerequisites": [
+      "T25DOCKER"
+    ],
+    "related_doors": [
+      "T36PODMAN",
+      "T37CONTAINERD",
+      "T38BUILDAH",
+      "T39KANIKO"
+    ],
+    "onboarding": {
+      "quick_start": "Initialize Docker Advanced Concepts, configure basic setup, and follow best practices for deployment and management",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/CONTAINER/T35DOCKER_ADV_GUIDE.md",
+      "common_patterns": [
+        "Setup: Initial configuration and deployment of Docker Advanced Concepts",
+        "Integration: Connect with existing tools and workflows",
+        "Monitoring: Implement observability and alerting",
+        "Security: Apply security best practices and access controls",
+        "Scaling: Design for growth and high availability",
+        "Automation: Automate routine tasks and operations"
+      ],
+      "known_errors": [
+        "Configuration errors: Validate settings and dependencies",
+        "Network issues: Check connectivity and firewall rules",
+        "Permission problems: Verify access rights and authentication",
+        "Resource constraints: Monitor CPU, memory, and storage",
+        "Version conflicts: Ensure compatibility between components"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/CONTAINER/T35DOCKER_ADV_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/CONTAINER_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T21:40:55.464552Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "docker advanced",
+        "docker compose",
+        "docker swarm",
+        "docker multi-stage",
+        "docker networking"
+      ],
+      "category": "TOOLS",
+      "subcategory": "CONTAINER",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

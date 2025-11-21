@@ -1,0 +1,83 @@
+{
+  "door_code": "T33ARGOCD",
+  "semantic_path": "TOOLS.CICD.ARGOCD",
+  "aliases": [
+    "argocd",
+    "gitops",
+    "argocd application",
+    "argocd sync",
+    "argocd projects",
+    "argocd apps",
+    "kubernetes gitops"
+  ],
+  "context_bundle": {
+    "summary": "ArgoCD is a declarative, GitOps continuous delivery tool for Kubernetes that syncs applications from Git to cluster state automatically",
+    "prerequisites": [
+      "T11CICD",
+      "T26KUBERNETES"
+    ],
+    "related_doors": [
+      "T30JENKINS",
+      "T31GITLAB_CI",
+      "T32GITHUB_ACTIONS",
+      "T70FLUX"
+    ],
+    "onboarding": {
+      "quick_start": "Initialize ArgoCD GitOps CD Platform, configure basic setup, and follow best practices for deployment and management",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/CICD/T33ARGOCD_GUIDE.md",
+      "common_patterns": [
+        "Setup: Initial configuration and deployment of ArgoCD GitOps CD Platform",
+        "Integration: Connect with existing tools and workflows",
+        "Monitoring: Implement observability and alerting",
+        "Security: Apply security best practices and access controls",
+        "Scaling: Design for growth and high availability",
+        "Automation: Automate routine tasks and operations"
+      ],
+      "known_errors": [
+        "Configuration errors: Validate settings and dependencies",
+        "Network issues: Check connectivity and firewall rules",
+        "Permission problems: Verify access rights and authentication",
+        "Resource constraints: Monitor CPU, memory, and storage",
+        "Version conflicts: Ensure compatibility between components"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/CICD/T33ARGOCD_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/CICD_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T21:40:55.464395Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "argocd",
+        "gitops",
+        "argocd application",
+        "argocd sync",
+        "argocd projects"
+      ],
+      "category": "TOOLS",
+      "subcategory": "CICD",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

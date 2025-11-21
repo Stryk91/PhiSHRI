@@ -1,0 +1,81 @@
+{
+  "door_code": "T58VECTOR",
+  "semantic_path": "TOOLS.LOGGING.VECTOR",
+  "aliases": [
+    "vector",
+    "vector sink",
+    "vector source",
+    "vector transform",
+    "data pipeline",
+    "observability pipeline"
+  ],
+  "context_bundle": {
+    "summary": "Vector is a high-performance, end-to-end observability data pipeline for collecting, transforming, and routing logs, metrics, and traces",
+    "prerequisites": [
+      "T10OBSERVABILITY"
+    ],
+    "related_doors": [
+      "T55ELK_STACK",
+      "T56LOKI",
+      "T57FLUENTD",
+      "T59SPLUNK"
+    ],
+    "onboarding": {
+      "quick_start": "helm install vector vector/vector --namespace vector --set role=Agent && kubectl get pods -n vector",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/LOGGING/T58VECTOR_GUIDE.md",
+      "common_patterns": [
+        "Source configuration: 'vector.toml' with 'file' source for log collection from files",
+        "Transform pipeline: 'remap' transforms with '.status = string!(.status)' for data transformation",
+        "Sink configuration: 'elasticsearch' sink with 'endpoints = [&quot;http://elasticsearch:9200&quot;]'",
+        "Health monitoring: 'vector tap sources' and 'vector tap transforms' for real-time debugging",
+        "Load balancing: 'elasticsearch' sink with 'batch.max_events = 1000' for throughput optimization",
+        "Multiple outputs: 'fork' transform to send data to multiple destinations simultaneously"
+      ],
+      "known_errors": [
+        "No events received: 'vector sources list' and verify file paths and permissions",
+        "High CPU usage: 'vector top' and optimize transform regex complexity and buffer sizes",
+        "Connection refused: 'curl http://elasticsearch:9200' and verify sink endpoint configuration",
+        "Backpressure: 'vector tap buffers' and increase buffer max_events and timeout values",
+        "Configuration validation: 'vector config validate /etc/vector/vector.toml' to check syntax errors"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/LOGGING/T58VECTOR_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/LOGGING_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:12:33.836562Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "vector",
+        "vector sink",
+        "vector source",
+        "vector transform",
+        "data pipeline"
+      ],
+      "category": "TOOLS",
+      "subcategory": "LOGGING",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

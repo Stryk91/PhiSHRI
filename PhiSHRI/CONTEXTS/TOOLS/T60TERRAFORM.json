@@ -1,0 +1,81 @@
+{
+  "door_code": "T60TERRAFORM",
+  "semantic_path": "TOOLS.IAC.TERRAFORM",
+  "aliases": [
+    "terraform",
+    "hcl",
+    "terraform modules",
+    "terraform state",
+    "terraform plan",
+    "terraform apply"
+  ],
+  "context_bundle": {
+    "summary": "Terraform is an infrastructure as code tool that enables safe, predictable infrastructure changes across multiple cloud providers",
+    "prerequisites": [
+      "T14TERRAFORM"
+    ],
+    "related_doors": [
+      "T61PULUMI",
+      "T62CROSSPLANE",
+      "T63AWS_CDK",
+      "T64ANSIBLE_ADV"
+    ],
+    "onboarding": {
+      "quick_start": "terraform init && terraform plan && terraform apply -auto-approve && terraform state list",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/IAC/T60TERRAFORM_GUIDE.md",
+      "common_patterns": [
+        "Initialization: terraform init to download provider plugins and configure backend",
+        "Planning: terraform plan -out=tfplan to generate execution plan and save to file",
+        "Deployment: terraform apply tfplan to execute planned changes exactly as reviewed",
+        "Module usage: module 'vpc' { source = './modules/vpc' version = '>= 1.0.0' }",
+        "State management: terraform state mv aws_instance.old aws_instance.new to rename resources",
+        "Remote backend: backend 's3' { bucket = 'terraform-state' key = 'prod/terraform.tfstate' region = 'us-east-1' }"
+      ],
+      "known_errors": [
+        "Provider not found: 'terraform init -upgrade' and verify required_providers block in main.tf",
+        "State lock error: 'terraform force-unlock LOCK_ID' after verifying no other terraform processes running",
+        "Resource drift: 'terraform plan -detailed-exitcode' and 'terraform refresh' to reconcile state with reality",
+        "Validation failed: 'terraform validate' to check syntax and 'terraform fmt' to fix formatting issues",
+        "Backend configuration: 'terraform init -migrate-state' when changing backend configuration"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/IAC/T60TERRAFORM_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/IAC_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:11:40.486324Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "terraform",
+        "hcl",
+        "terraform modules",
+        "terraform state",
+        "terraform plan"
+      ],
+      "category": "TOOLS",
+      "subcategory": "IAC",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

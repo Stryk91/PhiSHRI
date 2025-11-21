@@ -1,0 +1,81 @@
+{
+  "door_code": "T63AWS_CDK",
+  "semantic_path": "TOOLS.IAC.AWS_CDK",
+  "aliases": [
+    "aws cdk",
+    "cloud development kit",
+    "cdk",
+    "aws cdk synth",
+    "aws cdk deploy",
+    "cdk construct"
+  ],
+  "context_bundle": {
+    "summary": "AWS CDK is an open-source software development framework for defining cloud infrastructure in code and provisioning it through AWS CloudFormation",
+    "prerequisites": [
+      "T14TERRAFORM"
+    ],
+    "related_doors": [
+      "T60TERRAFORM",
+      "T61PULUMI",
+      "T62CROSSPLANE",
+      "T64ANSIBLE_ADV"
+    ],
+    "onboarding": {
+      "quick_start": "cdk init app --language typescript && npm install @aws-cdk/aws-s3 && cdk deploy",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/IAC/T63AWS_CDK_GUIDE.md",
+      "common_patterns": [
+        "App initialization: 'cdk init app --language <language>' to scaffold new CDK project",
+        "Stack definition: 'export class MyStack extends cdk.Stack { constructor(scope, id, props) { super(scope, id, props)'",
+        "Construct usage: 'new s3.Bucket(this, 'MyBucket', { versioned: true, encryption: s3.BucketEncryption.S3_MANAGED })'",
+        "Dependencies: 'npm install @aws-cdk/aws-<service>' or 'pip install aws-cdk.<service>' for service constructs",
+        "Synthesis: 'cdk synth' to generate CloudFormation template from CDK code",
+        "Diff deployment: 'cdk diff' to preview changes before deployment"
+      ],
+      "known_errors": [
+        "Bootstrap required: 'cdk bootstrap aws://ACCOUNT/REGION' for initial CDK deployment setup",
+        "Synthesis failed: 'npm run build' to compile TypeScript before cdk synth",
+        "Permission denied: 'aws sts get-caller-identity' and verify IAM credentials and permissions",
+        "Stack creation failed: 'aws cloudformation describe-stack-events --stack-name MyStack' for error details",
+        "Asset upload error: 'cdk deploy --asset-ecr-repository-name <repo>' to fix container asset storage"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/IAC/T63AWS_CDK_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/IAC_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:12:33.836987Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "aws cdk",
+        "cloud development kit",
+        "cdk",
+        "aws cdk synth",
+        "aws cdk deploy"
+      ],
+      "category": "TOOLS",
+      "subcategory": "IAC",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

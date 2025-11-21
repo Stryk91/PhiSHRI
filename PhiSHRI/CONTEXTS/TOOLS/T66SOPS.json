@@ -1,0 +1,81 @@
+{
+  "door_code": "T66SOPS",
+  "semantic_path": "TOOLS.SECRETS.SOPS",
+  "aliases": [
+    "sops",
+    "mozilla sops",
+    "encrypted files",
+    "git secrets",
+    "sops encrypt",
+    "sops decrypt"
+  ],
+  "context_bundle": {
+    "summary": "SOPS is an editor of encrypted files that supports YAML, JSON, TOML, and binary formats with various encryption methods",
+    "prerequisites": [
+      "S05SECRETS"
+    ],
+    "related_doors": [
+      "T65VAULT_ADV",
+      "T67SEALED_SECRETS",
+      "T68EXTERNAL_SECRETS",
+      "T69KMS"
+    ],
+    "onboarding": {
+      "quick_start": "echo 'secret_data: value' > secret.yaml && sops --encrypt --kms 'arn:aws:kms:us-east-1:123456789:key/abcd1234' secret.yaml > secret.encrypted.yaml",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/SECRETS/T66SOPS_GUIDE.md",
+      "common_patterns": [
+        "File encryption: 'sops --encrypt --kms <key-arn> file.yaml > file.encrypted.yaml'",
+        "File decryption: 'sops --decrypt file.encrypted.yaml > file.yaml'",
+        "Git integration: 'git-crypt init && git-crypt add-gpg-user <email>' for repository-wide encryption",
+        "Key configuration: .sops.yaml with creation_rules for different key types (KMS, GCP, GPG)",
+        "Editor integration: 'export EDITOR=vim && sops file.yaml' for seamless edit/encrypt workflow",
+        "CI/CD usage: 'sops --decrypt --encrypted-regex '^(data|stringData)$' secrets.yaml > secrets.decrypted.yaml'"
+      ],
+      "known_errors": [
+        "KMS permission denied: 'aws kms describe-key --key-id <key-arn>' and verify IAM permissions for kms:Encrypt/Decrypt",
+        "Invalid MAC: 'sops --updatekeys -y file.yaml' when encryption keys have changed",
+        "Git diff noise: 'git diff --ignore-cr-at-eof' and configure .gitattributes for encrypted files",
+        "Decryption failed: 'sops --extract <path> file.yaml' to verify specific field encryption",
+        "GPG key not found: 'gpg --list-secret-keys' and import required GPG keys with 'gpg --import private.key'"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/SECRETS/T66SOPS_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/SECRETS_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:11:53.872199Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "sops",
+        "mozilla sops",
+        "encrypted files",
+        "git secrets",
+        "sops encrypt"
+      ],
+      "category": "TOOLS",
+      "subcategory": "SECRETS",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "door_code": "T61PULUMI",
+  "semantic_path": "TOOLS.IAC.PULUMI",
+  "aliases": [
+    "pulumi",
+    "pulumi stack",
+    "pulumi program",
+    "infrastructure as code",
+    "pulumi aws",
+    "pulumi kubernetes"
+  ],
+  "context_bundle": {
+    "summary": "Pulumi is an infrastructure as code tool that uses general-purpose programming languages to define and manage cloud infrastructure",
+    "prerequisites": [
+      "T14TERRAFORM"
+    ],
+    "related_doors": [
+      "T60TERRAFORM",
+      "T62CROSSPLANE",
+      "T63AWS_CDK",
+      "T64ANSIBLE_ADV"
+    ],
+    "onboarding": {
+      "quick_start": "pulumi new aws-typescript && pulumi config set aws:region us-west-2 && pulumi up",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/IAC/T61PULUMI_GUIDE.md",
+      "common_patterns": [
+        "Project creation: 'pulumi new <template>' to scaffold new project with language and cloud",
+        "Stack configuration: 'pulumi config set aws:region us-west-2 --secret' for sensitive values",
+        "Resource definition: 'const bucket = new aws.s3.Bucket('my-bucket', { acl: 'private' })' in TypeScript",
+        "Stack outputs: 'export const bucketName = bucket.id' and 'pulumi stack output bucketName'",
+        "Component resources: 'export class MyComponent extends pulumi.ComponentResource' for reusable infrastructure",
+        "Automation API: 'pulumi.up({ stack, program })' for programmatic deployment"
+      ],
+      "known_errors": [
+        "Configuration not found: 'pulumi config --show-secrets' and verify stack is selected with 'pulumi stack select'",
+        "AWS credentials invalid: 'aws sts get-caller-identity' and verify AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY",
+        "Resource creation failed: 'pulumi up --diff' and check resource dependencies and permissions",
+        "TypeError in code: 'pulumi preview' to validate code before deployment and check type definitions",
+        "State corruption: 'pulumi stack history' and 'pulumi stack --force' to recover from state issues"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/IAC/T61PULUMI_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/IAC_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:11:53.872050Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "pulumi",
+        "pulumi stack",
+        "pulumi program",
+        "infrastructure as code",
+        "pulumi aws"
+      ],
+      "category": "TOOLS",
+      "subcategory": "IAC",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

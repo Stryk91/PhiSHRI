@@ -1,0 +1,81 @@
+{
+  "door_code": "T74IMAGE_AUTOMATION",
+  "semantic_path": "TOOLS.GITOPS.IMAGE_AUTOMATION",
+  "aliases": [
+    "image automation",
+    "image update automation",
+    "gitops image",
+    "container image update",
+    "flux image"
+  ],
+  "context_bundle": {
+    "summary": "Image automation automatically updates container image tags in Git repositories based on new registry versions",
+    "prerequisites": [
+      "T25DOCKER",
+      "T71GITOPS"
+    ],
+    "related_doors": [
+      "T70FLUX",
+      "T71GITOPS",
+      "T72DRIFT_DETECTION",
+      "T73PROGRESSIVE_DELIVERY"
+    ],
+    "onboarding": {
+      "quick_start": "flux create image update my-app --image=my-app --tag-semver=~1.0 --git-branch=main && flux reconcile image update my-app",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/GITOPS/T74IMAGE_AUTOMATION_GUIDE.md",
+      "common_patterns": [
+        "Image update controller: 'flux create image update --image=my-image --git-branch=main --interval=5m'",
+        "Tag filtering: '--tag-semver=~1.0' or '--tag-regex=^1\\.\\d+\\.\\d+$' for version matching",
+        "Commit strategy: '--commit-message='Image update&quot; and --author='fluxcdbot <users@example.com>'",
+        "Push automation: '--git-push=secret' and configure git credentials for automated commits",
+        "Scan intervals: '--interval=5m' for frequent scanning or '--interval=1h' for resource efficiency",
+        "Multiple repositories: 'flux create image repository --image=registry.com/repo/image' for custom registries"
+      ],
+      "known_errors": [
+        "Scan failed: 'flux get image repositories' and check repository connectivity and authentication",
+        "Commit rejected: 'git push --dry-run' and verify branch protection rules and permissions",
+        "No new versions: 'flux get image update' and verify registry access and tag filtering rules",
+        "Authentication error: 'kubectl create secret docker-registry regcred --docker-server=registry.com' for registry access",
+        "Merge conflicts: 'flux reconcile image update --force' to overwrite conflicting changes"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/GITOPS/T74IMAGE_AUTOMATION_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/GITOPS_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:12:33.837995Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "image automation",
+        "image update automation",
+        "gitops image",
+        "container image update",
+        "flux image"
+      ],
+      "category": "TOOLS",
+      "subcategory": "GITOPS",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

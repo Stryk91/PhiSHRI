@@ -1,0 +1,81 @@
+{
+  "door_code": "T71GITOPS",
+  "semantic_path": "TOOLS.GITOPS.GITOPS",
+  "aliases": [
+    "gitops",
+    "git ops",
+    "gitops principles",
+    "gitops workflow",
+    "gitops best practices"
+  ],
+  "context_bundle": {
+    "summary": "GitOps is a modern framework for continuous delivery that uses Git as the single source of truth for declarative infrastructure and applications",
+    "prerequisites": [
+      "T33ARGOCD",
+      "T70FLUX"
+    ],
+    "related_doors": [
+      "T70FLUX",
+      "T72DRIFT_DETECTION",
+      "T73PROGRESSIVE_DELIVERY",
+      "T74IMAGE_AUTOMATION"
+    ],
+    "onboarding": {
+      "quick_start": "git clone git@github.com:org/infrastructure.git && cd infrastructure && kubectl apply -f k8s/ && git commit -am 'Updated deployment version' && git push origin main",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/GITOPS/T71GITOPS_GUIDE.md",
+      "common_patterns": [
+        "Declarative configs: All resources defined in YAML with apiVersion, kind, and metadata",
+        "Version control: '.gitignore' for secrets, track all manifests in git repository",
+        "Pull request workflow: 'git checkout -b feature-branch && git commit && git push origin feature-branch' for changes",
+        "Automated sync: ArgoCD or Flux controller watching git repository and applying changes to cluster",
+        "Environment promotion: 'git checkout -b production && git merge main && git push origin production' for promotion",
+        "Rollback: 'git revert <commit-hash>' and controllers automatically revert infrastructure state"
+      ],
+      "known_errors": [
+        "Sync failed: 'kubectl get events --sort-by=.metadata.creationTimestamp' and check for webhook admission errors",
+        "Drift detected: 'git diff HEAD && kubectl diff -f k8s/' to identify manual changes vs git state",
+        "Merge conflicts: 'git pull --rebase origin main' to resolve conflicts before pushing changes",
+        "Secrets in git: 'git filter-branch --force --index-filter' to remove committed secrets and implement encryption",
+        "RBAC issues: 'kubectl auth can-i create deployments' and verify service account permissions for automated sync"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/GITOPS/T71GITOPS_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/GITOPS_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:11:53.872343Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "gitops",
+        "git ops",
+        "gitops principles",
+        "gitops workflow",
+        "gitops best practices"
+      ],
+      "category": "TOOLS",
+      "subcategory": "GITOPS",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

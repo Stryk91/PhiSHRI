@@ -1,0 +1,81 @@
+{
+  "door_code": "T75BACKSTAGE",
+  "semantic_path": "TOOLS.PLATFORM.BACKSTAGE",
+  "aliases": [
+    "backstage",
+    "spotify backstage",
+    "developer portal",
+    "backstage catalog",
+    "backstage plugins",
+    "software catalog"
+  ],
+  "context_bundle": {
+    "summary": "Backstage is an open platform for building developer portals that centralizes and standardizes tooling, services, and infrastructure",
+    "prerequisites": [
+      "T26KUBERNETES"
+    ],
+    "related_doors": [
+      "T76PORT",
+      "T77KRATIX",
+      "T78IDP",
+      "T79PLATFORM_TEAMS"
+    ],
+    "onboarding": {
+      "quick_start": "npx @backstage/create-app@latest --path=backstage-app && cd backstage-app && yarn dev",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/PLATFORM/T75BACKSTAGE_GUIDE.md",
+      "common_patterns": [
+        "App creation: 'npx @backstage/create-app@latest' to scaffold new Backstage application",
+        "Plugin development: 'yarn new plugin frontend my-plugin' to generate plugin scaffolding",
+        "Entity registration: 'location: type: url, target: https://github.com/org/repo/blob/main/catalog-info.yaml'",
+        "Software catalog: 'apiVersion: backstage.io/v1alpha1 kind: Component metadata: name: my-service spec: type: service lifecycle: experimental owner: team-a'",
+        "Authentication: 'app.config.oauth2.github' with clientId and clientSecret configuration",
+        "Tech docs: 'mkdocs.yml' in repository root and 'backstage.io/techdocs-ref' annotation in catalog entity"
+      ],
+      "known_errors": [
+        "Plugin not loading: 'yarn build' and restart dev server, check plugin entry in packages/app/src/plugins.ts",
+        "404 on catalog entities: 'curl -k https://backstage/api/catalog/entities/by-name/component/default/my-service' to verify entity registration",
+        "Auth callback error: Verify GitHub OAuth app settings and ensure callback URL matches 'https://backstage/api/auth/github/handler/frame'",
+        "Database connection failed: 'yarn start-backend --config app-config.local.yaml' and check POSTGRES_CONNECTION_STRING",
+        "Tech docs build failed: 'yarn backstage-cli repo build' and verify mkdocs.yml syntax and required plugins"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/PLATFORM/T75BACKSTAGE_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/PLATFORM_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:11:40.486770Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "backstage",
+        "spotify backstage",
+        "developer portal",
+        "backstage catalog",
+        "backstage plugins"
+      ],
+      "category": "TOOLS",
+      "subcategory": "PLATFORM",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

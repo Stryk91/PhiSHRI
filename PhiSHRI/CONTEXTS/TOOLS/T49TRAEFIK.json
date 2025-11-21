@@ -1,0 +1,82 @@
+{
+  "door_code": "T49TRAEFIK",
+  "semantic_path": "TOOLS.SERVICE_MESH.TRAEFIK",
+  "aliases": [
+    "traefik",
+    "traefik ingress",
+    "traefik middleware",
+    "traefik router",
+    "traefik service",
+    "traefik provider"
+  ],
+  "context_bundle": {
+    "summary": "Traefik is a modern HTTP reverse proxy and load balancer that makes deploying microservices easy with automatic service discovery",
+    "prerequisites": [
+      "T26KUBERNETES",
+      "T40K8S_NETWORKING"
+    ],
+    "related_doors": [
+      "T45ISTIO",
+      "T46LINKERD",
+      "T47ENVOY",
+      "T48CONSUL_MESH"
+    ],
+    "onboarding": {
+      "quick_start": "helm repo add traefik https://traefik.github.io/charts && helm install traefik traefik/traefik --namespace traefik --create-namespace && kubectl get svc -n traefik",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/SERVICE_MESH/T49TRAEFIK_GUIDE.md",
+      "common_patterns": [
+        "Helm installation: 'helm install traefik traefik/traefik -n traefik --set serviceType=LoadBalancer'",
+        "Static configuration: 'helm install --set additionalArguments={--providers.kubernetesingress.ingressclass=traefik}'",
+        "Dynamic routing: Ingress with 'kubernetes.io/ingress.class: traefik' and traefik.ingress.kubernetes.io/router.middlewares",
+        "Middleware configuration: Middleware resource with 'stripPrefix' or 'auth' configuration",
+        "TLS termination: 'helm install --set ports.websecure.tls.options=default' and Secret with TLS certificates",
+        "Dashboard: 'helm install --set dashboard.enabled=true' and access at /dashboard with BasicAuth"
+      ],
+      "known_errors": [
+        "404 Not Found: 'kubectl describe ingress <ingress-name>' and verify Traefik IngressClass and selectors",
+        "TLS certificate error: 'kubectl get certificate --all-namespaces' and check cert-manager integration",
+        "Middleware not working: 'curl -H 'Authorization: Basic <base64>' http://service' and verify middleware chain order",
+        "High memory usage: 'kubectl top pods -n traefik' and adjust pilot/traefik container resource limits",
+        "Dashboard 403: 'kubectl get secret -n traefik traefik-dashboard -o yaml' and verify BasicAuth credentials"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/SERVICE_MESH/T49TRAEFIK_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/SERVICE_MESH_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:12:33.835671Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "traefik",
+        "traefik ingress",
+        "traefik middleware",
+        "traefik router",
+        "traefik service"
+      ],
+      "category": "TOOLS",
+      "subcategory": "SERVICE_MESH",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "door_code": "T37CONTAINERD",
+  "semantic_path": "TOOLS.CONTAINER.CONTAINERD",
+  "aliases": [
+    "containerd",
+    "container runtime",
+    "ctr",
+    "nerdctl",
+    "containerd plugins",
+    "containerd shim"
+  ],
+  "context_bundle": {
+    "summary": "containerd is an industry-standard container runtime with focus on simplicity, robustness, and portability for Kubernetes and beyond",
+    "prerequisites": [
+      "T25DOCKER"
+    ],
+    "related_doors": [
+      "T35DOCKER_ADV",
+      "T36PODMAN",
+      "T38BUILDAH",
+      "T39KANIKO"
+    ],
+    "onboarding": {
+      "quick_start": "Initialize containerd Container Runtime, configure basic setup, and follow best practices for deployment and management",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/CONTAINER/T37CONTAINERD_GUIDE.md",
+      "common_patterns": [
+        "Setup: Initial configuration and deployment of containerd Container Runtime",
+        "Integration: Connect with existing tools and workflows",
+        "Monitoring: Implement observability and alerting",
+        "Security: Apply security best practices and access controls",
+        "Scaling: Design for growth and high availability",
+        "Automation: Automate routine tasks and operations"
+      ],
+      "known_errors": [
+        "Configuration errors: Validate settings and dependencies",
+        "Network issues: Check connectivity and firewall rules",
+        "Permission problems: Verify access rights and authentication",
+        "Resource constraints: Monitor CPU, memory, and storage",
+        "Version conflicts: Ensure compatibility between components"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/CONTAINER/T37CONTAINERD_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/CONTAINER_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T21:40:55.464726Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "containerd",
+        "container runtime",
+        "ctr",
+        "nerdctl",
+        "containerd plugins"
+      ],
+      "category": "TOOLS",
+      "subcategory": "CONTAINER",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "door_code": "T40K8S_NETWORKING",
+  "semantic_path": "TOOLS.KUBERNETES.NETWORKING",
+  "aliases": [
+    "kubernetes networking",
+    "k8s network",
+    "cni",
+    "service mesh",
+    "ingress",
+    "network policy",
+    "calico",
+    "flannel"
+  ],
+  "context_bundle": {
+    "summary": "Kubernetes Networking covers CNI plugins, Services, Ingress, NetworkPolicy, load balancing, and service discovery mechanisms",
+    "prerequisites": [
+      "T26KUBERNETES"
+    ],
+    "related_doors": [
+      "T41HELM",
+      "T42KUSTOMIZE",
+      "T43OPERATORS",
+      "T44CRDS",
+      "T45ISTIO"
+    ],
+    "onboarding": {
+      "quick_start": "Initialize Kubernetes Networking, configure basic setup, and follow best practices for deployment and management",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/KUBERNETES/T40K8S_NETWORKING_GUIDE.md",
+      "common_patterns": [
+        "Setup: Initial configuration and deployment of Kubernetes Networking",
+        "Integration: Connect with existing tools and workflows",
+        "Monitoring: Implement observability and alerting",
+        "Security: Apply security best practices and access controls",
+        "Scaling: Design for growth and high availability",
+        "Automation: Automate routine tasks and operations"
+      ],
+      "known_errors": [
+        "Configuration errors: Validate settings and dependencies",
+        "Network issues: Check connectivity and firewall rules",
+        "Permission problems: Verify access rights and authentication",
+        "Resource constraints: Monitor CPU, memory, and storage",
+        "Version conflicts: Ensure compatibility between components"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/KUBERNETES/T40K8S_NETWORKING_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/KUBERNETES_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T21:40:55.465019Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "kubernetes networking",
+        "k8s network",
+        "cni",
+        "service mesh",
+        "ingress"
+      ],
+      "category": "TOOLS",
+      "subcategory": "KUBERNETES",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

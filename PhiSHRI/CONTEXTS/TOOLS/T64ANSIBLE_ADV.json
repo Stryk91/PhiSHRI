@@ -1,0 +1,81 @@
+{
+  "door_code": "T64ANSIBLE_ADV",
+  "semantic_path": "TOOLS.IAC.ANSIBLE_ADV",
+  "aliases": [
+    "ansible advanced",
+    "ansible roles",
+    "ansible galaxy",
+    "ansible vault",
+    "ansible tower",
+    "ansible automation"
+  ],
+  "context_bundle": {
+    "summary": "Ansible Advanced covers roles, playbooks, modules, Ansible Tower, and enterprise-grade automation for configuration management",
+    "prerequisites": [
+      "T15ANSIBLE"
+    ],
+    "related_doors": [
+      "T60TERRAFORM",
+      "T61PULUMI",
+      "T62CROSSPLANE",
+      "T63AWS_CDK"
+    ],
+    "onboarding": {
+      "quick_start": "ansible-galaxy install community.docker && ansible-playbook site.yml --ask-vault-pass",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/IAC/T64ANSIBLE_ADV_GUIDE.md",
+      "common_patterns": [
+        "Role structure: 'roles/<role>/tasks/main.yml' with 'name: Install package yum: name=nginx state=present'",
+        "Variable usage: '{{ inventory_hostname }}' and '{{ vault_db_password }}' for dynamic configuration",
+        "Vault encryption: 'ansible-vault create secrets.yml' and 'ansible-vault encrypt secrets.yml'",
+        "Dynamic inventory: 'inventory_aws_ec2.yml' with 'plugin: aws_ec2' and 'regions: - us-east-1'",
+        "Template usage: 'template: src=config.j2 dest=/etc/app/config' for configuration file generation",
+        "Handler execution: 'notify: restart nginx' and 'handlers: - name: restart nginx service: name=nginx state=restarted'"
+      ],
+      "known_errors": [
+        "SSH connection failed: 'ansible all -m ping' and verify SSH keys, hosts file, and connectivity",
+        "Permission denied: 'ansible-playbook --become --ask-become-pass site.yml' for privilege escalation",
+        "Vault password error: 'ansible-vault decrypt --vault-password-file=vault-pass.txt' to verify password",
+        "Module not found: 'ansible-galaxy collection install <collection>' to install required collections",
+        "Syntax error: 'ansible-playbook --syntax-check site.yml' to validate playbook syntax before execution"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/IAC/T64ANSIBLE_ADV_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/IAC_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:12:33.837119Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "ansible advanced",
+        "ansible roles",
+        "ansible galaxy",
+        "ansible vault",
+        "ansible tower"
+      ],
+      "category": "TOOLS",
+      "subcategory": "IAC",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

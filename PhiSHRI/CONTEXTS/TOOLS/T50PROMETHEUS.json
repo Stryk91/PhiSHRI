@@ -1,0 +1,81 @@
+{
+  "door_code": "T50PROMETHEUS",
+  "semantic_path": "TOOLS.OBSERVABILITY.PROMETHEUS",
+  "aliases": [
+    "prometheus",
+    "promql",
+    "prometheus alerts",
+    "prometheus scraping",
+    "prometheus labels",
+    "prometheus targets"
+  ],
+  "context_bundle": {
+    "summary": "Prometheus is an open-source monitoring system with a dimensional data model, flexible query language, and efficient time series storage",
+    "prerequisites": [
+      "T10OBSERVABILITY"
+    ],
+    "related_doors": [
+      "T51GRAFANA",
+      "T52JAEGER",
+      "T53OPENTELEMETRY",
+      "T54DATADOG"
+    ],
+    "onboarding": {
+      "quick_start": "helm install prometheus prometheus-community/kube-prometheus-stack --namespace monitoring --create-namespace && kubectl get svc -n monitoring",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/OBSERVABILITY/T50PROMETHEUS_GUIDE.md",
+      "common_patterns": [
+        "Deployment: helm install prometheus prometheus-community/kube-prometheus-stack -n monitoring",
+        "Scrape config: ServiceMonitor with selector.matchLabels and endpoints definition",
+        "Alerting: PrometheusRule with groups and alert expressions with 'for: 5m' duration",
+        "Querying: 'rate(http_requests_total[5m])' and 'histogram_quantile(0.95, rate(http_duration_seconds_bucket[5m]))'",
+        "Remote write: remote_write config in prometheus.yml with url and auth credentials",
+        "Service discovery: 'kubectl get servicemonitors -n monitoring' to verify scrape targets"
+      ],
+      "known_errors": [
+        "Scrape targets down: 'kubectl get endpoints -n monitoring' and verify ServiceMonitor selectors match pod labels",
+        "Memory high: 'kubectl exec -n monitoring prometheus-0 -- promtool tsdb list' and adjust storage.tsdb.retention.time",
+        "Alert firing incorrectly: 'curl http://prometheus:9090/api/v1/rules' and check alerting rules syntax",
+        "Helm chart conflicts: 'helm uninstall prometheus -n monitoring && helm install prometheus prometheus-community/kube-prometheus-stack -n monitoring --set prometheus.prometheusSpec.storageSpec.volumeClaimTemplate.spec.resources.requests.storage=50Gi'",
+        "Remote write failed: 'kubectl logs -n monitoring prometheus-0 | grep remote_write' and verify authentication credentials"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/OBSERVABILITY/T50PROMETHEUS_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/OBSERVABILITY_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:11:40.486147Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "prometheus",
+        "promql",
+        "prometheus alerts",
+        "prometheus scraping",
+        "prometheus labels"
+      ],
+      "category": "TOOLS",
+      "subcategory": "OBSERVABILITY",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

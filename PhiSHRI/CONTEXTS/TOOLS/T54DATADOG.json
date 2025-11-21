@@ -1,0 +1,81 @@
+{
+  "door_code": "T54DATADOG",
+  "semantic_path": "TOOLS.OBSERVABILITY.DATADOG",
+  "aliases": [
+    "datadog",
+    "datadog apm",
+    "datadog logs",
+    "datadog metrics",
+    "datadog agent",
+    "datadog monitor"
+  ],
+  "context_bundle": {
+    "summary": "Datadog is a unified observability platform providing monitoring, security, and analytics for cloud-scale applications",
+    "prerequisites": [
+      "T10OBSERVABILITY"
+    ],
+    "related_doors": [
+      "T50PROMETHEUS",
+      "T51GRAFANA",
+      "T52JAEGER",
+      "T53OPENTELEMETRY"
+    ],
+    "onboarding": {
+      "quick_start": "helm repo add datadog https://helm.datadoghq.com && helm install datadog-agent datadog/datadog --namespace datadog --set datadog.apiKey=<api-key>",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/OBSERVABILITY/T54DATADOG_GUIDE.md",
+      "common_patterns": [
+        "Agent deployment: 'helm install datadog-agent --set datadog.apiKey=<key> --set datadog.site=datadoghq.com'",
+        "APM tracing: Set 'apm.enabled=true' and instrument applications with Datadog tracing libraries",
+        "Log collection: 'logs.enabled=true' and 'logs.collect_all_logs=true' for comprehensive logging",
+        "Custom metrics: 'HistogramMetricFamily' in DogStatsD with 'service.check.response_time:1|h|@0.5'",
+        "Process monitoring: 'processAgent.enabled=true' and 'processAgent.processCollection.enabled=true'",
+        "Integrations: 'confd:<config_name>.yaml' for specific technology integrations (Redis, Postgres, etc.)"
+      ],
+      "known_errors": [
+        "API key invalid: 'curl -H 'DD-API-KEY: <key>' https://api.datadoghq.com/api/v1/validate' and verify key permissions",
+        "High memory usage: 'kubectl top pods -n datadog' and adjust 'datadog.resources.requests.memory'",
+        "No APM traces: 'curl http://localhost:8126/v0.7/pipelines' and verify application instrumentation",
+        "Logs not collected: 'kubectl logs -n datadog datadog-agent' and check log collection configuration",
+        "Dashboard empty: 'ddog dashboard list' and verify metric names and tags match dashboard queries"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/OBSERVABILITY/T54DATADOG_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/OBSERVABILITY_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:12:33.836124Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "datadog",
+        "datadog apm",
+        "datadog logs",
+        "datadog metrics",
+        "datadog agent"
+      ],
+      "category": "TOOLS",
+      "subcategory": "OBSERVABILITY",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}

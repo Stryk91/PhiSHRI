@@ -1,0 +1,81 @@
+{
+  "door_code": "T39KANIKO",
+  "semantic_path": "TOOLS.CONTAINER.KANIKO",
+  "aliases": [
+    "kaniko",
+    "google kaniko",
+    "kubernetes image builder",
+    "dockerless build",
+    "kaniko executor"
+  ],
+  "context_bundle": {
+    "summary": "Kaniko is a tool to build container images from a Dockerfile inside a container or Kubernetes cluster without Docker daemon",
+    "prerequisites": [
+      "T25DOCKER",
+      "T26KUBERNETES"
+    ],
+    "related_doors": [
+      "T35DOCKER_ADV",
+      "T36PODMAN",
+      "T37CONTAINERD",
+      "T38BUILDAH"
+    ],
+    "onboarding": {
+      "quick_start": "Initialize Kaniko Container Image Builder, configure basic setup, and follow best practices for deployment and management",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_TOOLS/CONTAINER/T39KANIKO_GUIDE.md",
+      "common_patterns": [
+        "Setup: Initial configuration and deployment of Kaniko Container Image Builder",
+        "Integration: Connect with existing tools and workflows",
+        "Monitoring: Implement observability and alerting",
+        "Security: Apply security best practices and access controls",
+        "Scaling: Design for growth and high availability",
+        "Automation: Automate routine tasks and operations"
+      ],
+      "known_errors": [
+        "Configuration errors: Validate settings and dependencies",
+        "Network issues: Check connectivity and firewall rules",
+        "Permission problems: Verify access rights and authentication",
+        "Resource constraints: Monitor CPU, memory, and storage",
+        "Version conflicts: Ensure compatibility between components"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_TOOLS/CONTAINER/T39KANIKO_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/10_DEVOPS/CONTAINER_BEST_PRACTICES.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T21:40:55.464883Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "kaniko",
+        "google kaniko",
+        "kubernetes image builder",
+        "dockerless build",
+        "kaniko executor"
+      ],
+      "category": "TOOLS",
+      "subcategory": "CONTAINER",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Kubernetes",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC",
+        "TERMC"
+      ]
+    }
+  }
+}
