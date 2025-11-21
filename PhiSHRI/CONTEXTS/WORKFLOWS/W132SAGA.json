@@ -1,0 +1,66 @@
+{
+  "door_code": "W132SAGA",
+  "semantic_path": "WORKFLOWS.DISTRIBUTED.SAGA_PATTERN",
+  "aliases": ["saga", "distributed transaction", "compensation", "long-running transaction"],
+  "context_bundle": {
+    "summary": "Saga pattern for distributed transactions: break long-running transaction into sequence of local transactions with compensating actions for rollback. Each step either succeeds (commit) or fails (triggers compensation chain). Two approaches: orchestration (central coordinator) and choreography (event-driven).",
+    "prerequisites": ["R07SAGA_PATTERN", "W122DAG", "W115MESSAGE_QUEUE"],
+    "related_doors": ["W133IDEMPOTENCY", "W134DISTRIBUTED_TX", "W128DEAD_LETTER", "R04EVENT_DRIVEN"],
+    "onboarding": {
+      "quick_start": "Saga steps: 1) Break distributed transaction into local transactions T1,T2,T3..., 2) Each Ti has compensating action Ci, 3) If Tn fails, execute Cn-1, Cn-2, ... C1 in reverse order, 4) Use orchestrator (central coord) or choreography (events), 5) Make operations idempotent.",
+      "full_context_path": "/PhiDEX/PhiSync/03_COORDINATION_PATTERNS/SAGA_COMPENSATION_GUIDE.md",
+      "common_patterns": [
+        "Orchestrator-based: Central service coordinates saga, calls each step sequentially",
+        "Choreography-based: Each service listens for events, publishes next event on success",
+        "Compensation: Define inverse operation for each step (refund payment, release inventory)",
+        "State machine: Track saga state (pending, completed, compensating, failed)",
+        "Timeout handling: Set max duration per step, trigger compensation if timeout",
+        "Idempotency: Use correlation IDs to prevent duplicate step execution"
+      ],
+      "known_errors": [
+        {
+          "error": "Partial failure leaves system in inconsistent state",
+          "cause": "Step 3 fails but Steps 1-2 committed, no compensation logic",
+          "solution": "Implement compensating transactions: C2 reverses Step 2, C1 reverses Step 1",
+          "prevention": "Design each step with compensation in mind from the start",
+          "example": "Order saga: Reserve inventory (C=Release), Charge card (C=Refund), Ship order (C=Cancel shipment)"
+        },
+        {
+          "error": "Compensation step fails, leaving saga stuck",
+          "cause": "Compensation action (e.g., refund payment) encounters error",
+          "solution": "Retry compensation with exponential backoff, move to manual review queue if retries exhausted",
+          "prevention": "Make compensations idempotent and highly reliable, log all compensation attempts",
+          "related_door": "W128DEAD_LETTER"
+        },
+        {
+          "error": "Race condition: saga executes twice for same request",
+          "cause": "Duplicate requests or retry without idempotency check",
+          "solution": "Use correlation ID + idempotency key, check if saga already in progress/completed",
+          "prevention": "Store saga state in durable storage with unique constraint on correlation ID",
+          "related_door": "W133IDEMPOTENCY"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/PhiSync/03_COORDINATION_PATTERNS/SAGA_COMPENSATION_GUIDE.md",
+        "/PhiDEX/MASTER_CODEX/02_ARCHITECTURE/DISTRIBUTED_PATTERNS_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T04:15:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["saga", "distributed_transaction", "compensation", "orchestration", "choreography"],
+      "category": "WORKFLOWS",
+      "subcategory": "DISTRIBUTED",
+      "version": "1.0.0",
+      "tested_on": ["Microservices", "Distributed systems"],
+      "agent_affinity": ["VSCC", "DC", "WEBC"]
+    }
+  }
+}

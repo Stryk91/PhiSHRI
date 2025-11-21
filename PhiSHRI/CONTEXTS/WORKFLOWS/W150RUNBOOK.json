@@ -1,0 +1,58 @@
+{
+  "door_code": "W150RUNBOOK",
+  "semantic_path": "workflows/sre/runbook-automation",
+  "title": "Runbook Automation",
+  "aliases": [
+    "runbook",
+    "playbook",
+    "operational procedure",
+    "runbook automation",
+    "automated remediation",
+    "self-healing"
+  ],
+  "summary": "Documenting and automating operational procedures for consistent incident response",
+  "context_bundle": {
+    "concepts": [
+      "Runbook: Step-by-step procedure for operational tasks",
+      "Playbook: Decision tree for incident types",
+      "Automation levels: Manual -> Semi-auto -> Full auto",
+      "Self-healing: Automated remediation without human",
+      "Runbook-as-code: Version controlled procedures"
+    ],
+    "patterns": [
+      "Start with manual runbook, then automate",
+      "Include verification steps after each action",
+      "Link runbooks to alerts",
+      "Test runbooks regularly (game days)",
+      "Track runbook usage and effectiveness"
+    ],
+    "examples": {
+      "runbook_structure": [
+        "Overview: What this runbook addresses",
+        "Prerequisites: Access, tools needed",
+        "Steps: Numbered actions with commands",
+        "Verification: How to confirm success",
+        "Escalation: When to involve others",
+        "Rollback: How to undo if needed"
+      ],
+      "automation_example": "Alert fires -> Rundeck job triggered -> Restarts service -> Verifies health -> Closes alert or escalates"
+    },
+    "tools": [
+      "Rundeck",
+      "StackStorm",
+      "PagerDuty Runbook Automation",
+      "Ansible Tower",
+      "GitHub Actions"
+    ],
+    "antipatterns": [
+      "Runbooks not updated after changes",
+      "No runbook for common alerts",
+      "Automating without understanding",
+      "No testing of automated runbooks"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T06:16:29.396570",
+  "version": "1.0.0"
+}

@@ -1,0 +1,66 @@
+{
+  "door_code": "W153TOIL",
+  "semantic_path": "workflows/sre/toil-reduction",
+  "title": "Toil Reduction",
+  "aliases": [
+    "toil",
+    "toil reduction",
+    "automation",
+    "manual work",
+    "operational overhead",
+    "interrupt driven"
+  ],
+  "summary": "Identifying and eliminating repetitive manual operational work",
+  "context_bundle": {
+    "concepts": [
+      "Toil: Manual, repetitive, automatable, no enduring value",
+      "Toil budget: Maximum acceptable toil (typically <50%)",
+      "Engineering work: Permanent improvement, reduces future toil",
+      "Interrupt-driven work: Unplanned operational tasks",
+      "Toil debt: Accumulated manual work backlog"
+    ],
+    "patterns": [
+      "Track toil in tickets/time tracking",
+      "Categorize work: Toil vs Engineering",
+      "Prioritize automation by frequency * time",
+      "Aim for 50% engineering, 50% ops max",
+      "Make toil visible to leadership"
+    ],
+    "examples": {
+      "toil_characteristics": [
+        "Manual: Human must do it",
+        "Repetitive: Done over and over",
+        "Automatable: Could be scripted",
+        "Tactical: Reactive, not strategic",
+        "No enduring value: Doesn't improve system",
+        "Scales with load: More users = more toil"
+      ],
+      "automation_roi": "time_saved_per_occurrence * occurrences_per_year > automation_cost",
+      "tracking_categories": [
+        "Deployments",
+        "Access requests",
+        "Restarts",
+        "Data fixes",
+        "Report generation"
+      ]
+    },
+    "tools": [
+      "Jira",
+      "Linear",
+      "Time tracking",
+      "Rundeck",
+      "Ansible"
+    ],
+    "antipatterns": [
+      "Accepting toil as normal",
+      "Not tracking toil time",
+      "Automating rare tasks",
+      "Over-engineering automation",
+      "No time allocated for toil reduction"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T06:16:29.399056",
+  "version": "1.0.0"
+}

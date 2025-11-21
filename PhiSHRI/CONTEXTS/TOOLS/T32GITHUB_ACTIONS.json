@@ -1,0 +1,74 @@
+{
+  "door_code": "T32GITHUB_ACTIONS",
+  "semantic_path": "TOOLS.CICD.GITHUB_ACTIONS",
+  "aliases": [
+    "github actions",
+    "gha",
+    "workflows",
+    ".github/workflows",
+    "actions runner"
+  ],
+  "context_bundle": {
+    "summary": "GitHub Actions: Native CI/CD for GitHub. YAML workflows in .github/workflows/. Key features: matrix builds, reusable workflows, marketplace actions, self-hosted runners, OIDC for cloud auth, secrets management, caching, artifacts, environments with protection rules.",
+    "prerequisites": [
+      "T11CICD",
+      "W15CICD",
+      "W36GITHUB_ACTIONS"
+    ],
+    "related_doors": [
+      "T30GITLAB",
+      "T31JENKINS",
+      "T36ARGOCD",
+      "S30INTEGRITY_FAILURES"
+    ],
+    "onboarding": {
+      "quick_start": "GitHub Actions: 1) Create .github/workflows/ci.yml, 2) Define on: [push, pull_request], 3) Add jobs with runs-on: ubuntu-latest, 4) Use actions/checkout@v4, actions/setup-node@v4, 5) Cache dependencies with actions/cache@v4.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Matrix: strategy: matrix: { node: [18, 20], os: [ubuntu-latest, windows-latest] }",
+        "Caching: uses: actions/cache@v4 with: { path: node_modules, key: ${{ hashFiles('package-lock.json') }} }",
+        "Secrets: ${{ secrets.API_KEY }}",
+        "OIDC: permissions: { id-token: write } for cloud provider auth"
+      ],
+      "known_errors": [
+        {
+          "error": "Resource not accessible by integration",
+          "cause": "Workflow lacks required permissions (contents, issues, pull-requests)",
+          "solution": "Add permissions block: permissions: { contents: read, pull-requests: write }",
+          "prevention": "Explicitly declare minimal permissions per job"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T18:39:53Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "github",
+        "actions",
+        "cicd",
+        "devops",
+        "workflows"
+      ],
+      "category": "TOOLS",
+      "subcategory": "CICD",
+      "version": "1.0.0",
+      "tested_on": [
+        "GitHub.com",
+        "GitHub Enterprise"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

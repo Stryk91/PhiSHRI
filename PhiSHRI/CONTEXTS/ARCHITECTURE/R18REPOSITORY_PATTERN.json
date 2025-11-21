@@ -1,0 +1,58 @@
+{
+  "door_code": "R18REPOSITORY_PATTERN",
+  "semantic_path": "ARCHITECTURE.DESIGN_PATTERNS.REPOSITORY",
+  "aliases": [
+    "repository",
+    "data access",
+    "persistence layer",
+    "DAO"
+  ],
+  "context_bundle": {
+    "summary": "Repository pattern mediates between domain and data mapping layers: Act like in-memory collection of objects, encapsulate query logic, abstract data source (SQL, NoSQL, files). Separate interface (contract) from implementation (concrete repository).",
+    "prerequisites": [
+      "R09FACTORY_PATTERN"
+    ],
+    "related_doors": [
+      "R08CQRS",
+      "W55POSTGRES",
+      "W56MONGODB"
+    ],
+    "onboarding": {
+      "quick_start": "Repository pattern mediates between domain and data mapping layers: Act like in-memory collection of objects, encapsulate query logic, abstract data source (SQL, NoSQL, files). Separate interface (contract) from implementation (concrete repository).",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/02_ARCHITECTURE/DESIGN_PATTERNS_GUIDE.md",
+      "common_patterns": [],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/02_ARCHITECTURE/DESIGN_PATTERNS_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T04:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "repository",
+        "data access",
+        "persistence layer",
+        "DAO"
+      ],
+      "category": "ARCHITECTURE",
+      "subcategory": "DESIGN_PATTERNS",
+      "version": "1.0.0",
+      "tested_on": [
+        "All platforms"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "WEBC"
+      ]
+    }
+  }
+}

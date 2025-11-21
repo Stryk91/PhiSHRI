@@ -1,0 +1,62 @@
+{
+  "door_code": "S44API_GATEWAY_SEC",
+  "semantic_path": "security/api-gateway/security",
+  "title": "API Gateway Security",
+  "aliases": [
+    "api gateway",
+    "api security",
+    "rate limiting",
+    "api authentication",
+    "oauth gateway",
+    "kong security",
+    "apigee"
+  ],
+  "summary": "Securing APIs at the gateway level with authentication, rate limiting, and validation",
+  "context_bundle": {
+    "concepts": [
+      "API Gateway: Single entry point for API traffic",
+      "Authentication: OAuth2, API keys, JWT validation",
+      "Rate limiting: Protect against abuse and DDoS",
+      "Request validation: Schema enforcement",
+      "IP allowlisting: Restrict access by source"
+    ],
+    "patterns": [
+      "Authenticate all API requests at gateway",
+      "Implement rate limiting per client/endpoint",
+      "Validate request schemas before forwarding",
+      "Use TLS termination at gateway",
+      "Log all requests for audit trail"
+    ],
+    "examples": {
+      "rate_limit_config": {
+        "requests_per_second": 100,
+        "burst": 200,
+        "key": "client_id"
+      },
+      "jwt_validation": {
+        "issuer": "https://auth.example.com",
+        "audience": "api.example.com",
+        "jwks_uri": "https://auth.example.com/.well-known/jwks.json"
+      },
+      "request_validation": "OpenAPI spec validation with schema enforcement"
+    },
+    "tools": [
+      "Kong",
+      "AWS API Gateway",
+      "Apigee",
+      "Azure API Management",
+      "Tyk",
+      "Envoy"
+    ],
+    "antipatterns": [
+      "No authentication on internal APIs",
+      "No rate limiting",
+      "Exposing backend errors to clients",
+      "API keys in URL query params"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T06:37:06.676109",
+  "version": "1.0.0"
+}

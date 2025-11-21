@@ -1,0 +1,73 @@
+{
+  "door_code": "S25LDAP_INJECTION",
+  "semantic_path": "SECURITY.VULNERABILITIES.LDAP_INJECTION",
+  "aliases": ["ldap injection", "ldap filter injection", "directory injection", "active directory injection"],
+  "context_bundle": {
+    "summary": "LDAP injection prevention: use parameterized LDAP queries, escape special characters in user input (* ( ) \\ NUL), validate input against allowlists, use bind variables when available, implement least privilege LDAP access, consider using ORM-like LDAP libraries.",
+    "prerequisites": ["S03INPUT_VAL", "S02SQL", "S16INPUT_SANITIZATION"],
+    "related_doors": ["S09RBAC", "S17ZERO_TRUST", "S12API_SECURITY"],
+    "onboarding": {
+      "quick_start": "LDAP injection defense: 1) Escape LDAP special chars: * ( ) \\ NUL in user input, 2) Use parameterized queries if library supports, 3) Validate input (alphanumeric + @.-_ for usernames), 4) Avoid string concatenation in filters, 5) Use minimal LDAP privileges (read-only for auth checks).",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/OWASP_TOP_10_GUIDE.md",
+      "common_patterns": [
+        "Python ldap3: Use parameterized search: conn.search('dc=example,dc=com', '(uid=%s)' % escape_filter_chars(username))",
+        "Java: Use LdapName and Rdn for safe construction, escape using LdapEncoder",
+        "PHP: ldap_escape($input, '', LDAP_ESCAPE_FILTER) before building filter",
+        ".NET: Use DirectorySearcher with proper escaping or PreparedFilter class",
+        "Escape chars: * → \\\\2a, ( → \\\\28, ) → \\\\29, \\\\ → \\\\5c, NUL → \\\\00",
+        "Filter validation: Reject filters containing unescaped metacharacters"
+      ],
+      "known_errors": [
+        {
+          "error": "LDAP filter injection bypassing authentication: username='*)(uid=*))(|(uid=*'",
+          "cause": "Concatenating user input into LDAP filter: (&(uid=USER_INPUT)(userPassword=PASSWORD))",
+          "solution": "Escape LDAP special characters in user input before filter construction",
+          "prevention": "Use ldap_escape() or equivalent before building filter string",
+          "example": "GOOD: '(uid=%s)' % escape_filter_chars(username). BAD: '(uid=' + username + ')'"
+        },
+        {
+          "error": "LDAP injection revealing all users via wildcard: username='*'",
+          "cause": "No input validation, allows wildcard * character in search",
+          "solution": "Validate username against allowlist: ^[a-zA-Z0-9@.\\-_]+$, escape if special chars allowed",
+          "prevention": "Reject queries that would return excessive results (e.g., > 100 entries)",
+          "related_door": "S03INPUT_VAL"
+        },
+        {
+          "error": "Privilege escalation via group filter injection",
+          "cause": "User can modify group membership filter: (&(member=USER_DN)(cn=INJECTED_GROUP))",
+          "solution": "Never let user control group/role filters, use parameterized queries for group checks",
+          "prevention": "Hardcode authorized groups in application, only query user DN against those groups",
+          "example": "Check if user in admin group: search(filter='(&(member=USER_DN)(cn=Administrators))')"
+        },
+        {
+          "error": "Information disclosure via boolean-based blind LDAP injection",
+          "cause": "Attacker infers LDAP attributes via timing or response differences",
+          "solution": "Return generic error messages, implement rate limiting, log suspicious patterns",
+          "prevention": "Don't reveal whether username exists vs password wrong. Say 'Invalid credentials' for both.",
+          "related_door": "S15AUDIT_LOGGING"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/OWASP_TOP_10_GUIDE.md",
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/AUTHENTICATION_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T04:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["ldap", "ldap_injection", "directory_services", "active_directory", "owasp"],
+      "category": "SECURITY",
+      "subcategory": "VULNERABILITIES",
+      "version": "1.0.0",
+      "tested_on": ["Active Directory", "OpenLDAP", "389 Directory Server"],
+      "agent_affinity": ["VSCC", "DC", "WEBC"]
+    }
+  }
+}

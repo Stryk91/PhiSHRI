@@ -1,0 +1,65 @@
+{
+  "door_code": "W154CAPACITY",
+  "semantic_path": "workflows/sre/capacity-planning",
+  "title": "Capacity Planning",
+  "aliases": [
+    "capacity planning",
+    "capacity management",
+    "scaling",
+    "forecasting",
+    "headroom",
+    "resource planning"
+  ],
+  "summary": "Forecasting and provisioning infrastructure capacity for future demand",
+  "context_bundle": {
+    "concepts": [
+      "Capacity: Maximum sustainable load",
+      "Headroom: Buffer between current and max capacity",
+      "Demand forecasting: Predicting future load",
+      "Vertical scaling: Bigger instances",
+      "Horizontal scaling: More instances"
+    ],
+    "patterns": [
+      "Measure current utilization baseline",
+      "Identify capacity bottlenecks",
+      "Forecast based on historical growth + plans",
+      "Maintain 30-40% headroom for spikes",
+      "Review capacity quarterly"
+    ],
+    "examples": {
+      "capacity_metrics": [
+        "CPU utilization",
+        "Memory usage",
+        "Network bandwidth",
+        "Storage IOPS",
+        "Connection pool usage",
+        "Queue depth"
+      ],
+      "forecasting_methods": [
+        "Linear regression on historical data",
+        "Seasonal decomposition",
+        "Business input (marketing campaigns, launches)",
+        "Load testing extrapolation"
+      ],
+      "planning_template": "Current: X req/s | Capacity: Y req/s | Headroom: Z% | Forecast: A req/s by date"
+    },
+    "tools": [
+      "Prometheus",
+      "Grafana",
+      "CloudWatch",
+      "Datadog",
+      "Capacity planning spreadsheets"
+    ],
+    "antipatterns": [
+      "Reactive-only scaling",
+      "No headroom maintained",
+      "Ignoring seasonal patterns",
+      "Not involving business in forecasts",
+      "Over-provisioning without review"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T06:16:29.399753",
+  "version": "1.0.0"
+}

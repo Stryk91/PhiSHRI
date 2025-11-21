@@ -1,0 +1,76 @@
+{
+  "door_code": "W157DATA_LINEAGE",
+  "semantic_path": "workflows/data/lineage",
+  "title": "Data Lineage",
+  "aliases": [
+    "data lineage",
+    "data provenance",
+    "data tracking",
+    "column lineage",
+    "data flow",
+    "impact analysis",
+    "openlineage"
+  ],
+  "summary": "Tracking data origin, transformations, and downstream dependencies",
+  "context_bundle": {
+    "concepts": [
+      "Lineage: Path data takes from source to destination",
+      "Column-level lineage: Field-by-field tracking",
+      "Impact analysis: Understanding downstream effects",
+      "Provenance: Origin and history of data",
+      "OpenLineage: Standard for lineage metadata"
+    ],
+    "patterns": [
+      "Capture lineage automatically from SQL/transformations",
+      "Store lineage in central catalog",
+      "Enable impact analysis before changes",
+      "Track both table and column level",
+      "Integrate with data catalog"
+    ],
+    "examples": {
+      "openlineage_event": {
+        "eventType": "COMPLETE",
+        "job": {
+          "namespace": "etl",
+          "name": "customer_transform"
+        },
+        "inputs": [
+          {
+            "namespace": "raw",
+            "name": "customers"
+          }
+        ],
+        "outputs": [
+          {
+            "namespace": "clean",
+            "name": "dim_customers"
+          }
+        ]
+      },
+      "use_cases": [
+        "Root cause analysis for data issues",
+        "Impact analysis before schema changes",
+        "Regulatory compliance (GDPR data flow)",
+        "Debug transformation pipelines"
+      ]
+    },
+    "tools": [
+      "OpenLineage",
+      "Apache Atlas",
+      "DataHub",
+      "Marquez",
+      "Atlan",
+      "dbt lineage"
+    ],
+    "antipatterns": [
+      "Manual lineage documentation",
+      "No column-level tracking",
+      "Lineage not updated with changes",
+      "Siloed lineage per system"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T07:21:29.970821",
+  "version": "1.0.0"
+}

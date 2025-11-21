@@ -1,0 +1,80 @@
+{
+  "door_code": "S33FILE_UPLOAD",
+  "semantic_path": "SECURITY.WEB.FILE_UPLOAD",
+  "aliases": [
+    "file upload security",
+    "upload vulnerabilities",
+    "unrestricted upload",
+    "malicious file upload"
+  ],
+  "context_bundle": {
+    "summary": "File upload vulnerability prevention: Attackers upload malicious files (webshells, malware). Defense: validate file type by magic bytes (not just extension), use allowlist of permitted types, rename files to random names, store outside webroot, scan with antivirus, set Content-Disposition: attachment for downloads.",
+    "prerequisites": [
+      "S19PATH_TRAVERSAL",
+      "S03INPUT_VAL"
+    ],
+    "related_doors": [
+      "S24COMMAND_INJECTION",
+      "S32CLICKJACKING",
+      "S28SECURITY_MISCONFIG"
+    ],
+    "onboarding": {
+      "quick_start": "Secure file upload: 1) Validate by magic bytes not extension (use python-magic or file-type), 2) Allowlist permitted MIME types, 3) Generate random filename (UUID), 4) Store outside webroot in non-executable location, 5) Scan with antivirus before accepting.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md",
+      "common_patterns": [
+        "Magic byte validation: import magic; magic.from_buffer(file_content, mime=True)",
+        "Random filename: filename = f'{uuid.uuid4()}{allowed_extension}'",
+        "Store outside webroot: /var/uploads/ not /var/www/html/uploads/",
+        "Serve with Content-Disposition: attachment; filename='safe_name.pdf'"
+      ],
+      "known_errors": [
+        {
+          "error": "PHP webshell uploaded as .jpg.php",
+          "cause": "Only checking first extension, not validating content",
+          "solution": "Validate by magic bytes, strip all but final extension, use allowlist",
+          "prevention": "Rename to UUID, store outside webroot, serve via download endpoint"
+        },
+        {
+          "error": "Path traversal via filename: ../../../etc/passwd",
+          "cause": "Using original filename without sanitization",
+          "solution": "Generate new random filename, ignore user-provided name for storage",
+          "prevention": "Store original filename in database, use UUID for filesystem"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T18:27:21Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "file_upload",
+        "webshell",
+        "malware",
+        "validation",
+        "storage"
+      ],
+      "category": "SECURITY",
+      "subcategory": "WEB",
+      "version": "1.0.0",
+      "tested_on": [
+        "Web applications",
+        "APIs",
+        "Cloud storage"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "WEBC"
+      ]
+    }
+  }
+}

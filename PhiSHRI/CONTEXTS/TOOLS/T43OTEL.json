@@ -1,0 +1,77 @@
+{
+  "door_code": "T43OTEL",
+  "semantic_path": "TOOLS.OBSERVABILITY.OPENTELEMETRY",
+  "aliases": [
+    "opentelemetry",
+    "otel",
+    "otel collector",
+    "otlp",
+    "opentelemetry sdk"
+  ],
+  "context_bundle": {
+    "summary": "OpenTelemetry: Vendor-neutral observability framework (CNCF). Unified API for traces, metrics, logs. Key features: auto-instrumentation, OTLP protocol, Collector for processing/export, context propagation. Export to Jaeger, Prometheus, Datadog, any OTLP backend.",
+    "prerequisites": [
+      "W85TRACING",
+      "W86METRICS",
+      "W84LOGGING",
+      "T10OBSERVABILITY"
+    ],
+    "related_doors": [
+      "T41JAEGER",
+      "T42ZIPKIN",
+      "T44DATADOG",
+      "T17PROMETHEUS"
+    ],
+    "onboarding": {
+      "quick_start": "OpenTelemetry: 1) Add OTEL SDK to app, 2) Configure OTEL_EXPORTER_OTLP_ENDPOINT, 3) Deploy OTEL Collector for processing, 4) Export to backend (Jaeger, Prometheus, etc), 5) Use auto-instrumentation where available.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Auto-instrumentation: opentelemetry-instrument python myapp.py",
+        "Collector pipeline: receivers -> processors -> exporters",
+        "OTLP: gRPC (:4317) or HTTP (:4318) protocol",
+        "Context: W3C Trace Context (traceparent) for propagation"
+      ],
+      "known_errors": [
+        {
+          "error": "OTEL Collector: failed to export spans: connection refused",
+          "cause": "Backend exporter endpoint unreachable",
+          "solution": "Check exporter config, network connectivity, backend health",
+          "prevention": "Use collector health check endpoint, configure retry/queue"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T18:39:53Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "opentelemetry",
+        "otel",
+        "observability",
+        "traces",
+        "metrics",
+        "cncf"
+      ],
+      "category": "TOOLS",
+      "subcategory": "OBSERVABILITY",
+      "version": "1.0.0",
+      "tested_on": [
+        "OTEL SDK",
+        "OTEL Collector",
+        "Multiple backends"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "door_code": "S31LOGGING_FAILURES",
+  "semantic_path": "SECURITY.OWASP.LOGGING_MONITORING_FAILURES",
+  "aliases": [
+    "logging failures",
+    "monitoring failures",
+    "audit logging",
+    "SIEM",
+    "security monitoring",
+    "OWASP A09"
+  ],
+  "context_bundle": {
+    "summary": "Security Logging and Monitoring Failures (OWASP A09:2021): Inability to detect, escalate, or respond to breaches. Average breach detection: 194 days. Fix: log all auth events, log access failures, use structured JSON logging, integrate with SIEM (Splunk/ELK), implement real-time alerting, use immutable audit trails.",
+    "prerequisites": [
+      "S14AUDIT_LOGGING"
+    ],
+    "related_doors": [
+      "S26BROKEN_ACCESS",
+      "S27AUTH_FAILURES",
+      "T17PROMETHEUS",
+      "T16GRAFANA"
+    ],
+    "onboarding": {
+      "quick_start": "Security logging: 1) Log all auth success/failures with IP/user agent, 2) Log authorization failures (who tried to access what), 3) Use structured JSON format, 4) Integrate with SIEM for correlation, 5) Alert on anomalies (5+ failed logins = brute force alert).",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md",
+      "common_patterns": [
+        "Structured log: {timestamp, event_type, user_id, ip_address, outcome, details}",
+        "SIEM integration: Send logs via syslog or HTTP Event Collector",
+        "Anomaly detection: Alert if login failures > 5 in 5 minutes from same IP",
+        "Immutable logs: Write-once storage (WORM) with hash chain verification"
+      ],
+      "known_errors": [
+        {
+          "error": "Breach went undetected for months",
+          "cause": "No monitoring of authentication failures, no alerting",
+          "solution": "Implement real-time alerting on auth failures, privilege changes",
+          "prevention": "SIEM integration with correlation rules, 24/7 SOC monitoring"
+        },
+        {
+          "error": "Logs tampered by attacker to cover tracks",
+          "cause": "Logs stored on same compromised server, mutable storage",
+          "solution": "Use separate log server, implement WORM storage",
+          "prevention": "Centralized logging to immutable storage, hash chain integrity"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T18:27:21Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "owasp",
+        "logging",
+        "monitoring",
+        "siem",
+        "audit",
+        "detection"
+      ],
+      "category": "SECURITY",
+      "subcategory": "OWASP",
+      "version": "1.0.0",
+      "tested_on": [
+        "Splunk",
+        "ELK Stack",
+        "CloudWatch",
+        "Datadog"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

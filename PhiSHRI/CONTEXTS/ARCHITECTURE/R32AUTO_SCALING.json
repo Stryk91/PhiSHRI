@@ -1,0 +1,62 @@
+{
+  "door_code": "R32AUTO_SCALING",
+  "semantic_path": "architecture/cloud/autoscaling",
+  "title": "Auto Scaling Patterns",
+  "aliases": [
+    "auto scaling",
+    "autoscaling",
+    "horizontal scaling",
+    "hpa",
+    "keda",
+    "elasticity",
+    "scale out"
+  ],
+  "summary": "Automatically adjusting capacity based on demand",
+  "context_bundle": {
+    "concepts": [
+      "Horizontal scaling: Add/remove instances",
+      "Vertical scaling: Resize instances",
+      "Target tracking: Scale to maintain metric",
+      "Predictive scaling: Scale based on forecast",
+      "Cooldown: Prevent scaling thrashing"
+    ],
+    "patterns": [
+      "Scale on CPU/memory utilization",
+      "Use custom metrics for business scaling",
+      "Implement predictive scaling for patterns",
+      "Set appropriate min/max bounds",
+      "Use multiple scaling policies"
+    ],
+    "examples": {
+      "scaling_metrics": {
+        "cpu": "Scale at 70% CPU average",
+        "queue_depth": "Scale when queue > 100 messages",
+        "requests": "Scale to maintain 1000 req/s per pod",
+        "custom": "Scale on active users metric"
+      },
+      "kubernetes_hpa": {
+        "metric": "cpu",
+        "target": "80%",
+        "minReplicas": 2,
+        "maxReplicas": 10
+      }
+    },
+    "tools": [
+      "AWS Auto Scaling",
+      "Kubernetes HPA",
+      "KEDA",
+      "Azure VMSS",
+      "GCP MIG"
+    ],
+    "antipatterns": [
+      "No minimum instances",
+      "Scaling on wrong metric",
+      "Too aggressive cooldown",
+      "Not testing scale-up/down"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T07:33:38.147825",
+  "version": "1.0.0"
+}

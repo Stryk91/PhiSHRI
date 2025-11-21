@@ -1,0 +1,83 @@
+{
+  "door_code": "S27AUTH_FAILURES",
+  "semantic_path": "SECURITY.OWASP.AUTHENTICATION_FAILURES",
+  "aliases": [
+    "authentication failures",
+    "broken authentication",
+    "credential stuffing",
+    "brute force",
+    "session fixation",
+    "OWASP A07"
+  ],
+  "context_bundle": {
+    "summary": "Authentication Failures (OWASP A07:2021): Weak authentication mechanisms. NIST 2024: 15+ char passwords without MFA, no periodic resets, Argon2id/bcrypt hashing. Implement MFA, rate limit auth endpoints (5 attempts/15min), use secure session management with HttpOnly/Secure/SameSite cookies.",
+    "prerequisites": [
+      "S05SECRETS",
+      "S08JWT"
+    ],
+    "related_doors": [
+      "S26BROKEN_ACCESS",
+      "S11RBAC",
+      "W137RATE_LIMIT"
+    ],
+    "onboarding": {
+      "quick_start": "Auth security: 1) Hash passwords with Argon2id (preferred) or bcrypt, 2) Enforce 15+ char passwords OR require MFA, 3) Rate limit login to 5 attempts per 15 minutes, 4) Use secure session cookies (HttpOnly, Secure, SameSite=Strict), 5) Implement account lockout after failures.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md",
+      "common_patterns": [
+        "Argon2id hashing: ph = PasswordHasher(); hash = ph.hash(password)",
+        "bcrypt (Node.js): const hash = await bcrypt.hash(password, 12)",
+        "Rate limiting auth: 5 login attempts per 15 minutes per IP/username",
+        "Session cookies: HttpOnly=True, Secure=True, SameSite='Strict'"
+      ],
+      "known_errors": [
+        {
+          "error": "Credential stuffing attack succeeds",
+          "cause": "No rate limiting on login endpoint",
+          "solution": "Implement rate limiting: max 5 attempts per 15 minutes, add CAPTCHA after 3 failures",
+          "prevention": "Use express-rate-limit or similar with skipSuccessfulRequests: true"
+        },
+        {
+          "error": "Session hijacking via XSS",
+          "cause": "Session cookie accessible via JavaScript (missing HttpOnly)",
+          "solution": "Set HttpOnly flag on all session cookies",
+          "prevention": "Framework session config: cookie: { httpOnly: true, secure: true, sameSite: 'strict' }"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T18:27:21Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "owasp",
+        "authentication",
+        "passwords",
+        "mfa",
+        "session",
+        "brute_force"
+      ],
+      "category": "SECURITY",
+      "subcategory": "OWASP",
+      "version": "1.0.0",
+      "tested_on": [
+        "Web apps",
+        "APIs",
+        "Mobile backends"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "WEBC"
+      ]
+    }
+  }
+}

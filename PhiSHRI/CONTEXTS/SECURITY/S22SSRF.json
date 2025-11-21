@@ -1,0 +1,72 @@
+{
+  "door_code": "S22SSRF",
+  "semantic_path": "SECURITY.VULNERABILITIES.SSRF",
+  "aliases": ["ssrf", "server side request forgery", "internal network access", "localhost bypass", "url injection"],
+  "context_bundle": {
+    "summary": "Server-Side Request Forgery (SSRF) prevention: validate and sanitize URLs, use allowlists for permitted domains/protocols, block access to internal IP ranges (127.0.0.1, 192.168.x.x, 10.x.x.x, 169.254.x.x), disable HTTP redirects or validate redirect targets, use network segmentation.",
+    "prerequisites": ["S03INPUT_VAL", "S12API_SECURITY"],
+    "related_doors": ["S19PATH_TRAVERSAL", "S16INPUT_SANITIZATION", "S17ZERO_TRUST"],
+    "onboarding": {
+      "quick_start": "SSRF defense: 1) Allowlist permitted domains/protocols (https only), 2) Block private IP ranges (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 127.0.0.0/8, 169.254.0.0/16), 3) Disable HTTP redirects or validate targets, 4) Use DNS resolution checks, 5) Network segmentation to limit damage.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/OWASP_TOP_10_GUIDE.md",
+      "common_patterns": [
+        "URL allowlist: Only permit specific domains (api.example.com, cdn.example.com)",
+        "Protocol allowlist: Only allow https://, reject file://, gopher://, etc.",
+        "IP blocklist: Reject 127.0.0.1, ::1, 169.254.0.0/16, 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16",
+        "DNS resolution: Resolve hostname to IP, check IP is not in blocklist before making request",
+        "Disable redirects: Set maxRedirects=0 or validate redirect Location header",
+        "Network policy: Restrict outbound connections from app servers to only required external services"
+      ],
+      "known_errors": [
+        {
+          "error": "SSRF via localhost URL to access internal services (http://127.0.0.1:6379/)",
+          "cause": "App makes HTTP request with user-provided URL without validation",
+          "solution": "Blocklist private IPs: 127.0.0.0/8, ::1, and RFC1918 ranges",
+          "prevention": "DNS resolution check: Resolve URL hostname to IP, reject if IP is private/loopback",
+          "example": "Before fetch(userUrl), resolve hostname, check IP not in [127.0.0.0/8, 10.0.0.0/8, 192.168.0.0/16]"
+        },
+        {
+          "error": "SSRF bypass via redirect (http://evil.com → redirects to http://127.0.0.1)",
+          "cause": "HTTP client follows redirects without validating redirect target",
+          "solution": "Disable automatic redirects, or validate Location header before following",
+          "prevention": "Set fetch/axios option: redirect: 'manual' or maxRedirects: 0",
+          "related_door": "S12API_SECURITY"
+        },
+        {
+          "error": "SSRF via alternate IP encoding (0x7f000001, 2130706433, 127.1)",
+          "cause": "Blocklist only checks dotted-decimal 127.0.0.1, attacker uses hex/octal/integer forms",
+          "solution": "Normalize IP to canonical form before checking, or resolve DNS then validate IP",
+          "prevention": "Use IP parsing library that handles all encodings (ipaddress module in Python)",
+          "example": "Python: ipaddress.ip_address(resolved_ip).is_private → block if True"
+        },
+        {
+          "error": "SSRF to cloud metadata services (http://169.254.169.254/latest/meta-data/)",
+          "cause": "AWS/Azure/GCP metadata endpoints accessible from EC2/VM instances",
+          "solution": "Block 169.254.169.254 specifically, use IMDSv2 (requires token), network policies",
+          "prevention": "AWS: Require IMDSv2, set hop limit to 1. Azure: Use managed identities with network restrictions."
+        }
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/OWASP_TOP_10_GUIDE.md",
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/API_SECURITY_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T04:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["ssrf", "url_injection", "owasp", "cloud_metadata", "internal_network"],
+      "category": "SECURITY",
+      "subcategory": "VULNERABILITIES",
+      "version": "1.0.0",
+      "tested_on": ["AWS", "Azure", "GCP", "On-premises"],
+      "agent_affinity": ["VSCC", "DC", "WEBC"]
+    }
+  }
+}

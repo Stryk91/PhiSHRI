@@ -1,0 +1,58 @@
+{
+  "door_code": "R17COMMAND_PATTERN",
+  "semantic_path": "ARCHITECTURE.DESIGN_PATTERNS.COMMAND",
+  "aliases": [
+    "command pattern",
+    "action",
+    "transaction",
+    "command object"
+  ],
+  "context_bundle": {
+    "summary": "Command pattern encapsulates request as object: Decouple sender from receiver, enable undo/redo, queue commands, log commands. Components: Command (interface), ConcreteCommand (implementation), Invoker (executes), Receiver (performs action).",
+    "prerequisites": [
+      "R09FACTORY_PATTERN"
+    ],
+    "related_doors": [
+      "R12STRATEGY_PATTERN",
+      "W132SAGA",
+      "W139EVENT_SOURCING"
+    ],
+    "onboarding": {
+      "quick_start": "Command pattern encapsulates request as object: Decouple sender from receiver, enable undo/redo, queue commands, log commands. Components: Command (interface), ConcreteCommand (implementation), Invoker (executes), Receiver (performs action).",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/02_ARCHITECTURE/DESIGN_PATTERNS_GUIDE.md",
+      "common_patterns": [],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/02_ARCHITECTURE/DESIGN_PATTERNS_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T04:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "command pattern",
+        "action",
+        "transaction",
+        "command object"
+      ],
+      "category": "ARCHITECTURE",
+      "subcategory": "DESIGN_PATTERNS",
+      "version": "1.0.0",
+      "tested_on": [
+        "All platforms"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "WEBC"
+      ]
+    }
+  }
+}

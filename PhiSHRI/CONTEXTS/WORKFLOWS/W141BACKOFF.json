@@ -1,0 +1,56 @@
+{
+  "door_code": "W141BACKOFF",
+  "semantic_path": "WORKFLOWS.RELIABILITY.EXPONENTIAL_BACKOFF",
+  "aliases": [
+    "exponential backoff",
+    "retry backoff",
+    "jitter"
+  ],
+  "context_bundle": {
+    "summary": "Exponential backoff for retries: delay = base * (2 ^ attempt) + jitter. Start with short delay (100ms), double each retry, add random jitter to prevent thundering herd. Max attempts typically 3-5. Use for transient failures.",
+    "prerequisites": [
+      "E05RETRY",
+      "W135CIRCUIT_BREAKER"
+    ],
+    "related_doors": [
+      "W137RATE_LIMIT",
+      "E08NETWORK_ERRORS"
+    ],
+    "onboarding": {
+      "quick_start": "Exponential backoff for retries: delay = base * (2 ^ attempt) + jitter. Start with short delay (100ms), double each retry, add random jitter to prevent thundering herd. Max attempts typically 3-5. Use for transient failures.",
+      "full_context_path": "/PhiDEX/PhiSync/03_COORDINATION_PATTERNS/DISTRIBUTED_PATTERNS_GUIDE.md",
+      "common_patterns": [],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/PhiSync/03_COORDINATION_PATTERNS/DISTRIBUTED_PATTERNS_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T04:15:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "exponential backoff",
+        "retry backoff",
+        "jitter"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "RELIABILITY",
+      "version": "1.0.0",
+      "tested_on": [
+        "Distributed systems"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "WEBC"
+      ]
+    }
+  }
+}

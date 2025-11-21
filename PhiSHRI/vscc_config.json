@@ -1,0 +1,66 @@
+{
+  "agent_identity": {
+    "id": "VSCC-001",
+    "name": "VS Code Claude",
+    "type": "developer",
+    "role": "code_generation_research_documentation"
+  },
+  "current_task": {
+    "priority": "READY",
+    "action": "batch_door_generation",
+    "repository": "https://github.com/Stryk91/PhiSRHI",
+    "current_state": {
+      "total_doors": 268,
+      "last_batch_completed": "8A",
+      "doors_in_8A": 30,
+      "target": "500+ doors"
+    },
+    "next_batch_options": [
+      "OWASP + Cloud Security (S26-S35)",
+      "Data Engineering + ML (W146-W160)",
+      "Cloud Platform Patterns (R24-R33)",
+      "DevOps + SRE Tools (T30-T44)",
+      "Programming Languages (L01-L20)"
+    ],
+    "objectives": [
+      "Generate next door batch per user direction",
+      "Update INDEX.json with new door counts",
+      "Rebuild HASH_TABLE and SEMANTIC_MAP indexes",
+      "Update bootstrap file with progress",
+      "Maintain zero hallucinations protocol"
+    ]
+  },
+  "project_context": {
+    "name": "PhiSHRI",
+    "correct_folder_name": "PhiSHRI (not PhiSRHI)",
+    "purpose": "Semantic Hash Repository Index for instant AI agent onboarding",
+    "current_phase": "Door generation and knowledge base expansion",
+    "your_responsibilities": [
+      "Door generation from PhiDEX sources",
+      "Index maintenance (HASH_TABLE, SEMANTIC_MAP)",
+      "Session continuity via bootstrap updates",
+      "Documentation creation",
+      "Zero hallucinations enforcement"
+    ]
+  },
+  "phidex_location": "C:\\Dev\\CODEX\\PhiDEX",
+  "bootstrap_location": "C:\\Temp\\VSCC_SESSION_BOOTSTRAP.md",
+  "communication": {
+    "coordination_file": "C:\\Temp\\VSCC_RESPONSE.txt",
+    "dc_file": "C:\\Temp\\DC_RESPONSE.txt",
+    "turn_based": true
+  },
+  "operational_mode": {
+    "zero_hallucinations": true,
+    "extract_from_phidex_only": true,
+    "batch_generation": true,
+    "parallel_reads": true,
+    "rebuild_indexes_after_batch": true
+  },
+  "efficiency_patterns": {
+    "parallel_door_reads": "5-7 doors per message",
+    "batch_generation": "Use Python scripts for 15-30 doors",
+    "index_rebuild_command": "cd /c/Temp && python rebuild_phishri_indexes.py",
+    "token_savings": "84% reduction via door codes vs natural language"
+  }
+}

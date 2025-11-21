@@ -1,0 +1,67 @@
+{
+  "door_code": "T29ETCD",
+  "semantic_path": "TOOLS.INFRASTRUCTURE.ETCD",
+  "aliases": [
+    "etcd",
+    "distributed key-value",
+    "Raft consensus",
+    "Kubernetes backend"
+  ],
+  "context_bundle": {
+    "summary": "etcd is distributed, reliable key-value store for critical data: Uses Raft consensus for strong consistency, watch API for real-time updates, lease-based TTL for ephemeral keys, gRPC API. Used by Kubernetes for cluster state, leader election, distributed locking.",
+    "prerequisites": [
+      "W142DISTRIBUTED_LOCK",
+      "W143LEADER_ELECTION"
+    ],
+    "related_doors": [
+      "T28CONSUL",
+      "T26KUBERNETES",
+      "W144EVENTUAL_CONSISTENCY",
+      "T22REDIS"
+    ],
+    "onboarding": {
+      "quick_start": "etcd is distributed, reliable key-value store for critical data: Uses Raft consensus for strong consistency, watch API for real-time updates, lease-based TTL for ephemeral keys, gRPC API. Used by Kubernetes for cluster state, leader election, distributed locking.",
+      "full_context_path": "/PhiDEX/DEPLOYMENT_ALMANAC/09_ENTERPRISE/INFRASTRUCTURE_TOOLS_GUIDE.md",
+      "common_patterns": [
+        "Service discovery: Register with health check, query via DNS or HTTP",
+        "KV store: Watch for config changes, atomic compare-and-swap",
+        "Leader election: Create session with TTL, acquire lock, renew lease",
+        "Health checks: HTTP endpoint, TCP port, script execution"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/DEPLOYMENT_ALMANAC/09_ENTERPRISE/INFRASTRUCTURE_TOOLS_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T04:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "etcd",
+        "distributed key-value",
+        "Raft consensus",
+        "Kubernetes backend"
+      ],
+      "category": "TOOLS",
+      "subcategory": "INFRASTRUCTURE",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Docker",
+        "Kubernetes"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC"
+      ]
+    }
+  }
+}

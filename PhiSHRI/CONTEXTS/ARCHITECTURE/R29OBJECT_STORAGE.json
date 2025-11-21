@@ -1,0 +1,61 @@
+{
+  "door_code": "R29OBJECT_STORAGE",
+  "semantic_path": "architecture/cloud/object-storage",
+  "title": "Object Storage Patterns",
+  "aliases": [
+    "object storage",
+    "s3",
+    "blob storage",
+    "gcs",
+    "minio",
+    "storage patterns",
+    "data lake storage"
+  ],
+  "summary": "Patterns for scalable, durable object storage in cloud architectures",
+  "context_bundle": {
+    "concepts": [
+      "Object storage: Flat namespace, HTTP access",
+      "Bucket: Container for objects",
+      "Versioning: Keep object history",
+      "Lifecycle policies: Auto-archive/delete",
+      "Storage classes: Hot, warm, cold, archive"
+    ],
+    "patterns": [
+      "Use lifecycle policies for cost optimization",
+      "Enable versioning for critical data",
+      "Implement cross-region replication",
+      "Use presigned URLs for secure access",
+      "Partition data by prefix for performance"
+    ],
+    "examples": {
+      "storage_tiers": {
+        "hot": "S3 Standard, frequent access",
+        "warm": "S3 IA, monthly access",
+        "cold": "S3 Glacier, yearly access",
+        "archive": "Glacier Deep Archive, compliance"
+      },
+      "naming_conventions": {
+        "partitioned": "s3://bucket/year=2024/month=01/day=15/data.parquet",
+        "hashed": "s3://bucket/a1/b2/c3/object-id (prevents hot partitions)"
+      }
+    },
+    "tools": [
+      "AWS S3",
+      "Azure Blob",
+      "Google Cloud Storage",
+      "MinIO",
+      "Ceph",
+      "Wasabi"
+    ],
+    "antipatterns": [
+      "No lifecycle management",
+      "All data in hot storage",
+      "Sequential key names (hot partitions)",
+      "Public buckets without intention"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T07:33:38.145417",
+  "version": "1.0.0"
+}

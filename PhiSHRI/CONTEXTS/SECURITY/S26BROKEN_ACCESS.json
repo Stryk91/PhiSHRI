@@ -1,0 +1,83 @@
+{
+  "door_code": "S26BROKEN_ACCESS",
+  "semantic_path": "SECURITY.OWASP.BROKEN_ACCESS_CONTROL",
+  "aliases": [
+    "broken access control",
+    "bola",
+    "idor",
+    "access control",
+    "authorization bypass",
+    "OWASP A01"
+  ],
+  "context_bundle": {
+    "summary": "Broken Access Control (OWASP A01:2021): Users acting outside intended permissions. Prevent with: deny-by-default, enforce ownership checks per request, disable directory listing, RBAC implementation, log access failures. BOLA (Broken Object Level Authorization) present in ~40% of API attacks.",
+    "prerequisites": [
+      "S11RBAC",
+      "S12API_SECURITY"
+    ],
+    "related_doors": [
+      "S27AUTH_FAILURES",
+      "S28SECURITY_MISCONFIG",
+      "W135CIRCUIT_BREAKER"
+    ],
+    "onboarding": {
+      "quick_start": "Access control defense: 1) Deny by default except public resources, 2) Implement RBAC with role verification on every request, 3) Validate object ownership (user can only access their own resources), 4) Disable directory listing, 5) Log and alert on access control failures.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md",
+      "common_patterns": [
+        "Authorization check on every endpoint: if not user.can_access(resource): abort(403)",
+        "Object-level authorization: Verify user owns/can access specific object ID",
+        "Function-level authorization: Verify user role can execute this function",
+        "Disable directory listing: Options -Indexes (Apache), autoindex off (Nginx)"
+      ],
+      "known_errors": [
+        {
+          "error": "IDOR: User can access other users' data by changing ID in URL",
+          "cause": "Missing ownership check - only checking if user is authenticated, not authorized",
+          "solution": "Add ownership verification: if resource.owner_id != current_user.id: abort(403)",
+          "prevention": "Implement authorization middleware that checks ownership on every request"
+        },
+        {
+          "error": "Privilege escalation: Regular user can access admin endpoints",
+          "cause": "Missing role check on sensitive endpoints",
+          "solution": "Add role-based middleware: @require_role('admin') decorator on admin endpoints",
+          "prevention": "Use deny-by-default with explicit role allowlists per endpoint"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T18:27:21Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "owasp",
+        "access_control",
+        "bola",
+        "idor",
+        "authorization",
+        "rbac"
+      ],
+      "category": "SECURITY",
+      "subcategory": "OWASP",
+      "version": "1.0.0",
+      "tested_on": [
+        "Web APIs",
+        "REST services",
+        "GraphQL"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "WEBC"
+      ]
+    }
+  }
+}

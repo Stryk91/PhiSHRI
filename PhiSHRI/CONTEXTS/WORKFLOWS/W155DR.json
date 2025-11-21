@@ -1,0 +1,72 @@
+{
+  "door_code": "W155DR",
+  "semantic_path": "workflows/sre/disaster-recovery",
+  "title": "Disaster Recovery",
+  "aliases": [
+    "disaster recovery",
+    "dr",
+    "business continuity",
+    "rto",
+    "rpo",
+    "failover",
+    "backup",
+    "recovery"
+  ],
+  "summary": "Planning and executing recovery from major outages and disasters",
+  "context_bundle": {
+    "concepts": [
+      "RTO: Recovery Time Objective - max acceptable downtime",
+      "RPO: Recovery Point Objective - max acceptable data loss",
+      "Failover: Switching to backup system",
+      "Failback: Returning to primary system",
+      "DR site: Secondary location for recovery"
+    ],
+    "patterns": [
+      "Define RTO/RPO per service based on business impact",
+      "Regular backup testing (restore, not just backup)",
+      "Document recovery procedures",
+      "Practice failover regularly",
+      "Multi-region for critical services"
+    ],
+    "examples": {
+      "dr_tiers": {
+        "tier1": "RTO < 1h, RPO < 5m - Hot standby",
+        "tier2": "RTO < 4h, RPO < 1h - Warm standby",
+        "tier3": "RTO < 24h, RPO < 24h - Cold standby",
+        "tier4": "RTO < 1w, RPO < 1w - Backup restore"
+      },
+      "dr_test_types": [
+        "Tabletop: Walk through procedures",
+        "Simulation: Test in non-prod",
+        "Parallel: Run DR alongside prod",
+        "Full failover: Actually switch traffic"
+      ],
+      "recovery_checklist": [
+        "Assess damage and scope",
+        "Notify stakeholders",
+        "Execute recovery procedure",
+        "Verify data integrity",
+        "Test functionality",
+        "Restore normal operations"
+      ]
+    },
+    "tools": [
+      "AWS Backup",
+      "Azure Site Recovery",
+      "Velero",
+      "Zerto",
+      "Veeam"
+    ],
+    "antipatterns": [
+      "Untested backups",
+      "No documented recovery procedure",
+      "RTO/RPO not defined",
+      "DR site in same failure domain",
+      "No regular DR drills"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T06:16:29.400499",
+  "version": "1.0.0"
+}

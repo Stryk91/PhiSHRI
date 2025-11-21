@@ -1,0 +1,76 @@
+{
+  "door_code": "W160SCHEMA_REGISTRY",
+  "semantic_path": "workflows/data/schema-registry",
+  "title": "Schema Registry",
+  "aliases": [
+    "schema registry",
+    "avro schema",
+    "protobuf schema",
+    "schema evolution",
+    "schema compatibility",
+    "confluent schema registry"
+  ],
+  "summary": "Centralized schema management for data serialization and evolution",
+  "context_bundle": {
+    "concepts": [
+      "Schema registry: Central store for data schemas",
+      "Schema evolution: Changing schemas over time",
+      "Compatibility modes: Backward, forward, full",
+      "Schema ID: Unique identifier embedded in messages",
+      "Serialization formats: Avro, Protobuf, JSON Schema"
+    ],
+    "patterns": [
+      "Register schemas before producing",
+      "Enforce compatibility checks on updates",
+      "Use backward compatibility for consumers",
+      "Embed schema ID in messages",
+      "Version schemas with semantic versioning"
+    ],
+    "examples": {
+      "compatibility_modes": {
+        "BACKWARD": "New schema can read old data",
+        "FORWARD": "Old schema can read new data",
+        "FULL": "Both backward and forward compatible",
+        "NONE": "No compatibility enforced"
+      },
+      "avro_schema": {
+        "type": "record",
+        "name": "User",
+        "fields": [
+          {
+            "name": "id",
+            "type": "long"
+          },
+          {
+            "name": "email",
+            "type": "string"
+          },
+          {
+            "name": "age",
+            "type": [
+              "null",
+              "int"
+            ],
+            "default": null
+          }
+        ]
+      }
+    },
+    "tools": [
+      "Confluent Schema Registry",
+      "AWS Glue Schema Registry",
+      "Apicurio",
+      "Karapace"
+    ],
+    "antipatterns": [
+      "No schema enforcement",
+      "Breaking schema changes in production",
+      "Schemas not versioned",
+      "Different schemas for same data"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T07:21:29.973435",
+  "version": "1.0.0"
+}

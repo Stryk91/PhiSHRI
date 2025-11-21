@@ -1,0 +1,73 @@
+{
+  "door_code": "T41JAEGER",
+  "semantic_path": "TOOLS.OBSERVABILITY.JAEGER",
+  "aliases": [
+    "jaeger",
+    "distributed tracing",
+    "jaeger ui",
+    "jaeger agent",
+    "opentracing"
+  ],
+  "context_bundle": {
+    "summary": "Jaeger: Distributed tracing system (CNCF). Visualize request flow across microservices. Key features: trace/span model, sampling strategies, dependency graphs, latency analysis, root cause analysis. Compatible with OpenTelemetry. Backends: Cassandra, Elasticsearch, Kafka.",
+    "prerequisites": [
+      "W85TRACING",
+      "T10OBSERVABILITY"
+    ],
+    "related_doors": [
+      "T42ZIPKIN",
+      "T43OTEL",
+      "T44DATADOG",
+      "W86METRICS"
+    ],
+    "onboarding": {
+      "quick_start": "Jaeger: 1) Deploy jaeger-all-in-one for dev (docker run jaegertracing/all-in-one), 2) Instrument app with OpenTelemetry SDK, 3) Export traces to Jaeger collector, 4) View in Jaeger UI at :16686, 5) Analyze service dependencies and latency.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Trace = collection of spans representing a request's journey",
+        "Span = unit of work with operation name, start time, duration, tags, logs",
+        "Context propagation: W3C Trace Context headers (traceparent, tracestate)",
+        "Sampling: probabilistic (1%), rate limiting, or adaptive"
+      ],
+      "known_errors": [
+        {
+          "error": "Traces not appearing in Jaeger UI",
+          "cause": "Sampling rate too low, collector endpoint misconfigured, or spans not flushed",
+          "solution": "Check OTEL_TRACES_SAMPLER=always_on for debugging, verify collector endpoint",
+          "prevention": "Always sample in dev, use probabilistic in prod with proper rate"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T18:39:53Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "jaeger",
+        "tracing",
+        "observability",
+        "cncf",
+        "microservices"
+      ],
+      "category": "TOOLS",
+      "subcategory": "OBSERVABILITY",
+      "version": "1.0.0",
+      "tested_on": [
+        "Jaeger 1.x",
+        "OpenTelemetry"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

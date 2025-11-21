@@ -1,0 +1,41 @@
+{
+  "door_code": "W133IDEMPOTENCY",
+  "semantic_path": "WORKFLOWS.DISTRIBUTED.IDEMPOTENCY",
+  "aliases": ["idempotency", "idempotent operations", "duplicate prevention", "at-least-once delivery"],
+  "context_bundle": {
+    "summary": "Idempotency pattern ensures operations can be safely retried without side effects: same request executed multiple times has same effect as executing once. Critical for distributed systems with at-least-once delivery. Use idempotency keys, deduplication tables, and deterministic operations.",
+    "prerequisites": ["W115MESSAGE_QUEUE", "W127CORRELATION_ID"],
+    "related_doors": ["W132SAGA", "W134DISTRIBUTED_TX", "W05RETRY"],
+    "onboarding": {
+      "quick_start": "Idempotency: 1) Client generates unique idempotency key (UUID), 2) Server stores key+result in dedup table before processing, 3) On retry, check table: if key exists return cached result, else process request, 4) Use deterministic operations (no random(), no now()), 5) Set TTL on dedup entries (e.g., 24hrs).",
+      "full_context_path": "/PhiDEX/PhiSync/03_COORDINATION_PATTERNS/IDEMPOTENCY_GUIDE.md",
+      "common_patterns": [
+        "Idempotency key: Client-generated UUID sent in header (Idempotency-Key: uuid)",
+        "Dedup table: Store (idempotency_key, status, result, created_at) with unique constraint on key",
+        "Processing: Check dedup table → if exists return cached result → else process → store result → return",
+        "Deterministic ops: Use provided timestamps, not system time; use seeded random, not Math.random()",
+        "TTL: Expire dedup entries after 24-72 hours (balance storage cost vs retry window)",
+        "Atomic storage: Use database transaction to ensure key+result stored atomically"
+      ],
+      "known_errors": [],
+      "resources": {
+        "docs": ["/PhiDEX/PhiSync/03_COORDINATION_PATTERNS/IDEMPOTENCY_GUIDE.md"],
+        "code": [],
+        "tests": [],
+        "errors": []
+      },
+      "metadata": {
+        "last_updated": "2025-11-22T04:15:00Z",
+        "confidence": 1.0,
+        "usage_count": 0,
+        "success_rate": 0.0,
+        "tags": ["idempotency", "deduplication", "retry", "distributed_systems"],
+        "category": "WORKFLOWS",
+        "subcategory": "DISTRIBUTED",
+        "version": "1.0.0",
+        "tested_on": ["REST APIs", "Message queues", "Microservices"],
+        "agent_affinity": ["VSCC", "DC", "WEBC"]
+      }
+    }
+  }
+}

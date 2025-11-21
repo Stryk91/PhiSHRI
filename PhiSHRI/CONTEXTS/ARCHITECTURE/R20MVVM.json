@@ -1,0 +1,58 @@
+{
+  "door_code": "R20MVVM",
+  "semantic_path": "ARCHITECTURE.DESIGN_PATTERNS.MVVM",
+  "aliases": [
+    "MVVM",
+    "model view viewmodel",
+    "data binding",
+    "WPF pattern"
+  ],
+  "context_bundle": {
+    "summary": "Model-View-ViewModel adds data binding layer: Model (data), View (UI), ViewModel (view logic + state + data binding). ViewModel exposes commands and observables, View binds to ViewModel properties. Popular in WPF, Angular, Vue.",
+    "prerequisites": [
+      "R19MVC",
+      "R11OBSERVER_PATTERN"
+    ],
+    "related_doors": [
+      "W38CODE_GEN",
+      "T02VSCODE"
+    ],
+    "onboarding": {
+      "quick_start": "Model-View-ViewModel adds data binding layer: Model (data), View (UI), ViewModel (view logic + state + data binding). ViewModel exposes commands and observables, View binds to ViewModel properties. Popular in WPF, Angular, Vue.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/02_ARCHITECTURE/DESIGN_PATTERNS_GUIDE.md",
+      "common_patterns": [],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/02_ARCHITECTURE/DESIGN_PATTERNS_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T04:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "MVVM",
+        "model view viewmodel",
+        "data binding",
+        "WPF pattern"
+      ],
+      "category": "ARCHITECTURE",
+      "subcategory": "DESIGN_PATTERNS",
+      "version": "1.0.0",
+      "tested_on": [
+        "All platforms"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "WEBC"
+      ]
+    }
+  }
+}

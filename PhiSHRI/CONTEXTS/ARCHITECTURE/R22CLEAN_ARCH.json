@@ -1,0 +1,58 @@
+{
+  "door_code": "R22CLEAN_ARCH",
+  "semantic_path": "ARCHITECTURE.DESIGN_PATTERNS.CLEAN_ARCHITECTURE",
+  "aliases": [
+    "clean architecture",
+    "Uncle Bob",
+    "dependency rule",
+    "layered architecture"
+  ],
+  "context_bundle": {
+    "summary": "Clean Architecture enforces dependency rule: Dependencies point inward only. Layers: Entities (business rules) → Use Cases (application logic) → Interface Adapters (controllers, presenters) → Frameworks & Drivers (UI, DB). Inner layers know nothing of outer layers.",
+    "prerequisites": [
+      "R21HEXAGONAL",
+      "R18REPOSITORY_PATTERN"
+    ],
+    "related_doors": [
+      "R23DDD",
+      "R03MICROSERVICE"
+    ],
+    "onboarding": {
+      "quick_start": "Clean Architecture enforces dependency rule: Dependencies point inward only. Layers: Entities (business rules) → Use Cases (application logic) → Interface Adapters (controllers, presenters) → Frameworks & Drivers (UI, DB). Inner layers know nothing of outer layers.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/02_ARCHITECTURE/DESIGN_PATTERNS_GUIDE.md",
+      "common_patterns": [],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/02_ARCHITECTURE/DESIGN_PATTERNS_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T04:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "clean architecture",
+        "Uncle Bob",
+        "dependency rule",
+        "layered architecture"
+      ],
+      "category": "ARCHITECTURE",
+      "subcategory": "DESIGN_PATTERNS",
+      "version": "1.0.0",
+      "tested_on": [
+        "All platforms"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "WEBC"
+      ]
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "door_code": "W151ONCALL",
+  "semantic_path": "workflows/sre/on-call-practices",
+  "title": "On-Call Practices",
+  "aliases": [
+    "on-call",
+    "oncall",
+    "pager duty",
+    "rotation",
+    "escalation",
+    "alert fatigue",
+    "follow the sun"
+  ],
+  "summary": "Sustainable on-call practices that balance reliability with engineer well-being",
+  "context_bundle": {
+    "concepts": [
+      "On-call rotation: Scheduled responsibility periods",
+      "Primary/Secondary: Escalation tiers",
+      "Follow-the-sun: Global rotation for 24/7 coverage",
+      "Alert fatigue: Too many non-actionable alerts",
+      "Compensation: Time off, pay for on-call burden"
+    ],
+    "patterns": [
+      "Minimum 2 people in rotation",
+      "Maximum 1 week on-call at a time",
+      "Clear escalation path defined",
+      "On-call handoff meetings",
+      "Track pages per shift, aim to reduce"
+    ],
+    "examples": {
+      "rotation_schedule": "Week-long shifts, Monday handoff at 10am",
+      "escalation_policy": "Primary: 5 min -> Secondary: 10 min -> Manager: 30 min",
+      "handoff_template": "Open incidents, recent changes, known issues, maintenance windows",
+      "compensation": "Flat rate per shift + per-page bonus OR comp time"
+    },
+    "tools": [
+      "PagerDuty",
+      "Opsgenie",
+      "VictorOps",
+      "Slack",
+      "Google Calendar"
+    ],
+    "antipatterns": [
+      "Single person on-call",
+      "No backup/secondary",
+      "Paging for non-urgent issues",
+      "No compensation for on-call",
+      "Managers not in escalation path"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T06:16:29.397329",
+  "version": "1.0.0"
+}

@@ -1,0 +1,73 @@
+{
+  "door_code": "T37FLUX",
+  "semantic_path": "TOOLS.GITOPS.FLUX",
+  "aliases": [
+    "flux",
+    "fluxcd",
+    "flux v2",
+    "gitops toolkit",
+    "flux bootstrap"
+  ],
+  "context_bundle": {
+    "summary": "Flux: GitOps toolkit for Kubernetes. CNCF graduated project. Key features: GitRepository/HelmRepository sources, Kustomization/HelmRelease reconciliation, image automation, multi-tenancy, notifications, progressive delivery with Flagger integration.",
+    "prerequisites": [
+      "T26KUBERNETES",
+      "T34HELM",
+      "T35KUSTOMIZE"
+    ],
+    "related_doors": [
+      "T36ARGOCD",
+      "W67BLUEGREEN",
+      "W68CANARY"
+    ],
+    "onboarding": {
+      "quick_start": "Flux: 1) flux bootstrap github --owner=ORG --repository=REPO --path=clusters/prod, 2) Creates GitRepository + Kustomization CRs, 3) Add HelmRelease for Helm charts, 4) Flux auto-syncs from Git.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "GitRepository: spec: { url: https://github.com/org/repo, interval: 1m }",
+        "Kustomization: spec: { sourceRef: { kind: GitRepository, name: flux-system }, path: ./clusters/prod }",
+        "HelmRelease: spec: { chart: { spec: { chart: myapp, sourceRef: { kind: HelmRepository } } }, values: {} }",
+        "Image automation: ImageRepository + ImagePolicy + ImageUpdateAutomation"
+      ],
+      "known_errors": [
+        {
+          "error": "Kustomization reconciliation failed: kustomize build failed",
+          "cause": "Invalid kustomization.yaml or missing resources",
+          "solution": "Run kustomize build locally to debug, check flux logs -n flux-system",
+          "prevention": "Validate manifests in CI before merge"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T18:39:53Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "flux",
+        "gitops",
+        "kubernetes",
+        "cncf",
+        "devops"
+      ],
+      "category": "TOOLS",
+      "subcategory": "GITOPS",
+      "version": "1.0.0",
+      "tested_on": [
+        "Flux 2.x",
+        "Kubernetes 1.25+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

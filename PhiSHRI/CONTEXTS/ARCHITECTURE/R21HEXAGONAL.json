@@ -1,0 +1,55 @@
+{
+  "door_code": "R21HEXAGONAL",
+  "semantic_path": "ARCHITECTURE.DESIGN_PATTERNS.HEXAGONAL",
+  "aliases": [
+    "hexagonal architecture",
+    "ports and adapters",
+    "clean architecture core"
+  ],
+  "context_bundle": {
+    "summary": "Hexagonal (Ports & Adapters) architecture isolates core logic from external concerns: Core domain in center, Ports define interfaces, Adapters implement ports (DB adapter, REST adapter, CLI adapter). Enables easy testing (mock adapters) and technology switching.",
+    "prerequisites": [
+      "R18REPOSITORY_PATTERN"
+    ],
+    "related_doors": [
+      "R22CLEAN_ARCH",
+      "R03MICROSERVICE"
+    ],
+    "onboarding": {
+      "quick_start": "Hexagonal (Ports & Adapters) architecture isolates core logic from external concerns: Core domain in center, Ports define interfaces, Adapters implement ports (DB adapter, REST adapter, CLI adapter). Enables easy testing (mock adapters) and technology switching.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/02_ARCHITECTURE/DESIGN_PATTERNS_GUIDE.md",
+      "common_patterns": [],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/02_ARCHITECTURE/DESIGN_PATTERNS_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T04:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "hexagonal architecture",
+        "ports and adapters",
+        "clean architecture core"
+      ],
+      "category": "ARCHITECTURE",
+      "subcategory": "DESIGN_PATTERNS",
+      "version": "1.0.0",
+      "tested_on": [
+        "All platforms"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "WEBC"
+      ]
+    }
+  }
+}

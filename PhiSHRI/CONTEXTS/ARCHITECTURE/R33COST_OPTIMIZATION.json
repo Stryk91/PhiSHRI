@@ -1,0 +1,62 @@
+{
+  "door_code": "R33COST_OPTIMIZATION",
+  "semantic_path": "architecture/cloud/cost-optimization",
+  "title": "Cloud Cost Optimization",
+  "aliases": [
+    "cost optimization",
+    "finops",
+    "cloud costs",
+    "reserved instances",
+    "spot instances",
+    "rightsizing"
+  ],
+  "summary": "Strategies for optimizing cloud spending while maintaining performance",
+  "context_bundle": {
+    "concepts": [
+      "FinOps: Financial operations for cloud",
+      "Reserved instances: Commit for discount",
+      "Spot/Preemptible: Spare capacity, cheap",
+      "Rightsizing: Match resources to needs",
+      "Cost allocation: Tag and track spending"
+    ],
+    "patterns": [
+      "Use reserved instances for baseline",
+      "Use spot instances for fault-tolerant work",
+      "Rightsize based on utilization data",
+      "Implement resource tagging",
+      "Schedule non-prod shutdown"
+    ],
+    "examples": {
+      "commitment_strategy": {
+        "baseline": "Reserved Instances (1-3 year)",
+        "variable": "On-demand for peaks",
+        "batch": "Spot for processing jobs"
+      },
+      "savings_opportunities": [
+        "Delete unused resources",
+        "Rightsize overprovisioned instances",
+        "Use appropriate storage tiers",
+        "Optimize data transfer",
+        "Schedule dev/test shutdowns"
+      ]
+    },
+    "tools": [
+      "AWS Cost Explorer",
+      "Azure Cost Management",
+      "GCP Billing",
+      "Kubecost",
+      "Infracost",
+      "CloudHealth"
+    ],
+    "antipatterns": [
+      "No cost visibility",
+      "Over-provisioning everything",
+      "All on-demand, no commitments",
+      "No tagging strategy"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T07:33:38.148760",
+  "version": "1.0.0"
+}

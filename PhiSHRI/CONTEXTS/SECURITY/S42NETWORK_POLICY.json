@@ -1,0 +1,102 @@
+{
+  "door_code": "S42NETWORK_POLICY",
+  "semantic_path": "security/kubernetes/network-policies",
+  "title": "Kubernetes Network Policies",
+  "aliases": [
+    "network policy",
+    "k8s network",
+    "pod network",
+    "ingress policy",
+    "egress policy",
+    "network segmentation",
+    "microsegmentation"
+  ],
+  "summary": "Implementing network segmentation and traffic control in Kubernetes",
+  "context_bundle": {
+    "concepts": [
+      "NetworkPolicy: Kubernetes native traffic control",
+      "Ingress rules: Control incoming traffic to pods",
+      "Egress rules: Control outgoing traffic from pods",
+      "Default deny: Block all traffic not explicitly allowed",
+      "CNI support: Calico, Cilium, Weave required"
+    ],
+    "patterns": [
+      "Start with default deny all in namespace",
+      "Allow only required ingress/egress explicitly",
+      "Use labels for policy selectors",
+      "Separate policies per application",
+      "Allow DNS egress (kube-dns/coredns)"
+    ],
+    "examples": {
+      "default_deny_all": {
+        "apiVersion": "networking.k8s.io/v1",
+        "kind": "NetworkPolicy",
+        "spec": {
+          "podSelector": {},
+          "policyTypes": [
+            "Ingress",
+            "Egress"
+          ]
+        }
+      },
+      "allow_ingress_from_app": {
+        "ingress": [
+          {
+            "from": [
+              {
+                "podSelector": {
+                  "matchLabels": {
+                    "app": "frontend"
+                  }
+                }
+              }
+            ],
+            "ports": [
+              {
+                "port": 8080
+              }
+            ]
+          }
+        ]
+      },
+      "allow_dns_egress": {
+        "egress": [
+          {
+            "to": [
+              {
+                "namespaceSelector": {
+                  "matchLabels": {
+                    "name": "kube-system"
+                  }
+                }
+              }
+            ],
+            "ports": [
+              {
+                "port": 53,
+                "protocol": "UDP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "tools": [
+      "Calico",
+      "Cilium",
+      "Weave Net",
+      "Network Policy Editor",
+      "Inspektor Gadget"
+    ],
+    "antipatterns": [
+      "No network policies (flat network)",
+      "Overly permissive allow-all policies",
+      "Forgetting DNS egress rules",
+      "Not testing policy impact before apply"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T06:37:06.671638",
+  "version": "1.0.0"
+}

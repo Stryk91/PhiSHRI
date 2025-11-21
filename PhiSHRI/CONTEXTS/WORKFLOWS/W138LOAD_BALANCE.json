@@ -1,0 +1,59 @@
+{
+  "door_code": "W138LOAD_BALANCE",
+  "semantic_path": "WORKFLOWS.DISTRIBUTED.LOAD_BALANCING",
+  "aliases": [
+    "load balancing",
+    "round robin",
+    "least connections",
+    "sticky sessions"
+  ],
+  "context_bundle": {
+    "summary": "Load balancing distributes traffic across servers: Round-robin (simple rotation), Least connections (active conn count), Weighted (by capacity), IP hash (sticky sessions), Health checks (remove unhealthy nodes).",
+    "prerequisites": [
+      "W124PARALLEL",
+      "R02DISTRIB"
+    ],
+    "related_doors": [
+      "W135CIRCUIT_BREAKER",
+      "W137RATE_LIMIT",
+      "T24NGINX"
+    ],
+    "onboarding": {
+      "quick_start": "Load balancing distributes traffic across servers: Round-robin (simple rotation), Least connections (active conn count), Weighted (by capacity), IP hash (sticky sessions), Health checks (remove unhealthy nodes).",
+      "full_context_path": "/PhiDEX/PhiSync/03_COORDINATION_PATTERNS/RELIABILITY_PATTERNS_GUIDE.md",
+      "common_patterns": [],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/PhiSync/03_COORDINATION_PATTERNS/RELIABILITY_PATTERNS_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T04:15:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "load balancing",
+        "round robin",
+        "least connections",
+        "sticky sessions"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "RELIABILITY",
+      "version": "1.0.0",
+      "tested_on": [
+        "Distributed systems"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "WEBC"
+      ]
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "door_code": "T42ZIPKIN",
+  "semantic_path": "TOOLS.OBSERVABILITY.ZIPKIN",
+  "aliases": [
+    "zipkin",
+    "zipkin tracing",
+    "zipkin server",
+    "brave tracer"
+  ],
+  "context_bundle": {
+    "summary": "Zipkin: Distributed tracing system (originally Twitter). Simpler than Jaeger. Key features: trace collection, dependency analysis, latency histograms, B3 propagation headers. Backends: in-memory, MySQL, Cassandra, Elasticsearch. Good for Spring Cloud Sleuth integration.",
+    "prerequisites": [
+      "W85TRACING",
+      "T10OBSERVABILITY"
+    ],
+    "related_doors": [
+      "T41JAEGER",
+      "T43OTEL",
+      "T44DATADOG"
+    ],
+    "onboarding": {
+      "quick_start": "Zipkin: 1) docker run -p 9411:9411 openzipkin/zipkin, 2) Instrument app (Spring Sleuth auto-configures), 3) Configure zipkin.baseUrl in app, 4) View traces at :9411, 5) Analyze service dependencies.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "B3 headers: X-B3-TraceId, X-B3-SpanId, X-B3-ParentSpanId, X-B3-Sampled",
+        "Spring Sleuth: Auto-instruments Spring apps, exports to Zipkin",
+        "Brave: Java tracing library compatible with Zipkin",
+        "Lens: Browser extension for visualizing traces"
+      ],
+      "known_errors": [
+        {
+          "error": "Traces fragmented across services",
+          "cause": "B3 headers not propagated through HTTP client",
+          "solution": "Use instrumented HTTP client (RestTemplate, WebClient with Sleuth)",
+          "prevention": "Verify all services propagate trace context headers"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T18:39:53Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "zipkin",
+        "tracing",
+        "observability",
+        "spring",
+        "microservices"
+      ],
+      "category": "TOOLS",
+      "subcategory": "OBSERVABILITY",
+      "version": "1.0.0",
+      "tested_on": [
+        "Zipkin 2.x",
+        "Spring Boot"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

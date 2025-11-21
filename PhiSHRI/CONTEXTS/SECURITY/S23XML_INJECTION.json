@@ -1,0 +1,73 @@
+{
+  "door_code": "S23XML_INJECTION",
+  "semantic_path": "SECURITY.VULNERABILITIES.XML_INJECTION",
+  "aliases": ["xml injection", "xxe", "xml external entity", "xml bomb", "billion laughs"],
+  "context_bundle": {
+    "summary": "XML injection and XXE (XML External Entity) prevention: disable external entity processing, disable DTD processing, use defusedxml library (Python), validate XML against schema, limit XML size/depth, prefer JSON over XML when possible.",
+    "prerequisites": ["S03INPUT_VAL", "S16INPUT_SANITIZATION"],
+    "related_doors": ["S02SQL", "S04XSS", "S21DESERIALIZATION"],
+    "onboarding": {
+      "quick_start": "XML security: 1) Disable external entities (XXE protection), 2) Disable DTD entirely if not needed, 3) Limit XML size and nesting depth (prevents billion laughs), 4) Use secure parsers (defusedxml, Xerces with security features), 5) Validate against strict XML schema (XSD).",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/OWASP_TOP_10_GUIDE.md",
+      "common_patterns": [
+        "Python: Use defusedxml.ElementTree instead of xml.etree.ElementTree",
+        "Java: Set XMLInputFactory features: SUPPORT_DTD=false, IS_SUPPORTING_EXTERNAL_ENTITIES=false",
+        "PHP: libxml_disable_entity_loader(true) before parsing (PHP <8.0)",
+        "Node.js: Use libxmljs with nonet: true option",
+        ".NET: XmlReaderSettings: DtdProcessing=Prohibit, XmlResolver=null",
+        "Size limits: Max file size 1MB, max depth 10 levels (adjust per requirements)"
+      ],
+      "known_errors": [
+        {
+          "error": "XXE (XML External Entity) attack reading /etc/passwd",
+          "cause": "XML parser processes external entity references like <!ENTITY xxe SYSTEM 'file:///etc/passwd'>",
+          "solution": "Disable external entities: parser.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true)",
+          "prevention": "Use defusedxml (Python), or configure parser to reject external entities",
+          "example": "Python: from defusedxml.ElementTree import parse; tree = parse(xml_file)"
+        },
+        {
+          "error": "Billion Laughs attack (exponential entity expansion causes DoS)",
+          "cause": "<!ENTITY lol 'lol'><!ENTITY lol2 '&lol;&lol;'>... expands to gigabytes in memory",
+          "solution": "Disable DTD processing entirely: factory.setFeature('http://apache.org/xml/features/disallow-doctype-decl', true)",
+          "prevention": "Set entity expansion limits, disable DTDs if not required",
+          "related_door": "E08NETWORK_ERRORS"
+        },
+        {
+          "error": "XXE via SSRF to internal network",
+          "cause": "External entity points to internal URL: <!ENTITY xxe SYSTEM 'http://192.168.1.1/admin'>",
+          "solution": "Disable external entities + network segmentation to block internal access",
+          "prevention": "Combine XXE protection with SSRF defenses (S22SSRF)",
+          "related_door": "S22SSRF"
+        },
+        {
+          "error": "XML injection modifying document structure",
+          "cause": "User input concatenated into XML without escaping: <user>USER_INPUT</user>",
+          "solution": "Use XML libraries that auto-escape (Element.text = user_input), never string concatenation",
+          "prevention": "Treat XML like SQL: use parameterized/prepared methods, not string building",
+          "example": "GOOD: ET.Element('user'); user.text = unsafe_input. BAD: '<user>' + unsafe_input + '</user>'"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/OWASP_TOP_10_GUIDE.md",
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/INPUT_VALIDATION_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T04:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["xml", "xxe", "xml_injection", "billion_laughs", "owasp", "external_entity"],
+      "category": "SECURITY",
+      "subcategory": "VULNERABILITIES",
+      "version": "1.0.0",
+      "tested_on": ["Python", "Java", "PHP", ".NET", "Node.js"],
+      "agent_affinity": ["VSCC", "DC", "WEBC"]
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "door_code": "W142DISTRIBUTED_LOCK",
+  "semantic_path": "WORKFLOWS.DISTRIBUTED.DISTRIBUTED_LOCKING",
+  "aliases": [
+    "distributed lock",
+    "leader election",
+    "redlock",
+    "etcd lock"
+  ],
+  "context_bundle": {
+    "summary": "Distributed locking ensures mutual exclusion across nodes: Use Redis Redlock, etcd lease, or ZooKeeper locks. Set TTL to prevent deadlocks. Use fencing tokens to prevent split-brain. Pattern: Acquire lock → Do work → Release lock. Handle lock expiration mid-operation.",
+    "prerequisites": [
+      "W78CONCURRENCY",
+      "T22REDIS"
+    ],
+    "related_doors": [
+      "W143LEADER_ELECTION",
+      "E11RACE_CONDITIONS",
+      "T28CONSUL"
+    ],
+    "onboarding": {
+      "quick_start": "Distributed locking ensures mutual exclusion across nodes: Use Redis Redlock, etcd lease, or ZooKeeper locks. Set TTL to prevent deadlocks. Use fencing tokens to prevent split-brain. Pattern: Acquire lock → Do work → Release lock. Handle lock expiration mid-operation.",
+      "full_context_path": "/PhiDEX/PhiSync/03_COORDINATION_PATTERNS/DISTRIBUTED_PATTERNS_GUIDE.md",
+      "common_patterns": [],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/PhiSync/03_COORDINATION_PATTERNS/DISTRIBUTED_PATTERNS_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T04:15:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "distributed lock",
+        "leader election",
+        "redlock",
+        "etcd lock"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "DISTRIBUTED",
+      "version": "1.0.0",
+      "tested_on": [
+        "Distributed systems"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "WEBC"
+      ]
+    }
+  }
+}

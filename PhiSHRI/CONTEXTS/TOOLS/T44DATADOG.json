@@ -1,0 +1,76 @@
+{
+  "door_code": "T44DATADOG",
+  "semantic_path": "TOOLS.OBSERVABILITY.DATADOG",
+  "aliases": [
+    "datadog",
+    "dd-agent",
+    "datadog apm",
+    "datadog logs",
+    "datadog metrics"
+  ],
+  "context_bundle": {
+    "summary": "Datadog: Commercial observability platform. Unified metrics, traces, logs. Key features: 600+ integrations, APM with auto-instrumentation, log management, synthetic monitoring, RUM, security monitoring, dashboards, alerting, SLOs. Agent-based collection.",
+    "prerequisites": [
+      "T10OBSERVABILITY",
+      "W84LOGGING",
+      "W85TRACING",
+      "W86METRICS"
+    ],
+    "related_doors": [
+      "T41JAEGER",
+      "T43OTEL",
+      "T17PROMETHEUS",
+      "T16GRAFANA"
+    ],
+    "onboarding": {
+      "quick_start": "Datadog: 1) Install DD Agent (K8s DaemonSet or host package), 2) Set DD_API_KEY, 3) Enable APM with DD_APM_ENABLED=true, 4) Add dd-trace library to app, 5) View in Datadog UI (APM, Infrastructure, Logs).",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Unified tagging: env, service, version tags across all telemetry",
+        "APM: ddtrace-run python myapp.py for auto-instrumentation",
+        "Log correlation: Inject trace_id/span_id into logs",
+        "Custom metrics: DogStatsD for application metrics"
+      ],
+      "known_errors": [
+        {
+          "error": "No data appearing in Datadog",
+          "cause": "Agent not running, API key invalid, or network blocked",
+          "solution": "Check agent status, verify API key, allow outbound to datadoghq.com",
+          "prevention": "Use agent health check, monitor agent logs"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T18:39:53Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "datadog",
+        "observability",
+        "apm",
+        "monitoring",
+        "saas"
+      ],
+      "category": "TOOLS",
+      "subcategory": "OBSERVABILITY",
+      "version": "1.0.0",
+      "tested_on": [
+        "Datadog Agent 7.x",
+        "Kubernetes",
+        "Linux/Windows"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

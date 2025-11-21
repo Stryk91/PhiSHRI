@@ -1,0 +1,72 @@
+{
+  "door_code": "T35KUSTOMIZE",
+  "semantic_path": "TOOLS.KUBERNETES.KUSTOMIZE",
+  "aliases": [
+    "kustomize",
+    "kustomization.yaml",
+    "overlays",
+    "patches",
+    "kubectl kustomize"
+  ],
+  "context_bundle": {
+    "summary": "Kustomize: Template-free K8s configuration customization. Base + overlays pattern. Built into kubectl (-k flag). Key features: patches (strategic merge, JSON), configMapGenerator, secretGenerator, namePrefix/nameSuffix, commonLabels, image transformers.",
+    "prerequisites": [
+      "T26KUBERNETES",
+      "W48K8S_DEPLOY"
+    ],
+    "related_doors": [
+      "T34HELM",
+      "T36ARGOCD",
+      "T37FLUX"
+    ],
+    "onboarding": {
+      "quick_start": "Kustomize: 1) Create base/ with kustomization.yaml listing resources, 2) Create overlays/dev/ and overlays/prod/, 3) Add patches and transformers per environment, 4) kubectl apply -k overlays/prod/.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Base kustomization: resources: [deployment.yaml, service.yaml]",
+        "Overlay: bases: [../../base], patches: [{path: replica-patch.yaml}]",
+        "Image override: images: [{name: myapp, newTag: v2.0.0}]",
+        "ConfigMap from file: configMapGenerator: [{name: config, files: [config.json]}]"
+      ],
+      "known_errors": [
+        {
+          "error": "accumulating resources: file not found",
+          "cause": "Resource path in kustomization.yaml is incorrect",
+          "solution": "Use relative paths from kustomization.yaml location",
+          "prevention": "Run kustomize build . locally to validate before commit"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T18:39:53Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "kustomize",
+        "kubernetes",
+        "overlays",
+        "patches",
+        "devops"
+      ],
+      "category": "TOOLS",
+      "subcategory": "KUBERNETES",
+      "version": "1.0.0",
+      "tested_on": [
+        "kubectl 1.25+",
+        "Kustomize standalone"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}
