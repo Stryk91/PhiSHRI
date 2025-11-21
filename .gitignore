@@ -1,2 +1,5 @@
 PHIiSRHI/PhiLaunch/
 PHIiSRHI/PhiDEX/
+
+# Archive directory (cleanup artifacts)
+.archive/

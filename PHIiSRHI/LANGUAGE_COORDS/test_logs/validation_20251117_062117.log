@@ -1,4 +1,0 @@
-[2025-11-17 06:21:17] [PASS] Test passed: Message Delivery
-[2025-11-17 06:21:17] [INFO] Running test: Message Reception
-[2025-11-17 06:21:17] [FAIL] Test failed: Message Reception - Expected messages_received = 0, got 2
-[2025-11-17 06:21:17] [INFO] Running test: Cross-Agent Messaging

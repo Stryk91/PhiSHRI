@@ -1,6 +1,0 @@
-[
-  {"name": "BN Fib 8 — 100 Hz", "mode": "binaural", "base": 100, "beat": 8, "duration": 420},
-  {"name": "ISO Schumann — 100 Hz", "mode": "iso", "base": 100, "beat": 7.83, "duration": 420, "iso": {"sharpness": 2.0, "off_gain": 0.0}},
-  {"name": "BN Fib 5 — 100 Hz", "mode": "binaural", "base": 100, "beat": 5, "duration": 420},
-  {"name": "ISO Phi 1.618 — 100 Hz", "mode": "iso", "base": 100, "beat": 1.618, "duration": 480}
-]
