@@ -1,0 +1,77 @@
+{
+  "door_code": "L22GO_CONCURRENCY",
+  "semantic_path": "LANGUAGES.GO.CONCURRENCY",
+  "aliases": [
+    "goroutines",
+    "channels",
+    "select",
+    "go concurrency",
+    "sync"
+  ],
+  "context_bundle": {
+    "summary": "Go concurrency patterns with goroutines, channels, select statements, sync primitives, and concurrent design patterns for scalable applications",
+    "prerequisites": [
+      "L21GO_BASICS"
+    ],
+    "related_doors": [
+      "L21GO_BASICS",
+      "L23GO_TESTING",
+      "L27GO_PERF"
+    ],
+    "onboarding": {
+      "quick_start": "go run main.go && go run -race main.go",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L22GO_CONCURRENCY_GUIDE.md",
+      "common_patterns": [
+        "Goroutine: 'go func() { fmt.Println(&quot;concurrent&quot;) }()' for concurrent execution",
+        "Channels: 'ch := make(chan int, 10); ch <- 42; value := <-ch' for communication",
+        "Select: 'select { case msg := <-ch1: process(msg); case <-time.After(time.Second): timeout(); }'",
+        "WaitGroup: 'var wg sync.WaitGroup; wg.Add(1); go func() { defer wg.Done(); work() }(); wg.Wait()'",
+        "Mutex: 'var mu sync.Mutex; mu.Lock(); defer mu.Unlock(); criticalSection()'",
+        "Once: 'var once sync.Once; once.Do(func() { initialize() })' for one-time initialization",
+        "Worker pool: 'for i := 0; i < workers; i++ { go worker(jobs, results) }'",
+        "Context cancellation: 'ctx, cancel := context.WithCancel(ctx); defer cancel(); select { case <-ctx.Done(): return ctx.Err() }'"
+      ],
+      "known_errors": [
+        "fatal error: all goroutines are asleep - deadlock: Check for channel operations without receivers/senders",
+        "race condition detected: Use 'go run -race', add proper synchronization with mutex or channels",
+        "send on closed channel: Check channel state before sending, use sync.Once for close",
+        "goroutine leak: Ensure goroutines can exit, use context for cancellation",
+        "blocking select: Add default case 'default: // non-blocking' or timeout case",
+        "channel buffer full: Increase buffer size or add more consumers"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L22GO_CONCURRENCY_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:48:05.773224Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "goroutines",
+        "channels",
+        "select",
+        "go concurrency",
+        "sync"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "GO",
+      "version": "1.0.0",
+      "tested_on": [
+        "Go 1.21+",
+        "Go 1.22"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

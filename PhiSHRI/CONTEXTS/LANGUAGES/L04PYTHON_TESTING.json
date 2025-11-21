@@ -1,0 +1,79 @@
+{
+  "door_code": "L04PYTHON_TESTING",
+  "semantic_path": "LANGUAGES.PYTHON.TESTING",
+  "aliases": [
+    "pytest",
+    "python testing",
+    "fixtures",
+    "mocking",
+    "test coverage",
+    "unittest"
+  ],
+  "context_bundle": {
+    "summary": "Python testing best practices with pytest framework, covering fixtures, parametrization, mocking with unittest.mock, test coverage with coverage.py, and integration testing patterns",
+    "prerequisites": [
+      "L01PYTHON"
+    ],
+    "related_doors": [
+      "L01PYTHON",
+      "L03PYTHON_TYPING",
+      "L05PYTHON_PACKAGING"
+    ],
+    "onboarding": {
+      "quick_start": "pip install pytest pytest-cov pytest-mock && pytest --version && pytest --cov=src tests/ --cov-report=html",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L04PYTHON_TESTING_GUIDE.md",
+      "common_patterns": [
+        "Basic test: 'def test_addition(): assert 1 + 1 == 2'",
+        "Fixtures: '@pytest.fixture def db(): conn = create_db(); yield conn; conn.close()'",
+        "Parametrize: '@pytest.mark.parametrize(&quot;input,expected&quot;, [(1, 2), (2, 4)]) def test_double(input, expected): assert input * 2 == expected'",
+        "Mocking: 'from unittest.mock import patch; @patch(&quot;module.function&quot;) def test_with_mock(mock_func): mock_func.return_value = 42'",
+        "Exception testing: 'with pytest.raises(ValueError, match=&quot;invalid&quot;): raise ValueError(&quot;invalid input&quot;)'",
+        "Async tests: '@pytest.mark.asyncio async def test_async(): result = await async_function(); assert result'",
+        "Fixtures with scope: '@pytest.fixture(scope=&quot;session&quot;) def expensive_resource(): return setup()'",
+        "Test markers: '@pytest.mark.slow def test_slow_operation(): time.sleep(5)' and run with 'pytest -m &quot;not slow&quot;'"
+      ],
+      "known_errors": [
+        "Fixture not found: Ensure fixture is in conftest.py or same file, check fixture name spelling",
+        "Mock not working: Patch the correct import path where object is used, not where it's defined",
+        "Coverage not accurate: Use '--cov-branch' for branch coverage, exclude test files with '--cov-config=.coveragerc'",
+        "Async test not running: Install 'pytest-asyncio' and use '@pytest.mark.asyncio' decorator",
+        "Fixture teardown not called: Use 'yield' instead of 'return' in fixtures for proper cleanup",
+        "Parametrize IDs unclear: Add 'ids=[&quot;case1&quot;, &quot;case2&quot;]' parameter for readable test names"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L04PYTHON_TESTING_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:41:30.116419Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "pytest",
+        "python testing",
+        "fixtures",
+        "mocking",
+        "test coverage"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "PYTHON",
+      "version": "1.0.0",
+      "tested_on": [
+        "pytest 7.4+",
+        "Python 3.10+",
+        "coverage.py 7.3+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

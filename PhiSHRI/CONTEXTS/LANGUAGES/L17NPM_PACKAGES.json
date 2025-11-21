@@ -1,0 +1,80 @@
+{
+  "door_code": "L17NPM_PACKAGES",
+  "semantic_path": "LANGUAGES.JAVASCRIPT.NPM_PACKAGES",
+  "aliases": [
+    "npm publish",
+    "package.json",
+    "monorepo",
+    "changesets",
+    "npm",
+    "package publishing"
+  ],
+  "context_bundle": {
+    "summary": "NPM package development and publishing with package.json configuration, monorepo management with workspaces, versioning with changesets, and distribution best practices",
+    "prerequisites": [
+      "L11NODEJS",
+      "L12TYPESCRIPT"
+    ],
+    "related_doors": [
+      "L11NODEJS",
+      "L12TYPESCRIPT",
+      "L16NODE_TESTING"
+    ],
+    "onboarding": {
+      "quick_start": "npm init -y && npm install -D typescript @changesets/cli && npx changeset init && npm login",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L17NPM_PACKAGES_GUIDE.md",
+      "common_patterns": [
+        "Package.json exports: '{&quot;exports&quot;: {&quot;.&quot;: {&quot;import&quot;: &quot;./dist/index.js&quot;, &quot;require&quot;: &quot;./dist/index.cjs&quot;, &quot;types&quot;: &quot;./dist/index.d.ts&quot;}}}'",
+        "Dual package: 'tsup src/index.ts --format cjs,esm --dts' for CommonJS and ESM builds",
+        "Monorepo workspaces: '{&quot;workspaces&quot;: [&quot;packages/*&quot;]}' in root package.json",
+        "Changesets workflow: 'npx changeset add' to create changeset, 'npx changeset version' to bump versions, 'npx changeset publish' to publish",
+        "Peer dependencies: '{&quot;peerDependencies&quot;: {&quot;react&quot;: &quot;^18.0.0&quot;}}' for packages requiring specific versions",
+        "Prepublish script: '{&quot;scripts&quot;: {&quot;prepublishOnly&quot;: &quot;npm run build && npm test&quot;}}' for safety checks",
+        "NPM ignore: '.npmignore' file with 'src/', 'tests/', '*.test.ts' to exclude from package",
+        "Scoped packages: '@myorg/package-name' with 'npm publish --access public' for scoped packages"
+      ],
+      "known_errors": [
+        "403 Forbidden: Run 'npm login' to authenticate, check package name availability with 'npm view package-name'",
+        "Version already published: Bump version in package.json, use 'npm version patch/minor/major'",
+        "Missing files: Check 'files' field in package.json, verify build output exists",
+        "Peer dependency warning: Install peer dependencies in consuming project, document in README",
+        "Module not found after publish: Check 'exports' field, ensure 'main' and 'types' point to correct files",
+        "Changeset error: Run 'npx changeset status' to check state, ensure git is clean"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L17NPM_PACKAGES_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:43:33.653801Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "npm publish",
+        "package.json",
+        "monorepo",
+        "changesets",
+        "npm"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "JAVASCRIPT",
+      "version": "1.0.0",
+      "tested_on": [
+        "npm 10+",
+        "Node.js 18+",
+        "changesets 2.27+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

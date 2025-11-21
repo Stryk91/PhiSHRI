@@ -1,0 +1,81 @@
+{
+  "door_code": "L14REACT_PATTERNS",
+  "semantic_path": "LANGUAGES.JAVASCRIPT.REACT",
+  "aliases": [
+    "react",
+    "react hooks",
+    "useState",
+    "useEffect",
+    "react patterns",
+    "state management"
+  ],
+  "context_bundle": {
+    "summary": "Modern React patterns with hooks, state management, performance optimization, component composition, and best practices for building maintainable React applications",
+    "prerequisites": [
+      "L11NODEJS",
+      "L12TYPESCRIPT"
+    ],
+    "related_doors": [
+      "L11NODEJS",
+      "L12TYPESCRIPT",
+      "L15NEXTJS",
+      "L16NODE_TESTING"
+    ],
+    "onboarding": {
+      "quick_start": "npx create-react-app my-app --template typescript && cd my-app && npm start",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L14REACT_PATTERNS_GUIDE.md",
+      "common_patterns": [
+        "useState: 'const [count, setCount] = useState(0); const increment = () => setCount(prev => prev + 1);'",
+        "useEffect: 'useEffect(() => { const subscription = api.subscribe(); return () => subscription.unsubscribe(); }, []);'",
+        "useCallback: 'const memoizedCallback = useCallback(() => { doSomething(a, b); }, [a, b]);' to prevent re-renders",
+        "useMemo: 'const expensiveValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);' for expensive calculations",
+        "useRef: 'const inputRef = useRef<HTMLInputElement>(null); useEffect(() => { inputRef.current?.focus(); }, []);'",
+        "Custom hooks: 'function useFetch<T>(url: string) { const [data, setData] = useState<T | null>(null); useEffect(() => { fetch(url).then(r => r.json()).then(setData); }, [url]); return data; }'",
+        "Context API: 'const ThemeContext = createContext<Theme>(defaultTheme); function App() { return <ThemeContext.Provider value={theme}><Child /></ThemeContext.Provider>; }'",
+        "Error boundaries: 'class ErrorBoundary extends React.Component { componentDidCatch(error, info) { logError(error, info); } render() { return this.state.hasError ? <Fallback /> : this.props.children; } }'"
+      ],
+      "known_errors": [
+        "Too many re-renders: Use useCallback/useMemo for functions/values passed as props, check dependency arrays",
+        "Can't perform state update on unmounted component: Add cleanup in useEffect, use ref to track mounted state",
+        "Invalid hook call: Hooks must be called at top level, not in loops/conditions/nested functions",
+        "Dependency array warning: Add all dependencies or use ESLint rule 'react-hooks/exhaustive-deps'",
+        "Memory leak: Clean up subscriptions/timers in useEffect return function",
+        "Stale closure: Include all used variables in dependency array, or use functional setState"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L14REACT_PATTERNS_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:43:33.653540Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "react",
+        "react hooks",
+        "useState",
+        "useEffect",
+        "react patterns"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "JAVASCRIPT",
+      "version": "1.0.0",
+      "tested_on": [
+        "React 18+",
+        "TypeScript 5+",
+        "React 19 RC"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

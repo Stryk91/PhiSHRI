@@ -1,0 +1,79 @@
+{
+  "door_code": "L32RUST_ERROR",
+  "semantic_path": "LANGUAGES.RUST.ERROR",
+  "aliases": [
+    "Result",
+    "Option",
+    "? operator",
+    "thiserror",
+    "anyhow",
+    "rust errors"
+  ],
+  "context_bundle": {
+    "summary": "Rust error handling with Result and Option types, ? operator, thiserror for custom errors, and anyhow for application errors",
+    "prerequisites": [
+      "L31RUST_BASICS"
+    ],
+    "related_doors": [
+      "L31RUST_BASICS",
+      "L33RUST_ASYNC",
+      "L34RUST_TRAITS"
+    ],
+    "onboarding": {
+      "quick_start": "cargo add thiserror anyhow && cargo build",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L32RUST_ERROR_GUIDE.md",
+      "common_patterns": [
+        "Result type: 'fn divide(a: i32, b: i32) -> Result<i32, String> { if b == 0 { Err(&quot;division by zero&quot;.to_string()) } else { Ok(a / b) } }'",
+        "? operator: 'fn read_file() -> Result<String, std::io::Error> { let content = std::fs::read_to_string(&quot;file.txt&quot;)?; Ok(content) }'",
+        "Option type: 'fn find_user(id: u32) -> Option<User> { users.get(&id).cloned() }'",
+        "Match: 'match result { Ok(value) => println!(&quot;Success: {}&quot;, value), Err(e) => eprintln!(&quot;Error: {}&quot;, e) }'",
+        "Thiserror: '#[derive(thiserror::Error, Debug)] enum MyError { #[error(&quot;not found&quot;)] NotFound, #[error(&quot;invalid: {0}&quot;)] Invalid(String) }'",
+        "Anyhow: 'use anyhow::{Result, Context}; fn process() -> Result<()> { let data = read_file().context(&quot;failed to read&quot;)?; Ok(()) }'",
+        "Unwrap: 'let value = result.unwrap(); // panics on Err, use only when certain'",
+        "Unwrap_or: 'let value = result.unwrap_or(default); // provides default on Err'"
+      ],
+      "known_errors": [
+        "unwrap on None/Err: Use pattern matching or ? operator, avoid unwrap in production",
+        "error type mismatch: Use From trait or map_err to convert error types",
+        "? operator not working: Ensure function returns Result or Option",
+        "error context lost: Use anyhow::Context trait to add context",
+        "custom error not Display: Implement Display trait or use thiserror",
+        "panic in production: Replace unwrap/expect with proper error handling"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L32RUST_ERROR_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:48:05.774116Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "Result",
+        "Option",
+        "? operator",
+        "thiserror",
+        "anyhow"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "RUST",
+      "version": "1.0.0",
+      "tested_on": [
+        "Rust 1.75+",
+        "thiserror 1.0+",
+        "anyhow 1.0+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

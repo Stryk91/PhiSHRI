@@ -1,0 +1,73 @@
+{
+  "door_code": "L48JSON_SCHEMA",
+  "semantic_path": "LANGUAGES.JSON.SCHEMA",
+  "aliases": [
+    "json schema",
+    "validation",
+    "openapi",
+    "json schema draft"
+  ],
+  "context_bundle": {
+    "summary": "JSON Schema for data validation, OpenAPI integration, schema composition, and API contract definition",
+    "prerequisites": [],
+    "related_doors": [
+      "L11NODEJS",
+      "L01PYTHON"
+    ],
+    "onboarding": {
+      "quick_start": "npm install ajv && npm install @apidevtools/json-schema-ref-parser",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L48JSON_SCHEMA_GUIDE.md",
+      "common_patterns": [
+        "Basic schema: '{&quot;type&quot;: &quot;object&quot;, &quot;properties&quot;: {&quot;name&quot;: {&quot;type&quot;: &quot;string&quot;}, &quot;age&quot;: {&quot;type&quot;: &quot;integer&quot;, &quot;minimum&quot;: 0}}, &quot;required&quot;: [&quot;name&quot;]}'",
+        "String validation: '{&quot;type&quot;: &quot;string&quot;, &quot;minLength&quot;: 3, &quot;maxLength&quot;: 50, &quot;pattern&quot;: &quot;^[a-zA-Z]+$&quot;}'",
+        "Array: '{&quot;type&quot;: &quot;array&quot;, &quot;items&quot;: {&quot;type&quot;: &quot;string&quot;}, &quot;minItems&quot;: 1, &quot;uniqueItems&quot;: true}'",
+        "Enum: '{&quot;type&quot;: &quot;string&quot;, &quot;enum&quot;: [&quot;active&quot;, &quot;inactive&quot;, &quot;pending&quot;]}'",
+        "Composition: '{&quot;allOf&quot;: [{&quot;$ref&quot;: &quot;#/definitions/User&quot;}, {&quot;properties&quot;: {&quot;role&quot;: {&quot;type&quot;: &quot;string&quot;}}}]}'",
+        "Conditional: '{&quot;if&quot;: {&quot;properties&quot;: {&quot;country&quot;: {&quot;const&quot;: &quot;US&quot;}}}, &quot;then&quot;: {&quot;properties&quot;: {&quot;zipCode&quot;: {&quot;type&quot;: &quot;string&quot;, &quot;pattern&quot;: &quot;^\\\\d{5}$&quot;}}}}'",
+        "OpenAPI: 'components: schemas: User: type: object properties: id: type: string format: uuid'",
+        "Validation: 'const ajv = new Ajv(); const validate = ajv.compile(schema); const valid = validate(data);'"
+      ],
+      "known_errors": [
+        "validation failed: Check error messages in validate.errors, fix data or schema",
+        "reference not found: Ensure $ref paths correct, use $id for schema identification",
+        "circular reference: Use json-schema-ref-parser to resolve",
+        "format not recognized: Add custom format with ajv.addFormat()",
+        "schema too complex: Split into smaller schemas, use $ref for composition",
+        "performance slow: Compile schema once, cache compiled validators"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L48JSON_SCHEMA_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:48:05.775306Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "json schema",
+        "validation",
+        "openapi",
+        "json schema draft"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "JSON",
+      "version": "1.0.0",
+      "tested_on": [
+        "JSON Schema Draft 2020-12",
+        "ajv 8+",
+        "OpenAPI 3.1"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

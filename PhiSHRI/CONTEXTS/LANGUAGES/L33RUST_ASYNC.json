@@ -1,0 +1,78 @@
+{
+  "door_code": "L33RUST_ASYNC",
+  "semantic_path": "LANGUAGES.RUST.ASYNC",
+  "aliases": [
+    "tokio",
+    "async-std",
+    "futures",
+    "async/await",
+    "rust async"
+  ],
+  "context_bundle": {
+    "summary": "Rust asynchronous programming with tokio runtime, async/await syntax, futures, and concurrent async patterns",
+    "prerequisites": [
+      "L31RUST_BASICS"
+    ],
+    "related_doors": [
+      "L31RUST_BASICS",
+      "L32RUST_ERROR",
+      "L34RUST_TRAITS"
+    ],
+    "onboarding": {
+      "quick_start": "cargo add tokio --features full && cargo add reqwest",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L33RUST_ASYNC_GUIDE.md",
+      "common_patterns": [
+        "Async function: 'async fn fetch_data() -> Result<String, reqwest::Error> { let response = reqwest::get(&quot;https://api.example.com&quot;).await?; response.text().await }'",
+        "Tokio runtime: '#[tokio::main] async fn main() { let result = fetch_data().await; }'",
+        "Spawn task: 'let handle = tokio::spawn(async { expensive_computation().await }); let result = handle.await.unwrap();'",
+        "Join: 'let (result1, result2) = tokio::join!(task1(), task2()); // concurrent execution'",
+        "Select: 'tokio::select! { result = task1() => handle_result(result), _ = tokio::time::sleep(Duration::from_secs(5)) => handle_timeout() }'",
+        "Channels: 'let (tx, mut rx) = tokio::sync::mpsc::channel(100); tokio::spawn(async move { tx.send(42).await.unwrap(); }); let value = rx.recv().await;'",
+        "Mutex: 'let data = Arc::new(tokio::sync::Mutex::new(0)); let data_clone = data.clone(); tokio::spawn(async move { let mut lock = data_clone.lock().await; *lock += 1; });'",
+        "Stream: 'use tokio_stream::StreamExt; let mut stream = tokio_stream::iter(vec![1, 2, 3]); while let Some(value) = stream.next().await { println!(&quot;{}&quot;, value); }'"
+      ],
+      "known_errors": [
+        "cannot await in non-async function: Add 'async' keyword to function signature",
+        "task panicked: Add error handling in spawned tasks, use Result return type",
+        "deadlock: Check for circular dependencies in locks, use timeout",
+        "runtime not found: Add #[tokio::main] or create runtime manually",
+        "Send bound not satisfied: Ensure types are Send, avoid non-Send types across await points",
+        "future not polled: Ensure .await is called on futures"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L33RUST_ASYNC_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:48:05.774189Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "tokio",
+        "async-std",
+        "futures",
+        "async/await",
+        "rust async"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "RUST",
+      "version": "1.0.0",
+      "tested_on": [
+        "Rust 1.75+",
+        "tokio 1.35+",
+        "async-std 1.12+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

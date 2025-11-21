@@ -1,0 +1,78 @@
+{
+  "door_code": "L25GO_WEB",
+  "semantic_path": "LANGUAGES.GO.WEB",
+  "aliases": [
+    "net/http",
+    "chi",
+    "gin",
+    "go web",
+    "http server"
+  ],
+  "context_bundle": {
+    "summary": "Go web development with net/http, Chi router, Gin framework, middleware patterns, and RESTful API design",
+    "prerequisites": [
+      "L21GO_BASICS"
+    ],
+    "related_doors": [
+      "L21GO_BASICS",
+      "L22GO_CONCURRENCY",
+      "L26GO_CLI"
+    ],
+    "onboarding": {
+      "quick_start": "go get -u github.com/go-chi/chi/v5 && go run main.go",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L25GO_WEB_GUIDE.md",
+      "common_patterns": [
+        "Basic server: 'http.HandleFunc(&quot;/&quot;, func(w http.ResponseWriter, r *http.Request) { fmt.Fprintf(w, &quot;Hello&quot;) }); http.ListenAndServe(&quot;:8080&quot;, nil)'",
+        "Chi router: 'r := chi.NewRouter(); r.Use(middleware.Logger); r.Get(&quot;/users/{id}&quot;, getUser); http.ListenAndServe(&quot;:8080&quot;, r)'",
+        "Middleware: 'func loggingMiddleware(next http.Handler) http.Handler { return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) { log.Println(r.URL); next.ServeHTTP(w, r) }) }'",
+        "JSON response: 'w.Header().Set(&quot;Content-Type&quot;, &quot;application/json&quot;); json.NewEncoder(w).Encode(data)'",
+        "Request parsing: 'var user User; if err := json.NewDecoder(r.Body).Decode(&user); err != nil { http.Error(w, err.Error(), 400) }'",
+        "Context values: 'ctx := context.WithValue(r.Context(), &quot;user&quot;, user); r = r.WithContext(ctx)'",
+        "Graceful shutdown: 'srv := &http.Server{Addr: &quot;:8080&quot;}; go srv.ListenAndServe(); <-ctx.Done(); srv.Shutdown(context.Background())'",
+        "CORS: 'w.Header().Set(&quot;Access-Control-Allow-Origin&quot;, &quot;*&quot;); w.Header().Set(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST&quot;)'"
+      ],
+      "known_errors": [
+        "address already in use: Change port or kill process with 'lsof -ti:8080 | xargs kill'",
+        "broken pipe: Client disconnected, handle context cancellation",
+        "request timeout: Increase server timeouts 'ReadTimeout: 15 * time.Second, WriteTimeout: 15 * time.Second'",
+        "middleware not executing: Check middleware order, ensure Use() before routes",
+        "CORS error: Add proper CORS headers or use cors middleware",
+        "panic in handler: Use recovery middleware to catch panics"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L25GO_WEB_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:48:05.773484Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "net/http",
+        "chi",
+        "gin",
+        "go web",
+        "http server"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "GO",
+      "version": "1.0.0",
+      "tested_on": [
+        "Go 1.21+",
+        "Chi 5+",
+        "Gin 1.9+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

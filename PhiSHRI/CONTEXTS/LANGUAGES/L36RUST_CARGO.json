@@ -1,0 +1,77 @@
+{
+  "door_code": "L36RUST_CARGO",
+  "semantic_path": "LANGUAGES.RUST.CARGO",
+  "aliases": [
+    "cargo",
+    "workspaces",
+    "features",
+    "build scripts",
+    "cargo.toml"
+  ],
+  "context_bundle": {
+    "summary": "Cargo package management with workspaces for monorepos, feature flags, build scripts, and dependency management",
+    "prerequisites": [
+      "L31RUST_BASICS"
+    ],
+    "related_doors": [
+      "L31RUST_BASICS",
+      "L35RUST_TESTING",
+      "L37RUST_UNSAFE"
+    ],
+    "onboarding": {
+      "quick_start": "cargo new --lib mylib && cargo build --release && cargo publish --dry-run",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L36RUST_CARGO_GUIDE.md",
+      "common_patterns": [
+        "Workspace: '[workspace] members = [&quot;crate1&quot;, &quot;crate2&quot;] in root Cargo.toml'",
+        "Features: '[features] default = [&quot;std&quot;] std = [] no_std = [] in Cargo.toml'",
+        "Optional dependencies: 'serde = { version = &quot;1.0&quot;, optional = true } in [dependencies]'",
+        "Build script: 'build.rs with fn main() { println!(&quot;cargo:rerun-if-changed=build.rs&quot;); }'",
+        "Conditional compilation: '#[cfg(feature = &quot;std&quot;)] use std::collections::HashMap;'",
+        "Dev dependencies: '[dev-dependencies] proptest = &quot;1.0&quot; for test-only dependencies'",
+        "Patch dependencies: '[patch.crates-io] my-crate = { path = &quot;../my-crate&quot; } for local development'",
+        "Publish: 'cargo publish --dry-run to test, cargo publish to publish to crates.io'"
+      ],
+      "known_errors": [
+        "workspace member not found: Check members list in root Cargo.toml, verify paths",
+        "feature not enabled: Add feature to default or enable with --features flag",
+        "build script failed: Check build.rs for errors, ensure required tools installed",
+        "dependency resolution failed: Run cargo update, check version constraints",
+        "publish failed: Ensure crate name available, add license and description",
+        "circular dependency: Refactor to break cycle, use feature flags"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L36RUST_CARGO_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:48:05.774399Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "cargo",
+        "workspaces",
+        "features",
+        "build scripts",
+        "cargo.toml"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "RUST",
+      "version": "1.0.0",
+      "tested_on": [
+        "Rust 1.75+",
+        "Cargo 1.75+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

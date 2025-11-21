@@ -1,0 +1,75 @@
+{
+  "door_code": "L28GO_GENERICS",
+  "semantic_path": "LANGUAGES.GO.GENERICS",
+  "aliases": [
+    "go generics",
+    "type parameters",
+    "constraints",
+    "go 1.18+"
+  ],
+  "context_bundle": {
+    "summary": "Go generics with type parameters, constraints, and generic programming patterns for reusable type-safe code",
+    "prerequisites": [
+      "L21GO_BASICS"
+    ],
+    "related_doors": [
+      "L21GO_BASICS",
+      "L22GO_CONCURRENCY",
+      "L29GO_ERRORS"
+    ],
+    "onboarding": {
+      "quick_start": "go version && go run main.go",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L28GO_GENERICS_GUIDE.md",
+      "common_patterns": [
+        "Generic function: 'func Min[T constraints.Ordered](a, b T) T { if a < b { return a }; return b }'",
+        "Generic type: 'type Stack[T any] struct { items []T }; func (s *Stack[T]) Push(item T) { s.items = append(s.items, item) }'",
+        "Constraints: 'type Number interface { ~int | ~int64 | ~float64 }; func Sum[T Number](nums []T) T { var sum T; for _, n := range nums { sum += n }; return sum }'",
+        "Type inference: 'result := Min(1, 2) // T inferred as int'",
+        "Multiple type parameters: 'func Map[T, U any](slice []T, fn func(T) U) []U { result := make([]U, len(slice)); for i, v := range slice { result[i] = fn(v) }; return result }'",
+        "Comparable constraint: 'func Contains[T comparable](slice []T, item T) bool { for _, v := range slice { if v == item { return true } }; return false }'",
+        "Interface constraints: 'type Stringer interface { String() string }; func Print[T Stringer](items []T) { for _, item := range items { fmt.Println(item.String()) } }'",
+        "Approximation: 'type Integer interface { ~int | ~int8 | ~int16 | ~int32 | ~int64 }' for underlying types"
+      ],
+      "known_errors": [
+        "type parameter not used: Ensure type parameter used in function signature or body",
+        "constraint not satisfied: Check type implements required methods or matches union",
+        "cannot infer type: Provide explicit type parameter 'Function[int](args)'",
+        "invalid constraint: Ensure constraint is interface type with type elements",
+        "comparable not working: Use 'comparable' constraint for == and != operations",
+        "performance overhead: Generics have minimal overhead, profile if concerned"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L28GO_GENERICS_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:48:05.773718Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "go generics",
+        "type parameters",
+        "constraints",
+        "go 1.18+"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "GO",
+      "version": "1.0.0",
+      "tested_on": [
+        "Go 1.21+",
+        "Go 1.22"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "door_code": "L24GO_MODULES",
+  "semantic_path": "LANGUAGES.GO.MODULES",
+  "aliases": [
+    "go.mod",
+    "go modules",
+    "versioning",
+    "go get",
+    "private modules"
+  ],
+  "context_bundle": {
+    "summary": "Go module system with go.mod management, semantic versioning, private module access, and dependency management",
+    "prerequisites": [
+      "L21GO_BASICS"
+    ],
+    "related_doors": [
+      "L21GO_BASICS",
+      "L23GO_TESTING",
+      "L25GO_WEB"
+    ],
+    "onboarding": {
+      "quick_start": "go mod init github.com/user/project && go mod tidy && go get -u ./...",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L24GO_MODULES_GUIDE.md",
+      "common_patterns": [
+        "Initialize module: 'go mod init github.com/user/project' creates go.mod",
+        "Add dependency: 'go get github.com/pkg/errors@v0.9.1' for specific version",
+        "Update dependencies: 'go get -u ./...' for all, 'go get -u github.com/pkg/errors' for specific",
+        "Vendor: 'go mod vendor' to copy dependencies to vendor/ directory",
+        "Replace directive: 'replace github.com/old/pkg => github.com/new/pkg v1.0.0' in go.mod",
+        "Private modules: 'export GOPRIVATE=github.com/myorg/*' and configure git credentials",
+        "Workspace: 'go work init ./module1 ./module2' for multi-module development",
+        "Checksum verification: 'go mod verify' to check integrity of dependencies"
+      ],
+      "known_errors": [
+        "module not found: Run 'go mod tidy', check module path and version",
+        "checksum mismatch: Run 'go clean -modcache' and 'go mod download', verify go.sum",
+        "private repo access: Configure GOPRIVATE and git credentials, use SSH instead of HTTPS",
+        "version conflict: Check 'go mod graph', use 'go get package@version' to resolve",
+        "replace not working: Ensure replace directive before require, use absolute or relative path",
+        "workspace issues: Run 'go work sync' to synchronize workspace"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L24GO_MODULES_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:48:05.773408Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "go.mod",
+        "go modules",
+        "versioning",
+        "go get",
+        "private modules"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "GO",
+      "version": "1.0.0",
+      "tested_on": [
+        "Go 1.21+",
+        "Go 1.22"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

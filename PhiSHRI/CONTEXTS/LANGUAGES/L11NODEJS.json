@@ -1,0 +1,77 @@
+{
+  "door_code": "L11NODEJS",
+  "semantic_path": "LANGUAGES.JAVASCRIPT.NODEJS",
+  "aliases": [
+    "nodejs",
+    "node.js",
+    "node",
+    "javascript backend",
+    "npm"
+  ],
+  "context_bundle": {
+    "summary": "Node.js runtime patterns covering event loop mechanics, streams, async patterns, module system, and performance optimization for scalable server-side JavaScript applications",
+    "prerequisites": [],
+    "related_doors": [
+      "L12TYPESCRIPT",
+      "L13TS_PATTERNS",
+      "L16NODE_TESTING",
+      "L18NODE_PERF"
+    ],
+    "onboarding": {
+      "quick_start": "nvm install 20 && nvm use 20 && node --version && npm init -y && npm install express",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L11NODEJS_GUIDE.md",
+      "common_patterns": [
+        "ES modules: 'import express from &quot;express&quot;; export const app = express();' with 'type: &quot;module&quot;' in package.json",
+        "Event emitter: 'import { EventEmitter } from &quot;events&quot;; class MyEmitter extends EventEmitter {} const emitter = new MyEmitter(); emitter.on(&quot;event&quot;, () => console.log(&quot;fired&quot;));'",
+        "Streams: 'import { pipeline } from &quot;stream/promises&quot;; await pipeline(fs.createReadStream(&quot;input.txt&quot;), transform, fs.createWriteStream(&quot;output.txt&quot;));'",
+        "Async/await: 'async function fetchData() { try { const response = await fetch(url); return await response.json(); } catch (error) { console.error(error); } }'",
+        "Error handling: 'process.on(&quot;uncaughtException&quot;, (error) => { console.error(&quot;Uncaught:&quot;, error); process.exit(1); });'",
+        "Environment variables: 'import dotenv from &quot;dotenv&quot;; dotenv.config(); const apiKey = process.env.API_KEY;'",
+        "Worker threads: 'import { Worker } from &quot;worker_threads&quot;; const worker = new Worker(&quot;./worker.js&quot;); worker.postMessage({ task: &quot;compute&quot; });'",
+        "Buffer handling: 'const buffer = Buffer.from(&quot;hello&quot;, &quot;utf8&quot;); const hex = buffer.toString(&quot;hex&quot;);'"
+      ],
+      "known_errors": [
+        "ERR_MODULE_NOT_FOUND: Add 'type: &quot;module&quot;' to package.json or use .mjs extension, check import paths",
+        "EADDRINUSE: Port already in use, find process with 'lsof -i :3000' and kill or use different port",
+        "MaxListenersExceededWarning: Remove event listeners with 'emitter.removeListener()' or increase limit with 'emitter.setMaxListeners()'",
+        "Memory leak: Use 'node --inspect' and Chrome DevTools to profile, check for unclosed connections and event listeners",
+        "Unhandled promise rejection: Add '.catch()' to promises or use 'process.on(&quot;unhandledRejection&quot;)' handler",
+        "ENOENT file not found: Use 'path.join(__dirname, &quot;file&quot;)' for relative paths, check file exists with 'fs.existsSync()'"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L11NODEJS_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:43:33.653140Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "nodejs",
+        "node.js",
+        "node",
+        "javascript backend",
+        "npm"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "JAVASCRIPT",
+      "version": "1.0.0",
+      "tested_on": [
+        "Node.js 18 LTS",
+        "Node.js 20 LTS",
+        "npm 10+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

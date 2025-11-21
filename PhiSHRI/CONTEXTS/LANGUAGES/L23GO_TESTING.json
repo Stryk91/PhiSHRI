@@ -1,0 +1,77 @@
+{
+  "door_code": "L23GO_TESTING",
+  "semantic_path": "LANGUAGES.GO.TESTING",
+  "aliases": [
+    "go test",
+    "table tests",
+    "benchmarks",
+    "fuzzing",
+    "go testing"
+  ],
+  "context_bundle": {
+    "summary": "Go testing patterns with table-driven tests, benchmarks, fuzzing, test coverage, and testing best practices",
+    "prerequisites": [
+      "L21GO_BASICS"
+    ],
+    "related_doors": [
+      "L21GO_BASICS",
+      "L22GO_CONCURRENCY",
+      "L24GO_MODULES"
+    ],
+    "onboarding": {
+      "quick_start": "go test ./... -v && go test -cover ./... && go test -bench=. -benchmem",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L23GO_TESTING_GUIDE.md",
+      "common_patterns": [
+        "Table tests: 'tests := []struct{ input int; want int }{{1, 2}, {2, 4}}; for _, tt := range tests { t.Run(fmt.Sprint(tt.input), func(t *testing.T) { got := double(tt.input); if got != tt.want { t.Errorf(&quot;got %d, want %d&quot;, got, tt.want) } }) }'",
+        "Subtests: 't.Run(&quot;subtest name&quot;, func(t *testing.T) { /* test code */ })' for organization",
+        "Benchmarks: 'func BenchmarkFunction(b *testing.B) { for i := 0; i < b.N; i++ { function() } }'",
+        "Fuzzing: 'func FuzzFunction(f *testing.F) { f.Add(&quot;seed&quot;); f.Fuzz(func(t *testing.T, input string) { function(input) }) }'",
+        "Test helpers: 'func testHelper(t *testing.T) { t.Helper(); /* helper code */ }' to improve error messages",
+        "Coverage: 'go test -coverprofile=coverage.out && go tool cover -html=coverage.out'",
+        "Parallel tests: 't.Parallel()' at start of test function for concurrent execution",
+        "Mock interfaces: 'type MockReader struct { ReadFunc func([]byte) (int, error) }; func (m *MockReader) Read(p []byte) (int, error) { return m.ReadFunc(p) }'"
+      ],
+      "known_errors": [
+        "test timeout: Increase with 'go test -timeout 30s' or optimize slow tests",
+        "race condition in test: Run 'go test -race', fix synchronization issues",
+        "benchmark unstable: Run multiple times 'go test -bench=. -count=10', check for external factors",
+        "coverage not accurate: Ensure all code paths tested, use '-covermode=atomic' for concurrent code",
+        "fuzzing crash: Examine crash input with 'go test -fuzz=FuzzName -fuzztime=10s'",
+        "test cache: Clear with 'go clean -testcache' if tests not running"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L23GO_TESTING_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:48:05.773324Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "go test",
+        "table tests",
+        "benchmarks",
+        "fuzzing",
+        "go testing"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "GO",
+      "version": "1.0.0",
+      "tested_on": [
+        "Go 1.21+",
+        "Go 1.22"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

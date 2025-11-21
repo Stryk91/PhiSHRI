@@ -1,0 +1,78 @@
+{
+  "door_code": "L39RUST_PERF",
+  "semantic_path": "LANGUAGES.RUST.PERFORMANCE",
+  "aliases": [
+    "rust performance",
+    "benchmarking",
+    "criterion",
+    "flamegraph",
+    "profiling"
+  ],
+  "context_bundle": {
+    "summary": "Rust performance optimization with benchmarking, profiling, flamegraphs, and optimization techniques",
+    "prerequisites": [
+      "L31RUST_BASICS"
+    ],
+    "related_doors": [
+      "L31RUST_BASICS",
+      "L33RUST_ASYNC",
+      "L35RUST_TESTING"
+    ],
+    "onboarding": {
+      "quick_start": "cargo install cargo-flamegraph && cargo install criterion && cargo bench",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L39RUST_PERF_GUIDE.md",
+      "common_patterns": [
+        "Criterion benchmark: 'use criterion::{black_box, criterion_group, criterion_main, Criterion}; fn bench_function(c: &mut Criterion) { c.bench_function(&quot;function&quot;, |b| b.iter(|| function(black_box(42)))); }'",
+        "Flamegraph: 'cargo flamegraph --bin myapp to generate flamegraph.svg'",
+        "Release mode: 'cargo build --release for optimizations, cargo run --release'",
+        "Inline: '#[inline] or #[inline(always)] for function inlining'",
+        "Avoid allocations: 'Use stack allocation, reuse buffers, use SmallVec for small collections'",
+        "Iterator chains: 'data.iter().filter(|x| x > &0).map(|x| x * 2).collect() // zero-cost abstractions'",
+        "SIMD: 'use std::simd::*; let a = f32x4::from_array([1.0, 2.0, 3.0, 4.0]); let b = a * a;'",
+        "Profile-guided optimization: 'RUSTFLAGS=&quot;-C profile-generate=/tmp/pgo-data&quot; cargo build --release'"
+      ],
+      "known_errors": [
+        "slow performance: Profile with flamegraph, optimize hot paths",
+        "high memory usage: Use cargo-bloat to find large code, optimize allocations",
+        "benchmark variance: Run with --sample-size, use criterion's statistical analysis",
+        "optimization not applied: Check release mode, verify inline attributes",
+        "SIMD not working: Enable target features with RUSTFLAGS=&quot;-C target-cpu=native&quot;",
+        "PGO not improving: Ensure representative workload for profile generation"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L39RUST_PERF_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:48:05.774636Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "rust performance",
+        "benchmarking",
+        "criterion",
+        "flamegraph",
+        "profiling"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "RUST",
+      "version": "1.0.0",
+      "tested_on": [
+        "Rust 1.75+",
+        "criterion 0.5+",
+        "cargo-flamegraph 0.6+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

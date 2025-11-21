@@ -1,0 +1,79 @@
+{
+  "door_code": "L12TYPESCRIPT",
+  "semantic_path": "LANGUAGES.JAVASCRIPT.TYPESCRIPT",
+  "aliases": [
+    "typescript",
+    "ts",
+    "typescript config",
+    "tsconfig",
+    "strict mode"
+  ],
+  "context_bundle": {
+    "summary": "TypeScript configuration best practices with tsconfig.json, strict mode settings, advanced type features, and compilation strategies for type-safe JavaScript development",
+    "prerequisites": [
+      "L11NODEJS"
+    ],
+    "related_doors": [
+      "L11NODEJS",
+      "L13TS_PATTERNS",
+      "L14REACT_PATTERNS",
+      "L15NEXTJS"
+    ],
+    "onboarding": {
+      "quick_start": "npm install -D typescript @types/node && npx tsc --init --strict && npx tsc --watch",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L12TYPESCRIPT_GUIDE.md",
+      "common_patterns": [
+        "Strict tsconfig: '{&quot;compilerOptions&quot;: {&quot;strict&quot;: true, &quot;target&quot;: &quot;ES2022&quot;, &quot;module&quot;: &quot;NodeNext&quot;, &quot;moduleResolution&quot;: &quot;NodeNext&quot;}}'",
+        "Type inference: 'const user = { name: &quot;Alice&quot;, age: 30 }; // TypeScript infers { name: string; age: number }'",
+        "Union types: 'type Status = &quot;pending&quot; | &quot;success&quot; | &quot;error&quot;; function handle(status: Status) {}'",
+        "Generics: 'function identity<T>(value: T): T { return value; } const num = identity(42); // T inferred as number'",
+        "Type guards: 'function isString(value: unknown): value is string { return typeof value === &quot;string&quot;; }'",
+        "Utility types: 'type Partial<T> = { [P in keyof T]?: T[P] }; type ReadonlyUser = Readonly<User>;'",
+        "Declaration files: 'declare module &quot;my-module&quot; { export function doSomething(): void; }' in .d.ts file",
+        "Path mapping: '{&quot;compilerOptions&quot;: {&quot;baseUrl&quot;: &quot;.&quot;, &quot;paths&quot;: {&quot;@/*&quot;: [&quot;src/*&quot;]}}}' for clean imports"
+      ],
+      "known_errors": [
+        "Cannot find module: Install types with 'npm install -D @types/package-name', check tsconfig paths",
+        "Type 'X' is not assignable to type 'Y': Check type compatibility, use type assertion 'as Type' or type guard",
+        "Object is possibly 'undefined': Use optional chaining 'obj?.prop' or nullish coalescing 'obj ?? default'",
+        "Circular dependency: Refactor to break cycle, use interfaces for type-only imports",
+        "Module resolution error: Set 'moduleResolution: &quot;NodeNext&quot;' in tsconfig for Node.js 16+",
+        "Declaration emit error: Check for type errors in exported functions, use 'skipLibCheck: true' temporarily"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L12TYPESCRIPT_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:43:33.653354Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "typescript",
+        "ts",
+        "typescript config",
+        "tsconfig",
+        "strict mode"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "JAVASCRIPT",
+      "version": "1.0.0",
+      "tested_on": [
+        "TypeScript 5.3+",
+        "Node.js 18+",
+        "TypeScript 5.4"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

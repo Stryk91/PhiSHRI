@@ -1,0 +1,80 @@
+{
+  "door_code": "L05PYTHON_PACKAGING",
+  "semantic_path": "LANGUAGES.PYTHON.PACKAGING",
+  "aliases": [
+    "pyproject.toml",
+    "setuptools",
+    "poetry",
+    "pip",
+    "python packaging",
+    "wheel"
+  ],
+  "context_bundle": {
+    "summary": "Modern Python packaging with pyproject.toml, setuptools configuration, Poetry for dependency management, building wheels, and publishing to PyPI with proper versioning and metadata",
+    "prerequisites": [
+      "L01PYTHON"
+    ],
+    "related_doors": [
+      "L01PYTHON",
+      "L04PYTHON_TESTING",
+      "L06PYTHON_PERF"
+    ],
+    "onboarding": {
+      "quick_start": "pip install build twine poetry && python -m build && twine check dist/* && poetry init && poetry install",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L05PYTHON_PACKAGING_GUIDE.md",
+      "common_patterns": [
+        "pyproject.toml basic: '[build-system]\\nrequires = [&quot;setuptools>=61.0&quot;]\\nbuild-backend = &quot;setuptools.build_meta&quot;'",
+        "Project metadata: '[project]\\nname = &quot;mypackage&quot;\\nversion = &quot;0.1.0&quot;\\ndependencies = [&quot;requests>=2.28&quot;]'",
+        "Build package: 'python -m build' creates dist/ with wheel and sdist",
+        "Poetry project: 'poetry new myproject && cd myproject && poetry add requests && poetry install'",
+        "Development dependencies: '[project.optional-dependencies]\\ndev = [&quot;pytest&quot;, &quot;mypy&quot;, &quot;black&quot;]'",
+        "Entry points: '[project.scripts]\\nmycli = &quot;mypackage.cli:main&quot;' for CLI tools",
+        "Version from git: 'pip install setuptools-scm && [tool.setuptools_scm]' for automatic versioning",
+        "Upload to PyPI: 'twine upload dist/* --repository testpypi' for testing, then 'twine upload dist/*' for production"
+      ],
+      "known_errors": [
+        "Build failed: Check pyproject.toml syntax with 'python -m build --sdist --wheel', verify all dependencies listed",
+        "Import error after install: Ensure package structure has __init__.py files, check MANIFEST.in for data files",
+        "Version conflict: Use 'pip install --upgrade package' or specify exact version 'package==1.2.3'",
+        "Poetry lock file outdated: Run 'poetry lock --no-update' to refresh without upgrading dependencies",
+        "Twine upload authentication: Set TWINE_USERNAME and TWINE_PASSWORD env vars or use API token",
+        "Wheel not universal: Add '[bdist_wheel]\\nuniversal = 1' to setup.cfg for pure Python packages"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L05PYTHON_PACKAGING_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:41:30.116501Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "pyproject.toml",
+        "setuptools",
+        "poetry",
+        "pip",
+        "python packaging"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "PYTHON",
+      "version": "1.0.0",
+      "tested_on": [
+        "Python 3.10+",
+        "setuptools 68+",
+        "poetry 1.7+",
+        "build 1.0+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

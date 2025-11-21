@@ -1,0 +1,75 @@
+{
+  "door_code": "L46PROTOBUF",
+  "semantic_path": "LANGUAGES.PROTOBUF.SCHEMA",
+  "aliases": [
+    "protobuf",
+    "proto3",
+    "grpc",
+    "buf",
+    "protocol buffers"
+  ],
+  "context_bundle": {
+    "summary": "Protocol Buffers for efficient serialization with proto3 syntax, gRPC services, buf for linting, and code generation",
+    "prerequisites": [],
+    "related_doors": [
+      "L11NODEJS",
+      "L21GO_BASICS"
+    ],
+    "onboarding": {
+      "quick_start": "brew install protobuf buf && protoc --version && buf --version",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L46PROTOBUF_GUIDE.md",
+      "common_patterns": [
+        "Proto3 message: 'syntax = &quot;proto3&quot;; message User { string id = 1; string name = 2; int32 age = 3; }'",
+        "Enums: 'enum Status { STATUS_UNSPECIFIED = 0; STATUS_ACTIVE = 1; STATUS_INACTIVE = 2; }'",
+        "Nested: 'message User { message Address { string street = 1; string city = 2; } Address address = 4; }'",
+        "Repeated: 'message Users { repeated User users = 1; } // array of users'",
+        "gRPC service: 'service UserService { rpc GetUser(GetUserRequest) returns (User); rpc ListUsers(ListUsersRequest) returns (stream User); }'",
+        "Oneof: 'message Result { oneof result { User user = 1; Error error = 2; } }'",
+        "Buf lint: 'buf lint to check proto files against style guide'",
+        "Code generation: 'protoc --go_out=. --go-grpc_out=. user.proto'"
+      ],
+      "known_errors": [
+        "field number conflict: Ensure unique field numbers, never reuse deleted numbers",
+        "breaking change: Use buf breaking to detect, follow compatibility rules",
+        "import not found: Check import paths, use buf.yaml for dependencies",
+        "code generation failed: Install language plugins, check protoc version",
+        "enum zero value: Always define _UNSPECIFIED = 0 for enums",
+        "oneof not working: Check field numbers unique within oneof"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L46PROTOBUF_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:48:05.775164Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "protobuf",
+        "proto3",
+        "grpc",
+        "buf",
+        "protocol buffers"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "PROTOBUF",
+      "version": "1.0.0",
+      "tested_on": [
+        "protobuf 3.21+",
+        "buf 1.28+",
+        "grpc 1.60+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

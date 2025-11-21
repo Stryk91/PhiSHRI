@@ -4,8 +4,8 @@
   "full_name": "Semantic Hash Repository Index",
   "description": "The Keymaster's Index System for instant AI agent onboarding",
   "created": "2025-01-18T00:00:00Z",
-  "last_updated": "2025-11-21T21:41:13.266159Z",
-  "total_doors": 387,
+  "last_updated": "2025-11-21T22:48:43.246668Z",
+  "total_doors": 437,
   "categories": {
     "WORKFLOWS": {
       "count": 165,
@@ -41,6 +41,11 @@
       "count": 13,
       "prefix": "EXX",
       "description": "Error patterns, troubleshooting, solutions, timeout handling, retry, circuit breaker, database errors, network errors, validation errors, serialization errors, race conditions, memory errors, configuration errors"
+    },
+    "LANGUAGES": {
+      "count": 50,
+      "prefix": "LXX",
+      "description": "Programming language best practices, patterns, and idioms for Python, JavaScript/TypeScript, Go, Rust, Shell scripting, SQL, GraphQL, and specialty languages"
     }
   },
   "door_code_guide": {

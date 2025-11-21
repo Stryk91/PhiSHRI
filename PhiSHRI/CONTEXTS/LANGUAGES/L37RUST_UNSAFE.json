@@ -1,0 +1,77 @@
+{
+  "door_code": "L37RUST_UNSAFE",
+  "semantic_path": "LANGUAGES.RUST.UNSAFE",
+  "aliases": [
+    "unsafe",
+    "ffi",
+    "raw pointers",
+    "unsafe rust",
+    "c interop"
+  ],
+  "context_bundle": {
+    "summary": "Rust unsafe code for low-level operations, FFI for C interoperability, raw pointers, and safety invariants",
+    "prerequisites": [
+      "L31RUST_BASICS"
+    ],
+    "related_doors": [
+      "L31RUST_BASICS",
+      "L36RUST_CARGO",
+      "L38RUST_MACROS"
+    ],
+    "onboarding": {
+      "quick_start": "cargo build && cargo test",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L37RUST_UNSAFE_GUIDE.md",
+      "common_patterns": [
+        "Unsafe block: 'unsafe { let r = &raw const x; println!(&quot;{}&quot;, *r); } // dereference raw pointer'",
+        "Raw pointers: 'let mut num = 5; let r1 = &num as *const i32; let r2 = &mut num as *mut i32; unsafe { *r2 = 10; }'",
+        "Unsafe function: 'unsafe fn dangerous() { /* ... */ } unsafe { dangerous(); }'",
+        "FFI: 'extern &quot;C&quot; { fn abs(input: i32) -> i32; } unsafe { println!(&quot;Absolute value: {}&quot;, abs(-3)); }'",
+        "Calling Rust from C: '#[no_mangle] pub extern &quot;C&quot; fn call_from_c() { /* ... */ }'",
+        "Union: 'union MyUnion { f1: u32, f2: f32 } let u = MyUnion { f1: 1 }; unsafe { println!(&quot;{}&quot;, u.f1); }'",
+        "Static mut: 'static mut COUNTER: u32 = 0; unsafe { COUNTER += 1; }'",
+        "Transmute: 'let x: u32 = 42; let y: f32 = unsafe { std::mem::transmute(x) }; // dangerous'"
+      ],
+      "known_errors": [
+        "segmentation fault: Check pointer validity, ensure memory not freed",
+        "undefined behavior: Review unsafe code carefully, add safety comments",
+        "FFI type mismatch: Ensure C and Rust types match, use repr(C) for structs",
+        "memory leak: Ensure proper cleanup in unsafe code, use Drop trait",
+        "data race: Add synchronization in unsafe code, use atomic types",
+        "transmute unsound: Avoid transmute when possible, use safe alternatives"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L37RUST_UNSAFE_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:48:05.774472Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "unsafe",
+        "ffi",
+        "raw pointers",
+        "unsafe rust",
+        "c interop"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "RUST",
+      "version": "1.0.0",
+      "tested_on": [
+        "Rust 1.75+",
+        "Rust 1.76"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

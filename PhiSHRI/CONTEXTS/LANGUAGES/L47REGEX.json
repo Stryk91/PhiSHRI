@@ -1,0 +1,74 @@
+{
+  "door_code": "L47REGEX",
+  "semantic_path": "LANGUAGES.REGEX.PATTERNS",
+  "aliases": [
+    "regex",
+    "regular expressions",
+    "pattern matching",
+    "regex performance"
+  ],
+  "context_bundle": {
+    "summary": "Regular expression patterns for text matching, validation, extraction, and performance optimization",
+    "prerequisites": [],
+    "related_doors": [
+      "L01PYTHON",
+      "L11NODEJS",
+      "L21GO_BASICS"
+    ],
+    "onboarding": {
+      "quick_start": "python -c 'import re; print(re.__version__)' && node -e 'console.log(/test/.test(&quot;test&quot;))'",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L47REGEX_GUIDE.md",
+      "common_patterns": [
+        "Email: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$'",
+        "URL: '^https?://[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}(/.*)?$'",
+        "Phone: '^\\+?1?\\d{9,15}$' for international format",
+        "Date: '^\\d{4}-\\d{2}-\\d{2}$' for YYYY-MM-DD",
+        "IPv4: '^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$'",
+        "Capture groups: '(\\d{4})-(\\d{2})-(\\d{2})' to extract year, month, day",
+        "Non-capturing: '(?:pattern)' for grouping without capture",
+        "Lookahead: '(?=.*[A-Z])(?=.*[0-9]).{8,}' for password validation"
+      ],
+      "known_errors": [
+        "catastrophic backtracking: Avoid nested quantifiers, use atomic groups",
+        "regex too slow: Simplify pattern, use anchors, avoid .* at start",
+        "not matching: Test with regex101.com, check escaping and flags",
+        "capture group wrong: Check group numbering, use named groups",
+        "unicode issues: Use \\p{L} for unicode letters, enable unicode flag",
+        "greedy vs lazy: Use .*? for lazy matching instead of .*"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L47REGEX_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:48:05.775233Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "regex",
+        "regular expressions",
+        "pattern matching",
+        "regex performance"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "REGEX",
+      "version": "1.0.0",
+      "tested_on": [
+        "Python re module",
+        "JavaScript RegExp",
+        "Go regexp"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

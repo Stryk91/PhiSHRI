@@ -1,0 +1,77 @@
+{
+  "door_code": "L27GO_PERF",
+  "semantic_path": "LANGUAGES.GO.PERFORMANCE",
+  "aliases": [
+    "pprof",
+    "escape analysis",
+    "go performance",
+    "profiling",
+    "benchmarking"
+  ],
+  "context_bundle": {
+    "summary": "Go performance optimization with pprof profiling, escape analysis, memory optimization, and performance best practices",
+    "prerequisites": [
+      "L21GO_BASICS"
+    ],
+    "related_doors": [
+      "L21GO_BASICS",
+      "L22GO_CONCURRENCY",
+      "L23GO_TESTING"
+    ],
+    "onboarding": {
+      "quick_start": "go test -cpuprofile=cpu.prof -memprofile=mem.prof -bench=. && go tool pprof cpu.prof",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L27GO_PERF_GUIDE.md",
+      "common_patterns": [
+        "CPU profiling: 'import _ &quot;net/http/pprof&quot;; go func() { log.Println(http.ListenAndServe(&quot;localhost:6060&quot;, nil)) }()' then visit http://localhost:6060/debug/pprof/",
+        "Memory profiling: 'go test -memprofile=mem.prof -bench=. && go tool pprof -alloc_space mem.prof'",
+        "Escape analysis: 'go build -gcflags=&quot;-m&quot; main.go' to see allocations",
+        "Avoid allocations: 'var buf [64]byte; s := string(buf[:n])' use stack instead of heap",
+        "String builder: 'var sb strings.Builder; sb.WriteString(&quot;hello&quot;); s := sb.String()' for concatenation",
+        "Sync.Pool: 'var pool = sync.Pool{New: func() interface{} { return new(bytes.Buffer) }}; buf := pool.Get().(*bytes.Buffer); defer pool.Put(buf)'",
+        "Inline functions: Keep functions small for inlining, check with 'go build -gcflags=&quot;-m&quot;'",
+        "Benchmarking: 'func BenchmarkFunction(b *testing.B) { b.ResetTimer(); for i := 0; i < b.N; i++ { function() } }'"
+      ],
+      "known_errors": [
+        "high memory usage: Profile with pprof, check for goroutine leaks with 'go tool pprof http://localhost:6060/debug/pprof/goroutine'",
+        "slow performance: Profile CPU with pprof, optimize hot paths identified",
+        "GC pressure: Reduce allocations, use sync.Pool for frequently allocated objects",
+        "escape to heap: Refactor to keep data on stack, avoid returning pointers to local variables",
+        "benchmark variance: Run with -count=10, use benchstat for statistical analysis",
+        "pprof not working: Ensure import _ &quot;net/http/pprof&quot; and server running"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L27GO_PERF_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:48:05.773636Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "pprof",
+        "escape analysis",
+        "go performance",
+        "profiling",
+        "benchmarking"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "GO",
+      "version": "1.0.0",
+      "tested_on": [
+        "Go 1.21+",
+        "Go 1.22"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

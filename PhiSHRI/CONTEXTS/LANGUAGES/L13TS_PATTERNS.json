@@ -1,0 +1,77 @@
+{
+  "door_code": "L13TS_PATTERNS",
+  "semantic_path": "LANGUAGES.JAVASCRIPT.TS_PATTERNS",
+  "aliases": [
+    "typescript patterns",
+    "discriminated unions",
+    "branded types",
+    "type inference",
+    "advanced typescript"
+  ],
+  "context_bundle": {
+    "summary": "Advanced TypeScript patterns including discriminated unions, branded types, conditional types, mapped types, and template literal types for robust type-safe applications",
+    "prerequisites": [
+      "L12TYPESCRIPT"
+    ],
+    "related_doors": [
+      "L12TYPESCRIPT",
+      "L11NODEJS",
+      "L14REACT_PATTERNS"
+    ],
+    "onboarding": {
+      "quick_start": "npm install -D typescript && npx tsc --init --strict && code tsconfig.json",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L13TS_PATTERNS_GUIDE.md",
+      "common_patterns": [
+        "Discriminated unions: 'type Result<T> = { success: true; data: T } | { success: false; error: string }; function handle(result: Result<User>) { if (result.success) { console.log(result.data); } }'",
+        "Branded types: 'type UserId = string & { readonly brand: unique symbol }; function createUserId(id: string): UserId { return id as UserId; }'",
+        "Conditional types: 'type NonNullable<T> = T extends null | undefined ? never : T; type Unwrap<T> = T extends Promise<infer U> ? U : T;'",
+        "Mapped types: 'type Readonly<T> = { readonly [P in keyof T]: T[P] }; type Optional<T> = { [P in keyof T]?: T[P] };'",
+        "Template literal types: 'type EventName = `on${Capitalize<string>}`; type Handler<T extends string> = `handle${Capitalize<T>}`;'",
+        "Const assertions: 'const config = { api: &quot;https://api.example.com&quot;, timeout: 5000 } as const; // readonly properties'",
+        "Type predicates: 'function isError(value: unknown): value is Error { return value instanceof Error; }'",
+        "Builder pattern: 'class QueryBuilder<T> { where<K extends keyof T>(key: K, value: T[K]): QueryBuilder<T> { return this; } }'"
+      ],
+      "known_errors": [
+        "Type instantiation is excessively deep: Simplify recursive types, add depth limit with conditional types",
+        "Index signature missing: Add '[key: string]: any' or use Record<string, Type> for dynamic keys",
+        "Type 'never' is not assignable: Check discriminated union exhaustiveness, add missing cases",
+        "Circular constraint: Break type dependency cycle, use interface merging or separate type definitions",
+        "Excessive stack depth: Reduce type complexity, use simpler type compositions",
+        "Type parameter defaults: Use 'type Foo<T = string>' for optional generic parameters"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L13TS_PATTERNS_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:43:33.653455Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "typescript patterns",
+        "discriminated unions",
+        "branded types",
+        "type inference",
+        "advanced typescript"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "JAVASCRIPT",
+      "version": "1.0.0",
+      "tested_on": [
+        "TypeScript 5.3+",
+        "TypeScript 5.4"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

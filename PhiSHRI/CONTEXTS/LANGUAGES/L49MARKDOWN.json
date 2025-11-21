@@ -1,0 +1,72 @@
+{
+  "door_code": "L49MARKDOWN",
+  "semantic_path": "LANGUAGES.MARKDOWN.EXTENDED",
+  "aliases": [
+    "markdown",
+    "mdx",
+    "documentation",
+    "markdown syntax"
+  ],
+  "context_bundle": {
+    "summary": "Markdown extended syntax with MDX for React components, documentation best practices, and advanced formatting",
+    "prerequisites": [],
+    "related_doors": [
+      "L14REACT_PATTERNS"
+    ],
+    "onboarding": {
+      "quick_start": "npm install @mdx-js/mdx @mdx-js/react && npm install remark-gfm",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L49MARKDOWN_GUIDE.md",
+      "common_patterns": [
+        "Headers: '# H1\\n## H2\\n### H3' for hierarchy",
+        "Lists: '- Item 1\\n- Item 2\\n  - Nested' for unordered, '1. First\\n2. Second' for ordered",
+        "Links: '[text](https://example.com) or [text][ref]\\n[ref]: https://example.com'",
+        "Images: '![alt text](image.jpg &quot;title&quot;) or ![alt][ref]\\n[ref]: image.jpg'",
+        "Code blocks: '```language\\ncode here\\n```' with syntax highlighting",
+        "Tables: '| Header 1 | Header 2 |\\n|----------|----------|\\n| Cell 1   | Cell 2   |'",
+        "Task lists: '- [x] Completed\\n- [ ] Todo' for checkboxes",
+        "MDX: 'import Component from &quot;./Component&quot;; <Component prop=&quot;value&quot; /> in .mdx files'"
+      ],
+      "known_errors": [
+        "rendering issues: Check markdown parser, ensure proper escaping",
+        "MDX not working: Install @mdx-js/loader, configure webpack/next.js",
+        "syntax highlighting: Add language to code blocks, install prism/highlight.js",
+        "table not rendering: Ensure pipes aligned, check parser supports tables",
+        "component not found: Check import paths in MDX, ensure components exported",
+        "frontmatter not parsed: Install gray-matter, configure markdown processor"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L49MARKDOWN_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:48:05.775374Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "markdown",
+        "mdx",
+        "documentation",
+        "markdown syntax"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "MARKDOWN",
+      "version": "1.0.0",
+      "tested_on": [
+        "CommonMark",
+        "GitHub Flavored Markdown",
+        "MDX 2+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

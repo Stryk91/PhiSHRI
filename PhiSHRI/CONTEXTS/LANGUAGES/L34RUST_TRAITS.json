@@ -1,0 +1,77 @@
+{
+  "door_code": "L34RUST_TRAITS",
+  "semantic_path": "LANGUAGES.RUST.TRAITS",
+  "aliases": [
+    "traits",
+    "trait objects",
+    "impl Trait",
+    "associated types",
+    "rust generics"
+  ],
+  "context_bundle": {
+    "summary": "Rust traits for abstraction, trait objects for dynamic dispatch, impl Trait syntax, and associated types",
+    "prerequisites": [
+      "L31RUST_BASICS"
+    ],
+    "related_doors": [
+      "L31RUST_BASICS",
+      "L32RUST_ERROR",
+      "L35RUST_TESTING"
+    ],
+    "onboarding": {
+      "quick_start": "cargo build && cargo run",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L34RUST_TRAITS_GUIDE.md",
+      "common_patterns": [
+        "Define trait: 'trait Summary { fn summarize(&self) -> String; }'",
+        "Implement trait: 'impl Summary for Article { fn summarize(&self) -> String { format!(&quot;{} by {}&quot;, self.title, self.author) } }'",
+        "Trait bounds: 'fn notify<T: Summary>(item: &T) { println!(&quot;{}&quot;, item.summarize()); }'",
+        "Multiple bounds: 'fn process<T: Summary + Display>(item: &T) { /* ... */ }'",
+        "Where clause: 'fn complex<T, U>(t: &T, u: &U) -> i32 where T: Display + Clone, U: Clone + Debug { /* ... */ }'",
+        "Impl Trait: 'fn returns_summarizable() -> impl Summary { Article { /* ... */ } }'",
+        "Trait objects: 'let items: Vec<Box<dyn Summary>> = vec![Box::new(article), Box::new(tweet)];'",
+        "Associated types: 'trait Iterator { type Item; fn next(&mut self) -> Option<Self::Item>; }'"
+      ],
+      "known_errors": [
+        "trait not implemented: Implement required trait methods, check trait bounds",
+        "cannot return impl Trait: Use Box<dyn Trait> for multiple return types",
+        "trait object not object safe: Remove generic methods or Self return types",
+        "conflicting implementations: Use newtype pattern to wrap type",
+        "lifetime issues with traits: Add lifetime parameters to trait definition",
+        "associated type not specified: Provide concrete type when implementing trait"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L34RUST_TRAITS_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:48:05.774259Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "traits",
+        "trait objects",
+        "impl Trait",
+        "associated types",
+        "rust generics"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "RUST",
+      "version": "1.0.0",
+      "tested_on": [
+        "Rust 1.75+",
+        "Rust 1.76"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "door_code": "L42SHELL_ZSH",
+  "semantic_path": "LANGUAGES.SHELL.ZSH",
+  "aliases": [
+    "zsh",
+    "oh-my-zsh",
+    "zsh plugins",
+    "zsh config",
+    "completions"
+  ],
+  "context_bundle": {
+    "summary": "Zsh shell configuration with Oh My Zsh framework, plugin management, custom completions, and productivity enhancements",
+    "prerequisites": [],
+    "related_doors": [
+      "L41SHELL_BASH",
+      "L43POWERSHELL"
+    ],
+    "onboarding": {
+      "quick_start": "zsh --version && sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L42SHELL_ZSH_GUIDE.md",
+      "common_patterns": [
+        "Oh My Zsh: 'Install with curl, edit ~/.zshrc to configure'",
+        "Plugins: 'plugins=(git docker kubectl) in ~/.zshrc'",
+        "Theme: 'ZSH_THEME=&quot;robbyrussell&quot; or &quot;powerlevel10k/powerlevel10k&quot;'",
+        "Aliases: 'alias ll=&quot;ls -lah&quot; in ~/.zshrc'",
+        "Functions: 'mkcd() { mkdir -p &quot;$1&quot; && cd &quot;$1&quot; } in ~/.zshrc'",
+        "Completions: 'autoload -Uz compinit && compinit for completion system'",
+        "History: 'HISTSIZE=10000 SAVEHIST=10000 HISTFILE=~/.zsh_history'",
+        "Key bindings: 'bindkey &quot;^R&quot; history-incremental-search-backward'"
+      ],
+      "known_errors": [
+        "plugin not loading: Check plugins list in ~/.zshrc, source ~/.zshrc",
+        "completion not working: Run compinit, check fpath includes completion directory",
+        "theme not applied: Ensure theme installed, check ZSH_THEME in ~/.zshrc",
+        "slow startup: Profile with 'zprof', disable unused plugins",
+        "command not found: Check PATH in ~/.zshrc, ensure exports before plugins",
+        "history not saved: Check HISTFILE path and permissions"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L42SHELL_ZSH_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:48:05.774858Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "zsh",
+        "oh-my-zsh",
+        "zsh plugins",
+        "zsh config",
+        "completions"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "SHELL",
+      "version": "1.0.0",
+      "tested_on": [
+        "Zsh 5.8+",
+        "Oh My Zsh latest"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

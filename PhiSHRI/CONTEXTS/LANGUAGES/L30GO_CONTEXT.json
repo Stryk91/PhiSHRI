@@ -1,0 +1,78 @@
+{
+  "door_code": "L30GO_CONTEXT",
+  "semantic_path": "LANGUAGES.GO.CONTEXT",
+  "aliases": [
+    "context",
+    "cancellation",
+    "timeouts",
+    "context.Context",
+    "go context"
+  ],
+  "context_bundle": {
+    "summary": "Go context patterns for cancellation, timeouts, deadlines, and request-scoped values in concurrent applications",
+    "prerequisites": [
+      "L21GO_BASICS",
+      "L22GO_CONCURRENCY"
+    ],
+    "related_doors": [
+      "L21GO_BASICS",
+      "L22GO_CONCURRENCY",
+      "L25GO_WEB"
+    ],
+    "onboarding": {
+      "quick_start": "go run main.go",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L30GO_CONTEXT_GUIDE.md",
+      "common_patterns": [
+        "Background context: 'ctx := context.Background() // root context for main, init, tests'",
+        "Timeout: 'ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second); defer cancel(); select { case <-time.After(10*time.Second): case <-ctx.Done(): return ctx.Err() }'",
+        "Cancellation: 'ctx, cancel := context.WithCancel(context.Background()); go func() { <-time.After(time.Second); cancel() }(); <-ctx.Done()'",
+        "Deadline: 'ctx, cancel := context.WithDeadline(context.Background(), time.Now().Add(time.Hour)); defer cancel()'",
+        "Context values: 'ctx := context.WithValue(context.Background(), &quot;requestID&quot;, &quot;12345&quot;); requestID := ctx.Value(&quot;requestID&quot;).(string)'",
+        "HTTP request context: 'ctx := r.Context(); select { case <-ctx.Done(): return ctx.Err(); case result := <-ch: return result }'",
+        "Database with context: 'rows, err := db.QueryContext(ctx, &quot;SELECT * FROM users&quot;); if err != nil { return err }'",
+        "Propagation: 'func processRequest(ctx context.Context) error { return fetchData(ctx) }; func fetchData(ctx context.Context) error { req, _ := http.NewRequestWithContext(ctx, &quot;GET&quot;, url, nil); resp, err := client.Do(req); return err }'"
+      ],
+      "known_errors": [
+        "context deadline exceeded: Increase timeout or optimize operation, check for blocking calls",
+        "context canceled: Handle cancellation gracefully, check ctx.Err() for reason",
+        "goroutine leak: Ensure goroutines respect context cancellation",
+        "context value not found: Check key type matches, use type assertion carefully",
+        "context not propagated: Pass context as first parameter to all functions",
+        "defer cancel not called: Always defer cancel() after creating context"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L30GO_CONTEXT_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:48:05.773963Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "context",
+        "cancellation",
+        "timeouts",
+        "context.Context",
+        "go context"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "GO",
+      "version": "1.0.0",
+      "tested_on": [
+        "Go 1.21+",
+        "Go 1.22"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

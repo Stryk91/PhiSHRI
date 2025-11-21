@@ -1,0 +1,74 @@
+{
+  "door_code": "L43POWERSHELL",
+  "semantic_path": "LANGUAGES.SHELL.POWERSHELL",
+  "aliases": [
+    "powershell",
+    "pwsh",
+    "powershell core",
+    "cmdlets",
+    "powershell scripting"
+  ],
+  "context_bundle": {
+    "summary": "PowerShell scripting with cmdlets, pipeline operations, modules, remoting, and cross-platform PowerShell Core",
+    "prerequisites": [],
+    "related_doors": [
+      "L41SHELL_BASH",
+      "L42SHELL_ZSH"
+    ],
+    "onboarding": {
+      "quick_start": "pwsh -Version && Install-Module -Name PSReadLine -Force",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L43POWERSHELL_GUIDE.md",
+      "common_patterns": [
+        "Cmdlets: 'Get-Process | Where-Object {$_.CPU -gt 100} | Sort-Object CPU -Descending'",
+        "Variables: '$name = &quot;value&quot; # $ prefix for variables'",
+        "Functions: 'function Get-Data { param($Path) Get-Content $Path }'",
+        "Pipeline: 'Get-ChildItem | ForEach-Object { $_.Name }'",
+        "Objects: '$obj = [PSCustomObject]@{ Name=&quot;Alice&quot;; Age=30 }'",
+        "Error handling: 'try { Get-Item &quot;file.txt&quot; -ErrorAction Stop } catch { Write-Error $_ }'",
+        "Modules: 'Import-Module ModuleName; Get-Command -Module ModuleName'",
+        "Remoting: 'Invoke-Command -ComputerName Server01 -ScriptBlock { Get-Service }'"
+      ],
+      "known_errors": [
+        "command not found: Check module imported, use Get-Command to find cmdlets",
+        "execution policy: Set with Set-ExecutionPolicy RemoteSigned -Scope CurrentUser",
+        "parameter not recognized: Check parameter names with Get-Help cmdlet",
+        "pipeline error: Ensure objects have expected properties, use Select-Object",
+        "remoting failed: Enable remoting with Enable-PSRemoting, check firewall",
+        "module not loading: Check module path with $env:PSModulePath"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L43POWERSHELL_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:48:05.774925Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "powershell",
+        "pwsh",
+        "powershell core",
+        "cmdlets",
+        "powershell scripting"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "SHELL",
+      "version": "1.0.0",
+      "tested_on": [
+        "PowerShell 7.4+",
+        "PowerShell Core 7+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

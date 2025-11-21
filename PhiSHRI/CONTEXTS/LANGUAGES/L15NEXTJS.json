@@ -1,0 +1,81 @@
+{
+  "door_code": "L15NEXTJS",
+  "semantic_path": "LANGUAGES.JAVASCRIPT.NEXTJS",
+  "aliases": [
+    "nextjs",
+    "next.js",
+    "app router",
+    "server components",
+    "next",
+    "react framework"
+  ],
+  "context_bundle": {
+    "summary": "Next.js 14+ App Router patterns with React Server Components, server actions, streaming, caching strategies, and full-stack React application development",
+    "prerequisites": [
+      "L14REACT_PATTERNS",
+      "L12TYPESCRIPT"
+    ],
+    "related_doors": [
+      "L14REACT_PATTERNS",
+      "L12TYPESCRIPT",
+      "L11NODEJS",
+      "L16NODE_TESTING"
+    ],
+    "onboarding": {
+      "quick_start": "npx create-next-app@latest my-app --typescript --app --tailwind && cd my-app && npm run dev",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L15NEXTJS_GUIDE.md",
+      "common_patterns": [
+        "Server component: 'export default async function Page() { const data = await fetch(&quot;https://api.example.com/data&quot;); return <div>{data.title}</div>; }' in app/ directory",
+        "Client component: '&quot;use client&quot;; import { useState } from &quot;react&quot;; export default function Counter() { const [count, setCount] = useState(0); return <button onClick={() => setCount(count + 1)}>{count}</button>; }'",
+        "Server actions: '&quot;use server&quot;; export async function createUser(formData: FormData) { const name = formData.get(&quot;name&quot;); await db.users.create({ name }); revalidatePath(&quot;/users&quot;); }'",
+        "Dynamic routes: 'app/posts/[id]/page.tsx with params: { id: string }' for dynamic segments",
+        "Loading UI: 'app/posts/loading.tsx exports default function Loading() { return <Skeleton />; }' for instant loading states",
+        "Error handling: 'app/posts/error.tsx with &quot;use client&quot; and error boundary props'",
+        "Metadata API: 'export const metadata: Metadata = { title: &quot;My Page&quot;, description: &quot;Page description&quot; };'",
+        "Route handlers: 'app/api/users/route.ts with export async function GET(request: Request) { return Response.json({ users }); }'"
+      ],
+      "known_errors": [
+        "Hydration mismatch: Ensure server and client render same HTML, avoid Date.now() or random values",
+        "useState in server component: Move to client component with '&quot;use client&quot;' directive",
+        "Fetch not cached: Use 'fetch(url, { cache: &quot;force-cache&quot; })' or 'next: { revalidate: 3600 }'",
+        "Dynamic rendering: Check for cookies(), headers(), or searchParams usage forcing dynamic rendering",
+        "Module not found: Check import paths, use '@/' alias configured in tsconfig.json",
+        "Server action not working: Add '&quot;use server&quot;' directive, ensure form action or startTransition usage"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L15NEXTJS_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:43:33.653622Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "nextjs",
+        "next.js",
+        "app router",
+        "server components",
+        "next"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "JAVASCRIPT",
+      "version": "1.0.0",
+      "tested_on": [
+        "Next.js 14+",
+        "React 18+",
+        "TypeScript 5+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

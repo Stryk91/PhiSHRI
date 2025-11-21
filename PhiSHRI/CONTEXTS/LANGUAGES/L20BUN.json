@@ -1,0 +1,78 @@
+{
+  "door_code": "L20BUN",
+  "semantic_path": "LANGUAGES.JAVASCRIPT.BUN",
+  "aliases": [
+    "bun",
+    "bun runtime",
+    "bun test",
+    "bun bundler",
+    "javascript runtime"
+  ],
+  "context_bundle": {
+    "summary": "Bun all-in-one JavaScript runtime with built-in bundler, test runner, package manager, and Node.js compatibility for fast development workflows",
+    "prerequisites": [
+      "L11NODEJS",
+      "L12TYPESCRIPT"
+    ],
+    "related_doors": [
+      "L11NODEJS",
+      "L12TYPESCRIPT",
+      "L19DENO"
+    ],
+    "onboarding": {
+      "quick_start": "curl -fsSL https://bun.sh/install | bash && bun --version && bun init && bun install && bun run index.ts",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L20BUN_GUIDE.md",
+      "common_patterns": [
+        "Run TypeScript: 'bun run index.ts' - no compilation needed, runs TypeScript directly",
+        "HTTP server: 'Bun.serve({ port: 3000, fetch(req) { return new Response(&quot;Hello World&quot;); } });'",
+        "Testing: 'import { test, expect } from &quot;bun:test&quot;; test(&quot;addition&quot;, () => { expect(1 + 1).toBe(2); });'",
+        "File I/O: 'const file = Bun.file(&quot;./data.txt&quot;); const text = await file.text(); await Bun.write(&quot;output.txt&quot;, text);'",
+        "SQLite: 'import { Database } from &quot;bun:sqlite&quot;; const db = new Database(&quot;mydb.sqlite&quot;); db.run(&quot;CREATE TABLE users (id INTEGER PRIMARY KEY, name TEXT)&quot;);'",
+        "Bundling: 'await Bun.build({ entrypoints: [&quot;./index.ts&quot;], outdir: &quot;./dist&quot;, minify: true });'",
+        "Package manager: 'bun add express' for installing, 'bun install' for lockfile, 'bun update' for updates",
+        "Environment: 'const apiKey = Bun.env.API_KEY;' for environment variables"
+      ],
+      "known_errors": [
+        "Module not found: Run 'bun install' to install dependencies, check import paths",
+        "Native module incompatible: Some Node.js native modules don't work, use Bun-compatible alternatives",
+        "Test not found: Ensure test files end with .test.ts or .spec.ts, use 'bun test' to run",
+        "Build failed: Check for syntax errors, ensure all imports are resolvable",
+        "SQLite error: Install bun with 'bun upgrade' for latest SQLite support",
+        "Performance regression: Profile with 'bun --inspect', check for blocking operations"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L20BUN_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:43:33.654077Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "bun",
+        "bun runtime",
+        "bun test",
+        "bun bundler",
+        "javascript runtime"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "JAVASCRIPT",
+      "version": "1.0.0",
+      "tested_on": [
+        "Bun 1.0+",
+        "Bun 1.1"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

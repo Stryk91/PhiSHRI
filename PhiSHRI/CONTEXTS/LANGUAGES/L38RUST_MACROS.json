@@ -1,0 +1,78 @@
+{
+  "door_code": "L38RUST_MACROS",
+  "semantic_path": "LANGUAGES.RUST.MACROS",
+  "aliases": [
+    "macros",
+    "declarative macros",
+    "procedural macros",
+    "macro_rules",
+    "derive macros"
+  ],
+  "context_bundle": {
+    "summary": "Rust macro programming with declarative macros, procedural macros, derive macros, and metaprogramming patterns",
+    "prerequisites": [
+      "L31RUST_BASICS"
+    ],
+    "related_doors": [
+      "L31RUST_BASICS",
+      "L34RUST_TRAITS",
+      "L39RUST_PERF"
+    ],
+    "onboarding": {
+      "quick_start": "cargo build && cargo expand",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L38RUST_MACROS_GUIDE.md",
+      "common_patterns": [
+        "Declarative macro: 'macro_rules! vec_of_strings { ($($x:expr),*) => { vec![$($x.to_string()),*] }; }'",
+        "Repetition: 'macro_rules! create_function { ($func_name:ident) => { fn $func_name() { println!(&quot;Called {}&quot;, stringify!($func_name)); } } }'",
+        "Derive macro: '#[derive(Debug, Clone, PartialEq)] struct Point { x: i32, y: i32 }'",
+        "Custom derive: 'use proc_macro::TokenStream; #[proc_macro_derive(MyTrait)] pub fn derive_my_trait(input: TokenStream) -> TokenStream { /* ... */ }'",
+        "Attribute macro: '#[proc_macro_attribute] pub fn route(attr: TokenStream, item: TokenStream) -> TokenStream { /* ... */ }'",
+        "Function-like macro: '#[proc_macro] pub fn sql(input: TokenStream) -> TokenStream { /* ... */ }'",
+        "Macro debugging: 'cargo expand to see macro expansion output'",
+        "Hygiene: 'Macros are hygienic, use $crate:: for absolute paths'"
+      ],
+      "known_errors": [
+        "macro expansion error: Check macro syntax, use cargo expand to debug",
+        "recursion limit: Increase with #![recursion_limit = &quot;256&quot;]",
+        "proc macro not found: Ensure proc-macro = true in Cargo.toml",
+        "hygiene issues: Use $crate:: for crate-local items",
+        "macro not in scope: Import macro with use or #[macro_use]",
+        "compile time too long: Simplify macros, reduce expansion complexity"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L38RUST_MACROS_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:48:05.774544Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "macros",
+        "declarative macros",
+        "procedural macros",
+        "macro_rules",
+        "derive macros"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "RUST",
+      "version": "1.0.0",
+      "tested_on": [
+        "Rust 1.75+",
+        "syn 2.0+",
+        "quote 1.0+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

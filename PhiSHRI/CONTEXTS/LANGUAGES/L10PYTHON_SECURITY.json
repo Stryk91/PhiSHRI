@@ -1,0 +1,78 @@
+{
+  "door_code": "L10PYTHON_SECURITY",
+  "semantic_path": "LANGUAGES.PYTHON.SECURITY",
+  "aliases": [
+    "bandit",
+    "safety",
+    "python security",
+    "secrets",
+    "security scanning"
+  ],
+  "context_bundle": {
+    "summary": "Python security best practices including static analysis with Bandit, dependency scanning with Safety, secure secrets handling, input validation, and protection against common vulnerabilities",
+    "prerequisites": [
+      "L01PYTHON"
+    ],
+    "related_doors": [
+      "L01PYTHON",
+      "L08PYTHON_WEB",
+      "S05SECRETS"
+    ],
+    "onboarding": {
+      "quick_start": "pip install bandit safety && bandit -r . && safety check && python -c 'import secrets; print(secrets.token_hex(32))'",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L10PYTHON_SECURITY_GUIDE.md",
+      "common_patterns": [
+        "Secrets module: 'import secrets; token = secrets.token_urlsafe(32)' for cryptographically secure random",
+        "Password hashing: 'from passlib.hash import bcrypt; hashed = bcrypt.hash(password); bcrypt.verify(password, hashed)'",
+        "Input validation: 'from pydantic import BaseModel, validator; class User(BaseModel): email: str; @validator(&quot;email&quot;) def valid_email(cls, v): ...'",
+        "SQL injection prevention: 'cursor.execute(&quot;SELECT * FROM users WHERE id = ?&quot;, (user_id,))' with parameterized queries",
+        "Path traversal prevention: 'from pathlib import Path; safe_path = Path(base_dir) / user_input; safe_path.resolve().relative_to(base_dir)'",
+        "Environment variables: 'import os; api_key = os.environ[&quot;API_KEY&quot;]' instead of hardcoding secrets",
+        "Bandit scanning: 'bandit -r . -f json -o bandit-report.json' for CI/CD integration",
+        "Safety check: 'safety check --json --output safety-report.json' for vulnerability scanning"
+      ],
+      "known_errors": [
+        "Bandit false positives: Use '# nosec' comment for intentional patterns, configure .bandit with 'exclude_dirs'",
+        "Safety vulnerabilities found: Update dependencies with 'pip install --upgrade package', check CVE details",
+        "Hardcoded secrets detected: Move to environment variables, use 'python-dotenv' for local development",
+        "Weak random: Replace 'random' module with 'secrets' for security-sensitive operations",
+        "Pickle security: Avoid pickle for untrusted data, use JSON or msgpack instead",
+        "XML external entity: Use 'defusedxml' library instead of standard xml.etree for parsing untrusted XML"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L10PYTHON_SECURITY_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:41:30.116934Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "bandit",
+        "safety",
+        "python security",
+        "secrets",
+        "security scanning"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "PYTHON",
+      "version": "1.0.0",
+      "tested_on": [
+        "Bandit 1.7+",
+        "Safety 2.3+",
+        "Python 3.10+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

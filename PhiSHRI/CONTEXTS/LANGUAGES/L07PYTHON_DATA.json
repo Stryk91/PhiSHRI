@@ -1,0 +1,79 @@
+{
+  "door_code": "L07PYTHON_DATA",
+  "semantic_path": "LANGUAGES.PYTHON.DATA_SCIENCE",
+  "aliases": [
+    "pandas",
+    "numpy",
+    "data science",
+    "vectorization",
+    "dataframes",
+    "python data"
+  ],
+  "context_bundle": {
+    "summary": "Python data science best practices with pandas DataFrames, NumPy array operations, vectorization techniques, efficient data manipulation, and performance optimization for large datasets",
+    "prerequisites": [
+      "L01PYTHON"
+    ],
+    "related_doors": [
+      "L01PYTHON",
+      "L06PYTHON_PERF",
+      "L03PYTHON_TYPING"
+    ],
+    "onboarding": {
+      "quick_start": "pip install pandas numpy scipy matplotlib && python -c 'import pandas as pd; import numpy as np; print(pd.__version__, np.__version__)'",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L07PYTHON_DATA_GUIDE.md",
+      "common_patterns": [
+        "Read CSV: 'df = pd.read_csv(&quot;data.csv&quot;, parse_dates=[&quot;date&quot;], dtype={&quot;id&quot;: str})'",
+        "Vectorized operations: 'df[&quot;total&quot;] = df[&quot;price&quot;] * df[&quot;quantity&quot;]' instead of iterrows()",
+        "Filtering: 'df_filtered = df[(df[&quot;age&quot;] > 18) & (df[&quot;status&quot;] == &quot;active&quot;)]'",
+        "Groupby aggregation: 'df.groupby(&quot;category&quot;).agg({&quot;sales&quot;: &quot;sum&quot;, &quot;price&quot;: &quot;mean&quot;})'",
+        "Apply functions: 'df[&quot;processed&quot;] = df[&quot;text&quot;].apply(lambda x: x.lower().strip())'",
+        "Merge dataframes: 'pd.merge(df1, df2, on=&quot;id&quot;, how=&quot;left&quot;)'",
+        "NumPy broadcasting: 'result = array1[:, np.newaxis] + array2' for element-wise operations",
+        "Memory optimization: 'df = df.astype({&quot;category&quot;: &quot;category&quot;, &quot;value&quot;: &quot;float32&quot;})' to reduce memory"
+      ],
+      "known_errors": [
+        "SettingWithCopyWarning: Use 'df.loc[mask, &quot;col&quot;] = value' instead of chained indexing",
+        "Memory error: Use 'chunksize' parameter in read_csv, or 'dask' for larger-than-memory datasets",
+        "Slow iterrows: Replace with vectorized operations or 'df.apply()' with 'raw=True'",
+        "Type mismatch: Check dtypes with 'df.dtypes', convert with 'df.astype()' or 'pd.to_numeric()'",
+        "Index alignment: Reset index with 'df.reset_index(drop=True)' before operations",
+        "NaN handling: Use 'df.fillna()', 'df.dropna()', or 'df.interpolate()' explicitly"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L07PYTHON_DATA_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:41:30.116686Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "pandas",
+        "numpy",
+        "data science",
+        "vectorization",
+        "dataframes"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "PYTHON",
+      "version": "1.0.0",
+      "tested_on": [
+        "pandas 2.1+",
+        "NumPy 1.26+",
+        "Python 3.10+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

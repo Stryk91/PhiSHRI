@@ -1,0 +1,77 @@
+{
+  "door_code": "L35RUST_TESTING",
+  "semantic_path": "LANGUAGES.RUST.TESTING",
+  "aliases": [
+    "rust testing",
+    "unit tests",
+    "integration tests",
+    "proptest",
+    "cargo test"
+  ],
+  "context_bundle": {
+    "summary": "Rust testing with unit tests, integration tests, property-based testing with proptest, and test organization",
+    "prerequisites": [
+      "L31RUST_BASICS"
+    ],
+    "related_doors": [
+      "L31RUST_BASICS",
+      "L32RUST_ERROR",
+      "L36RUST_CARGO"
+    ],
+    "onboarding": {
+      "quick_start": "cargo test && cargo test --release && cargo test -- --nocapture",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L35RUST_TESTING_GUIDE.md",
+      "common_patterns": [
+        "Unit test: '#[cfg(test)] mod tests { use super::*; #[test] fn it_works() { assert_eq!(2 + 2, 4); } }'",
+        "Test panic: '#[test] #[should_panic(expected = &quot;divide by zero&quot;)] fn test_panic() { divide(1, 0); }'",
+        "Result in tests: '#[test] fn test_result() -> Result<(), String> { if 2 + 2 == 4 { Ok(()) } else { Err(String::from(&quot;failed&quot;)) } }'",
+        "Integration tests: 'tests/integration_test.rs with mod common; use mylib::function; #[test] fn test_integration() { /* ... */ }'",
+        "Test attributes: '#[test] #[ignore] fn expensive_test() { /* ... */ } // run with cargo test -- --ignored'",
+        "Proptest: 'use proptest::prelude::*; proptest! { #[test] fn test_property(x in 0..100i32) { assert!(x >= 0); } }'",
+        "Benchmarking: '#[bench] fn bench_function(b: &mut Bencher) { b.iter(|| function()); } // requires nightly'",
+        "Test helpers: 'fn setup() -> TestContext { /* ... */ } #[test] fn test_with_setup() { let ctx = setup(); /* ... */ }'"
+      ],
+      "known_errors": [
+        "test failed: Check assertion, add --nocapture to see println! output",
+        "test ignored: Remove #[ignore] or run with --ignored flag",
+        "integration test not found: Ensure tests/ directory at crate root",
+        "proptest shrinking: Examine minimal failing case, adjust strategy",
+        "test timeout: Increase timeout or optimize test, use --test-threads=1 for serial execution",
+        "benchmark unstable: Run multiple times, use criterion crate for stable benchmarks"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L35RUST_TESTING_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:48:05.774329Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "rust testing",
+        "unit tests",
+        "integration tests",
+        "proptest",
+        "cargo test"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "RUST",
+      "version": "1.0.0",
+      "tested_on": [
+        "Rust 1.75+",
+        "proptest 1.4+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

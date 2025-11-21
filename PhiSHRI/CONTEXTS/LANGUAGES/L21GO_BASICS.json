@@ -1,0 +1,73 @@
+{
+  "door_code": "L21GO_BASICS",
+  "semantic_path": "LANGUAGES.GO.BASICS",
+  "aliases": [
+    "go",
+    "golang",
+    "go idioms",
+    "go best practices"
+  ],
+  "context_bundle": {
+    "summary": "Go programming language fundamentals covering idiomatic patterns, error handling, interfaces, goroutines, and Go module system for building efficient concurrent applications",
+    "prerequisites": [],
+    "related_doors": [
+      "L22GO_CONCURRENCY",
+      "L23GO_TESTING",
+      "L24GO_MODULES"
+    ],
+    "onboarding": {
+      "quick_start": "curl -OL https://go.dev/dl/go1.21.5.linux-amd64.tar.gz && sudo tar -C /usr/local -xzf go1.21.5.linux-amd64.tar.gz && export PATH=$PATH:/usr/local/go/bin && go version",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L21GO_BASICS_GUIDE.md",
+      "common_patterns": [
+        "Error handling: 'if err != nil { return fmt.Errorf(&quot;operation failed: %w&quot;, err) }' for error wrapping",
+        "Interfaces: 'type Reader interface { Read(p []byte) (n int, err error) }' for abstraction",
+        "Struct embedding: 'type Manager struct { Employee; reports []Employee }' for composition",
+        "Defer: 'defer file.Close()' for cleanup, executes in LIFO order",
+        "Slice operations: 'slice = append(slice, item)' for dynamic arrays",
+        "Map initialization: 'users := make(map[string]User, 100)' with capacity hint",
+        "Pointer receivers: 'func (p *Person) SetName(name string) { p.name = name }' for mutation",
+        "Context usage: 'ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second); defer cancel()'"
+      ],
+      "known_errors": [
+        "undefined: Check imports with 'go mod tidy', verify package name matches directory",
+        "cannot use X as Y: Check type compatibility, use type assertion 'value.(Type)' or type switch",
+        "nil pointer dereference: Check for nil before dereferencing, use 'if ptr != nil { ptr.Method() }'",
+        "race condition: Run 'go run -race' to detect, use sync.Mutex or channels for synchronization",
+        "import cycle: Refactor to break cycle, extract common code to separate package",
+        "go.mod issues: Run 'go mod tidy' to clean up, 'go get -u' to update dependencies"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L21GO_BASICS_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:48:05.773040Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "go",
+        "golang",
+        "go idioms",
+        "go best practices"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "GO",
+      "version": "1.0.0",
+      "tested_on": [
+        "Go 1.21+",
+        "Go 1.22"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

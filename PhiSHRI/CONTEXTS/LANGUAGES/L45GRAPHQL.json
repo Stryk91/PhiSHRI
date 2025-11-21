@@ -1,0 +1,75 @@
+{
+  "door_code": "L45GRAPHQL",
+  "semantic_path": "LANGUAGES.GRAPHQL.SCHEMA",
+  "aliases": [
+    "graphql",
+    "schema design",
+    "resolvers",
+    "federation",
+    "graphql api"
+  ],
+  "context_bundle": {
+    "summary": "GraphQL schema design with type definitions, resolvers, federation for microservices, and API best practices",
+    "prerequisites": [],
+    "related_doors": [
+      "L08PYTHON_WEB",
+      "L11NODEJS"
+    ],
+    "onboarding": {
+      "quick_start": "npm install graphql @apollo/server && npm install @apollo/client",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L45GRAPHQL_GUIDE.md",
+      "common_patterns": [
+        "Schema: 'type User { id: ID! name: String! email: String! posts: [Post!]! } type Post { id: ID! title: String! author: User! }'",
+        "Query: 'type Query { user(id: ID!): User users: [User!]! }'",
+        "Mutation: 'type Mutation { createUser(name: String!, email: String!): User! updateUser(id: ID!, name: String): User! }'",
+        "Resolver: 'const resolvers = { Query: { user: (parent, { id }, context) => context.db.users.findById(id) } };'",
+        "DataLoader: 'const userLoader = new DataLoader(ids => batchGetUsers(ids)); // batch loading'",
+        "Federation: '@key(fields: &quot;id&quot;) type User @extends { id: ID! @external reviews: [Review!]! }'",
+        "Subscriptions: 'type Subscription { postAdded: Post! } // real-time updates'",
+        "Directives: '@deprecated(reason: &quot;Use newField instead&quot;) oldField: String'"
+      ],
+      "known_errors": [
+        "N+1 problem: Use DataLoader for batching, implement field-level caching",
+        "over-fetching: Design precise types, use fragments for reusable selections",
+        "under-fetching: Add necessary fields to types, use nested resolvers",
+        "resolver timeout: Implement timeout logic, optimize database queries",
+        "schema stitching issues: Use federation for better composition",
+        "authentication: Implement context-based auth, check permissions in resolvers"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L45GRAPHQL_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:48:05.775087Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "graphql",
+        "schema design",
+        "resolvers",
+        "federation",
+        "graphql api"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "GRAPHQL",
+      "version": "1.0.0",
+      "tested_on": [
+        "GraphQL 16+",
+        "Apollo Server 4+",
+        "Apollo Client 3+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

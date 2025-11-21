@@ -1,0 +1,77 @@
+{
+  "door_code": "L29GO_ERRORS",
+  "semantic_path": "LANGUAGES.GO.ERRORS",
+  "aliases": [
+    "go errors",
+    "error wrapping",
+    "sentinel errors",
+    "errors.Is",
+    "errors.As"
+  ],
+  "context_bundle": {
+    "summary": "Go error handling patterns with error wrapping, sentinel errors, custom error types, and error inspection",
+    "prerequisites": [
+      "L21GO_BASICS"
+    ],
+    "related_doors": [
+      "L21GO_BASICS",
+      "L22GO_CONCURRENCY",
+      "L28GO_GENERICS"
+    ],
+    "onboarding": {
+      "quick_start": "go run main.go",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L29GO_ERRORS_GUIDE.md",
+      "common_patterns": [
+        "Error wrapping: 'if err != nil { return fmt.Errorf(&quot;failed to process: %w&quot;, err) }' for context",
+        "Sentinel errors: 'var ErrNotFound = errors.New(&quot;not found&quot;); if errors.Is(err, ErrNotFound) { /* handle */ }'",
+        "Custom error: 'type ValidationError struct { Field string; Message string }; func (e *ValidationError) Error() string { return fmt.Sprintf(&quot;%s: %s&quot;, e.Field, e.Message) }'",
+        "Error unwrapping: 'if errors.Is(err, ErrNotFound) { /* specific handling */ }'",
+        "Type assertion: 'var validationErr *ValidationError; if errors.As(err, &validationErr) { fmt.Println(validationErr.Field) }'",
+        "Error joining: 'err := errors.Join(err1, err2, err3) // Go 1.20+'",
+        "Panic recovery: 'defer func() { if r := recover(); r != nil { log.Printf(&quot;Recovered: %v&quot;, r) } }()'",
+        "Error context: 'type contextError struct { err error; context string }; func (e *contextError) Error() string { return e.context + &quot;: &quot; + e.err.Error() }; func (e *contextError) Unwrap() error { return e.err }'"
+      ],
+      "known_errors": [
+        "error not wrapped: Use %w verb in fmt.Errorf for error wrapping",
+        "errors.Is not working: Ensure error chain preserved with %w, check sentinel error identity",
+        "errors.As not matching: Verify error type in chain, use pointer to error type",
+        "panic not recovered: Add defer recover() at appropriate level",
+        "error lost: Don't ignore errors, always check and handle or propagate",
+        "error message unclear: Add context with fmt.Errorf, include relevant details"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L29GO_ERRORS_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:48:05.773885Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "go errors",
+        "error wrapping",
+        "sentinel errors",
+        "errors.Is",
+        "errors.As"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "GO",
+      "version": "1.0.0",
+      "tested_on": [
+        "Go 1.21+",
+        "Go 1.22"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

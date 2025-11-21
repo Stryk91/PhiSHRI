@@ -1,0 +1,79 @@
+{
+  "door_code": "L02PYTHON_ASYNC",
+  "semantic_path": "LANGUAGES.PYTHON.ASYNC",
+  "aliases": [
+    "asyncio",
+    "async await",
+    "python async",
+    "aiohttp",
+    "async python"
+  ],
+  "context_bundle": {
+    "summary": "Python asynchronous programming with asyncio, covering event loops, coroutines, async/await syntax, concurrent execution patterns, and async libraries like aiohttp for high-performance I/O operations",
+    "prerequisites": [
+      "L01PYTHON"
+    ],
+    "related_doors": [
+      "L01PYTHON",
+      "L03PYTHON_TYPING",
+      "L08PYTHON_WEB"
+    ],
+    "onboarding": {
+      "quick_start": "pip install aiohttp asyncio && python -c 'import asyncio; asyncio.run(asyncio.sleep(1))' && python -m aiohttp.web",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L02PYTHON_ASYNC_GUIDE.md",
+      "common_patterns": [
+        "Basic async function: 'async def fetch_data(): await asyncio.sleep(1); return &quot;data&quot;'",
+        "Running async code: 'asyncio.run(main())' for top-level entry point",
+        "Concurrent tasks: 'await asyncio.gather(task1(), task2(), task3())' for parallel execution",
+        "Task creation: 'task = asyncio.create_task(coro())' for background execution",
+        "Timeout handling: 'async with asyncio.timeout(5): result = await long_operation()'",
+        "Async context manager: 'async with aiohttp.ClientSession() as session: async with session.get(url) as resp: data = await resp.json()'",
+        "Async iteration: 'async for item in async_generator(): process(item)'",
+        "Semaphore for rate limiting: 'sem = asyncio.Semaphore(10); async with sem: await api_call()'"
+      ],
+      "known_errors": [
+        "RuntimeError: asyncio.run() cannot be called from a running event loop - use 'await' instead or 'asyncio.create_task()'",
+        "Task was destroyed but it is pending: Always 'await' tasks or cancel them with 'task.cancel(); await task'",
+        "Blocking call in async function: Use 'await asyncio.to_thread(blocking_func)' for CPU-bound or blocking I/O",
+        "aiohttp ClientSession not closed: Use 'async with aiohttp.ClientSession() as session:' for automatic cleanup",
+        "Event loop closed: Don't close loop manually, let 'asyncio.run()' handle it",
+        "Coroutine never awaited: Add 'await' before async function calls or create task with 'asyncio.create_task()'"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L02PYTHON_ASYNC_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:41:30.116226Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "asyncio",
+        "async await",
+        "python async",
+        "aiohttp",
+        "async python"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "PYTHON",
+      "version": "1.0.0",
+      "tested_on": [
+        "Python 3.10+",
+        "Python 3.11",
+        "Python 3.12",
+        "aiohttp 3.9+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

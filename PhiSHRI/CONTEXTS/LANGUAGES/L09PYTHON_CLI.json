@@ -1,0 +1,80 @@
+{
+  "door_code": "L09PYTHON_CLI",
+  "semantic_path": "LANGUAGES.PYTHON.CLI",
+  "aliases": [
+    "click",
+    "typer",
+    "argparse",
+    "python cli",
+    "command line",
+    "rich"
+  ],
+  "context_bundle": {
+    "summary": "Python command-line interface development with Click, Typer, and argparse for argument parsing, Rich for beautiful terminal output, and best practices for user-friendly CLI tools",
+    "prerequisites": [
+      "L01PYTHON"
+    ],
+    "related_doors": [
+      "L01PYTHON",
+      "L05PYTHON_PACKAGING",
+      "L04PYTHON_TESTING"
+    ],
+    "onboarding": {
+      "quick_start": "pip install click typer rich && python -c 'import click; import typer; import rich' && typer --version",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L09PYTHON_CLI_GUIDE.md",
+      "common_patterns": [
+        "Click basic: 'import click; @click.command() @click.option(&quot;--name&quot;, default=&quot;World&quot;) def hello(name): click.echo(f&quot;Hello {name}&quot;)'",
+        "Typer with types: 'import typer; app = typer.Typer(); @app.command() def greet(name: str = &quot;World&quot;): print(f&quot;Hello {name}&quot;)'",
+        "Multiple commands: '@click.group() def cli(): pass; @cli.command() def init(): pass; @cli.command() def deploy(): pass'",
+        "Rich console: 'from rich.console import Console; console = Console(); console.print(&quot;[bold red]Error![/bold red]&quot;)'",
+        "Progress bar: 'from rich.progress import track; for item in track(items, description=&quot;Processing&quot;): process(item)'",
+        "Table output: 'from rich.table import Table; table = Table(); table.add_column(&quot;Name&quot;); table.add_row(&quot;Alice&quot;); console.print(table)'",
+        "Argparse: 'import argparse; parser = argparse.ArgumentParser(); parser.add_argument(&quot;--verbose&quot;, action=&quot;store_true&quot;); args = parser.parse_args()'",
+        "Environment variables: '@click.option(&quot;--token&quot;, envvar=&quot;API_TOKEN&quot;) def cmd(token): pass' for config from env"
+      ],
+      "known_errors": [
+        "Command not found: Ensure entry point in pyproject.toml '[project.scripts]' section, reinstall with 'pip install -e .'",
+        "Option not recognized: Check option names match function parameters, use '--' for flags, '-' for short options",
+        "Type conversion error: Specify type in Click with 'type=click.INT' or Typer with 'name: int'",
+        "Rich not rendering: Check terminal supports ANSI colors, use 'console = Console(force_terminal=True)' for pipes",
+        "Subcommand not working: Use '@click.group()' for parent command, '@group.command()' for subcommands",
+        "Help text not showing: Add docstrings to functions, use 'help=' parameter in options"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L09PYTHON_CLI_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:41:30.116856Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "click",
+        "typer",
+        "argparse",
+        "python cli",
+        "command line"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "PYTHON",
+      "version": "1.0.0",
+      "tested_on": [
+        "Click 8.1+",
+        "Typer 0.9+",
+        "Rich 13.7+",
+        "Python 3.10+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

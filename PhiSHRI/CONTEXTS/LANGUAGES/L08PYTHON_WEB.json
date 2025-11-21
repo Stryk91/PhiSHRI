@@ -1,0 +1,80 @@
+{
+  "door_code": "L08PYTHON_WEB",
+  "semantic_path": "LANGUAGES.PYTHON.WEB",
+  "aliases": [
+    "fastapi",
+    "flask",
+    "django",
+    "python web",
+    "rest api",
+    "web framework"
+  ],
+  "context_bundle": {
+    "summary": "Python web framework patterns covering FastAPI for modern async APIs, Flask for lightweight applications, Django for full-featured web apps, with authentication, validation, and deployment best practices",
+    "prerequisites": [
+      "L01PYTHON"
+    ],
+    "related_doors": [
+      "L01PYTHON",
+      "L02PYTHON_ASYNC",
+      "L03PYTHON_TYPING"
+    ],
+    "onboarding": {
+      "quick_start": "pip install fastapi uvicorn[standard] && uvicorn main:app --reload && curl http://localhost:8000/docs",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L08PYTHON_WEB_GUIDE.md",
+      "common_patterns": [
+        "FastAPI basic: 'from fastapi import FastAPI; app = FastAPI(); @app.get(&quot;/&quot;) async def root(): return {&quot;message&quot;: &quot;Hello&quot;}'",
+        "Path parameters: '@app.get(&quot;/items/{item_id}&quot;) async def read_item(item_id: int): return {&quot;item_id&quot;: item_id}'",
+        "Request body: 'from pydantic import BaseModel; class Item(BaseModel): name: str; @app.post(&quot;/items/&quot;) async def create(item: Item): return item'",
+        "Dependency injection: 'from fastapi import Depends; def get_db(): db = Database(); yield db; @app.get(&quot;/users/&quot;) async def users(db = Depends(get_db)): return db.query()'",
+        "Background tasks: 'from fastapi import BackgroundTasks; @app.post(&quot;/send/&quot;) async def send(background_tasks: BackgroundTasks): background_tasks.add_task(send_email)'",
+        "CORS middleware: 'from fastapi.middleware.cors import CORSMiddleware; app.add_middleware(CORSMiddleware, allow_origins=[&quot;*&quot;])'",
+        "Flask route: 'from flask import Flask, jsonify; app = Flask(__name__); @app.route(&quot;/api/data&quot;) def get_data(): return jsonify({&quot;data&quot;: []})'",
+        "Django view: 'from django.http import JsonResponse; def api_view(request): return JsonResponse({&quot;status&quot;: &quot;ok&quot;})'"
+      ],
+      "known_errors": [
+        "Uvicorn not found: Install with 'pip install uvicorn[standard]' for full features including websockets",
+        "Pydantic validation error: Check request body matches model schema, use 'response_model' for output validation",
+        "CORS error: Add CORSMiddleware with appropriate origins, credentials, and methods",
+        "Async function in sync context: Use 'async def' for route handlers in FastAPI, or 'asyncio.run()' for sync code",
+        "Database connection not closed: Use dependency with 'yield' for proper cleanup, or context managers",
+        "Static files not served: Mount static directory with 'app.mount(&quot;/static&quot;, StaticFiles(directory=&quot;static&quot;), name=&quot;static&quot;)'"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L08PYTHON_WEB_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:41:30.116774Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "fastapi",
+        "flask",
+        "django",
+        "python web",
+        "rest api"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "PYTHON",
+      "version": "1.0.0",
+      "tested_on": [
+        "FastAPI 0.104+",
+        "Flask 3.0+",
+        "Django 5.0+",
+        "Python 3.10+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

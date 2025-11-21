@@ -1,0 +1,74 @@
+{
+  "door_code": "L44SQL_PATTERNS",
+  "semantic_path": "LANGUAGES.SQL.PATTERNS",
+  "aliases": [
+    "sql",
+    "query optimization",
+    "indexing",
+    "cte",
+    "sql performance"
+  ],
+  "context_bundle": {
+    "summary": "SQL query optimization patterns with indexing strategies, CTEs, window functions, and performance tuning",
+    "prerequisites": [],
+    "related_doors": [
+      "L07PYTHON_DATA"
+    ],
+    "onboarding": {
+      "quick_start": "psql --version && mysql --version",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L44SQL_PATTERNS_GUIDE.md",
+      "common_patterns": [
+        "Indexes: 'CREATE INDEX idx_user_email ON users(email); -- B-tree index for equality'",
+        "Composite index: 'CREATE INDEX idx_user_name_age ON users(last_name, first_name, age);'",
+        "CTE: 'WITH ranked AS (SELECT *, ROW_NUMBER() OVER (PARTITION BY category ORDER BY price DESC) as rn FROM products) SELECT * FROM ranked WHERE rn <= 3;'",
+        "Window functions: 'SELECT name, salary, AVG(salary) OVER (PARTITION BY department) as dept_avg FROM employees;'",
+        "Subquery optimization: 'Use JOIN instead of IN: SELECT * FROM orders o JOIN customers c ON o.customer_id = c.id WHERE c.country = &quot;US&quot;;'",
+        "EXPLAIN: 'EXPLAIN ANALYZE SELECT * FROM users WHERE email = &quot;test@example.com&quot;; -- check query plan'",
+        "Pagination: 'SELECT * FROM products WHERE id > $last_id ORDER BY id LIMIT 100; -- keyset pagination'",
+        "Batch operations: 'INSERT INTO users (name, email) VALUES (&quot;Alice&quot;, &quot;a@ex.com&quot;), (&quot;Bob&quot;, &quot;b@ex.com&quot;); -- bulk insert'"
+      ],
+      "known_errors": [
+        "slow query: Add indexes, check EXPLAIN plan, optimize WHERE clauses",
+        "full table scan: Add appropriate indexes, ensure statistics updated",
+        "N+1 queries: Use JOIN or batch loading to reduce queries",
+        "index not used: Check query matches index columns, update statistics",
+        "deadlock: Reduce transaction scope, access tables in consistent order",
+        "high memory usage: Limit result set size, use pagination"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L44SQL_PATTERNS_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:48:05.775002Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "sql",
+        "query optimization",
+        "indexing",
+        "cte",
+        "sql performance"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "SQL",
+      "version": "1.0.0",
+      "tested_on": [
+        "PostgreSQL 15+",
+        "MySQL 8.0+",
+        "SQLite 3.40+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

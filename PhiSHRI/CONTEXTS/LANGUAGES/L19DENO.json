@@ -1,0 +1,78 @@
+{
+  "door_code": "L19DENO",
+  "semantic_path": "LANGUAGES.JAVASCRIPT.DENO",
+  "aliases": [
+    "deno",
+    "deno runtime",
+    "fresh",
+    "deno deploy",
+    "typescript runtime"
+  ],
+  "context_bundle": {
+    "summary": "Deno runtime features including built-in TypeScript support, secure-by-default permissions, standard library, Fresh framework for edge-rendered applications",
+    "prerequisites": [
+      "L11NODEJS",
+      "L12TYPESCRIPT"
+    ],
+    "related_doors": [
+      "L11NODEJS",
+      "L12TYPESCRIPT",
+      "L20BUN"
+    ],
+    "onboarding": {
+      "quick_start": "curl -fsSL https://deno.land/install.sh | sh && deno --version && deno run --allow-net https://deno.land/std/examples/welcome.ts",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L19DENO_GUIDE.md",
+      "common_patterns": [
+        "Run script: 'deno run --allow-net --allow-read script.ts' with explicit permissions",
+        "Import from URL: 'import { serve } from &quot;https://deno.land/std@0.200.0/http/server.ts&quot;;'",
+        "Fresh project: 'deno run -A -r https://fresh.deno.dev my-project && cd my-project && deno task start'",
+        "Testing: 'Deno.test(&quot;addition&quot;, () => { assertEquals(1 + 1, 2); });' with built-in test runner",
+        "File operations: 'const text = await Deno.readTextFile(&quot;./file.txt&quot;); await Deno.writeTextFile(&quot;./output.txt&quot;, text);'",
+        "HTTP server: 'Deno.serve({ port: 8000 }, (req) => new Response(&quot;Hello World&quot;));'",
+        "Environment variables: 'const apiKey = Deno.env.get(&quot;API_KEY&quot;);' with --allow-env permission",
+        "Subprocess: 'const command = new Deno.Command(&quot;ls&quot;, { args: [&quot;-la&quot;] }); const { stdout } = await command.output();'"
+      ],
+      "known_errors": [
+        "Permission denied: Add required permission flags like --allow-net, --allow-read, --allow-write",
+        "Module not found: Check URL is correct, use 'deno cache' to pre-download dependencies",
+        "Type error: Deno uses strict TypeScript, add type annotations or use 'as' assertions",
+        "Import map not working: Create deno.json with 'imports' field, run with 'deno run --import-map=deno.json'",
+        "Fresh island not hydrating: Ensure island component is in islands/ directory with default export",
+        "Deno Deploy error: Check for Node.js-specific APIs, use Deno-compatible alternatives"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L19DENO_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:43:33.653981Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "deno",
+        "deno runtime",
+        "fresh",
+        "deno deploy",
+        "typescript runtime"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "JAVASCRIPT",
+      "version": "1.0.0",
+      "tested_on": [
+        "Deno 1.40+",
+        "Fresh 1.6+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

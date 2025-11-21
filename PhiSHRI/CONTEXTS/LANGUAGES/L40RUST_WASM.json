@@ -1,0 +1,78 @@
+{
+  "door_code": "L40RUST_WASM",
+  "semantic_path": "LANGUAGES.RUST.WASM",
+  "aliases": [
+    "wasm",
+    "wasm-bindgen",
+    "wasm-pack",
+    "web assembly",
+    "rust wasm"
+  ],
+  "context_bundle": {
+    "summary": "Rust WebAssembly development with wasm-bindgen for JavaScript interop, wasm-pack for building, and web targets",
+    "prerequisites": [
+      "L31RUST_BASICS"
+    ],
+    "related_doors": [
+      "L31RUST_BASICS",
+      "L32RUST_ERROR",
+      "L36RUST_CARGO"
+    ],
+    "onboarding": {
+      "quick_start": "cargo install wasm-pack && wasm-pack build --target web && wasm-pack test --headless --firefox",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L40RUST_WASM_GUIDE.md",
+      "common_patterns": [
+        "Setup: 'cargo new --lib mywasm && cd mywasm && cargo add wasm-bindgen'",
+        "Export function: 'use wasm_bindgen::prelude::*; #[wasm_bindgen] pub fn greet(name: &str) -> String { format!(&quot;Hello, {}!&quot;, name) }'",
+        "Build: 'wasm-pack build --target web to generate pkg/ directory'",
+        "Import in JS: 'import init, { greet } from &quot;./pkg/mywasm.js&quot;; await init(); console.log(greet(&quot;World&quot;));'",
+        "JS interop: '#[wasm_bindgen] extern &quot;C&quot; { fn alert(s: &str); } alert(&quot;Hello from Rust!&quot;);'",
+        "Web API: 'use web_sys::console; console::log_1(&&quot;Hello from Rust!&quot;.into());'",
+        "Async: '#[wasm_bindgen] pub async fn fetch_data() -> Result<JsValue, JsValue> { /* ... */ }'",
+        "Optimize size: 'wasm-pack build --release -- -Z build-std=std,panic_abort -Z build-std-features=panic_immediate_abort'"
+      ],
+      "known_errors": [
+        "wasm-bindgen error: Ensure versions match between CLI and library",
+        "module not found: Check import path, ensure wasm-pack build completed",
+        "memory access out of bounds: Check array bounds, use safe Rust patterns",
+        "large wasm size: Enable LTO, strip symbols, use wasm-opt",
+        "async not working: Use wasm-bindgen-futures for async support",
+        "panic in wasm: Add console_error_panic_hook for better error messages"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L40RUST_WASM_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:48:05.774707Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "wasm",
+        "wasm-bindgen",
+        "wasm-pack",
+        "web assembly",
+        "rust wasm"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "RUST",
+      "version": "1.0.0",
+      "tested_on": [
+        "Rust 1.75+",
+        "wasm-bindgen 0.2+",
+        "wasm-pack 0.12+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

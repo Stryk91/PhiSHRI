@@ -1,0 +1,75 @@
+{
+  "door_code": "L41SHELL_BASH",
+  "semantic_path": "LANGUAGES.SHELL.BASH",
+  "aliases": [
+    "bash",
+    "shell scripting",
+    "shellcheck",
+    "posix",
+    "bash scripting"
+  ],
+  "context_bundle": {
+    "summary": "Bash scripting best practices with shellcheck for linting, POSIX compatibility, error handling, and robust script patterns",
+    "prerequisites": [],
+    "related_doors": [
+      "L42SHELL_ZSH",
+      "L43POWERSHELL"
+    ],
+    "onboarding": {
+      "quick_start": "shellcheck --version && bash --version && shellcheck script.sh",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L41SHELL_BASH_GUIDE.md",
+      "common_patterns": [
+        "Shebang: '#!/usr/bin/env bash for portability'",
+        "Strict mode: 'set -euo pipefail # exit on error, undefined var, pipe failure'",
+        "Variables: 'name=&quot;value&quot; # no spaces around =, ${name} for expansion'",
+        "Command substitution: 'result=$(command) # preferred over backticks'",
+        "Conditionals: 'if [[ -f &quot;file.txt&quot; ]]; then echo &quot;exists&quot;; fi # [[ ]] preferred over [ ]'",
+        "Loops: 'for file in *.txt; do process &quot;$file&quot;; done # quote variables'",
+        "Functions: 'function_name() { local var=&quot;value&quot;; echo &quot;$var&quot;; } # use local for variables'",
+        "Error handling: 'trap 'echo &quot;Error on line $LINENO&quot;' ERR # catch errors'"
+      ],
+      "known_errors": [
+        "command not found: Check PATH, use full path or install command",
+        "syntax error: Run shellcheck, check quotes and brackets",
+        "permission denied: Add execute permission with chmod +x script.sh",
+        "variable not set: Use ${var:-default} for default value",
+        "word splitting: Quote variables &quot;$var&quot; to prevent splitting",
+        "shellcheck warnings: Fix issues reported by shellcheck for robustness"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L41SHELL_BASH_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:48:05.774786Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "bash",
+        "shell scripting",
+        "shellcheck",
+        "posix",
+        "bash scripting"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "SHELL",
+      "version": "1.0.0",
+      "tested_on": [
+        "Bash 4.0+",
+        "Bash 5.0+",
+        "shellcheck 0.9+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

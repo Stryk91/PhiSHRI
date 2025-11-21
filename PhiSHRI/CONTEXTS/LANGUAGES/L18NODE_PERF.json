@@ -1,0 +1,78 @@
+{
+  "door_code": "L18NODE_PERF",
+  "semantic_path": "LANGUAGES.JAVASCRIPT.PERFORMANCE",
+  "aliases": [
+    "node performance",
+    "v8 optimization",
+    "memory leaks",
+    "profiling",
+    "node profiling"
+  ],
+  "context_bundle": {
+    "summary": "Node.js performance optimization covering V8 engine optimization, memory leak detection, profiling with Chrome DevTools, and performance best practices",
+    "prerequisites": [
+      "L11NODEJS"
+    ],
+    "related_doors": [
+      "L11NODEJS",
+      "L18NODE_PERF",
+      "L02PYTHON_ASYNC"
+    ],
+    "onboarding": {
+      "quick_start": "node --inspect app.js && open chrome://inspect && node --prof app.js && node --prof-process isolate-*.log",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L18NODE_PERF_GUIDE.md",
+      "common_patterns": [
+        "Chrome DevTools profiling: 'node --inspect-brk app.js' and open chrome://inspect for CPU/memory profiling",
+        "Heap snapshot: 'node --inspect app.js' then take heap snapshot in DevTools Memory tab",
+        "V8 optimization: 'function monomorphic(obj) { return obj.x; }' - keep object shapes consistent",
+        "Avoid delete: 'obj.prop = undefined' instead of 'delete obj.prop' to maintain hidden class",
+        "Stream processing: 'fs.createReadStream(&quot;large.txt&quot;).pipe(transform).pipe(fs.createWriteStream(&quot;output.txt&quot;))' for memory efficiency",
+        "Worker threads: 'const { Worker } = require(&quot;worker_threads&quot;); const worker = new Worker(&quot;./cpu-intensive.js&quot;);' for CPU-bound tasks",
+        "Cluster mode: 'const cluster = require(&quot;cluster&quot;); if (cluster.isMaster) { for (let i = 0; i < cpus; i++) cluster.fork(); }'",
+        "Object pooling: 'const pool = []; function getObject() { return pool.pop() || createNew(); } function releaseObject(obj) { pool.push(obj); }'"
+      ],
+      "known_errors": [
+        "Memory leak: Use 'node --inspect' and heap snapshots to find retained objects, check for global variables and event listeners",
+        "High CPU usage: Profile with 'node --prof', check for blocking operations, use worker threads for CPU-intensive tasks",
+        "Event loop blocked: Use 'setImmediate()' to break up long operations, avoid synchronous I/O",
+        "GC pauses: Reduce object allocation, use object pooling, tune GC with '--max-old-space-size=4096'",
+        "Slow startup: Use 'node --prof' to profile startup, lazy-load modules, use dynamic imports",
+        "Memory fragmentation: Restart process periodically, use '--max-old-space-size' to limit heap"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L18NODE_PERF_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:43:33.653889Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "node performance",
+        "v8 optimization",
+        "memory leaks",
+        "profiling",
+        "node profiling"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "JAVASCRIPT",
+      "version": "1.0.0",
+      "tested_on": [
+        "Node.js 18 LTS",
+        "Node.js 20 LTS",
+        "V8 11+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

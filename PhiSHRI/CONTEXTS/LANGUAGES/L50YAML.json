@@ -1,0 +1,75 @@
+{
+  "door_code": "L50YAML",
+  "semantic_path": "LANGUAGES.YAML.PATTERNS",
+  "aliases": [
+    "yaml",
+    "yaml pitfalls",
+    "anchors",
+    "multi-doc",
+    "yaml syntax"
+  ],
+  "context_bundle": {
+    "summary": "YAML syntax best practices covering anchors, aliases, multi-document files, and common pitfalls to avoid",
+    "prerequisites": [],
+    "related_doors": [
+      "L24GO_MODULES",
+      "L36RUST_CARGO"
+    ],
+    "onboarding": {
+      "quick_start": "python -c 'import yaml; print(yaml.__version__)' && npm install js-yaml",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L50YAML_GUIDE.md",
+      "common_patterns": [
+        "Basic: 'key: value\\nnested:\\n  key: value' with 2-space indentation",
+        "Lists: 'items:\\n  - item1\\n  - item2' or 'items: [item1, item2]'",
+        "Multiline: 'description: |\\n  Line 1\\n  Line 2' for literal, '>\\n  Line 1\\n  Line 2' for folded",
+        "Anchors: 'defaults: &defaults\\n  timeout: 30\\nproduction:\\n  <<: *defaults\\n  env: prod'",
+        "Multiple documents: '---\\ndoc1: value\\n---\\ndoc2: value' separated by ---",
+        "Quotes: 'Use &quot;double quotes&quot; for special chars, \\'single quotes\\' for literals, no quotes for simple strings'",
+        "Booleans: 'true, false, yes, no, on, off (case-insensitive)'",
+        "Null: 'null, ~ or empty value for null'"
+      ],
+      "known_errors": [
+        "indentation error: Use consistent 2 or 4 spaces, no tabs",
+        "unexpected boolean: Quote strings like 'yes', 'no', 'true', 'false'",
+        "anchor not found: Define anchor before reference, check spelling",
+        "parsing error: Validate with yamllint, check special characters",
+        "type coercion: Quote values to preserve as strings",
+        "multi-document issues: Ensure --- separator, check parser supports multi-doc"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L50YAML_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:48:05.775447Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "yaml",
+        "yaml pitfalls",
+        "anchors",
+        "multi-doc",
+        "yaml syntax"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "YAML",
+      "version": "1.0.0",
+      "tested_on": [
+        "YAML 1.2",
+        "PyYAML 6+",
+        "js-yaml 4+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

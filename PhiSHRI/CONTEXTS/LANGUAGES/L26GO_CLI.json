@@ -1,0 +1,78 @@
+{
+  "door_code": "L26GO_CLI",
+  "semantic_path": "LANGUAGES.GO.CLI",
+  "aliases": [
+    "cobra",
+    "viper",
+    "bubbletea",
+    "go cli",
+    "command line"
+  ],
+  "context_bundle": {
+    "summary": "Go command-line application development with Cobra for commands, Viper for configuration, and Bubbletea for TUI",
+    "prerequisites": [
+      "L21GO_BASICS"
+    ],
+    "related_doors": [
+      "L21GO_BASICS",
+      "L24GO_MODULES",
+      "L25GO_WEB"
+    ],
+    "onboarding": {
+      "quick_start": "go get -u github.com/spf13/cobra@latest && cobra-cli init && cobra-cli add serve",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L26GO_CLI_GUIDE.md",
+      "common_patterns": [
+        "Cobra command: 'var rootCmd = &cobra.Command{Use: &quot;app&quot;, Short: &quot;Description&quot;, Run: func(cmd *cobra.Command, args []string) { fmt.Println(&quot;Hello&quot;) }}'",
+        "Subcommands: 'var serveCmd = &cobra.Command{Use: &quot;serve&quot;, Run: func(cmd *cobra.Command, args []string) { startServer() }}; rootCmd.AddCommand(serveCmd)'",
+        "Flags: 'rootCmd.Flags().StringP(&quot;config&quot;, &quot;c&quot;, &quot;&quot;, &quot;config file&quot;); viper.BindPFlag(&quot;config&quot;, rootCmd.Flags().Lookup(&quot;config&quot;))'",
+        "Viper config: 'viper.SetConfigName(&quot;config&quot;); viper.AddConfigPath(&quot;.&quot;); viper.ReadInConfig(); port := viper.GetInt(&quot;port&quot;)'",
+        "Environment: 'viper.SetEnvPrefix(&quot;APP&quot;); viper.AutomaticEnv(); apiKey := viper.GetString(&quot;API_KEY&quot;)'",
+        "Bubbletea TUI: 'type model struct { cursor int }; func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) { switch msg := msg.(type) { case tea.KeyMsg: if msg.String() == &quot;q&quot; { return m, tea.Quit } } return m, nil }'",
+        "Progress bar: 'import &quot;github.com/schollz/progressbar/v3&quot;; bar := progressbar.Default(100); for i := 0; i < 100; i++ { bar.Add(1); time.Sleep(40 * time.Millisecond) }'",
+        "Colored output: 'import &quot;github.com/fatih/color&quot;; color.Red(&quot;Error:&quot;); color.Green(&quot;Success&quot;)'"
+      ],
+      "known_errors": [
+        "command not found: Build with 'go build' and add to PATH or use 'go install'",
+        "config not loading: Check file path and name, use 'viper.Debug()' for troubleshooting",
+        "flag not recognized: Ensure flag defined before Parse(), check flag name spelling",
+        "TUI rendering issues: Check terminal compatibility, use 'tea.WithAltScreen()' for full screen",
+        "environment variable not read: Use viper.AutomaticEnv() and correct prefix",
+        "subcommand not working: Ensure AddCommand() called, check command Use field"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L26GO_CLI_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:48:05.773559Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "cobra",
+        "viper",
+        "bubbletea",
+        "go cli",
+        "command line"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "GO",
+      "version": "1.0.0",
+      "tested_on": [
+        "Go 1.21+",
+        "Cobra 1.8+",
+        "Viper 1.18+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

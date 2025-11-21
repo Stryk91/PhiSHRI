@@ -1,0 +1,80 @@
+{
+  "door_code": "L03PYTHON_TYPING",
+  "semantic_path": "LANGUAGES.PYTHON.TYPING",
+  "aliases": [
+    "type hints",
+    "mypy",
+    "python typing",
+    "type annotations",
+    "protocol",
+    "generics"
+  ],
+  "context_bundle": {
+    "summary": "Python static type checking with type hints, mypy configuration, Protocol for structural subtyping, generics with TypeVar, and advanced typing patterns for robust code",
+    "prerequisites": [
+      "L01PYTHON"
+    ],
+    "related_doors": [
+      "L01PYTHON",
+      "L02PYTHON_ASYNC",
+      "L04PYTHON_TESTING"
+    ],
+    "onboarding": {
+      "quick_start": "pip install mypy && echo '[mypy]\\nstrict = true\\npython_version = 3.12' > mypy.ini && mypy --install-types && mypy .",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L03PYTHON_TYPING_GUIDE.md",
+      "common_patterns": [
+        "Basic types: 'def greet(name: str, age: int) -> str: return f&quot;Hello {name}, {age}&quot;'",
+        "Optional types: 'from typing import Optional; def find(key: str) -> Optional[str]: return data.get(key)'",
+        "Union types: 'def process(value: int | str) -> bool:' (Python 3.10+)",
+        "Generic functions: 'from typing import TypeVar; T = TypeVar(&quot;T&quot;); def first(items: list[T]) -> T: return items[0]'",
+        "Protocol for duck typing: 'from typing import Protocol; class Drawable(Protocol): def draw(self) -> None: ...'",
+        "TypedDict: 'from typing import TypedDict; class User(TypedDict): name: str; age: int'",
+        "Callable types: 'from typing import Callable; def apply(func: Callable[[int], str], value: int) -> str: return func(value)'",
+        "Generic classes: 'from typing import Generic; class Stack(Generic[T]): def push(self, item: T) -> None: ...'"
+      ],
+      "known_errors": [
+        "Incompatible types in assignment: Check type annotations match actual values, use 'cast()' for type narrowing",
+        "Missing type annotation: Add type hints to function parameters and return types, use '# type: ignore' sparingly",
+        "Protocol not followed: Ensure class implements all Protocol methods with correct signatures",
+        "TypeVar bound incorrectly: Use 'T = TypeVar(&quot;T&quot;, bound=BaseClass)' to constrain generic types",
+        "Circular import for types: Use 'from __future__ import annotations' and string literals for forward references",
+        "mypy cache issues: Run 'mypy --cache-dir=/dev/null' or 'rm -rf .mypy_cache' to clear stale cache"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L03PYTHON_TYPING_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:41:30.116326Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "type hints",
+        "mypy",
+        "python typing",
+        "type annotations",
+        "protocol"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "PYTHON",
+      "version": "1.0.0",
+      "tested_on": [
+        "Python 3.10+",
+        "mypy 1.7+",
+        "Python 3.11",
+        "Python 3.12"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "door_code": "L31RUST_BASICS",
+  "semantic_path": "LANGUAGES.RUST.BASICS",
+  "aliases": [
+    "rust",
+    "ownership",
+    "borrowing",
+    "lifetimes",
+    "rust basics"
+  ],
+  "context_bundle": {
+    "summary": "Rust fundamentals covering ownership system, borrowing rules, lifetimes, and memory safety without garbage collection",
+    "prerequisites": [],
+    "related_doors": [
+      "L32RUST_ERROR",
+      "L33RUST_ASYNC",
+      "L34RUST_TRAITS"
+    ],
+    "onboarding": {
+      "quick_start": "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh && rustc --version && cargo new myproject && cd myproject && cargo build",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L31RUST_BASICS_GUIDE.md",
+      "common_patterns": [
+        "Ownership: 'let s1 = String::from(&quot;hello&quot;); let s2 = s1; // s1 moved, no longer valid'",
+        "Borrowing: 'fn calculate_length(s: &String) -> usize { s.len() } // immutable borrow'",
+        "Mutable borrow: 'fn change(s: &mut String) { s.push_str(&quot;, world&quot;); } // only one mutable borrow at a time'",
+        "Lifetimes: 'fn longest<'a>(x: &'a str, y: &'a str) -> &'a str { if x.len() > y.len() { x } else { y } }'",
+        "Struct lifetimes: 'struct ImportantExcerpt<'a> { part: &'a str }'",
+        "Slice: 'let s = String::from(&quot;hello world&quot;); let hello = &s[0..5];'",
+        "Copy trait: 'let x = 5; let y = x; // x still valid, Copy trait'",
+        "Clone: 'let s1 = String::from(&quot;hello&quot;); let s2 = s1.clone(); // deep copy'"
+      ],
+      "known_errors": [
+        "borrow checker error: Check borrow rules, ensure no simultaneous mutable and immutable borrows",
+        "use of moved value: Clone value or use references, check ownership transfer",
+        "lifetime mismatch: Add explicit lifetime annotations, ensure references live long enough",
+        "cannot borrow as mutable: Ensure variable declared as 'let mut', check existing borrows",
+        "dangling reference: Return owned value instead of reference, or use 'static lifetime",
+        "cannot move out of borrowed content: Clone value or restructure to avoid move"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L31RUST_BASICS_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:48:05.774038Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "rust",
+        "ownership",
+        "borrowing",
+        "lifetimes",
+        "rust basics"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "RUST",
+      "version": "1.0.0",
+      "tested_on": [
+        "Rust 1.75+",
+        "Rust 1.76"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

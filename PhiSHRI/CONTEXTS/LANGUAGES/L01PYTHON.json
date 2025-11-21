@@ -1,0 +1,78 @@
+{
+  "door_code": "L01PYTHON",
+  "semantic_path": "LANGUAGES.PYTHON.BEST_PRACTICES",
+  "aliases": [
+    "python",
+    "python3",
+    "py",
+    "python best practices",
+    "pythonic",
+    "pep8"
+  ],
+  "context_bundle": {
+    "summary": "Python best practices covering PEP 8 style guide, idiomatic patterns, and modern Python 3.10+ features including structural pattern matching, type hints, and performance optimization techniques",
+    "prerequisites": [],
+    "related_doors": [
+      "L02PYTHON_ASYNC",
+      "L03PYTHON_TYPING",
+      "L04PYTHON_TESTING",
+      "L05PYTHON_PACKAGING"
+    ],
+    "onboarding": {
+      "quick_start": "pyenv install 3.12.0 && pyenv global 3.12.0 && python -m venv .venv && source .venv/bin/activate && pip install --upgrade pip setuptools wheel",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L01PYTHON_GUIDE.md",
+      "common_patterns": [
+        "Context managers: 'with open(&quot;file.txt&quot;) as f: data = f.read()' for automatic resource cleanup",
+        "List comprehensions: '[x**2 for x in range(10) if x % 2 == 0]' for concise iteration",
+        "Dictionary comprehensions: '{k: v for k, v in items.items() if v > 0}' for filtering",
+        "Enumerate: 'for idx, item in enumerate(items, start=1):' instead of manual indexing",
+        "Pathlib: 'from pathlib import Path; path = Path(&quot;data&quot;) / &quot;file.txt&quot;' for cross-platform paths",
+        "F-strings: 'f&quot;Hello {name}, you are {age} years old&quot;' for string formatting",
+        "Dataclasses: '@dataclass class User: name: str; age: int' for simple data containers",
+        "Walrus operator: 'if (n := len(data)) > 10: print(f&quot;Large dataset: {n}&quot;)' for assignment in expressions"
+      ],
+      "known_errors": [
+        "ModuleNotFoundError: 'pip list | grep package-name' to verify installation, 'pip install -e .' for editable installs",
+        "IndentationError: Use 4 spaces (not tabs), configure editor with 'set expandtab tabstop=4 shiftwidth=4'",
+        "NameError: Check for typos, verify imports with 'python -c &quot;import module&quot;', use 'dir()' to inspect namespace",
+        "AttributeError: 'hasattr(obj, &quot;attr&quot;)' before access, use 'getattr(obj, &quot;attr&quot;, default)' for safe access",
+        "ImportError circular: Refactor to avoid circular imports, use 'from __future__ import annotations' for type hints",
+        "UnicodeDecodeError: Specify encoding explicitly 'open(file, encoding=&quot;utf-8&quot;)' or use 'errors=&quot;ignore&quot;'"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L01PYTHON_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:41:30.116054Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "python",
+        "python3",
+        "py",
+        "python best practices",
+        "pythonic"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "PYTHON",
+      "version": "1.0.0",
+      "tested_on": [
+        "Python 3.10+",
+        "Python 3.11",
+        "Python 3.12"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

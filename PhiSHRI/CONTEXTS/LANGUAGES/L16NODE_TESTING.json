@@ -1,0 +1,80 @@
+{
+  "door_code": "L16NODE_TESTING",
+  "semantic_path": "LANGUAGES.JAVASCRIPT.TESTING",
+  "aliases": [
+    "jest",
+    "vitest",
+    "testing-library",
+    "msw",
+    "node testing",
+    "javascript testing"
+  ],
+  "context_bundle": {
+    "summary": "Node.js and React testing with Jest, Vitest, React Testing Library, Mock Service Worker for API mocking, and comprehensive testing strategies",
+    "prerequisites": [
+      "L11NODEJS",
+      "L14REACT_PATTERNS"
+    ],
+    "related_doors": [
+      "L11NODEJS",
+      "L14REACT_PATTERNS",
+      "L12TYPESCRIPT"
+    ],
+    "onboarding": {
+      "quick_start": "npm install -D vitest @testing-library/react @testing-library/jest-dom msw && npx vitest --ui",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L16NODE_TESTING_GUIDE.md",
+      "common_patterns": [
+        "Vitest basic: 'import { describe, it, expect } from &quot;vitest&quot;; describe(&quot;sum&quot;, () => { it(&quot;adds numbers&quot;, () => { expect(1 + 1).toBe(2); }); });'",
+        "React Testing Library: 'import { render, screen } from &quot;@testing-library/react&quot;; test(&quot;renders button&quot;, () => { render(<Button />); expect(screen.getByRole(&quot;button&quot;)).toBeInTheDocument(); });'",
+        "User events: 'import userEvent from &quot;@testing-library/user-event&quot;; test(&quot;clicks button&quot;, async () => { const user = userEvent.setup(); await user.click(screen.getByRole(&quot;button&quot;)); });'",
+        "MSW handlers: 'import { http, HttpResponse } from &quot;msw&quot;; export const handlers = [http.get(&quot;/api/users&quot;, () => HttpResponse.json([{ id: 1, name: &quot;Alice&quot; }]))];'",
+        "Async testing: 'test(&quot;fetches data&quot;, async () => { render(<Component />); expect(await screen.findByText(&quot;Loaded&quot;)).toBeInTheDocument(); });'",
+        "Mocking modules: 'vi.mock(&quot;./api&quot;, () => ({ fetchUser: vi.fn(() => Promise.resolve({ name: &quot;Alice&quot; })) }));'",
+        "Snapshot testing: 'expect(component).toMatchSnapshot(); // Creates __snapshots__ directory'",
+        "Coverage: 'vitest --coverage' with @vitest/coverage-v8 for code coverage reports"
+      ],
+      "known_errors": [
+        "Cannot find module: Install @types packages, check tsconfig paths and moduleNameMapper in vitest.config",
+        "Act warning: Wrap state updates in act() or use async utilities like findBy* queries",
+        "MSW not intercepting: Ensure server.listen() in beforeAll, server.close() in afterAll",
+        "Timeout error: Increase timeout with 'test(&quot;name&quot;, async () => {}, { timeout: 10000 })'",
+        "Mock not working: Check mock is called before component render, use vi.clearAllMocks() in beforeEach",
+        "Snapshot mismatch: Review changes, update with 'vitest -u' if intentional"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L16NODE_TESTING_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:43:33.653718Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "jest",
+        "vitest",
+        "testing-library",
+        "msw",
+        "node testing"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "JAVASCRIPT",
+      "version": "1.0.0",
+      "tested_on": [
+        "Vitest 1.0+",
+        "React Testing Library 14+",
+        "MSW 2.0+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "door_code": "L06PYTHON_PERF",
+  "semantic_path": "LANGUAGES.PYTHON.PERFORMANCE",
+  "aliases": [
+    "python performance",
+    "profiling",
+    "cython",
+    "numba",
+    "optimization",
+    "python speed"
+  ],
+  "context_bundle": {
+    "summary": "Python performance optimization techniques including profiling with cProfile, memory profiling, Cython for C extensions, Numba JIT compilation, and algorithmic improvements for faster execution",
+    "prerequisites": [
+      "L01PYTHON"
+    ],
+    "related_doors": [
+      "L01PYTHON",
+      "L07PYTHON_DATA",
+      "L02PYTHON_ASYNC"
+    ],
+    "onboarding": {
+      "quick_start": "pip install cython numba memory_profiler line_profiler && python -m cProfile -o profile.stats script.py && python -m pstats profile.stats",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L06PYTHON_PERF_GUIDE.md",
+      "common_patterns": [
+        "Profile code: 'python -m cProfile -s cumtime script.py' to find bottlenecks",
+        "Line profiler: '@profile decorator and 'kernprof -l -v script.py' for line-by-line timing",
+        "Memory profiling: '@profile decorator and 'python -m memory_profiler script.py' for memory usage",
+        "Numba JIT: 'from numba import jit; @jit(nopython=True) def fast_function(x): return x ** 2'",
+        "List to set lookup: 'if item in set(items):' instead of 'if item in items:' for O(1) vs O(n)",
+        "Generator expressions: '(x**2 for x in range(1000000))' instead of list comprehension for memory efficiency",
+        "Cython optimization: 'cdef int i; cdef double result' for static typing in .pyx files",
+        "Vectorization: 'import numpy as np; result = np.array(data) ** 2' instead of loops"
+      ],
+      "known_errors": [
+        "Profiler overhead: Use 'cProfile' for production, 'profile' for development, disable during normal execution",
+        "Numba compilation slow: First call compiles, subsequent calls are fast, use 'cache=True' for persistent compilation",
+        "Cython import error: Run 'python setup.py build_ext --inplace' to compile .pyx files",
+        "Memory leak: Use 'objgraph.show_most_common_types()' to find leaked objects, check for circular references",
+        "GIL contention: Use multiprocessing instead of threading for CPU-bound tasks, or release GIL in Cython",
+        "Premature optimization: Profile first with 'cProfile', optimize hotspots only, maintain readability"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/09_LANGUAGES/L06PYTHON_PERF_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T22:41:30.116581Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "python performance",
+        "profiling",
+        "cython",
+        "numba",
+        "optimization"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "PYTHON",
+      "version": "1.0.0",
+      "tested_on": [
+        "Python 3.10+",
+        "Cython 3.0+",
+        "Numba 0.58+",
+        "memory_profiler 0.61+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}
