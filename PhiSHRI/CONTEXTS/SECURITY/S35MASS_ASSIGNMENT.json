@@ -1,0 +1,81 @@
+{
+  "door_code": "S35MASS_ASSIGNMENT",
+  "semantic_path": "SECURITY.API.MASS_ASSIGNMENT",
+  "aliases": [
+    "mass assignment",
+    "over-posting",
+    "autobinding vulnerability",
+    "object injection",
+    "OWASP API3"
+  ],
+  "context_bundle": {
+    "summary": "Mass Assignment vulnerability (OWASP API3:2023): Attacker adds unexpected fields to request that get bound to internal objects. Example: adding 'isAdmin=true' to registration. Defense: use explicit allowlists of bindable fields, use DTOs/view models, never bind directly to domain objects.",
+    "prerequisites": [
+      "S03INPUT_VAL",
+      "S26BROKEN_ACCESS"
+    ],
+    "related_doors": [
+      "S27AUTH_FAILURES",
+      "S12API_SECURITY",
+      "W89DATA_VALIDATION"
+    ],
+    "onboarding": {
+      "quick_start": "Mass assignment defense: 1) Use DTOs (Data Transfer Objects) with only allowed fields, 2) Explicitly allowlist fields: user.update(only=['name', 'email']), 3) Never bind request directly to domain model, 4) Use @JsonIgnore or [Bind(Exclude)] on sensitive fields.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md",
+      "common_patterns": [
+        "Python/SQLAlchemy: user.update(**{k: v for k, v in data.items() if k in ALLOWED_FIELDS})",
+        "Node.js: const { name, email } = req.body; // destructure only allowed fields",
+        "Java: @JsonIgnore on sensitive fields or use separate DTO class",
+        "C#: [Bind(Include = 'Name,Email')] or [BindNever] on sensitive properties"
+      ],
+      "known_errors": [
+        {
+          "error": "User sets isAdmin=true during registration",
+          "cause": "Direct binding of request body to User model including all fields",
+          "solution": "Use DTO with only name/email/password, manually construct User",
+          "prevention": "Never use request.body directly on domain models"
+        },
+        {
+          "error": "User modifies their ID to take over another account",
+          "cause": "ID field included in update operation",
+          "solution": "Get ID from authenticated session, never from request body",
+          "prevention": "Allowlist updatable fields, exclude all identifiers"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T18:27:21Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "mass_assignment",
+        "over_posting",
+        "autobinding",
+        "dto",
+        "api_security"
+      ],
+      "category": "SECURITY",
+      "subcategory": "API",
+      "version": "1.0.0",
+      "tested_on": [
+        "REST APIs",
+        "GraphQL",
+        "Web frameworks"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "WEBC"
+      ]
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "door_code": "S37K8S_SECURITY",
+  "semantic_path": "security/kubernetes/cluster-security",
+  "title": "Kubernetes Security",
+  "aliases": [
+    "kubernetes security",
+    "k8s security",
+    "cluster security",
+    "rbac",
+    "pod security",
+    "network policy",
+    "admission control"
+  ],
+  "summary": "Comprehensive Kubernetes cluster and workload security patterns",
+  "context_bundle": {
+    "concepts": [
+      "RBAC: Role-Based Access Control for API access",
+      "Pod Security Standards: Privileged, Baseline, Restricted",
+      "Network Policies: Pod-to-pod traffic control",
+      "Admission Controllers: Request validation/mutation",
+      "Secrets management: Encrypted etcd, external secrets"
+    ],
+    "patterns": [
+      "Implement least-privilege RBAC",
+      "Enforce Pod Security Standards (Restricted)",
+      "Use Network Policies to segment traffic",
+      "Enable audit logging",
+      "Rotate service account tokens"
+    ],
+    "examples": {
+      "rbac_role": {
+        "apiVersion": "rbac.authorization.k8s.io/v1",
+        "kind": "Role",
+        "rules": [
+          {
+            "apiGroups": [
+              ""
+            ],
+            "resources": [
+              "pods"
+            ],
+            "verbs": [
+              "get",
+              "list"
+            ]
+          }
+        ]
+      },
+      "network_policy": {
+        "kind": "NetworkPolicy",
+        "spec": {
+          "podSelector": {},
+          "policyTypes": [
+            "Ingress",
+            "Egress"
+          ]
+        }
+      },
+      "pod_security_label": "pod-security.kubernetes.io/enforce: restricted"
+    },
+    "tools": [
+      "kube-bench",
+      "Falco",
+      "OPA Gatekeeper",
+      "Kyverno",
+      "kubeaudit"
+    ],
+    "antipatterns": [
+      "Using default service accounts",
+      "Cluster-admin for all users",
+      "No network policies (flat network)",
+      "Secrets in ConfigMaps or env vars"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T06:37:06.666545",
+  "version": "1.0.0"
+}

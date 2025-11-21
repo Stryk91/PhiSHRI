@@ -1,0 +1,81 @@
+{
+  "door_code": "S43SERVICE_MESH_SEC",
+  "semantic_path": "security/service-mesh/security",
+  "title": "Service Mesh Security",
+  "aliases": [
+    "service mesh security",
+    "mtls",
+    "istio security",
+    "linkerd security",
+    "zero trust mesh",
+    "authorization policy"
+  ],
+  "summary": "Implementing zero-trust security with service mesh mTLS and authorization",
+  "context_bundle": {
+    "concepts": [
+      "mTLS: Mutual TLS between all services",
+      "SPIFFE/SPIRE: Service identity framework",
+      "Authorization Policy: Service-to-service access control",
+      "PeerAuthentication: mTLS mode configuration",
+      "RequestAuthentication: JWT validation at mesh edge"
+    ],
+    "patterns": [
+      "Enable strict mTLS mesh-wide",
+      "Use AuthorizationPolicy for service access",
+      "Validate JWTs at ingress gateway",
+      "Rotate certificates automatically",
+      "Audit mesh traffic with access logs"
+    ],
+    "examples": {
+      "istio_strict_mtls": {
+        "apiVersion": "security.istio.io/v1beta1",
+        "kind": "PeerAuthentication",
+        "spec": {
+          "mtls": {
+            "mode": "STRICT"
+          }
+        }
+      },
+      "authorization_policy": {
+        "kind": "AuthorizationPolicy",
+        "spec": {
+          "selector": {
+            "matchLabels": {
+              "app": "backend"
+            }
+          },
+          "rules": [
+            {
+              "from": [
+                {
+                  "source": {
+                    "principals": [
+                      "cluster.local/ns/default/sa/frontend"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "tools": [
+      "Istio",
+      "Linkerd",
+      "Consul Connect",
+      "SPIFFE/SPIRE",
+      "Kiali"
+    ],
+    "antipatterns": [
+      "mTLS in permissive mode in production",
+      "No authorization policies (allow all)",
+      "Disabling sidecar injection",
+      "Not monitoring certificate expiry"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T06:37:06.672624",
+  "version": "1.0.0"
+}

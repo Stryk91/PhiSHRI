@@ -1,0 +1,65 @@
+{
+  "door_code": "W162DATA_MESH",
+  "semantic_path": "workflows/data/mesh",
+  "title": "Data Mesh",
+  "aliases": [
+    "data mesh",
+    "domain-driven data",
+    "data products",
+    "federated data",
+    "decentralized data",
+    "data as a product"
+  ],
+  "summary": "Decentralized data architecture with domain ownership and data as a product",
+  "context_bundle": {
+    "concepts": [
+      "Domain ownership: Teams own their data end-to-end",
+      "Data as a product: Treat data with product thinking",
+      "Self-serve platform: Infrastructure enabling autonomy",
+      "Federated governance: Interoperability standards",
+      "Data product: Discoverable, addressable, trustworthy data"
+    ],
+    "patterns": [
+      "Assign data ownership to domain teams",
+      "Define data product interfaces",
+      "Build self-serve data platform",
+      "Establish federated governance",
+      "Measure data product quality"
+    ],
+    "examples": {
+      "data_product": {
+        "name": "customer-360",
+        "domain": "customer-success",
+        "owner": "cs-data-team",
+        "interface": "BigQuery table + API",
+        "sla": {
+          "freshness": "hourly",
+          "quality": "99.5%"
+        }
+      },
+      "mesh_principles": [
+        "Domain-oriented decentralization",
+        "Data as a product",
+        "Self-serve data infrastructure",
+        "Federated computational governance"
+      ]
+    },
+    "tools": [
+      "DataHub",
+      "Atlan",
+      "dbt",
+      "Custom platforms",
+      "Databricks Unity Catalog"
+    ],
+    "antipatterns": [
+      "Central data team bottleneck",
+      "No clear data ownership",
+      "Data without product thinking",
+      "Inconsistent governance"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T07:21:29.975266",
+  "version": "1.0.0"
+}

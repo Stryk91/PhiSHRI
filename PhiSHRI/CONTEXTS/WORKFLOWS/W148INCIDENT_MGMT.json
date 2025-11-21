@@ -1,0 +1,58 @@
+{
+  "door_code": "W148INCIDENT_MGMT",
+  "semantic_path": "workflows/sre/incident-management",
+  "title": "Incident Management",
+  "aliases": [
+    "incident",
+    "incident response",
+    "incident commander",
+    "severity levels",
+    "incident workflow",
+    "war room",
+    "bridge call"
+  ],
+  "summary": "Structured approach to detecting, responding to, and resolving production incidents",
+  "context_bundle": {
+    "concepts": [
+      "Incident: Unplanned disruption to service",
+      "Severity levels: SEV1 (critical) to SEV4 (minor)",
+      "Incident Commander (IC): Single point of coordination",
+      "Communication Lead: Stakeholder updates",
+      "Subject Matter Experts (SMEs): Technical resolution"
+    ],
+    "patterns": [
+      "Declare incident early, downgrade if needed",
+      "IC focuses on coordination, not debugging",
+      "Regular status updates (every 15-30 min for SEV1)",
+      "Document timeline in real-time",
+      "Clear handoff process for long incidents"
+    ],
+    "examples": {
+      "severity_matrix": {
+        "SEV1": "Complete outage, all users affected",
+        "SEV2": "Major degradation, >50% users affected",
+        "SEV3": "Partial degradation, <50% users affected",
+        "SEV4": "Minor issue, workaround available"
+      },
+      "incident_channel_format": "#incident-YYYY-MM-DD-short-description",
+      "status_template": "Status: [Investigating|Identified|Monitoring|Resolved]\nImpact: [description]\nNext update: [time]"
+    },
+    "tools": [
+      "PagerDuty",
+      "Opsgenie",
+      "Incident.io",
+      "Slack",
+      "Jira"
+    ],
+    "antipatterns": [
+      "No clear incident commander",
+      "Too many people in war room",
+      "Skipping documentation during incident",
+      "No customer communication plan"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T06:16:29.395042",
+  "version": "1.0.0"
+}

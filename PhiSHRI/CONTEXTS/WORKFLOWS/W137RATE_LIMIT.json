@@ -1,0 +1,59 @@
+{
+  "door_code": "W137RATE_LIMIT",
+  "semantic_path": "WORKFLOWS.RELIABILITY.RATE_LIMITING",
+  "aliases": [
+    "rate limiting",
+    "throttling",
+    "token bucket",
+    "leaky bucket"
+  ],
+  "context_bundle": {
+    "summary": "Rate limiting controls request rate to protect services: Token bucket (burst allowed), Leaky bucket (smooth rate), Fixed window (simple but boundary issues), Sliding window (accurate). Implement at API gateway or service level.",
+    "prerequisites": [
+      "W113THROTTLING",
+      "W112BACKPRESSURE"
+    ],
+    "related_doors": [
+      "W135CIRCUIT_BREAKER",
+      "W136BULKHEAD",
+      "S12API_SECURITY"
+    ],
+    "onboarding": {
+      "quick_start": "Rate limiting controls request rate to protect services: Token bucket (burst allowed), Leaky bucket (smooth rate), Fixed window (simple but boundary issues), Sliding window (accurate). Implement at API gateway or service level.",
+      "full_context_path": "/PhiDEX/PhiSync/03_COORDINATION_PATTERNS/RELIABILITY_PATTERNS_GUIDE.md",
+      "common_patterns": [],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/PhiSync/03_COORDINATION_PATTERNS/RELIABILITY_PATTERNS_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T04:15:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "rate limiting",
+        "throttling",
+        "token bucket",
+        "leaky bucket"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "RELIABILITY",
+      "version": "1.0.0",
+      "tested_on": [
+        "Distributed systems"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "WEBC"
+      ]
+    }
+  }
+}

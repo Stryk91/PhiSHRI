@@ -1,0 +1,18 @@
+{
+  "door_code": "W134DISTRIBUTED_TX",
+  "semantic_path": "WORKFLOWS.DISTRIBUTED.TWO_PHASE_COMMIT",
+  "aliases": ["2PC", "two phase commit", "distributed transaction", "XA transaction"],
+  "context_bundle": {
+    "summary": "Two-Phase Commit (2PC) protocol for atomic distributed transactions: Phase 1 (prepare/vote), Phase 2 (commit/abort). Coordinator asks all participants to prepare, if all vote yes commits, if any votes no aborts. Blocking protocol with coordinator as single point of failure.",
+    "prerequisites": ["W132SAGA", "W133IDEMPOTENCY"],
+    "related_doors": ["R08CQRS", "W115MESSAGE_QUEUE"],
+    "onboarding": {
+      "quick_start": "2PC: Phase 1: Coordinator sends PREPARE to all participants, each responds VOTE_COMMIT or VOTE_ABORT. Phase 2: If all VOTE_COMMIT, coordinator sends COMMIT, else sends ABORT. Trade-off: Strong consistency but blocks during network partition.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/02_ARCHITECTURE/DISTRIBUTED_PATTERNS_GUIDE.md",
+      "common_patterns": ["Coordinator-participant model", "Prepare phase: Lock resources", "Commit phase: Apply or rollback", "Timeout handling: Abort if participant unreachable", "Write-ahead logging for recovery"],
+      "known_errors": [],
+      "resources": {"docs": ["/PhiDEX/MASTER_CODEX/02_ARCHITECTURE/DISTRIBUTED_PATTERNS_GUIDE.md"], "code": [], "tests": [], "errors": []},
+      "metadata": {"last_updated": "2025-11-22T04:15:00Z", "confidence": 1.0, "usage_count": 0, "success_rate": 0.0, "tags": ["2PC", "distributed_transaction", "atomic_commit"], "category": "WORKFLOWS", "subcategory": "DISTRIBUTED", "version": "1.0.0", "tested_on": ["Databases", "Microservices"], "agent_affinity": ["VSCC", "DC"]}
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "door_code": "W144EVENTUAL_CONSISTENCY",
+  "semantic_path": "WORKFLOWS.DISTRIBUTED.EVENTUAL_CONSISTENCY",
+  "aliases": [
+    "eventual consistency",
+    "BASE",
+    "CAP theorem",
+    "weak consistency"
+  ],
+  "context_bundle": {
+    "summary": "Eventual consistency: System becomes consistent over time, not immediately. BASE (Basically Available, Soft state, Eventual consistency) vs ACID. Use for high availability over strong consistency. Handle stale reads, conflict resolution (last-write-wins, vector clocks, CRDTs).",
+    "prerequisites": [
+      "R03MICROSERVICE",
+      "R04EVENT_DRIVEN"
+    ],
+    "related_doors": [
+      "W134DISTRIBUTED_TX",
+      "W140CQRS_IMPL",
+      "W56MONGODB"
+    ],
+    "onboarding": {
+      "quick_start": "Eventual consistency: System becomes consistent over time, not immediately. BASE (Basically Available, Soft state, Eventual consistency) vs ACID. Use for high availability over strong consistency. Handle stale reads, conflict resolution (last-write-wins, vector clocks, CRDTs).",
+      "full_context_path": "/PhiDEX/PhiSync/03_COORDINATION_PATTERNS/DISTRIBUTED_PATTERNS_GUIDE.md",
+      "common_patterns": [],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/PhiSync/03_COORDINATION_PATTERNS/DISTRIBUTED_PATTERNS_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T04:15:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "eventual consistency",
+        "BASE",
+        "CAP theorem",
+        "weak consistency"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "DISTRIBUTED",
+      "version": "1.0.0",
+      "tested_on": [
+        "Distributed systems"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "WEBC"
+      ]
+    }
+  }
+}

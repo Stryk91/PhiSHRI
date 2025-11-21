@@ -1,0 +1,55 @@
+{
+  "door_code": "R19MVC",
+  "semantic_path": "ARCHITECTURE.DESIGN_PATTERNS.MVC",
+  "aliases": [
+    "MVC",
+    "model view controller",
+    "separation of concerns"
+  ],
+  "context_bundle": {
+    "summary": "Model-View-Controller separates application into three components: Model (data + business logic), View (UI presentation), Controller (handles input, updates model). User interacts with View, Controller processes, Model updates, View refreshes.",
+    "prerequisites": [
+      "R12STRATEGY_PATTERN"
+    ],
+    "related_doors": [
+      "R20MVVM",
+      "W38CODE_GEN"
+    ],
+    "onboarding": {
+      "quick_start": "Model-View-Controller separates application into three components: Model (data + business logic), View (UI presentation), Controller (handles input, updates model). User interacts with View, Controller processes, Model updates, View refreshes.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/02_ARCHITECTURE/DESIGN_PATTERNS_GUIDE.md",
+      "common_patterns": [],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/02_ARCHITECTURE/DESIGN_PATTERNS_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T04:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "MVC",
+        "model view controller",
+        "separation of concerns"
+      ],
+      "category": "ARCHITECTURE",
+      "subcategory": "DESIGN_PATTERNS",
+      "version": "1.0.0",
+      "tested_on": [
+        "All platforms"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "WEBC"
+      ]
+    }
+  }
+}

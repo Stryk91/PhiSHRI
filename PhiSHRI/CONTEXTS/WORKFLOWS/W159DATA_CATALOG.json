@@ -1,0 +1,73 @@
+{
+  "door_code": "W159DATA_CATALOG",
+  "semantic_path": "workflows/data/catalog",
+  "title": "Data Catalog",
+  "aliases": [
+    "data catalog",
+    "data discovery",
+    "metadata management",
+    "data dictionary",
+    "datahub",
+    "amundsen",
+    "data documentation"
+  ],
+  "summary": "Central inventory of data assets with metadata, ownership, and discovery",
+  "context_bundle": {
+    "concepts": [
+      "Data catalog: Searchable inventory of data assets",
+      "Metadata: Technical, business, operational info about data",
+      "Data discovery: Finding relevant datasets",
+      "Data ownership: Clear accountability for datasets",
+      "Data classification: Sensitivity and PII tagging"
+    ],
+    "patterns": [
+      "Auto-crawl sources for technical metadata",
+      "Enable business metadata annotation",
+      "Define clear data ownership",
+      "Tag PII and sensitive data",
+      "Integrate with lineage and quality"
+    ],
+    "examples": {
+      "catalog_entry": {
+        "name": "customers",
+        "schema": "analytics",
+        "owner": "data-platform-team",
+        "description": "Customer master data",
+        "tags": [
+          "pii",
+          "gdpr"
+        ],
+        "columns": [
+          {
+            "name": "email",
+            "type": "string",
+            "pii": true
+          }
+        ]
+      },
+      "metadata_types": {
+        "technical": "Schema, types, partitions",
+        "business": "Descriptions, glossary terms",
+        "operational": "Freshness, quality scores, usage stats"
+      }
+    },
+    "tools": [
+      "DataHub",
+      "Amundsen",
+      "Apache Atlas",
+      "Atlan",
+      "Collibra",
+      "Alation"
+    ],
+    "antipatterns": [
+      "No central data inventory",
+      "Stale/outdated documentation",
+      "No ownership assigned",
+      "PII not tagged/classified"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T07:21:29.972552",
+  "version": "1.0.0"
+}

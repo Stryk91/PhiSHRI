@@ -1,0 +1,73 @@
+{
+  "door_code": "T30GITLAB",
+  "semantic_path": "TOOLS.CICD.GITLAB",
+  "aliases": [
+    "gitlab",
+    "gitlab ci",
+    "gitlab runner",
+    ".gitlab-ci.yml",
+    "gitlab pipelines"
+  ],
+  "context_bundle": {
+    "summary": "GitLab CI/CD: Integrated DevOps platform with built-in CI/CD. Pipeline config in .gitlab-ci.yml. Key features: Auto DevOps, container registry, merge request pipelines, environments, review apps, SAST/DAST scanning. Runners execute jobs (shared, group, project-specific).",
+    "prerequisites": [
+      "T11CICD",
+      "W15CICD"
+    ],
+    "related_doors": [
+      "T31JENKINS",
+      "T32GITHUB_ACTIONS",
+      "T36ARGOCD",
+      "S30INTEGRITY_FAILURES"
+    ],
+    "onboarding": {
+      "quick_start": "GitLab CI: 1) Create .gitlab-ci.yml in repo root, 2) Define stages (build, test, deploy), 3) Configure jobs with script/artifacts/rules, 4) Use shared runners or register your own, 5) Enable Auto DevOps for zero-config pipelines.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "stages: [build, test, security, deploy]",
+        "rules: [if: $CI_COMMIT_BRANCH == 'main'] for conditional execution",
+        "cache: key: ${CI_COMMIT_REF_SLUG} for dependency caching",
+        "artifacts: paths: [dist/] expire_in: 1 week"
+      ],
+      "known_errors": [
+        {
+          "error": "Pipeline stuck in pending state",
+          "cause": "No available runners matching job tags",
+          "solution": "Check runner tags match job tags, or remove tags for shared runners",
+          "prevention": "Use shared runners for simple jobs, tag only when specific runner needed"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T18:39:53Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "gitlab",
+        "cicd",
+        "devops",
+        "pipelines",
+        "runners"
+      ],
+      "category": "TOOLS",
+      "subcategory": "CICD",
+      "version": "1.0.0",
+      "tested_on": [
+        "GitLab SaaS",
+        "GitLab Self-Hosted"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

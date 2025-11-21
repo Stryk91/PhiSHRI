@@ -1,0 +1,83 @@
+{
+  "door_code": "S29OUTDATED_COMPONENTS",
+  "semantic_path": "SECURITY.OWASP.VULNERABLE_COMPONENTS",
+  "aliases": [
+    "vulnerable components",
+    "outdated dependencies",
+    "dependency vulnerabilities",
+    "CVE",
+    "SCA",
+    "OWASP A06"
+  ],
+  "context_bundle": {
+    "summary": "Vulnerable and Outdated Components (OWASP A06:2021): Using libraries with known CVEs. Fix: maintain component inventory, monitor CVE databases continuously, use Software Composition Analysis (SCA) tools (Snyk, Dependabot, npm audit, pip-audit), only use official sources, monitor for unmaintained libraries.",
+    "prerequisites": [
+      "S28SECURITY_MISCONFIG"
+    ],
+    "related_doors": [
+      "S30INTEGRITY_FAILURES",
+      "T11CICD",
+      "W15CICD"
+    ],
+    "onboarding": {
+      "quick_start": "Dependency security: 1) Run npm audit / pip-audit / dependency-check in CI/CD, 2) Enable Dependabot or Snyk for automated PRs, 3) Maintain SBOM (Software Bill of Materials), 4) Subscribe to security advisories for critical deps, 5) Remove unused dependencies.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md",
+      "common_patterns": [
+        "npm audit --production (check production deps only)",
+        "pip-audit (Python package vulnerability scanner)",
+        "Snyk test --severity-threshold=high (block high/critical CVEs)",
+        "GitHub Actions: dependabot auto-merge for patch updates"
+      ],
+      "known_errors": [
+        {
+          "error": "Critical CVE in production dependency",
+          "cause": "No automated dependency scanning, outdated lockfile",
+          "solution": "Run npm audit fix --force or manually update, test thoroughly",
+          "prevention": "Add dependency scan to CI/CD pipeline, block deploys with high/critical CVEs"
+        },
+        {
+          "error": "Using unmaintained library with known vulnerabilities",
+          "cause": "Library abandoned, no security patches available",
+          "solution": "Replace with actively maintained alternative",
+          "prevention": "Check last commit date, issue activity before adopting dependencies"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T18:27:21Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "owasp",
+        "dependencies",
+        "cve",
+        "sca",
+        "supply_chain",
+        "sbom"
+      ],
+      "category": "SECURITY",
+      "subcategory": "OWASP",
+      "version": "1.0.0",
+      "tested_on": [
+        "npm",
+        "pip",
+        "Maven",
+        "NuGet"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

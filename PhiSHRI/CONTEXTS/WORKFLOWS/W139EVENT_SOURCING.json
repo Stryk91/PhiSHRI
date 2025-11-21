@@ -1,0 +1,57 @@
+{
+  "door_code": "W139EVENT_SOURCING",
+  "semantic_path": "WORKFLOWS.ARCHITECTURE.EVENT_SOURCING",
+  "aliases": [
+    "event sourcing",
+    "event store",
+    "append only log"
+  ],
+  "context_bundle": {
+    "summary": "Event sourcing stores state changes as sequence of events: Append events to immutable log, rebuild current state by replaying events. Benefits: Complete audit trail, time travel debugging, event replay for analytics. Use event store (EventStoreDB, Kafka) for persistence.",
+    "prerequisites": [
+      "R06EVENT_SOURCING",
+      "R04EVENT_DRIVEN"
+    ],
+    "related_doors": [
+      "R08CQRS",
+      "W53KAFKA",
+      "W132SAGA"
+    ],
+    "onboarding": {
+      "quick_start": "Event sourcing stores state changes as sequence of events: Append events to immutable log, rebuild current state by replaying events. Benefits: Complete audit trail, time travel debugging, event replay for analytics. Use event store (EventStoreDB, Kafka) for persistence.",
+      "full_context_path": "/PhiDEX/PhiSync/03_COORDINATION_PATTERNS/DISTRIBUTED_PATTERNS_GUIDE.md",
+      "common_patterns": [],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/PhiSync/03_COORDINATION_PATTERNS/DISTRIBUTED_PATTERNS_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T04:15:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "event sourcing",
+        "event store",
+        "append only log"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "ARCHITECTURE",
+      "version": "1.0.0",
+      "tested_on": [
+        "Distributed systems"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "WEBC"
+      ]
+    }
+  }
+}

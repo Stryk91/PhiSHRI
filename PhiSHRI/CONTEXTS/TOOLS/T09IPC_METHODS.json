@@ -7,14 +7,14 @@
     "prerequisites": ["W12PHISYNC"],
     "related_doors": ["T08API_PATTERN", "W08FILEWATCHER"],
     "onboarding": {
-      "quick_start": "IPC methods: Named Pipes (\\.\pipe\name on Windows, /tmp/*.pipe on Linux), Sockets (TCP for reliable, UDP for fast), Shared Memory (mmap, fastest but complex locking), Message Queues (POSIX, async), Files (PhiSync file-based IPC), Signals (SIGUSR1/2). Trade-offs: speed vs complexity vs platform support.",
+      "quick_start": "IPC methods: Named Pipes (\\\\.\\\\pipe\\\\name on Windows, /tmp/*.pipe on Linux), Sockets (TCP for reliable, UDP for fast), Shared Memory (mmap, fastest but complex locking), Message Queues (POSIX, async), Files (PhiSync file-based IPC), Signals (SIGUSR1/2). Trade-offs: speed vs complexity vs platform support.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/02_TOOL_INTEGRATION/TOOL_INTEGRATION_INTEROPERABILITY_GUIDE.md",
       "common_patterns": [
-        "Named Pipes: \\\\.\\pipe\\mypipe (Windows), /tmp/mypipe (Linux)",
+        "Named Pipes: \\\\\\\\.\\\\pipe\\\\mypipe (Windows), /tmp/mypipe (Linux)",
         "TCP Socket: socket.connect('localhost', 8080)",
         "Shared Memory: mmap.mmap(fileno, length)",
         "Message Queue: mq_open, mq_send, mq_receive",
-        "File-based: Write C:\\Temp\\msg.txt, FileWatcher monitors",
+        "File-based: Write C:\\\\Temp\\\\msg.txt, FileWatcher monitors",
         "Signals: kill(pid, SIGUSR1)"
       ],
       "known_errors": []

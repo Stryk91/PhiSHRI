@@ -1,0 +1,61 @@
+{
+  "door_code": "R24MULTI_CLOUD",
+  "semantic_path": "architecture/cloud/multi-cloud",
+  "title": "Multi-Cloud Architecture",
+  "aliases": [
+    "multi-cloud",
+    "hybrid cloud",
+    "cloud agnostic",
+    "multi cloud strategy",
+    "cloud portability",
+    "vendor lock-in"
+  ],
+  "summary": "Designing systems that span multiple cloud providers for resilience and flexibility",
+  "context_bundle": {
+    "concepts": [
+      "Multi-cloud: Using multiple cloud providers simultaneously",
+      "Hybrid cloud: Mix of on-premise and cloud",
+      "Cloud agnostic: Portable across providers",
+      "Abstraction layer: Common interface over providers",
+      "Data gravity: Data location influences architecture"
+    ],
+    "patterns": [
+      "Use Kubernetes for workload portability",
+      "Abstract cloud services behind interfaces",
+      "Replicate critical data across regions/clouds",
+      "Use Terraform for multi-cloud IaC",
+      "Standardize on open source where possible"
+    ],
+    "examples": {
+      "abstraction_layers": [
+        "Kubernetes",
+        "Terraform",
+        "Pulumi",
+        "Crossplane"
+      ],
+      "portable_services": {
+        "compute": "Kubernetes instead of ECS/GKE",
+        "database": "PostgreSQL instead of Aurora/Cloud SQL",
+        "messaging": "Kafka instead of SQS/Pub/Sub"
+      }
+    },
+    "tools": [
+      "Kubernetes",
+      "Terraform",
+      "Crossplane",
+      "Pulumi",
+      "Anthos",
+      "Azure Arc"
+    ],
+    "antipatterns": [
+      "Deep vendor lock-in without strategy",
+      "Duplicating everything across clouds",
+      "No abstraction layer",
+      "Ignoring data transfer costs"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T07:33:38.139841",
+  "version": "1.0.0"
+}

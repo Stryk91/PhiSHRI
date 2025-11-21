@@ -1,0 +1,80 @@
+{
+  "door_code": "S32CLICKJACKING",
+  "semantic_path": "SECURITY.WEB.CLICKJACKING",
+  "aliases": [
+    "clickjacking",
+    "ui redressing",
+    "iframe attack",
+    "X-Frame-Options",
+    "frame busting"
+  ],
+  "context_bundle": {
+    "summary": "Clickjacking prevention: Attacker overlays invisible iframe to trick users into clicking. Defense: X-Frame-Options header (DENY or SAMEORIGIN), Content-Security-Policy frame-ancestors directive (modern replacement), JavaScript frame-busting (legacy fallback). CSP frame-ancestors 'self' is the recommended modern approach.",
+    "prerequisites": [
+      "S04XSS",
+      "S12API_SECURITY"
+    ],
+    "related_doors": [
+      "S33FILE_UPLOAD",
+      "S28SECURITY_MISCONFIG",
+      "S09CORS"
+    ],
+    "onboarding": {
+      "quick_start": "Clickjacking defense: 1) Set X-Frame-Options: DENY (or SAMEORIGIN if framing needed), 2) Set CSP frame-ancestors 'self' (preferred modern method), 3) Add frame-busting JavaScript as fallback for legacy browsers.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md",
+      "common_patterns": [
+        "X-Frame-Options: DENY (never allow framing)",
+        "X-Frame-Options: SAMEORIGIN (only same origin can frame)",
+        "CSP: frame-ancestors 'self' (modern replacement for X-Frame-Options)",
+        "Frame busting: if (top !== self) { top.location = self.location; }"
+      ],
+      "known_errors": [
+        {
+          "error": "Page can be framed by malicious site",
+          "cause": "Missing X-Frame-Options or CSP frame-ancestors header",
+          "solution": "Add header: X-Frame-Options: DENY or CSP: frame-ancestors 'none'",
+          "prevention": "Security headers middleware applied globally to all responses"
+        },
+        {
+          "error": "Frame busting bypassed by sandbox attribute",
+          "cause": "JavaScript frame-busting can be defeated by iframe sandbox",
+          "solution": "Use HTTP headers (X-Frame-Options/CSP) which cannot be bypassed",
+          "prevention": "Never rely solely on JavaScript for security controls"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T18:27:21Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "clickjacking",
+        "ui_redressing",
+        "headers",
+        "csp",
+        "iframe"
+      ],
+      "category": "SECURITY",
+      "subcategory": "WEB",
+      "version": "1.0.0",
+      "tested_on": [
+        "Modern browsers",
+        "Legacy browsers"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "WEBC"
+      ]
+    }
+  }
+}

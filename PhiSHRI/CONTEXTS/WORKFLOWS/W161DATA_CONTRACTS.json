@@ -1,0 +1,76 @@
+{
+  "door_code": "W161DATA_CONTRACTS",
+  "semantic_path": "workflows/data/contracts",
+  "title": "Data Contracts",
+  "aliases": [
+    "data contracts",
+    "data api",
+    "schema contract",
+    "data interface",
+    "producer consumer contract",
+    "soda contracts"
+  ],
+  "summary": "Formal agreements between data producers and consumers on data specifications",
+  "context_bundle": {
+    "concepts": [
+      "Data contract: Agreement on data format, quality, SLAs",
+      "Producer: Team/system generating data",
+      "Consumer: Team/system using data",
+      "SLA: Service level agreement for data",
+      "Contract testing: Validating compliance"
+    ],
+    "patterns": [
+      "Define contracts in version control",
+      "Include schema, quality rules, SLAs",
+      "Automate contract validation",
+      "Break builds on contract violations",
+      "Notify consumers of contract changes"
+    ],
+    "examples": {
+      "data_contract": {
+        "name": "orders",
+        "owner": "commerce-team",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "order_id": {
+              "type": "string"
+            }
+          }
+        },
+        "quality": {
+          "freshness": "< 1 hour",
+          "completeness": "> 99%"
+        },
+        "sla": {
+          "availability": "99.9%",
+          "latency": "< 5 min"
+        }
+      },
+      "contract_workflow": [
+        "Producer defines contract",
+        "Contract reviewed and approved",
+        "Consumer subscribes to contract",
+        "CI validates contract compliance",
+        "Alerts on violations"
+      ]
+    },
+    "tools": [
+      "Soda Contracts",
+      "DataHub",
+      "Great Expectations",
+      "dbt contracts",
+      "Pact"
+    ],
+    "antipatterns": [
+      "Implicit data agreements",
+      "No quality SLAs defined",
+      "Breaking changes without notice",
+      "No contract enforcement"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T07:21:29.974399",
+  "version": "1.0.0"
+}

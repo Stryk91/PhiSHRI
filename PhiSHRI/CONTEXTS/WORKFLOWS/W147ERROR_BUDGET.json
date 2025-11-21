@@ -1,0 +1,55 @@
+{
+  "door_code": "W147ERROR_BUDGET",
+  "semantic_path": "workflows/sre/error-budget-policy",
+  "title": "Error Budget Policy",
+  "aliases": [
+    "error budget",
+    "budget policy",
+    "reliability velocity",
+    "feature freeze",
+    "budget burn",
+    "budget exhaustion"
+  ],
+  "summary": "Managing trade-offs between reliability and feature velocity using error budgets",
+  "context_bundle": {
+    "concepts": [
+      "Error budget = 100% - SLO target",
+      "Budget consumption triggers policy actions",
+      "Burn rate alerts predict budget exhaustion",
+      "Multi-window burn rate for sensitivity tuning",
+      "Budget resets on rolling window boundary"
+    ],
+    "patterns": [
+      "Define graduated response based on budget remaining",
+      "75% budget consumed: Review recent changes",
+      "90% budget consumed: Pause non-critical releases",
+      "100% budget consumed: Feature freeze, reliability focus",
+      "Track budget by service and team ownership"
+    ],
+    "examples": {
+      "burn_rate_alert": "burn_rate > 14.4 for 1h = 2% budget in 1h",
+      "multi_window": "fast burn (5m) + slow burn (1h) reduces noise",
+      "policy_tiers": {
+        "green": "> 50% budget, normal operations",
+        "yellow": "25-50% budget, increased review",
+        "red": "< 25% budget, reliability focus only"
+      }
+    },
+    "tools": [
+      "Prometheus alerting",
+      "Datadog SLO monitors",
+      "PagerDuty",
+      "Sloth"
+    ],
+    "antipatterns": [
+      "Ignoring error budget exhaustion",
+      "No defined policy for budget states",
+      "Blaming teams for budget consumption",
+      "Not including error budget in sprint planning"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T06:16:29.394152",
+  "version": "1.0.0"
+}

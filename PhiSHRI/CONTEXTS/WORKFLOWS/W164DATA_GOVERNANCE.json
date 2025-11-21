@@ -1,0 +1,64 @@
+{
+  "door_code": "W164DATA_GOVERNANCE",
+  "semantic_path": "workflows/data/governance",
+  "title": "Data Governance",
+  "aliases": [
+    "data governance",
+    "data stewardship",
+    "data policy",
+    "data compliance",
+    "gdpr",
+    "data privacy",
+    "access control"
+  ],
+  "summary": "Policies, processes, and standards for managing data assets across the organization",
+  "context_bundle": {
+    "concepts": [
+      "Data governance: Framework for managing data",
+      "Data stewardship: Responsibility for data quality",
+      "Data policy: Rules for data handling",
+      "Compliance: Regulatory requirements (GDPR, CCPA)",
+      "Access control: Who can access what data"
+    ],
+    "patterns": [
+      "Define data classification levels",
+      "Implement role-based access control",
+      "Track PII and sensitive data",
+      "Automate compliance checks",
+      "Audit data access"
+    ],
+    "examples": {
+      "classification_levels": {
+        "public": "No restrictions",
+        "internal": "Employees only",
+        "confidential": "Need-to-know basis",
+        "restricted": "Highly regulated (PII, PHI)"
+      },
+      "gdpr_requirements": [
+        "Data inventory and mapping",
+        "Consent management",
+        "Right to erasure (deletion)",
+        "Data portability",
+        "Breach notification"
+      ]
+    },
+    "tools": [
+      "Collibra",
+      "Alation",
+      "Atlan",
+      "BigID",
+      "OneTrust",
+      "Apache Ranger"
+    ],
+    "antipatterns": [
+      "No data classification",
+      "Everyone has admin access",
+      "No audit trail",
+      "Manual compliance processes"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T07:21:29.976792",
+  "version": "1.0.0"
+}

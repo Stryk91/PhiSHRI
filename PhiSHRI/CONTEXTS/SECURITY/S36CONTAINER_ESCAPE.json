@@ -1,0 +1,62 @@
+{
+  "door_code": "S36CONTAINER_ESCAPE",
+  "semantic_path": "security/container/escape-prevention",
+  "title": "Container Escape Prevention",
+  "aliases": [
+    "container escape",
+    "container breakout",
+    "privilege escalation",
+    "docker escape",
+    "container isolation",
+    "seccomp",
+    "apparmor"
+  ],
+  "summary": "Preventing container breakout attacks and maintaining isolation boundaries",
+  "context_bundle": {
+    "concepts": [
+      "Container escape: Breaking out of container to host system",
+      "Privilege escalation: Gaining elevated permissions",
+      "Namespace isolation: Process, network, mount separation",
+      "Seccomp: System call filtering",
+      "AppArmor/SELinux: Mandatory access control"
+    ],
+    "patterns": [
+      "Never run containers as root (use USER directive)",
+      "Drop all capabilities, add only required ones",
+      "Enable seccomp profiles (default or custom)",
+      "Use read-only root filesystem",
+      "Disable privilege escalation (no_new_privs)"
+    ],
+    "examples": {
+      "dockerfile_nonroot": "RUN adduser -D appuser && USER appuser",
+      "k8s_security_context": {
+        "runAsNonRoot": true,
+        "readOnlyRootFilesystem": true,
+        "allowPrivilegeEscalation": false,
+        "capabilities": {
+          "drop": [
+            "ALL"
+          ]
+        }
+      },
+      "docker_run_secure": "docker run --security-opt=no-new-privileges --cap-drop=ALL --read-only"
+    },
+    "tools": [
+      "Falco",
+      "Sysdig",
+      "Trivy",
+      "Docker Bench",
+      "kube-bench"
+    ],
+    "antipatterns": [
+      "Running as root in containers",
+      "Using --privileged flag",
+      "Mounting Docker socket in containers",
+      "Disabling seccomp/AppArmor"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T06:37:06.665460",
+  "version": "1.0.0"
+}

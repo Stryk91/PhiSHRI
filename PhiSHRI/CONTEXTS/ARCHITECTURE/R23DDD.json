@@ -1,0 +1,61 @@
+{
+  "door_code": "R23DDD",
+  "semantic_path": "ARCHITECTURE.DESIGN_PATTERNS.DOMAIN_DRIVEN_DESIGN",
+  "aliases": [
+    "DDD",
+    "domain driven design",
+    "bounded context",
+    "ubiquitous language",
+    "aggregate root"
+  ],
+  "context_bundle": {
+    "summary": "Domain-Driven Design models complex domains: Bounded Contexts (define boundaries), Entities (identity), Value Objects (no identity), Aggregates (consistency boundary), Repositories (persistence), Domain Events (communicate changes). Use Ubiquitous Language shared by devs and domain experts.",
+    "prerequisites": [
+      "R22CLEAN_ARCH",
+      "R18REPOSITORY_PATTERN"
+    ],
+    "related_doors": [
+      "R08CQRS",
+      "W139EVENT_SOURCING",
+      "R03MICROSERVICE"
+    ],
+    "onboarding": {
+      "quick_start": "Domain-Driven Design models complex domains: Bounded Contexts (define boundaries), Entities (identity), Value Objects (no identity), Aggregates (consistency boundary), Repositories (persistence), Domain Events (communicate changes). Use Ubiquitous Language shared by devs and domain experts.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/02_ARCHITECTURE/DESIGN_PATTERNS_GUIDE.md",
+      "common_patterns": [],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/02_ARCHITECTURE/DESIGN_PATTERNS_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T04:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "DDD",
+        "domain driven design",
+        "bounded context",
+        "ubiquitous language",
+        "aggregate root"
+      ],
+      "category": "ARCHITECTURE",
+      "subcategory": "DESIGN_PATTERNS",
+      "version": "1.0.0",
+      "tested_on": [
+        "All platforms"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "WEBC"
+      ]
+    }
+  }
+}

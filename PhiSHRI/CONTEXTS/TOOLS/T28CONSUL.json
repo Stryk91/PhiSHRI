@@ -1,0 +1,69 @@
+{
+  "door_code": "T28CONSUL",
+  "semantic_path": "TOOLS.INFRASTRUCTURE.CONSUL",
+  "aliases": [
+    "Consul",
+    "HashiCorp Consul",
+    "service discovery",
+    "service mesh",
+    "key value store"
+  ],
+  "context_bundle": {
+    "summary": "HashiCorp Consul provides service discovery, health checking, KV store, and service mesh: Register services with health checks, DNS/HTTP API for service lookup, distributed KV store for configuration, Connect for service-to-service encryption (mTLS).",
+    "prerequisites": [
+      "T14TERRAFORM",
+      "T27VAULT"
+    ],
+    "related_doors": [
+      "T29ETCD",
+      "W142DISTRIBUTED_LOCK",
+      "W143LEADER_ELECTION",
+      "T26KUBERNETES"
+    ],
+    "onboarding": {
+      "quick_start": "HashiCorp Consul provides service discovery, health checking, KV store, and service mesh: Register services with health checks, DNS/HTTP API for service lookup, distributed KV store for configuration, Connect for service-to-service encryption (mTLS).",
+      "full_context_path": "/PhiDEX/DEPLOYMENT_ALMANAC/09_ENTERPRISE/INFRASTRUCTURE_TOOLS_GUIDE.md",
+      "common_patterns": [
+        "Service discovery: Register with health check, query via DNS or HTTP",
+        "KV store: Watch for config changes, atomic compare-and-swap",
+        "Leader election: Create session with TTL, acquire lock, renew lease",
+        "Health checks: HTTP endpoint, TCP port, script execution"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/DEPLOYMENT_ALMANAC/09_ENTERPRISE/INFRASTRUCTURE_TOOLS_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T04:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "Consul",
+        "HashiCorp Consul",
+        "service discovery",
+        "service mesh",
+        "key value store"
+      ],
+      "category": "TOOLS",
+      "subcategory": "INFRASTRUCTURE",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linux",
+        "Docker",
+        "Kubernetes"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "KALIC"
+      ]
+    }
+  }
+}

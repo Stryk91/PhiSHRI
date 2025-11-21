@@ -1,0 +1,74 @@
+{
+  "door_code": "T36ARGOCD",
+  "semantic_path": "TOOLS.GITOPS.ARGOCD",
+  "aliases": [
+    "argocd",
+    "argo cd",
+    "gitops",
+    "application crd",
+    "app of apps"
+  ],
+  "context_bundle": {
+    "summary": "Argo CD: Declarative GitOps continuous delivery for Kubernetes. Git repo = source of truth. Key features: Application CRD, sync policies (auto/manual), health checks, rollback, RBAC, SSO, ApplicationSet for multi-cluster, App of Apps pattern for hierarchy.",
+    "prerequisites": [
+      "T26KUBERNETES",
+      "T34HELM",
+      "T35KUSTOMIZE"
+    ],
+    "related_doors": [
+      "T37FLUX",
+      "T30GITLAB",
+      "T32GITHUB_ACTIONS",
+      "W67BLUEGREEN"
+    ],
+    "onboarding": {
+      "quick_start": "ArgoCD: 1) kubectl create ns argocd && kubectl apply -n argocd -f install.yaml, 2) argocd app create myapp --repo URL --path k8s/ --dest-server https://kubernetes.default.svc, 3) Enable auto-sync or manual sync via UI/CLI.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Application CRD: spec: { source: {repoURL, path, targetRevision}, destination: {server, namespace} }",
+        "Auto-sync: syncPolicy: { automated: { prune: true, selfHeal: true } }",
+        "App of Apps: Parent Application pointing to directory of Application manifests",
+        "ApplicationSet: Generate Applications from Git directories, clusters, or pull requests"
+      ],
+      "known_errors": [
+        {
+          "error": "ComparisonError: failed to compare: unknown field",
+          "cause": "CRD schema mismatch between cluster and ArgoCD's known types",
+          "solution": "Update ArgoCD or add resource.customizations to ignore unknown fields",
+          "prevention": "Keep ArgoCD version aligned with cluster CRD versions"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T18:39:53Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "argocd",
+        "gitops",
+        "kubernetes",
+        "continuous_delivery",
+        "devops"
+      ],
+      "category": "TOOLS",
+      "subcategory": "GITOPS",
+      "version": "1.0.0",
+      "tested_on": [
+        "ArgoCD 2.x",
+        "Kubernetes 1.25+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "door_code": "W163LAKEHOUSE",
+  "semantic_path": "workflows/data/lakehouse",
+  "title": "Lakehouse Architecture",
+  "aliases": [
+    "lakehouse",
+    "delta lake",
+    "iceberg",
+    "hudi",
+    "data lakehouse",
+    "unified analytics",
+    "open table format"
+  ],
+  "summary": "Unified data architecture combining data lake flexibility with warehouse reliability",
+  "context_bundle": {
+    "concepts": [
+      "Lakehouse: Lake storage + warehouse features",
+      "Open table format: Delta, Iceberg, Hudi",
+      "ACID transactions: On object storage",
+      "Time travel: Query historical data versions",
+      "Schema enforcement: Types on unstructured storage"
+    ],
+    "patterns": [
+      "Use open table formats for flexibility",
+      "Enable ACID transactions on lake",
+      "Implement medallion architecture (bronze/silver/gold)",
+      "Enable time travel for debugging",
+      "Optimize with compaction and Z-ordering"
+    ],
+    "examples": {
+      "medallion_architecture": {
+        "bronze": "Raw ingested data, append-only",
+        "silver": "Cleaned, validated, deduplicated",
+        "gold": "Business-level aggregates, ready for BI"
+      },
+      "table_formats": {
+        "delta_lake": "Databricks, Spark native, great ecosystem",
+        "apache_iceberg": "Vendor-neutral, hidden partitioning",
+        "apache_hudi": "Streaming ingestion, record-level updates"
+      }
+    },
+    "tools": [
+      "Delta Lake",
+      "Apache Iceberg",
+      "Apache Hudi",
+      "Databricks",
+      "Snowflake",
+      "Dremio"
+    ],
+    "antipatterns": [
+      "Separate lake and warehouse copies",
+      "No ACID on data lake",
+      "No schema enforcement",
+      "Small files problem (no compaction)"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T07:21:29.976054",
+  "version": "1.0.0"
+}

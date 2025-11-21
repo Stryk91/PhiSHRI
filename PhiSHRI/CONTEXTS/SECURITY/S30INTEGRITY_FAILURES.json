@@ -1,0 +1,82 @@
+{
+  "door_code": "S30INTEGRITY_FAILURES",
+  "semantic_path": "SECURITY.OWASP.INTEGRITY_FAILURES",
+  "aliases": [
+    "software integrity",
+    "CI/CD security",
+    "insecure updates",
+    "supply chain",
+    "OWASP A08"
+  ],
+  "context_bundle": {
+    "summary": "Software and Data Integrity Failures (OWASP A08:2021): Unverified updates, CI/CD pipeline compromises, insecure deserialization. Fix: use digital signatures for updates, verify dependencies from trusted repos, implement CI/CD security controls (signed commits, protected branches), review code changes, use integrity checks.",
+    "prerequisites": [
+      "S29OUTDATED_COMPONENTS",
+      "S21DESERIALIZATION"
+    ],
+    "related_doors": [
+      "S31LOGGING_FAILURES",
+      "W15CICD",
+      "T11CICD"
+    ],
+    "onboarding": {
+      "quick_start": "Integrity defense: 1) Sign all software releases with GPG/Sigstore, 2) Verify package checksums/signatures before install, 3) Require signed commits in CI/CD, 4) Use branch protection rules, 5) Implement SLSA framework for supply chain security.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md",
+      "common_patterns": [
+        "GPG signing commits: git commit -S -m 'message'",
+        "Package integrity: npm ci (uses package-lock.json for reproducible builds)",
+        "SLSA Level 2: Hosted build service, signed provenance",
+        "Branch protection: Require PR reviews, status checks before merge"
+      ],
+      "known_errors": [
+        {
+          "error": "Malicious package installed via typosquatting",
+          "cause": "Developer typo when installing package, no lockfile verification",
+          "solution": "Use npm ci instead of npm install, verify package names before adding",
+          "prevention": "Lockfile commit requirement, package allowlist for critical deps"
+        },
+        {
+          "error": "CI/CD pipeline compromised to inject malicious code",
+          "cause": "Insufficient access controls on build system",
+          "solution": "Audit CI/CD access, rotate credentials, implement signed builds",
+          "prevention": "Least privilege for CI/CD, ephemeral build environments, signed provenance"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T18:27:21Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "owasp",
+        "integrity",
+        "cicd",
+        "supply_chain",
+        "signing",
+        "slsa"
+      ],
+      "category": "SECURITY",
+      "subcategory": "OWASP",
+      "version": "1.0.0",
+      "tested_on": [
+        "GitHub Actions",
+        "GitLab CI",
+        "Jenkins"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

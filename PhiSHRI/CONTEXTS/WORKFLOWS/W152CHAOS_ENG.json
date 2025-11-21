@@ -1,0 +1,59 @@
+{
+  "door_code": "W152CHAOS_ENG",
+  "semantic_path": "workflows/sre/chaos-engineering",
+  "title": "Chaos Engineering",
+  "aliases": [
+    "chaos engineering",
+    "chaos monkey",
+    "fault injection",
+    "game day",
+    "resilience testing",
+    "failure injection"
+  ],
+  "summary": "Proactively testing system resilience by injecting controlled failures",
+  "context_bundle": {
+    "concepts": [
+      "Chaos engineering: Experimenting on distributed systems",
+      "Steady state: Normal system behavior baseline",
+      "Hypothesis: Expected behavior under failure",
+      "Blast radius: Scope of potential impact",
+      "Game day: Scheduled chaos experiments"
+    ],
+    "patterns": [
+      "Start small: Single instance, then expand",
+      "Define steady state metrics first",
+      "Form hypothesis before experiment",
+      "Run in production (carefully)",
+      "Automate experiments, manual analysis"
+    ],
+    "examples": {
+      "experiment_types": [
+        "Instance termination",
+        "Network latency injection",
+        "CPU/Memory pressure",
+        "Dependency failure",
+        "Zone/Region failure"
+      ],
+      "hypothesis_template": "When [failure], we expect [behavior] because [reason]",
+      "game_day_agenda": "1. Review hypothesis 2. Establish baseline 3. Inject failure 4. Observe 5. Analyze 6. Document"
+    },
+    "tools": [
+      "Chaos Monkey",
+      "Gremlin",
+      "LitmusChaos",
+      "Chaos Mesh",
+      "AWS Fault Injection Simulator"
+    ],
+    "antipatterns": [
+      "Chaos without observability",
+      "No hypothesis defined",
+      "Starting with large blast radius",
+      "Not fixing discovered weaknesses",
+      "Chaos in prod without staging first"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T06:16:29.398327",
+  "version": "1.0.0"
+}

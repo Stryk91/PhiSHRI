@@ -1,0 +1,79 @@
+{
+  "door_code": "S34OPEN_REDIRECT",
+  "semantic_path": "SECURITY.WEB.OPEN_REDIRECT",
+  "aliases": [
+    "open redirect",
+    "unvalidated redirect",
+    "url redirection",
+    "redirect vulnerability"
+  ],
+  "context_bundle": {
+    "summary": "Open redirect vulnerability: Attacker crafts URL that redirects victims to malicious site. Defense: avoid user-controlled redirects, use allowlist of permitted domains, use indirect references (redirect codes mapped server-side), validate redirect URL starts with expected domain/path.",
+    "prerequisites": [
+      "S03INPUT_VAL",
+      "S12API_SECURITY"
+    ],
+    "related_doors": [
+      "S22SSRF",
+      "S04XSS",
+      "S32CLICKJACKING"
+    ],
+    "onboarding": {
+      "quick_start": "Redirect defense: 1) Avoid redirects based on user input entirely, 2) If needed, use allowlist of permitted URLs/domains, 3) Use indirect references: /redirect?id=1 maps to https://safe-site.com, 4) Validate URL is relative or matches expected domain.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md",
+      "common_patterns": [
+        "Allowlist validation: if redirect_url.startswith('/') or redirect_url.startswith('https://mysite.com')",
+        "Indirect reference: REDIRECT_MAP = {'dashboard': '/dashboard', 'profile': '/profile'}",
+        "Reject external: from urllib.parse import urlparse; if urlparse(url).netloc != '': abort(400)",
+        "Relative-only: ensure url starts with '/' and not '//'"
+      ],
+      "known_errors": [
+        {
+          "error": "Phishing via open redirect: /redirect?url=https://evil.com",
+          "cause": "No validation of redirect destination",
+          "solution": "Allowlist permitted domains or use indirect references only",
+          "prevention": "Never allow arbitrary user-controlled redirects"
+        },
+        {
+          "error": "Protocol-relative URL bypass: //evil.com",
+          "cause": "Checking for 'http' but not protocol-relative URLs",
+          "solution": "Check url.startswith('//') and reject, or only allow paths starting with single '/'",
+          "prevention": "Comprehensive URL parsing: urlparse(url) and validate all components"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T18:27:21Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "open_redirect",
+        "phishing",
+        "url_validation",
+        "redirect"
+      ],
+      "category": "SECURITY",
+      "subcategory": "WEB",
+      "version": "1.0.0",
+      "tested_on": [
+        "Web applications",
+        "OAuth flows",
+        "Login redirects"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "WEBC"
+      ]
+    }
+  }
+}

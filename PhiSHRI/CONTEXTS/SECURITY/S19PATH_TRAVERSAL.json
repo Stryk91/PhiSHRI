@@ -1,0 +1,64 @@
+{
+  "door_code": "S19PATH_TRAVERSAL",
+  "semantic_path": "SECURITY.VULNERABILITIES.PATH_TRAVERSAL",
+  "aliases": ["path traversal", "directory traversal", "dot dot slash", "../ attack", "path injection"],
+  "context_bundle": {
+    "summary": "Path traversal vulnerability prevention: validate user input paths, canonicalize paths, use allowlists, restrict to safe directories, avoid direct filesystem access with user input. Attackers use ../ sequences to escape intended directories and access sensitive files.",
+    "prerequisites": ["S03INPUT_VAL", "S16INPUT_SANITIZATION"],
+    "related_doors": ["S04XSS", "S02SQL", "S12API_SECURITY"],
+    "onboarding": {
+      "quick_start": "Path traversal defense: 1) Canonicalize paths (resolve .. and symlinks), 2) Validate against allowlist of safe paths, 3) Reject absolute paths from user input, 4) Use path.join() or Path.resolve() safely, 5) Check resolved path starts with safe base directory.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/OWASP_TOP_10_GUIDE.md",
+      "common_patterns": [
+        "Python: os.path.realpath() + startswith() check against safe base",
+        "Node.js: path.resolve() + check normalized path is within allowed directory",
+        "Java: File.getCanonicalPath() + verify prefix matches safe directory",
+        "PHP: realpath() + check result is subdirectory of allowed path",
+        "Allowlist approach: Map user keys to filesystem paths, never concatenate user input directly",
+        "Reject patterns: Deny paths containing ../, .\\, %2e%2e, and URL-encoded variants"
+      ],
+      "known_errors": [
+        {
+          "error": "Path traversal via ../../../etc/passwd",
+          "cause": "Directly concatenating user input into file path without validation",
+          "solution": "Canonicalize path with realpath/resolve, verify it starts with intended base directory",
+          "prevention": "Use allowlist mapping (e.g., userID -> /safe/uploads/{userID}/), never trust user paths",
+          "example": "const safePath = path.resolve(BASE_DIR, fileName); if (!safePath.startsWith(BASE_DIR)) throw Error('Invalid path');"
+        },
+        {
+          "error": "Bypass via URL encoding: %2e%2e%2f or double encoding %252e",
+          "cause": "Validation only checks literal ../ but attacker uses encoded versions",
+          "solution": "Decode URL encoding BEFORE validation, or better yet, use allowlist approach",
+          "prevention": "Canonicalize and validate the FINAL resolved path, not the input string"
+        },
+        {
+          "error": "Symlink attack bypasses path checks",
+          "cause": "Attacker creates symlink in allowed directory pointing to sensitive file",
+          "solution": "Use lstat() instead of stat(), reject symlinks, or follow links then re-validate canonical path",
+          "prevention": "Disable symlink following in upload directories, use NoFollowSymlinks Apache directive"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/OWASP_TOP_10_GUIDE.md",
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T04:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["path_traversal", "directory_traversal", "file_inclusion", "owasp", "security"],
+      "category": "SECURITY",
+      "subcategory": "VULNERABILITIES",
+      "version": "1.0.0",
+      "tested_on": ["Windows", "Linux", "macOS"],
+      "agent_affinity": ["VSCC", "DC", "WEBC"]
+    }
+  }
+}

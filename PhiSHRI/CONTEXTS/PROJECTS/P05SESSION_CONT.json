@@ -1,0 +1,157 @@
+{
+  "door_code": "P05SESSION_CONT",
+  "semantic_path": "PROJECTS.PHISHRI.SESSION_CONTINUITY",
+  "aliases": ["session continuity", "phishri sessions", "door navigation", "context handoff"],
+  "context_bundle": {
+    "summary": "PhiSHRI session continuity protocol: Use door codes as stateless context checkpoints enabling AI agents to resume work across sessions with zero context loss. Bootstrap file + door codes + parallel reads = 5-second onboarding vs 5-minute rebuild.",
+    "prerequisites": ["P04SHRI", "000START"],
+    "related_doors": ["W146SESSION_CONT", "W147SESSION_STATE", "W148SESSION_RESUME"],
+    "onboarding": {
+      "quick_start": "Session handoff: 1) Read C:\\Temp\\VSCC_SESSION_BOOTSTRAP.md, 2) Read INDEX.json for current state (267 doors), 3) Read relevant doors in parallel, 4) Continue work. No context drift, no re-explaining, instant pickup.",
+      "full_context_path": "/PhiSHRI/HOW_TO_USE.md",
+      "common_patterns": [
+        "Bootstrap pattern: Session bootstrap file (C:\\Temp\\VSCC_SESSION_BOOTSTRAP.md) contains progress, last batch completed, next batch options",
+        "Door code checkpoint: 'Resume from doors: S19-S25, W132-W145, R17-R23, T28-T29' loads full Batch 8A context",
+        "Parallel loading: Read multiple doors in single message (5-7 doors) for 30-50% token savings",
+        "Index verification: Check INDEX.json total_doors field to confirm system state",
+        "Work continuation: Bootstrap specifies 5 next batch options, user chooses direction"
+      ],
+      "known_errors": [
+        {
+          "error": "New session agent asks 'What were we working on?' despite bootstrap file",
+          "cause": "Bootstrap file not read, agent starting from scratch",
+          "solution": "ALWAYS read C:\\Temp\\VSCC_SESSION_BOOTSTRAP.md as first action in new session",
+          "prevention": "Bootstrap file path hardcoded in session startup instructions"
+        },
+        {
+          "error": "Agent re-reads doors sequentially causing 12+ second load time",
+          "cause": "Not using parallel Read calls, reading doors one at a time",
+          "solution": "Batch door reads in single message: Read S19, S20, S21, S22, S23 in parallel",
+          "prevention": "000START.json efficiency_optimization_guide explains parallel reading",
+          "related_door": "000START"
+        },
+        {
+          "error": "Session handoff loses information about what was just completed",
+          "cause": "Bootstrap file not updated with completed batch details",
+          "solution": "Update bootstrap after each batch: Progress section, What Was Completed section, Next Batch options",
+          "prevention": "Make bootstrap update part of batch completion workflow"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiSHRI/HOW_TO_USE.md",
+        "/PhiSHRI/INDEX.json",
+        "C:\\Temp\\VSCC_SESSION_BOOTSTRAP.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T04:45:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["session_continuity", "phishri", "context_handoff", "door_navigation", "bootstrap"],
+      "category": "PROJECTS",
+      "subcategory": "PHISHRI",
+      "version": "1.0.0",
+      "tested_on": ["Claude Code", "Desktop Claude", "VS Code Claude"],
+      "agent_affinity": ["VSCC", "DC", "WEBC", "TERMC"]
+    }
+  },
+  "session_continuity_benefits": {
+    "description": "PhiSHRI enables perfect multi-session continuity through door codes and bootstrap files",
+    "traditional_approach": {
+      "method": "Natural language context summary",
+      "token_cost_per_session": "~65K tokens (explain previous work, re-establish context)",
+      "time_per_session": "5-8 minutes (context rebuild + verification)",
+      "context_drift": "High (each session loses fidelity, summaries compress information)",
+      "scalability": "Poor (grows linearly with project complexity)"
+    },
+    "phishri_approach": {
+      "method": "Door codes + bootstrap file + parallel reads",
+      "token_cost_per_session": "~10K tokens (bootstrap 3K + door reads 7K)",
+      "time_per_session": "5-10 seconds (read bootstrap + parallel load 5-7 doors)",
+      "context_drift": "Zero (doors are immutable, same content every session)",
+      "scalability": "Excellent (constant time regardless of project age)"
+    },
+    "savings_calculation": {
+      "per_session_savings": "~55K tokens (84% reduction)",
+      "time_savings": "4-7 minutes per session",
+      "over_10_sessions": "~550K tokens saved, 40-70 minutes saved",
+      "over_100_sessions": "~5.5M tokens saved, 6-11 hours saved"
+    }
+  },
+  "bootstrap_file_structure": {
+    "location": "C:\\Temp\\VSSC_SESSION_BOOTSTRAP.md",
+    "sections": {
+      "mission_context": "Agent identity and overall goal",
+      "current_progress": "Doors completed by batch, running total",
+      "what_was_completed": "Detailed list of last batch (door codes + descriptions)",
+      "critical_fixes": "Any system-level fixes (index rebuilds, bug fixes)",
+      "next_batch_options": "5 suggested directions for next work (user chooses)",
+      "file_structure": "Current state of PhiSHRI directory tree",
+      "important_notes": "Gotchas (folder name typo, zero hallucinations protocol)",
+      "commands": "How to rebuild indexes after adding doors",
+      "session_continuity_pattern": "Step-by-step startup workflow",
+      "user_preferences": "Observed patterns (batch size, focus areas)"
+    },
+    "update_frequency": "After each batch completion",
+    "size_constraint": "Keep under 5K tokens for fast loading"
+  },
+  "example_handoff": {
+    "scenario": "Session N completes Batch 8A (30 doors), Session N+1 needs to continue",
+    "session_n_end": {
+      "actions": [
+        "Generate 30 doors (S19-S25, W132-W145, R17-R23, T28-T29)",
+        "Update INDEX.json (237 → 267 doors)",
+        "Rebuild HASH_TABLE.json and SEMANTIC_MAP.json",
+        "Update C:\\Temp\\VSCC_SESSION_BOOTSTRAP.md with Batch 8A completion",
+        "Provide 5 options for Batch 9A"
+      ],
+      "final_state": "267 doors, indexes complete, bootstrap updated"
+    },
+    "session_n_plus_1_start": {
+      "actions": [
+        "Read C:\\Temp\\VSCC_SESSION_BOOTSTRAP.md (3K tokens, 2 seconds)",
+        "See: Batch 8A complete, 267 doors, 5 options for Batch 9A",
+        "User chooses option (e.g., 'Continue OWASP security')",
+        "Read relevant prerequisite doors in parallel if needed (optional)",
+        "Start generating Batch 9A immediately"
+      ],
+      "total_startup_time": "5-10 seconds",
+      "context_accuracy": "100% (no information loss)"
+    },
+    "comparison_without_phishri": {
+      "actions": [
+        "User explains: 'We were adding security doors to PhiSHRI'",
+        "Agent asks: 'What is PhiSHRI? What doors exist? What was last completed?'",
+        "User provides long context dump or points to previous conversation",
+        "Agent reads previous conversation or docs (slow, incomplete)",
+        "Agent asks clarifying questions",
+        "Finally understands context",
+        "Starts work"
+      ],
+      "total_startup_time": "5-8 minutes",
+      "context_accuracy": "70-90% (lossy compression, details forgotten)"
+    }
+  },
+  "best_practices": {
+    "for_agents": [
+      "ALWAYS read bootstrap file first in new session",
+      "Use parallel Read calls for doors (5-7 in single message)",
+      "Update bootstrap after completing each batch",
+      "Verify INDEX.json total_doors matches expected count",
+      "Rebuild indexes after adding doors (python rebuild_phishri_indexes.py)"
+    ],
+    "for_users": [
+      "Keep bootstrap file up to date with progress",
+      "Use door codes in requests: 'Read S19-S25' vs 'Tell me about security'",
+      "Take note of door codes for topics you reference often",
+      "Run /compact periodically to create session summaries",
+      "Specify batch preferences to guide agent (size, focus areas)"
+    ]
+  }
+}

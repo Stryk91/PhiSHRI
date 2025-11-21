@@ -1,0 +1,66 @@
+{
+  "door_code": "S39CLOUD_NETWORK",
+  "semantic_path": "security/cloud/network-security",
+  "title": "Cloud Network Security",
+  "aliases": [
+    "cloud network",
+    "vpc security",
+    "security groups",
+    "nacl",
+    "firewall rules",
+    "private endpoints",
+    "transit gateway"
+  ],
+  "summary": "Securing cloud network architecture and traffic flows",
+  "context_bundle": {
+    "concepts": [
+      "VPC: Isolated virtual network",
+      "Security Groups: Stateful instance-level firewall",
+      "NACLs: Stateless subnet-level firewall",
+      "Private endpoints: Access services without public internet",
+      "Transit Gateway: Hub for VPC interconnection"
+    ],
+    "patterns": [
+      "Use private subnets for workloads, public for load balancers",
+      "Deny by default, allow explicitly",
+      "Use VPC endpoints for AWS services",
+      "Enable VPC Flow Logs",
+      "Segment environments (dev/staging/prod VPCs)"
+    ],
+    "examples": {
+      "security_group_web": {
+        "inbound": [
+          {
+            "port": 443,
+            "source": "0.0.0.0/0"
+          }
+        ],
+        "outbound": [
+          {
+            "port": 443,
+            "destination": "vpc-endpoint"
+          }
+        ]
+      },
+      "private_subnet_route": "0.0.0.0/0 -> NAT Gateway (no IGW)",
+      "vpc_endpoint": "com.amazonaws.region.s3 -> Gateway endpoint in route table"
+    },
+    "tools": [
+      "VPC Flow Logs",
+      "AWS Network Firewall",
+      "Azure Firewall",
+      "GCP Cloud Armor",
+      "Prisma Cloud"
+    ],
+    "antipatterns": [
+      "Public IPs on all instances",
+      "0.0.0.0/0 in security group rules",
+      "No network segmentation",
+      "Direct internet access for databases"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T06:37:06.668267",
+  "version": "1.0.0"
+}

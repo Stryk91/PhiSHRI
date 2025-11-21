@@ -1,0 +1,80 @@
+{
+  "door_code": "S28SECURITY_MISCONFIG",
+  "semantic_path": "SECURITY.OWASP.SECURITY_MISCONFIGURATION",
+  "aliases": [
+    "security misconfiguration",
+    "default credentials",
+    "unnecessary features",
+    "verbose errors",
+    "OWASP A05"
+  ],
+  "context_bundle": {
+    "summary": "Security Misconfiguration (OWASP A05:2021): Insecure defaults, incomplete setups, verbose error messages. Fix: automate secure deployments, use minimal platform without unnecessary features, change all default credentials, disable debug in production, implement proper error handling that doesn't leak stack traces.",
+    "prerequisites": [
+      "S12API_SECURITY"
+    ],
+    "related_doors": [
+      "S29OUTDATED_COMPONENTS",
+      "S26BROKEN_ACCESS",
+      "T14TERRAFORM"
+    ],
+    "onboarding": {
+      "quick_start": "Secure config: 1) Automate deployments with hardened baselines, 2) Disable/remove unnecessary features/frameworks, 3) Change ALL default passwords and keys, 4) Disable verbose errors in production (no stack traces), 5) Set security headers (HSTS, X-Frame-Options, CSP).",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md",
+      "common_patterns": [
+        "Production error handling: return generic 'Internal Server Error', log details server-side only",
+        "Security headers: Strict-Transport-Security, X-Content-Type-Options, X-Frame-Options",
+        "Disable directory listing: Nginx autoindex off; Apache Options -Indexes",
+        "Environment segregation: Separate configs for dev/staging/prod"
+      ],
+      "known_errors": [
+        {
+          "error": "Stack trace exposed in production error response",
+          "cause": "Debug mode enabled or missing error handler",
+          "solution": "Set DEBUG=false, implement custom error handler returning generic messages",
+          "prevention": "Environment-based config: app.debug = os.environ.get('ENV') == 'development'"
+        },
+        {
+          "error": "Default admin credentials still active",
+          "cause": "Installation defaults not changed during setup",
+          "solution": "Force password change on first login, audit all service accounts",
+          "prevention": "Automated deployment scripts that generate unique credentials"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T18:27:21Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "owasp",
+        "configuration",
+        "hardening",
+        "defaults",
+        "headers"
+      ],
+      "category": "SECURITY",
+      "subcategory": "OWASP",
+      "version": "1.0.0",
+      "tested_on": [
+        "Web servers",
+        "Application servers",
+        "Cloud infrastructure"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

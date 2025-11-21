@@ -1,0 +1,71 @@
+{
+  "door_code": "T33CIRCLECI",
+  "semantic_path": "TOOLS.CICD.CIRCLECI",
+  "aliases": [
+    "circleci",
+    "circle ci",
+    ".circleci/config.yml",
+    "circleci orbs"
+  ],
+  "context_bundle": {
+    "summary": "CircleCI: Cloud-native CI/CD platform. Config in .circleci/config.yml. Key features: Orbs (reusable config packages), parallelism, resource classes, Docker layer caching, test splitting, insights dashboard. Fast startup with pre-built images.",
+    "prerequisites": [
+      "T11CICD",
+      "W15CICD"
+    ],
+    "related_doors": [
+      "T30GITLAB",
+      "T31JENKINS",
+      "T32GITHUB_ACTIONS"
+    ],
+    "onboarding": {
+      "quick_start": "CircleCI: 1) Create .circleci/config.yml, 2) Define version: 2.1, 3) Add jobs and workflows, 4) Use orbs for common tasks (node, docker, aws), 5) Configure parallelism for test splitting.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "orbs: { node: circleci/node@5.1 }",
+        "parallelism: 4 with circleci tests split",
+        "Docker layer caching: setup_remote_docker: { docker_layer_caching: true }",
+        "Resource class: resource_class: large for more CPU/RAM"
+      ],
+      "known_errors": [
+        {
+          "error": "Config file is invalid",
+          "cause": "YAML syntax error or invalid CircleCI schema",
+          "solution": "Run circleci config validate locally before pushing",
+          "prevention": "Install CircleCI CLI, validate config in pre-commit hook"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T18:39:53Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "circleci",
+        "cicd",
+        "devops",
+        "orbs",
+        "parallelism"
+      ],
+      "category": "TOOLS",
+      "subcategory": "CICD",
+      "version": "1.0.0",
+      "tested_on": [
+        "CircleCI Cloud",
+        "CircleCI Server"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

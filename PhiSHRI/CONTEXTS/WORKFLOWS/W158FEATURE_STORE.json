@@ -1,0 +1,66 @@
+{
+  "door_code": "W158FEATURE_STORE",
+  "semantic_path": "workflows/data/feature-store",
+  "title": "Feature Store",
+  "aliases": [
+    "feature store",
+    "ml features",
+    "feature engineering",
+    "feature serving",
+    "feast",
+    "feature management",
+    "online features",
+    "offline features"
+  ],
+  "summary": "Centralized repository for ML features with online and offline serving",
+  "context_bundle": {
+    "concepts": [
+      "Feature: Measurable property used for ML predictions",
+      "Online serving: Low-latency feature retrieval for inference",
+      "Offline serving: Batch feature retrieval for training",
+      "Feature registry: Catalog of available features",
+      "Point-in-time correctness: Avoid future data leakage"
+    ],
+    "patterns": [
+      "Define features once, use for training and serving",
+      "Separate online (Redis) and offline (S3/warehouse) stores",
+      "Maintain point-in-time correct training data",
+      "Version features with metadata",
+      "Monitor feature drift"
+    ],
+    "examples": {
+      "feast_feature_view": {
+        "name": "user_features",
+        "entities": [
+          "user_id"
+        ],
+        "features": [
+          "total_purchases",
+          "days_since_last_order"
+        ],
+        "ttl": "7d"
+      },
+      "online_vs_offline": {
+        "online": "Redis/DynamoDB, <10ms latency, real-time inference",
+        "offline": "S3/BigQuery, batch retrieval, model training"
+      }
+    },
+    "tools": [
+      "Feast",
+      "Tecton",
+      "Hopsworks",
+      "Databricks Feature Store",
+      "SageMaker Feature Store"
+    ],
+    "antipatterns": [
+      "Different feature logic for training vs serving",
+      "No point-in-time joins (data leakage)",
+      "Features not discoverable/documented",
+      "No feature monitoring"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T07:21:29.971761",
+  "version": "1.0.0"
+}

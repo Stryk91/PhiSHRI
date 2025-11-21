@@ -1,0 +1,64 @@
+{
+  "door_code": "R26SERVERLESS_ARCH",
+  "semantic_path": "architecture/cloud/serverless",
+  "title": "Serverless Architecture Patterns",
+  "aliases": [
+    "serverless",
+    "faas",
+    "lambda",
+    "functions",
+    "event-driven serverless",
+    "baas",
+    "serverless patterns"
+  ],
+  "summary": "Building applications using managed serverless services and functions",
+  "context_bundle": {
+    "concepts": [
+      "FaaS: Function as a Service",
+      "BaaS: Backend as a Service",
+      "Cold start: Initial function invocation delay",
+      "Event-driven: Triggered by events",
+      "Pay-per-use: Charged only when running"
+    ],
+    "patterns": [
+      "Use functions for event processing",
+      "Combine with managed services (S3, DynamoDB)",
+      "Design for stateless execution",
+      "Implement idempotency for retries",
+      "Use step functions for orchestration"
+    ],
+    "examples": {
+      "use_cases": [
+        "API backends (API Gateway + Lambda)",
+        "Event processing (S3 triggers)",
+        "Scheduled tasks (CloudWatch Events)",
+        "Stream processing (Kinesis + Lambda)",
+        "Webhooks and integrations"
+      ],
+      "cold_start_mitigation": [
+        "Provisioned concurrency",
+        "Keep-warm pings",
+        "Smaller function packages",
+        "Use compiled languages (Go, Rust)"
+      ]
+    },
+    "tools": [
+      "AWS Lambda",
+      "Azure Functions",
+      "Google Cloud Functions",
+      "Cloudflare Workers",
+      "Vercel",
+      "Step Functions"
+    ],
+    "antipatterns": [
+      "Long-running processes in functions",
+      "Large deployment packages",
+      "Tight coupling between functions",
+      "Ignoring cold start impact"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T07:33:38.141520",
+  "version": "1.0.0"
+}

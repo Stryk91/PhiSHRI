@@ -1,0 +1,73 @@
+{
+  "door_code": "T34HELM",
+  "semantic_path": "TOOLS.KUBERNETES.HELM",
+  "aliases": [
+    "helm",
+    "helm charts",
+    "helm templates",
+    "helm values",
+    "helm repository"
+  ],
+  "context_bundle": {
+    "summary": "Helm: Kubernetes package manager. Charts bundle K8s manifests with templating. Key features: values.yaml for customization, dependencies, hooks (pre/post-install), rollback, chart repositories, OCI registry support. helm install/upgrade/rollback lifecycle.",
+    "prerequisites": [
+      "T26KUBERNETES",
+      "W48K8S_DEPLOY",
+      "W49HELM"
+    ],
+    "related_doors": [
+      "T35KUSTOMIZE",
+      "T36ARGOCD",
+      "T37FLUX"
+    ],
+    "onboarding": {
+      "quick_start": "Helm: 1) helm create mychart (scaffold), 2) Edit templates/ and values.yaml, 3) helm install myrelease ./mychart -f custom-values.yaml, 4) helm upgrade myrelease ./mychart, 5) helm rollback myrelease 1.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Values injection: {{ .Values.image.repository }}:{{ .Values.image.tag }}",
+        "Conditionals: {{- if .Values.ingress.enabled }}",
+        "Named templates: {{- include 'mychart.labels' . | nindent 4 }}",
+        "Dependencies: dependencies: [{name: postgresql, version: '12.x.x', repository: 'https://charts.bitnami.com'}]"
+      ],
+      "known_errors": [
+        {
+          "error": "UPGRADE FAILED: another operation in progress",
+          "cause": "Previous release stuck in pending-upgrade/pending-install state",
+          "solution": "helm history myrelease; helm rollback myrelease <revision>",
+          "prevention": "Use --atomic flag for automatic rollback on failure"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T18:39:53Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "helm",
+        "kubernetes",
+        "charts",
+        "package_manager",
+        "devops"
+      ],
+      "category": "TOOLS",
+      "subcategory": "KUBERNETES",
+      "version": "1.0.0",
+      "tested_on": [
+        "Helm 3",
+        "Kubernetes 1.25+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

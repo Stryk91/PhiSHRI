@@ -1,0 +1,64 @@
+{
+  "door_code": "R27EDGE_COMPUTING",
+  "semantic_path": "architecture/cloud/edge",
+  "title": "Edge Computing",
+  "aliases": [
+    "edge computing",
+    "edge",
+    "cdn",
+    "edge functions",
+    "cloudflare workers",
+    "lambda@edge",
+    "iot edge"
+  ],
+  "summary": "Processing data closer to users or devices at the network edge",
+  "context_bundle": {
+    "concepts": [
+      "Edge: Computing at network periphery",
+      "CDN: Content delivery network",
+      "Edge functions: Code running at CDN nodes",
+      "IoT edge: Processing at device level",
+      "Latency: Reduced by proximity"
+    ],
+    "patterns": [
+      "Cache static content at edge",
+      "Run simple logic in edge functions",
+      "Process IoT data locally before cloud",
+      "Use edge for personalization",
+      "Implement edge-side includes"
+    ],
+    "examples": {
+      "edge_use_cases": [
+        "A/B testing at edge",
+        "Geolocation-based routing",
+        "Authentication/authorization",
+        "Image optimization",
+        "Bot detection",
+        "Request/response transformation"
+      ],
+      "iot_edge": {
+        "local_processing": "Filter/aggregate sensor data",
+        "offline_capability": "Work without cloud connection",
+        "real_time": "Sub-millisecond decisions"
+      }
+    },
+    "tools": [
+      "Cloudflare Workers",
+      "Lambda@Edge",
+      "Fastly Compute",
+      "Vercel Edge",
+      "AWS IoT Greengrass",
+      "Azure IoT Edge"
+    ],
+    "antipatterns": [
+      "Heavy computation at edge",
+      "Large state at edge",
+      "Complex orchestration at edge",
+      "Ignoring edge limitations"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T07:33:38.143712",
+  "version": "1.0.0"
+}

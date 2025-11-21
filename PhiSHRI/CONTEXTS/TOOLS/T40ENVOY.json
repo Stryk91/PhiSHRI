@@ -1,0 +1,73 @@
+{
+  "door_code": "T40ENVOY",
+  "semantic_path": "TOOLS.PROXY.ENVOY",
+  "aliases": [
+    "envoy",
+    "envoy proxy",
+    "xds",
+    "envoy config",
+    "front proxy"
+  ],
+  "context_bundle": {
+    "summary": "Envoy: High-performance edge/service proxy. Foundation for Istio, AWS App Mesh. Key features: L4/L7 load balancing, HTTP/2 & gRPC native, hot reload, xDS APIs for dynamic config, extensive observability, circuit breaking, rate limiting, retries.",
+    "prerequisites": [
+      "W138LOAD_BALANCE",
+      "W135CIRCUIT_BREAKER"
+    ],
+    "related_doors": [
+      "T38ISTIO",
+      "T39LINKERD",
+      "T24NGINX"
+    ],
+    "onboarding": {
+      "quick_start": "Envoy: 1) Create envoy.yaml with static_resources (listeners, clusters), 2) Run: docker run -v ./envoy.yaml:/etc/envoy/envoy.yaml envoyproxy/envoy, 3) For dynamic: implement xDS control plane or use Istio/Consul.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Listener: binds to port, routes to clusters via filter_chains",
+        "Cluster: group of upstream hosts with load balancing policy",
+        "Route config: match path/headers -> route to cluster",
+        "xDS: EDS (endpoints), CDS (clusters), RDS (routes), LDS (listeners)"
+      ],
+      "known_errors": [
+        {
+          "error": "upstream connect timeout",
+          "cause": "Cluster endpoint unreachable or DNS resolution failure",
+          "solution": "Check cluster endpoints, DNS config, network policies",
+          "prevention": "Use health checks, configure appropriate timeouts"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T18:39:53Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "envoy",
+        "proxy",
+        "load_balancer",
+        "xds",
+        "cncf"
+      ],
+      "category": "TOOLS",
+      "subcategory": "PROXY",
+      "version": "1.0.0",
+      "tested_on": [
+        "Envoy 1.25+",
+        "Docker",
+        "Kubernetes"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

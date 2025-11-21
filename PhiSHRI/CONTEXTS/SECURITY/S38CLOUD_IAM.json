@@ -1,0 +1,66 @@
+{
+  "door_code": "S38CLOUD_IAM",
+  "semantic_path": "security/cloud/iam",
+  "title": "Cloud IAM Security",
+  "aliases": [
+    "cloud iam",
+    "aws iam",
+    "gcp iam",
+    "azure ad",
+    "identity management",
+    "service accounts",
+    "least privilege",
+    "assume role"
+  ],
+  "summary": "Cloud identity and access management best practices across providers",
+  "context_bundle": {
+    "concepts": [
+      "Principal: User, group, role, or service account",
+      "Policy: Permissions attached to principal or resource",
+      "Least privilege: Minimum permissions needed",
+      "Role assumption: Temporary credentials via STS",
+      "Service accounts: Non-human identities for workloads"
+    ],
+    "patterns": [
+      "Never use root/owner accounts for daily work",
+      "Require MFA for all human users",
+      "Use roles for cross-account access",
+      "Prefer service accounts over long-lived keys",
+      "Regular access reviews and cleanup"
+    ],
+    "examples": {
+      "aws_least_privilege": {
+        "Effect": "Allow",
+        "Action": [
+          "s3:GetObject"
+        ],
+        "Resource": "arn:aws:s3:::bucket/prefix/*",
+        "Condition": {
+          "StringEquals": {
+            "aws:PrincipalTag/team": "data"
+          }
+        }
+      },
+      "gcp_workload_identity": "serviceAccountName + iam.workloadIdentityUser binding",
+      "azure_managed_identity": "System-assigned or user-assigned managed identity"
+    },
+    "tools": [
+      "AWS IAM Access Analyzer",
+      "GCP IAM Recommender",
+      "Azure AD PIM",
+      "CloudTrail",
+      "Prowler"
+    ],
+    "antipatterns": [
+      "Long-lived access keys",
+      "Wildcard permissions (*)",
+      "Shared credentials",
+      "No MFA enforcement",
+      "Unused permissions not revoked"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T06:37:06.667468",
+  "version": "1.0.0"
+}

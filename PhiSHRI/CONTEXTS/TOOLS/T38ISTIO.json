@@ -1,0 +1,74 @@
+{
+  "door_code": "T38ISTIO",
+  "semantic_path": "TOOLS.SERVICE_MESH.ISTIO",
+  "aliases": [
+    "istio",
+    "service mesh",
+    "envoy proxy",
+    "istio gateway",
+    "virtual service"
+  ],
+  "context_bundle": {
+    "summary": "Istio: Service mesh for Kubernetes. Envoy sidecar proxies for traffic management. Key features: VirtualService/DestinationRule for routing, Gateway for ingress, mTLS, traffic splitting, fault injection, observability (Kiali, Jaeger integration), rate limiting.",
+    "prerequisites": [
+      "T26KUBERNETES",
+      "W135CIRCUIT_BREAKER",
+      "W137RATE_LIMIT"
+    ],
+    "related_doors": [
+      "T39LINKERD",
+      "T40ENVOY",
+      "W68CANARY",
+      "S17ZERO_TRUST"
+    ],
+    "onboarding": {
+      "quick_start": "Istio: 1) istioctl install --set profile=demo, 2) kubectl label namespace default istio-injection=enabled, 3) Deploy apps (sidecars auto-injected), 4) Create VirtualService for traffic rules, 5) Use Kiali dashboard for visualization.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "VirtualService: route to different versions with weight (90/10 canary)",
+        "DestinationRule: define subsets, connection pool, outlier detection",
+        "Gateway: expose services externally with TLS termination",
+        "PeerAuthentication: enforce mTLS (STRICT/PERMISSIVE)"
+      ],
+      "known_errors": [
+        {
+          "error": "upstream connect error or disconnect/reset before headers",
+          "cause": "mTLS mismatch - one side expects TLS, other doesn't",
+          "solution": "Check PeerAuthentication mode, ensure both pods have sidecars",
+          "prevention": "Use namespace-wide mTLS policy, enable sidecar injection consistently"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T18:39:53Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "istio",
+        "service_mesh",
+        "envoy",
+        "mtls",
+        "traffic_management"
+      ],
+      "category": "TOOLS",
+      "subcategory": "SERVICE_MESH",
+      "version": "1.0.0",
+      "tested_on": [
+        "Istio 1.18+",
+        "Kubernetes 1.25+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

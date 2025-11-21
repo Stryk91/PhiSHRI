@@ -1,0 +1,57 @@
+{
+  "door_code": "W140CQRS_IMPL",
+  "semantic_path": "WORKFLOWS.ARCHITECTURE.CQRS_IMPLEMENTATION",
+  "aliases": [
+    "CQRS",
+    "command query responsibility segregation",
+    "read write separation"
+  ],
+  "context_bundle": {
+    "summary": "CQRS implementation separates read and write models: Commands modify state (write model), Queries read state (read model). Read model optimized for queries (denormalized), write model enforces business rules. Sync via events or projections.",
+    "prerequisites": [
+      "R08CQRS",
+      "W139EVENT_SOURCING"
+    ],
+    "related_doors": [
+      "R06EVENT_SOURCING",
+      "W55POSTGRES",
+      "W54REDIS"
+    ],
+    "onboarding": {
+      "quick_start": "CQRS implementation separates read and write models: Commands modify state (write model), Queries read state (read model). Read model optimized for queries (denormalized), write model enforces business rules. Sync via events or projections.",
+      "full_context_path": "/PhiDEX/PhiSync/03_COORDINATION_PATTERNS/DISTRIBUTED_PATTERNS_GUIDE.md",
+      "common_patterns": [],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/PhiSync/03_COORDINATION_PATTERNS/DISTRIBUTED_PATTERNS_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T04:15:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "CQRS",
+        "command query responsibility segregation",
+        "read write separation"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "ARCHITECTURE",
+      "version": "1.0.0",
+      "tested_on": [
+        "Distributed systems"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "WEBC"
+      ]
+    }
+  }
+}

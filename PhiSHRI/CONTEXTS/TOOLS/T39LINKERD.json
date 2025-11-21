@@ -1,0 +1,70 @@
+{
+  "door_code": "T39LINKERD",
+  "semantic_path": "TOOLS.SERVICE_MESH.LINKERD",
+  "aliases": [
+    "linkerd",
+    "linkerd2",
+    "linkerd proxy",
+    "service mesh lite"
+  ],
+  "context_bundle": {
+    "summary": "Linkerd: Lightweight CNCF service mesh. Rust-based proxy (linkerd2-proxy). Key features: zero-config mTLS, automatic retries/timeouts, traffic splitting, tap for debugging, minimal resource footprint, simpler than Istio. No CRDs for basic functionality.",
+    "prerequisites": [
+      "T26KUBERNETES"
+    ],
+    "related_doors": [
+      "T38ISTIO",
+      "T40ENVOY",
+      "S17ZERO_TRUST"
+    ],
+    "onboarding": {
+      "quick_start": "Linkerd: 1) linkerd install | kubectl apply -f -, 2) linkerd check, 3) kubectl annotate namespace default linkerd.io/inject=enabled, 4) Redeploy apps, 5) linkerd dashboard for visualization.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Inject annotation: linkerd.io/inject: enabled on namespace/deployment",
+        "Service profile: define routes, retries, timeouts per service",
+        "Traffic split: TrafficSplit CRD for canary deployments",
+        "Tap: linkerd tap deploy/myapp for real-time request inspection"
+      ],
+      "known_errors": [
+        {
+          "error": "pod has been rejected by linkerd-proxy-injector",
+          "cause": "Pod spec conflicts with injection (hostNetwork, certain security contexts)",
+          "solution": "Add linkerd.io/inject: disabled annotation or fix pod spec",
+          "prevention": "Review Linkerd injection requirements before enabling namespace-wide"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T18:39:53Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "linkerd",
+        "service_mesh",
+        "cncf",
+        "mtls",
+        "lightweight"
+      ],
+      "category": "TOOLS",
+      "subcategory": "SERVICE_MESH",
+      "version": "1.0.0",
+      "tested_on": [
+        "Linkerd 2.x",
+        "Kubernetes 1.21+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

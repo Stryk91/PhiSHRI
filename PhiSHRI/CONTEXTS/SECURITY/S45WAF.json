@@ -1,0 +1,64 @@
+{
+  "door_code": "S45WAF",
+  "semantic_path": "security/waf/web-application-firewall",
+  "title": "Web Application Firewall",
+  "aliases": [
+    "waf",
+    "web application firewall",
+    "modsecurity",
+    "aws waf",
+    "cloudflare waf",
+    "owasp crs",
+    "bot protection"
+  ],
+  "summary": "Protecting web applications with WAF rules and managed rulesets",
+  "context_bundle": {
+    "concepts": [
+      "WAF: Layer 7 filtering for web traffic",
+      "Managed rules: Pre-built rulesets (OWASP CRS)",
+      "Custom rules: Application-specific patterns",
+      "Bot management: Distinguish good/bad bots",
+      "Rate-based rules: Block high-volume attackers"
+    ],
+    "patterns": [
+      "Deploy WAF in front of all public endpoints",
+      "Start with managed OWASP Core Rule Set",
+      "Add custom rules for application-specific threats",
+      "Use rate-based rules for DDoS protection",
+      "Monitor and tune to reduce false positives"
+    ],
+    "examples": {
+      "owasp_crs_categories": [
+        "SQL Injection",
+        "XSS",
+        "Local File Inclusion",
+        "Remote Code Execution",
+        "Scanner Detection"
+      ],
+      "rate_rule": {
+        "threshold": 2000,
+        "window_seconds": 300,
+        "action": "block"
+      },
+      "custom_rule": "Block requests with specific User-Agent patterns"
+    },
+    "tools": [
+      "AWS WAF",
+      "Cloudflare WAF",
+      "Azure WAF",
+      "ModSecurity",
+      "Imperva",
+      "F5 Advanced WAF"
+    ],
+    "antipatterns": [
+      "WAF in detection-only mode in production",
+      "Not tuning rules (too many false positives)",
+      "Relying solely on WAF (defense in depth)",
+      "No logging/monitoring of blocked requests"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T06:37:06.677512",
+  "version": "1.0.0"
+}

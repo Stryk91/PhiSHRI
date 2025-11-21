@@ -1,0 +1,61 @@
+{
+  "door_code": "R28CDN_PATTERNS",
+  "semantic_path": "architecture/cloud/cdn",
+  "title": "CDN Patterns",
+  "aliases": [
+    "cdn",
+    "content delivery",
+    "caching",
+    "cloudfront",
+    "akamai",
+    "fastly",
+    "edge caching"
+  ],
+  "summary": "Strategies for content delivery and caching at global scale",
+  "context_bundle": {
+    "concepts": [
+      "CDN: Globally distributed cache",
+      "PoP: Point of Presence",
+      "Cache hit ratio: Cached vs origin requests",
+      "TTL: Time to live for cached content",
+      "Cache invalidation: Purging stale content"
+    ],
+    "patterns": [
+      "Cache static assets with long TTLs",
+      "Use cache-control headers correctly",
+      "Implement cache busting for updates",
+      "Separate static and dynamic content",
+      "Use origin shield to reduce origin load"
+    ],
+    "examples": {
+      "cache_control": {
+        "static": "Cache-Control: public, max-age=31536000, immutable",
+        "dynamic": "Cache-Control: private, no-cache",
+        "api": "Cache-Control: public, max-age=60, stale-while-revalidate=30"
+      },
+      "cache_busting": [
+        "Content hash in filename (app.a1b2c3.js)",
+        "Query string versioning (?v=1.2.3)",
+        "URL path versioning (/v1/api)"
+      ]
+    },
+    "tools": [
+      "CloudFront",
+      "Cloudflare",
+      "Fastly",
+      "Akamai",
+      "Azure CDN",
+      "Varnish"
+    ],
+    "antipatterns": [
+      "Caching authenticated content publicly",
+      "No cache invalidation strategy",
+      "Over-caching dynamic content",
+      "Ignoring cache-control headers"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T07:33:38.144569",
+  "version": "1.0.0"
+}

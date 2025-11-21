@@ -1,0 +1,63 @@
+{
+  "door_code": "W149POSTMORTEM",
+  "semantic_path": "workflows/sre/postmortem",
+  "title": "Blameless Postmortems",
+  "aliases": [
+    "postmortem",
+    "post-incident review",
+    "PIR",
+    "retrospective",
+    "root cause",
+    "rca",
+    "lessons learned",
+    "blameless"
+  ],
+  "summary": "Learning from incidents through blameless analysis and actionable follow-ups",
+  "context_bundle": {
+    "concepts": [
+      "Blameless culture: Focus on systems, not individuals",
+      "Contributing factors vs root cause",
+      "Timeline reconstruction",
+      "Action items with owners and deadlines",
+      "Sharing learnings broadly"
+    ],
+    "patterns": [
+      "Hold postmortem within 48-72 hours of incident",
+      "Include all involved parties",
+      "Use 5 Whys technique for root cause",
+      "Distinguish detection, response, resolution times",
+      "Track action item completion"
+    ],
+    "examples": {
+      "postmortem_sections": [
+        "Summary",
+        "Impact",
+        "Timeline",
+        "Root Cause Analysis",
+        "Contributing Factors",
+        "Action Items",
+        "Lessons Learned"
+      ],
+      "action_item_format": "ACTION: [description] | Owner: [name] | Due: [date] | Priority: [P0-P3]",
+      "five_whys_example": "Why outage? -> Disk full -> Why? -> Logs not rotated -> Why? -> Config missing -> Why? -> Not in deployment checklist"
+    },
+    "tools": [
+      "Confluence",
+      "Notion",
+      "Google Docs",
+      "Jeli",
+      "Incident.io"
+    ],
+    "antipatterns": [
+      "Blaming individuals",
+      "No action items",
+      "Action items never completed",
+      "Postmortem weeks after incident",
+      "Not sharing learnings"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T06:16:29.395864",
+  "version": "1.0.0"
+}

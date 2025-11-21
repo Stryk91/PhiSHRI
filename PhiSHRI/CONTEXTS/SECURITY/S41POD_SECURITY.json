@@ -1,0 +1,67 @@
+{
+  "door_code": "S41POD_SECURITY",
+  "semantic_path": "security/kubernetes/pod-security-standards",
+  "title": "Pod Security Standards",
+  "aliases": [
+    "pod security",
+    "pss",
+    "pod security policy",
+    "psp",
+    "pod security admission",
+    "security context",
+    "restricted pods"
+  ],
+  "summary": "Kubernetes Pod Security Standards and admission control for workload security",
+  "context_bundle": {
+    "concepts": [
+      "Pod Security Standards: Privileged, Baseline, Restricted",
+      "Pod Security Admission: Built-in admission controller",
+      "Security Context: Pod/container security settings",
+      "PSP (deprecated): Legacy pod security policy",
+      "Policy modes: enforce, audit, warn"
+    ],
+    "patterns": [
+      "Apply Restricted standard to production namespaces",
+      "Use Baseline for legacy workloads during migration",
+      "Set security context at pod and container level",
+      "Audit before enforcing new policies",
+      "Exempt system namespaces appropriately"
+    ],
+    "examples": {
+      "namespace_labels": {
+        "pod-security.kubernetes.io/enforce": "restricted",
+        "pod-security.kubernetes.io/audit": "restricted",
+        "pod-security.kubernetes.io/warn": "restricted"
+      },
+      "restricted_security_context": {
+        "runAsNonRoot": true,
+        "seccompProfile": {
+          "type": "RuntimeDefault"
+        },
+        "allowPrivilegeEscalation": false,
+        "capabilities": {
+          "drop": [
+            "ALL"
+          ]
+        }
+      }
+    },
+    "tools": [
+      "kube-bench",
+      "Polaris",
+      "Datree",
+      "OPA Gatekeeper",
+      "Kyverno"
+    ],
+    "antipatterns": [
+      "No pod security enforcement",
+      "Privileged mode in production",
+      "hostPID/hostNetwork without justification",
+      "Skipping security context entirely"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T06:37:06.670266",
+  "version": "1.0.0"
+}

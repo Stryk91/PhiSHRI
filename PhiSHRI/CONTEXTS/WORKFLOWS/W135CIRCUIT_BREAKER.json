@@ -1,0 +1,57 @@
+{
+  "door_code": "W135CIRCUIT_BREAKER",
+  "semantic_path": "WORKFLOWS.RELIABILITY.CIRCUIT_BREAKER",
+  "aliases": [
+    "circuit breaker",
+    "failfast",
+    "fault tolerance"
+  ],
+  "context_bundle": {
+    "summary": "Circuit breaker pattern prevents cascading failures: Monitor error rate, open circuit (reject requests) when threshold exceeded, half-open (test recovery) after cooldown, close circuit when healthy. Three states: Closed (normal), Open (failing fast), Half-Open (testing).",
+    "prerequisites": [
+      "E06CIRCUIT_BREAKER",
+      "E05RETRY"
+    ],
+    "related_doors": [
+      "W136BULKHEAD",
+      "W137RATE_LIMIT",
+      "E08NETWORK_ERRORS"
+    ],
+    "onboarding": {
+      "quick_start": "Circuit breaker pattern prevents cascading failures: Monitor error rate, open circuit (reject requests) when threshold exceeded, half-open (test recovery) after cooldown, close circuit when healthy. Three states: Closed (normal), Open (failing fast), Half-Open (testing).",
+      "full_context_path": "/PhiDEX/PhiSync/03_COORDINATION_PATTERNS/RELIABILITY_PATTERNS_GUIDE.md",
+      "common_patterns": [],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/PhiSync/03_COORDINATION_PATTERNS/RELIABILITY_PATTERNS_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T04:15:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "circuit breaker",
+        "failfast",
+        "fault tolerance"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "RELIABILITY",
+      "version": "1.0.0",
+      "tested_on": [
+        "Distributed systems"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "WEBC"
+      ]
+    }
+  }
+}

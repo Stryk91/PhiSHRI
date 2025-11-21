@@ -1,0 +1,73 @@
+{
+  "door_code": "W165DBT",
+  "semantic_path": "workflows/data/dbt",
+  "title": "dbt (Data Build Tool)",
+  "aliases": [
+    "dbt",
+    "data build tool",
+    "sql transformation",
+    "elt",
+    "analytics engineering",
+    "dbt core",
+    "dbt cloud"
+  ],
+  "summary": "SQL-first transformation tool for analytics engineering with testing and documentation",
+  "context_bundle": {
+    "concepts": [
+      "dbt: Transform data in warehouse using SQL",
+      "Models: SQL SELECT statements as transformations",
+      "Tests: Data quality assertions",
+      "Documentation: Auto-generated from YAML",
+      "Lineage: DAG of model dependencies"
+    ],
+    "patterns": [
+      "Use staging models for source cleaning",
+      "Build marts for business domains",
+      "Add tests to all models",
+      "Document columns and models",
+      "Use incremental models for large tables"
+    ],
+    "examples": {
+      "model_structure": {
+        "staging/": "1:1 with sources, light cleaning",
+        "intermediate/": "Business logic, joins",
+        "marts/": "Final tables for consumption"
+      },
+      "dbt_test": "SELECT * FROM {{ ref('orders') }} WHERE order_id IS NULL",
+      "schema_yml": {
+        "models": [
+          {
+            "name": "orders",
+            "columns": [
+              {
+                "name": "order_id",
+                "tests": [
+                  "unique",
+                  "not_null"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "tools": [
+      "dbt Core",
+      "dbt Cloud",
+      "Snowflake",
+      "BigQuery",
+      "Redshift",
+      "Databricks"
+    ],
+    "antipatterns": [
+      "No tests on models",
+      "No documentation",
+      "Monolithic models (too much logic)",
+      "No staging layer"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T07:21:29.977565",
+  "version": "1.0.0"
+}

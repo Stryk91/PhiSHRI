@@ -1,0 +1,62 @@
+{
+  "door_code": "R30PUBSUB_ARCH",
+  "semantic_path": "architecture/cloud/pubsub",
+  "title": "Pub/Sub Architecture",
+  "aliases": [
+    "pubsub",
+    "pub sub",
+    "publish subscribe",
+    "event bus",
+    "message broker",
+    "sns",
+    "eventbridge"
+  ],
+  "summary": "Decoupled communication through publish-subscribe messaging patterns",
+  "context_bundle": {
+    "concepts": [
+      "Publisher: Sends messages to topic",
+      "Subscriber: Receives messages from topic",
+      "Topic: Named channel for messages",
+      "Fan-out: One message to many subscribers",
+      "Filtering: Subscribers receive subset of messages"
+    ],
+    "patterns": [
+      "Use topics for event distribution",
+      "Implement message filtering at broker",
+      "Design for at-least-once delivery",
+      "Use dead letter queues for failures",
+      "Combine with queues for work distribution"
+    ],
+    "examples": {
+      "aws_pattern": "SNS (fan-out) -> SQS (queue per consumer) -> Lambda",
+      "filtering": {
+        "attribute_filter": "Filter by message attributes",
+        "content_filter": "Filter by message body (EventBridge)"
+      },
+      "use_cases": [
+        "Event notification (order placed)",
+        "Log/metric aggregation",
+        "Microservice decoupling",
+        "Webhook distribution"
+      ]
+    },
+    "tools": [
+      "AWS SNS",
+      "Google Pub/Sub",
+      "Azure Service Bus",
+      "EventBridge",
+      "Kafka",
+      "NATS"
+    ],
+    "antipatterns": [
+      "Tight coupling to specific subscribers",
+      "No dead letter handling",
+      "Synchronous expectations",
+      "Large payloads in messages"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T07:33:38.146206",
+  "version": "1.0.0"
+}

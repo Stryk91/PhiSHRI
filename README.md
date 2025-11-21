@@ -1,4 +1,4 @@
-# PhiSHRI - Semantic Hash Repository Index
+# PhiSHRI - Semantic(Self) Hashing Radial (Repository) Index 
 
 **Solving the AI Context Continuity Problem**
 
@@ -10,7 +10,7 @@
 
 ## The Problem
 
-**AI sessions lose context.** Every new conversation requires:
+**AI sessions lose context.** Every new session without prior fail-safe measures requires:
 - Re-explaining the project
 - Re-describing patterns and decisions
 - Re-reading documentation
@@ -97,20 +97,21 @@ cat PhiSHRI/HOW_TO_USE.md
 
 ## Current Status: v0.1 (Manual Navigation)
 
-### ✅ What Works Now
+###  What Works Now
 - **237 context doors** - Complete, tested, ready to use
 - **Manual navigation** - Read doors directly by path
 - **Session continuity** - Use door codes as checkpoints
 - **Zero hallucinations** - All content from source documentation
 - **Comprehensive docs** - HOW_TO_USE.md, ARCHITECTURE.md
 
-### 🚧 In Progress (v0.2)
+###  In Progress (v0.2)
+- **PhiSHRI MCP** - Rust coded MCP for Interoperability.
 - **Python navigation API** - Programmatic door lookup
 - **Complete index files** - HASH_TABLE and SEMANTIC_MAP for all 237 doors
 - **CLI tool** - `phishri find "deployment"`
 - **NLP query matching** - Natural language door search
 
-### 🎯 Future (v0.3+)
+###  Future (v0.3+)
 - **Granularity markers** - Atomic/chunked/hierarchical door access
 - **Session checkpoint doors** - Explicit session state persistence
 - **Multi-agent coordination** - Shared door context between agents
@@ -326,6 +327,7 @@ PhiSHRI isn't just a knowledge base. It's a **protocol for AI session continuity
 - [x] Comprehensive documentation
 
 ### v0.2 - Programmatic Navigation (In Progress)
+- [ ] Build Rust MCP + Tools
 - [ ] Complete HASH_TABLE and SEMANTIC_MAP
 - [ ] Python navigation API working
 - [ ] CLI tool: `phishri find "keyword"`
@@ -388,7 +390,8 @@ MIT License - See [LICENSE](LICENSE) for details
 ---
 
 ## Contact
-
+- **E-MAIL** - PhiVector@pm.me
+- **DISCORD** - lordcain
 - **Repository:** https://github.com/Stryk91/PhiSHRI
 - **Issues:** https://github.com/Stryk91/PhiSHRI/issues
 - **Branch:** Staging (active development)
@@ -399,7 +402,7 @@ MIT License - See [LICENSE](LICENSE) for details
 
 Built to solve the AI context continuity problem in multi-agent systems. Inspired by the need for **stateless AI sessions with external state stores**.
 
-**PhiSHRI: Making AI sessions resumable at human thought speed.**
+**PhiSHRI: Bigger context windows do not solve efficiency, making smaller ones work better does.**
 
 ---
 

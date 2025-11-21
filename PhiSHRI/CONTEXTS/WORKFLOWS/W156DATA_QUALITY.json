@@ -1,0 +1,69 @@
+{
+  "door_code": "W156DATA_QUALITY",
+  "semantic_path": "workflows/data/quality",
+  "title": "Data Quality",
+  "aliases": [
+    "data quality",
+    "data validation",
+    "data profiling",
+    "dq",
+    "data cleansing",
+    "data accuracy",
+    "completeness",
+    "great expectations"
+  ],
+  "summary": "Ensuring data accuracy, completeness, and consistency through validation and profiling",
+  "context_bundle": {
+    "concepts": [
+      "Data quality dimensions: Accuracy, completeness, consistency, timeliness",
+      "Data profiling: Statistical analysis of data characteristics",
+      "Data validation: Rule-based checks on data",
+      "Data cleansing: Correcting or removing invalid data",
+      "Data observability: Monitoring data health over time"
+    ],
+    "patterns": [
+      "Define expectations before pipeline runs",
+      "Profile data to discover anomalies",
+      "Implement schema validation at ingestion",
+      "Track data quality metrics over time",
+      "Alert on quality degradation"
+    ],
+    "examples": {
+      "great_expectations": {
+        "expect_column_values_to_not_be_null": "user_id",
+        "expect_column_values_to_be_between": {
+          "column": "age",
+          "min": 0,
+          "max": 120
+        },
+        "expect_column_values_to_match_regex": {
+          "column": "email",
+          "regex": ".*@.*"
+        }
+      },
+      "quality_dimensions": {
+        "accuracy": "Values match real-world truth",
+        "completeness": "No missing required values",
+        "consistency": "Same format/rules across sources",
+        "timeliness": "Data available when needed"
+      }
+    },
+    "tools": [
+      "Great Expectations",
+      "dbt tests",
+      "Soda",
+      "Monte Carlo",
+      "Datafold"
+    ],
+    "antipatterns": [
+      "No validation before loading",
+      "Ignoring null/missing values",
+      "No historical quality tracking",
+      "Manual data fixes without audit trail"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T07:21:29.969757",
+  "version": "1.0.0"
+}

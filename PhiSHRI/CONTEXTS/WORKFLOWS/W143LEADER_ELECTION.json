@@ -1,0 +1,59 @@
+{
+  "door_code": "W143LEADER_ELECTION",
+  "semantic_path": "WORKFLOWS.DISTRIBUTED.LEADER_ELECTION",
+  "aliases": [
+    "leader election",
+    "consensus",
+    "raft",
+    "paxos"
+  ],
+  "context_bundle": {
+    "summary": "Leader election chooses single coordinator from cluster: Use Raft/Paxos consensus (etcd, Consul), or lease-based election (Redis, ZooKeeper). Leader handles coordination, followers standby. Automatic failover if leader fails. Use heartbeats to detect leader liveness.",
+    "prerequisites": [
+      "W142DISTRIBUTED_LOCK",
+      "R02DISTRIB"
+    ],
+    "related_doors": [
+      "T28CONSUL",
+      "T29ETCD",
+      "W132SAGA"
+    ],
+    "onboarding": {
+      "quick_start": "Leader election chooses single coordinator from cluster: Use Raft/Paxos consensus (etcd, Consul), or lease-based election (Redis, ZooKeeper). Leader handles coordination, followers standby. Automatic failover if leader fails. Use heartbeats to detect leader liveness.",
+      "full_context_path": "/PhiDEX/PhiSync/03_COORDINATION_PATTERNS/DISTRIBUTED_PATTERNS_GUIDE.md",
+      "common_patterns": [],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/PhiSync/03_COORDINATION_PATTERNS/DISTRIBUTED_PATTERNS_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T04:15:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "leader election",
+        "consensus",
+        "raft",
+        "paxos"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "DISTRIBUTED",
+      "version": "1.0.0",
+      "tested_on": [
+        "Distributed systems"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "WEBC"
+      ]
+    }
+  }
+}

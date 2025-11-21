@@ -8,14 +8,14 @@
   "total_doors": 387,
   "categories": {
     "WORKFLOWS": {
-      "count": 131,
+      "count": 165,
       "prefix": "WXX",
-      "description": "Workflow patterns, orchestration, automation, AI optimization, infrastructure, data processing, ETL, streaming, batch processing, data validation, data transformation, file processing, testing, deployment, performance, caching, profiling, load testing, API design, REST, GraphQL, gRPC, webhooks, pagination, logging, tracing, metrics, UI automation, Selenium, Playwright, Cypress, visual regression, message queues, notifications, scheduling, unit testing, integration testing, mocking, fixtures, E2E testing, contract testing, mutation testing, coverage, lazy loading, connection pooling, backpressure, throttling, compression, agent communication, IPC, file IPC, request/response, pub/sub, state synchronization, DAG, orchestration, choreography, pipeline, correlation IDs, dead letter queue, polling, actor model, CSP"
+      "description": "Workflow patterns, orchestration, automation, AI optimization, infrastructure, data processing, ETL, streaming, batch processing, data validation, data transformation, file processing, testing, deployment, performance, caching, profiling, load testing, API design, REST, GraphQL, gRPC, webhooks, pagination, logging, tracing, metrics, UI automation, Selenium, Playwright, Cypress, visual regression, message queues, notifications, scheduling, unit testing, integration testing, mocking, fixtures, E2E testing, contract testing, mutation testing, coverage, lazy loading, connection pooling, backpressure, throttling, compression, agent communication, IPC, file IPC, request/response, pub/sub, state synchronization, DAG, orchestration, choreography, pipeline, correlation IDs, dead letter queue, polling, actor model, CSP, saga pattern, idempotency, distributed transactions, circuit breaker, bulkhead, rate limiting, load balancing, event sourcing, CQRS implementation, exponential backoff, distributed locking, leader election, eventual consistency, CRDT, SRE practices, SLI, SLO, SLA, error budgets, incident management, postmortems, runbooks, on-call, chaos engineering, toil reduction, capacity planning, disaster recovery, data quality, data lineage, feature store, data catalog, schema registry, data contracts, data mesh, lakehouse, data governance, dbt"
     },
     "TOOLS": {
       "count": 95,
       "prefix": "TXX/8XX/DXX",
-      "description": "Development tools, MCP servers, automation scripts, deployment tools, observability, CI/CD, Docker, Kubernetes, Terraform, Ansible, Grafana, Prometheus, Apache Airflow, Apache Kafka, Elasticsearch, Redis, RabbitMQ, Nginx, Vault, silent installation, enterprise deployment, Group Policy, Autopilot, code signing, notarization, auto-update, package managers, network deployment, compliance scanning"
+      "description": "Development tools, MCP servers, automation scripts, deployment tools, observability, CI/CD, Docker, Kubernetes, Terraform, Ansible, Grafana, Prometheus, Apache Airflow, Apache Kafka, Elasticsearch, Redis, RabbitMQ, Nginx, Vault, Consul, etcd, silent installation, enterprise deployment, Group Policy, Autopilot, code signing, notarization, auto-update, package managers, network deployment, compliance scanning, service discovery, distributed key-value stores, GitLab, Jenkins, GitHub Actions, CircleCI, Helm, Kustomize, ArgoCD, Flux, Istio, Linkerd, Envoy, Jaeger, Zipkin, OpenTelemetry, Datadog"
     },
     "AGENTS": {
       "count": 9,
@@ -23,19 +23,19 @@
       "description": "AI agent contexts, coordination protocols, messaging (DC, VSCC, TERMC, WEBC, KALIC, CMDC)"
     },
     "SECURITY": {
-      "count": 18,
+      "count": 45,
       "prefix": "SXX",
-      "description": "Security patterns, input validation, SQL injection prevention, secrets management, encryption, AES, TLS, OAuth, JWT, RBAC, CORS, CSRF, API security, secrets rotation, audit logging, SIEM, WORM, input sanitization, zero trust, penetration testing"
+      "description": "Security patterns, OWASP Top 10, input validation, SQL injection prevention, secrets management, encryption, AES, TLS, OAuth, JWT, RBAC, CORS, CSRF, API security, secrets rotation, audit logging, SIEM, WORM, input sanitization, zero trust, penetration testing, path traversal, cryptographic failures, deserialization, SSRF, XML injection, command injection, LDAP injection, broken access control, authentication failures, security misconfiguration, vulnerable components, integrity failures, logging failures, clickjacking, file upload security, open redirect, mass assignment, container escape, Kubernetes security, cloud IAM, cloud network, K8s secrets, pod security, network policy, service mesh security, API gateway, WAF"
     },
     "PROJECTS": {
-      "count": 5,
+      "count": 6,
       "prefix": "PXX/000",
-      "description": "Project-specific contexts (PhiWave, PhiGEN, PhiVector, PhiSHRI) and system onboarding (000START)"
+      "description": "Project-specific contexts (PhiWave, PhiGEN, PhiVector, PhiSHRI) and system onboarding (000START, P05SESSION_CONT for session continuity)"
     },
     "ARCHITECTURE": {
-      "count": 16,
+      "count": 33,
       "prefix": "RXX",
-      "description": "System architecture, design patterns, distributed systems, microservices, event-driven, serverless, event sourcing, Saga pattern, CQRS, Factory, Singleton, Observer, Strategy, Decorator, Adapter, Builder, Proxy"
+      "description": "System architecture, design patterns, distributed systems, microservices, event-driven, serverless, event sourcing, Saga pattern, CQRS, Factory, Singleton, Observer, Strategy, Decorator, Adapter, Builder, Proxy, Command, Repository, MVC, MVVM, Hexagonal, Clean Architecture, Domain-Driven Design, multi-cloud, cloud native, edge computing, CDN, object storage, pub/sub, fanout, auto scaling, cost optimization"
     },
     "ERRORS": {
       "count": 13,

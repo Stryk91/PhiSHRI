@@ -1,0 +1,72 @@
+{
+  "door_code": "T31JENKINS",
+  "semantic_path": "TOOLS.CICD.JENKINS",
+  "aliases": [
+    "jenkins",
+    "jenkinsfile",
+    "jenkins pipeline",
+    "jenkins groovy",
+    "jenkins agents"
+  ],
+  "context_bundle": {
+    "summary": "Jenkins: Open-source automation server. Declarative/Scripted pipelines in Jenkinsfile. Key features: 1800+ plugins, distributed builds with agents, Blue Ocean UI, Pipeline as Code. Master-agent architecture for scaling. Groovy DSL for pipeline logic.",
+    "prerequisites": [
+      "T11CICD",
+      "W15CICD"
+    ],
+    "related_doors": [
+      "T30GITLAB",
+      "T32GITHUB_ACTIONS",
+      "T36ARGOCD"
+    ],
+    "onboarding": {
+      "quick_start": "Jenkins Pipeline: 1) Create Jenkinsfile in repo, 2) Define pipeline { agent any; stages { stage('Build') { steps { sh 'make' } } } }, 3) Configure webhook for auto-trigger, 4) Add agents for parallel builds.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Declarative: pipeline { agent any; stages { } }",
+        "Parallel stages: parallel { stage('A') { } stage('B') { } }",
+        "Credentials: withCredentials([string(credentialsId: 'secret', variable: 'TOKEN')])",
+        "Docker agent: agent { docker { image 'node:18' } }"
+      ],
+      "known_errors": [
+        {
+          "error": "Pipeline script not permitted to use method",
+          "cause": "Script sandbox blocking unapproved Groovy methods",
+          "solution": "Approve script in Manage Jenkins > In-process Script Approval",
+          "prevention": "Use declarative pipeline where possible, minimize custom Groovy"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T18:39:53Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "jenkins",
+        "cicd",
+        "devops",
+        "automation",
+        "groovy"
+      ],
+      "category": "TOOLS",
+      "subcategory": "CICD",
+      "version": "1.0.0",
+      "tested_on": [
+        "Jenkins LTS",
+        "Jenkins Weekly"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ]
+    }
+  }
+}

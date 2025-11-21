@@ -1,0 +1,60 @@
+{
+  "door_code": "R31FANOUT_PATTERN",
+  "semantic_path": "architecture/cloud/fanout",
+  "title": "Fanout Pattern",
+  "aliases": [
+    "fanout",
+    "fan-out",
+    "scatter gather",
+    "broadcast",
+    "parallel processing",
+    "map reduce"
+  ],
+  "summary": "Distributing work or events to multiple parallel processors",
+  "context_bundle": {
+    "concepts": [
+      "Fanout: One input to many outputs",
+      "Scatter-gather: Fanout then aggregate results",
+      "Parallel processing: Concurrent execution",
+      "Work distribution: Load balancing",
+      "Aggregation: Combining results"
+    ],
+    "patterns": [
+      "Use SNS for event fanout",
+      "Implement scatter-gather with Step Functions",
+      "Use Lambda for parallel processing",
+      "Aggregate results asynchronously",
+      "Set timeouts for stragglers"
+    ],
+    "examples": {
+      "sns_sqs_fanout": {
+        "producer": "Publish to SNS topic",
+        "consumers": "Multiple SQS queues subscribed",
+        "processing": "Each queue has own Lambda"
+      },
+      "scatter_gather": {
+        "scatter": "Send request to N services",
+        "gather": "Wait for all responses (or timeout)",
+        "aggregate": "Combine into single response"
+      }
+    },
+    "tools": [
+      "AWS SNS",
+      "Step Functions",
+      "Lambda",
+      "SQS",
+      "EventBridge",
+      "Kafka"
+    ],
+    "antipatterns": [
+      "No timeout handling",
+      "Unbounded parallelism",
+      "Synchronous fanout",
+      "No error handling for partial failures"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T07:33:38.147005",
+  "version": "1.0.0"
+}

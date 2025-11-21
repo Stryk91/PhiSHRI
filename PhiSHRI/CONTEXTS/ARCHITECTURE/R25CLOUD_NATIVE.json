@@ -1,0 +1,64 @@
+{
+  "door_code": "R25CLOUD_NATIVE",
+  "semantic_path": "architecture/cloud/cloud-native",
+  "title": "Cloud Native Architecture",
+  "aliases": [
+    "cloud native",
+    "12 factor",
+    "cloud first",
+    "containerized",
+    "immutable infrastructure",
+    "cattle not pets"
+  ],
+  "summary": "Designing applications optimized for cloud environments with containers, microservices, and automation",
+  "context_bundle": {
+    "concepts": [
+      "Cloud native: Built for cloud from the ground up",
+      "12-factor app: Methodology for cloud apps",
+      "Immutable infrastructure: Replace, don't modify",
+      "Cattle vs pets: Disposable vs precious servers",
+      "Declarative configuration: Desired state, not scripts"
+    ],
+    "patterns": [
+      "Containerize all applications",
+      "Use orchestration (Kubernetes)",
+      "Implement CI/CD pipelines",
+      "Externalize configuration",
+      "Design for horizontal scaling"
+    ],
+    "examples": {
+      "12_factors": [
+        "Codebase: One repo per app",
+        "Dependencies: Explicitly declared",
+        "Config: In environment",
+        "Backing services: Attached resources",
+        "Build/Release/Run: Strict separation",
+        "Processes: Stateless",
+        "Port binding: Self-contained",
+        "Concurrency: Scale via processes",
+        "Disposability: Fast startup/shutdown",
+        "Dev/Prod parity: Keep similar",
+        "Logs: Event streams",
+        "Admin processes: One-off tasks"
+      ]
+    },
+    "tools": [
+      "Docker",
+      "Kubernetes",
+      "Helm",
+      "Istio",
+      "Knative",
+      "CNCF projects"
+    ],
+    "antipatterns": [
+      "Lift and shift without redesign",
+      "Stateful containers without planning",
+      "Manual deployments",
+      "Hardcoded configuration"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [],
+  "created": "2025-11-22T07:33:38.140755",
+  "version": "1.0.0"
+}
