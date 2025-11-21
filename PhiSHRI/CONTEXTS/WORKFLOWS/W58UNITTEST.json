@@ -1,0 +1,43 @@
+{
+  "door_code": "W58UNITTEST",
+  "semantic_path": "WORKFLOWS.TESTING.UNIT_TESTING",
+  "aliases": ["unit_test", "unittest", "unit_testing", "isolated_testing"],
+  "context_bundle": {
+    "summary": "Unit testing: Test individual functions/classes in isolation. Characteristics: Fast (<1ms per test), isolated (no external dependencies), deterministic. Frameworks: Pytest (Python), Jest (JavaScript/TypeScript), JUnit (Java), xUnit (.NET), Mocha (Node.js). Patterns: AAA (Arrange, Act, Assert), Given-When-Then. Mock external dependencies (databases, APIs, file system). Test edge cases, happy path, error handling. Coverage target: 70-80% for production code.",
+    "prerequisites": [],
+    "related_doors": ["W59INTEGRATION", "W61MOCKING", "W62TDD", "W66COVERAGE"],
+    "onboarding": {
+      "quick_start": "Unit tests: Test single function/class in isolation. Structure: Arrange (setup), Act (execute), Assert (verify). Python (pytest): def test_add(): assert add(2, 3) == 5; assert add(-1, 1) == 0; assert add(0, 0) == 0. JavaScript (Jest): test('adds numbers', () => { expect(add(2, 3)).toBe(5); expect(add(-1, 1)).toBe(0); }). Mock dependencies: from unittest.mock import Mock; db = Mock(); db.query.return_value = []; result = get_users(db); assert result == []; db.query.assert_called_once(). Run: pytest (Python), npm test / jest (JS), dotnet test (.NET). Characteristics: Fast (100s-1000s tests/sec), no I/O, no network, no database. Test edge cases: empty input, null, max values, exceptions. AAA pattern: Arrange inputs -> Act on function -> Assert expected output.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Pytest: def test_calculate_total(): cart = Cart(); cart.add_item(Item('apple', 1.50), 2); assert cart.total() == 3.00",
+        "Jest: describe('Calculator', () => { test('multiplies numbers', () => { expect(multiply(3, 4)).toBe(12); }); test('handles zero', () => { expect(multiply(0, 5)).toBe(0); }); });",
+        "Mocking: from unittest.mock import patch; @patch('requests.get') def test_api_call(mock_get): mock_get.return_value.json.return_value = {'data': []}; result = fetch_data(); assert result == []",
+        "Parametrized tests (pytest): @pytest.mark.parametrize('input,expected', [(2, 4), (3, 9), (0, 0)]) def test_square(input, expected): assert square(input) == expected",
+        "Exception testing (pytest): with pytest.raises(ValueError): divide(10, 0)",
+        "Setup/teardown: @pytest.fixture def client(): return TestClient(); def test_endpoint(client): response = client.get('/'); assert response.status == 200",
+        "Test naming: test_{function}_with_{condition}_should_{expected_outcome}",
+        "Edge cases: test_empty_list(), test_null_input(), test_max_integer(), test_negative_values()"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T20:45:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["unit_testing", "testing", "pytest", "jest", "junit", "tdd", "mocking"],
+      "category": "WORKFLOWS",
+      "subcategory": "TESTING",
+      "version": "1.0.0",
+      "tested_on": ["Python", "JavaScript", "TypeScript", "Java", "C#"],
+      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+    }
+  }
+}

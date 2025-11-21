@@ -1,0 +1,45 @@
+{
+  "door_code": "W81GRPC",
+  "semantic_path": "WORKFLOWS.API.GRPC",
+  "aliases": ["grpc", "protocol_buffers", "protobuf", "rpc", "grpc_api"],
+  "context_bundle": {
+    "summary": "gRPC: High-performance RPC framework using HTTP/2 and Protocol Buffers. Binary serialization (faster than JSON), strongly typed contracts (.proto files), bidirectional streaming, code generation for multiple languages. Service types: Unary (request-response), Server streaming (one request, stream responses), Client streaming (stream requests, one response), Bidirectional streaming. Benefits: Fast (protobuf < JSON), type-safe, auto code-gen, multiplexing via HTTP/2. Drawbacks: Not browser-friendly (needs proxy), binary format (harder to debug than JSON), tooling complexity. Use cases: Microservices, internal APIs, real-time communication. Tools: grpcurl (CLI testing), grpc-gateway (REST proxy), Evans (REPL).",
+    "prerequisites": ["W79REST_API", "W80GRAPHQL"],
+    "related_doors": ["R03MICROSERVICE", "W78CONCURRENCY", "S12API_SECURITY"],
+    "onboarding": {
+      "quick_start": "gRPC basics: Proto definition (.proto): syntax = \"proto3\"; service UserService { rpc GetUser (GetUserRequest) returns (User); rpc ListUsers (ListUsersRequest) returns (stream User); } message User { int32 id = 1; string name = 2; string email = 3; } message GetUserRequest { int32 id = 1; }. Generate code: protoc --python_out=. --grpc_python_out=. user.proto (Python) or protoc --go_out=. --go-grpc_out=. user.proto (Go). Python server: import grpc; from concurrent import futures; class UserServicer(user_pb2_grpc.UserServiceServicer): def GetUser(self, request, context): return user_pb2.User(id=request.id, name='Alice'); server = grpc.server(futures.ThreadPoolExecutor(max_workers=10)); user_pb2_grpc.add_UserServiceServicer_to_server(UserServicer(), server); server.add_insecure_port('[::]:50051'); server.start(). Python client: channel = grpc.insecure_channel('localhost:50051'); stub = user_pb2_grpc.UserServiceStub(channel); response = stub.GetUser(user_pb2.GetUserRequest(id=123)); print(response.name). Streaming: def ListUsers(self, request, context): for user in db.get_users(): yield user_pb2.User(id=user.id, name=user.name). Test: grpcurl -plaintext -d '{\"id\": 123}' localhost:50051 UserService/GetUser.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Proto service definition: service ProductService { rpc GetProduct (GetProductRequest) returns (Product); rpc CreateProduct (CreateProductRequest) returns (Product); rpc StreamPrices (StreamPricesRequest) returns (stream Price); }",
+        "Python async server: import grpc.aio; class AsyncServicer(user_pb2_grpc.UserServiceServicer): async def GetUser(self, request, context): user = await db.get_user(request.id); return user_pb2.User(id=user.id, name=user.name); async def serve(): server = grpc.aio.server(); await server.start()",
+        "Go server: type server struct { pb.UnimplementedUserServiceServer }; func (s *server) GetUser(ctx context.Context, req *pb.GetUserRequest) (*pb.User, error) { return &pb.User{Id: req.Id, Name: \"Alice\"}, nil }",
+        "Server streaming (Python): def StreamUpdates(self, request, context): while True: update = get_latest_update(); yield update_pb2.Update(data=update); time.sleep(1)",
+        "Client streaming (Go): func (s *server) UploadData(stream pb.Service_UploadDataServer) error { for { data, err := stream.Recv(); if err == io.EOF { return stream.SendAndClose(&pb.Response{Success: true}) }; process(data) } }",
+        "Bidirectional streaming: def Chat(self, request_iterator, context): for message in request_iterator: response = process(message); yield chat_pb2.Message(text=response)",
+        "Metadata (headers): metadata = (('authorization', 'Bearer token'),); response = stub.GetUser(request, metadata=metadata)",
+        "Error handling: context.set_code(grpc.StatusCode.NOT_FOUND); context.set_details('User not found'); return user_pb2.User()",
+        "Interceptors: class AuthInterceptor(grpc.ServerInterceptor): def intercept_service(self, continuation, handler_call_details): if not validate_token(handler_call_details.metadata): raise grpc.RpcError(grpc.StatusCode.UNAUTHENTICATED)",
+        "Load balancing: channel = grpc.insecure_channel('dns:///my-service:50051', options=[('grpc.lb_policy_name', 'round_robin')])"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T22:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["grpc", "protobuf", "protocol_buffers", "rpc", "http2", "streaming"],
+      "category": "WORKFLOWS",
+      "subcategory": "API",
+      "version": "1.0.0",
+      "tested_on": ["Python", "Go", "Java", "C++", "Node.js"],
+      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+    }
+  }
+}

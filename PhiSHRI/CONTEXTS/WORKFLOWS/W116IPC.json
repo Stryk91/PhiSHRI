@@ -1,0 +1,44 @@
+{
+  "door_code": "W116IPC",
+  "semantic_path": "WORKFLOWS.COMMUNICATION.IPC",
+  "aliases": ["IPC", "inter-process communication", "named pipes", "sockets", "shared memory"],
+  "context_bundle": {
+    "summary": "Inter-Process Communication mechanisms including named pipes, sockets, shared memory, and file-based IPC for agent coordination",
+    "prerequisites": ["W115MESSAGE_QUEUE"],
+    "related_doors": ["W117FILE_IPC", "T09IPC_METHODS", "W05RUNSPACE"],
+    "onboarding": {
+      "quick_start": "Choose IPC method based on constraints: file-based for PhiVector (mandatory), named pipes for same-machine, sockets for network",
+      "full_context_path": "/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md",
+      "common_patterns": [
+        "File-based IPC: Use when processes cannot communicate directly (PhiVector)",
+        "Named pipes: Fast same-machine communication with System.IO.Pipes",
+        "Sockets: Network communication TCP/UDP for distributed agents",
+        "Shared memory: Fastest but complex, requires synchronization primitives",
+        "Message format: JSON for human-readable, MessagePack for performance"
+      ],
+      "known_errors": [
+        "PhiVector agents cannot use direct IPC (DC constraint)",
+        "File locks required for atomic file-based IPC operations",
+        "Named pipes require proper ACLs for security"
+      ]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T02:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["IPC", "inter-process", "named pipes", "sockets", "communication"],
+      "category": "WORKFLOWS",
+      "subcategory": "COMMUNICATION",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11", "Linux"],
+      "agent_affinity": ["DC", "VSCC", "TERMC", "CMDC"]
+    }
+  }
+}

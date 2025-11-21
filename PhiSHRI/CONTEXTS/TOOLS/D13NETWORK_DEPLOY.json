@@ -1,0 +1,46 @@
+{
+  "door_code": "D13NETWORK_DEPLOY",
+  "semantic_path": "TOOLS.DEPLOYMENT.NETWORK",
+  "aliases": ["BITS", "BranchCache", "CDN", "distribution points", "network optimization", "bandwidth management"],
+  "context_bundle": {
+    "summary": "Network optimization for enterprise deployments using BITS (Background Intelligent Transfer Service), BranchCache, CDN, and distribution points to reduce WAN usage",
+    "prerequisites": ["D06ENTERPRISE", "D07GPO"],
+    "related_doors": ["T24NGINX", "T22REDIS", "R03MICROSERVICE"],
+    "onboarding": {
+      "quick_start": "Enable BITS throttling, configure BranchCache for branch offices, use distribution point groups, implement CDN for global content delivery",
+      "full_context_path": "/PhiDEX/DEPLOYMENT_ALMANAC/09_ENTERPRISE/ENTERPRISE_DEPLOYMENT_GUIDE.md",
+      "common_patterns": [
+        "BITS: Bandwidth throttling, pause/resume, automatic retry with backoff",
+        "BranchCache: Distributed (peer-to-peer) or Hosted (central cache server) modes",
+        "MECM Distribution Points: Geographic DP groups, pull DPs for branch offices",
+        "Microsoft Connected Cache: Branch office caching for Intune updates",
+        "Delivery Optimization: LAN + Internet peer caching (DODownloadMode=99)",
+        "CDN: Akamai, Cloudflare for global edge distribution"
+      ],
+      "known_errors": [
+        "BITS throttling set via registry: MaxTransferRateOnSchedule",
+        "BranchCache requires firewall rules: TCP 80, 443, UDP 3702",
+        "Pull DPs reduce main office bandwidth but add latency",
+        "Delivery Optimization may use metered connections without proper config"
+      ]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/DEPLOYMENT_ALMANAC/09_ENTERPRISE/ENTERPRISE_DEPLOYMENT_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T02:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["BITS", "BranchCache", "CDN", "distribution", "network", "bandwidth", "WAN"],
+      "category": "TOOLS",
+      "subcategory": "DEPLOYMENT",
+      "version": "1.0.0",
+      "tested_on": ["Windows Server 2019", "Windows Server 2022", "MECM", "Intune"],
+      "agent_affinity": ["DC", "VSCC"]
+    }
+  }
+}

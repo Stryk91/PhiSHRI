@@ -1,0 +1,39 @@
+{
+  "door_code": "R15BUILDER_PATTERN",
+  "semantic_path": "ARCHITECTURE.PATTERNS.CREATIONAL.BUILDER",
+  "aliases": ["builder", "fluent builder", "construction pattern"],
+  "context_bundle": {
+    "summary": "Builder pattern separates construction of complex object from its representation, allowing same construction process to create different representations",
+    "prerequisites": ["R01MULTI"],
+    "related_doors": ["R09FACTORY_PATTERN"],
+    "onboarding": {
+      "quick_start": "Use builder class with fluent interface to construct complex objects step-by-step with readable, maintainable code",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/02_PATTERNS/DESIGN_PATTERNS_GUIDE.md",
+      "common_patterns": [
+        "Builder provides methods to set each property",
+        "Fluent interface with method chaining",
+        "Build() method returns constructed object",
+        "Used for objects with many optional parameters"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/02_PATTERNS/DESIGN_PATTERNS_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T01:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["architecture", "design pattern", "builder", "creational"],
+      "category": "ARCHITECTURE",
+      "subcategory": "PATTERNS",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11", "Linux"],
+      "agent_affinity": ["VSCC", "DC"]
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "door_code": "T14TERRAFORM",
+  "semantic_path": "TOOLS.INFRASTRUCTURE.TERRAFORM",
+  "aliases": ["terraform", "iac", "infrastructure_as_code", "tf", "hcl"],
+  "context_bundle": {
+    "summary": "Terraform: Infrastructure as Code (IaC) tool for provisioning cloud resources. Declarative HCL syntax, state management (tracks real resources), providers for AWS/Azure/GCP/etc. Workflow: terraform init (download providers), terraform plan (preview changes), terraform apply (execute), terraform destroy (tear down). Resources: aws_instance, azurerm_virtual_machine, google_compute_instance. Variables for reusability, outputs for values, modules for composition. State: terraform.tfstate (local) or remote backend (S3, Terraform Cloud). Best practices: Use remote state, version providers, modularize, use workspaces for environments (dev/staging/prod), plan before apply, .tfvars for secrets (gitignored).",
+    "prerequisites": ["W76OPTIMIZE_DB", "S13SECRETS_ROTATION"],
+    "related_doors": ["T15ANSIBLE", "T13K8S_SECRETS", "R05SERVERLESS"],
+    "onboarding": {
+      "quick_start": "Terraform basics: Install: brew install terraform (Mac) or download from terraform.io. HCL config (main.tf): terraform { required_providers { aws = { source = \"hashicorp/aws\", version = \"~> 5.0\" } } }; provider \"aws\" { region = \"us-east-1\" }; resource \"aws_instance\" \"web\" { ami = \"ami-12345678\"; instance_type = \"t2.micro\"; tags = { Name = \"WebServer\" } }. Init: terraform init; # Downloads AWS provider. Plan: terraform plan; # Shows changes (+ create, ~ modify, - destroy). Apply: terraform apply; # Creates resources, updates state. Variables (variables.tf): variable \"instance_type\" { default = \"t2.micro\" }; resource uses: instance_type = var.instance_type. Outputs (outputs.tf): output \"instance_ip\" { value = aws_instance.web.public_ip }. Remote state (backend.tf): terraform { backend \"s3\" { bucket = \"my-terraform-state\"; key = \"prod/terraform.tfstate\"; region = \"us-east-1\" } }. Modules: module \"vpc\" { source = \"./modules/vpc\"; cidr_block = \"10.0.0.0/16\" }. Destroy: terraform destroy; # Removes all managed resources.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "AWS EC2 instance: resource \"aws_instance\" \"app\" { ami = var.ami_id; instance_type = \"t3.medium\"; vpc_security_group_ids = [aws_security_group.app.id]; user_data = file(\"init.sh\"); tags = { Environment = \"production\" } }",
+        "Azure VM: resource \"azurerm_virtual_machine\" \"main\" { name = \"vm-${var.environment}\"; location = azurerm_resource_group.main.location; resource_group_name = azurerm_resource_group.main.name; vm_size = \"Standard_DS1_v2\" }",
+        "Variables with tfvars: terraform.tfvars: instance_type = \"t2.large\"; environment = \"prod\"; # terraform apply -var-file=terraform.tfvars",
+        "Count for multiple resources: resource \"aws_instance\" \"web\" { count = 3; ami = var.ami; instance_type = \"t2.micro\"; tags = { Name = \"web-${count.index}\" } }",
+        "Conditional resource: resource \"aws_s3_bucket\" \"logs\" { count = var.enable_logging ? 1 : 0; bucket = \"app-logs-${var.environment}\" }",
+        "Data sources: data \"aws_ami\" \"ubuntu\" { most_recent = true; owners = [\"099720109477\"]; filter { name = \"name\"; values = [\"ubuntu/images/hvm-ssd/ubuntu-*\"] } }; resource uses: ami = data.aws_ami.ubuntu.id",
+        "Remote state reference: data \"terraform_remote_state\" \"vpc\" { backend = \"s3\"; config = { bucket = \"shared-state\"; key = \"vpc.tfstate\" } }; subnet_id = data.terraform_remote_state.vpc.outputs.subnet_id",
+        "Workspaces: terraform workspace new prod; terraform workspace select prod; # Separate state per workspace",
+        "Module composition: module \"vpc\" { source = \"terraform-aws-modules/vpc/aws\"; version = \"3.0.0\"; cidr = \"10.0.0.0/16\"; azs = [\"us-east-1a\", \"us-east-1b\"] }",
+        "Lifecycle: resource \"aws_instance\" \"app\" { lifecycle { create_before_destroy = true; prevent_destroy = false; ignore_changes = [tags] } }"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T22:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["terraform", "iac", "infrastructure", "hcl", "aws", "azure", "gcp", "provisioning"],
+      "category": "TOOLS",
+      "subcategory": "INFRASTRUCTURE",
+      "version": "1.0.0",
+      "tested_on": ["AWS", "Azure", "GCP", "Terraform 1.x"],
+      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+    }
+  }
+}

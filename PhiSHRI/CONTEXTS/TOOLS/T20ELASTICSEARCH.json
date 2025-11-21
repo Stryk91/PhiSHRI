@@ -1,0 +1,40 @@
+{
+  "door_code": "T20ELASTICSEARCH",
+  "semantic_path": "TOOLS.SEARCH.ELASTICSEARCH",
+  "aliases": ["elasticsearch", "elk", "search_engine", "full_text_search", "elasticsearch_query"],
+  "context_bundle": {
+    "summary": "Elasticsearch is distributed search and analytics engine using inverted indexes for full-text search, aggregations for analytics, and RESTful API with Query DSL for complex searches across JSON documents.",
+    "prerequisites": ["W84LOGGING", "W86METRICS"],
+    "related_doors": ["T10OBSERVABILITY"],
+    "onboarding": {
+      "quick_start": "Elasticsearch workflow: 1) Start ES cluster. 2) Create index with mapping (schema). 3) Index documents via REST API or client library. 4) Search using Query DSL (match, term, bool queries). 5) Use aggregations for analytics (sum, avg, terms). 6) Implement pagination with from/size or search_after. 7) Monitor cluster health. Part of ELK stack (Elasticsearch, Logstash, Kibana).",
+      "full_context_path": "/PhiDEX/industry_knowledge/elasticsearch_patterns.md",
+      "common_patterns": [
+        "Index document: from elasticsearch import Elasticsearch; es = Elasticsearch(['http://localhost:9200']); doc = {'title': 'Document Title', 'content': 'Full text content', 'timestamp': '2025-01-21'}; es.index(index='my-index', id=1, document=doc)",
+        "Search query: query = {'query': {'match': {'content': 'search terms'}}}; results = es.search(index='my-index', body=query); for hit in results['hits']['hits']: print(hit['_source'])",
+        "Bool query: query = {'query': {'bool': {'must': [{'match': {'status': 'active'}}], 'filter': [{'range': {'timestamp': {'gte': '2025-01-01'}}}], 'should': [{'match': {'priority': 'high'}}], 'must_not': [{'match': {'deleted': True}}]}}",
+        "Aggregations: agg_query = {'size': 0, 'aggs': {'by_category': {'terms': {'field': 'category.keyword', 'size': 10}}, 'avg_price': {'avg': {'field': 'price'}}}}; results = es.search(index='products', body=agg_query)",
+        "Mapping: mapping = {'mappings': {'properties': {'title': {'type': 'text', 'analyzer': 'standard'}, 'timestamp': {'type': 'date'}, 'tags': {'type': 'keyword'}}}}; es.indices.create(index='my-index', body=mapping)"
+      ],
+      "known_errors": ["E08NETWORK_ERRORS", "E03TIMEOUT"]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/industry_knowledge/elasticsearch_patterns.md"],
+      "code": [],
+      "tests": [],
+      "errors": ["E08NETWORK_ERRORS", "E03TIMEOUT"]
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T00:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["elasticsearch", "search", "full_text_search", "analytics", "elk_stack"],
+      "category": "TOOLS",
+      "subcategory": "SEARCH",
+      "version": "1.0.0",
+      "tested_on": ["Elasticsearch 8.x", "Python elasticsearch", "Kibana", "Logstash"],
+      "agent_affinity": ["DC", "VSCC", "WEBC"]
+    }
+  }
+}

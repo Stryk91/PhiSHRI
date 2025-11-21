@@ -1,0 +1,42 @@
+{
+  "door_code": "D06ENTERPRISE",
+  "semantic_path": "TOOLS.DEPLOYMENT.ENTERPRISE",
+  "aliases": ["enterprise deployment", "mass deployment", "SCCM", "Intune", "MDM", "Jamf"],
+  "context_bundle": {
+    "summary": "Enterprise-scale deployment tools for managing thousands of devices including SCCM/MECM, Microsoft Intune, Jamf Pro, PDQ Deploy, and configuration management platforms",
+    "prerequisites": ["D05SILENT_INSTALL", "T11CICD"],
+    "related_doors": ["D08AUTOPILOT", "D07GPO", "S05SECRETS", "T21PROMETHEUS"],
+    "onboarding": {
+      "quick_start": "Deploy at scale using MECM for on-premises Windows, Intune for cloud Windows/iOS/Android, Jamf Pro for Apple devices, or Ansible/Puppet for cross-platform infrastructure",
+      "full_context_path": "/PhiDEX/DEPLOYMENT_ALMANAC/09_ENTERPRISE/ENTERPRISE_DEPLOYMENT_GUIDE.md",
+      "common_patterns": [
+        "MECM: Application deployment with distribution point groups",
+        "Intune: Win32 app deployment with compliance policies",
+        "Jamf Pro: Configuration profiles and Self Service catalog",
+        "PDQ Deploy: Agentless Windows deployment with scheduling",
+        "Ansible: Agentless automation via SSH with playbooks",
+        "Puppet: Agent-based declarative configuration management",
+        "Chef: Infrastructure as code with recipes and cookbooks"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/DEPLOYMENT_ALMANAC/09_ENTERPRISE/ENTERPRISE_DEPLOYMENT_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T02:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["enterprise", "deployment", "SCCM", "Intune", "Jamf", "MDM", "mass deployment"],
+      "category": "TOOLS",
+      "subcategory": "DEPLOYMENT",
+      "version": "1.0.0",
+      "tested_on": ["Windows Server", "Azure", "macOS", "iOS", "Android"],
+      "agent_affinity": ["DC", "VSCC"]
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "door_code": "W27UNCERTAINTY",
+  "semantic_path": "WORKFLOWS.AI_OPTIMIZATION.ALLOW_UNCERTAINTY",
+  "aliases": ["uncertainty", "idk", "confidence", "hallucination_prevention"],
+  "context_bundle": {
+    "summary": "Allow uncertainty pattern: Give AI permission to express 'I don't know' rather than guessing. Reduces hallucinations, increases reliability, builds trust. Prompt: 'If you don't have enough information, say: I don't have sufficient information to answer confidently. I would need [x] to provide accurate response.'",
+    "prerequisites": ["W02PROMPT"],
+    "related_doors": ["W24COT", "W28JSON_OUTPUT"],
+    "onboarding": {
+      "quick_start": "Allow uncertainty = permission to say 'I don't know'. Add to prompt: 'If unsure, explicitly state: I need [specific info] to answer confidently.' Benefits: reduces hallucinations, increases reliability, builds user trust. Critical for factual accuracy.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md",
+      "common_patterns": [
+        "If you don't have enough information, say: 'I don't have sufficient information...'",
+        "Explicitly state what additional information would be needed",
+        "Use confidence scores in structured outputs",
+        "Prefer 'I'm not certain' over guessing",
+        "Indicate sources of uncertainty"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T18:40:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["ai", "uncertainty", "hallucination", "reliability"],
+      "category": "WORKFLOWS",
+      "subcategory": "AI_OPTIMIZATION",
+      "version": "1.0.0",
+      "tested_on": ["Claude", "GPT-4", "Gemini"],
+      "agent_affinity": ["DC", "VSCC", "WEBC"]
+    }
+  }
+}

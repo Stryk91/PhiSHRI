@@ -1,0 +1,39 @@
+{
+  "door_code": "T21PROMETHEUS",
+  "semantic_path": "TOOLS.OBSERVABILITY.PROMETHEUS",
+  "aliases": ["prometheus", "metrics", "monitoring", "time series"],
+  "context_bundle": {
+    "summary": "Prometheus open-source monitoring system with dimensional data model and powerful query language for metrics collection and alerting",
+    "prerequisites": ["T10OBSERVABILITY", "W86METRICS"],
+    "related_doors": ["T16GRAFANA", "T17PROMETHEUS", "W86METRICS"],
+    "onboarding": {
+      "quick_start": "Deploy Prometheus to scrape metrics endpoints, store time-series data, and query with PromQL for monitoring and alerting",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/02_TOOL_INTEGRATION/TOOL_INTEGRATION_INTEROPERABILITY_GUIDE.md",
+      "common_patterns": [
+        "Instrument code with Prometheus client libraries",
+        "Configure scrape targets in prometheus.yml",
+        "Use PromQL for querying metrics",
+        "Set up alerting rules and Alertmanager integration"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/02_TOOL_INTEGRATION/TOOL_INTEGRATION_INTEROPERABILITY_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T01:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["tools", "prometheus", "monitoring", "metrics", "observability"],
+      "category": "TOOLS",
+      "subcategory": "OBSERVABILITY",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11", "Linux"],
+      "agent_affinity": ["DC", "VSCC", "TERMC"]
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "door_code": "W57ELASTICSEARCH",
+  "semantic_path": "WORKFLOWS.DATA_PROCESSING.ELASTICSEARCH_SEARCH",
+  "aliases": ["elasticsearch", "search", "full_text_search", "elk_stack", "elastic"],
+  "context_bundle": {
+    "summary": "Elasticsearch distributed search and analytics engine: Full-text search, structured search, aggregations, real-time analytics. JSON documents in indexes (inverted index). Query DSL: match, term, range, bool. Aggregations: metrics, buckets (histogram, terms). ELK Stack: Elasticsearch (search/storage), Logstash (ingestion), Kibana (visualization). Use cases: log analytics, search engines, metrics, security (SIEM). Performance: horizontal scaling, sharding, replication.",
+    "prerequisites": ["W55POSTGRES", "W56MONGODB"],
+    "related_doors": ["W53KAFKA", "W50ETL", "T10OBSERVABILITY"],
+    "onboarding": {
+      "quick_start": "Elasticsearch basics: Indexes (like databases), documents (JSON), inverted index for fast search. Index: POST /users/_doc {\"name\": \"John\", \"email\": \"john@example.com\"}. Search: GET /users/_search {\"query\": {\"match\": {\"name\": \"John\"}}}. Term query (exact): {\"term\": {\"status\": \"active\"}}. Bool query: {\"bool\": {\"must\": [{\"match\": {...}}], \"filter\": [{\"range\": {...}}]}}. Aggregations: {\"aggs\": {\"by_status\": {\"terms\": {\"field\": \"status\"}}}}. ELK: Logstash (ingest) -> Elasticsearch (index) -> Kibana (visualize). Use for: logs, search, metrics, SIEM. Sharding for scale, replication for HA.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/05_DATA_PROCESSING/DATA_PROCESSING_MANAGEMENT_RESEARCH.md",
+      "common_patterns": [
+        "Index document: PUT /index/_doc/1 {\"field\": \"value\"}",
+        "Match query: {\"query\": {\"match\": {\"message\": \"error\"}}}",
+        "Term query (exact): {\"query\": {\"term\": {\"status.keyword\": \"active\"}}}",
+        "Range query: {\"query\": {\"range\": {\"timestamp\": {\"gte\": \"2024-01-01\"}}}}",
+        "Bool query: {\"bool\": {\"must\": [...], \"filter\": [...], \"should\": [...]}}",
+        "Aggregation: {\"aggs\": {\"status_count\": {\"terms\": {\"field\": \"status.keyword\"}}}}",
+        "Histogram: {\"aggs\": {\"by_date\": {\"date_histogram\": {\"field\": \"timestamp\", \"interval\": \"day\"}}}}",
+        "ELK Stack: Logstash -> Elasticsearch -> Kibana dashboards",
+        "Mapping: define field types (text, keyword, date, integer)",
+        "Sharding: primary shards + replica shards for scale and HA"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/05_DATA_PROCESSING/DATA_PROCESSING_MANAGEMENT_RESEARCH.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T19:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["elasticsearch", "search", "full_text", "elk", "logs", "analytics", "kibana"],
+      "category": "WORKFLOWS",
+      "subcategory": "DATA_PROCESSING",
+      "version": "1.0.0",
+      "tested_on": ["Elasticsearch 7+", "Elasticsearch 8", "ELK Stack"],
+      "agent_affinity": ["VSCC", "TERMC", "CMDC"]
+    }
+  }
+}

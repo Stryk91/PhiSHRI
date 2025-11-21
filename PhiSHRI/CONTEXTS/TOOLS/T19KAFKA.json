@@ -1,0 +1,40 @@
+{
+  "door_code": "T19KAFKA",
+  "semantic_path": "TOOLS.STREAMING.APACHE_KAFKA",
+  "aliases": ["kafka", "apache_kafka", "streaming", "event_streaming", "message_broker"],
+  "context_bundle": {
+    "summary": "Apache Kafka is distributed event streaming platform for high-throughput message publishing/subscribing using topics, partitions, consumer groups, and exactly-once semantics for reliable real-time data pipelines.",
+    "prerequisites": ["W88STREAMING", "W98MESSAGE_QUEUE"],
+    "related_doors": ["W91DATA_PIPELINE", "R04EVENT_DRIVEN"],
+    "onboarding": {
+      "quick_start": "Kafka workflow: 1) Start Zookeeper and Kafka broker. 2) Create topic with kafka-topics.sh. 3) Produce messages to topic with KafkaProducer. 4) Consume from topic with KafkaConsumer using consumer groups. 5) Configure partitions for parallelism. 6) Set replication factor for durability. 7) Use Kafka Connect for source/sink integration. Consumer groups enable scalable, parallel processing.",
+      "full_context_path": "/PhiDEX/industry_knowledge/kafka_patterns.md",
+      "common_patterns": [
+        "Producer: from kafka import KafkaProducer; import json; producer = KafkaProducer(bootstrap_servers=['localhost:9092'], value_serializer=lambda v: json.dumps(v).encode('utf-8')); producer.send('my-topic', {'key': 'value'}); producer.flush()",
+        "Consumer: from kafka import KafkaConsumer; import json; consumer = KafkaConsumer('my-topic', bootstrap_servers=['localhost:9092'], group_id='my-group', auto_offset_reset='earliest', value_deserializer=lambda m: json.loads(m.decode('utf-8'))); for message in consumer: print(f'Received: {message.value}')",
+        "Topic creation: kafka-topics.sh --create --bootstrap-server localhost:9092 --topic my-topic --partitions 3 --replication-factor 2",
+        "Consumer group: # Multiple consumers with same group_id process partitions in parallel; consumer1 = KafkaConsumer('topic', group_id='group1'); consumer2 = KafkaConsumer('topic', group_id='group1'); # Different groups receive all messages independently",
+        "Exactly-once: producer = KafkaProducer(enable_idempotence=True, transactional_id='my-transactional-id'); producer.begin_transaction(); producer.send('topic', 'message'); producer.commit_transaction()"
+      ],
+      "known_errors": ["E08NETWORK_ERRORS", "E03TIMEOUT"]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/industry_knowledge/kafka_patterns.md"],
+      "code": [],
+      "tests": [],
+      "errors": ["E08NETWORK_ERRORS", "E03TIMEOUT"]
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T00:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["kafka", "streaming", "event_streaming", "message_broker", "real_time"],
+      "category": "TOOLS",
+      "subcategory": "STREAMING",
+      "version": "1.0.0",
+      "tested_on": ["Apache Kafka 3.x", "Python kafka-python", "Java", "Kafka Connect"],
+      "agent_affinity": ["DC", "VSCC", "WEBC"]
+    }
+  }
+}

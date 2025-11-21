@@ -1,0 +1,48 @@
+{
+  "door_code": "D03SIGN",
+  "semantic_path": "DEPLOYMENT.SECURITY.CODE_SIGNING",
+  "aliases": ["code_signing", "authenticode", "certificate", "trust", "smartscreen"],
+  "context_bundle": {
+    "summary": "Code signing for Windows (Authenticode), macOS, Linux. Verifies publisher, ensures integrity, builds trust. Windows: EV vs OV certs ($279-$500/yr). 2024 change: EV no instant SmartScreen reputation. RSA 2048-bit min, timestamp required.",
+    "prerequisites": [],
+    "related_doors": ["D01WIX", "D04UPDATE", "S01SEC"],
+    "onboarding": {
+      "quick_start": "Code signing = digital signature proves publisher + integrity. Windows Authenticode: RSA keys only (not ECC), 2048-bit min. EV cert ($279+) = hardware token, no export. OV cheaper but slower reputation build. Always timestamp sigs.",
+      "full_context_path": "/PhiDEX/DEPLOYMENT_ALMANAC/04_SIGNING_TRUST/CODE_SIGNING_TRUST_GUIDE.md",
+      "common_patterns": [
+        "Get cert: DigiCert, Sectigo, Entrust ($279-$500/yr)",
+        "Sign EXE: signtool sign /f cert.pfx /p pass /t timestamp_url app.exe",
+        "Verify: signtool verify /pa /v app.exe",
+        "EV cert: Hardware token (FIPS 140 Level 2+), no export",
+        "SmartScreen: Build reputation via organic downloads, submit to MS"
+      ],
+      "known_errors": [
+        {
+          "error": "SmartScreen blocks signed app",
+          "cause": "New certificate, no reputation established",
+          "solution": "Submit to Microsoft for evaluation, accumulate downloads",
+          "prevention": "Expect weeks for reputation, warn users initially",
+          "related_door": "D03SIGN"
+        }
+      ]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/DEPLOYMENT_ALMANAC/04_SIGNING_TRUST/CODE_SIGNING_TRUST_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T03:02:00Z",
+      "confidence": 0.97,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["code_signing", "security", "authenticode", "certificates", "trust"],
+      "category": "DEPLOYMENT",
+      "subcategory": "SECURITY",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11"],
+      "agent_affinity": ["VSCC", "DC"]
+    }
+  }
+}

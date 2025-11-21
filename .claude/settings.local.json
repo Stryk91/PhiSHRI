@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wsl --list:*)",
+      "Bash(wsl ls:*)",
+      "Bash(wsl.exe pwd:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

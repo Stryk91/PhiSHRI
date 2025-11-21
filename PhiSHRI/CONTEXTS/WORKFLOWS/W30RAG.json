@@ -1,0 +1,40 @@
+{
+  "door_code": "W30RAG",
+  "semantic_path": "WORKFLOWS.AI_OPTIMIZATION.RETRIEVAL_AUGMENTED_GENERATION",
+  "aliases": ["rag", "retrieval", "vector_search", "embeddings"],
+  "context_bundle": {
+    "summary": "RAG (Retrieval-Augmented Generation): Retrieve relevant docs, feed to LLM. Advantages: cost-effective (only relevant info), current data, citations, reduced latency. Use for: >1M tokens, current events, source attribution, cost-sensitive apps. 65% cost reduction vs full context.",
+    "prerequisites": ["W29CONTEXT_WINDOW", "W31CHUNKING"],
+    "related_doors": ["W32HYBRID_RAG", "W04TOKEN"],
+    "onboarding": {
+      "quick_start": "RAG = retrieve relevant chunks + generate response. Steps: 1. Chunk documents 2. Embed chunks 3. Store in vector DB 4. Query retrieves top-K 5. LLM generates from retrieved context. Use for large knowledge bases, current info, citations. 65% cheaper than full context (Gemini).",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md",
+      "common_patterns": [
+        "Chunk → Embed → Store → Retrieve → Generate",
+        "Use for knowledge bases >1M tokens",
+        "Hybrid: RAG + long-context for best of both",
+        "Vector DB: Pinecone, Weaviate, Chroma, Qdrant",
+        "Embedding models: OpenAI, Cohere, Sentence-BERT"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T18:42:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["ai", "rag", "retrieval", "vector_search"],
+      "category": "WORKFLOWS",
+      "subcategory": "AI_OPTIMIZATION",
+      "version": "1.0.0",
+      "tested_on": ["Claude", "GPT-4", "Gemini"],
+      "agent_affinity": ["DC", "VSCC", "WEBC"]
+    }
+  }
+}

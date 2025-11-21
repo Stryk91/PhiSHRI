@@ -1,0 +1,51 @@
+{
+  "door_code": "T02VSCODE",
+  "semantic_path": "TOOLS.IDE.VSCODE_EXTENSIONS",
+  "aliases": ["vscode", "extension_dev", "vscode_api", "ide_integration"],
+  "context_bundle": {
+    "summary": "VSCode extension development using TypeScript/JavaScript. Scaffold with yo code generator. Package types: extensions, themes, languages, snippets. Extension API enables custom commands, UI, debugging integration.",
+    "prerequisites": [],
+    "related_doors": ["W01COORD", "A02VSCC"],
+    "onboarding": {
+      "quick_start": "Install yo generator-code globally. Run 'yo code' to scaffold. Choose extension type. Package.json defines contributions (commands, menus, settings). Main activation point: activate() function.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "npm install -g yo generator-code",
+        "yo code -> New Extension (TypeScript)",
+        "package.json: activationEvents, contributes",
+        "vscode.commands.registerCommand() for actions",
+        "Use vscode.window API for UI interactions"
+      ],
+      "known_errors": [
+        {
+          "error": "Extension doesn't activate",
+          "cause": "activationEvents not triggered or missing",
+          "solution": "Check activationEvents in package.json, use '*' for testing",
+          "prevention": "Define specific activation events for production",
+          "related_door": "T02VSCODE"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+        "https://code.visualstudio.com/api"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T02:57:00Z",
+      "confidence": 0.97,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["vscode", "extensions", "ide", "typescript", "development"],
+      "category": "TOOLS",
+      "subcategory": "IDE_INTEGRATION",
+      "version": "1.0.0",
+      "tested_on": ["VSCode 1.85+"],
+      "agent_affinity": ["VSCC"]
+    }
+  }
+}

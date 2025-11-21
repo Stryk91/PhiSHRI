@@ -1,0 +1,44 @@
+{
+  "door_code": "W124PARALLEL",
+  "semantic_path": "WORKFLOWS.ORCHESTRATION.PARALLEL",
+  "aliases": ["parallel execution", "concurrent tasks", "fan-out fan-in", "parallelization"],
+  "context_bundle": {
+    "summary": "Parallel task execution pattern for running independent tasks concurrently with fan-out/fan-in aggregation to maximize throughput",
+    "prerequisites": ["W122DAG", "W123ORCHESTRATION", "W17PARALLEL"],
+    "related_doors": ["W78CONCURRENCY", "W125CHOREOGRAPHY", "W19PERF"],
+    "onboarding": {
+      "quick_start": "Fan-out: Launch all independent tasks simultaneously. Fan-in: Wait for all to complete, aggregate results. Use for tasks without dependencies.",
+      "full_context_path": "/PhiDEX/PhiSync/02_WORKFLOW_ORCHESTRATION/WORKFLOW_ORCHESTRATION_PATTERNS.md",
+      "common_patterns": [
+        "Identify parallelizable tasks: Check if all dependencies are complete",
+        "Fan-out: Send commands to multiple agents simultaneously",
+        "Polling: Check each agent's outbox for completion",
+        "Fan-in: Aggregate results when all tasks complete",
+        "Timeout: Abort if any task exceeds deadline"
+      ],
+      "known_errors": [
+        "Resource contention with too many parallel tasks",
+        "Slowest task determines total completion time",
+        "Error in one task may require aborting all parallel tasks"
+      ]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/PhiSync/02_WORKFLOW_ORCHESTRATION/WORKFLOW_ORCHESTRATION_PATTERNS.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T02:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["parallel", "concurrent", "fan-out", "fan-in", "throughput"],
+      "category": "WORKFLOWS",
+      "subcategory": "ORCHESTRATION",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11"],
+      "agent_affinity": ["DC", "VSCC"]
+    }
+  }
+}

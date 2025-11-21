@@ -1,0 +1,43 @@
+{
+  "door_code": "W63BDD",
+  "semantic_path": "WORKFLOWS.DEVELOPMENT.BEHAVIOR_DRIVEN_DEVELOPMENT",
+  "aliases": ["bdd", "behavior_driven_development", "gherkin", "cucumber"],
+  "context_bundle": {
+    "summary": "Behavior-Driven Development (BDD): Extension of TDD focusing on business behavior. Write tests in natural language (Given-When-Then) readable by non-developers. Frameworks: Cucumber (Java, Ruby, JS), Behave (Python), SpecFlow (.NET), Pytest-BDD (Python). Gherkin syntax: Feature, Scenario, Given (precondition), When (action), Then (assertion), And (continuation). Benefits: Shared understanding, living documentation, acceptance tests. Scenarios become executable specifications. Avoid implementation details in scenarios.",
+    "prerequisites": ["W62TDD", "W58UNITTEST"],
+    "related_doors": ["W60E2E", "W59INTEGRATION", "W01COORD"],
+    "onboarding": {
+      "quick_start": "BDD: Write tests in Gherkin (Given-When-Then). Feature file (login.feature): Feature: User Login; Scenario: Successful login; Given the user is on the login page; When the user enters email 'test@example.com'; And the user enters password 'password123'; And the user clicks the login button; Then the user should be redirected to the dashboard; And the user should see welcome message. Step definitions (Python/Behave): @given('the user is on the login page') def step_impl(context): context.browser.get('/login'); @when('the user enters email {email}') def step_impl(context, email): context.browser.find_element_by_id('email').send_keys(email); @then('the user should be redirected to {page}') def step_impl(context, page): assert page in context.browser.current_url. Run: behave (Python), cucumber (JS/Ruby). Benefits: Business stakeholders can read/write scenarios, scenarios become living documentation. Gherkin best practices: Use domain language, avoid technical details, one scenario per behavior, use Scenario Outline for data variations.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Feature file structure: Feature: Shopping Cart; Background: Given the user is logged in; Scenario: Add item to cart; Given the user is on the products page; When the user clicks 'Add to Cart' for 'iPhone 15'; Then the cart should contain 1 item; And the cart total should be $999",
+        "Scenario Outline: Scenario Outline: Calculate discount; Given a product with price <price>; When a discount of <discount>% is applied; Then the final price should be <final>; Examples: | price | discount | final | | 100 | 10 | 90 | | 200 | 20 | 160 |",
+        "Cucumber (JS): Given('the user is on {string}', async function(page) { await this.browser.goto(page); }); When('the user clicks {string}', async function(button) { await this.page.click(button); })",
+        "Behave (Python): @when('I search for {query}') def step_search(context, query): context.search_results = search(query); @then('I should see {count:d} results') def step_verify(context, count): assert len(context.search_results) == count",
+        "SpecFlow (.NET): [Given(@'the user has (\\d+) dollars')] public void GivenUserHasDollars(int amount) { user.Balance = amount; }",
+        "Background (common setup): Background: Given the database is empty; And the following users exist: | email | role | | admin@test.com | admin | | user@test.com | user |",
+        "Hooks: @before_scenario def before(context): context.browser = Browser(); @after_scenario def after(context): context.browser.quit()",
+        "Tags: @smoke @regression Scenario: Critical login flow... Run: behave --tags=smoke (run only smoke tests)"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T20:45:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["bdd", "behavior_driven_development", "gherkin", "cucumber", "behave", "given_when_then"],
+      "category": "WORKFLOWS",
+      "subcategory": "DEVELOPMENT",
+      "version": "1.0.0",
+      "tested_on": ["Cucumber", "Behave", "SpecFlow", "Pytest-BDD"],
+      "agent_affinity": ["VSCC", "WEBC", "CMDC"]
+    }
+  }
+}

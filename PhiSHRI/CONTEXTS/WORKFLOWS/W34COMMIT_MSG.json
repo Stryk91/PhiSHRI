@@ -1,0 +1,41 @@
+{
+  "door_code": "W34COMMIT_MSG",
+  "semantic_path": "WORKFLOWS.DEVELOPMENT.COMMIT_CONVENTIONS",
+  "aliases": ["commit_message", "conventional_commits", "commit_format"],
+  "context_bundle": {
+    "summary": "Commit message conventions: Conventional Commits format - type(scope): subject. Types: feat, fix, docs, style, refactor, test, chore. Subject: imperative mood, lowercase, no period. Body: optional details. Footer: breaking changes, issue refs.",
+    "prerequisites": ["W14GIT", "W33GIT_BRANCH"],
+    "related_doors": ["W36GITHUB_ACTIONS", "W15CICD"],
+    "onboarding": {
+      "quick_start": "Commit messages: type(scope): subject. Types: feat (new feature), fix (bug fix), docs (documentation), style (formatting), refactor (code change), test (tests), chore (maintenance). Subject: imperative, lowercase, <50 chars. Example: 'feat(auth): add OAuth2 login'",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "feat(scope): add new feature",
+        "fix(scope): resolve bug in component",
+        "docs: update README with examples",
+        "refactor: simplify authentication logic",
+        "test: add unit tests for parser",
+        "BREAKING CHANGE: footer for breaking changes"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T18:55:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["git", "commits", "conventions", "conventional_commits"],
+      "category": "WORKFLOWS",
+      "subcategory": "DEVELOPMENT",
+      "version": "1.0.0",
+      "tested_on": ["Git"],
+      "agent_affinity": ["DC", "VSCC"]
+    }
+  }
+}

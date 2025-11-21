@@ -1,0 +1,47 @@
+{
+  "door_code": "W02PROMPT",
+  "semantic_path": "WORKFLOWS.AI.PROMPT_ENGINEERING",
+  "aliases": ["prompt_eng", "xml_prompts", "claude_prompts", "prompt_patterns"],
+  "context_bundle": {
+    "summary": "Comprehensive prompt engineering best practices for Claude 4.x including XML-structured prompts, thinking tags, multi-shot examples, and model-specific optimization patterns.",
+    "prerequisites": ["A01DC", "A02VSCC"],
+    "related_doors": ["W03CONTEXT", "W04TOKEN", "R01MULTI"],
+    "onboarding": {
+      "quick_start": "Use XML tags for Claude prompts. Structure: <instructions>, <example>, <data>, <thinking>, <answer>. XML acts as signposts for model reasoning.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md",
+      "common_patterns": [
+        "XML-structured prompts with clear component separation",
+        "Thinking tags for chain-of-thought reasoning",
+        "Multi-shot examples for pattern demonstration",
+        "Model-specific formatting (Claude XML, GPT markdown)"
+      ],
+      "known_errors": [
+        {
+          "error": "Model ignores instructions",
+          "cause": "Poorly structured prompt, mixed instruction/data",
+          "solution": "Use XML tags to separate components clearly",
+          "prevention": "Always wrap instructions in <instructions> tags",
+          "related_door": "W02PROMPT"
+        }
+      ]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T02:50:00Z",
+      "confidence": 0.98,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["ai", "prompts", "claude", "xml", "optimization"],
+      "category": "WORKFLOWS",
+      "subcategory": "AI_OPTIMIZATION",
+      "version": "1.0.0",
+      "tested_on": ["Claude 4.5"],
+      "agent_affinity": ["DC", "VSCC", "WEBC"]
+    }
+  }
+}

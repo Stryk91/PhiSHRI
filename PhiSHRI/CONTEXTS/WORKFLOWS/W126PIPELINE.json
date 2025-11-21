@@ -1,0 +1,44 @@
+{
+  "door_code": "W126PIPELINE",
+  "semantic_path": "WORKFLOWS.ORCHESTRATION.PIPELINE",
+  "aliases": ["sequential pipeline", "pipeline pattern", "linear workflow", "chain of responsibility"],
+  "context_bundle": {
+    "summary": "Sequential pipeline pattern for executing tasks in strict order where each task requires output from previous task",
+    "prerequisites": ["W122DAG", "W123ORCHESTRATION"],
+    "related_doors": ["W20DATA_PIPE", "W91DATA_PIPELINE", "W87ETL"],
+    "onboarding": {
+      "quick_start": "Execute tasks one after another: Task A → Task B → Task C. Each receives output from previous. Abort on first failure.",
+      "full_context_path": "/PhiDEX/PhiSync/02_WORKFLOW_ORCHESTRATION/WORKFLOW_ORCHESTRATION_PATTERNS.md",
+      "common_patterns": [
+        "Linear execution: Task N+1 waits for Task N to complete",
+        "Data flow: Output of Task N becomes input of Task N+1",
+        "Validation: Verify each task result before proceeding to next",
+        "Error propagation: Failure in any task aborts entire pipeline",
+        "Example: Research (WEBC) → Synthesize (DC) → Implement (VSSC)"
+      ],
+      "known_errors": [
+        "No parallelization opportunities (inherently sequential)",
+        "Single task failure aborts entire pipeline",
+        "Total time is sum of all task times"
+      ]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/PhiSync/02_WORKFLOW_ORCHESTRATION/WORKFLOW_ORCHESTRATION_PATTERNS.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T02:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["pipeline", "sequential", "linear", "chain", "data flow"],
+      "category": "WORKFLOWS",
+      "subcategory": "ORCHESTRATION",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11"],
+      "agent_affinity": ["DC", "VSCC"]
+    }
+  }
+}

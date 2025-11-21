@@ -1,0 +1,40 @@
+{
+  "door_code": "E10SERIALIZATION_ERRORS",
+  "semantic_path": "ERRORS.DATA.SERIALIZATION_ERRORS",
+  "aliases": ["serialization_error", "json_error", "xml_error", "parsing_error", "encoding_error"],
+  "context_bundle": {
+    "summary": "Serialization errors occur during JSON/XML/binary data conversion due to invalid syntax, encoding issues, type mismatches, or circular references requiring try-catch handling, schema validation, and proper encoding detection.",
+    "prerequisites": [],
+    "related_doors": ["W101FILE_PROCESSING", "E09VALIDATION_ERRORS"],
+    "onboarding": {
+      "quick_start": "Serialization error handling: 1) JSON: Use try-except for json.loads() with JSONDecodeError. 2) Encoding: Detect with chardet or handle UnicodeDecodeError. 3) Type errors: Validate types before serialization. 4) Circular refs: Use default handler or avoid circular structures. 5) Schema validation: Validate structure after parsing. 6) Provide context in error messages (line number, position). 7) Log malformed data for analysis. Common causes: Invalid JSON syntax, wrong encoding, unsupported types.",
+      "full_context_path": "/PhiDEX/industry_knowledge/serialization_error_patterns.md",
+      "common_patterns": [
+        "JSON parsing: import json; try: data = json.loads(json_string) except json.JSONDecodeError as e: logger.error(f'JSON parse error at line {e.lineno}, column {e.colno}: {e.msg}'); raise SerializationError(f'Invalid JSON: {e.msg}')",
+        "Encoding error: try: content = file.read().decode('utf-8') except UnicodeDecodeError as e: logger.warning(f'UTF-8 decode failed, trying latin-1'); content = file.read().decode('latin-1', errors='replace')",
+        "Serialization type error: def json_default(obj): if isinstance(obj, datetime): return obj.isoformat(); if isinstance(obj, Decimal): return float(obj); raise TypeError(f'Object of type {type(obj).__name__} not JSON serializable'); json.dumps(data, default=json_default)",
+        "XML parsing: import xml.etree.ElementTree as ET; try: tree = ET.parse('data.xml') except ET.ParseError as e: logger.error(f'XML parse error at line {e.position[0]}: {e}'); raise SerializationError(f'Invalid XML: {e}')",
+        "Circular reference: import json; from functools import wraps; def handle_circular_refs(obj, seen=None): if seen is None: seen = set(); if id(obj) in seen: return '<circular>'; seen.add(id(obj)); return obj"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/industry_knowledge/serialization_error_patterns.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T00:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["serialization", "json", "xml", "parsing_error", "encoding", "deserialization"],
+      "category": "ERRORS",
+      "subcategory": "DATA",
+      "version": "1.0.0",
+      "tested_on": ["Python json", "ElementTree", "msgpack", "pickle", "YAML"],
+      "agent_affinity": ["DC", "VSCC"]
+    }
+  }
+}

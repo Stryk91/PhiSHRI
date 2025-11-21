@@ -1,0 +1,40 @@
+{
+  "door_code": "E12MEMORY_ERRORS",
+  "semantic_path": "ERRORS.RUNTIME.MEMORY",
+  "aliases": ["memory leak", "out of memory", "oom", "memory exhaustion"],
+  "context_bundle": {
+    "summary": "Memory leaks and OOM errors troubleshooting patterns for identifying and resolving memory management issues",
+    "prerequisites": ["E01PERM"],
+    "related_doors": ["W77MEMORY_MGMT", "W73PROFILING", "T22REDIS"],
+    "onboarding": {
+      "quick_start": "Use memory profiling tools to identify leaks, implement proper deallocation, avoid circular references, and bound data flows",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md",
+      "common_patterns": [
+        "Profile with Valgrind, YourKit, or language-specific tools",
+        "Implement proper memory deallocation patterns",
+        "Break circular references in GC languages",
+        "Use object pooling to reduce allocation overhead",
+        "Bound data flows to prevent unbounded growth"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T01:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["errors", "memory", "oom", "leak", "runtime"],
+      "category": "ERRORS",
+      "subcategory": "RUNTIME",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11", "Linux"],
+      "agent_affinity": ["VSCC", "DC", "TERMC"]
+    }
+  }
+}

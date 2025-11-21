@@ -1,0 +1,45 @@
+{
+  "door_code": "W64PYTEST",
+  "semantic_path": "WORKFLOWS.TESTING.PYTEST_FRAMEWORK",
+  "aliases": ["pytest", "python_testing", "py.test"],
+  "context_bundle": {
+    "summary": "Pytest: Python testing framework with powerful features. Simple syntax (assert keyword), fixtures for setup/teardown, parametrization, plugins. Features: Auto-discovery (test_*.py), detailed failure reports, markers (@pytest.mark), parallel execution (pytest-xdist), coverage (pytest-cov). Fixtures: @pytest.fixture for reusable setup. Parametrize: @pytest.mark.parametrize for data-driven tests. Plugins: pytest-django, pytest-asyncio, pytest-mock. Run: pytest (all tests), pytest test_file.py (specific file), pytest -k 'test_name' (pattern matching), pytest -v (verbose).",
+    "prerequisites": ["W58UNITTEST"],
+    "related_doors": ["W61MOCKING", "W62TDD", "W66COVERAGE", "W59INTEGRATION"],
+    "onboarding": {
+      "quick_start": "Pytest: pip install pytest. Write tests: def test_addition(): assert 1 + 1 == 2; def test_string(): assert 'hello'.upper() == 'HELLO'. Run: pytest (discovers test_*.py or *_test.py files). Fixtures: @pytest.fixture def db_connection(): conn = create_connection(); yield conn; conn.close(); def test_query(db_connection): result = db_connection.query('SELECT 1'); assert result == [(1,)]. Parametrize: @pytest.mark.parametrize('input,expected', [(2, 4), (3, 9), (0, 0)]) def test_square(input, expected): assert square(input) == expected. Markers: @pytest.mark.slow def test_heavy_computation(): ...; Run: pytest -m slow. Parallel: pytest -n auto (pytest-xdist). Coverage: pytest --cov=myapp --cov-report=html. Config: pytest.ini or pyproject.toml [tool.pytest.ini_options].",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Basic test: def test_list_operations(): lst = [1, 2, 3]; assert len(lst) == 3; assert 2 in lst; lst.append(4); assert lst[-1] == 4",
+        "Fixture: @pytest.fixture(scope='session') def api_client(): client = TestClient(); yield client; client.close()",
+        "Parametrize: @pytest.mark.parametrize('email,valid', [('test@example.com', True), ('invalid', False), ('', False)]) def test_email_validation(email, valid): assert is_valid_email(email) == valid",
+        "Exception testing: def test_division_by_zero(): with pytest.raises(ZeroDivisionError): divide(10, 0); with pytest.raises(ValueError, match='negative'): process(-1)",
+        "Markers: @pytest.mark.integration def test_database(): ...; @pytest.mark.skip(reason='Not implemented') def test_future(): ...; @pytest.mark.skipif(sys.version_info < (3, 8), reason='Requires Python 3.8+')",
+        "Fixture scopes: @pytest.fixture(scope='function') # default, per test; @pytest.fixture(scope='class') # per class; @pytest.fixture(scope='module') # per module; @pytest.fixture(scope='session') # once per session",
+        "Conftest.py: # Shared fixtures across tests; @pytest.fixture def sample_data(): return {'key': 'value'}; # Auto-discovered in all test files",
+        "Pytest-cov: pytest --cov=myapp --cov-report=term-missing --cov-report=html --cov-fail-under=80",
+        "Pytest-xdist (parallel): pytest -n 4 (4 workers), pytest -n auto (CPU count)",
+        "Config (pytest.ini): [pytest]; testpaths = tests; python_files = test_*.py; python_classes = Test*; python_functions = test_*; markers = slow: marks tests as slow; integration: integration tests"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T20:45:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["pytest", "python", "testing", "fixtures", "parametrize", "unittest"],
+      "category": "WORKFLOWS",
+      "subcategory": "TESTING",
+      "version": "1.0.0",
+      "tested_on": ["Python 3.8+"],
+      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+    }
+  }
+}

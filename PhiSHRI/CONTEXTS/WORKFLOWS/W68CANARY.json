@@ -1,0 +1,43 @@
+{
+  "door_code": "W68CANARY",
+  "semantic_path": "WORKFLOWS.DEPLOYMENT.CANARY_DEPLOYMENT",
+  "aliases": ["canary", "canary_deployment", "canary_release", "progressive_delivery"],
+  "context_bundle": {
+    "summary": "Canary deployment: Gradually roll out new version to subset of users. Start with 5-10% traffic, monitor metrics, increase to 25%, 50%, 100% if healthy. Automatic rollback if error rate spikes. Requires: Traffic splitting (load balancer, service mesh), metrics/monitoring, automated health checks. Patterns: Percentage-based (10% users), user-based (specific cohorts), geography-based. Pros: Risk mitigation, real-user testing, gradual rollout. Cons: Complex infrastructure, requires monitoring. Tools: Istio, Linkerd, Flagger (Kubernetes), AWS App Mesh, LaunchDarkly.",
+    "prerequisites": ["W67BLUEGREEN", "T10OBSERVABILITY"],
+    "related_doors": ["W69ROLLING", "W70FEATURE_FLAG", "W48K8S_DEPLOY", "R04EVENT_DRIVEN"],
+    "onboarding": {
+      "quick_start": "Canary: Route small % traffic to new version, increase gradually. Steps: 1) Deploy canary (v2) alongside stable (v1), 2) Route 10% traffic to canary, 3) Monitor error rate/latency for 10-15 min, 4) If healthy, increase to 25%, 50%, 100%, 5) If unhealthy, rollback (route 100% to v1). Kubernetes + Istio: VirtualService with traffic weights: http: - route: - destination: subset: v1, weight: 90; - destination: subset: v2, weight: 10. Increase weight: 90/10 -> 50/50 -> 0/100. Flagger (automated): Canary resource, auto-increments traffic based on metrics (success rate >99%, latency <500ms). AWS: ALB with weighted target groups. Metrics to monitor: Error rate, P99 latency, CPU/memory, custom business metrics. Rollback: If error rate >1% or latency >2x baseline, route 100% to stable. Automated with Flagger: spec: canaryAnalysis: threshold: 5, stepWeight: 10, metrics: - name: request-success-rate, thresholdRange: min: 99.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Istio VirtualService: apiVersion: networking.istio.io/v1; kind: VirtualService; metadata: name: myapp; spec: hosts: [myapp.com]; http: - match: ...; route: - destination: {host: myapp, subset: v1}, weight: 90; - destination: {host: myapp, subset: v2}, weight: 10",
+        "Flagger Canary: apiVersion: flagger.app/v1beta1; kind: Canary; metadata: name: myapp; spec: targetRef: {apiVersion: apps/v1, kind: Deployment, name: myapp}; service: {port: 9898}; analysis: {interval: 1m, threshold: 5, iterations: 10, metrics: [{name: request-success-rate, thresholdRange: {min: 99}}]}",
+        "Manual progression: 10% (15 min) -> 25% (15 min) -> 50% (30 min) -> 100%. Monitor Prometheus: rate(http_requests_total{status=~'5..'}[5m]) / rate(http_requests_total[5m]) < 0.01",
+        "AWS ALB: Two target groups (stable-tg 90%, canary-tg 10%). CLI: aws elbv2 modify-listener --listener-arn arn:... --default-actions Type=forward,ForwardConfig='{TargetGroups=[{TargetGroupArn=stable-arn,Weight=90},{TargetGroupArn=canary-arn,Weight=10}]}'",
+        "Nginx: upstream backend { server stable:8000 weight=9; server canary:8000 weight=1; }",
+        "Health criteria: Error rate <0.5%, P99 latency <500ms, CPU <70%, Memory <80%, Custom: conversion rate >2%",
+        "Automatic rollback: If metrics degrade, Flagger auto-routes 100% to stable, sends alert (Slack, PagerDuty)",
+        "User-based canary: Route specific user IDs/cohorts to canary. Istio: match: - headers: user-id: {regex: '(123|456|789)'}; route to canary"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T21:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["canary", "deployment", "progressive_delivery", "istio", "flagger", "traffic_splitting"],
+      "category": "WORKFLOWS",
+      "subcategory": "DEPLOYMENT",
+      "version": "1.0.0",
+      "tested_on": ["Kubernetes", "Istio", "Flagger", "AWS", "Nginx"],
+      "agent_affinity": ["CMDC", "VSCC", "TERMC"]
+    }
+  }
+}

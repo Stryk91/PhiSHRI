@@ -1,0 +1,49 @@
+{
+  "door_code": "D12PACKAGE_MANAGERS",
+  "semantic_path": "TOOLS.DEPLOYMENT.PACKAGE_MANAGERS",
+  "aliases": ["package manager", "Chocolatey", "Homebrew", "apt", "yum", "winget", "scoop"],
+  "context_bundle": {
+    "summary": "Package manager usage for software deployment across Windows (Chocolatey, winget, scoop), macOS (Homebrew), and Linux (apt, yum, dnf, pacman)",
+    "prerequisites": ["D05SILENT_INSTALL"],
+    "related_doors": ["D06ENTERPRISE", "T11CICD", "W15CICD"],
+    "onboarding": {
+      "quick_start": "Install packages via choco install (Windows), brew install (macOS), or apt/yum install (Linux) with automation-friendly flags",
+      "full_context_path": "/PhiDEX/DEPLOYMENT_ALMANAC/02_PACKAGE_MANAGERS/PACKAGE_MANAGERS_GUIDE.md",
+      "common_patterns": [
+        "Chocolatey: choco install git nodejs python -y (auto-confirm)",
+        "Homebrew: brew install --quiet nodejs python3 (suppress output)",
+        "winget: winget install --id Git.Git --silent --accept-package-agreements",
+        "apt: apt-get install -y package-name (non-interactive)",
+        "yum: yum install -y package-name (assume yes)",
+        "Mass installation: Loop through package arrays in scripts"
+      ],
+      "known_errors": [
+        "Chocolatey -y handles prompts, but underlying installers must support silent mode",
+        "Homebrew NONINTERACTIVE=1 skips some prompts but may require sudo password",
+        "winget requires Windows 10 1809+ or Windows 11",
+        "Package availability varies by platform and repository"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/DEPLOYMENT_ALMANAC/02_PACKAGE_MANAGERS/PACKAGE_MANAGERS_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/07_SILENT_INSTALL/SILENT_INSTALLATION_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T02:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["package manager", "Chocolatey", "Homebrew", "apt", "yum", "winget", "automation"],
+      "category": "TOOLS",
+      "subcategory": "DEPLOYMENT",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11", "macOS", "Ubuntu", "RHEL", "CentOS"],
+      "agent_affinity": ["VSCC", "DC", "TERMC", "KALIC"]
+    }
+  }
+}

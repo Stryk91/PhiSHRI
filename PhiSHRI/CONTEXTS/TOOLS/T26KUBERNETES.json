@@ -1,0 +1,49 @@
+{
+  "door_code": "T26KUBERNETES",
+  "semantic_path": "TOOLS.INFRASTRUCTURE.KUBERNETES",
+  "aliases": ["Kubernetes", "K8s", "kubectl", "pods", "deployments", "orchestration"],
+  "context_bundle": {
+    "summary": "Kubernetes container orchestration for deploying, scaling, and managing containerized applications with pods, deployments, services, and ConfigMaps",
+    "prerequisites": ["T25DOCKER", "T13K8S_SECRETS"],
+    "related_doors": ["W48K8S_DEPLOY", "W49HELM", "T14TERRAFORM"],
+    "onboarding": {
+      "quick_start": "Define resources in YAML manifests (deployments, services, ConfigMaps). Apply with kubectl apply -f. Scale with kubectl scale. Monitor with kubectl get/describe.",
+      "full_context_path": "/PhiDEX/DEPLOYMENT_ALMANAC/09_ENTERPRISE/ENTERPRISE_DEPLOYMENT_GUIDE.md",
+      "common_patterns": [
+        "Deployments: Manage replicated pods with rolling updates and rollbacks",
+        "Services: Expose pods via ClusterIP, NodePort, or LoadBalancer",
+        "ConfigMaps: Store non-sensitive configuration as key-value pairs",
+        "Secrets: Store sensitive data (passwords, tokens) encrypted at rest",
+        "Namespaces: Isolate resources by environment (dev, staging, prod)",
+        "Helm charts: Package Kubernetes manifests with templating"
+      ],
+      "known_errors": [
+        "Resource limits: Set CPU/memory requests and limits to prevent node exhaustion",
+        "Image pull: Use imagePullSecrets for private registries",
+        "Health checks: Define liveness and readiness probes for reliability",
+        "PersistentVolumes: Use for stateful applications requiring data persistence"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/DEPLOYMENT_ALMANAC/09_ENTERPRISE/ENTERPRISE_DEPLOYMENT_GUIDE.md",
+        "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T02:45:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["Kubernetes", "K8s", "kubectl", "orchestration", "pods", "deployments"],
+      "category": "TOOLS",
+      "subcategory": "INFRASTRUCTURE",
+      "version": "1.0.0",
+      "tested_on": ["Linux", "Windows", "macOS", "AWS EKS", "Azure AKS", "GKE"],
+      "agent_affinity": ["VSCC", "DC", "TERMC", "KALIC"]
+    }
+  }
+}

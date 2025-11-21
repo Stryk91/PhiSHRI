@@ -1,0 +1,40 @@
+{
+  "door_code": "S16INPUT_SANITIZATION",
+  "semantic_path": "SECURITY.INPUT.SANITIZATION",
+  "aliases": ["input sanitization", "data validation", "input escaping", "sanitize"],
+  "context_bundle": {
+    "summary": "Input sanitization and escaping patterns for preventing injection attacks by validating and cleaning user input at multiple layers",
+    "prerequisites": ["S03INPUT_VAL", "S04XSS", "S02SQL"],
+    "related_doors": ["S03INPUT_VAL", "S04XSS", "S02SQL", "S12API_SECURITY"],
+    "onboarding": {
+      "quick_start": "Apply allowlisting as minimal approach, validate input at both syntactic and semantic levels as early as possible in data flow",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md",
+      "common_patterns": [
+        "Use allowlisting over denylisting for validation",
+        "Validate at multiple layers (client + server)",
+        "Canonicalize file paths before validation",
+        "Strip or encode dangerous characters (../, ..\\ etc.)",
+        "Context-specific encoding (HTML, JavaScript, URL, CSS)"
+      ],
+      "known_errors": ["E09VALIDATION_ERRORS"]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": ["E09VALIDATION_ERRORS"]
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T01:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["security", "input", "sanitization", "validation", "escaping"],
+      "category": "SECURITY",
+      "subcategory": "INPUT",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11", "Linux"],
+      "agent_affinity": ["VSCC", "DC"]
+    }
+  }
+}

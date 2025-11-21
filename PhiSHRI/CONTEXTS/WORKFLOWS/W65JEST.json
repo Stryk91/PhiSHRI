@@ -1,0 +1,45 @@
+{
+  "door_code": "W65JEST",
+  "semantic_path": "WORKFLOWS.TESTING.JEST_FRAMEWORK",
+  "aliases": ["jest", "javascript_testing", "js_testing", "react_testing"],
+  "context_bundle": {
+    "summary": "Jest: JavaScript/TypeScript testing framework by Meta. Zero-config, built-in mocking, snapshot testing, code coverage. Features: Fast parallel execution, watch mode, mock functions, DOM testing (JSDOM), async/await support. Matchers: expect(value).toBe(), toEqual(), toContain(), toThrow(). Mocking: jest.fn(), jest.mock(), jest.spyOn(). Snapshots: expect(component).toMatchSnapshot(). Run: jest (all tests), jest --watch (watch mode), jest --coverage. Config: jest.config.js or package.json.",
+    "prerequisites": ["W58UNITTEST"],
+    "related_doors": ["W61MOCKING", "W62TDD", "W66COVERAGE", "W60E2E"],
+    "onboarding": {
+      "quick_start": "Jest: npm install --save-dev jest. Write test (sum.test.js): test('adds 1 + 2 to equal 3', () => { expect(sum(1, 2)).toBe(3); }). Run: npx jest. Matchers: expect(value).toBe(4) (strict equality), .toEqual({a: 1}) (deep equality), .toContain('item'), .toBeNull(), .toBeTruthy(), .toBeGreaterThan(3). Async: test('async data', async () => { const data = await fetchData(); expect(data).toBe('peanut butter'); }). Mock functions: const mockFn = jest.fn(); mockFn.mockReturnValue(42); expect(mockFn()).toBe(42); expect(mockFn).toHaveBeenCalled(). Snapshot: expect(tree).toMatchSnapshot() (creates __snapshots__ folder). Setup/teardown: beforeEach(() => { db.connect(); }); afterEach(() => { db.disconnect(); }). Watch: jest --watch (runs tests on file change). Coverage: jest --coverage (generates coverage/lcov-report/index.html).",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Basic test: describe('Calculator', () => { test('multiplies numbers', () => { expect(multiply(2, 3)).toBe(6); }); test('handles zero', () => { expect(multiply(0, 5)).toBe(0); }); })",
+        "Async/await: test('fetches user data', async () => { const user = await fetchUser(1); expect(user.name).toBe('Alice'); expect(user.id).toBe(1); })",
+        "Promise: test('resolves promise', () => { return fetchData().then(data => { expect(data).toBe('success'); }); })",
+        "Mock function: const callback = jest.fn(); processData([1, 2, 3], callback); expect(callback).toHaveBeenCalledTimes(3); expect(callback).toHaveBeenNthCalledWith(1, 1)",
+        "Mock module: jest.mock('axios'); axios.get.mockResolvedValue({data: {users: []}}); const users = await fetchUsers(); expect(users).toEqual([])",
+        "Spy: const spy = jest.spyOn(math, 'random').mockReturnValue(0.5); const result = rollDice(); expect(result).toBe(3); spy.mockRestore()",
+        "Snapshot (React): import renderer from 'react-test-renderer'; test('renders correctly', () => { const tree = renderer.create(<Button>Click</Button>).toJSON(); expect(tree).toMatchSnapshot(); })",
+        "Setup/teardown: beforeAll(() => { db.connect(); }); afterAll(() => { db.close(); }); beforeEach(() => { db.clear(); })",
+        "Test.each (parametrize): test.each([[1, 1, 2], [1, 2, 3], [2, 1, 3]])('adds %i + %i to equal %i', (a, b, expected) => { expect(a + b).toBe(expected); })",
+        "Config (jest.config.js): module.exports = { testEnvironment: 'node', coverageThreshold: { global: { branches: 80, functions: 80, lines: 80, statements: 80 } }, collectCoverageFrom: ['src/**/*.js', '!src/**/*.test.js'] }"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T20:45:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["jest", "javascript", "typescript", "testing", "react", "mocking", "snapshot"],
+      "category": "WORKFLOWS",
+      "subcategory": "TESTING",
+      "version": "1.0.0",
+      "tested_on": ["JavaScript", "TypeScript", "React", "Node.js"],
+      "agent_affinity": ["VSCC", "WEBC", "CMDC"]
+    }
+  }
+}

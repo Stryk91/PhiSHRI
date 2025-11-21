@@ -1,0 +1,39 @@
+{
+  "door_code": "T23RABBITMQ",
+  "semantic_path": "TOOLS.MESSAGING.RABBITMQ",
+  "aliases": ["rabbitmq", "amqp", "message broker", "queue"],
+  "context_bundle": {
+    "summary": "RabbitMQ message broker implementing AMQP protocol for reliable message queuing and routing between distributed systems",
+    "prerequisites": ["W98MESSAGE_QUEUE", "R03MICROSERVICE"],
+    "related_doors": ["T19KAFKA", "W98MESSAGE_QUEUE", "R03MICROSERVICE"],
+    "onboarding": {
+      "quick_start": "Deploy RabbitMQ for asynchronous messaging with exchanges, queues, and routing patterns for decoupled service communication",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/02_TOOL_INTEGRATION/TOOL_INTEGRATION_INTEROPERABILITY_GUIDE.md",
+      "common_patterns": [
+        "Direct exchange for point-to-point messaging",
+        "Topic exchange for publish-subscribe patterns",
+        "Fanout exchange for broadcasting",
+        "Dead letter queues for error handling"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/02_TOOL_INTEGRATION/TOOL_INTEGRATION_INTEROPERABILITY_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T01:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["tools", "rabbitmq", "messaging", "amqp", "queue"],
+      "category": "TOOLS",
+      "subcategory": "MESSAGING",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11", "Linux"],
+      "agent_affinity": ["DC", "VSCC", "TERMC"]
+    }
+  }
+}

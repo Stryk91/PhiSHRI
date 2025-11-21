@@ -1,0 +1,45 @@
+{
+  "door_code": "W82WEBHOOKS",
+  "semantic_path": "WORKFLOWS.API.WEBHOOKS",
+  "aliases": ["webhooks", "webhook", "event_callbacks", "http_callbacks"],
+  "context_bundle": {
+    "summary": "Webhooks: HTTP callbacks for event-driven communication. Server sends POST request to client URL when event occurs (e.g., payment completed, user registered). Patterns: Register webhook URL via API, validate signatures (HMAC-SHA256) to prevent spoofing, retry with exponential backoff on failure, dedup using idempotency keys, async processing (queue webhook, respond 200 immediately). Security: Verify signatures (Stripe: stripe-signature header, GitHub: X-Hub-Signature-256), use HTTPS only, IP whitelist, secret rotation. Common events: payment.succeeded, user.created, order.shipped. Tools: ngrok for local testing, Webhook.site for debugging. Response: 200 OK (success), 4xx/5xx triggers retry.",
+    "prerequisites": ["W79REST_API", "S11CSRF", "S12API_SECURITY"],
+    "related_doors": ["W84LOGGING", "E05RETRY", "E06CIRCUIT_BREAKER"],
+    "onboarding": {
+      "quick_start": "Webhook patterns: Register webhook: POST /api/webhooks {\"url\": \"https://myapp.com/webhook\", \"events\": [\"payment.success\", \"user.created\"]}. Send webhook (Python): import hmac, hashlib, requests; payload = json.dumps({\"event\": \"payment.success\", \"data\": {...}}); signature = hmac.new(secret.encode(), payload.encode(), hashlib.sha256).hexdigest(); headers = {'X-Webhook-Signature': signature, 'Content-Type': 'application/json'}; requests.post(webhook_url, data=payload, headers=headers, timeout=5). Verify webhook (receiver): received_sig = request.headers.get('X-Webhook-Signature'); computed_sig = hmac.new(secret.encode(), request.data, hashlib.sha256).hexdigest(); if not hmac.compare_digest(received_sig, computed_sig): abort(401, 'Invalid signature'). Async processing: @app.route('/webhook', methods=['POST']): verify_signature(); queue.enqueue(process_webhook, request.json); return '', 200 # Respond immediately. Retry logic: for attempt in range(3): try: response = requests.post(url, json=payload, timeout=5); if response.status_code == 200: break; except: time.sleep(2 ** attempt). Idempotency: event_id = payload['id']; if redis.exists(f'webhook:{event_id}'): return 200 # Already processed; redis.setex(f'webhook:{event_id}', 86400, 1). Testing: ngrok http 8000; # Expose localhost to internet for webhook testing.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Stripe signature verification: import stripe; stripe.Webhook.construct_event(payload=request.data, sig_header=request.headers.get('Stripe-Signature'), secret=webhook_secret) # Raises error if invalid",
+        "GitHub signature verification: import hmac; signature = 'sha256=' + hmac.new(secret.encode(), request.data, hashlib.sha256).hexdigest(); if request.headers.get('X-Hub-Signature-256') != signature: abort(401)",
+        "Webhook registration API: @app.route('/webhooks', methods=['POST']): data = request.json; webhook = db.create_webhook(url=data['url'], events=data['events'], secret=generate_secret()); return jsonify(webhook), 201",
+        "Async processing with Celery: @app.route('/webhook', methods=['POST']): if not verify_signature(): abort(401); process_webhook.delay(request.json); return '', 202",
+        "Retry with exponential backoff: import backoff; @backoff.on_exception(backoff.expo, requests.exceptions.RequestException, max_tries=5) def send_webhook(url, payload): requests.post(url, json=payload, timeout=10)",
+        "Idempotency check: event_id = payload['id']; if Event.objects.filter(external_id=event_id).exists(): return 200 # Duplicate; Event.objects.create(external_id=event_id, data=payload)",
+        "Webhook deduplication (Redis): event_key = f'webhook:{event_id}'; if not redis.set(event_key, 1, nx=True, ex=86400): return 200 # Already seen",
+        "Timeout handling: try: response = requests.post(webhook_url, json=payload, timeout=5); except requests.Timeout: schedule_retry(webhook_url, payload)",
+        "Webhook testing with ngrok: ngrok http 5000 --log=stdout; # Get public URL: https://abc123.ngrok.io",
+        "Logging: logger.info(f'Webhook sent to {url}', extra={'event': event_type, 'status': response.status_code, 'attempt': attempt})"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T22:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["webhooks", "http_callbacks", "event_driven", "hmac", "signature_verification", "async"],
+      "category": "WORKFLOWS",
+      "subcategory": "API",
+      "version": "1.0.0",
+      "tested_on": ["Python Flask", "Node.js Express", "Stripe", "GitHub", "ngrok"],
+      "agent_affinity": ["VSCC", "WEBC", "CMDC"]
+    }
+  }
+}

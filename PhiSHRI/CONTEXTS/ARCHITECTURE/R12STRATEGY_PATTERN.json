@@ -1,0 +1,39 @@
+{
+  "door_code": "R12STRATEGY_PATTERN",
+  "semantic_path": "ARCHITECTURE.PATTERNS.BEHAVIORAL.STRATEGY",
+  "aliases": ["strategy", "algorithm family", "policy pattern"],
+  "context_bundle": {
+    "summary": "Strategy pattern defines family of algorithms, encapsulates each one, and makes them interchangeable at runtime",
+    "prerequisites": ["R01MULTI"],
+    "related_doors": ["R09FACTORY_PATTERN", "R12STRATEGY_PATTERN"],
+    "onboarding": {
+      "quick_start": "Define interface for algorithm family, implement concrete strategies, and allow client to select strategy at runtime",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/02_PATTERNS/DESIGN_PATTERNS_GUIDE.md",
+      "common_patterns": [
+        "Context holds reference to strategy",
+        "Strategies implement common interface",
+        "Switch algorithms without changing context",
+        "Used for sorting, compression, payment methods"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/02_PATTERNS/DESIGN_PATTERNS_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T01:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["architecture", "design pattern", "strategy", "behavioral"],
+      "category": "ARCHITECTURE",
+      "subcategory": "PATTERNS",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11", "Linux"],
+      "agent_affinity": ["VSCC", "DC"]
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "door_code": "W131CSP",
+  "semantic_path": "WORKFLOWS.ARCHITECTURE.CSP",
+  "aliases": ["CSP", "communicating sequential processes", "channels", "Go goroutines"],
+  "context_bundle": {
+    "summary": "Communicating Sequential Processes (CSP) pattern where processes communicate through channels, inspired by Go goroutines and Clojure core.async",
+    "prerequisites": ["W130ACTOR_MODEL", "W115MESSAGE_QUEUE"],
+    "related_doors": ["W78CONCURRENCY", "W17PARALLEL", "R01MULTI"],
+    "onboarding": {
+      "quick_start": "Model communication through channels (not direct messaging). Channels can be synchronous (blocking) or buffered (async). PhiVector adaptation uses filesystem as channel.",
+      "full_context_path": "/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md",
+      "common_patterns": [
+        "Channels: Communication happens through channels, not direct messaging",
+        "Synchronous channels: Blocking send/receive (sender waits for receiver)",
+        "Buffered channels: Async with bounded queue capacity",
+        "PhiVector adaptation: Filesystem directories act as channels",
+        "Select operation: Wait for first available message from multiple channels"
+      ],
+      "known_errors": [
+        "Blocking channels can cause deadlocks if not managed carefully",
+        "PhiVector cannot use true blocking (must poll)",
+        "Unbuffered channels require both sender and receiver ready simultaneously"
+      ]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T02:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["CSP", "channels", "Go", "goroutines", "concurrency", "synchronization"],
+      "category": "WORKFLOWS",
+      "subcategory": "ARCHITECTURE",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11"],
+      "agent_affinity": ["DC", "VSCC", "TERMC"]
+    }
+  }
+}

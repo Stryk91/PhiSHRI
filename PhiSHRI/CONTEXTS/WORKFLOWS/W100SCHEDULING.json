@@ -1,0 +1,39 @@
+{
+  "door_code": "W100SCHEDULING",
+  "semantic_path": "WORKFLOWS.AUTOMATION.JOB_SCHEDULING",
+  "aliases": ["scheduling", "cron", "job_scheduler", "task_scheduling", "scheduled_jobs"],
+  "context_bundle": {
+    "summary": "Job scheduling automates task execution using cron syntax, schedule libraries, or orchestrators like Airflow with support for recurring jobs, one-time tasks, timezone handling, and failure notifications.",
+    "prerequisites": ["W90BATCH_PROCESSING", "W84LOGGING"],
+    "related_doors": ["W91DATA_PIPELINE", "T18AIRFLOW"],
+    "onboarding": {
+      "quick_start": "Scheduling patterns: 1) Cron jobs for recurring tasks (0 2 * * * = daily at 2 AM). 2) Use schedule libraries for in-process scheduling. 3) Airflow DAGs for complex workflows. 4) Celery Beat for distributed scheduling. 5) Handle timezone conversions (UTC recommended). 6) Implement idempotency for safe retries. 7) Log execution history and failures.",
+      "full_context_path": "/PhiDEX/industry_knowledge/scheduling_patterns.md",
+      "common_patterns": [
+        "Cron syntax: # minute hour day month day_of_week; 0 2 * * * = daily at 2 AM; */15 * * * * = every 15 minutes; 0 9-17 * * 1-5 = hourly 9 AM-5 PM weekdays; 0 0 1 * * = monthly on 1st",
+        "Python schedule: import schedule; import time; def job(): print('Running job'); schedule.every(10).minutes.do(job); schedule.every().hour.do(job); schedule.every().day.at('10:30').do(job); while True: schedule.run_pending(); time.sleep(1)",
+        "Celery Beat: from celery import Celery; from celery.schedules import crontab; app = Celery('tasks'); app.conf.beat_schedule = { 'daily-cleanup': { 'task': 'tasks.cleanup', 'schedule': crontab(hour=2, minute=0) } }",
+        "Airflow scheduling: from airflow import DAG; from datetime import datetime, timedelta; dag = DAG('daily_etl', start_date=datetime(2025, 1, 1), schedule_interval='@daily', catchup=False, default_args={'retries': 3, 'retry_delay': timedelta(minutes=5)})"
+      ],
+      "known_errors": ["E03TIMEOUT"]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/industry_knowledge/scheduling_patterns.md"],
+      "code": [],
+      "tests": [],
+      "errors": ["E03TIMEOUT"]
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T00:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["scheduling", "cron", "job_scheduler", "automation", "task_scheduling"],
+      "category": "WORKFLOWS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "tested_on": ["Cron", "Python schedule", "Celery Beat", "Airflow", "Windows Task Scheduler"],
+      "agent_affinity": ["DC", "VSCC"]
+    }
+  }
+}

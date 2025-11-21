@@ -1,0 +1,43 @@
+{
+  "door_code": "S11CSRF",
+  "semantic_path": "SECURITY.WEB.CSRF_PROTECTION",
+  "aliases": ["csrf", "cross_site_request_forgery", "csrf_token", "xsrf", "synchronizer_token"],
+  "context_bundle": {
+    "summary": "Cross-Site Request Forgery (CSRF) protection: Attacker tricks user's browser into making unauthorized state-changing requests. Tokens: Synchronizer Token (stateful, stored in session), Double Submit Cookie (stateless, token in cookie + request), Signed Double-Submit (most secure stateless, HMAC signature). Token requirements: 128+ bits, cryptographically random, unpredictable, session-bound. Implementation: Generate token server-side, embed in forms/headers, validate on submission. Defense: SameSite cookie attribute (Strict/Lax), custom headers (X-CSRF-Token), Origin/Referer validation. Combine with XSS prevention (XSS can steal CSRF tokens).",
+    "prerequisites": ["S01AES", "S06ENCRYPTION"],
+    "related_doors": ["S10CORS", "S07OAUTH", "S08JWT"],
+    "onboarding": {
+      "quick_start": "CSRF attack: User logged into bank.com, visits evil.com, evil.com submits <form action='https://bank.com/transfer' method='POST'><input name='amount' value='1000'><input name='to' value='attacker'></form> using user's session cookie. Prevention: 1) Synchronizer Token: server generates random token, stores in session, embeds in form, validates on submit. 2) Double Submit Cookie: token in cookie + hidden field, server validates they match (stateless). 3) Signed Double-Submit: token + HMAC signature using secret key (most secure). Token generation (Python): import secrets; token = secrets.token_urlsafe(32). Form: <input type='hidden' name='csrf_token' value='{{csrf_token}}'>. Validation: if request.form['csrf_token'] != session['csrf_token']: abort(403). SameSite cookies: Set-Cookie: session=abc; SameSite=Strict (blocks all cross-site, even GET links), SameSite=Lax (blocks cross-site POST/PUT/DELETE, allows GET). Custom header: X-CSRF-Token (browsers can't set custom headers cross-origin).",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md",
+      "common_patterns": [
+        "Synchronizer Token (Flask): from flask import session, request, abort; session['csrf_token'] = secrets.token_urlsafe(32); # In form: <input type='hidden' name='csrf_token' value='{{session.csrf_token}}'>; # Validate: if request.form.get('csrf_token') != session.get('csrf_token'): abort(403)",
+        "Double Submit Cookie: Set-Cookie: csrf_token=abc; document.cookie; <input type='hidden' name='csrf_token' value='abc'>; # Server: if request.cookies['csrf_token'] != request.form['csrf_token']: abort(403)",
+        "Signed Double-Submit (Python): import hmac, hashlib; token = secrets.token_urlsafe(32); signature = hmac.new(SECRET_KEY.encode(), f'{session_id}:{token}'.encode(), hashlib.sha256).hexdigest(); csrf = f'{token}.{signature}'; # Validate: token_value, sig = csrf.split('.'); expected = hmac.new(SECRET_KEY.encode(), f'{session_id}:{token_value}'.encode(), hashlib.sha256).hexdigest(); valid = hmac.compare_digest(sig, expected)",
+        "Express.js (csurf): const csrf = require('csurf'); app.use(csrf({cookie: true})); app.get('/form', (req, res) => res.render('form', {csrfToken: req.csrfToken()})); app.post('/submit', (req, res) => { /* auto-validated */ })",
+        "SameSite cookie: Set-Cookie: sessionId=abc; Path=/; HttpOnly; Secure; SameSite=Strict (or Lax)",
+        "Custom header (AJAX): fetch('/api/transfer', {method: 'POST', headers: {'X-CSRF-Token': getToken(), 'Content-Type': 'application/json'}, body: JSON.stringify({amount: 100})})",
+        "Origin validation: if req.headers.get('Origin') not in ALLOWED_ORIGINS: abort(403)",
+        "Framework support: Django ({% csrf_token %}), Rails (form_authenticity_token), Laravel (@csrf)"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T20:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["csrf", "cross_site_request_forgery", "csrf_token", "synchronizer_token", "double_submit", "samesite", "security"],
+      "category": "SECURITY",
+      "subcategory": "WEB",
+      "version": "1.0.0",
+      "tested_on": ["Web Applications", "SPAs", "APIs"],
+      "agent_affinity": ["WEBC", "VSCC", "CMDC"]
+    }
+  }
+}

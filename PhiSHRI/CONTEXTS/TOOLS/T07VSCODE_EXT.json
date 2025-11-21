@@ -1,0 +1,40 @@
+{
+  "door_code": "T07VSCODE_EXT",
+  "semantic_path": "TOOLS.DEVELOPMENT.VSCODE_EXTENSION_DEV",
+  "aliases": ["vscode_extension", "vscode_api", "extension_dev"],
+  "context_bundle": {
+    "summary": "VSCode extension development: yo generator-code scaffolds extensions. package.json defines activationEvents, contributes (commands, views). Extension API: vscode.commands, vscode.window, vscode.workspace. TypeScript or JavaScript. F5 to debug in Extension Development Host.",
+    "prerequisites": ["T02VSCODE"],
+    "related_doors": ["W14GIT", "W15CICD"],
+    "onboarding": {
+      "quick_start": "VSCode extensions: npm install -g yo generator-code, run yo code, choose extension type. package.json: activationEvents (when to load), contributes (commands/views). Main file exports activate() function. Debug with F5. Official API: https://code.visualstudio.com/api",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "yo code - Scaffold new extension",
+        "activationEvents: [] - When extension loads",
+        "contributes.commands - Register commands",
+        "vscode.commands.registerCommand()",
+        "F5 to debug in Extension Development Host"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T18:50:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["vscode", "extension", "development", "api"],
+      "category": "TOOLS",
+      "subcategory": "DEVELOPMENT",
+      "version": "1.0.0",
+      "tested_on": ["VSCode"],
+      "agent_affinity": ["VSCC", "DC"]
+    }
+  }
+}

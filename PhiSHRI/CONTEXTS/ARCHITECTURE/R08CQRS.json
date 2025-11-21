@@ -1,0 +1,40 @@
+{
+  "door_code": "R08CQRS",
+  "semantic_path": "ARCHITECTURE.DESIGN_PATTERNS.CQRS",
+  "aliases": ["cqrs", "command_query_responsibility_segregation", "command_query_separation"],
+  "context_bundle": {
+    "summary": "CQRS (Command Query Responsibility Segregation) separates read and write operations using different models with commands for state changes, queries for data retrieval, and optional event sourcing for complete audit trail and temporal queries.",
+    "prerequisites": ["R04EVENT_DRIVEN", "W87ETL"],
+    "related_doors": ["R07SAGA_PATTERN", "R06EVENT_SOURCING", "W72CACHING"],
+    "onboarding": {
+      "quick_start": "CQRS implementation: 1) Commands: Handle write operations (CreateOrder, UpdateInventory) and validate business rules. 2) Queries: Handle read operations (GetOrderDetails, ListOrders) from optimized read models. 3) Separate write DB (normalized) from read DB (denormalized). 4) Sync using events (async projection). 5) Use event sourcing for complete history. 6) Cache read models for performance. Benefits: Independent scaling, optimized schemas, eventual consistency.",
+      "full_context_path": "/PhiDEX/industry_knowledge/cqrs_pattern.md",
+      "common_patterns": [
+        "Command handler: class CreateOrderCommand: def __init__(self, user_id, items): self.user_id = user_id; self.items = items; class CreateOrderHandler: def handle(self, command): validate_items(command.items); order = Order.create(command.user_id, command.items); write_db.save(order); event_bus.publish(OrderCreated(order)); return order.id",
+        "Query handler: class GetOrderQuery: def __init__(self, order_id): self.order_id = order_id; class GetOrderHandler: def handle(self, query): return read_db.get_order(query.order_id)",
+        "Event projection: def on_order_created(event): read_model = {'id': event.order_id, 'user_id': event.user_id, 'items': event.items, 'status': 'pending', 'created_at': event.timestamp}; read_db.insert(read_model); cache.set(f'order:{event.order_id}', read_model)",
+        "Separate models: # Write model (normalized): class Order: id, user_id, created_at; class OrderItem: id, order_id, product_id, quantity; # Read model (denormalized): class OrderView: id, user_id, user_name, items_json, total_amount, status, created_at",
+        "Event sourcing: events = [OrderCreated(), ItemAdded(), ItemRemoved(), OrderShipped()]; def rebuild_state(events): state = {}; for event in events: state = apply_event(state, event); return state"
+      ],
+      "known_errors": ["E11RACE_CONDITIONS"]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/industry_knowledge/cqrs_pattern.md"],
+      "code": [],
+      "tests": [],
+      "errors": ["E11RACE_CONDITIONS"]
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T00:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["cqrs", "command_query_separation", "event_sourcing", "read_model", "write_model"],
+      "category": "ARCHITECTURE",
+      "subcategory": "DESIGN_PATTERNS",
+      "version": "1.0.0",
+      "tested_on": ["Microservices", "Event-driven", "DDD", "Event sourcing"],
+      "agent_affinity": ["DC", "VSCC", "WEBC"]
+    }
+  }
+}

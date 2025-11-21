@@ -1,0 +1,43 @@
+{
+  "door_code": "W71AB_TEST",
+  "semantic_path": "WORKFLOWS.DEPLOYMENT.AB_TESTING",
+  "aliases": ["ab_test", "ab_testing", "split_testing", "experiment"],
+  "context_bundle": {
+    "summary": "A/B testing: Compare two variants (A=control, B=variant) to measure impact on metrics. Randomly assign users to groups, measure conversion/engagement, statistical significance. Metrics: Conversion rate, click-through rate (CTR), revenue per user, engagement time. Tools: Optimizely, VWO, Google Optimize, LaunchDarkly, GrowthBook (open-source). Patterns: 50/50 split, multivariate (A/B/C/D), multi-armed bandit. Statistical rigor: Sample size calculation, p-value <0.05, confidence interval. Duration: 1-4 weeks for significance. Avoid: Peeking at results early, multiple comparisons without correction, ignoring seasonality.",
+    "prerequisites": ["W70FEATURE_FLAG", "T10OBSERVABILITY"],
+    "related_doors": ["W68CANARY", "W01COORD", "R04EVENT_DRIVEN"],
+    "onboarding": {
+      "quick_start": "A/B test: Compare variants to optimize metrics. Steps: 1) Define hypothesis ('Green button increases signup by 10%'), 2) Define metric (signup conversion rate), 3) Calculate sample size (5000 users per variant for 80% power), 4) Randomize users (50% control, 50% variant), 5) Run test (2-4 weeks), 6) Analyze results (t-test, confidence interval), 7) Deploy winner or iterate. Implementation: const variant = assignVariant(userId); // 'A' or 'B'; if (variant === 'A') { buttonColor = 'blue'; } else { buttonColor = 'green'; }; logEvent('button_shown', {variant}); if (userSignedUp) { logEvent('signup', {variant}); }. Analysis: const conversionA = signupsA / viewsA; const conversionB = signupsB / viewsB; const lift = (conversionB - conversionA) / conversionA * 100; Statistical significance: p < 0.05, confidence interval doesn't include 0. Tools: Optimizely (visual editor), LaunchDarkly (feature flags + experiments), GrowthBook (open-source, SQL-based). Multivariate: Test multiple variables (button color + text + position). Duration: Run until statistical significance, minimum 1 week, account for weekly patterns.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "User assignment: function assignVariant(userId) { return hashCode(userId + 'experiment-123') % 2 === 0 ? 'A' : 'B'; }. Consistent assignment: same user always gets same variant.",
+        "Event tracking: analytics.track('page_viewed', {experiment_id: 'checkout-redesign', variant: 'B'}); if (purchaseComplete) { analytics.track('purchase', {experiment_id: 'checkout-redesign', variant: 'B', revenue: amount}); }",
+        "LaunchDarkly experiment: const variant = ldClient.variation('checkout-experiment', user, 'control'); if (variant === 'variant-a') { // Green button } else { // Blue button }; ldClient.track('button-clicked', user, {variant});",
+        "Statistical analysis (Python): from scipy.stats import ttest_ind; conversions_a = [1, 0, 1, 1, 0]; conversions_b = [1, 1, 1, 1, 0]; t_stat, p_value = ttest_ind(conversions_a, conversions_b); if p_value < 0.05: print('Statistically significant')",
+        "Sample size calculation: import statsmodels.stats.power as smp; effect_size = 0.05; power = 0.8; alpha = 0.05; sample_size = smp.zt_ind_solve_power(effect_size, power=power, alpha=alpha, alternative='two-sided') * 2",
+        "Confidence interval: const lift = (convB - convA) / convA; const margin = 1.96 * Math.sqrt((convA*(1-convA)/nA) + (convB*(1-convB)/nB)); const ci_lower = lift - margin; const ci_upper = lift + margin;",
+        "Multi-armed bandit (adaptive): Allocate more traffic to winning variant dynamically. Thompson sampling: Sample from beta distribution, choose variant with highest sample. Balances exploration vs exploitation.",
+        "Guardrail metrics: Monitor latency, error rate, bounce rate. If degraded, stop experiment immediately. Example: If error rate >1%, rollback to control."
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T21:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["ab_testing", "split_testing", "experiment", "optimization", "conversion", "statistics"],
+      "category": "WORKFLOWS",
+      "subcategory": "DEPLOYMENT",
+      "version": "1.0.0",
+      "tested_on": ["Optimizely", "LaunchDarkly", "GrowthBook", "VWO"],
+      "agent_affinity": ["WEBC", "VSCC", "CMDC"]
+    }
+  }
+}

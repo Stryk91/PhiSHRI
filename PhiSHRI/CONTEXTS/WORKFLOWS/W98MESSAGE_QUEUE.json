@@ -1,0 +1,39 @@
+{
+  "door_code": "W98MESSAGE_QUEUE",
+  "semantic_path": "WORKFLOWS.MESSAGING.MESSAGE_QUEUE",
+  "aliases": ["message_queue", "queue", "rabbitmq", "sqs", "redis_queue", "async_messaging"],
+  "context_bundle": {
+    "summary": "Message queues enable asynchronous communication between services using producers/consumers with tools like RabbitMQ, AWS SQS, Redis Queue for reliable message delivery, load balancing, and decoupling of services.",
+    "prerequisites": ["W88STREAMING", "E05RETRY"],
+    "related_doors": ["W99NOTIFICATION", "T19KAFKA", "R03MICROSERVICES"],
+    "onboarding": {
+      "quick_start": "Message queue pattern: 1) Producer publishes messages to queue. 2) Queue stores messages durably. 3) Consumer pulls/receives messages. 4) Process message with idempotent logic. 5) Acknowledge (ACK) on success or reject/nack on failure. 6) Use dead letter queue for failed messages. Supports fan-out (multiple consumers) and priority queues.",
+      "full_context_path": "/PhiDEX/industry_knowledge/message_queue_patterns.md",
+      "common_patterns": [
+        "RabbitMQ producer: import pika; connection = pika.BlockingConnection(pika.ConnectionParameters('localhost')); channel = connection.channel(); channel.queue_declare(queue='tasks', durable=True); channel.basic_publish(exchange='', routing_key='tasks', body='task_data', properties=pika.BasicProperties(delivery_mode=2)); connection.close()",
+        "RabbitMQ consumer: def callback(ch, method, properties, body): print(f'Received {body}'); process_task(body); ch.basic_ack(delivery_tag=method.delivery_tag); channel.basic_qos(prefetch_count=1); channel.basic_consume(queue='tasks', on_message_callback=callback); channel.start_consuming()",
+        "AWS SQS: import boto3; sqs = boto3.client('sqs'); queue_url = 'https://sqs.region.amazonaws.com/account/queue'; # Send: sqs.send_message(QueueUrl=queue_url, MessageBody='data'); # Receive: messages = sqs.receive_message(QueueUrl=queue_url, MaxNumberOfMessages=10); for msg in messages.get('Messages', []): process(msg['Body']); sqs.delete_message(QueueUrl=queue_url, ReceiptHandle=msg['ReceiptHandle'])",
+        "Redis Queue (RQ): from redis import Redis; from rq import Queue; redis_conn = Redis(); q = Queue(connection=redis_conn); # Enqueue: job = q.enqueue(process_task, task_data); # Worker: from rq import Worker; worker = Worker(['default'], connection=redis_conn); worker.work()"
+      ],
+      "known_errors": ["E08NETWORK_ERRORS", "E05RETRY"]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/industry_knowledge/message_queue_patterns.md"],
+      "code": [],
+      "tests": [],
+      "errors": ["E08NETWORK_ERRORS", "E05RETRY"]
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T00:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["message_queue", "async", "rabbitmq", "sqs", "redis_queue", "messaging"],
+      "category": "WORKFLOWS",
+      "subcategory": "MESSAGING",
+      "version": "1.0.0",
+      "tested_on": ["RabbitMQ", "AWS SQS", "Redis Queue", "Azure Service Bus", "Google Pub/Sub"],
+      "agent_affinity": ["DC", "VSCC", "WEBC"]
+    }
+  }
+}

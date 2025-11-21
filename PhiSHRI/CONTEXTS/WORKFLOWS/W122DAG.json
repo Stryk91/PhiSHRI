@@ -1,0 +1,44 @@
+{
+  "door_code": "W122DAG",
+  "semantic_path": "WORKFLOWS.ORCHESTRATION.DAG",
+  "aliases": ["DAG", "directed acyclic graph", "dependency graph", "task graph"],
+  "context_bundle": {
+    "summary": "Directed Acyclic Graph (DAG) workflow modeling for task dependencies, topological sorting, and parallel execution optimization",
+    "prerequisites": ["W13DAG", "W121WORKFLOW_STATE"],
+    "related_doors": ["W123ORCHESTRATION", "W124PARALLEL", "W17PARALLEL"],
+    "onboarding": {
+      "quick_start": "Model workflow as DAG with tasks (nodes) and dependencies (edges), use topological sort for execution order, parallelize independent tasks",
+      "full_context_path": "/PhiDEX/PhiSync/02_WORKFLOW_ORCHESTRATION/WORKFLOW_ORCHESTRATION_PATTERNS.md",
+      "common_patterns": [
+        "DAG structure: {tasks: {}, dependencies: {taskId: [depIds]}}",
+        "Topological sort: Kahn's algorithm for dependency resolution",
+        "In-degree calculation: Count dependencies for each task",
+        "Parallel execution: Identify tasks with all dependencies complete",
+        "Cycle detection: Verify DAG is acyclic (no circular dependencies)"
+      ],
+      "known_errors": [
+        "Circular dependencies cause deadlocks (must validate DAG)",
+        "Critical path determines minimum workflow duration",
+        "Over-parallelization can exhaust resources"
+      ]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/PhiSync/02_WORKFLOW_ORCHESTRATION/WORKFLOW_ORCHESTRATION_PATTERNS.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T02:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["DAG", "graph", "dependencies", "topological sort", "workflow"],
+      "category": "WORKFLOWS",
+      "subcategory": "ORCHESTRATION",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11"],
+      "agent_affinity": ["DC", "VSCC"]
+    }
+  }
+}

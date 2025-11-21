@@ -1,0 +1,48 @@
+{
+  "door_code": "S01SEC",
+  "semantic_path": "SECURITY.HARDENING.INPUT_VALIDATION",
+  "aliases": ["input_validation", "sanitization", "security", "owasp"],
+  "context_bundle": {
+    "summary": "Input sanitization & validation per OWASP 2024 standards. Allowlisting (recommended) over denylisting. Validate syntactic + semantic levels. Multi-layer defense (client + server). Prevent SQL injection, XSS, path traversal.",
+    "prerequisites": [],
+    "related_doors": ["S02SQL", "S03XSS", "S04DOS"],
+    "onboarding": {
+      "quick_start": "Allowlist: Define permitted inputs, reject all else. Validate early in data flow. Multi-layer: Client + server. Syntactic: Format checks. Semantic: Business logic checks. Canonicalize paths, strip dangerous chars.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md",
+      "common_patterns": [
+        "Allowlist regex: /^[a-zA-Z0-9_-]+$/ for usernames",
+        "Max length enforcement before processing",
+        "Path canonicalization: resolve ../ and ..\\ attacks",
+        "Strip/encode: <, >, &, ', \", ;, --, /*",
+        "Type validation: Ensure int is int, not string"
+      ],
+      "known_errors": [
+        {
+          "error": "SQL injection despite input validation",
+          "cause": "Using denylisting or missing edge case",
+          "solution": "Use parameterized queries (primary defense), allowlisting as secondary",
+          "prevention": "Never trust input, validate AND use safe APIs",
+          "related_door": "S02SQL"
+        }
+      ]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T02:58:00Z",
+      "confidence": 0.99,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["security", "owasp", "validation", "sanitization", "hardening"],
+      "category": "SECURITY",
+      "subcategory": "INPUT_VALIDATION",
+      "version": "1.0.0",
+      "tested_on": ["All platforms"],
+      "agent_affinity": ["VSCC", "KALIC", "DC"]
+    }
+  }
+}

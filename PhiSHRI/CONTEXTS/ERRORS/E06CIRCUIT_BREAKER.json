@@ -1,0 +1,44 @@
+{
+  "door_code": "E06CIRCUIT_BREAKER",
+  "semantic_path": "ERRORS.PATTERNS.CIRCUIT_BREAKER",
+  "aliases": ["circuit_breaker", "circuit_breaker_pattern", "fault_tolerance", "resilience"],
+  "context_bundle": {
+    "summary": "Circuit breaker pattern: Prevent cascading failures. States: Closed (normal, allow requests), Open (failing, reject requests immediately), Half-Open (testing, allow limited requests). Transition: Closed -> Open (after N failures), Open -> Half-Open (after timeout), Half-Open -> Closed (success) or Open (failure). Thresholds: Failure threshold (50% error rate), timeout (60s), success threshold (2 consecutive successes). Libraries: Hystrix (Java, deprecated), resilience4j (Java), Polly (.NET), opossum (Node.js), PyBreaker (Python). Benefits: Fast fail, prevent resource exhaustion, give failing service time to recover. Monitor: Circuit state, failure rate, open duration.",
+    "prerequisites": ["E04TIMEOUT", "E05RETRY"],
+    "related_doors": ["R03MICROSERVICE", "T10OBSERVABILITY", "W68CANARY"],
+    "onboarding": {
+      "quick_start": "Circuit breaker: Protect against cascading failures. States: Closed (normal) -> Open (after failures) -> Half-Open (testing recovery) -> Closed (recovered). Python (PyBreaker): from pybreaker import CircuitBreaker; breaker = CircuitBreaker(fail_max=5, reset_timeout=60); @breaker def call_api(): response = requests.get(url, timeout=5); response.raise_for_status(); return response.json(). JavaScript (opossum): const CircuitBreaker = require('opossum'); const options = {timeout: 5000, errorThresholdPercentage: 50, resetTimeout: 30000}; const breaker = new CircuitBreaker(asyncFunc, options); breaker.fire(args).then(result => ...).catch(err => { if (err.code === 'EOPENBREAKER') { // Circuit open, fallback } }). Java (resilience4j): CircuitBreakerConfig config = CircuitBreakerConfig.custom().failureRateThreshold(50).waitDurationInOpenState(Duration.ofSeconds(60)).build(); CircuitBreaker breaker = CircuitBreaker.of('api', config); Supplier<String> supplier = CircuitBreaker.decorateSupplier(breaker, () -> callApi()); String result = Try.ofSupplier(supplier).recover(throwable -> 'fallback').get(). Fallback: Return cached data, default value, or error message. Monitor: If circuit frequently opens, fix underlying service.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "PyBreaker: from pybreaker import CircuitBreaker; db_breaker = CircuitBreaker(fail_max=10, reset_timeout=60); @db_breaker def query_db(): return db.query('SELECT * FROM users'); # If circuit open, raises CircuitBreakerError",
+        "Opossum (Node.js): const breaker = new CircuitBreaker(fetchUser, {timeout: 3000, errorThresholdPercentage: 50, resetTimeout: 30000}); breaker.fallback(() => ({id: null, name: 'Guest'})); breaker.on('open', () => logger.warn('Circuit opened')); const user = await breaker.fire(userId);",
+        "Resilience4j: CircuitBreaker breaker = CircuitBreaker.of('payment', CircuitBreakerConfig.custom().slidingWindowSize(10).failureRateThreshold(50).waitDurationInOpenState(Duration.ofSeconds(60)).permittedNumberOfCallsInHalfOpenState(3).build()); CheckedFunction0<String> decorated = CircuitBreaker.decorateCheckedSupplier(breaker, this::callPaymentService);",
+        "Manual implementation: class CircuitBreaker { constructor(threshold=5, timeout=60000) { this.failures=0; this.state='CLOSED'; this.nextAttempt=0; } async call(fn) { if (this.state==='OPEN' && Date.now() < this.nextAttempt) throw new Error('Circuit open'); try { const result = await fn(); if (this.state==='HALF_OPEN') { this.state='CLOSED'; this.failures=0; } return result; } catch (err) { this.failures++; if (this.failures >= this.threshold) { this.state='OPEN'; this.nextAttempt=Date.now()+this.timeout; } throw err; } } }",
+        "Fallback strategy: try { return await breaker.fire(fetchFromAPI); } catch (err) { if (err.code === 'EOPENBREAKER') { return getFromCache(); } throw err; }",
+        "Monitor metrics: Prometheus: circuit_breaker_state{name='api'} 0 (closed), 1 (open), 2 (half-open). circuit_breaker_failures_total{name='api'}, circuit_breaker_open_duration_seconds",
+        "Distributed tracing: Log circuit state in spans. If circuit open, trace shows fast fail without downstream call.",
+        "Istio circuit breaker: apiVersion: networking.istio.io/v1; kind: DestinationRule; spec: trafficPolicy: outlierDetection: {consecutiveErrors: 5, interval: 30s, baseEjectionTime: 60s, maxEjectionPercent: 100}",
+        "Alert on circuit open: If circuit open >5 min, page on-call. Indicates persistent downstream failure."
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T21:15:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["circuit_breaker", "resilience", "fault_tolerance", "microservices", "hystrix", "resilience4j"],
+      "category": "ERRORS",
+      "subcategory": "PATTERNS",
+      "version": "1.0.0",
+      "tested_on": ["Python", "JavaScript", "Java", "Istio"],
+      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+    }
+  }
+}

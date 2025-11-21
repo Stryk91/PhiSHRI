@@ -1,0 +1,48 @@
+{
+  "door_code": "T03PLAYWRIGHT",
+  "semantic_path": "TOOLS.AUTOMATION.PLAYWRIGHT",
+  "aliases": ["playwright", "browser_automation", "web_testing", "e2e"],
+  "context_bundle": {
+    "summary": "Playwright browser automation framework (Microsoft). Cross-browser (Chromium, Firefox, WebKit), fast (DevTools Protocol), built-in auto-waiting, parallel execution. Modern alternative to Selenium. 3M+ weekly downloads.",
+    "prerequisites": [],
+    "related_doors": ["T04SELENIUM", "T05PUPPETEER", "W18POM"],
+    "onboarding": {
+      "quick_start": "Playwright = modern web automation. Supports Chrome/Firefox/WebKit. Auto-waits for elements. Test isolation via browser contexts. Fast DevTools Protocol. Use Page Object Model for maintainability.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/07_UI_AUTOMATION/UI_AUTOMATION_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "test('name', async ({ page }) => { await page.goto('url'); })",
+        "Auto-waiting: await page.click('button') waits for clickable",
+        "Test isolation: Each test gets fresh browser context",
+        "Parallel: Multiple browsers/contexts concurrently",
+        "Page Object Model: Encapsulate page interactions"
+      ],
+      "known_errors": [
+        {
+          "error": "Element not found timeout",
+          "cause": "Selector incorrect or element not rendered",
+          "solution": "Verify selector with page.locator().count(), check for dynamic loading",
+          "prevention": "Use robust selectors (data-testid), explicit waits if needed",
+          "related_door": "T03PLAYWRIGHT"
+        }
+      ]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/07_UI_AUTOMATION/UI_AUTOMATION_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T03:00:00Z",
+      "confidence": 0.98,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["playwright", "automation", "testing", "browser", "e2e"],
+      "category": "TOOLS",
+      "subcategory": "BROWSER_AUTOMATION",
+      "version": "1.0.0",
+      "tested_on": ["Chromium", "Firefox", "WebKit"],
+      "agent_affinity": ["VSCC", "WEBC"]
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "door_code": "T16GRAFANA",
+  "semantic_path": "TOOLS.OBSERVABILITY.GRAFANA",
+  "aliases": ["grafana", "dashboards", "visualization", "grafana_dashboards", "monitoring_ui"],
+  "context_bundle": {
+    "summary": "Grafana: Visualization and analytics platform for metrics. Connects to data sources (Prometheus, Elasticsearch, InfluxDB, MySQL, Postgres), creates dashboards with panels (graphs, gauges, tables), alerting on metrics. Dashboard: Collection of panels, templating with variables ($environment, $service), time range picker, refresh intervals. Panel types: Time series (line graph), Bar chart, Stat (single value), Gauge, Table, Heatmap. Query: PromQL for Prometheus (rate(http_requests_total[5m])), SQL for databases. Alerts: Threshold-based (metric > value), notification channels (Slack, PagerDuty, email). Grafana Cloud (SaaS) or self-hosted. Best practices: Use variables for reusability, organize with folders/tags, set meaningful alert thresholds, auto-refresh dashboards, share with teams.",
+    "prerequisites": ["W86METRICS", "T17PROMETHEUS", "T10OBSERVABILITY"],
+    "related_doors": ["W84LOGGING", "W85TRACING", "W74LOAD_TEST"],
+    "onboarding": {
+      "quick_start": "Grafana setup: Install: docker run -d -p 3000:3000 grafana/grafana. Access: http://localhost:3000 (admin/admin). Add data source: Configuration → Data Sources → Add Prometheus → URL: http://prometheus:9090 → Save & Test. Create dashboard: + → Dashboard → Add panel → Query: rate(http_requests_total[5m]) → Panel title: Request Rate → Apply. Variables: Dashboard settings → Variables → Add variable: Name: environment, Type: Query, Query: label_values(http_requests_total, environment). Use in query: rate(http_requests_total{environment=\"$environment\"}[5m]). Panel types: Time series (trends), Stat (current value, e.g., active users), Gauge (% utilization), Table (list metrics). Alert: Panel edit → Alert tab → Create alert: WHEN avg() OF query(A, 5m) IS ABOVE 100 → Notifications: Send to Slack. Dashboard JSON export/import: Share → Export → Save JSON → Import dashboard from JSON. Grafana Cloud: grafana.com → Free tier (10k series, 14-day retention). Provisioning: datasources.yaml, dashboards.yaml in /etc/grafana/provisioning/.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "PromQL panel: Query: rate(http_requests_total{status=\"200\"}[5m]); Legend: {{method}} - {{endpoint}}; Panel title: Successful Requests/sec",
+        "Stat panel (single value): Query: sum(up); Panel: Stat; Title: Active Services; Thresholds: Green >0, Red =0",
+        "Gauge panel: Query: 100 * (1 - avg(rate(node_cpu_seconds_total{mode=\"idle\"}[5m]))); Min: 0, Max: 100; Title: CPU Usage %",
+        "Table panel: Query: topk(10, rate(http_requests_total[5m])); Transform: Organize fields (endpoint, value); Title: Top 10 Endpoints",
+        "Variables (dynamic): Name: job, Type: Query, Query: label_values(up, job); Use: rate(http_requests_total{job=\"$job\"}[5m])",
+        "Time series aggregation: Query: sum by (status) (rate(http_requests_total[5m])); Legend: Status {{status}}",
+        "Alerting rule: Condition: avg() of query(A) is above 500; Evaluate every: 1m; For: 5m; Notification: Slack #alerts",
+        "Dashboard provisioning (YAML): apiVersion: 1; providers: - name: 'default'; folder: 'General'; type: file; options: {path: /var/lib/grafana/dashboards}",
+        "Template dashboard import: Grafana.com → Dashboards → Search \"Node Exporter\" → Import dashboard 1860 → Select Prometheus data source",
+        "JSON dashboard export: Share → Export → View JSON → Copy JSON → Import in new Grafana instance"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T22:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["grafana", "dashboards", "visualization", "prometheus", "alerting", "monitoring"],
+      "category": "TOOLS",
+      "subcategory": "OBSERVABILITY",
+      "version": "1.0.0",
+      "tested_on": ["Grafana 10.x", "Prometheus", "Elasticsearch", "InfluxDB"],
+      "agent_affinity": ["VSCC", "CMDC", "WEBC"]
+    }
+  }
+}

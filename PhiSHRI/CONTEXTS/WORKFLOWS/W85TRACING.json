@@ -1,0 +1,45 @@
+{
+  "door_code": "W85TRACING",
+  "semantic_path": "WORKFLOWS.OBSERVABILITY.DISTRIBUTED_TRACING",
+  "aliases": ["tracing", "distributed_tracing", "jaeger", "zipkin", "opentelemetry", "span", "trace"],
+  "context_bundle": {
+    "summary": "Distributed tracing tracks requests across microservices: Trace (end-to-end request journey), Span (single operation, has start/end time, parent span), Trace ID (unique identifier propagated via headers). Tools: Jaeger (CNCF, Uber-origin, UI for trace visualization), Zipkin (Twitter-origin, simple setup), OpenTelemetry (vendor-neutral standard, instrumentation libraries). Instrumentation: Auto (agent injects tracing) vs manual (add spans in code). Context propagation: W3C Trace Context headers (traceparent, tracestate). Sampling: Head-based (decide at trace start, e.g., 10%), tail-based (decide after completion based on errors). Benefits: Find bottlenecks, debug latency, understand dependencies, root cause analysis.",
+    "prerequisites": ["W84LOGGING", "W86METRICS", "T10OBSERVABILITY"],
+    "related_doors": ["R03MICROSERVICE", "W78CONCURRENCY", "E06CIRCUIT_BREAKER"],
+    "onboarding": {
+      "quick_start": "Distributed tracing: OpenTelemetry (Python): pip install opentelemetry-api opentelemetry-sdk opentelemetry-exporter-jaeger; from opentelemetry import trace; from opentelemetry.sdk.trace import TracerProvider; from opentelemetry.sdk.trace.export import BatchSpanProcessor; from opentelemetry.exporter.jaeger.thrift import JaegerExporter; trace.set_tracer_provider(TracerProvider()); tracer = trace.get_tracer(__name__); jaeger_exporter = JaegerExporter(agent_host_name='localhost', agent_port=6831); trace.get_tracer_provider().add_span_processor(BatchSpanProcessor(jaeger_exporter)); with tracer.start_as_current_span('process_order') as span: span.set_attribute('order.id', 123); span.set_attribute('user.id', 456); result = process_order(); span.add_event('Order processed', {'result': result}). Node.js: const { NodeTracerProvider } = require('@opentelemetry/sdk-trace-node'); const { JaegerExporter } = require('@opentelemetry/exporter-jaeger'); const provider = new NodeTracerProvider(); provider.addSpanProcessor(new BatchSpanProcessor(new JaegerExporter())); provider.register(); const tracer = provider.getTracer('my-service'); const span = tracer.startSpan('fetch_user'); span.setAttribute('user.id', 123); span.end(). Propagation headers: traceparent = request.headers.get('traceparent'); # W3C format: 00-<trace_id>-<span_id>-<flags>. Jaeger UI: http://localhost:16686 (view traces, flamegraph, dependencies). Sampling: Head-based 10%: sampler=TraceIdRatioBased(0.1). Tail-based: Sample all errors, 1% success.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "OpenTelemetry auto-instrumentation (Python): opentelemetry-instrument --traces_exporter jaeger python app.py; # Auto-instruments Flask, requests, etc.",
+        "Manual span (Python): with tracer.start_as_current_span('db_query', attributes={'db.statement': query, 'db.system': 'postgresql'}) as span: result = db.execute(query); span.set_status(Status(StatusCode.OK))",
+        "Nested spans: with tracer.start_as_current_span('parent_operation'): do_work(); with tracer.start_as_current_span('child_operation'): do_more_work(); # Child span linked to parent",
+        "Error tracking: except Exception as e: span.set_status(Status(StatusCode.ERROR, str(e))); span.record_exception(e); raise",
+        "HTTP propagation (client): import requests; from opentelemetry.propagate import inject; headers = {}; inject(headers); requests.get('http://api.com', headers=headers); # Injects traceparent",
+        "HTTP propagation (server): from opentelemetry.propagate import extract; context = extract(request.headers); with tracer.start_as_current_span('handle_request', context=context): process()",
+        "Jaeger all-in-one: docker run -d -p 16686:16686 -p 6831:6831/udp jaegertracing/all-in-one:latest; # UI + collector",
+        "Sampling config: from opentelemetry.sdk.trace.sampling import ParentBased, TraceIdRatioBased; sampler = ParentBased(root=TraceIdRatioBased(0.1)); # 10% sampling",
+        "Go OpenTelemetry: import \"go.opentelemetry.io/otel\"; tracer := otel.Tracer(\"my-service\"); ctx, span := tracer.Start(ctx, \"operation\"); defer span.End(); span.SetAttributes(attribute.String(\"key\", \"value\"))",
+        "Service dependency map: Jaeger UI → Dependencies tab → Shows call graph between services"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T22:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["tracing", "distributed_tracing", "jaeger", "zipkin", "opentelemetry", "span", "microservices"],
+      "category": "WORKFLOWS",
+      "subcategory": "OBSERVABILITY",
+      "version": "1.0.0",
+      "tested_on": ["Python", "Node.js", "Go", "Java", "Jaeger", "Zipkin"],
+      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+    }
+  }
+}

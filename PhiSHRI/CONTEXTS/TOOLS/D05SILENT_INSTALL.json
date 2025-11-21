@@ -1,0 +1,45 @@
+{
+  "door_code": "D05SILENT_INSTALL",
+  "semantic_path": "TOOLS.DEPLOYMENT.SILENT",
+  "aliases": ["silent install", "unattended install", "quiet mode", "headless install"],
+  "context_bundle": {
+    "summary": "Silent installation patterns for automated software deployment across Windows, macOS, and Linux platforms without user interaction",
+    "prerequisites": ["D01WIX", "D02SILENT"],
+    "related_doors": ["T11CICD", "W15CICD", "D06ENTERPRISE"],
+    "onboarding": {
+      "quick_start": "Use /quiet or /silent flags for Windows installers (MSI, Inno, NSIS), installer -pkg for macOS, and package managers for Linux",
+      "full_context_path": "/PhiDEX/DEPLOYMENT_ALMANAC/07_SILENT_INSTALL/SILENT_INSTALLATION_GUIDE.md",
+      "common_patterns": [
+        "MSI: msiexec /i installer.msi /quiet /norestart /L*V log.txt",
+        "Inno Setup: installer.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART",
+        "NSIS: installer.exe /S /D=C:\\InstallPath (case-sensitive, /D last)",
+        "macOS: sudo installer -pkg installer.pkg -target /",
+        "PowerShell DSC for declarative configuration management"
+      ],
+      "known_errors": [
+        "NSIS /S flag is case-sensitive (/s will not work)",
+        "NSIS /D parameter must be last and unquoted even with spaces",
+        "MSI /quiet requires /norestart to prevent automatic reboot",
+        "macOS installer requires sudo for system-level installs"
+      ]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/DEPLOYMENT_ALMANAC/07_SILENT_INSTALL/SILENT_INSTALLATION_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T02:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["deployment", "silent", "unattended", "automation", "msi", "installer"],
+      "category": "TOOLS",
+      "subcategory": "DEPLOYMENT",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11", "macOS", "Linux"],
+      "agent_affinity": ["VSCC", "DC", "TERMC"]
+    }
+  }
+}

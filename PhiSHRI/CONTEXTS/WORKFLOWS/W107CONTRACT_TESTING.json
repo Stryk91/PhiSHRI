@@ -1,0 +1,39 @@
+{
+  "door_code": "W107CONTRACT_TESTING",
+  "semantic_path": "WORKFLOWS.TESTING.CONTRACT",
+  "aliases": ["contract test", "consumer driven", "pact", "api contract"],
+  "context_bundle": {
+    "summary": "Contract testing patterns for verifying API contracts between services in microservices architectures",
+    "prerequisites": ["W103INTEGRATION_TESTING", "R03MICROSERVICE"],
+    "related_doors": ["R03MICROSERVICE", "W79REST_API", "W80GRAPHQL"],
+    "onboarding": {
+      "quick_start": "Use contract testing tools like Pact or Spring Cloud Contract to verify API contracts between consumer and provider services",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Consumer defines expected contract",
+        "Provider verifies they meet contract",
+        "Test both sides independently",
+        "Detect breaking changes early"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T01:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["testing", "contract", "api", "microservices", "workflows"],
+      "category": "WORKFLOWS",
+      "subcategory": "TESTING",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11", "Linux"],
+      "agent_affinity": ["VSCC", "DC"]
+    }
+  }
+}

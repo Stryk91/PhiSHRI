@@ -1,0 +1,40 @@
+{
+  "door_code": "W115MESSAGE_QUEUE",
+  "semantic_path": "WORKFLOWS.COMMUNICATION.MESSAGE_QUEUE",
+  "aliases": ["message queue", "inbox", "outbox", "async messaging", "queue pattern"],
+  "context_bundle": {
+    "summary": "Message queue pattern for asynchronous agent communication using inbox/outbox directories for fire-and-forget and request/response patterns",
+    "prerequisites": ["W01COORD", "A09MESSAGE_QUEUE"],
+    "related_doors": ["W116IPC", "W117FILE_IPC", "W98MESSAGE_QUEUE", "A08AGENT_COORD"],
+    "onboarding": {
+      "quick_start": "Implement agent mailboxes with inbox/outbox directories, use correlation IDs for request/response, poll with exponential backoff",
+      "full_context_path": "/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md",
+      "common_patterns": [
+        "Inbox/outbox structure: agent/inbox/*.json and agent/outbox/*.json",
+        "Message format: id, timestamp, from, to, type, payload, metadata",
+        "Polling with exponential backoff: 100ms→200ms→400ms→800ms (max 5s)",
+        "Correlation IDs for request/response tracking",
+        "Dead letter queue (DLQ) for failed message processing"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T02:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["message queue", "async", "IPC", "communication", "inbox", "outbox"],
+      "category": "WORKFLOWS",
+      "subcategory": "COMMUNICATION",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11"],
+      "agent_affinity": ["DC", "VSCC", "TERMC", "KALIC", "WEBC", "CMDC"]
+    }
+  }
+}

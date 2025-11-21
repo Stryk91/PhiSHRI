@@ -1,0 +1,48 @@
+{
+  "door_code": "W15CICD",
+  "semantic_path": "WORKFLOWS.DEVELOPMENT.CICD_PIPELINES",
+  "aliases": ["cicd", "github_actions", "gitlab_ci", "jenkins", "automation"],
+  "context_bundle": {
+    "summary": "CI/CD pipeline templates for GitHub Actions, GitLab CI, Jenkins, CircleCI. Automated testing, building, deployment on commit/merge. Includes matrix builds, caching, artifact management.",
+    "prerequisites": ["W14GIT"],
+    "related_doors": ["D01WIX", "D02SILENT", "T02VSCODE"],
+    "onboarding": {
+      "quick_start": "GitHub Actions: .github/workflows/ci.yml. Triggers: on push/pull_request. Jobs: checkout, setup, build, test, deploy. Use actions/cache for dependencies. Matrix for multi-platform.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "GitHub Actions: on: [push, pull_request]",
+        "Matrix builds: strategy.matrix.os, strategy.matrix.node",
+        "Cache dependencies: actions/cache with key hash",
+        "Artifacts: actions/upload-artifact, actions/download-artifact",
+        "Secrets: ${{ secrets.API_KEY }} for sensitive data"
+      ],
+      "known_errors": [
+        {
+          "error": "Pipeline fails on dependency install",
+          "cause": "Cache corruption or network issues",
+          "solution": "Clear cache, retry with fresh install",
+          "prevention": "Use lockfiles (package-lock.json), validate cache keys",
+          "related_door": "W15CICD"
+        }
+      ]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T02:57:00Z",
+      "confidence": 0.97,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["cicd", "automation", "github_actions", "testing", "deployment"],
+      "category": "WORKFLOWS",
+      "subcategory": "CICD",
+      "version": "1.0.0",
+      "tested_on": ["GitHub Actions", "GitLab CI"],
+      "agent_affinity": ["VSCC", "DC"]
+    }
+  }
+}

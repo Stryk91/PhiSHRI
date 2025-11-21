@@ -1,0 +1,47 @@
+{
+  "door_code": "D09CODE_SIGNING",
+  "semantic_path": "TOOLS.DEPLOYMENT.CODE_SIGNING",
+  "aliases": ["code signing", "Authenticode", "codesign", "signtool", "certificate", "signing certificate"],
+  "context_bundle": {
+    "summary": "Code signing workflows for Windows (Authenticode/signtool), macOS (codesign), and certificate management including EV vs OV certificates and SmartScreen reputation",
+    "prerequisites": ["D03SIGN", "S05SECRETS"],
+    "related_doors": ["D10NOTARIZATION", "T11CICD", "S07ENCRYPTION"],
+    "onboarding": {
+      "quick_start": "Obtain code signing cert from CA, sign with signtool (Windows) or codesign (macOS), always use timestamp servers for post-expiration validity",
+      "full_context_path": "/PhiDEX/DEPLOYMENT_ALMANAC/04_SIGNING_TRUST/CODE_SIGNING_TRUST_GUIDE.md",
+      "common_patterns": [
+        "Windows: signtool sign /tr http://timestamp.digicert.com /td sha256 /fd sha256 /a file.exe",
+        "macOS: codesign --sign 'Developer ID' --timestamp --options runtime app.app",
+        "EV vs OV: EV requires HSM, no instant SmartScreen trust as of March 2024",
+        "SmartScreen reputation: Build through organic downloads (1 month first release)",
+        "Timestamp servers: DigiCert, Sectigo, GlobalSign, Entrust",
+        "Azure Trusted Signing: $10/month cloud-based option for individuals"
+      ],
+      "known_errors": [
+        "Windows requires RSA keys only, ECC not supported",
+        "Minimum 2048-bit RSA key size required",
+        "Without timestamp, signature invalid after cert expiration",
+        "EV certificates no longer provide instant SmartScreen trust",
+        "Reputation does not transfer when renewing certificate"
+      ]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/DEPLOYMENT_ALMANAC/04_SIGNING_TRUST/CODE_SIGNING_TRUST_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T02:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["code signing", "Authenticode", "signtool", "codesign", "certificate", "trust"],
+      "category": "TOOLS",
+      "subcategory": "DEPLOYMENT",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11", "macOS"],
+      "agent_affinity": ["VSCC", "DC", "TERMC"]
+    }
+  }
+}

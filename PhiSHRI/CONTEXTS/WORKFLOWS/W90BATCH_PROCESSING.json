@@ -1,0 +1,39 @@
+{
+  "door_code": "W90BATCH_PROCESSING",
+  "semantic_path": "WORKFLOWS.DATA_PROCESSING.BATCH_PROCESSING",
+  "aliases": ["batch", "batch_job", "batch_processing", "scheduled_batch", "bulk_processing"],
+  "context_bundle": {
+    "summary": "Batch processing handles large data volumes in scheduled chunks with chunking strategies, parallel processing, checkpointing for resumability, and comprehensive error handling for failed batches.",
+    "prerequisites": ["W100SCHEDULING", "W84LOGGING", "W86METRICS"],
+    "related_doors": ["W87ETL", "W91DATA_PIPELINE", "W101FILE_PROCESSING", "T18AIRFLOW"],
+    "onboarding": {
+      "quick_start": "Batch processing pattern: 1) Divide data into chunks (pagination, partitioning). 2) Process chunks in parallel using worker pools. 3) Checkpoint progress after each chunk. 4) Handle failures with retry logic and dead letter queue. 5) Aggregate results and report metrics. Use backpressure to prevent memory overflow.",
+      "full_context_path": "/PhiDEX/industry_knowledge/batch_processing_patterns.md",
+      "common_patterns": [
+        "Chunking: def process_in_batches(items, batch_size=1000): for i in range(0, len(items), batch_size): batch = items[i:i+batch_size]; yield process_batch(batch)",
+        "Parallel batch processing: from concurrent.futures import ThreadPoolExecutor; def process_all_batches(batches): with ThreadPoolExecutor(max_workers=10) as executor: futures = [executor.submit(process_batch, b) for b in batches]; results = [f.result() for f in futures]; return results",
+        "Checkpointing: def process_with_checkpoint(items): checkpoint = load_checkpoint(); start_index = checkpoint.get('last_processed', 0); for i in range(start_index, len(items), batch_size): process_batch(items[i:i+batch_size]); save_checkpoint({'last_processed': i+batch_size})",
+        "Error handling: try: results = process_batch(batch) except Exception as e: log_error(f'Batch failed: {e}'); dead_letter_queue.append(batch); if is_retryable(e): retry_queue.append(batch); continue"
+      ],
+      "known_errors": ["E07DATABASE_ERRORS", "E08NETWORK_ERRORS"]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/industry_knowledge/batch_processing_patterns.md"],
+      "code": [],
+      "tests": [],
+      "errors": ["E07DATABASE_ERRORS", "E08NETWORK_ERRORS"]
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T00:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["batch", "batch_processing", "bulk_processing", "chunking", "parallel_processing"],
+      "category": "WORKFLOWS",
+      "subcategory": "DATA_PROCESSING",
+      "version": "1.0.0",
+      "tested_on": ["Python", "Java", "Spring Batch", "Apache Spark", "Celery"],
+      "agent_affinity": ["DC", "VSCC"]
+    }
+  }
+}

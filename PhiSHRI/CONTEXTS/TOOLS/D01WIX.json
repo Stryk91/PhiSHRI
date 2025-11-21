@@ -1,0 +1,47 @@
+{
+  "door_code": "D01WIX",
+  "semantic_path": "DEPLOYMENT.WINDOWS.WIX_INSTALLER",
+  "aliases": ["wix", "msi", "windows_installer", "installer_creation"],
+  "context_bundle": {
+    "summary": "WiX Toolset for creating MSI installers on Windows. Industry-standard tool using XML definitions. Key concepts: Components, Product ID (wildcard), UpgradeCode (constant), WiX 4 via NuGet.",
+    "prerequisites": [],
+    "related_doors": ["D02SILENT", "D03SIGN", "D04UPDATE"],
+    "onboarding": {
+      "quick_start": "WiX creates MSI packages from XML. Product Id='*' (auto-gen), UpgradeCode stays constant across versions. Use WiX 4 from NuGet. Components = installation units.",
+      "full_context_path": "/PhiDEX/DEPLOYMENT_ALMANAC/01_PLATFORMS/INSTALLER_ECOSYSTEMS_GUIDE.md",
+      "common_patterns": [
+        "Define Product with wildcard ID for auto-generation",
+        "UpgradeCode links versions (must stay constant)",
+        "Components contain files/registry entries",
+        "Use WiX 4 via NuGet (latest standard)"
+      ],
+      "known_errors": [
+        {
+          "error": "Upgrade fails to replace old version",
+          "cause": "UpgradeCode changed between versions",
+          "solution": "Keep UpgradeCode constant, only change Product Version",
+          "prevention": "Document UpgradeCode in version control",
+          "related_door": "D04UPDATE"
+        }
+      ]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/DEPLOYMENT_ALMANAC/01_PLATFORMS/INSTALLER_ECOSYSTEMS_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T02:55:00Z",
+      "confidence": 0.96,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["deployment", "wix", "msi", "windows", "installer"],
+      "category": "DEPLOYMENT",
+      "subcategory": "WINDOWS_PACKAGING",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11"],
+      "agent_affinity": ["VSCC", "DC"]
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "door_code": "W18POM",
+  "semantic_path": "WORKFLOWS.TESTING.PAGE_OBJECT_MODEL",
+  "aliases": ["pom", "page_object", "test_pattern", "maintainability"],
+  "context_bundle": {
+    "summary": "Page Object Model (POM) pattern for UI test maintainability. Encapsulate page interactions in classes. Separate test logic from page structure. Change selectors in one place, not across all tests.",
+    "prerequisites": ["T03PLAYWRIGHT"],
+    "related_doors": ["T04SELENIUM", "W19TEST"],
+    "onboarding": {
+      "quick_start": "POM = class per page/component. Methods for user actions (login(), clickButton()). Locators stored in constructor. Tests call methods, not raw selectors. Update selectors in one file.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/07_UI_AUTOMATION/UI_AUTOMATION_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "class LoginPage { constructor(page) { this.page = page; this.usernameInput = page.locator('#username'); } }",
+        "async login(user, pass) { await this.usernameInput.fill(user); await this.submitBtn.click(); }",
+        "Test uses: const loginPage = new LoginPage(page); await loginPage.login('user', 'pass');",
+        "Benefits: DRY, maintainability, readability"
+      ],
+      "known_errors": [
+        {
+          "error": "Tests break after UI changes",
+          "cause": "Selectors hardcoded in tests",
+          "solution": "Refactor to POM, update selectors in page class only",
+          "prevention": "Always use POM from start, never hardcode selectors in tests",
+          "related_door": "W18POM"
+        }
+      ]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/07_UI_AUTOMATION/UI_AUTOMATION_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T03:00:00Z",
+      "confidence": 0.97,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["pom", "testing", "pattern", "maintainability", "best_practice"],
+      "category": "WORKFLOWS",
+      "subcategory": "TESTING_PATTERNS",
+      "version": "1.0.0",
+      "tested_on": ["Playwright", "Selenium"],
+      "agent_affinity": ["VSCC"]
+    }
+  }
+}

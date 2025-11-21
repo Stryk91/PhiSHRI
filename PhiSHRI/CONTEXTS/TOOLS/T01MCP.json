@@ -1,0 +1,51 @@
+{
+  "door_code": "T01MCP",
+  "semantic_path": "TOOLS.MCP.PROTOCOL",
+  "aliases": ["mcp", "model_context_protocol", "anthropic_mcp", "mcp_servers"],
+  "context_bundle": {
+    "summary": "Model Context Protocol (MCP) - Anthropic's open standard for connecting AI assistants to data sources. Universal protocol for LLM-to-system integration using JSON-RPC, stdio, and SSE transports.",
+    "prerequisites": [],
+    "related_doors": ["800WINMCP", "810AHK", "820PWSH", "W01COORD"],
+    "onboarding": {
+      "quick_start": "MCP = 3 primitives: Prompts (templates), Resources (data), Tools (functions). Transport: stdio (local) or HTTP+SSE (remote). Protocol: JSON-RPC stateful sessions.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/02_TOOL_INTEGRATION/TOOL_INTEGRATION_INTEROPERABILITY_GUIDE.md",
+      "common_patterns": [
+        "Server exposes prompts/resources/tools via JSON-RPC",
+        "Client connects via stdio for local, HTTP+SSE for remote",
+        "Stateful sessions maintain context across requests",
+        "Use official SDKs: @modelcontextprotocol/sdk for TypeScript, Python SDK available"
+      ],
+      "known_errors": [
+        {
+          "error": "MCP server connection fails",
+          "cause": "Transport misconfiguration (stdio vs HTTP)",
+          "solution": "Check transport type, verify stdio path or HTTP endpoint",
+          "prevention": "Use official SDK templates, test transport first",
+          "related_door": "800WINMCP"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/02_TOOL_INTEGRATION/TOOL_INTEGRATION_INTEROPERABILITY_GUIDE.md",
+        "https://modelcontextprotocol.io/",
+        "https://spec.modelcontextprotocol.io/specification/2024-11-05/"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T02:50:00Z",
+      "confidence": 0.99,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["mcp", "protocol", "anthropic", "integration", "json-rpc"],
+      "category": "TOOLS",
+      "subcategory": "PROTOCOLS",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11"],
+      "agent_affinity": ["DC", "VSCC", "TERMC"]
+    }
+  }
+}

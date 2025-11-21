@@ -1,0 +1,45 @@
+{
+  "door_code": "W48K8S_DEPLOY",
+  "semantic_path": "WORKFLOWS.INFRASTRUCTURE.KUBERNETES_DEPLOYMENT",
+  "aliases": ["kubernetes", "k8s", "deployment", "orchestration", "kubectl"],
+  "context_bundle": {
+    "summary": "Kubernetes container orchestration: define resources in YAML manifests (Deployment, Service, ConfigMap, Secret, Ingress). Deployments manage ReplicaSets/Pods with replicas, containers, resources, probes. Services expose Pods (ClusterIP, NodePort, LoadBalancer). kubectl apply -f manifest.yml (create/update), kubectl get/describe/logs/exec. Namespaces isolate resources. Labels/selectors link resources. Rolling updates, autoscaling.",
+    "prerequisites": ["W47DOCKER_COMPOSE"],
+    "related_doors": ["W49HELM", "W46TERRAFORM"],
+    "onboarding": {
+      "quick_start": "Kubernetes deployment: Deployment manifest with apiVersion: apps/v1, kind: Deployment, metadata: {name: myapp}, spec: {replicas: 3, selector: {matchLabels: {app: myapp}}, template: {metadata: {labels: {app: myapp}}, spec: {containers: [{name: myapp, image: myapp:1.0, ports: [{containerPort: 8080}]}]}}}. Service: kind: Service, spec: {type: LoadBalancer, selector: {app: myapp}, ports: [{port: 80, targetPort: 8080}]}. Apply: kubectl apply -f deployment.yml, kubectl get pods, kubectl logs pod-name, kubectl describe deployment myapp.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Deployment: apiVersion: apps/v1, kind: Deployment, spec: {replicas: 3, selector: {matchLabels: {app: myapp}}}",
+        "Container: containers: [{name: web, image: nginx:1.21, ports: [{containerPort: 80}], resources: {limits: {cpu: '500m', memory: '512Mi'}}}]",
+        "Service ClusterIP: kind: Service, spec: {type: ClusterIP, selector: {app: myapp}, ports: [{port: 80}]}",
+        "Service LoadBalancer: spec: {type: LoadBalancer, ports: [{port: 80, targetPort: 8080}]}",
+        "ConfigMap: kind: ConfigMap, data: {config.yml: 'key: value'}",
+        "Secret: kind: Secret, type: Opaque, data: {password: base64encoded}",
+        "Probes: livenessProbe: {httpGet: {path: /health, port: 8080}, initialDelaySeconds: 30}",
+        "Apply: kubectl apply -f manifest.yml",
+        "Get: kubectl get pods -n namespace -l app=myapp",
+        "Logs: kubectl logs -f deployment/myapp --tail=100"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T19:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["kubernetes", "k8s", "deployment", "orchestration", "containers", "kubectl"],
+      "category": "WORKFLOWS",
+      "subcategory": "INFRASTRUCTURE",
+      "version": "1.0.0",
+      "tested_on": ["Kubernetes", "GKE", "EKS", "AKS"],
+      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "door_code": "W35MONOREPO",
+  "semantic_path": "WORKFLOWS.DEVELOPMENT.MONOREPO_MANAGEMENT",
+  "aliases": ["monorepo", "mono_repo", "workspace", "multi_package"],
+  "context_bundle": {
+    "summary": "Monorepo management: Single repo, multiple projects/packages. Tools: Nx, Turborepo, Lerna, pnpm workspaces. Benefits: code sharing, atomic commits, unified versioning. Challenges: build times, tooling complexity. Use workspace protocols for dependencies.",
+    "prerequisites": ["W14GIT", "W33GIT_BRANCH"],
+    "related_doors": ["W36GITHUB_ACTIONS", "W15CICD"],
+    "onboarding": {
+      "quick_start": "Monorepo = one repo, many packages. Tools: Nx (enterprise), Turborepo (fast), Lerna (classic), pnpm workspaces (simple). Benefits: shared code, atomic changes. Setup: workspace root + packages/*. Use caching for builds. Configure CI to only build affected packages.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "pnpm workspace: pnpm-workspace.yaml with packages/*",
+        "Turborepo: turbo.json for pipeline config",
+        "Nx: nx.json + workspace.json",
+        "Affected builds: nx affected:build",
+        "Shared dependencies in root package.json"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T18:55:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["monorepo", "workspace", "multi_package", "nx", "turborepo"],
+      "category": "WORKFLOWS",
+      "subcategory": "DEVELOPMENT",
+      "version": "1.0.0",
+      "tested_on": ["Nx", "Turborepo", "Lerna", "pnpm"],
+      "agent_affinity": ["DC", "VSCC"]
+    }
+  }
+}

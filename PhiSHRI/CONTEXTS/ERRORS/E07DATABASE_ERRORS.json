@@ -1,0 +1,45 @@
+{
+  "door_code": "E07DATABASE_ERRORS",
+  "semantic_path": "ERRORS.PATTERNS.DATABASE_ERRORS",
+  "aliases": ["database_errors", "db_errors", "connection_errors", "deadlock", "constraint_violation"],
+  "context_bundle": {
+    "summary": "Database error patterns: Connection errors (max connections reached, network timeout, credentials invalid), Query errors (syntax error, constraint violation, foreign key, unique constraint, deadlock), Transaction errors (serialization failure, lock timeout). Solutions: Connection pooling (reuse connections, typical pool size 10-20), retry with exponential backoff (transient errors), deadlock retry (automatic in ORM), constraint validation before insert (check uniqueness), connection health checks (ping before query), timeout configuration (connect_timeout, statement_timeout). Common errors: IntegrityError (constraint violation), OperationalError (connection issue), ProgrammingError (SQL syntax), DeadlockDetected (transaction conflict). Libraries: psycopg2 (Postgres), pymysql (MySQL), SQLAlchemy (ORM with connection pooling).",
+    "prerequisites": ["E04TIMEOUT", "E05RETRY", "W76OPTIMIZE_DB"],
+    "related_doors": ["E06CIRCUIT_BREAKER", "W72CACHING", "W86METRICS"],
+    "onboarding": {
+      "quick_start": "Database error handling: Connection pool (SQLAlchemy): from sqlalchemy import create_engine; engine = create_engine('postgresql://user:pass@host/db', pool_size=10, max_overflow=20, pool_pre_ping=True); # pool_pre_ping checks connection health. Retry on transient error (psycopg2): import psycopg2; from psycopg2 import OperationalError; for attempt in range(3): try: conn = psycopg2.connect(dsn); cursor = conn.cursor(); cursor.execute(query); conn.commit(); break; except OperationalError as e: if attempt == 2: raise; time.sleep(2 ** attempt); # Exponential backoff. Deadlock retry: try: db.execute('UPDATE accounts SET balance=balance-100 WHERE id=1'); db.execute('UPDATE accounts SET balance=balance+100 WHERE id=2'); db.commit(); except DeadlockDetected: db.rollback(); retry(); # Retry transaction. Constraint error handling: from sqlalchemy.exc import IntegrityError; try: db.session.add(User(email=email)); db.session.commit(); except IntegrityError: db.session.rollback(); return {'error': 'Email already exists'}, 409. Timeout config (Postgres): connect_timeout=5; statement_timeout=30000 (30s). Connection health check: try: cursor.execute('SELECT 1'); except OperationalError: reconnect(). Monitor: Track connection pool utilization, slow queries, deadlock frequency.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Connection pool (psycopg2): from psycopg2 import pool; connection_pool = pool.SimpleConnectionPool(1, 20, dsn='postgresql://...'); conn = connection_pool.getconn(); cursor = conn.cursor(); cursor.execute(query); connection_pool.putconn(conn)",
+        "Retry transient errors: def query_with_retry(query, max_attempts=3): for attempt in range(max_attempts): try: return db.execute(query); except OperationalError as e: if 'server closed' in str(e) or 'timeout' in str(e): if attempt < max_attempts - 1: time.sleep(2 ** attempt); continue; raise",
+        "Deadlock detection (Postgres): try: cursor.execute('UPDATE table SET ...');except psycopg2.errors.DeadlockDetected: conn.rollback(); # Retry transaction",
+        "Unique constraint handling: try: db.execute('INSERT INTO users (email) VALUES (?)', email); except sqlite3.IntegrityError as e: if 'UNIQUE constraint' in str(e): return {'error': 'Email exists'}, 409",
+        "Foreign key violation: try: db.execute('DELETE FROM users WHERE id=?', user_id); except IntegrityError: return {'error': 'Cannot delete user with active orders'}, 409",
+        "Connection health check (SQLAlchemy): from sqlalchemy import select; try: session.execute(select([1])); except OperationalError: session.rollback(); engine.dispose(); # Force reconnect",
+        "Max connections error: psycopg2.OperationalError: FATAL: sorry, too many clients already; # Solution: Increase max_connections in postgres.conf or use connection pooler (PgBouncer)",
+        "Timeout configuration (SQLAlchemy): engine = create_engine('postgresql://...', connect_args={'connect_timeout': 5, 'options': '-c statement_timeout=30000'})",
+        "Lock timeout (Postgres): SET lock_timeout = '5s'; UPDATE table SET ...; # Fail fast if lock not acquired in 5s",
+        "Monitoring (Prometheus): from prometheus_client import Counter; db_errors = Counter('database_errors_total', 'Database errors', ['error_type']); except OperationalError: db_errors.labels(error_type='connection').inc()"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T22:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["database_errors", "connection_pool", "deadlock", "retry", "constraint_violation", "sqlalchemy", "psycopg2"],
+      "category": "ERRORS",
+      "subcategory": "PATTERNS",
+      "version": "1.0.0",
+      "tested_on": ["PostgreSQL", "MySQL", "SQLite", "Python", "SQLAlchemy"],
+      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+    }
+  }
+}

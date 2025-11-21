@@ -1,0 +1,43 @@
+{
+  "door_code": "W70FEATURE_FLAG",
+  "semantic_path": "WORKFLOWS.DEPLOYMENT.FEATURE_FLAGS",
+  "aliases": ["feature_flag", "feature_toggle", "feature_switch", "dark_launch"],
+  "context_bundle": {
+    "summary": "Feature flags: Runtime toggles to enable/disable features without code deployment. Types: Release (temporary, remove after rollout), Ops (permanent, circuit breaker), Experiment (A/B testing), Permission (entitlements). Patterns: Boolean flags, percentage rollout, user targeting, kill switches. Benefits: Decouple deployment from release, test in production, instant rollback, gradual rollout. Tools: LaunchDarkly, Split.io, Unleash, ConfigCat, Flipper (Rails), custom (Redis, database). Avoid: Flag sprawl (remove old flags), complex logic, flag dependencies.",
+    "prerequisites": ["W67BLUEGREEN", "W68CANARY"],
+    "related_doors": ["W71AB_TEST", "S05SECRETS", "W54REDIS"],
+    "onboarding": {
+      "quick_start": "Feature flags: Control features at runtime. Simple boolean: if (featureFlags.newCheckout) { return <NewCheckout />; } else { return <OldCheckout />; }. Percentage rollout: const enabled = featureFlags.checkFlag('new-ui', userId); // 10% users. User targeting: if (featureFlags.isEnabled('admin-panel', {userId, role: 'admin'})) { ... }. Implementation (LaunchDarkly): import LaunchDarkly; const client = LaunchDarkly.init(sdkKey); const flagValue = await client.variation('new-feature', user, false); if (flagValue) { // New feature }. DIY (Redis): SET feature:new-ui:enabled true; SET feature:new-ui:percentage 25; GET feature:new-ui:enabled; Random(0-100) < percentage. Types: Release flags (temp, for rollout), Ops flags (circuit breaker, permanent), Experiment flags (A/B test, temp), Permission flags (user entitlements, permanent). Best practices: Default to OFF, remove flags after rollout (technical debt), use naming convention (feature_new_checkout_2024), track flag usage, automate cleanup.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Simple boolean: const NEW_UI_ENABLED = process.env.FEATURE_NEW_UI === 'true'; if (NEW_UI_ENABLED) { render(<NewUI />); } else { render(<OldUI />); }",
+        "LaunchDarkly: const ldClient = LaunchDarkly.initialize(clientSideId, {key: userId, email: user.email}); await ldClient.waitForInitialization(); const showFeature = ldClient.variation('new-feature', false); if (showFeature) { // Show new feature }",
+        "Percentage rollout: function isEnabledForUser(flagName, userId, percentage) { const hash = hashCode(flagName + userId) % 100; return hash < percentage; }",
+        "Unleash (open-source): const unleash = new Unleash({url: 'http://unleash:4242/api', appName: 'myapp'}); unleash.isEnabled('new-checkout', {userId: '123'})",
+        "Database flags: SELECT enabled, percentage, targeting FROM feature_flags WHERE name = 'new-ui'; if (enabled && (percentage === 100 || userId in targeting)) { // Enable }",
+        "Kill switch (ops flag): if (featureFlags.paymentProcessing === false) { return {error: 'Payment system under maintenance'}; }",
+        "A/B test variant: const variant = featureFlags.getVariant('checkout-layout', userId); // 'control' or 'variant-a' or 'variant-b'; if (variant === 'variant-a') { // Layout A } else if (variant === 'variant-b') { // Layout B }",
+        "React context: const FeatureFlags = React.createContext(); <FeatureFlags.Provider value={flags}><App /></FeatureFlags.Provider>; const flags = useContext(FeatureFlags); if (flags.newFeature) { ... }"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T21:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["feature_flag", "feature_toggle", "dark_launch", "launchdarkly", "progressive_delivery"],
+      "category": "WORKFLOWS",
+      "subcategory": "DEPLOYMENT",
+      "version": "1.0.0",
+      "tested_on": ["LaunchDarkly", "Split.io", "Unleash", "Custom"],
+      "agent_affinity": ["VSCC", "WEBC", "CMDC"]
+    }
+  }
+}

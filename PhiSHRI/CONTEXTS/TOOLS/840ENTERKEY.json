@@ -1,0 +1,48 @@
+{
+  "door_code": "840ENTERKEY",
+  "semantic_path": "TOOLS.WINDOWS.ENTER_KEY_INJECTION",
+  "aliases": ["enter_key", "vk_return", "keybd_event", "key_injection"],
+  "context_bundle": {
+    "summary": "CRITICAL: Reliable Enter key sending via Win32 keybd_event. MCP send_keys fails with \\n in terminals (sends Unicode, not VK code). Solution: Direct keybd_event(VK_RETURN=0x0D) injection. Finds window, sets focus, sends VK_RETURN press+release.",
+    "prerequisites": ["820PWSH", "810AHK"],
+    "related_doors": ["800WINMCP", "W01COORD"],
+    "onboarding": {
+      "quick_start": "Problem: send_keys('\\n') fails in terminals. Root cause: Unicode newline vs VK_RETURN virtual key. Solution: Use Win32 keybd_event(0x0D, 0, 0, 0) for press, (0x0D, 0, KEYEVENTF_KEYUP, 0) for release. Reliable Enter submission.",
+      "full_context_path": "/PhiDEX/CRITICAL_ENTER_KEY_METHOD.md",
+      "common_patterns": [
+        "P/Invoke: [DllImport('user32.dll')] keybd_event()",
+        "VK_RETURN = 0x0D (Enter virtual key code)",
+        "Press: keybd_event(VK_RETURN, 0, 0, 0)",
+        "Release: keybd_event(VK_RETURN, 0, KEYEVENTF_KEYUP, 0)",
+        "Delay 50ms between press and release for reliability"
+      ],
+      "known_errors": [
+        {
+          "error": "Enter key doesn't work in terminal with \\n",
+          "cause": "send_keys uses Unicode, terminals need VK_RETURN",
+          "solution": "Use keybd_event with VK_RETURN (0x0D) instead",
+          "prevention": "Always use keybd_event for special keys in terminals",
+          "related_door": "840ENTERKEY"
+        }
+      ]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/CRITICAL_ENTER_KEY_METHOD.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T03:00:00Z",
+      "confidence": 0.99,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["windows", "keyboard", "enter_key", "win32", "terminal"],
+      "category": "TOOLS",
+      "subcategory": "KEYBOARD_AUTOMATION",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11"],
+      "agent_affinity": ["DC", "VSCC"]
+    }
+  }
+}

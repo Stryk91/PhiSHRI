@@ -1,0 +1,39 @@
+{
+  "door_code": "R14ADAPTER_PATTERN",
+  "semantic_path": "ARCHITECTURE.PATTERNS.STRUCTURAL.ADAPTER",
+  "aliases": ["adapter", "wrapper", "translator pattern"],
+  "context_bundle": {
+    "summary": "Adapter pattern converts interface of a class into another interface clients expect, enabling incompatible interfaces to work together",
+    "prerequisites": ["R01MULTI"],
+    "related_doors": ["R13DECORATOR_PATTERN", "R16PROXY_PATTERN"],
+    "onboarding": {
+      "quick_start": "Create adapter class that translates between incompatible interfaces, acting as bridge between client and adaptee",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/02_PATTERNS/DESIGN_PATTERNS_GUIDE.md",
+      "common_patterns": [
+        "Adapter implements target interface",
+        "Adapter wraps adaptee instance",
+        "Translates method calls between interfaces",
+        "Used for legacy system integration"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/02_PATTERNS/DESIGN_PATTERNS_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T01:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["architecture", "design pattern", "adapter", "structural"],
+      "category": "ARCHITECTURE",
+      "subcategory": "PATTERNS",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11", "Linux"],
+      "agent_affinity": ["VSCC", "DC"]
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "door_code": "W77MEMORY_MGMT",
+  "semantic_path": "WORKFLOWS.PERFORMANCE.MEMORY_MANAGEMENT",
+  "aliases": ["memory_management", "memory_leak", "garbage_collection", "gc_tuning", "heap_management"],
+  "context_bundle": {
+    "summary": "Memory management optimizes RAM usage: Garbage collection tuning (Java G1GC balanced, ZGC ultra-low latency <10ms, generational collection), leak detection (Valgrind memcheck C/C++, Eclipse MAT Java heap analyzer, Chrome DevTools JS, AddressSanitizer ASan), best practices (proper deallocation, avoid circular references, use weak references, object pooling reduces GC). 2024 stats: 30% performance problems involve resource failures, 70,000 CPU cores saved via GC tuning. Tools: YourKit (Java/.NET low-overhead), Scalene (Python line-level), dotMemory (.NET leak finder). Strategies: chunked processing (generators/iterators), efficient data types (int8 vs int64), container right-sizing, backpressure for unbounded growth.",
+    "prerequisites": ["W73PROFILING", "W75BENCHMARK"],
+    "related_doors": ["W78CONCURRENCY", "E07DATABASE_ERRORS"],
+    "onboarding": {
+      "quick_start": "Memory management techniques: Python chunked processing: def process_large_file(filename): with open(filename) as f: for chunk in iter(lambda: f.read(8192), ''): process(chunk); # Avoid loading entire file. Leak detection (Valgrind C++): valgrind --leak-check=full --show-leak-kinds=all ./myapp; # Detects leaks, buffer overflows. Java GC tuning (G1GC): java -XX:+UseG1GC -XX:MaxGCPauseMillis=200 -Xms2g -Xmx4g MyApp; # Target <200ms pause, 2-4GB heap. ZGC (ultra-low latency): java -XX:+UseZGC -XX:ConcGCThreads=2 -Xmx16g MyApp; # <10ms pauses. Python memory profiling (Scalene): pip install scalene; scalene --cpu --memory script.py; # Line-by-line memory usage. Java heap dump: jmap -dump:format=b,file=heap.bin PID; # Analyze with Eclipse MAT. Object pooling (Python): pool = Queue(); for _ in range(10): pool.put(ExpensiveObject()); obj = pool.get(); use(obj); pool.put(obj); # Reuse objects. Weak references (avoid cycles): import weakref; weak_obj = weakref.ref(obj); # Doesn't prevent GC. Monitor: Track heap usage, GC frequency, pause times. Alert if memory grows unbounded (leak).",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md",
+      "common_patterns": [
+        "Java G1GC tuning: -XX:+UseG1GC -XX:MaxGCPauseMillis=100 -XX:G1HeapRegionSize=16M -Xms4g -Xmx8g; # Balanced throughput/latency",
+        "Python generator for memory efficiency: def read_large_file(filename): with open(filename) as f: for line in f: yield line.strip(); # Lazy loading",
+        "Valgrind leak check: valgrind --tool=memcheck --leak-check=full --track-origins=yes ./app; # Full memory debugging",
+        "Eclipse MAT analysis: jmap -dump:live,format=b,file=heap.bin PID; mat heap.bin; # Find memory leaks via dominator tree",
+        "Python Scalene profiling: scalene --reduced-profile --cpu --memory --html --outfile profile.html script.py",
+        "AddressSanitizer (C++): g++ -fsanitize=address -g myapp.cpp -o myapp; ./myapp; # Detects leaks, buffer overflows at runtime",
+        "Object pooling (Java): ObjectPool pool = new GenericObjectPool<>(new MyObjectFactory()); MyObject obj = pool.borrowObject(); use(obj); pool.returnObject(obj)",
+        "Weak reference (Python): import weakref; cache = weakref.WeakValueDictionary(); cache[key] = obj; # Auto-remove when obj GC'd",
+        "Container memory limits (Docker): docker run --memory=512m --memory-swap=1g myapp; # Prevent OOM",
+        "GC monitoring (Java): -Xlog:gc*:file=gc.log:time,uptime,level,tags; # Detailed GC logging for analysis"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T22:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["memory_management", "garbage_collection", "gc_tuning", "memory_leak", "valgrind", "scalene", "eclipse_mat", "object_pooling"],
+      "category": "WORKFLOWS",
+      "subcategory": "PERFORMANCE",
+      "version": "1.0.0",
+      "tested_on": ["Java", "Python", "C/C++", ".NET", "JavaScript"],
+      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+    }
+  }
+}

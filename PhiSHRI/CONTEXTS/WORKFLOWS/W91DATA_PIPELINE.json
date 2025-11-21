@@ -1,0 +1,39 @@
+{
+  "door_code": "W91DATA_PIPELINE",
+  "semantic_path": "WORKFLOWS.DATA_PROCESSING.PIPELINE_ORCHESTRATION",
+  "aliases": ["pipeline", "data_pipeline", "orchestration", "workflow_orchestration", "airflow"],
+  "context_bundle": {
+    "summary": "Data pipeline orchestration coordinates multi-stage data workflows using tools like Airflow and Prefect with DAGs (Directed Acyclic Graphs), task dependencies, retry logic, and monitoring for complex data workflows.",
+    "prerequisites": ["W87ETL", "W90BATCH_PROCESSING", "W84LOGGING"],
+    "related_doors": ["W88STREAMING", "W92DATA_TRANSFORM", "T18AIRFLOW", "W100SCHEDULING"],
+    "onboarding": {
+      "quick_start": "Pipeline orchestration: 1) Define tasks as nodes in DAG. 2) Set dependencies between tasks (task_a >> task_b >> task_c). 3) Configure retry logic, timeouts, and SLAs. 4) Monitor execution with logs and metrics. 5) Handle failures with alerting and backfilling. Use idempotent tasks for safe retries.",
+      "full_context_path": "/PhiDEX/industry_knowledge/pipeline_orchestration_patterns.md",
+      "common_patterns": [
+        "Airflow DAG: from airflow import DAG; from airflow.operators.python import PythonOperator; from datetime import datetime; dag = DAG('data_pipeline', start_date=datetime(2025, 1, 1), schedule_interval='@daily'); extract = PythonOperator(task_id='extract', python_callable=extract_data, dag=dag); transform = PythonOperator(task_id='transform', python_callable=transform_data, dag=dag); load = PythonOperator(task_id='load', python_callable=load_data, dag=dag); extract >> transform >> load",
+        "Task dependencies: task_a = process_source_a(); task_b = process_source_b(); task_c = merge_sources([task_a, task_b]); task_d = load_to_warehouse(task_c); # DAG: task_a >> task_c >> task_d; task_b >> task_c",
+        "Retry config: task = PythonOperator(task_id='extract', python_callable=extract, retries=3, retry_delay=timedelta(minutes=5), retry_exponential_backoff=True, max_retry_delay=timedelta(hours=1))",
+        "Monitoring: def task_success_callback(context): send_alert('Task succeeded', context); def task_failure_callback(context): send_alert('Task failed', context); log_error(context['exception'])"
+      ],
+      "known_errors": ["E07DATABASE_ERRORS", "E08NETWORK_ERRORS", "E03TIMEOUT"]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/industry_knowledge/pipeline_orchestration_patterns.md"],
+      "code": [],
+      "tests": [],
+      "errors": ["E07DATABASE_ERRORS", "E08NETWORK_ERRORS", "E03TIMEOUT"]
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T00:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["pipeline", "orchestration", "airflow", "dag", "workflow", "data_pipeline"],
+      "category": "WORKFLOWS",
+      "subcategory": "DATA_PROCESSING",
+      "version": "1.0.0",
+      "tested_on": ["Apache Airflow", "Prefect", "Dagster", "Luigi", "Argo Workflows"],
+      "agent_affinity": ["DC", "VSCC", "WEBC"]
+    }
+  }
+}

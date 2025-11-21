@@ -1,0 +1,45 @@
+{
+  "door_code": "D07GPO",
+  "semantic_path": "TOOLS.DEPLOYMENT.GROUP_POLICY",
+  "aliases": ["Group Policy", "GPO", "Active Directory", "policy enforcement", "LGPO"],
+  "context_bundle": {
+    "summary": "Group Policy Object management for centralized Windows configuration, security baseline enforcement, and software deployment in Active Directory environments",
+    "prerequisites": ["D06ENTERPRISE"],
+    "related_doors": ["S12RBAC", "D08AUTOPILOT", "W05RUNSPACE"],
+    "onboarding": {
+      "quick_start": "Create GPOs via Group Policy Editor, link to OUs, enforce security baselines, deploy software, and use LGPO tool for mass deployment",
+      "full_context_path": "/PhiDEX/DEPLOYMENT_ALMANAC/09_ENTERPRISE/ENTERPRISE_DEPLOYMENT_GUIDE.md",
+      "common_patterns": [
+        "OU structure design: Separate users and computers by department/location",
+        "GPO naming: [C/U]-[Function]-[Environment]-[Version] (e.g., C-SecurityBaseline-Production-v1)",
+        "Default Domain Policy: Use ONLY for account/password/Kerberos policies",
+        "Performance: Disable unused user/computer configurations, link at OU level",
+        "Software deployment: MSI packages install silently when assigned via GPO",
+        "LGPO tool for batch GPO application and testing"
+      ],
+      "known_errors": [
+        "Block inheritance used sparingly to avoid policy conflicts",
+        "Large GPOs process faster but harder to troubleshoot",
+        "Group Policy refreshes every 90 minutes by default"
+      ]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/DEPLOYMENT_ALMANAC/09_ENTERPRISE/ENTERPRISE_DEPLOYMENT_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T02:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["Group Policy", "GPO", "Active Directory", "Windows", "policy", "security baseline"],
+      "category": "TOOLS",
+      "subcategory": "DEPLOYMENT",
+      "version": "1.0.0",
+      "tested_on": ["Windows Server 2019", "Windows Server 2022", "Windows 10", "Windows 11"],
+      "agent_affinity": ["DC", "VSCC"]
+    }
+  }
+}

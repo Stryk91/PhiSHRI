@@ -1,0 +1,45 @@
+{
+  "door_code": "S12API_SECURITY",
+  "semantic_path": "SECURITY.API.AUTHENTICATION_AUTHORIZATION",
+  "aliases": ["api_security", "api_auth", "api_authentication", "api_authorization", "bearer_token"],
+  "context_bundle": {
+    "summary": "API security best practices: Authentication (verify identity): API keys (simple, per-app), JWT tokens (stateless, signed), OAuth 2.0 (delegated access). Authorization (verify permissions): RBAC (roles), scope-based (OAuth scopes), attribute-based. HTTPS mandatory (TLS 1.2+), rate limiting (prevent abuse: 100 req/min per IP), input validation (prevent injection), CORS config (restrict origins). Security headers: Authorization: Bearer <token>, X-API-Key. Token storage: httpOnly cookies (web), secure storage (mobile), never localStorage. Common attacks: Injection (SQL, XSS), broken auth (weak passwords, no MFA), excessive data exposure (return only needed fields), lack of rate limiting, CORS misconfiguration. OWASP API Security Top 10 (2023): Broken object level authorization, authentication, excessive data exposure, rate limiting, function level authorization, mass assignment, security misconfiguration, injection, assets management, logging.",
+    "prerequisites": ["S07OAUTH", "S08JWT", "S10CORS", "W79REST_API"],
+    "related_doors": ["S09RBAC", "S11CSRF", "W82WEBHOOKS", "E05RETRY"],
+    "onboarding": {
+      "quick_start": "API security: JWT authentication: Client sends POST /login {username, password} → Server validates → Returns JWT token. Client stores token securely. API requests: Authorization: Bearer <jwt_token>. Server validates JWT signature, checks expiration. Python (Flask-JWT-Extended): from flask_jwt_extended import JWTManager, create_access_token, jwt_required; jwt = JWTManager(app); @app.route('/login', methods=['POST']): if valid_credentials(): token = create_access_token(identity=user_id); return {'access_token': token}; @app.route('/protected'): @jwt_required() def protected(): return {'msg': 'Authenticated'}. Rate limiting (Flask-Limiter): from flask_limiter import Limiter; limiter = Limiter(app, key_func=lambda: request.remote_addr); @app.route('/api/resource'): @limiter.limit('100/minute') def resource(): return data. Input validation: from marshmallow import Schema, fields, ValidationError; class UserSchema(Schema): email = fields.Email(required=True); age = fields.Int(validate=lambda n: n > 0); try: UserSchema().load(request.json); except ValidationError as e: return {'errors': e.messages}, 400. CORS (Flask-CORS): from flask_cors import CORS; CORS(app, origins=['https://trusted-domain.com']). HTTPS enforcement: if request.scheme != 'https': return redirect(request.url.replace('http://', 'https://')). API keys: API-Key header, validate against database.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md",
+      "common_patterns": [
+        "JWT middleware (Node.js Express): const jwt = require('jsonwebtoken'); app.use('/api/*', (req, res, next) => { const token = req.headers.authorization?.split(' ')[1]; if (!token) return res.status(401).json({error: 'No token'}); jwt.verify(token, SECRET, (err, decoded) => { if (err) return res.status(403).json({error: 'Invalid token'}); req.user = decoded; next(); }) })",
+        "API key validation: api_key = request.headers.get('X-API-Key'); if not db.query('SELECT 1 FROM api_keys WHERE key=? AND active=1', api_key): abort(401, 'Invalid API key')",
+        "Rate limiting (Redis): import redis; r = redis.Redis(); key = f'rate_limit:{request.remote_addr}'; count = r.incr(key); if count == 1: r.expire(key, 60); if count > 100: abort(429, 'Rate limit exceeded')",
+        "RBAC check: @jwt_required(); def admin_only(): current_user = get_jwt_identity(); if current_user['role'] != 'admin': abort(403, 'Admin required'); return {'data': sensitive_data}",
+        "Scope validation (OAuth): @require_oauth('read:users') def get_users(): return users; # Checks token has read:users scope",
+        "Input sanitization: from bleach import clean; safe_input = clean(user_input, tags=[], strip=True); # Remove HTML/XSS",
+        "SQL injection prevention: cursor.execute('SELECT * FROM users WHERE email=?', (email,)); # Parameterized query, NOT: f'SELECT * WHERE email=\"{email}\"'",
+        "CORS preflight: @app.route('/api/resource', methods=['OPTIONS']): response = make_response(); response.headers['Access-Control-Allow-Origin'] = 'https://app.com'; response.headers['Access-Control-Allow-Methods'] = 'GET, POST'; return response",
+        "Security headers: response.headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains'; response.headers['X-Content-Type-Options'] = 'nosniff'; response.headers['X-Frame-Options'] = 'DENY'",
+        "Token refresh: @app.route('/refresh'): @jwt_required(refresh=True) def refresh(): new_token = create_access_token(identity=get_jwt_identity()); return {'access_token': new_token}"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T22:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["api_security", "authentication", "authorization", "jwt", "oauth", "rate_limiting", "input_validation", "cors"],
+      "category": "SECURITY",
+      "subcategory": "API",
+      "version": "1.0.0",
+      "tested_on": ["Python Flask", "Node.js Express", "FastAPI", "Spring Boot"],
+      "agent_affinity": ["VSCC", "WEBC", "CMDC"]
+    }
+  }
+}

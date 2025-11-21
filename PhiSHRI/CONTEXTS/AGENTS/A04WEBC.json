@@ -1,0 +1,40 @@
+{
+  "door_code": "A04WEBC",
+  "semantic_path": "AGENTS.PHIVECTOR.WEBC",
+  "aliases": ["webc", "web_claude", "research_agent", "web_scraping"],
+  "context_bundle": {
+    "summary": "WEBC (Web Claude): Research compilation agent. Web scraping, API integration, data aggregation. Compiles research from online sources into PhiDEX markdown. Specializes in multi-source synthesis.",
+    "prerequisites": ["W12PHISYNC", "W01COORD"],
+    "related_doors": ["A01DC", "A02VSCC", "T03PLAYWRIGHT"],
+    "onboarding": {
+      "quick_start": "WEBC = research agent. Scrapes web data, calls APIs, aggregates information. Outputs: Markdown research documents. Coordination: File-based via PhiSync. Use for: Market research, documentation compilation, competitive analysis.",
+      "full_context_path": "/PhiDEX/PhiSync/README.md",
+      "common_patterns": [
+        "Web scraping: Playwright for dynamic content",
+        "API calls: REST, GraphQL data aggregation",
+        "Research compilation: Multi-source synthesis to markdown",
+        "Coordination: Read tasks from C:\\PhiDEX\\commands\\webc",
+        "Output: Write research to C:\\PhiDEX\\output\\webc\\{topic}.md"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/PhiSync/README.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T03:03:00Z",
+      "confidence": 0.93,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["agent", "webc", "research", "web_scraping"],
+      "category": "AGENTS",
+      "subcategory": "PHIVECTOR",
+      "version": "1.0.0",
+      "tested_on": ["PhiVector"],
+      "agent_affinity": ["WEBC"]
+    }
+  }
+}

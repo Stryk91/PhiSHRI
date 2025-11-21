@@ -1,0 +1,40 @@
+{
+  "door_code": "R02DISTRIB",
+  "semantic_path": "ARCHITECTURE.PATTERNS.DISTRIBUTED_SYSTEMS",
+  "aliases": ["distributed", "cap_theorem", "consensus", "replication"],
+  "context_bundle": {
+    "summary": "Distributed systems architecture: CAP theorem (Consistency, Availability, Partition-tolerance - pick 2). Consensus algorithms (Raft, Paxos). Replication strategies. Eventual vs strong consistency trade-offs.",
+    "prerequisites": ["R01MULTI", "W21STATE_SYNC"],
+    "related_doors": ["W12PHISYNC", "W13DAG"],
+    "onboarding": {
+      "quick_start": "CAP: Choose 2 of Consistency/Availability/Partition-tolerance. PhiVector chooses AP (Available + Partition-tolerant), eventual consistency. Consensus: Raft (leader election), Paxos (academic). Replication: Master-slave, multi-master.",
+      "full_context_path": "/PhiDEX/PhiSync/03_STATE_SYNCHRONIZATION/STATE_MANAGEMENT_GUIDE.md",
+      "common_patterns": [
+        "CAP theorem: CA (single node), CP (consistent but unavailable during partition), AP (eventually consistent, always available)",
+        "Raft consensus: Leader election, log replication",
+        "Eventual consistency: CRDTs, vector clocks",
+        "Strong consistency: Two-phase commit, serializable",
+        "PhiVector: File-based, eventual consistency, availability-first"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/PhiSync/03_STATE_SYNCHRONIZATION/STATE_MANAGEMENT_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T03:03:00Z",
+      "confidence": 0.95,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["distributed", "cap", "consensus", "architecture"],
+      "category": "ARCHITECTURE",
+      "subcategory": "DISTRIBUTED_SYSTEMS",
+      "version": "1.0.0",
+      "tested_on": ["PhiVector"],
+      "agent_affinity": ["DC", "VSCC"]
+    }
+  }
+}

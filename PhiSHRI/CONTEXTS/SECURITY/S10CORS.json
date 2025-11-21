@@ -1,0 +1,43 @@
+{
+  "door_code": "S10CORS",
+  "semantic_path": "SECURITY.WEB.CORS_SECURITY",
+  "aliases": ["cors", "cross_origin", "same_origin_policy", "preflight", "access_control"],
+  "context_bundle": {
+    "summary": "Cross-Origin Resource Sharing (CORS) security for web APIs: Browser same-origin policy blocks requests from different origins (domain/protocol/port). CORS headers allow controlled cross-origin access. Headers: Access-Control-Allow-Origin (allowed origins, avoid *), Access-Control-Allow-Methods (GET, POST, PUT, DELETE), Access-Control-Allow-Headers (Content-Type, Authorization), Access-Control-Allow-Credentials (true for cookies). Preflight: Browser sends OPTIONS request before actual request for non-simple requests. Security: Never use * with credentials, validate Origin header, implement allowlist of trusted origins.",
+    "prerequisites": ["S11CSRF", "S07OAUTH"],
+    "related_doors": ["S01AES", "S08JWT", "W01COORD"],
+    "onboarding": {
+      "quick_start": "CORS prevents cross-origin attacks. Simple requests (GET, POST with simple headers) sent directly. Non-simple requests (PUT, DELETE, custom headers) trigger preflight OPTIONS request first. Response headers: Access-Control-Allow-Origin: https://app.example.com (specific origin, never * with credentials), Access-Control-Allow-Methods: GET, POST, PUT, DELETE, Access-Control-Allow-Headers: Content-Type, Authorization, X-Custom-Header, Access-Control-Allow-Credentials: true (required for cookies/auth), Access-Control-Max-Age: 86400 (cache preflight for 24h). Implementation (Express): app.use(cors({origin: 'https://app.example.com', credentials: true, methods: ['GET', 'POST', 'PUT', 'DELETE'], allowedHeaders: ['Content-Type', 'Authorization']})). Security: Validate Origin header against allowlist, never reflect Origin without validation, combine with CSRF protection.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md",
+      "common_patterns": [
+        "Express.js: const cors = require('cors'); app.use(cors({origin: ['https://app.example.com', 'https://admin.example.com'], credentials: true, methods: ['GET', 'POST', 'PUT', 'DELETE'], allowedHeaders: ['Content-Type', 'Authorization', 'X-API-Key']}))",
+        "Manual headers (Flask): @app.after_request def add_cors(response): response.headers['Access-Control-Allow-Origin'] = 'https://app.example.com'; response.headers['Access-Control-Allow-Credentials'] = 'true'; return response",
+        "Preflight response: OPTIONS /api/users -> 200 OK, Access-Control-Allow-Origin: https://app.example.com, Access-Control-Allow-Methods: GET, POST, PUT, Access-Control-Max-Age: 86400",
+        "Origin validation: const allowedOrigins = ['https://app.example.com', 'https://admin.example.com']; if (!allowedOrigins.includes(req.headers.origin)) return res.status(403).send('CORS not allowed')",
+        "Credentials (cookies/auth): Must set Access-Control-Allow-Credentials: true AND specific origin (not *). Frontend: fetch(url, {credentials: 'include'})",
+        "Security anti-pattern: Access-Control-Allow-Origin: * with credentials (browsers reject this)",
+        "Dynamic origin: const origin = req.headers.origin; if (isAllowedOrigin(origin)) res.setHeader('Access-Control-Allow-Origin', origin)",
+        "Combine with CSRF: CORS alone doesn't prevent CSRF. Use CORS + CSRF tokens for complete protection."
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T20:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["cors", "cross_origin", "web_security", "same_origin_policy", "preflight", "access_control"],
+      "category": "SECURITY",
+      "subcategory": "WEB",
+      "version": "1.0.0",
+      "tested_on": ["Web APIs", "SPAs", "Microservices"],
+      "agent_affinity": ["WEBC", "VSCC", "CMDC"]
+    }
+  }
+}

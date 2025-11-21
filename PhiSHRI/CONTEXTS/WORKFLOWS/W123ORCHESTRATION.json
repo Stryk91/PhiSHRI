@@ -1,0 +1,44 @@
+{
+  "door_code": "W123ORCHESTRATION",
+  "semantic_path": "WORKFLOWS.ORCHESTRATION.CENTRALIZED",
+  "aliases": ["orchestration", "centralized control", "DC orchestrator", "hub-and-spoke"],
+  "context_bundle": {
+    "summary": "Centralized workflow orchestration pattern where DC coordinates task distribution, dependency resolution, and result aggregation for worker agents",
+    "prerequisites": ["W122DAG", "W121WORKFLOW_STATE", "W01COORD"],
+    "related_doors": ["W124PARALLEL", "W125CHOREOGRAPHY", "A08AGENT_COORD"],
+    "onboarding": {
+      "quick_start": "DC acts as orchestrator: distributes tasks to workers (VSSC, KALIC, WEBC, CMDC), tracks state, handles failures, aggregates results",
+      "full_context_path": "/PhiDEX/PhiSync/02_WORKFLOW_ORCHESTRATION/WORKFLOW_ORCHESTRATION_PATTERNS.md",
+      "common_patterns": [
+        "Hub-and-spoke: DC (hub) coordinates all worker agents (spokes)",
+        "Task distribution: Send commands via request/response to specific agents",
+        "State tracking: Maintain workflow state with task statuses",
+        "Error handling: Retry failed tasks or abort workflow",
+        "Result aggregation: Collect outputs from workers, synthesize final result"
+      ],
+      "known_errors": [
+        "DC becomes single point of failure (requires checkpointing)",
+        "Orchestrator overhead limits scalability",
+        "Centralized bottleneck with many concurrent workflows"
+      ]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/PhiSync/02_WORKFLOW_ORCHESTRATION/WORKFLOW_ORCHESTRATION_PATTERNS.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T02:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["orchestration", "centralized", "DC", "hub-and-spoke", "coordination"],
+      "category": "WORKFLOWS",
+      "subcategory": "ORCHESTRATION",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11"],
+      "agent_affinity": ["DC"]
+    }
+  }
+}

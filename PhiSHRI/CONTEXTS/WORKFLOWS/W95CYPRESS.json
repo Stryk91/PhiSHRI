@@ -1,0 +1,39 @@
+{
+  "door_code": "W95CYPRESS",
+  "semantic_path": "WORKFLOWS.UI_AUTOMATION.CYPRESS",
+  "aliases": ["cypress", "cypress_testing", "e2e_testing", "frontend_testing"],
+  "context_bundle": {
+    "summary": "Cypress is JavaScript E2E testing framework with time-travel debugging, automatic waiting, network stubbing, and real-time browser reloading for fast, reliable frontend testing with exceptional developer experience.",
+    "prerequisites": ["W96UI_TESTING"],
+    "related_doors": ["W93SELENIUM", "W94PLAYWRIGHT", "W97VISUAL_REGRESSION"],
+    "onboarding": {
+      "quick_start": "Cypress testing: 1) Install with npm install cypress. 2) Open with npx cypress open. 3) Write tests using cy.visit(), cy.get(), cy.contains(). 4) Chain commands with automatic retries. 5) Stub network with cy.intercept(). 6) Use time-travel debugging in Test Runner. 7) Run headless with cypress run. Automatic waiting eliminates sleep/wait statements.",
+      "full_context_path": "/PhiDEX/industry_knowledge/cypress_patterns.md",
+      "common_patterns": [
+        "Basic test: describe('Login', () => { it('should login successfully', () => { cy.visit('https://example.com/login'); cy.get('#username').type('user@example.com'); cy.get('#password').type('password123'); cy.get('button[type=\"submit\"]').click(); cy.contains('Welcome').should('be.visible'); cy.url().should('include', '/dashboard') }) })",
+        "Network stubbing: cy.intercept('GET', '/api/users', { fixture: 'users.json' }).as('getUsers'); cy.visit('/users'); cy.wait('@getUsers'); cy.get('.user-list').should('have.length', 3)",
+        "Custom commands: Cypress.Commands.add('login', (email, password) => { cy.visit('/login'); cy.get('#email').type(email); cy.get('#password').type(password); cy.get('#submit').click() }); // Usage: cy.login('user@example.com', 'pass123')",
+        "Assertions: cy.get('.element').should('exist'); cy.get('.element').should('be.visible'); cy.get('.element').should('have.class', 'active'); cy.get('.element').should('contain', 'text'); cy.get('.element').should('have.attr', 'href', '/path')"
+      ],
+      "known_errors": ["E03TIMEOUT", "E08NETWORK_ERRORS"]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/industry_knowledge/cypress_patterns.md"],
+      "code": [],
+      "tests": [],
+      "errors": ["E03TIMEOUT", "E08NETWORK_ERRORS"]
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T00:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["cypress", "e2e_testing", "frontend_testing", "javascript", "time_travel_debugging"],
+      "category": "WORKFLOWS",
+      "subcategory": "UI_AUTOMATION",
+      "version": "1.0.0",
+      "tested_on": ["JavaScript", "TypeScript", "Chrome", "Firefox", "Edge", "Electron"],
+      "agent_affinity": ["DC", "VSCC", "WEBC"]
+    }
+  }
+}

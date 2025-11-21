@@ -1,0 +1,45 @@
+{
+  "door_code": "E05RETRY",
+  "semantic_path": "ERRORS.PATTERNS.RETRY_PATTERNS",
+  "aliases": ["retry", "retry_logic", "exponential_backoff", "jitter"],
+  "context_bundle": {
+    "summary": "Retry patterns: Handle transient failures. Strategies: Immediate retry, Fixed delay (sleep 1s), Exponential backoff (1s, 2s, 4s, 8s), Exponential backoff + jitter (randomize delay). Patterns: Retry on specific errors (timeout, 5xx, connection), max retries (3-5), circuit breaker integration, idempotency required. Libraries: Tenacity (Python), retry (JavaScript), resilience4j (Java), go-retry (Go). Best practices: Only retry idempotent operations, set max retries, use jitter to prevent thundering herd, log retry attempts, alert on high retry rates. Avoid: Infinite retries, retrying non-transient errors (4xx), no backoff (overwhelm service).",
+    "prerequisites": ["E04TIMEOUT"],
+    "related_doors": ["E06CIRCUIT_BREAKER", "T10OBSERVABILITY", "W59INTEGRATION"],
+    "onboarding": {
+      "quick_start": "Retry logic: Handle transient failures. Python (tenacity): from tenacity import retry, stop_after_attempt, wait_exponential; @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=1, max=10)) def fetch_data(): response = requests.get(url, timeout=10); response.raise_for_status(); return response.json(). JavaScript (retry): import retry from 'async-retry'; const data = await retry(async bail => { const res = await fetch(url); if (res.status === 404) bail(new Error('Not found')); // Don't retry 404; if (!res.ok) throw new Error('Failed'); return res.json(); }, {retries: 3, factor: 2, minTimeout: 1000, maxTimeout: 10000}). Exponential backoff: delay = min(max_delay, base_delay * 2^attempt). Jitter: delay = delay * (0.5 + random.random() * 0.5) (randomize to prevent thundering herd). Go: import 'github.com/avast/retry-go'; err := retry.Do(func() error { return fetchData() }, retry.Attempts(3), retry.Delay(1*time.Second), retry.DelayType(retry.BackOffDelay)). Best practices: Retry only idempotent operations (GET, PUT with idempotency key), don't retry client errors (400, 401, 404), use circuit breaker after repeated failures, log retry attempts with context.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Python tenacity: @retry(stop=stop_after_attempt(5), wait=wait_exponential(multiplier=1, min=2, max=60), retry=retry_if_exception_type(requests.Timeout)) def api_call(): ...",
+        "JavaScript manual: async function fetchWithRetry(url, retries=3) { for (let i=0; i<retries; i++) { try { return await fetch(url); } catch (err) { if (i === retries-1) throw err; await new Promise(r => setTimeout(r, Math.pow(2, i) * 1000)); } } }",
+        "Exponential backoff + jitter: const baseDelay = 1000; const delay = Math.min(maxDelay, baseDelay * Math.pow(2, attempt)) * (0.5 + Math.random() * 0.5);",
+        "Axios retry: import axiosRetry from 'axios-retry'; axiosRetry(axios, {retries: 3, retryDelay: axiosRetry.exponentialDelay, retryCondition: (err) => axiosRetry.isNetworkOrIdempotentRequestError(err) || err.response?.status === 429});",
+        "Python decorator: def retry_on_exception(max_attempts=3, delay=1): def decorator(func): def wrapper(*args, **kwargs): for attempt in range(max_attempts): try: return func(*args, **kwargs); except Exception as e: if attempt == max_attempts - 1: raise; time.sleep(delay * (2 ** attempt)); return wrapper; return decorator",
+        "AWS SDK (boto3): from botocore.config import Config; config = Config(retries={'max_attempts': 5, 'mode': 'adaptive'}); client = boto3.client('s3', config=config)",
+        "Retry on HTTP codes: retry_on = [500, 502, 503, 504, 429]; if response.status_code in retry_on: # Retry",
+        "Idempotency key (Stripe): stripe.charge.create(amount=1000, currency='usd', idempotency_key='order-123'); # Safe to retry",
+        "Circuit breaker integration: If retries exhaust, open circuit breaker. Don't retry if circuit open.",
+        "Monitoring: Log retry attempts with context (attempt number, error type, delay). Alert if retry rate >10%."
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T21:15:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["retry", "exponential_backoff", "jitter", "resilience", "error_handling"],
+      "category": "ERRORS",
+      "subcategory": "PATTERNS",
+      "version": "1.0.0",
+      "tested_on": ["Python", "JavaScript", "Go", "Java"],
+      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+    }
+  }
+}

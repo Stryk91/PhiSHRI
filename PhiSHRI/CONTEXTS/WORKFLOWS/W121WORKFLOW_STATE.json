@@ -1,0 +1,40 @@
+{
+  "door_code": "W121WORKFLOW_STATE",
+  "semantic_path": "WORKFLOWS.ORCHESTRATION.WORKFLOW_STATE",
+  "aliases": ["workflow state", "execution state", "task status", "workflow tracking"],
+  "context_bundle": {
+    "summary": "Workflow state management for tracking task execution status, dependencies, results, and failures in multi-agent orchestration",
+    "prerequisites": ["W120STATE_FILE", "W01COORD"],
+    "related_doors": ["W122DAG", "W13DAG", "W123ORCHESTRATION"],
+    "onboarding": {
+      "quick_start": "Maintain workflow state with task statuses (pending, running, completed, failed), track dependencies, aggregate results",
+      "full_context_path": "/PhiDEX/PhiSync/02_WORKFLOW_ORCHESTRATION/WORKFLOW_ORCHESTRATION_PATTERNS.md",
+      "common_patterns": [
+        "Task states: pending, running, completed, failed, skipped",
+        "Workflow state: {tasks, dependencies, results, currentStage, startTime}",
+        "State persistence: Write workflow state to shared/state/workflow-{id}.json",
+        "Progress tracking: Update task status atomically after each state transition",
+        "Result aggregation: Collect outputs from completed tasks"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/PhiSync/02_WORKFLOW_ORCHESTRATION/WORKFLOW_ORCHESTRATION_PATTERNS.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T02:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["workflow state", "task tracking", "orchestration", "status", "progress"],
+      "category": "WORKFLOWS",
+      "subcategory": "ORCHESTRATION",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11"],
+      "agent_affinity": ["DC", "VSCC"]
+    }
+  }
+}

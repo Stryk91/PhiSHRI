@@ -1,0 +1,40 @@
+{
+  "door_code": "W33GIT_BRANCH",
+  "semantic_path": "WORKFLOWS.DEVELOPMENT.GIT_BRANCHING",
+  "aliases": ["git_branch", "branching_strategy", "git_flow", "trunk_based"],
+  "context_bundle": {
+    "summary": "Git branching strategies: Git Flow (feature/develop/release/hotfix branches), GitHub Flow (main + feature branches), Trunk-Based Development (short-lived branches, frequent merges). Choose based on team size, release cadence, deployment frequency.",
+    "prerequisites": ["W14GIT"],
+    "related_doors": ["W34COMMIT_MSG", "W36GITHUB_ACTIONS"],
+    "onboarding": {
+      "quick_start": "Git branching: Git Flow (complex, release-focused), GitHub Flow (simple, continuous deployment), Trunk-Based (minimal branches, CI/CD). Feature branches merge to main/develop. Hotfix for production bugs. Choose strategy based on deployment frequency and team size.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Git Flow: main, develop, feature/*, release/*, hotfix/*",
+        "GitHub Flow: main + feature branches only",
+        "Trunk-Based: main + short-lived feature branches (<1 day)",
+        "Feature branch: git checkout -b feature/name",
+        "Merge: git merge --no-ff feature/name"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T18:55:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["git", "branching", "workflow", "version_control"],
+      "category": "WORKFLOWS",
+      "subcategory": "DEVELOPMENT",
+      "version": "1.0.0",
+      "tested_on": ["Git"],
+      "agent_affinity": ["DC", "VSCC"]
+    }
+  }
+}

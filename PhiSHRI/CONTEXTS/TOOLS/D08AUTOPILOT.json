@@ -1,0 +1,45 @@
+{
+  "door_code": "D08AUTOPILOT",
+  "semantic_path": "TOOLS.DEPLOYMENT.ZERO_TOUCH",
+  "aliases": ["Windows Autopilot", "zero-touch", "Apple DEP", "ABM", "Android zero-touch", "automated enrollment"],
+  "context_bundle": {
+    "summary": "Zero-touch deployment for Windows Autopilot, Apple DEP/ABM, and Android Zero-Touch enabling automatic device provisioning without IT intervention",
+    "prerequisites": ["D06ENTERPRISE", "D07GPO"],
+    "related_doors": ["T02VSCODE", "S12RBAC", "W05RUNSPACE"],
+    "onboarding": {
+      "quick_start": "Register devices with cloud MDM (Intune/Jamf), create deployment profiles, assign to groups, users unbox and device auto-configures",
+      "full_context_path": "/PhiDEX/DEPLOYMENT_ALMANAC/09_ENTERPRISE/ENTERPRISE_DEPLOYMENT_GUIDE.md",
+      "common_patterns": [
+        "Windows Autopilot: Register hardware IDs, create deployment profile, ESP (Enrollment Status Page)",
+        "Apple DEP/ABM: Purchase from authorized reseller, link ABM account to MDM, supervised mode",
+        "Android Zero-Touch: Enroll in Google portal, create config, reseller provisions devices",
+        "PXE Boot/WDS: Network-based OS deployment for bare-metal at scale",
+        "Device naming templates: CORP-{SERIAL} for automatic naming"
+      ],
+      "known_errors": [
+        "Autopilot requires Intune subscription and Azure AD",
+        "Apple DEP devices must be purchased from authorized resellers",
+        "ABM device assignment can take 24-48 hours to appear",
+        "Autopilot ESP blocks device usage until configuration complete"
+      ]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/DEPLOYMENT_ALMANAC/09_ENTERPRISE/ENTERPRISE_DEPLOYMENT_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T02:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["Autopilot", "zero-touch", "DEP", "ABM", "Android", "MDM", "provisioning"],
+      "category": "TOOLS",
+      "subcategory": "DEPLOYMENT",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11", "macOS", "iOS", "iPadOS", "Android"],
+      "agent_affinity": ["DC", "VSCC"]
+    }
+  }
+}

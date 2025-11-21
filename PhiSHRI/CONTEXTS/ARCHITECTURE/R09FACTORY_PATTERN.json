@@ -1,0 +1,39 @@
+{
+  "door_code": "R09FACTORY_PATTERN",
+  "semantic_path": "ARCHITECTURE.PATTERNS.CREATIONAL.FACTORY",
+  "aliases": ["factory", "factory method", "creational pattern"],
+  "context_bundle": {
+    "summary": "Factory pattern for creating objects without specifying their exact classes, delegating instantiation to subclasses",
+    "prerequisites": ["R01MULTI"],
+    "related_doors": ["R10SINGLETON_PATTERN", "R15BUILDER_PATTERN"],
+    "onboarding": {
+      "quick_start": "Define interface for creating objects, but let subclasses decide which class to instantiate for flexible object creation",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/02_PATTERNS/DESIGN_PATTERNS_GUIDE.md",
+      "common_patterns": [
+        "Factory method returns interface/abstract class",
+        "Concrete factories create specific implementations",
+        "Useful when object type determined at runtime",
+        "Promotes loose coupling between creator and products"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/02_PATTERNS/DESIGN_PATTERNS_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T01:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["architecture", "design pattern", "factory", "creational"],
+      "category": "ARCHITECTURE",
+      "subcategory": "PATTERNS",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11", "Linux"],
+      "agent_affinity": ["VSCC", "DC"]
+    }
+  }
+}

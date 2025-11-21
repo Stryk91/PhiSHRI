@@ -1,0 +1,40 @@
+{
+  "door_code": "T05MCP_ARCH",
+  "semantic_path": "TOOLS.MCP.ARCHITECTURE",
+  "aliases": ["mcp_architecture", "mcp_primitives", "mcp_building_blocks"],
+  "context_bundle": {
+    "summary": "MCP Architecture: 3 primitives - Prompts (templates), Resources (structured data), Tools (executable functions). Protocol: JSON-RPC, stateful sessions. Transport: stdio (local) or HTTP+SSE (remote). Server exposes prompts/resources/tools, client provides roots/sampling.",
+    "prerequisites": ["T01MCP"],
+    "related_doors": ["T06MCP_SETUP", "T07MCP_CONFIG"],
+    "onboarding": {
+      "quick_start": "MCP architecture = 3 primitives. Server: Prompts (templates), Resources (data), Tools (functions). Client: Roots (filesystem), Sampling (LLM completion). Protocol: JSON-RPC. Transport: stdio for local, HTTP+SSE for remote. Stateful sessions for context exchange.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/02_TOOL_INTEGRATION/TOOL_INTEGRATION_INTEROPERABILITY_GUIDE.md",
+      "common_patterns": [
+        "Prompts: Pre-defined interaction templates",
+        "Resources: Structured context data",
+        "Tools: Executable functions",
+        "Transport: stdio (local) or HTTP+SSE (remote)",
+        "JSON-RPC message communication"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/02_TOOL_INTEGRATION/TOOL_INTEGRATION_INTEROPERABILITY_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T18:46:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["mcp", "architecture", "primitives", "json_rpc"],
+      "category": "TOOLS",
+      "subcategory": "MCP",
+      "version": "1.0.0",
+      "tested_on": ["Claude Desktop", "MCP servers"],
+      "agent_affinity": ["DC", "VSCC"]
+    }
+  }
+}

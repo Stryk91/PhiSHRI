@@ -1,0 +1,43 @@
+{
+  "door_code": "S07OAUTH",
+  "semantic_path": "SECURITY.AUTHENTICATION.OAUTH2",
+  "aliases": ["oauth", "oauth2", "authorization", "oauth2.0", "access_token"],
+  "context_bundle": {
+    "summary": "OAuth 2.0 authorization framework for delegated access: Authorization Code flow (web apps), Client Credentials (machine-to-machine), PKCE (mobile/SPA), Implicit flow (deprecated). Tokens: Access token (short-lived), Refresh token (long-lived). Scopes limit permissions. Use HTTPS, validate redirect URIs, implement state parameter for CSRF protection. Authorization server issues tokens after user consent.",
+    "prerequisites": ["S08JWT", "S11CSRF", "S05SECRETS"],
+    "related_doors": ["S09RBAC", "S10CORS", "W01COORD"],
+    "onboarding": {
+      "quick_start": "OAuth 2.0 flows: 1) Authorization Code (most secure, for web apps): Client redirects user to auth server -> user logs in/consents -> auth server redirects back with code -> client exchanges code for access token. 2) Client Credentials (machine-to-machine): Client authenticates directly with client_id + client_secret. 3) PKCE (mobile/SPA): Like Authorization Code + code_verifier/code_challenge to prevent interception. Tokens: Access token (bearer, short TTL), Refresh token (rotate on use). Scopes: read, write, admin. Security: Always HTTPS, validate redirect_uri (exact match), use state param (CSRF), store client_secret securely. NIST 2024: Enforce MFA for OAuth, use short-lived access tokens (15 min), rotate refresh tokens.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md",
+      "common_patterns": [
+        "Authorization Code flow: GET /authorize?response_type=code&client_id=123&redirect_uri=https://app.com/callback&scope=read&state=xyz -> POST /token {grant_type: authorization_code, code: abc, redirect_uri: https://app.com/callback, client_id: 123, client_secret: secret}",
+        "Client Credentials: POST /token {grant_type: client_credentials, client_id: 123, client_secret: secret, scope: api:read}",
+        "PKCE (Authorization Code + PKCE): code_verifier = random(43-128 chars), code_challenge = BASE64URL(SHA256(code_verifier)) -> /authorize?code_challenge=xyz&code_challenge_method=S256 -> /token {code: abc, code_verifier: original}",
+        "Refresh token rotation: POST /token {grant_type: refresh_token, refresh_token: old_token} -> Response: {access_token: new, refresh_token: new_rotated}",
+        "Token validation: Verify signature (JWT), check expiration (exp claim), validate audience (aud), check scopes",
+        "Scopes: openid (OIDC), profile, email, read:users, write:posts, admin:all",
+        "Error responses: invalid_request, invalid_client, invalid_grant, unauthorized_client, unsupported_grant_type",
+        "Security headers: Authorization: Bearer {access_token}"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T20:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["oauth", "oauth2", "authorization", "authentication", "access_token", "refresh_token", "pkce", "security"],
+      "category": "SECURITY",
+      "subcategory": "AUTHENTICATION",
+      "version": "1.0.0",
+      "tested_on": ["Web Applications", "Mobile Apps", "SPAs", "APIs"],
+      "agent_affinity": ["VSCC", "WEBC", "CMDC"]
+    }
+  }
+}

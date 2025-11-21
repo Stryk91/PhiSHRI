@@ -1,0 +1,45 @@
+{
+  "door_code": "W45CHEF",
+  "semantic_path": "WORKFLOWS.AUTOMATION.CHEF_INFRASTRUCTURE_AUTOMATION",
+  "aliases": ["chef", "configuration_management", "infrastructure_automation", "cookbook", "recipe"],
+  "context_bundle": {
+    "summary": "Chef infrastructure automation using Ruby DSL: cookbooks contain recipes (code) defining system configuration. Resources: package, service, file, template, execute. Chef client pulls from Chef server or runs standalone (chef-solo, chef-zero). Knife tool manages cookbooks/nodes. Test Kitchen for testing. InSpec for compliance. Attributes for configuration data. chef-client runs recipes.",
+    "prerequisites": ["W43ANSIBLE", "W44PUPPET"],
+    "related_doors": ["W46TERRAFORM", "W41SYSTEMD"],
+    "onboarding": {
+      "quick_start": "Chef cookbook structure: cookbook_name/recipes/default.rb contains resources. Syntax: package 'nginx' do action :install end, service 'nginx' do action [:enable, :start] end, template '/etc/nginx/nginx.conf' do source 'nginx.conf.erb' notifies :reload, 'service[nginx]' end. Create cookbook: chef generate cookbook mycookbook. Test: kitchen test. Upload: knife cookbook upload mycookbook. Run: chef-client (pulls from server) or chef-solo -c solo.rb (standalone).",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Package: package 'nginx' do action :install end",
+        "Service: service 'nginx' do action [:enable, :start] end",
+        "File: file '/etc/app.conf' do content 'config data' mode '0644' end",
+        "Template: template '/etc/nginx.conf' do source 'nginx.conf.erb' notifies :reload, 'service[nginx]' end",
+        "Execute: execute 'reload-config' do command '/usr/bin/reload.sh' action :run end",
+        "Cookbook structure: cookbooks/mycookbook/recipes/default.rb, templates/, attributes/",
+        "Generate cookbook: chef generate cookbook mycookbook",
+        "Knife: knife cookbook upload mycookbook, knife node list",
+        "Test Kitchen: kitchen converge, kitchen verify, kitchen test",
+        "Chef-client: chef-client -r 'recipe[mycookbook::default]'"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T19:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["chef", "configuration_management", "automation", "infrastructure", "cookbook", "recipe"],
+      "category": "WORKFLOWS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "tested_on": ["Linux", "Windows"],
+      "agent_affinity": ["VSCC", "TERMC", "CMDC"]
+    }
+  }
+}

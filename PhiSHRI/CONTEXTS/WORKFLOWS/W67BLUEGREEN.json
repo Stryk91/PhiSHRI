@@ -1,0 +1,43 @@
+{
+  "door_code": "W67BLUEGREEN",
+  "semantic_path": "WORKFLOWS.DEPLOYMENT.BLUE_GREEN_DEPLOYMENT",
+  "aliases": ["blue_green", "bluegreen", "blue_green_deployment", "zero_downtime"],
+  "context_bundle": {
+    "summary": "Blue/Green deployment: Run two identical production environments (Blue=current, Green=new). Deploy to Green, test, switch traffic from Blue to Green. Zero downtime, instant rollback (switch back to Blue). Requires: Load balancer, duplicate infrastructure, database migration strategy. Patterns: DNS switch, load balancer routing, container orchestration (Kubernetes services). Pros: Zero downtime, easy rollback, full testing in production. Cons: Double infrastructure cost, database sync complexity. Tools: AWS Elastic Beanstalk, Kubernetes, Cloud Foundry, Azure App Service slots.",
+    "prerequisites": ["T11CICD", "W47DOCKER_COMPOSE"],
+    "related_doors": ["W68CANARY", "W69ROLLING", "W48K8S_DEPLOY", "W46TERRAFORM"],
+    "onboarding": {
+      "quick_start": "Blue/Green: Maintain two environments. Blue (current production), Green (new version). Steps: 1) Deploy to Green, 2) Test Green in production, 3) Switch load balancer from Blue to Green, 4) Keep Blue running for rollback. Load balancer switch: Update target group (AWS ALB), change service selector (Kubernetes), swap deployment slots (Azure). Kubernetes: Two deployments (blue, green), one service. Switch: kubectl patch service myapp -p '{\"spec\":{\"selector\":{\"version\":\"green\"}}}'. Rollback: Switch service back to blue. Database: Use backward-compatible migrations (add columns, not drop). AWS: Use Route 53 weighted routing or ALB target groups. Docker Compose: nginx proxy, switch upstream. Pros: Instant rollback, zero downtime, production testing. Cons: 2x infrastructure, database compatibility required. Pattern: deploy green -> test -> switch traffic -> monitor -> decommission blue (or keep for next release).",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Kubernetes: apiVersion: v1; kind: Service; metadata: name: myapp; spec: selector: version: blue; --- Deploy green: kubectl apply -f green-deployment.yaml; Test: curl -H 'Host: myapp-green.internal' http://green-service; Switch: kubectl patch svc myapp -p '{\"spec\":{\"selector\":{\"version\":\"green\"}}}'",
+        "AWS ALB: Create two target groups (blue-tg, green-tg). Listener rule: IF host=myapp.com THEN forward to blue-tg. Deploy to green-tg, test, switch listener to green-tg. Rollback: Switch listener back to blue-tg.",
+        "Docker Compose: services: nginx: ...; app-blue: image: myapp:1.0; app-green: image: myapp:2.0. Nginx upstream: server app-blue:8000; # or server app-green:8000. Reload nginx to switch.",
+        "Database migration: Create additive changes only (ADD column, not DROP). V1 (blue) and V2 (green) both compatible. Example: Add 'email_new' column, migrate data, switch app to use email_new, later drop 'email' column.",
+        "Health checks: Before switching, verify green: GET /health returns 200, monitor metrics (CPU, memory, error rate), run smoke tests.",
+        "Azure App Service: Deployment slots (production, staging). Deploy to staging slot, test, swap slots (instant switch). az webapp deployment slot swap -n myapp -g mygroup --slot staging --target-slot production",
+        "Terraform: resource 'aws_lb_listener_rule' 'blue' { actions { target_group_arn = aws_lb_target_group.blue.arn } }. Update to green: target_group_arn = aws_lb_target_group.green.arn; terraform apply",
+        "Monitoring after switch: Watch error rates, latency, traffic volume for 15-30 min. If issues, immediate rollback (< 1 min)."
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md", "/PhiDEX/DEPLOYMENT_ALMANAC/09_ENTERPRISE/ENTERPRISE_DEPLOYMENT_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T21:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["blue_green", "deployment", "zero_downtime", "kubernetes", "aws", "rollback"],
+      "category": "WORKFLOWS",
+      "subcategory": "DEPLOYMENT",
+      "version": "1.0.0",
+      "tested_on": ["Kubernetes", "AWS", "Azure", "Docker"],
+      "agent_affinity": ["CMDC", "VSCC", "TERMC"]
+    }
+  }
+}

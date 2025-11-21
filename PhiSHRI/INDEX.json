@@ -4,48 +4,43 @@
   "full_name": "Semantic Hash Repository Index",
   "description": "The Keymaster's Index System for instant AI agent onboarding",
   "created": "2025-01-18T00:00:00Z",
-  "last_updated": "2025-11-18T01:12:45.772616",
-  "total_doors": 14,
+  "last_updated": "2025-11-22T03:05:00Z",
+  "total_doors": 237,
   "categories": {
-    "TOOLS": {
-      "count": 3,
-      "prefix": "8XX",
-      "description": "Development tools, MCP servers, automation scripts"
+    "WORKFLOWS": {
+      "count": 131,
+      "prefix": "WXX",
+      "description": "Workflow patterns, orchestration, automation, AI optimization, infrastructure, data processing, ETL, streaming, batch processing, data validation, data transformation, file processing, testing, deployment, performance, caching, profiling, load testing, API design, REST, GraphQL, gRPC, webhooks, pagination, logging, tracing, metrics, UI automation, Selenium, Playwright, Cypress, visual regression, message queues, notifications, scheduling, unit testing, integration testing, mocking, fixtures, E2E testing, contract testing, mutation testing, coverage, lazy loading, connection pooling, backpressure, throttling, compression, agent communication, IPC, file IPC, request/response, pub/sub, state synchronization, DAG, orchestration, choreography, pipeline, correlation IDs, dead letter queue, polling, actor model, CSP"
     },
-    "DOCS": {
-      "count": 0,
-      "prefix": "DXX",
-      "description": "Documentation, guides, references"
+    "TOOLS": {
+      "count": 42,
+      "prefix": "TXX/8XX/DXX",
+      "description": "Development tools, MCP servers, automation scripts, deployment tools, observability, CI/CD, Docker, Kubernetes, Terraform, Ansible, Grafana, Prometheus, Apache Airflow, Apache Kafka, Elasticsearch, Redis, RabbitMQ, Nginx, Vault, silent installation, enterprise deployment, Group Policy, Autopilot, code signing, notarization, auto-update, package managers, network deployment, compliance scanning"
     },
     "AGENTS": {
-      "count": 4,
+      "count": 9,
       "prefix": "AXX",
-      "description": "AI agent contexts, coordination protocols"
-    },
-    "PROJECTS": {
-      "count": 3,
-      "prefix": "PXX",
-      "description": "Project-specific contexts (PhiWave, PhiGEN, etc.)"
-    },
-    "WORKFLOWS": {
-      "count": 1,
-      "prefix": "WXX",
-      "description": "Workflow patterns, orchestration, automation"
-    },
-    "ARCHITECTURE": {
-      "count": 1,
-      "prefix": "RXX",
-      "description": "System architecture, design patterns"
+      "description": "AI agent contexts, coordination protocols, messaging (DC, VSCC, TERMC, WEBC, KALIC, CMDC)"
     },
     "SECURITY": {
-      "count": 0,
+      "count": 18,
       "prefix": "SXX",
-      "description": "Security patterns, encryption, authentication"
+      "description": "Security patterns, input validation, SQL injection prevention, secrets management, encryption, AES, TLS, OAuth, JWT, RBAC, CORS, CSRF, API security, secrets rotation, audit logging, SIEM, WORM, input sanitization, zero trust, penetration testing"
+    },
+    "PROJECTS": {
+      "count": 5,
+      "prefix": "PXX/000",
+      "description": "Project-specific contexts (PhiWave, PhiGEN, PhiVector, PhiSHRI) and system onboarding (000START)"
+    },
+    "ARCHITECTURE": {
+      "count": 16,
+      "prefix": "RXX",
+      "description": "System architecture, design patterns, distributed systems, microservices, event-driven, serverless, event sourcing, Saga pattern, CQRS, Factory, Singleton, Observer, Strategy, Decorator, Adapter, Builder, Proxy"
     },
     "ERRORS": {
-      "count": 2,
+      "count": 13,
       "prefix": "EXX",
-      "description": "Error patterns, troubleshooting, solutions"
+      "description": "Error patterns, troubleshooting, solutions, timeout handling, retry, circuit breaker, database errors, network errors, validation errors, serialization errors, race conditions, memory errors, configuration errors"
     }
   },
   "door_code_guide": {
@@ -69,6 +64,11 @@
       "SXX": "Security (S00-S99)",
       "EXX": "Errors (E00-E99)"
     }
+  },
+  "getting_started": {
+    "first_time_users": "Read CONTEXTS/PROJECTS/000START.json - your entry point to the door system",
+    "documentation": "Read HOW_TO_USE.md for complete navigation guide",
+    "quick_reference": "Door codes are semantic: D05=deployment, W115=messaging, S05=secrets, R09=patterns"
   },
   "navigation_methods": [
     "hash_code_lookup",

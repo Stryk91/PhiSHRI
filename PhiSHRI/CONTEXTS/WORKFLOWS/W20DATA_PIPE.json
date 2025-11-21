@@ -1,0 +1,48 @@
+{
+  "door_code": "W20DATA_PIPE",
+  "semantic_path": "WORKFLOWS.DATA.ETL_PIPELINES",
+  "aliases": ["etl", "elt", "data_pipeline", "streaming", "batch_processing"],
+  "context_bundle": {
+    "summary": "Data processing pipelines: ELT (Extract-Load-Transform) vs ETL patterns. Modern: Zero-ETL (query in place), 5-layer streaming (sources->ingestion->processing->storage->consumption). Platforms: Kafka, Kinesis, Flink for millions events/sec.",
+    "prerequisites": [],
+    "related_doors": ["W21STREAM", "W22BATCH"],
+    "onboarding": {
+      "quick_start": "ELT = Extract, Load, Transform (cloud-native). ETL = Extract, Transform, Load (traditional). Zero-ETL = query data in place. Streaming: Kafka (10M+ events/sec), Kinesis (AWS managed), Pub/Sub (GCP). 5 layers: sources, ingest, process, store, consume.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/05_DATA_PROCESSING/DATA_PROCESSING_MANAGEMENT_RESEARCH.md",
+      "common_patterns": [
+        "ELT: Cloud warehouse transforms after load (Snowflake, BigQuery)",
+        "Kafka: Distributed log, millions events/sec, 10-100ms latency",
+        "Flink: Stream processing, stateful computations",
+        "Zero-ETL: Redshift Spectrum, BigQuery Omni query federated data",
+        "Batch: Schedule transforms, good for historical analysis"
+      ],
+      "known_errors": [
+        {
+          "error": "Pipeline bottleneck, data delayed",
+          "cause": "Transform layer can't keep up with ingestion rate",
+          "solution": "Scale processing layer (Flink cluster), partition data, optimize transforms",
+          "prevention": "Monitor throughput, capacity planning, auto-scaling",
+          "related_door": "W21STREAM"
+        }
+      ]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/05_DATA_PROCESSING/DATA_PROCESSING_MANAGEMENT_RESEARCH.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T03:02:00Z",
+      "confidence": 0.96,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["data", "etl", "pipeline", "streaming", "kafka"],
+      "category": "WORKFLOWS",
+      "subcategory": "DATA_PROCESSING",
+      "version": "1.0.0",
+      "tested_on": ["Kafka", "Kinesis", "Flink"],
+      "agent_affinity": ["VSCC", "WEBC"]
+    }
+  }
+}

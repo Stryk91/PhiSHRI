@@ -1,0 +1,40 @@
+{
+  "door_code": "D04PKG",
+  "semantic_path": "DEPLOYMENT.PACKAGE_MANAGERS.OVERVIEW",
+  "aliases": ["package_managers", "winget", "chocolatey", "npm", "pip", "cargo"],
+  "context_bundle": {
+    "summary": "Package manager guide: System (Winget, Chocolatey, Homebrew, apt), Language (npm, pip, cargo, NuGet). Winget = official Windows PM, pre-installed Win11. Choco = 3rd-party, larger repo. Language PMs for dependencies.",
+    "prerequisites": ["D02SILENT"],
+    "related_doors": ["D05AUTO_UPDATE", "D06PORTABLE"],
+    "onboarding": {
+      "quick_start": "System PMs: Winget (Win11 default), Chocolatey (3rd-party). Language PMs: npm (JS), pip (Python), cargo (Rust), NuGet (.NET). Install: winget install, choco install. Create packages via manifest YAML.",
+      "full_context_path": "/PhiDEX/DEPLOYMENT_ALMANAC/02_PACKAGE_MANAGERS/PACKAGE_MANAGERS_GUIDE.md",
+      "common_patterns": [
+        "Winget: winget install AppName --silent",
+        "Chocolatey: choco install AppName -y",
+        "npm: npm install package-name",
+        "pip: pip install package-name",
+        "Create Winget manifest: .yaml with Id, Version, Installer URL"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/DEPLOYMENT_ALMANAC/02_PACKAGE_MANAGERS/PACKAGE_MANAGERS_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T03:05:00Z",
+      "confidence": 0.97,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["deployment", "package_managers", "winget", "chocolatey"],
+      "category": "DEPLOYMENT",
+      "subcategory": "PACKAGE_MANAGERS",
+      "version": "1.0.0",
+      "tested_on": ["Windows 11", "Windows 10"],
+      "agent_affinity": ["VSCC", "DC"]
+    }
+  }
+}

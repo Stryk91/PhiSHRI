@@ -1,0 +1,45 @@
+{
+  "door_code": "E08NETWORK_ERRORS",
+  "semantic_path": "ERRORS.PATTERNS.NETWORK_ERRORS",
+  "aliases": ["network_errors", "connection_timeout", "dns_errors", "socket_errors", "http_errors"],
+  "context_bundle": {
+    "summary": "Network error patterns: Connection errors (DNS resolution failed, connection refused, network unreachable), Timeout errors (connect timeout, read timeout, total timeout), HTTP errors (4xx client errors, 5xx server errors, network reset), SSL/TLS errors (certificate verification failed, handshake timeout). Solutions: Retry with exponential backoff (transient failures), timeout configuration (connect_timeout=5s, read_timeout=30s), circuit breaker (stop trying after repeated failures), DNS caching (reduce lookups), connection pooling (HTTP keep-alive). Common errors: ConnectionError (network unreachable), Timeout (request exceeded deadline), SSLError (certificate invalid), DNSLookupError (hostname not found). Libraries: requests (Python), aiohttp (async Python), axios (JavaScript), http.Client (Go).",
+    "prerequisites": ["E04TIMEOUT", "E05RETRY", "E06CIRCUIT_BREAKER"],
+    "related_doors": ["W79REST_API", "W81GRPC", "W82WEBHOOKS"],
+    "onboarding": {
+      "quick_start": "Network error handling: Timeout config (Python requests): import requests; try: response = requests.get(url, timeout=(5, 30)); # (connect_timeout=5s, read_timeout=30s); response.raise_for_status(); except requests.Timeout: handle_timeout(); except requests.ConnectionError: handle_connection_error(). Retry with backoff: from requests.adapters import HTTPAdapter; from requests.packages.urllib3.util.retry import Retry; session = requests.Session(); retry = Retry(total=3, backoff_factor=1, status_forcelist=[500, 502, 503, 504]); adapter = HTTPAdapter(max_retries=retry); session.mount('https://', adapter); response = session.get(url). Async (aiohttp): import aiohttp; async with aiohttp.ClientSession() as session: try: async with session.get(url, timeout=aiohttp.ClientTimeout(total=30)) as response: data = await response.json(); except aiohttp.ClientError: handle_error(). SSL verification: response = requests.get(url, verify=True); # Verify cert (default). Disable (NOT recommended): verify=False. DNS error handling: try: response = requests.get(url); except requests.exceptions.ConnectionError as e: if 'Name or service not known' in str(e): handle_dns_error(); # DNS lookup failed. Circuit breaker: If 5 consecutive failures, stop trying for 60s. Monitor: Track error rates by type (timeout, DNS, SSL), latency p95/p99.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Python requests with timeout: try: response = requests.get('https://api.com', timeout=10); response.raise_for_status(); except requests.Timeout: logger.error('Request timeout'); retry(); except requests.ConnectionError: logger.error('Connection failed'); except requests.HTTPError as e: if e.response.status_code == 503: retry(); # Service unavailable",
+        "Retry adapter (requests): session = requests.Session(); retry = Retry(total=5, backoff_factor=2, status_forcelist=[429, 500, 502, 503, 504], method_whitelist=['GET', 'POST']); session.mount('https://', HTTPAdapter(max_retries=retry))",
+        "Async timeout (aiohttp): timeout = aiohttp.ClientTimeout(total=30, connect=5); async with aiohttp.ClientSession(timeout=timeout) as session: async with session.get(url) as resp: data = await resp.json()",
+        "DNS caching (Python): import dns.resolver; resolver = dns.resolver.Resolver(); resolver.cache = dns.resolver.LRUCache(); # Cache DNS lookups",
+        "SSL error handling: try: requests.get('https://expired-cert.com', verify=True); except requests.exceptions.SSLError: logger.error('SSL certificate verification failed')",
+        "Connection pool (requests): session = requests.Session(); adapter = HTTPAdapter(pool_connections=10, pool_maxsize=20, pool_block=True); session.mount('https://', adapter); # Reuse connections",
+        "Network error metrics: from prometheus_client import Counter; network_errors = Counter('network_errors_total', 'Network errors', ['error_type']); except requests.Timeout: network_errors.labels(error_type='timeout').inc()",
+        "Go http client with timeout: client := &http.Client{Timeout: 10 * time.Second}; resp, err := client.Get(url); if err != nil { if errors.Is(err, context.DeadlineExceeded) { handleTimeout() } }",
+        "JavaScript axios retry: axios.interceptors.response.use(null, async (error) => { if (error.config && error.response?.status === 503) { return axios.request(error.config); } return Promise.reject(error); })",
+        "Proxy configuration: proxies = {'http': 'http://proxy:8080', 'https': 'http://proxy:8080'}; response = requests.get(url, proxies=proxies)"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T22:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["network_errors", "timeout", "connection_error", "http_errors", "ssl_error", "dns_error", "requests", "aiohttp"],
+      "category": "ERRORS",
+      "subcategory": "PATTERNS",
+      "version": "1.0.0",
+      "tested_on": ["Python", "JavaScript", "Go", "HTTP", "HTTPS"],
+      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+    }
+  }
+}

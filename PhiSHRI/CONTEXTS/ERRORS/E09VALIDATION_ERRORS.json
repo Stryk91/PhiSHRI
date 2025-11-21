@@ -1,0 +1,40 @@
+{
+  "door_code": "E09VALIDATION_ERRORS",
+  "semantic_path": "ERRORS.INPUT.VALIDATION_ERRORS",
+  "aliases": ["validation_error", "input_validation", "validation_failure", "invalid_input"],
+  "context_bundle": {
+    "summary": "Validation errors occur when input fails schema, type, range, or business rule checks per OWASP guidelines using allowlisting, syntactic/semantic validation, and fail-fast error reporting with detailed messages for debugging.",
+    "prerequisites": ["S01INPUT_VALIDATION"],
+    "related_doors": ["W89DATA_VALIDATION", "S02SQL_INJECTION", "E10SERIALIZATION_ERRORS"],
+    "onboarding": {
+      "quick_start": "Validation error handling: 1) Validate at multiple layers (client + server). 2) Use allowlisting over denylisting. 3) Syntactic validation: Check structure, types, format (email, URL, date). 4) Semantic validation: Check business rules (age range, stock availability). 5) Fail fast with clear error messages. 6) Log validation failures for security monitoring. 7) Never expose internal details in error messages. Return structured validation errors (field, message, code).",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md#12-input-validation-checklist",
+      "common_patterns": [
+        "Validation error class: class ValidationError(Exception): def __init__(self, field, message, code='VALIDATION_ERROR'): self.field = field; self.message = message; self.code = code; self.errors = [{'field': field, 'message': message, 'code': code}]",
+        "Field validation: def validate_email(email): if not isinstance(email, str): raise ValidationError('email', 'Email must be string', 'TYPE_ERROR'); if '@' not in email or '.' not in email.split('@')[1]: raise ValidationError('email', 'Invalid email format', 'FORMAT_ERROR'); return True",
+        "Range validation: def validate_age(age): if not isinstance(age, int): raise ValidationError('age', 'Age must be integer', 'TYPE_ERROR'); if age < 0 or age > 150: raise ValidationError('age', f'Age must be between 0 and 150, got {age}', 'RANGE_ERROR'); return True",
+        "Schema validation (Pydantic): from pydantic import BaseModel, ValidationError, validator; class UserInput(BaseModel): email: str; age: int; @validator('email') def validate_email(cls, v): assert '@' in v, 'Invalid email'; return v; try: user = UserInput(email='invalid', age=200) except ValidationError as e: errors = [{'field': err['loc'][0], 'message': err['msg']} for err in e.errors()]",
+        "API error response: {'error': 'VALIDATION_ERROR', 'message': 'Input validation failed', 'details': [{'field': 'email', 'message': 'Invalid email format', 'code': 'FORMAT_ERROR'}, {'field': 'age', 'message': 'Age must be between 0 and 150', 'code': 'RANGE_ERROR'}]}"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T00:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["validation_error", "input_validation", "owasp", "allowlisting", "error_handling"],
+      "category": "ERRORS",
+      "subcategory": "INPUT",
+      "version": "1.0.0",
+      "tested_on": ["Python", "Pydantic", "Joi", "Yup", "JSON Schema"],
+      "agent_affinity": ["DC", "VSCC"]
+    }
+  }
+}

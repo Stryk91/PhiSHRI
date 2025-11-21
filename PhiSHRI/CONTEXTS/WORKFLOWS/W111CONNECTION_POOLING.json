@@ -1,0 +1,39 @@
+{
+  "door_code": "W111CONNECTION_POOLING",
+  "semantic_path": "WORKFLOWS.PERFORMANCE.CONNECTION_POOLING",
+  "aliases": ["connection pool", "database pool", "resource pooling"],
+  "context_bundle": {
+    "summary": "Connection pooling strategies for reusing database and network connections to improve performance and reduce overhead",
+    "prerequisites": ["W76OPTIMIZE_DB"],
+    "related_doors": ["W76OPTIMIZE_DB", "W72CACHING", "T22REDIS"],
+    "onboarding": {
+      "quick_start": "Implement object pooling to reuse connections instead of creating and destroying them, reducing GC overhead and connection latency",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md",
+      "common_patterns": [
+        "Configure connection pool size based on load",
+        "Set appropriate timeout values",
+        "Monitor pool utilization metrics",
+        "Use connection validation before reuse"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T01:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["performance", "connection pooling", "database", "workflows"],
+      "category": "WORKFLOWS",
+      "subcategory": "PERFORMANCE",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11", "Linux"],
+      "agent_affinity": ["VSCC", "DC"]
+    }
+  }
+}

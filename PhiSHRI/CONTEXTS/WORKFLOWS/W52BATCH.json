@@ -1,0 +1,45 @@
+{
+  "door_code": "W52BATCH",
+  "semantic_path": "WORKFLOWS.DATA_PROCESSING.BATCH_PROCESSING",
+  "aliases": ["batch", "bulk_processing", "batch_operations", "chunking"],
+  "context_bundle": {
+    "summary": "Batch processing patterns for large-scale data: Chunk processing (1,000-10,000 records), parallel processing (multiprocessing, Spark, Dask), retry with exponential backoff. Frameworks: Spark (100k-1M records/sec), Dask (50k-500k), Polars (100k-1M, fastest). Spring Batch chunk pattern. Optimization: dynamic batch sizing, spot instances (90% cost savings), KEDA autoscaling. Monitor: throughput, error rate, resource utilization.",
+    "prerequisites": ["W50ETL", "W51STREAM"],
+    "related_doors": ["W43ANSIBLE", "W48K8S_DEPLOY"],
+    "onboarding": {
+      "quick_start": "Batch patterns: Chunking (process_chunk(df, chunk_size=10000)), Pipeline (extract >> transform >> load), Retry (exponential backoff with tenacity). Pandas chunking: for chunk in pd.read_csv(file, chunksize=10000): process(chunk). Parallel: multiprocessing.Pool.map(process_chunk, chunks). Spark: rdd.mapPartitions(process). Dask: ddf = dd.read_csv('file.csv', blocksize='64MB'). Polars: 5-10x faster CSV parsing. Optimal batch: 1k-10k records. Monitor with Prometheus: processing_time, error_rate, throughput.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/05_DATA_PROCESSING/DATA_PROCESSING_MANAGEMENT_RESEARCH.md",
+      "common_patterns": [
+        "Pandas chunking: pd.read_csv(file, chunksize=10000, dtype=dtypes)",
+        "Multiprocessing: Pool(cpu_count()).map(process_func, chunks)",
+        "Spark: df.rdd.mapPartitions(process_partition).toDF()",
+        "Dask: dd.read_csv('huge.csv', blocksize='64MB').compute()",
+        "Polars: pl.scan_csv('file.csv').filter().collect() (lazy)",
+        "Spring Batch: chunk(1000).reader().processor().writer()",
+        "Retry: @retry(stop=stop_after_attempt(5), wait=wait_exponential())",
+        "Dynamic batch size: calculate based on available memory",
+        "KEDA autoscaling: scale based on queue depth/lag",
+        "Spot instances: 90% cost savings for batch workloads"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/05_DATA_PROCESSING/DATA_PROCESSING_MANAGEMENT_RESEARCH.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T19:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["batch", "bulk_processing", "chunking", "parallel", "spark", "dask", "polars"],
+      "category": "WORKFLOWS",
+      "subcategory": "DATA_PROCESSING",
+      "version": "1.0.0",
+      "tested_on": ["Spark", "Dask", "Pandas", "Polars", "Python"],
+      "agent_affinity": ["VSCC", "TERMC", "CMDC"]
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "door_code": "T11CICD",
+  "semantic_path": "TOOLS.AUTOMATION.CICD_PIPELINES",
+  "aliases": ["cicd", "ci_cd", "continuous_integration", "continuous_delivery", "pipeline"],
+  "context_bundle": {
+    "summary": "CI/CD pipelines: Automate build, test, deploy. CI (Continuous Integration): Merge code frequently, run tests automatically. CD (Continuous Delivery/Deployment): Auto-deploy to staging/production. Stages: Checkout -> Build -> Test -> Deploy. Tools: GitHub Actions, GitLab CI, Jenkins, CircleCI, Travis CI. Patterns: Pipeline as code (YAML), matrix builds (multiple environments), caching (dependencies), artifacts (build outputs), secrets management. Best practices: Fast feedback (<10 min), fail fast, parallel jobs, deploy on every merge to main.",
+    "prerequisites": ["W67BLUEGREEN", "W58UNITTEST"],
+    "related_doors": ["W69ROLLING", "W66COVERAGE", "T12DOCKER_BUILD", "S05SECRETS"],
+    "onboarding": {
+      "quick_start": "CI/CD: Automate software delivery. GitHub Actions (.github/workflows/ci.yml): on: push: branches: [main]; pull_request. jobs: test: runs-on: ubuntu-latest; steps: - uses: actions/checkout@v4; - uses: actions/setup-node@v4; with: node-version: 18; - run: npm ci; - run: npm test; - run: npm run build. Deploy: deploy: needs: test; if: github.ref == 'refs/heads/main'; steps: - run: npm run deploy. GitLab CI (.gitlab-ci.yml): stages: [build, test, deploy]; test: stage: test; script: - npm test; coverage: '/All files.*?\\s+([\\d\\.]+)/'. Jenkins (Jenkinsfile): pipeline { agent any; stages { stage('Build') { steps { sh 'npm install' } } stage('Test') { steps { sh 'npm test' } } } }. Best practices: Cache dependencies (node_modules, .m2, pip cache), run tests in parallel, fail fast on error, use secrets for credentials (GitHub: ${{ secrets.API_KEY }}), deploy only on main branch.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "GitHub Actions: name: CI; on: [push, pull_request]; jobs: test: runs-on: ubuntu-latest; strategy: matrix: {node: [16, 18, 20]}; steps: - uses: actions/checkout@v4; - uses: actions/setup-node@v4; with: {node-version: '${{ matrix.node }}'};  - run: npm ci; - run: npm test",
+        "GitLab CI: image: node:18; stages: [test, build, deploy]; test: stage: test; script: - npm ci; - npm test; coverage: '/Lines\\s+:\\s+([\\d\\.]+)%/'; artifacts: paths: [coverage/]; build: stage: build; script: - npm run build; deploy: stage: deploy; only: [main]; script: - npm run deploy",
+        "Cache dependencies (GitHub): - uses: actions/cache@v3; with: path: ~/.npm; key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}",
+        "Secrets (GitHub): - run: echo '${{ secrets.API_KEY }}' | docker login -u user --password-stdin; env: API_KEY: ${{ secrets.API_KEY }}",
+        "Parallel jobs: jobs: test-unit: ...; test-integration: ...; test-e2e: ...; deploy: needs: [test-unit, test-integration, test-e2e]",
+        "Matrix build: strategy: matrix: os: [ubuntu-latest, windows-latest]; python: ['3.8', '3.9', '3.10']; runs-on: ${{ matrix.os }}",
+        "Artifacts: - uses: actions/upload-artifact@v3; with: name: build; path: dist/; # Download in later job: - uses: actions/download-artifact@v3; with: name: build",
+        "CircleCI (.circleci/config.yml): version: 2.1; workflows: build-test-deploy: jobs: - test; - deploy: requires: [test]; filters: branches: only: main"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T21:10:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["cicd", "github_actions", "gitlab_ci", "jenkins", "automation", "devops"],
+      "category": "TOOLS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "tested_on": ["GitHub Actions", "GitLab CI", "Jenkins", "CircleCI"],
+      "agent_affinity": ["CMDC", "VSCC", "TERMC"]
+    }
+  }
+}

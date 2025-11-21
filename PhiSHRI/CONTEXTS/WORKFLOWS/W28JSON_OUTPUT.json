@@ -1,0 +1,40 @@
+{
+  "door_code": "W28JSON_OUTPUT",
+  "semantic_path": "WORKFLOWS.AI_OPTIMIZATION.STRUCTURED_JSON_OUTPUT",
+  "aliases": ["json_output", "structured_output", "json_mode", "schema"],
+  "context_bundle": {
+    "summary": "Structured JSON output: Define exact JSON schema for AI responses. GPT-4o has json_mode (response_format={'type': 'json_object'}). Claude uses instructions + examples. Include schema in prompt with field types, constraints. Ensures parseable, consistent outputs.",
+    "prerequisites": ["W02PROMPT"],
+    "related_doors": ["W26SYSTEM_PROMPT", "W25FEW_SHOT"],
+    "onboarding": {
+      "quick_start": "JSON output = structured, parseable responses. Define schema: {field: type, constraints}. GPT-4o: use json_mode. Claude: provide schema + examples. Benefits: consistent format, easy parsing, type safety. Always validate output against schema.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md",
+      "common_patterns": [
+        "Return your response in the following JSON format:",
+        "{\"field\": \"type\", \"confidence\": \"number 0-1\"}",
+        "GPT-4o: response_format={'type': 'json_object'}",
+        "Include example JSON in prompt",
+        "Validate output with JSON schema"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T18:40:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["ai", "json", "structured_output", "schema"],
+      "category": "WORKFLOWS",
+      "subcategory": "AI_OPTIMIZATION",
+      "version": "1.0.0",
+      "tested_on": ["Claude", "GPT-4o"],
+      "agent_affinity": ["DC", "VSCC", "WEBC"]
+    }
+  }
+}

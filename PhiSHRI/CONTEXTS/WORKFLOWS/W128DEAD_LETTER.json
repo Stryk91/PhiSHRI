@@ -1,0 +1,44 @@
+{
+  "door_code": "W128DEAD_LETTER",
+  "semantic_path": "WORKFLOWS.COMMUNICATION.DEAD_LETTER",
+  "aliases": ["dead letter queue", "DLQ", "failed messages", "retry queue"],
+  "context_bundle": {
+    "summary": "Dead Letter Queue pattern for handling failed message processing with retry logic, exponential backoff, and failure analysis",
+    "prerequisites": ["W115MESSAGE_QUEUE", "E05RETRY"],
+    "related_doors": ["E06CIRCUIT_BREAKER", "W84LOGGING", "W86METRICS"],
+    "onboarding": {
+      "quick_start": "Move failed messages to dlq directory, implement separate retry process with exponential backoff, monitor DLQ size, analyze failure patterns",
+      "full_context_path": "/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md",
+      "common_patterns": [
+        "Move on failure: If processing fails, move message to dlq directory",
+        "Retry metadata: Add retryCount, lastRetry, errorMessage to DLQ messages",
+        "Exponential backoff: Retry delays grow exponentially (1s, 2s, 4s, 8s...)",
+        "Max retries: Abandon message after N attempts (default 3-5)",
+        "Monitoring: Alert when DLQ size exceeds threshold"
+      ],
+      "known_errors": [
+        "DLQ can grow unbounded without cleanup policy",
+        "Poison messages (always fail) need manual intervention",
+        "Retry order may differ from original order"
+      ]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T02:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["dead letter", "DLQ", "retry", "failure handling", "poison message"],
+      "category": "WORKFLOWS",
+      "subcategory": "COMMUNICATION",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11"],
+      "agent_affinity": ["DC", "VSCC", "TERMC", "KALIC", "WEBC", "CMDC"]
+    }
+  }
+}

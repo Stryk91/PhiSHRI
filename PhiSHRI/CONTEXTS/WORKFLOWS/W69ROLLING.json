@@ -1,0 +1,43 @@
+{
+  "door_code": "W69ROLLING",
+  "semantic_path": "WORKFLOWS.DEPLOYMENT.ROLLING_UPDATES",
+  "aliases": ["rolling_update", "rolling_deployment", "rolling_release"],
+  "context_bundle": {
+    "summary": "Rolling update: Gradually replace old instances with new ones. Update N instances at a time (surge), wait for health checks, continue until all updated. Default Kubernetes deployment strategy. Configuration: maxSurge (extra instances during update), maxUnavailable (instances down during update). Pros: Zero downtime, gradual rollout, built-in Kubernetes. Cons: Slower than Blue/Green, mixed versions running simultaneously, complex rollback. Patterns: Recreate (stop all, start new), RollingUpdate (default), Surge (add new, remove old). Monitor during rollout, pause/resume, auto-rollback on failure.",
+    "prerequisites": ["W67BLUEGREEN", "W48K8S_DEPLOY"],
+    "related_doors": ["W68CANARY", "W46TERRAFORM", "T11CICD"],
+    "onboarding": {
+      "quick_start": "Rolling update: Replace instances incrementally. Kubernetes (default): kubectl apply -f deployment.yaml (triggers rolling update). kubectl set image deployment/myapp myapp=myapp:v2. Config: spec: strategy: type: RollingUpdate; rollingUpdate: maxSurge: 1 (1 extra pod during update), maxUnavailable: 0 (no downtime). Process: Create 1 new pod (v2), wait for ready, terminate 1 old pod (v1), repeat. Monitor: kubectl rollout status deployment/myapp. Pause: kubectl rollout pause deployment/myapp. Resume: kubectl rollout resume deployment/myapp. Rollback: kubectl rollout undo deployment/myapp (to previous version). History: kubectl rollout history deployment/myapp. Health checks critical: readinessProbe ensures new pod ready before terminating old. Strategies: maxSurge=1, maxUnavailable=0 (safest, slowest), maxSurge=25%, maxUnavailable=25% (faster, some downtime risk). Docker Swarm: docker service update --image myapp:v2 myapp. Nomad: update { max_parallel = 1; health_check = 'checks'; min_healthy_time = '30s'; healthy_deadline = '10m' }.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Kubernetes deployment: spec: replicas: 6; strategy: type: RollingUpdate; rollingUpdate: maxSurge: 2; maxUnavailable: 1. Update: kubectl set image deployment/myapp myapp=myapp:2.0. Rollout: 6 pods v1 -> 8 pods (6 v1 + 2 v2) -> 7 pods (5 v1 + 2 v2) -> ... -> 6 pods v2",
+        "Health checks: readinessProbe: httpGet: {path: /health, port: 8080}; initialDelaySeconds: 10; periodSeconds: 5; successThreshold: 1. Pod not marked ready until probe succeeds.",
+        "Rollout commands: kubectl rollout status deploy/myapp (watch progress); kubectl rollout pause deploy/myapp (pause mid-rollout); kubectl rollout resume deploy/myapp; kubectl rollout undo deploy/myapp (rollback); kubectl rollout undo deploy/myapp --to-revision=2 (rollback to specific)",
+        "Aggressive strategy (fast): maxSurge: 50%; maxUnavailable: 50%. Half instances updated simultaneously. Risk: More downtime if failure.",
+        "Conservative strategy (safe): maxSurge: 1; maxUnavailable: 0. One pod at a time, no downtime. Slowest.",
+        "Docker Swarm: docker service create --replicas 6 --update-parallelism 2 --update-delay 10s --update-failure-action rollback myapp:1.0; docker service update --image myapp:2.0 myapp",
+        "Auto-rollback: kubectl annotate deployment myapp kubernetes.io/change-cause='v2.0 release'; If rollout fails (pods crash), Kubernetes stops rollout. Manual undo required.",
+        "Monitor during rollout: kubectl get pods -w (watch pods); kubectl describe pod myapp-xxx (check events); kubectl logs -f myapp-xxx (check logs)"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T21:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["rolling_update", "deployment", "kubernetes", "zero_downtime", "gradual_rollout"],
+      "category": "WORKFLOWS",
+      "subcategory": "DEPLOYMENT",
+      "version": "1.0.0",
+      "tested_on": ["Kubernetes", "Docker Swarm", "Nomad"],
+      "agent_affinity": ["CMDC", "VSCC", "TERMC"]
+    }
+  }
+}

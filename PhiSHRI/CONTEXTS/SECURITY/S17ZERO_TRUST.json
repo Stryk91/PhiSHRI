@@ -1,0 +1,40 @@
+{
+  "door_code": "S17ZERO_TRUST",
+  "semantic_path": "SECURITY.ARCHITECTURE.ZERO_TRUST",
+  "aliases": ["zero trust", "never trust always verify", "perimeter-less security"],
+  "context_bundle": {
+    "summary": "Zero Trust security architecture model that eliminates implicit trust and requires continuous verification of every user and device",
+    "prerequisites": ["S01SEC", "S09RBAC", "S07OAUTH"],
+    "related_doors": ["S09RBAC", "S07OAUTH", "S08JWT", "S12API_SECURITY"],
+    "onboarding": {
+      "quick_start": "Implement Zero Trust by verifying every access request, enforcing least privilege, and assuming breach at all times",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md",
+      "common_patterns": [
+        "Verify explicitly using multiple factors",
+        "Use least privilege access policies",
+        "Assume breach and minimize blast radius",
+        "Inspect and log all traffic",
+        "Continuous monitoring and analytics"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T01:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["security", "zero trust", "architecture", "perimeter-less"],
+      "category": "SECURITY",
+      "subcategory": "ARCHITECTURE",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11", "Linux"],
+      "agent_affinity": ["DC", "VSCC"]
+    }
+  }
+}

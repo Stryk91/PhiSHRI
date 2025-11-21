@@ -1,0 +1,45 @@
+{
+  "door_code": "W75BENCHMARK",
+  "semantic_path": "WORKFLOWS.PERFORMANCE.BENCHMARKING",
+  "aliases": ["benchmarking", "benchmark", "performance_testing", "micro_benchmark", "pytest_benchmark"],
+  "context_bundle": {
+    "summary": "Benchmarking measures code performance: Micro-benchmarks (small functions, tight loops), macro-benchmarks (end-to-end scenarios), comparative benchmarks (before/after optimization). Tools: Python (pytest-benchmark, timeit), Java (JMH Java Microbenchmark Harness), Go (testing.B), Rust (criterion). Best practices: Warm-up iterations, statistical significance, consistent environment, measure multiple runs, avoid I/O in micro-benchmarks. Metrics: Operations/sec, latency (mean, median, p95, p99), memory allocations, GC pauses. Sorting benchmarks: QuickSort O(n log n) average, MergeSort O(n log n) worst, TimSort (Python default) optimized for real-world data.",
+    "prerequisites": ["W73PROFILING", "W74LOAD_TEST"],
+    "related_doors": ["W86METRICS", "W58UNITTEST"],
+    "onboarding": {
+      "quick_start": "Benchmarking tools: Python pytest-benchmark: pip install pytest-benchmark; def test_my_func(benchmark): result = benchmark(my_function, arg1, arg2); # Runs multiple iterations, reports stats. Python timeit: import timeit; time = timeit.timeit('my_function()', setup='from __main__ import my_function', number=10000); # 10k iterations. Java JMH: @Benchmark public void testMethod() { myFunction(); } # Annotation-based, warm-up, forking. Go: func BenchmarkMyFunc(b *testing.B) { for i := 0; i < b.N; i++ { myFunction() } }; run: go test -bench=. -benchmem. Rust Criterion: use criterion::{black_box, criterion_group, criterion_main, Criterion}; fn bench(c: &mut Criterion) { c.bench_function('my_func', |b| b.iter(|| my_function(black_box(42)))); }. Analyze: Look for regressions (>10% slowdown), compare algorithms (sort comparison: QuickSort vs MergeSort), verify optimizations improved performance.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md",
+      "common_patterns": [
+        "pytest-benchmark with params: def test_sort(benchmark): benchmark.pedantic(sorted, args=([100000 random numbers],), iterations=5, rounds=10); # 5 iterations, 10 rounds",
+        "Python timeit module: python -m timeit -s 'import mymodule' 'mymodule.function()'; # Command-line benchmark",
+        "JMH full example: @State(Scope.Thread) public class MyBenchmark { @Benchmark @BenchmarkMode(Mode.Throughput) @OutputTimeUnit(TimeUnit.SECONDS) public void testThroughput() { compute(); } }",
+        "Go benchmark with setup: func BenchmarkWithSetup(b *testing.B) { data := generateLargeData(); b.ResetTimer(); for i := 0; i < b.N; i++ { process(data) } }",
+        "Criterion (Rust) with plots: cargo bench; # Generates HTML report with performance graphs",
+        "Comparative benchmark: def test_old_vs_new(benchmark): baseline = benchmark(old_function); new_time = benchmark(new_function); assert new_time < baseline * 0.8; # New must be 20% faster",
+        "Memory benchmark (Go): go test -bench=. -benchmem -memprofile=mem.out; go tool pprof mem.out",
+        "Algorithm comparison (sorting): timeit.timeit('quicksort(arr)', ...) vs timeit.timeit('mergesort(arr)', ...); # Compare O(n log n) algorithms",
+        "Warmup iterations: for _ in range(100): my_function(); # Warm up JIT/caches before timing",
+        "Statistical analysis: from statistics import mean, stdev; times = [benchmark() for _ in range(100)]; print(f'Mean: {mean(times)}, Stdev: {stdev(times)}')"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T22:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["benchmarking", "pytest-benchmark", "jmh", "timeit", "performance", "micro_benchmark", "criterion"],
+      "category": "WORKFLOWS",
+      "subcategory": "PERFORMANCE",
+      "version": "1.0.0",
+      "tested_on": ["Python", "Java", "Go", "Rust"],
+      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "door_code": "W112BACKPRESSURE",
+  "semantic_path": "WORKFLOWS.PERFORMANCE.BACKPRESSURE",
+  "aliases": ["backpressure", "flow control", "rate limiting", "load shedding"],
+  "context_bundle": {
+    "summary": "Backpressure handling in reactive systems to prevent bursts from becoming outages by controlling data flow rates",
+    "prerequisites": ["R04EVENT_DRIVEN", "W88STREAMING"],
+    "related_doors": ["W113THROTTLING", "W88STREAMING", "R04EVENT_DRIVEN"],
+    "onboarding": {
+      "quick_start": "Implement backpressure to bound data flows and prevent unbounded growth that can lead to memory exhaustion and system outages",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md",
+      "common_patterns": [
+        "Use bounded queues with overflow strategies",
+        "Implement producer-consumer pattern with flow control",
+        "Signal upstream to slow down when overwhelmed",
+        "Drop or buffer excess messages based on priority"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T01:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["performance", "backpressure", "flow control", "workflows"],
+      "category": "WORKFLOWS",
+      "subcategory": "PERFORMANCE",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11", "Linux"],
+      "agent_affinity": ["VSCC", "DC"]
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "door_code": "W49HELM",
+  "semantic_path": "WORKFLOWS.INFRASTRUCTURE.HELM_CHART_MANAGEMENT",
+  "aliases": ["helm", "kubernetes_package_manager", "charts", "k8s_deployment"],
+  "context_bundle": {
+    "summary": "Helm Kubernetes package manager: charts bundle K8s manifests with templating (values.yaml, templates/). helm create mychart (scaffold), helm install myrelease mychart (deploy), helm upgrade (update), helm rollback (revert). Values override: --set key=value or -f values.yml. Repositories: helm repo add, helm search. Chart structure: Chart.yaml (metadata), values.yaml (defaults), templates/ (manifests with {{ .Values.key }}).",
+    "prerequisites": ["W48K8S_DEPLOY"],
+    "related_doors": ["W46TERRAFORM", "W47DOCKER_COMPOSE"],
+    "onboarding": {
+      "quick_start": "Helm workflow: helm create mychart (creates chart structure), edit templates/deployment.yaml with {{ .Values.replicaCount }}, values.yaml with replicaCount: 3. Install: helm install myapp ./mychart or helm install myapp mychart --set replicaCount=5. List: helm list, Status: helm status myapp, Upgrade: helm upgrade myapp ./mychart, Rollback: helm rollback myapp 1. Add repo: helm repo add bitnami https://charts.bitnami.com/bitnami, Search: helm search repo nginx, Install from repo: helm install my-nginx bitnami/nginx.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Create chart: helm create mychart",
+        "Install: helm install myrelease ./mychart",
+        "Install with values: helm install myrelease ./mychart -f prod-values.yaml",
+        "Install with override: helm install myrelease ./mychart --set replicaCount=5,image.tag=2.0",
+        "Upgrade: helm upgrade myrelease ./mychart",
+        "Rollback: helm rollback myrelease 1",
+        "List releases: helm list -n namespace",
+        "Uninstall: helm uninstall myrelease",
+        "Template syntax: image: {{ .Values.image.repository }}:{{ .Values.image.tag }}",
+        "Repo: helm repo add stable https://charts.helm.sh/stable, helm repo update",
+        "Search: helm search repo wordpress",
+        "Dry-run: helm install myrelease ./mychart --dry-run --debug"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T19:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["helm", "kubernetes", "charts", "package_manager", "k8s", "deployment"],
+      "category": "WORKFLOWS",
+      "subcategory": "INFRASTRUCTURE",
+      "version": "1.0.0",
+      "tested_on": ["Kubernetes", "GKE", "EKS", "AKS"],
+      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+    }
+  }
+}

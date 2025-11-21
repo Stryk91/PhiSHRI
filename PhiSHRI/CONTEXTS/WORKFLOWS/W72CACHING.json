@@ -1,0 +1,45 @@
+{
+  "door_code": "W72CACHING",
+  "semantic_path": "WORKFLOWS.PERFORMANCE.CACHING_STRATEGIES",
+  "aliases": ["caching", "cache", "redis", "memcached", "cdn", "cache_aside", "write_through"],
+  "context_bundle": {
+    "summary": "Caching strategies improve performance by storing frequently accessed data: Cache-aside (lazy loading), Write-through (sync updates), Write-behind (async updates), Read-through (cache manages DB). Distributed caches: Redis (rich data types, pub/sub), Memcached (simple key-value), Hazelcast (microservices). Metrics: 90%+ hit ratio target, 5-60 min TTL optimal, 40% throughput increase with cache-aside. Invalidation: TTL, event-driven, key-based, version-based. Cache warming: pre-fetching, algorithmic, predictive, scheduled, event-driven.",
+    "prerequisites": ["E05RETRY", "E06CIRCUIT_BREAKER", "W76OPTIMIZE_DB"],
+    "related_doors": ["W84LOGGING", "W86METRICS", "T10OBSERVABILITY"],
+    "onboarding": {
+      "quick_start": "Caching patterns: 1) Cache-Aside (lazy load): Check cache → miss → fetch DB → store cache → return. Most flexible, read-heavy workloads. 2) Write-Through: App writes cache → cache writes DB sync → confirm. Strong consistency, higher latency. 3) Write-Behind: App writes cache → confirm immediately → cache writes DB async. Best write performance, potential data loss. 4) Read-Through: App requests cache → cache fetches DB on miss → cache returns. Simplifies app code. Redis setup: docker run -d -p 6379:6379 redis. Python: import redis; r = redis.Redis(host='localhost', port=6379); r.set('key', 'value', ex=300); value = r.get('key'). Cache invalidation: TTL (r.expire('key', 60)), event-driven (pub/sub on data update), key-based (r.delete('user:123')), version-based (key='user:123:v2'). Metrics: hit_ratio = hits / (hits + misses); target >90%. LRU eviction: maxmemory-policy allkeys-lru. Prevent cache stampede: randomize TTLs, mutex locks.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md",
+      "common_patterns": [
+        "Redis cache-aside: def get_user(user_id): cached = redis.get(f'user:{user_id}'); if cached: return json.loads(cached); user = db.query('SELECT * FROM users WHERE id=?', user_id); redis.setex(f'user:{user_id}', 300, json.dumps(user)); return user",
+        "Write-through pattern: def update_user(user_id, data): redis.set(f'user:{user_id}', json.dumps(data)); db.execute('UPDATE users SET ... WHERE id=?', user_id); return data",
+        "Memcached (Python): import memcache; mc = memcache.Client(['127.0.0.1:11211']); mc.set('key', 'value', time=300); value = mc.get('key')",
+        "Redis with TTL: r.setex('session:abc123', 3600, json.dumps(session_data)); # 1 hour expiry",
+        "Cache invalidation on update: def update_product(product_id, data): db.update('products', product_id, data); redis.delete(f'product:{product_id}'); event_bus.publish('product.updated', product_id)",
+        "LRU eviction config: maxmemory 256mb; maxmemory-policy allkeys-lru; # Redis config",
+        "Cache stampede prevention: import random; ttl = base_ttl + random.randint(0, 60); r.setex(key, ttl, value)",
+        "Cache warming: for product_id in trending_products: product = db.get_product(product_id); redis.setex(f'product:{product_id}', 600, json.dumps(product))",
+        "Redis monitoring: info = r.info('stats'); hit_rate = info['keyspace_hits'] / (info['keyspace_hits'] + info['keyspace_misses'])",
+        "Distributed cache (Hazelcast): from hazelcast import HazelcastClient; client = HazelcastClient(); cache = client.get_map('user-cache').blocking(); cache.put('user:123', user_data, ttl=300)"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T22:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["caching", "redis", "memcached", "performance", "cache_aside", "write_through", "write_behind", "distributed_cache", "hazelcast"],
+      "category": "WORKFLOWS",
+      "subcategory": "PERFORMANCE",
+      "version": "1.0.0",
+      "tested_on": ["Redis", "Memcached", "Hazelcast", "Python", "Java", "Node.js"],
+      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+    }
+  }
+}

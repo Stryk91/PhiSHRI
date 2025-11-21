@@ -1,0 +1,43 @@
+{
+  "door_code": "W61MOCKING",
+  "semantic_path": "WORKFLOWS.TESTING.MOCKING_STUBBING",
+  "aliases": ["mocking", "stubbing", "test_doubles", "mock", "spy"],
+  "context_bundle": {
+    "summary": "Mocking and stubbing for test isolation: Replace external dependencies with test doubles. Types: Mock (verify interactions), Stub (return predetermined values), Spy (partial mock, tracks calls), Fake (working implementation). Python: unittest.mock (Mock, patch, MagicMock), pytest-mock. JavaScript: Jest mocks, Sinon.js. Patterns: Patch external APIs, mock databases, stub file I/O, spy on function calls. Verify call count, arguments, return values. Avoid over-mocking (fragile tests).",
+    "prerequisites": ["W58UNITTEST"],
+    "related_doors": ["W59INTEGRATION", "W62TDD", "S05SECRETS"],
+    "onboarding": {
+      "quick_start": "Mocking: Replace dependencies with controlled test doubles. Python (unittest.mock): from unittest.mock import Mock, patch; db_mock = Mock(); db_mock.query.return_value = [{'id': 1}]; result = get_users(db_mock); assert result == [{'id': 1}]; db_mock.query.assert_called_once_with('SELECT * FROM users'). Patch decorator: @patch('requests.get') def test_api(mock_get): mock_get.return_value.status_code = 200; mock_get.return_value.json.return_value = {'data': []}; result = fetch_data(); assert result == []; mock_get.assert_called_once(). Jest: jest.mock('axios'); axios.get.mockResolvedValue({data: {users: []}}); const result = await fetchUsers(); expect(result).toEqual([]); expect(axios.get).toHaveBeenCalledWith('/api/users'). Spy: jest.spyOn(math, 'random').mockReturnValue(0.5); const result = rollDice(); expect(result).toBe(3); expect(math.random).toHaveBeenCalled(). Types: Mock (verify behavior), Stub (return values), Spy (track calls), Fake (simplified implementation).",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Mock object (Python): from unittest.mock import Mock; email_service = Mock(); email_service.send.return_value = True; notify_user(user, email_service); email_service.send.assert_called_with(user.email, 'Welcome!')",
+        "Patch function: @patch('app.database.connect') def test_db_error(mock_connect): mock_connect.side_effect = ConnectionError('DB down'); with pytest.raises(ConnectionError): get_data()",
+        "Jest mock function: const callback = jest.fn(); callback.mockReturnValue(42); const result = processData(callback); expect(callback).toHaveBeenCalledTimes(1); expect(result).toBe(42)",
+        "Mock async (Jest): api.fetchUser.mockResolvedValue({id: 1, name: 'Alice'}); const user = await getUser(1); expect(user.name).toBe('Alice')",
+        "Spy (Sinon): const spy = sinon.spy(console, 'log'); logger.info('test'); expect(spy.calledOnce).toBe(true); expect(spy.calledWith('test')).toBe(true); spy.restore()",
+        "MagicMock (Python): from unittest.mock import MagicMock; obj = MagicMock(); obj.method.return_value = 10; obj.method(5); obj.method.assert_called_with(5)",
+        "Mock context manager: with patch('builtins.open', mock_open(read_data='test data')) as mock_file: content = read_file('test.txt'); assert content == 'test data'",
+        "Partial mock (pytest-mock): mocker.patch.object(User, 'save', return_value=True); user.save(); assert user.save.call_count == 1"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T20:45:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["mocking", "stubbing", "test_doubles", "unittest_mock", "jest", "sinon"],
+      "category": "WORKFLOWS",
+      "subcategory": "TESTING",
+      "version": "1.0.0",
+      "tested_on": ["Python", "JavaScript", "TypeScript"],
+      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+    }
+  }
+}

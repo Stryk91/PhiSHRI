@@ -1,0 +1,45 @@
+{
+  "door_code": "W44PUPPET",
+  "semantic_path": "WORKFLOWS.AUTOMATION.PUPPET_CONFIGURATION_MANAGEMENT",
+  "aliases": ["puppet", "configuration_management", "infrastructure_automation", "manifest"],
+  "context_bundle": {
+    "summary": "Puppet declarative configuration management using master-agent architecture or standalone (puppet apply). Manifests (.pp files) define resource state: package, service, file, user. Modules organize code (manifests/, files/, templates/). Puppet DSL: resource { 'title': attribute => value }. Catalog compilation ensures idempotency. Hiera for data separation. Facter collects system facts. PuppetDB stores state.",
+    "prerequisites": ["W43ANSIBLE", "W41SYSTEMD"],
+    "related_doors": ["W45CHEF", "W46TERRAFORM"],
+    "onboarding": {
+      "quick_start": "Puppet manifest syntax: package { 'nginx': ensure => installed } service { 'nginx': ensure => running, enable => true } file { '/etc/nginx/nginx.conf': source => 'puppet:///modules/nginx/nginx.conf' }. Standalone: puppet apply manifest.pp. Master-agent: puppetserver for master, puppet agent on nodes. Modules: /etc/puppetlabs/code/environments/production/modules/. Hiera data: /etc/puppetlabs/code/environments/production/data/. Facts: facter os, facter ipaddress.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Package: package { 'nginx': ensure => installed }",
+        "Service: service { 'nginx': ensure => running, enable => true }",
+        "File: file { '/etc/app.conf': content => template('module/app.conf.erb') }",
+        "User: user { 'appuser': ensure => present, home => '/home/appuser' }",
+        "Exec: exec { 'reload-config': command => '/usr/bin/reload.sh', refreshonly => true }",
+        "Module structure: modulename/manifests/init.pp, files/, templates/",
+        "Apply: puppet apply --verbose manifest.pp",
+        "Agent: puppet agent --test (manual run)",
+        "Hiera lookup: lookup('key', String)",
+        "Facts: $facts['os']['family'], $facts['networking']['ip']"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T19:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["puppet", "configuration_management", "automation", "infrastructure", "manifest"],
+      "category": "WORKFLOWS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "tested_on": ["Linux", "Windows"],
+      "agent_affinity": ["VSCC", "TERMC", "CMDC"]
+    }
+  }
+}

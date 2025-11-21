@@ -1,0 +1,298 @@
+{
+  "door_code": "000START",
+  "semantic_path": "PROJECTS.PHISHRI.START",
+  "aliases": ["start here", "getting started", "first door", "how to use", "onboarding"],
+  "context_bundle": {
+    "summary": "First-time user onboarding for PhiSHRI door system - start here if you're new to the index",
+    "prerequisites": [],
+    "related_doors": ["P03PHISHRI", "W01COORD", "A01DC"],
+    "onboarding": {
+      "quick_start": "Welcome to PhiSHRI! You're in the right place. Read this door, then INDEX.json, then navigate by door codes.",
+      "full_context_path": "/PhiSHRI/HOW_TO_USE.md",
+      "common_patterns": [
+        "Step 1: Read C:\\Dev\\PhiSRHI\\PhiSHRI\\INDEX.json (master catalog)",
+        "Step 2: Identify door code for your topic (D05=deployment, W115=messaging, S05=secrets)",
+        "Step 3: Read door directly: CONTEXTS/{CATEGORY}/{DOORCODE}.json",
+        "Step 4: Follow prerequisites and related_doors for complete context",
+        "Step 5: Read full_context_path PhiDEX guide if needed",
+        "OPTIMIZATION: Read multiple related doors in parallel (single message) to reduce overhead by 30-50%"
+      ],
+      "known_errors": [
+        "DON'T search with grep/find - door codes are semantic, use them directly",
+        "DON'T use training data - read actual door files for current info",
+        "DON'T skip prerequisites - they're foundational knowledge",
+        "DON'T ignore INDEX.json - it shows what exists and where",
+        "DON'T read doors sequentially when you can read them in parallel - system overhead is per-message, not per-file"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiSHRI/HOW_TO_USE.md",
+        "/PhiSHRI/INDEX.json",
+        "/PhiSHRI/ARCHITECTURE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T03:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["onboarding", "getting started", "first door", "tutorial", "phishri"],
+      "category": "PROJECTS",
+      "subcategory": "PHISHRI",
+      "version": "1.0.0",
+      "tested_on": ["All platforms"],
+      "agent_affinity": ["DC", "VSCC", "TERMC", "KALIC", "WEBC", "CMDC"]
+    }
+  },
+  "interactive_guide": {
+    "question_1": {
+      "q": "What are you trying to learn about?",
+      "options": {
+        "deployment": {
+          "answer": "Read doors D05-D14 for deployment patterns. Start with D05SILENT_INSTALL for basics.",
+          "next_doors": ["D05SILENT_INSTALL", "D06ENTERPRISE", "D07GPO"],
+          "parallel_read_tip": "Read D05, D06, D07, D08, D13 in a single message with parallel Read calls to reduce overhead by 30-50%"
+        },
+        "agent_communication": {
+          "answer": "Read doors W115-W131 for agent communication. Start with W115MESSAGE_QUEUE.",
+          "next_doors": ["W115MESSAGE_QUEUE", "W116IPC", "W117FILE_IPC", "W118REQUEST_RESPONSE"]
+        },
+        "security": {
+          "answer": "Read doors S01-S18 for security patterns. Start with S01SEC for overview.",
+          "next_doors": ["S01SEC", "S05SECRETS", "S07ENCRYPTION", "S12RBAC"]
+        },
+        "workflows": {
+          "answer": "Read doors W01-W131 for workflow patterns. Start with W01COORD for coordination.",
+          "next_doors": ["W01COORD", "W13DAG", "W122DAG", "W123ORCHESTRATION"]
+        },
+        "architecture": {
+          "answer": "Read doors R01-R16 for architecture patterns. Start with R01MULTI for multi-agent systems.",
+          "next_doors": ["R01MULTI", "R03MICROSERVICE", "R04EVENT_DRIVEN", "R09FACTORY_PATTERN"]
+        },
+        "tools": {
+          "answer": "Read doors T01-T27 and 800-840 for development tools. Start with T01MCP for MCP servers.",
+          "next_doors": ["T01MCP", "T02VSCODE", "T25DOCKER", "T26KUBERNETES"]
+        },
+        "errors": {
+          "answer": "Read doors E01-E13 for error handling patterns. Start with E05RETRY.",
+          "next_doors": ["E01PERM", "E05RETRY", "E06CIRCUIT_BREAKER", "E12MEMORY_ERRORS"]
+        }
+      }
+    },
+    "question_2": {
+      "q": "How experienced are you with this codebase?",
+      "options": {
+        "beginner": {
+          "answer": "Read HOW_TO_USE.md first, then INDEX.json, then start with prerequisite doors (lower numbers like D01, W01, S01)",
+          "recommended_path": [
+            "HOW_TO_USE.md",
+            "INDEX.json",
+            "P03PHISHRI (understand the system)",
+            "W01COORD (coordination basics)",
+            "Then navigate by topic"
+          ]
+        },
+        "intermediate": {
+          "answer": "You know the basics. Use INDEX.json to find topics, read door JSONs directly, follow related_doors for deeper context.",
+          "recommended_path": [
+            "INDEX.json (quick scan)",
+            "Jump to topic doors (D05, W115, S05, etc.)",
+            "Follow related_doors chains",
+            "Read PhiDEX guides for implementation details"
+          ]
+        },
+        "expert": {
+          "answer": "You know the drill. Door codes are semantic. Read what you need, skip prerequisites you know, contribute new doors to expand coverage.",
+          "recommended_path": [
+            "Direct door access by code",
+            "Contribute new doors when you find gaps",
+            "Update related_doors to improve graph",
+            "Add to PhiDEX guides for source material"
+          ]
+        }
+      }
+    }
+  },
+  "system_architecture": {
+    "description": "PhiSHRI (Semantic Hash Repository Index) is a structured knowledge base with 236+ 'doors' (JSON context files) organized by category. Each door contains curated information extracted from PhiDEX source documentation with zero hallucinations.",
+    "design_principles": [
+      "Semantic door codes: Names describe content (D05SILENT_INSTALL, W115MESSAGE_QUEUE)",
+      "Prerequisite chains: Doors link to foundational knowledge",
+      "Related doors graph: Navigate by topic relationships",
+      "Zero hallucinations: All content from PhiDEX sources",
+      "Fast lookup: < 100ms direct file reads, no searching required"
+    ],
+    "navigation_methods": [
+      "hash_code_lookup: Know the door code, read directly",
+      "semantic_path_resolution: Follow CATEGORY.SUBCATEGORY.TOPIC paths",
+      "natural_language_query: Use INDEX.json descriptions to find doors",
+      "error_pattern_matching: Error doors link to solutions",
+      "prerequisite_chain_loading: Follow dependencies for complete context"
+    ],
+    "target_metrics": {
+      "onboarding_time_seconds": 5,
+      "lookup_time_ms": 100,
+      "context_load_time_ms": 500,
+      "total_doors_target": 500,
+      "current_doors": 236
+    }
+  },
+  "quick_examples": {
+    "example_1": {
+      "scenario": "Need to deploy software silently to 500 machines",
+      "optimal_flow": [
+        "1. Read 000START.json → Find deployment guidance",
+        "2. Read D05, D06, D07, D08, D13 in PARALLEL (single message with 5 Read calls)",
+        "3. Analyze all deployment patterns together",
+        "4. Implement using common_patterns from doors"
+      ],
+      "time_estimate": "6 seconds, 2 tool calls (000START + 5 parallel reads)",
+      "result": "Complete deployment strategy with specific commands and best practices",
+      "efficiency_note": "Parallel reading reduces overhead from ~26K tokens to ~13K tokens (50% savings)"
+    },
+    "example_2": {
+      "scenario": "Agents need to communicate via file-based IPC",
+      "optimal_flow": [
+        "1. Read 000START.json → Find agent communication guidance",
+        "2. Read W115, W116, W117, W118 in PARALLEL (single message with 4 Read calls)",
+        "3. Analyze message queue, IPC, file-based patterns together",
+        "4. Check full_context_path for PhiSync detailed guides if needed"
+      ],
+      "time_estimate": "6 seconds, 2 tool calls (000START + 4 parallel reads)",
+      "result": "File-based IPC implementation with polling, correlation IDs, dead letter queues",
+      "efficiency_note": "Parallel reading saves one message round-trip"
+    },
+    "example_3": {
+      "scenario": "Need to secure API endpoints",
+      "optimal_flow": [
+        "1. Read 000START.json → Find security guidance",
+        "2. Read S01, S09, S10, S11, S12 in PARALLEL (single message with 5 Read calls)",
+        "3. Analyze security patterns, RBAC, JWT, CORS, CSRF together",
+        "4. Implement patterns from common_patterns fields"
+      ],
+      "time_estimate": "6 seconds, 2 tool calls (000START + 5 parallel reads)",
+      "result": "Complete API security implementation with RBAC, JWT, CORS, CSRF protection",
+      "efficiency_note": "Parallel reading achieves comprehensive security coverage in minimal time"
+    }
+  },
+  "faq": {
+    "q1": {
+      "question": "Why not just use grep/search to find information?",
+      "answer": "Door codes are semantic - they tell you what they contain. D05 is the 5th deployment door about silent installation. No searching needed! Searching wastes time and finds too many irrelevant results."
+    },
+    "q2": {
+      "question": "Why not use my training data knowledge?",
+      "answer": "Training data may be outdated or not specific to this codebase. PhiSHRI doors contain curated, current information extracted from PhiDEX source documentation. Zero hallucinations guarantee."
+    },
+    "q3": {
+      "question": "How do I know which door to read first?",
+      "answer": "Check the prerequisites field in any door. Lower-numbered doors (D01, W01, S01) are usually foundational. Follow the prerequisite chain for complete understanding."
+    },
+    "q4": {
+      "question": "What if a door references a PhiDEX path that doesn't exist?",
+      "answer": "The door JSON has the key information even without the full guide. If needed, use Glob to find alternate paths: **/*ENTERPRISE*.md or check /PHIiSRHI/PhiDEX/ vs /PhiDEX/ directories."
+    },
+    "q5": {
+      "question": "Can I contribute new doors?",
+      "answer": "Yes! Follow the zero hallucinations protocol: Extract information from PhiDEX source files only. Use the door template structure. Increment door codes sequentially. Update INDEX.json with new counts."
+    },
+    "q6": {
+      "question": "Should I read doors one at a time or in parallel?",
+      "answer": "ALWAYS read multiple related doors in parallel (single message with multiple Read tool calls). System overhead is per-message, not per-file. Reading 5 doors in 1 message uses ~13K overhead. Reading 5 doors across 3 messages uses ~26K overhead. Parallel reading saves 30-50% tokens and is 2-3x faster."
+    },
+    "q7": {
+      "question": "Can I skip 000START if I already know the door codes?",
+      "answer": "EXPERT MODE: Yes! If you know the door code patterns (D05-D14=deployment, W115-W131=messaging, S01-S18=security), go directly to doors. Saves ~3K tokens and 3-5 seconds. Trade-off: You miss related_doors recommendations and optimization tips. Beginners should always read 000START first."
+    },
+    "q8": {
+      "question": "Should I read INDEX.json or 000START for onboarding?",
+      "answer": "INDEX.json (1.5K tokens) gives category overview and door counts. 000START.json (3.2K tokens) gives full onboarding with examples and FAQs. For quick category scan: INDEX.json. For first-time comprehensive guide: 000START.json. Saves ~1.7K tokens if you just need the overview."
+    },
+    "q9": {
+      "question": "How many doors should I read for a quick answer vs comprehensive coverage?",
+      "answer": "MINIMAL (2-3 doors, 4 seconds): Core topic only. COMPREHENSIVE (5-7 doors, 6 seconds): Includes related_doors for full picture. Example deployment: Minimal=D05,D06 (silent install + enterprise). Comprehensive=D05,D06,D07,D08,D13 (+ GPO, Autopilot, network optimization)."
+    }
+  },
+  "efficiency_optimization_guide": {
+    "tweak_1_parallel_reading": {
+      "description": "Read multiple doors in single message with parallel Read calls",
+      "savings": "30-50% overhead reduction (~13K tokens)",
+      "example": "Read D05, D06, D07, D08, D13 in one message instead of sequential reads",
+      "when_to_use": "Always - no downside to parallel reading"
+    },
+    "tweak_2_expert_mode": {
+      "description": "Skip 000START if you know door code patterns",
+      "savings": "~3K tokens, 3-5 seconds",
+      "when_to_use": "Repeat users, known topics, time-critical queries",
+      "trade_off": "Miss related_doors recommendations and optimization tips",
+      "door_patterns": {
+        "deployment": "D05-D14",
+        "messaging": "W115-W131",
+        "core_workflows": "W01-W21",
+        "security": "S01-S18",
+        "tools": "T01-T27",
+        "architecture": "R01-R16",
+        "errors": "E01-E13"
+      }
+    },
+    "tweak_3_core_only_reading": {
+      "description": "Read only 2 core doors instead of 5 comprehensive doors (80/20 rule)",
+      "savings": "~18K tokens (47% reduction), 8-10 seconds faster",
+      "principle": "80% of the information in 20% of the doors",
+      "when_to_use": "Quick answers, just-in-time learning, can iterate with follow-ups",
+      "trade_off": "Less comprehensive initial answer, might need to come back for specialized info",
+      "how_to_decide": [
+        "Check prerequisites field: Lower numbers = more foundational",
+        "Check related_doors field: Read core first, extended later if needed",
+        "Core doors contain essential patterns, extended doors are specialized"
+      ],
+      "examples": {
+        "deployment_core": ["D05SILENT_INSTALL", "D06ENTERPRISE"],
+        "deployment_extended": ["D07GPO", "D08AUTOPILOT", "D13NETWORK_DEPLOY"],
+        "security_core": ["S01SEC", "S05SECRETS"],
+        "security_extended": ["S07ENCRYPTION", "S09JWT", "S10CORS", "S11CSRF", "S12RBAC"],
+        "messaging_core": ["W115MESSAGE_QUEUE", "W116IPC"],
+        "messaging_extended": ["W117FILE_IPC", "W118REQUEST_RESPONSE", "W119PUBSUB"]
+      }
+    },
+    "tweak_4_index_vs_000start": {
+      "description": "Use INDEX.json instead of 000START for door discovery",
+      "savings": "~1,676 tokens (50% smaller), ~2 seconds faster",
+      "when_to_use": "Quick lookup, just need category → door code mapping, doing research not onboarding",
+      "when_000start_better": "First-time users, need guidance on optimal flow, want system architecture understanding",
+      "index_provides": "Essential mapping: categories → door codes → descriptions, door counts",
+      "000start_adds": "Interactive guide Q&A, detailed flow examples, FAQ section, welcome message, architecture explanation",
+      "combined_optimization": "INDEX.json + core doors only (D05, D06) = ~15K tokens, 60% reduction from baseline"
+    },
+    "tweak_5_batch_request": {
+      "description": "User specifies exact door codes in initial request (eliminates discovery phase)",
+      "savings": "~34% token reduction (~13K tokens), 5-7 seconds faster",
+      "principle": "Skip navigation files entirely, go straight to content",
+      "optimized_request_format": [
+        "BAD: 'Tell me about deployment'",
+        "GOOD: 'Read D05SILENT_INSTALL and D06ENTERPRISE'",
+        "BAD: 'How do I secure APIs?'",
+        "GOOD: 'Read S12RBAC, S09JWT, S10CORS'",
+        "BAD: 'Agent communication patterns?'",
+        "GOOD: 'Read W115MESSAGE_QUEUE, W117FILE_IPC'"
+      ],
+      "how_to_build_habit": [
+        "1. First time: Use 000START to discover door codes",
+        "2. Take note of codes for topics you care about",
+        "3. Future sessions: Request doors directly by code"
+      ],
+      "door_code_cheat_sheet": {
+        "deployment": "D05=Silent Install, D06=Enterprise, D07=GPO, D08=Autopilot, D13=Network",
+        "security": "S01=Basics, S05=Secrets, S07=Encryption, S09=JWT, S12=RBAC",
+        "messaging": "W115=Message Queue, W116=IPC, W117=File IPC, W118=Request/Response",
+        "tools": "T01=MCP, T25=Docker, T26=Kubernetes, T27=Vault"
+      },
+      "trade_off": "Requires memorizing door codes, might miss discovering related doors, best for power users"
+    }
+  },
+  "welcome_message": "🎯 Welcome to PhiSHRI! You've found door 000START - the entry point to the Keymaster's Index System. This door will guide you through using the 237 context doors to instantly access curated knowledge about deployment, workflows, security, architecture, and more. No searching required - door codes are semantic and self-documenting. Read HOW_TO_USE.md next, then INDEX.json, then navigate by door codes. Happy exploring! 🚪"
+}

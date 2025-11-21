@@ -1,0 +1,45 @@
+{
+  "door_code": "W50ETL",
+  "semantic_path": "WORKFLOWS.DATA_PROCESSING.ETL_PIPELINES",
+  "aliases": ["etl", "extract_transform_load", "data_pipeline", "elt"],
+  "context_bundle": {
+    "summary": "ETL (Extract, Transform, Load) vs ELT pipelines: Extract data from sources, Transform (clean/aggregate), Load to destination. Modern trend: ELT (load first, transform in warehouse). Tools: Airflow (DAG orchestration), Spark (batch processing), dbt (data transformation). Patterns: Pipeline, chunking, retry, monitoring. 2024: Zero-ETL (query in-place), Five-layer streaming (ingestion, processing, storage).",
+    "prerequisites": ["W43ANSIBLE", "W46TERRAFORM"],
+    "related_doors": ["W51STREAM", "W52BATCH", "W53KAFKA", "W54REDIS"],
+    "onboarding": {
+      "quick_start": "ETL workflow: Extract (read from source: APIs, databases, files), Transform (validate, clean, aggregate, join), Load (write to data warehouse/lake). ELT: Load raw data first, transform with SQL in warehouse (more flexible). Airflow DAG: from airflow import DAG, tasks = [extract_task >> transform_task >> load_task]. Batch size: 1,000-10,000 records optimal. Monitor: ingestion rate, processing time, error rate, data quality. Zero-ETL: query data where it resides (Redshift Spectrum, BigQuery Omni).",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/05_DATA_PROCESSING/DATA_PROCESSING_MANAGEMENT_RESEARCH.md",
+      "common_patterns": [
+        "Airflow DAG: default_args={'retries': 3, 'retry_delay': timedelta(minutes=5)}, schedule_interval='@daily'",
+        "Extract task: extract_data from API/DB/S3",
+        "Transform task: validate, clean, aggregate, join",
+        "Load task: write to warehouse (Snowflake, BigQuery, Redshift)",
+        "Chunk processing: process 1000-10000 records at a time",
+        "Retry pattern: exponential backoff for failures",
+        "Monitoring: Prometheus metrics (records_processed, error_rate, processing_time)",
+        "ELT: Load raw JSON to warehouse, transform with dbt/SQL",
+        "Zero-ETL: Query federated data without movement",
+        "Streaming architecture: Kafka (ingestion) -> Flink (processing) -> Data Lake (storage)"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/05_DATA_PROCESSING/DATA_PROCESSING_MANAGEMENT_RESEARCH.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T19:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["etl", "elt", "data_pipeline", "airflow", "data_engineering", "data_warehouse"],
+      "category": "WORKFLOWS",
+      "subcategory": "DATA_PROCESSING",
+      "version": "1.0.0",
+      "tested_on": ["Airflow", "Spark", "dbt", "Python"],
+      "agent_affinity": ["VSCC", "TERMC", "CMDC"]
+    }
+  }
+}

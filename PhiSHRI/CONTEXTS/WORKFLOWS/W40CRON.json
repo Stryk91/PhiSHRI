@@ -1,0 +1,43 @@
+{
+  "door_code": "W40CRON",
+  "semantic_path": "WORKFLOWS.AUTOMATION.CRON_SCHEDULING",
+  "aliases": ["cron", "crontab", "scheduled_tasks", "job_scheduling"],
+  "context_bundle": {
+    "summary": "Cron job scheduling patterns for Linux/Unix systems using crontab syntax: minute hour day month weekday command. Standard schedules: 0 3 * * * (daily 3 AM), 0 0 * * 0 (weekly Sunday), */15 * * * * (every 15 min). Use environment variables, log output, handle paths, test schedules.",
+    "prerequisites": ["T09IPC_METHODS"],
+    "related_doors": ["W41SYSTEMD", "W42TASK_SCHEDULER", "W43ANSIBLE"],
+    "onboarding": {
+      "quick_start": "Cron scheduling: crontab -e to edit, crontab -l to list. Syntax: MIN HOUR DAY MONTH WEEKDAY COMMAND. Examples: '0 3 * * * /backup.sh' (daily 3 AM), '*/15 * * * * /check.sh' (every 15 min), '0 0 * * 0 /weekly.sh' (Sunday midnight). Special: @reboot, @daily, @hourly. Always use absolute paths, redirect output: command >> /var/log/cron.log 2>&1",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Daily 3 AM: 0 3 * * * /usr/local/bin/backup.sh",
+        "Every 15 minutes: */15 * * * * /check_status.sh",
+        "Weekly Sunday midnight: 0 0 * * 0 /weekly_report.sh",
+        "Weekdays 9 AM: 0 9 * * 1-5 /business_task.sh",
+        "First of month: 0 0 1 * * /monthly.sh",
+        "Special: @reboot /startup.sh, @daily /daily.sh",
+        "With logging: command >> /var/log/task.log 2>&1",
+        "Set environment: SHELL=/bin/bash, PATH=/usr/local/bin:/usr/bin"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T19:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["cron", "scheduling", "automation", "linux", "unix", "crontab"],
+      "category": "WORKFLOWS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "tested_on": ["Linux", "Unix", "macOS"],
+      "agent_affinity": ["VSCC", "TERMC", "CMDC"]
+    }
+  }
+}

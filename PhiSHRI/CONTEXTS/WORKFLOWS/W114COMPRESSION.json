@@ -1,0 +1,39 @@
+{
+  "door_code": "W114COMPRESSION",
+  "semantic_path": "WORKFLOWS.PERFORMANCE.COMPRESSION",
+  "aliases": ["data compression", "gzip", "compression strategy"],
+  "context_bundle": {
+    "summary": "Data compression strategies for reducing bandwidth usage and storage requirements with space-time tradeoffs",
+    "prerequisites": ["W19PERF"],
+    "related_doors": ["W79REST_API", "W88STREAMING", "W76OPTIMIZE_DB"],
+    "onboarding": {
+      "quick_start": "Apply compression to reduce network transfer sizes and storage footprint, balancing CPU overhead against bandwidth savings",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md",
+      "common_patterns": [
+        "Use gzip for HTTP response compression",
+        "Apply columnar compression for analytics data",
+        "Compress at-rest data in databases",
+        "Balance compression level vs CPU usage"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T01:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["performance", "compression", "optimization", "workflows"],
+      "category": "WORKFLOWS",
+      "subcategory": "PERFORMANCE",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11", "Linux"],
+      "agent_affinity": ["VSCC", "DC"]
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "door_code": "W78CONCURRENCY",
+  "semantic_path": "WORKFLOWS.PERFORMANCE.CONCURRENCY_PATTERNS",
+  "aliases": ["concurrency", "parallelism", "async", "threads", "multiprocessing", "goroutines", "async_await"],
+  "context_bundle": {
+    "summary": "Concurrency patterns enable parallel execution: Golang (worker pools limit goroutines, fan-out/fan-in parallelize then merge, context pattern for cancellation/timeout), Java (Executor framework for thread pools, Fork/Join for divide-conquer, CompletableFuture for async pipelines), async/await (Python asyncio, JavaScript Promise.all for parallel, .NET ValueTask for hot paths, C# ConfigureAwait(false) for libraries). Thread pool sizing: CPU-bound (N_CPU cores), I/O-bound (2×N_CPU or more), formula N = N_CPU × U_CPU × (1 + W/C). Lock-free algorithms: CAS (compare-and-swap), Flock system (2024 ACM), benefits in high-contention scenarios. Best practices: avoid blocking in async, minimize context switching, use task groups efficiently.",
+    "prerequisites": ["W77MEMORY_MGMT", "E04TIMEOUT"],
+    "related_doors": ["W73PROFILING", "E06CIRCUIT_BREAKER", "W86METRICS"],
+    "onboarding": {
+      "quick_start": "Concurrency patterns: Python asyncio: import asyncio; async def fetch(url): async with aiohttp.ClientSession() as session: async with session.get(url) as resp: return await resp.text(); async def main(): results = await asyncio.gather(fetch(url1), fetch(url2), fetch(url3)); # Parallel. asyncio.run(main()). Go worker pool: jobs := make(chan int, 100); results := make(chan int, 100); for w := 1; w <= 5; w++ { go worker(jobs, results) }; for j := 1; j <= 100; j++ { jobs <- j }; close(jobs). Java Executor: ExecutorService executor = Executors.newFixedThreadPool(10); for (int i=0; i<100; i++) { executor.submit(() -> doWork()); }; executor.shutdown(). JavaScript Promise.all: const [result1, result2] = await Promise.all([fetch(url1), fetch(url2)]); # Parallel, not sequential. Thread pool sizing: CPU-bound = num_cpus, I/O-bound = 2 × num_cpus. Python multiprocessing (CPU-bound): from multiprocessing import Pool; with Pool(4) as p: results = p.map(cpu_intensive_func, data_list). Monitor: Thread utilization, queue depth, context switches.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md",
+      "common_patterns": [
+        "Python asyncio with timeout: try: result = await asyncio.wait_for(fetch(url), timeout=5.0); except asyncio.TimeoutError: handle_timeout()",
+        "Go fan-out/fan-in: inputs := make(chan int); outputs := make(chan int); for i:=0; i<10; i++ { go worker(inputs, outputs) }; # Fan-out. go func() { wg.Wait(); close(outputs) }(); # Fan-in",
+        "Java CompletableFuture: CompletableFuture<String> f1 = CompletableFuture.supplyAsync(() -> fetchData()); CompletableFuture<String> f2 = f1.thenApply(data -> process(data)); String result = f2.join()",
+        "Python thread pool: from concurrent.futures import ThreadPoolExecutor; with ThreadPoolExecutor(max_workers=10) as executor: futures = [executor.submit(io_task, url) for url in urls]; results = [f.result() for f in futures]",
+        "Go context cancellation: ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second); defer cancel(); select { case <-ctx.Done(): return ctx.Err(); case result := <-ch: return result }",
+        "JavaScript async/await sequential vs parallel: const [r1, r2] = await Promise.all([async1(), async2()]); # Parallel, 2x faster than: r1 = await async1(); r2 = await async2()",
+        ".NET ValueTask: public async ValueTask<int> GetValueAsync() { return cache.TryGet(key, out var val) ? val : await FetchFromDbAsync(key); } # Avoid Task allocation",
+        "C# ConfigureAwait: await httpClient.GetAsync(url).ConfigureAwait(false); # Library code, avoid deadlocks",
+        "Python multiprocessing: from multiprocessing import Pool; def worker(x): return x*x; with Pool(4) as p: results = p.map(worker, range(100))",
+        "Lock-free (Java): AtomicInteger counter = new AtomicInteger(0); counter.incrementAndGet(); # CAS-based, no locks"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T22:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["concurrency", "async_await", "threads", "multiprocessing", "goroutines", "parallelism", "asyncio", "executor"],
+      "category": "WORKFLOWS",
+      "subcategory": "PERFORMANCE",
+      "version": "1.0.0",
+      "tested_on": ["Python", "Go", "Java", "JavaScript", ".NET", "C#"],
+      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+    }
+  }
+}

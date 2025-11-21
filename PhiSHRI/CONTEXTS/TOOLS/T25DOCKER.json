@@ -1,0 +1,48 @@
+{
+  "door_code": "T25DOCKER",
+  "semantic_path": "TOOLS.INFRASTRUCTURE.DOCKER",
+  "aliases": ["Docker", "containers", "Dockerfile", "docker-compose", "containerization"],
+  "context_bundle": {
+    "summary": "Docker containerization for packaging applications with dependencies, building images, running containers, and orchestrating multi-container applications with docker-compose",
+    "prerequisites": ["T11CICD", "T12DOCKER_BUILD"],
+    "related_doors": ["T26KUBERNETES", "D06ENTERPRISE", "W47DOCKER_COMPOSE"],
+    "onboarding": {
+      "quick_start": "Write Dockerfile with base image, dependencies, and CMD. Build with docker build -t name:tag. Run with docker run. Orchestrate with docker-compose.yml.",
+      "full_context_path": "/PhiDEX/DEPLOYMENT_ALMANAC/09_ENTERPRISE/ENTERPRISE_DEPLOYMENT_GUIDE.md",
+      "common_patterns": [
+        "Dockerfile: FROM base, COPY files, RUN commands, EXPOSE ports, CMD entrypoint",
+        "Multi-stage builds: Reduce image size by separating build and runtime stages",
+        "docker-compose: Define services, networks, volumes in YAML",
+        "Networking: Bridge networks for service-to-service communication",
+        "Volumes: Persist data outside container lifecycle",
+        "Health checks: HEALTHCHECK instruction for container monitoring"
+      ],
+      "known_errors": [
+        "Layer caching: Order Dockerfile commands from least to most frequently changed",
+        "Security: Don't run as root, scan for vulnerabilities, minimize attack surface",
+        "Image size: Use alpine base images, multi-stage builds to reduce size"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/DEPLOYMENT_ALMANAC/09_ENTERPRISE/ENTERPRISE_DEPLOYMENT_GUIDE.md",
+        "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T02:45:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["Docker", "containers", "Dockerfile", "docker-compose", "containerization"],
+      "category": "TOOLS",
+      "subcategory": "INFRASTRUCTURE",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11", "Linux", "macOS"],
+      "agent_affinity": ["VSCC", "DC", "TERMC", "KALIC"]
+    }
+  }
+}

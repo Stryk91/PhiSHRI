@@ -1,0 +1,45 @@
+{
+  "door_code": "R06EVENT_SOURCING",
+  "semantic_path": "ARCHITECTURE.PATTERNS.EVENT_SOURCING",
+  "aliases": ["event_sourcing", "event_store", "cqrs", "event_driven_architecture"],
+  "context_bundle": {
+    "summary": "Event sourcing: Store state as sequence of events (append-only log), not current state. Every state change is an event (UserRegistered, OrderPlaced, PaymentProcessed). Rebuild state by replaying events. Benefits: Complete audit trail, time travel (replay to any point), event replay for debugging, natural event-driven architecture. Often paired with CQRS (Command Query Responsibility Segregation): Separate read/write models. Event store: EventStoreDB, Kafka, custom DB table. Projections: Build read models from events. Snapshots: Periodically save state to avoid replaying all events. Challenges: Event schema evolution, eventual consistency, complexity. Use cases: Financial systems, audit logs, collaborative apps, analytics.",
+    "prerequisites": ["R04EVENT_DRIVEN", "R03MICROSERVICE", "W76OPTIMIZE_DB"],
+    "related_doors": ["W84LOGGING", "W85TRACING", "R05SERVERLESS"],
+    "onboarding": {
+      "quick_start": "Event sourcing pattern: Events (immutable): UserRegistered {user_id, email, timestamp}, OrderPlaced {order_id, user_id, items, total}, PaymentProcessed {payment_id, order_id, amount}. Event store (simple table): CREATE TABLE events (id SERIAL, aggregate_id UUID, event_type VARCHAR, event_data JSONB, timestamp TIMESTAMPTZ, version INT). Append event: INSERT INTO events (aggregate_id, event_type, event_data, version) VALUES ('user-123', 'UserRegistered', '{\"email\": \"alice@ex.com\"}', 1). Rebuild state (replay events): events = SELECT * FROM events WHERE aggregate_id='user-123' ORDER BY version; user = User(); for event in events: user.apply(event); # user.apply(UserRegistered) → user.email = event.email. CQRS: Write side (commands) → Event store. Read side (queries) → Projection (materialized view). Projection: async def update_user_view(event): if event.type == 'UserRegistered': db.execute('INSERT INTO user_view (id, email) VALUES (?, ?)', event.user_id, event.email). EventStoreDB: from eventstoredb import EventStoreDBClient; client = EventStoreDBClient(uri='esdb://localhost:2113'); client.append_to_stream(stream_name='user-123', events=[NewEvent(type='UserRegistered', data=b'{...}')]); events = client.read_stream(stream_name='user-123'). Snapshot: Every 100 events, save current state to avoid full replay.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Event class (Python): @dataclass class UserRegistered: user_id: str; email: str; timestamp: datetime; event_type = 'UserRegistered'",
+        "Append event: event = UserRegistered(user_id='123', email='alice@ex.com', timestamp=datetime.now()); event_store.append('user-123', event)",
+        "Replay events (rebuild state): class User: def apply(self, event): if event.event_type == 'UserRegistered': self.id = event.user_id; self.email = event.email; elif event.event_type == 'EmailChanged': self.email = event.new_email; events = event_store.get_events('user-123'); user = User(); for e in events: user.apply(e)",
+        "CQRS command handler: def handle_register_user(command): if user_exists(command.email): raise ValueError('User exists'); event = UserRegistered(user_id=generate_id(), email=command.email); event_store.append(f'user-{event.user_id}', event); publish_event(event)",
+        "CQRS query (read model): def get_user(user_id): return db.query('SELECT * FROM user_view WHERE id=?', user_id); # Materialized view, not replayed",
+        "Projection (update read model): async def on_user_registered(event): await db.execute('INSERT INTO user_view (id, email, created_at) VALUES (?, ?, ?)', event.user_id, event.email, event.timestamp)",
+        "Snapshot: if event_count % 100 == 0: snapshot = user.to_dict(); snapshot_store.save(user.id, snapshot, version=event_count); # On replay, load snapshot then replay events after snapshot version",
+        "EventStoreDB append: client.append_to_stream('order-456', events=[NewEvent(type='OrderPlaced', data=json.dumps({'items': [...]}).encode())])",
+        "Kafka event store: producer.send('events', key=aggregate_id, value=json.dumps(event)); # Kafka as append-only log. Consumer rebuilds state or updates projections",
+        "Event versioning: class UserRegistered_v2: user_id: str; email: str; name: str; # Added name. Upcaster converts v1→v2 on replay"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T22:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["event_sourcing", "cqrs", "event_store", "event_driven", "audit_trail", "eventstoredb"],
+      "category": "ARCHITECTURE",
+      "subcategory": "PATTERNS",
+      "version": "1.0.0",
+      "tested_on": ["EventStoreDB", "Kafka", "PostgreSQL", "Python", "C#"],
+      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+    }
+  }
+}

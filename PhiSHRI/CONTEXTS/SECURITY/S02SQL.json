@@ -1,0 +1,47 @@
+{
+  "door_code": "S02SQL",
+  "semantic_path": "SECURITY.HARDENING.SQL_INJECTION_PREVENTION",
+  "aliases": ["sql_injection", "parameterized_queries", "prepared_statements", "sql_security"],
+  "context_bundle": {
+    "summary": "SQL injection prevention via parameterized queries/prepared statements. Keep user input separate from SQL code. Treat input as string literals, not executable SQL. OWASP primary defense.",
+    "prerequisites": ["S01SEC"],
+    "related_doors": ["S03XSS", "S01SEC"],
+    "onboarding": {
+      "quick_start": "NEVER concatenate user input into SQL. Use parameterized queries: PreparedStatement (Java), SqlCommand.Parameters (.NET), execute(?, [params]) (Python). Input becomes literal string, can't execute.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md",
+      "common_patterns": [
+        "Java: PreparedStatement pstmt = conn.prepareStatement('SELECT * FROM users WHERE id = ?'); pstmt.setInt(1, userId);",
+        "Python: cursor.execute('SELECT * FROM users WHERE id = ?', (userId,))",
+        ".NET: cmd.Parameters.AddWithValue('@userId', userId)",
+        "NEVER: 'SELECT * FROM users WHERE id = ' + userId (vulnerable!)"
+      ],
+      "known_errors": [
+        {
+          "error": "SQL injection via ' OR '1'='1",
+          "cause": "String concatenation instead of parameterization",
+          "solution": "Convert all queries to use parameterized/prepared statements",
+          "prevention": "Code review for string concat in SQL, automated scanning",
+          "related_door": "S02SQL"
+        }
+      ]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T02:58:00Z",
+      "confidence": 0.99,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["security", "sql_injection", "owasp", "database", "hardening"],
+      "category": "SECURITY",
+      "subcategory": "SQL_SECURITY",
+      "version": "1.0.0",
+      "tested_on": ["All platforms"],
+      "agent_affinity": ["VSCC", "KALIC"]
+    }
+  }
+}

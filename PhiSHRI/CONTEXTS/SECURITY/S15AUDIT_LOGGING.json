@@ -1,0 +1,40 @@
+{
+  "door_code": "S15AUDIT_LOGGING",
+  "semantic_path": "SECURITY.LOGGING.AUDIT_LOGGING",
+  "aliases": ["audit_logging", "audit_trail", "security_logging", "compliance_logging", "worm"],
+  "context_bundle": {
+    "summary": "Security audit logging captures who, what, when, where for authentication, authorization, data access, and system changes using immutable storage (WORM), structured JSON format, and SIEM integration per NIST SP 800-92 for compliance and incident response.",
+    "prerequisites": ["W84LOGGING", "W86METRICS"],
+    "related_doors": ["S12API_SECURITY", "S14ENCRYPTION", "T10OBSERVABILITY"],
+    "onboarding": {
+      "quick_start": "Audit logging implementation: 1) Log events: authentication (success/failure), authorization failures, data access, config changes, privilege escalations. 2) Include: timestamp (UTC), user_id, IP, resource, action, outcome, context. 3) Use structured JSON format. 4) Store in immutable/append-only storage (WORM). 5) Encrypt logs at rest. 6) Integrate with SIEM (Splunk, ELK). 7) Set retention per compliance (GDPR, HIPAA, SOC 2). 8) Implement fail-closed (abort if logging fails).",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md#4-audit-logging--siem-integration",
+      "common_patterns": [
+        "Security logger (Python): class SecurityLogger: def log_event(self, event_type, severity, user_id, details): log_entry = {'timestamp': datetime.utcnow().isoformat(), 'event_type': event_type, 'severity': severity, 'user_id': user_id, 'ip_address': get_client_ip(), 'details': details}; logger.info(json.dumps(log_entry))",
+        "Auth failure: logger.log_event(event_type='auth_failure', severity='warning', user_id='john.doe', details={'ip_address': '192.168.1.100', 'reason': 'invalid_credentials', 'action': 'login_attempt'})",
+        "Authz failure: logger.log_event(event_type='authz_failure', severity='warning', user_id='user123', details={'resource': '/api/admin/users', 'action': 'delete', 'outcome': 'denied'})",
+        "Immutable log: class ImmutableAuditLog: def add_entry(self, entry): entry['previous_hash'] = self.previous_hash; entry['sequence'] = len(self.entries); entry_json = json.dumps(entry, sort_keys=True); current_hash = hashlib.sha256(entry_json.encode()).hexdigest(); entry['hash'] = current_hash; self.entries.append(entry); self.previous_hash = current_hash",
+        "SIEM integration (Splunk): payload = {'time': event['timestamp'], 'host': event['hostname'], 'source': event['application'], 'sourcetype': '_json', 'event': event}; requests.post(hec_url, headers={'Authorization': f'Splunk {hec_token}'}, data=json.dumps(payload))"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T00:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["audit_logging", "security_logging", "compliance", "siem", "worm", "nist_sp_800_92"],
+      "category": "SECURITY",
+      "subcategory": "LOGGING",
+      "version": "1.0.0",
+      "tested_on": ["Python", "Splunk", "ELK Stack", "CloudWatch", "NIST SP 800-92 compliant"],
+      "agent_affinity": ["DC", "VSCC", "WEBC"]
+    }
+  }
+}

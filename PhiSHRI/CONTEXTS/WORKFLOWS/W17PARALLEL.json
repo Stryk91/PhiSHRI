@@ -1,0 +1,48 @@
+{
+  "door_code": "W17PARALLEL",
+  "semantic_path": "WORKFLOWS.POWERSHELL.PARALLEL_EXECUTION",
+  "aliases": ["parallel", "foreach_parallel", "concurrent", "multithread"],
+  "context_bundle": {
+    "summary": "PowerShell parallel execution using ForEach-Object -Parallel (PS 7+). Process collections concurrently with configurable throttle limit. Massive speedup for I/O-bound and independent tasks.",
+    "prerequisites": ["820PWSH", "W16PWSH_BEST"],
+    "related_doors": ["W05RUNSPACE", "W06WMI"],
+    "onboarding": {
+      "quick_start": "1..100 | ForEach-Object -Parallel { task } -ThrottleLimit 10. Each iteration runs in separate runspace. Use $using: to access outer scope variables. Default throttle: 5.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Basic: 1..10 | ForEach-Object -Parallel { Start-Sleep 1 }",
+        "Access outer vars: $files | ForEach-Object -Parallel { Copy-Item $_ $using:dest }",
+        "Throttle limit: -ThrottleLimit 20 (control concurrency)",
+        "Collect results: Assign to variable as normal",
+        "Use for: API calls, file operations, network requests"
+      ],
+      "known_errors": [
+        {
+          "error": "Variable not accessible in parallel block",
+          "cause": "Outer scope variables not visible in parallel runspace",
+          "solution": "Use $using:variableName to reference outer scope",
+          "prevention": "Always prefix outer variables with $using:",
+          "related_door": "W05RUNSPACE"
+        }
+      ]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T02:57:00Z",
+      "confidence": 0.98,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["powershell", "parallel", "foreach", "concurrency", "performance"],
+      "category": "WORKFLOWS",
+      "subcategory": "POWERSHELL_ADVANCED",
+      "version": "1.0.0",
+      "tested_on": ["PowerShell 7.0+"],
+      "agent_affinity": ["DC", "VSCC"]
+    }
+  }
+}

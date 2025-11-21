@@ -1,0 +1,43 @@
+{
+  "door_code": "W62TDD",
+  "semantic_path": "WORKFLOWS.DEVELOPMENT.TEST_DRIVEN_DEVELOPMENT",
+  "aliases": ["tdd", "test_driven_development", "red_green_refactor"],
+  "context_bundle": {
+    "summary": "Test-Driven Development (TDD): Write tests before implementation. Cycle: Red (write failing test), Green (write minimal code to pass), Refactor (improve code while keeping tests green). Benefits: Better design, higher coverage, fewer bugs, living documentation. Drawbacks: Slower initial development, requires discipline. Patterns: Start with simplest test, one test at a time, small increments. Uncle Bob's 3 laws: (1) Write test first, (2) Write only enough test to fail, (3) Write only enough code to pass test.",
+    "prerequisites": ["W58UNITTEST", "W61MOCKING"],
+    "related_doors": ["W63BDD", "W66COVERAGE", "W01COORD"],
+    "onboarding": {
+      "quick_start": "TDD cycle: Red -> Green -> Refactor. (1) Red: Write failing test. def test_add(): assert add(2, 3) == 5. (2) Run test, it fails (function doesn't exist). (3) Green: Write minimal code. def add(a, b): return 5. Test passes. (4) Add another test: assert add(1, 1) == 2. Fails. (5) Update code: def add(a, b): return a + b. All tests pass. (6) Refactor: Improve code structure without changing behavior. Repeat. Uncle Bob's 3 Laws: (1) Don't write production code until you have a failing test, (2) Don't write more test than needed to fail, (3) Don't write more code than needed to pass test. Benefits: Forces small increments, catches regressions immediately, creates executable spec. Start with edge cases: test_add_zero(), test_add_negative(), then test_add_positive(). Kent Beck's workflow: Test a little, code a little, test a little, code a little.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Red phase: def test_calculate_discount(): assert calculate_discount(100, 0.1) == 10. Run: FAIL (NameError: 'calculate_discount' not defined)",
+        "Green phase: def calculate_discount(price, rate): return 10. Run: PASS (hardcoded to pass single test)",
+        "Next test: def test_calculate_discount_different_values(): assert calculate_discount(200, 0.2) == 40. Run: FAIL (returns 10, not 40)",
+        "Update code: def calculate_discount(price, rate): return price * rate. Run: PASS (all tests pass)",
+        "Refactor: def calculate_discount(price: float, rate: float) -> float: '''Calculate discount amount.''' if rate < 0 or rate > 1: raise ValueError('Rate must be 0-1'); return price * rate",
+        "Test first example: # Test: def test_user_full_name(): user = User('John', 'Doe'); assert user.full_name() == 'John Doe'. # Minimal code: class User: def __init__(self, first, last): self.first = first; self.last = last; def full_name(self): return f'{self.first} {self.last}'",
+        "Incremental development: Start with test_empty_list(), then test_single_item(), then test_multiple_items(), then test_edge_cases()",
+        "Refactoring safety: Tests act as regression suite, refactor confidently knowing tests will catch breaks"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T20:45:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["tdd", "test_driven_development", "red_green_refactor", "agile", "software_design"],
+      "category": "WORKFLOWS",
+      "subcategory": "DEVELOPMENT",
+      "version": "1.0.0",
+      "tested_on": ["Python", "JavaScript", "Java", "C#"],
+      "agent_affinity": ["VSCC", "CMDC"]
+    }
+  }
+}

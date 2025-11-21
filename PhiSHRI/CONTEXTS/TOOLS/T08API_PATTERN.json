@@ -1,0 +1,41 @@
+{
+  "door_code": "T08API_PATTERN",
+  "semantic_path": "TOOLS.INTEGRATION.API_PATTERNS",
+  "aliases": ["api_integration", "rest_api", "api_patterns"],
+  "context_bundle": {
+    "summary": "API integration patterns: REST (HTTP methods, JSON), GraphQL (single endpoint, query language), gRPC (Protocol Buffers, high performance), WebSockets (real-time bidirectional). Auth: API keys, OAuth2, JWT. Rate limiting, retries with exponential backoff, error handling, request validation.",
+    "prerequisites": ["T01MCP"],
+    "related_doors": ["T09IPC_METHODS", "S03INPUT_VAL"],
+    "onboarding": {
+      "quick_start": "API patterns: REST (GET/POST/PUT/DELETE + JSON), GraphQL (query + mutations), gRPC (protobuf + fast), WebSockets (real-time). Auth: API keys (simple), OAuth2 (delegated), JWT (stateless). Implement: rate limiting, retry logic (exponential backoff), error handling (4xx/5xx), request validation.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/02_TOOL_INTEGRATION/TOOL_INTEGRATION_INTEROPERABILITY_GUIDE.md",
+      "common_patterns": [
+        "REST: GET /api/users, POST /api/users, PUT /api/users/:id",
+        "GraphQL: query { users { id name } }",
+        "gRPC: service UserService { rpc GetUser(UserRequest) returns (User); }",
+        "WebSocket: ws://localhost:8080",
+        "Auth: Authorization: Bearer <token>",
+        "Retry: exponential backoff (1s, 2s, 4s, 8s)"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/02_TOOL_INTEGRATION/TOOL_INTEGRATION_INTEROPERABILITY_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T19:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["api", "rest", "graphql", "grpc", "integration"],
+      "category": "TOOLS",
+      "subcategory": "INTEGRATION",
+      "version": "1.0.0",
+      "tested_on": ["Multiple platforms"],
+      "agent_affinity": ["DC", "VSCC", "WEBC"]
+    }
+  }
+}

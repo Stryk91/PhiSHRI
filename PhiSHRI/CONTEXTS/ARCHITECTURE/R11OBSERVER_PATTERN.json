@@ -1,0 +1,39 @@
+{
+  "door_code": "R11OBSERVER_PATTERN",
+  "semantic_path": "ARCHITECTURE.PATTERNS.BEHAVIORAL.OBSERVER",
+  "aliases": ["observer", "pub sub", "event listener", "publisher subscriber"],
+  "context_bundle": {
+    "summary": "Observer pattern defines one-to-many dependency where observers are notified automatically when subject state changes",
+    "prerequisites": ["R04EVENT_DRIVEN"],
+    "related_doors": ["R04EVENT_DRIVEN", "W98MESSAGE_QUEUE", "T19KAFKA"],
+    "onboarding": {
+      "quick_start": "Subjects maintain list of observers and notify them of state changes, enabling loose coupling between components",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/02_PATTERNS/DESIGN_PATTERNS_GUIDE.md",
+      "common_patterns": [
+        "Subject maintains observer list",
+        "Observers register/unregister with subject",
+        "Subject notifies all observers on state change",
+        "Used in event-driven architectures and UI frameworks"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/02_PATTERNS/DESIGN_PATTERNS_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T01:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["architecture", "design pattern", "observer", "behavioral", "pubsub"],
+      "category": "ARCHITECTURE",
+      "subcategory": "PATTERNS",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11", "Linux"],
+      "agent_affinity": ["VSCC", "DC"]
+    }
+  }
+}

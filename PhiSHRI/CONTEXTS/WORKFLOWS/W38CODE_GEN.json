@@ -1,0 +1,40 @@
+{
+  "door_code": "W38CODE_GEN",
+  "semantic_path": "WORKFLOWS.DEVELOPMENT.CODE_GENERATION",
+  "aliases": ["code_generation", "codegen", "auto_generation"],
+  "context_bundle": {
+    "summary": "Code generation automation: AI tools (GitHub Copilot, Claude, GPT-4), scaffolding (Yeoman, Plop), templates (Jinja2, Handlebars), code generators (Swagger/OpenAPI, Prisma schema). Use for boilerplate, API clients, database models, test stubs. Validate generated code.",
+    "prerequisites": ["W02PROMPT", "T07VSCODE_EXT"],
+    "related_doors": ["W39SCAFFOLDING", "W22XML_PROMPT"],
+    "onboarding": {
+      "quick_start": "Code generation: AI (Copilot, Claude for complex logic), Scaffolding (yo, plop for boilerplate), Templates (Jinja2, Handlebars for repetitive code), Generators (OpenAPI → client, Prisma → models). Use for: API clients, CRUD operations, test templates. Always review/validate generated code.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "AI: GitHub Copilot for inline suggestions",
+        "Scaffolding: yo generator-name",
+        "OpenAPI: openapi-generator generate -i spec.yaml",
+        "Prisma: npx prisma generate",
+        "Templates: Handlebars {{variable}}"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T18:57:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["code_generation", "automation", "ai", "scaffolding"],
+      "category": "WORKFLOWS",
+      "subcategory": "DEVELOPMENT",
+      "version": "1.0.0",
+      "tested_on": ["Multiple tools"],
+      "agent_affinity": ["DC", "VSCC", "WEBC"]
+    }
+  }
+}

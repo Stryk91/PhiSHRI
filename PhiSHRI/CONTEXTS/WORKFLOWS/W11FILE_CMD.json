@@ -1,0 +1,48 @@
+{
+  "door_code": "W11FILE_CMD",
+  "semantic_path": "WORKFLOWS.COORDINATION.FILE_COMMANDS",
+  "aliases": ["file_protocol", "command_file", "dc_commands", "json_commands"],
+  "context_bundle": {
+    "summary": "File-based command protocol for agent coordination. DC drops JSON command files, daemon processes them. Includes command structure, response handling, and timeout patterns.",
+    "prerequisites": ["W01COORD", "W08FILEWATCHER", "A01DC"],
+    "related_doors": ["W09DAEMON", "W12POLL", "A02VSCC"],
+    "onboarding": {
+      "quick_start": "Command structure: {id, action, params, timestamp}. Save to C:\\PhiDEX\\commands\\daemon\\cmd_{guid}.json. Daemon watches folder, executes, writes response to C:\\PhiDEX\\responses\\res_{id}.json.",
+      "full_context_path": "/PhiDEX/DC_AUTOMATION_PATTERNS.md",
+      "common_patterns": [
+        "Generate command ID: [guid]::NewGuid().ToString().Substring(0,8)",
+        "Command file: cmd_{id}.json with action + params",
+        "Daemon processes: FileSystemWatcher triggers handler",
+        "Response file: res_{id}.json with status + result",
+        "Timeout: Poll for response file up to N seconds"
+      ],
+      "known_errors": [
+        {
+          "error": "Command not executed",
+          "cause": "Daemon not running or file watcher failed",
+          "solution": "Check daemon process, verify FileSystemWatcher enabled",
+          "prevention": "Daemon heartbeat file, watchdog monitoring",
+          "related_door": "W09DAEMON"
+        }
+      ]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/DC_AUTOMATION_PATTERNS.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T02:52:00Z",
+      "confidence": 0.98,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["coordination", "ipc", "file_based", "commands", "json"],
+      "category": "WORKFLOWS",
+      "subcategory": "COORDINATION",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11"],
+      "agent_affinity": ["DC", "VSCC"]
+    }
+  }
+}

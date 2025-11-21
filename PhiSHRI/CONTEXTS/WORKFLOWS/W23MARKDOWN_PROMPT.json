@@ -1,0 +1,40 @@
+{
+  "door_code": "W23MARKDOWN_PROMPT",
+  "semantic_path": "WORKFLOWS.AI_OPTIMIZATION.MARKDOWN_PROMPTING",
+  "aliases": ["markdown_prompts", "gpt4_prompts", "md_formatting"],
+  "context_bundle": {
+    "summary": "Markdown-style prompting for GPT-4o. Uses ### headers, --- delimiters, bullet points, numeric constraints. GPT-4o excels with crisp constraints like '3 bullets', 'under 50 words'. Responds well to markdown structure.",
+    "prerequisites": ["W02PROMPT"],
+    "related_doors": ["W22XML_PROMPT", "W24COT"],
+    "onboarding": {
+      "quick_start": "Markdown prompting = headers + bullets + constraints. Best for GPT-4o. Use ### Task, ### Requirements (with bullets), ### Example Output. Numeric constraints work well: '50-75 words', '3 bullet points'. Include formatting hints.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md",
+      "common_patterns": [
+        "### Task\nYour task description",
+        "### Requirements\n- Length: 50-75 words\n- Format: 3 bullet points",
+        "### Example Output\n[sample]",
+        "---\n### Response:",
+        "Use triple backticks for code blocks"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T18:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["ai", "prompting", "markdown", "gpt4", "formatting"],
+      "category": "WORKFLOWS",
+      "subcategory": "AI_OPTIMIZATION",
+      "version": "1.0.0",
+      "tested_on": ["GPT-4o"],
+      "agent_affinity": ["DC", "VSCC", "WEBC"]
+    }
+  }
+}

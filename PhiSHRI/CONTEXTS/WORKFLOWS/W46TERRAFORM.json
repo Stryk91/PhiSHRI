@@ -1,0 +1,45 @@
+{
+  "door_code": "W46TERRAFORM",
+  "semantic_path": "WORKFLOWS.INFRASTRUCTURE.TERRAFORM_IAC",
+  "aliases": ["terraform", "iac", "infrastructure_as_code", "provisioning"],
+  "context_bundle": {
+    "summary": "Terraform declarative Infrastructure as Code (IaC) for multi-cloud provisioning: write .tf files with resources (aws_instance, azurerm_virtual_machine), providers (AWS, Azure, GCP), variables, outputs. terraform init (download providers), terraform plan (preview), terraform apply (create), terraform destroy (delete). State management (local/remote). Modules for reusability. HCL syntax: resource 'type' 'name' { attributes }.",
+    "prerequisites": ["W43ANSIBLE", "W44PUPPET", "W45CHEF"],
+    "related_doors": ["W47DOCKER_COMPOSE", "W48K8S_DEPLOY", "W49HELM"],
+    "onboarding": {
+      "quick_start": "Terraform workflow: write main.tf with provider 'aws' { region = 'us-east-1' }, resource 'aws_instance' 'web' { ami = 'ami-123', instance_type = 't2.micro' }. Commands: terraform init (initialize), terraform plan (preview changes), terraform apply (execute), terraform destroy (tear down). Variables: variable 'region' { default = 'us-east-1' }, reference as var.region. Outputs: output 'instance_ip' { value = aws_instance.web.public_ip }. State: terraform.tfstate tracks resources. Remote backend: backend 's3' { bucket = 'tfstate' }.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Provider: provider 'aws' { region = 'us-east-1' }",
+        "Resource: resource 'aws_instance' 'web' { ami = var.ami_id, instance_type = 't2.micro' }",
+        "Variable: variable 'region' { type = string, default = 'us-east-1' }",
+        "Output: output 'public_ip' { value = aws_instance.web.public_ip }",
+        "Module: module 'vpc' { source = './modules/vpc', cidr = '10.0.0.0/16' }",
+        "Data source: data 'aws_ami' 'ubuntu' { most_recent = true, owners = ['099720109477'] }",
+        "Workflow: terraform init -> terraform plan -> terraform apply",
+        "Format: terraform fmt, Validate: terraform validate",
+        "Import existing: terraform import aws_instance.web i-1234567890",
+        "Remote state: backend 's3' { bucket = 'terraform-state', key = 'prod/terraform.tfstate' }"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T19:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["terraform", "iac", "infrastructure", "provisioning", "cloud", "aws", "azure", "gcp"],
+      "category": "WORKFLOWS",
+      "subcategory": "INFRASTRUCTURE",
+      "version": "1.0.0",
+      "tested_on": ["AWS", "Azure", "GCP", "Multi-cloud"],
+      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+    }
+  }
+}

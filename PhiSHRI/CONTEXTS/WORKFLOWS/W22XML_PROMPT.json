@@ -1,0 +1,41 @@
+{
+  "door_code": "W22XML_PROMPT",
+  "semantic_path": "WORKFLOWS.AI_OPTIMIZATION.XML_PROMPTING",
+  "aliases": ["xml_prompts", "claude_xml", "structured_prompts", "xml_tags"],
+  "context_bundle": {
+    "summary": "XML-structured prompting for Claude. Uses XML tags (<instructions>, <context>, <example>, <data>, <thinking>, <answer>) to clearly separate prompt components. Claude excels with this structure - acts like signposts for the model.",
+    "prerequisites": ["W02PROMPT"],
+    "related_doors": ["W23MARKDOWN_PROMPT", "W24COT"],
+    "onboarding": {
+      "quick_start": "XML prompting = structured with tags. Best for Claude 4.x. Key tags: <instructions> for task, <example> for samples, <data> for input, <thinking> for reasoning, <answer> for output. Reduces over-explanation, improves clarity.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md",
+      "common_patterns": [
+        "<instructions>Your task here</instructions>",
+        "<context>Background info</context>",
+        "<example><input>sample</input><output>result</output></example>",
+        "<data>{{variable_content}}</data>",
+        "<thinking>Reason step by step</thinking>",
+        "<answer>Final result</answer>"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T18:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["ai", "prompting", "xml", "claude", "structured"],
+      "category": "WORKFLOWS",
+      "subcategory": "AI_OPTIMIZATION",
+      "version": "1.0.0",
+      "tested_on": ["Claude 4.x"],
+      "agent_affinity": ["DC", "VSCC", "WEBC"]
+    }
+  }
+}

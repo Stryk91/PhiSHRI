@@ -1,0 +1,47 @@
+{
+  "door_code": "W09DAEMON",
+  "semantic_path": "WORKFLOWS.ARCHITECTURE.DAEMON_PATTERN",
+  "aliases": ["daemon", "background_service", "persistent_process", "auto_launch"],
+  "context_bundle": {
+    "summary": "Daemon pattern for persistent background automation. Uses Startup folder for user-mode auto-launch, FileSystemWatcher for commands, Runspaces for async work. Enables full DC autonomy.",
+    "prerequisites": ["W05RUNSPACE", "W08FILEWATCHER", "820PWSH"],
+    "related_doors": ["W01COORD", "A01DC", "W10STARTUP"],
+    "onboarding": {
+      "quick_start": "Daemon = infinite loop + FileSystemWatcher + Runspaces. Startup folder = auto-launch on login. No Task Scheduler needed. DC drops commands, daemon executes autonomously.",
+      "full_context_path": "/PhiDEX/BREAKTHROUGH.md",
+      "common_patterns": [
+        "Main loop: while($true) { Start-Sleep -Seconds 1 }",
+        "FileSystemWatcher handles commands asynchronously",
+        "Runspaces execute long-running tasks",
+        "Copy daemon script to shell:startup for persistence"
+      ],
+      "known_errors": [
+        {
+          "error": "Daemon crashes overnight",
+          "cause": "Unhandled exception in event handler",
+          "solution": "Wrap all event handlers in try-catch, log errors",
+          "prevention": "Test error paths, add heartbeat monitoring",
+          "related_door": "E01PERM"
+        }
+      ]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/BREAKTHROUGH.md", "/PhiDEX/DC_AUTOMATION_PATTERNS.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T02:50:00Z",
+      "confidence": 0.99,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["daemon", "service", "persistence", "autonomy", "breakthrough"],
+      "category": "WORKFLOWS",
+      "subcategory": "ARCHITECTURE",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11"],
+      "agent_affinity": ["DC"]
+    }
+  }
+}

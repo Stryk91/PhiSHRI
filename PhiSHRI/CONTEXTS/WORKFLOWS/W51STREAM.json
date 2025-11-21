@@ -1,0 +1,45 @@
+{
+  "door_code": "W51STREAM",
+  "semantic_path": "WORKFLOWS.DATA_PROCESSING.STREAMING_DATA_PROCESSING",
+  "aliases": ["streaming", "realtime", "stream_processing", "event_stream"],
+  "context_bundle": {
+    "summary": "Streaming data processing for real-time analytics: Apache Flink (10M+ events/sec, 10-50ms latency, stateful), Kafka Streams (embeddable, sub-100ms), Spark Streaming (micro-batches). Five-layer architecture: Sources -> Ingestion (Kafka, Kinesis) -> Processing (Flink, Spark) -> Storage (Data Lake) -> Consumption (Analytics, ML). Windowing, event-time processing, exactly-once semantics. 2024: Flink leader for high-throughput low-latency.",
+    "prerequisites": ["W50ETL", "W53KAFKA"],
+    "related_doors": ["W52BATCH", "W54REDIS", "T08API_PATTERN"],
+    "onboarding": {
+      "quick_start": "Streaming pipeline: Kafka Source -> Flink Processing -> Kafka Sink. Flink Python: env = StreamExecutionEnvironment.get_execution_environment(), kafka_source = KafkaSource.builder().set_bootstrap_servers('localhost:9092').set_topics('input-topic').build(), stream.map(transform).sink_to(kafka_sink). Windowing: tumbling (fixed intervals), sliding (overlapping), session (gaps). Performance: Flink 10M+ events/sec, Kafka Streams tied to partitions. Use cases: real-time analytics, fraud detection, IoT, log processing.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/05_DATA_PROCESSING/DATA_PROCESSING_MANAGEMENT_RESEARCH.md",
+      "common_patterns": [
+        "Kafka + Flink pipeline: KafkaSource -> Process -> KafkaSink",
+        "Windowing: tumbling (5 min windows), sliding (10 min window, 5 min slide), session (30 min gap)",
+        "Watermarks: handle late events, event-time processing",
+        "State management: Flink checkpointing for fault tolerance",
+        "Exactly-once semantics: Kafka transactions + Flink checkpoints",
+        "Kafka Streams: embeddable library, microservices pattern",
+        "Five-layer: Kafka (ingest) -> Flink (process) -> S3/HDFS (store) -> Analytics (consume)",
+        "Throughput: Flink 10M events/sec, Kafka Streams partition-dependent",
+        "Latency: Flink 10-50ms, Kafka Streams sub-100ms",
+        "Use cases: fraud detection, real-time dashboards, log aggregation, IoT"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/05_DATA_PROCESSING/DATA_PROCESSING_MANAGEMENT_RESEARCH.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T19:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["streaming", "realtime", "flink", "kafka_streams", "event_processing", "data_pipeline"],
+      "category": "WORKFLOWS",
+      "subcategory": "DATA_PROCESSING",
+      "version": "1.0.0",
+      "tested_on": ["Apache Flink", "Kafka Streams", "Spark Streaming"],
+      "agent_affinity": ["VSCC", "TERMC", "CMDC"]
+    }
+  }
+}

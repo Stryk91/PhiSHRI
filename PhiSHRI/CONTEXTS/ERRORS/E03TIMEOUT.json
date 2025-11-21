@@ -1,0 +1,48 @@
+{
+  "door_code": "E03TIMEOUT",
+  "semantic_path": "ERRORS.COORDINATION.TIMEOUT_HANDLING",
+  "aliases": ["timeout", "deadlock", "hanging", "unresponsive"],
+  "context_bundle": {
+    "summary": "Timeout & deadlock error patterns in multi-agent coordination. Causes: Agent unresponsive, circular dependencies, file lock contention. Solutions: Timeout policies, watchdogs, deadlock detection, circuit breakers.",
+    "prerequisites": ["W12PHISYNC", "W13DAG"],
+    "related_doors": ["E04LOCK", "W08FILEWATCHER"],
+    "onboarding": {
+      "quick_start": "Timeout = agent doesn't respond within deadline. Deadlock = circular wait (A waits for B, B waits for A). Solutions: Set timeouts on all waits, watchdog monitors, detect cycles in dependency graph, circuit breaker fails fast.",
+      "full_context_path": "/PhiDEX/PhiSync/02_WORKFLOW_ORCHESTRATION/WORKFLOW_ORCHESTRATION_PATTERNS.md",
+      "common_patterns": [
+        "Set timeout: Wait-FileChange -Timeout 30",
+        "Watchdog: Monitor last-modified timestamp, kill if stale",
+        "Circuit breaker: After N failures, skip agent, continue workflow",
+        "Deadlock detection: Cycle detection in task graph",
+        "Retry with backoff: Exponential delay between attempts"
+      ],
+      "known_errors": [
+        {
+          "error": "Agent never responds, workflow stuck",
+          "cause": "No timeout policy, waiting forever",
+          "solution": "Add timeout to all file waits, implement watchdog",
+          "prevention": "Default 60s timeout on all coordination points",
+          "related_door": "E03TIMEOUT"
+        }
+      ]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/PhiSync/02_WORKFLOW_ORCHESTRATION/WORKFLOW_ORCHESTRATION_PATTERNS.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T03:03:00Z",
+      "confidence": 0.97,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["errors", "timeout", "deadlock", "coordination"],
+      "category": "ERRORS",
+      "subcategory": "COORDINATION",
+      "version": "1.0.0",
+      "tested_on": ["PhiVector"],
+      "agent_affinity": ["DC", "VSCC"]
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "door_code": "T17PROMETHEUS",
+  "semantic_path": "TOOLS.OBSERVABILITY.PROMETHEUS",
+  "aliases": ["prometheus", "prom", "metrics_collection", "prometheus_server", "promql"],
+  "context_bundle": {
+    "summary": "Prometheus: Open-source monitoring and alerting system. Scrape-based pull model (scrapes /metrics endpoints), time-series database, PromQL query language, Alertmanager for notifications. Metrics types: Counter, Gauge, Histogram, Summary. Scrape config: Define targets (static_configs or service discovery), scrape_interval (15s default). PromQL: rate() for per-second rate, sum() by (label) for aggregation, histogram_quantile() for percentiles. Exporters: node_exporter (system metrics), blackbox_exporter (probing), custom exporters. Alerting rules: Define in YAML, send to Alertmanager, routes to Slack/PagerDuty/email. Service discovery: Kubernetes, Consul, EC2. Storage: Local TSDB (15-day retention default) or remote (Thanos, Cortex). Grafana for visualization.",
+    "prerequisites": ["W86METRICS", "T16GRAFANA"],
+    "related_doors": ["W84LOGGING", "W85TRACING", "T10OBSERVABILITY"],
+    "onboarding": {
+      "quick_start": "Prometheus setup: Docker: docker run -d -p 9090:9090 -v $(pwd)/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus. Config (prometheus.yml): global: {scrape_interval: 15s}; scrape_configs: - job_name: 'my-app'; static_configs: - targets: ['localhost:8000']. Access: http://localhost:9090. PromQL queries (Graph tab): rate(http_requests_total[5m]); # Requests/sec over 5min. sum by (status) (http_requests_total); # Total by status. histogram_quantile(0.95, rate(http_request_duration_seconds_bucket[5m])); # p95 latency. Alerting rule (alert.rules.yml): groups: - name: example; rules: - alert: HighErrorRate; expr: rate(http_errors_total[5m]) > 0.05; for: 5m; annotations: {summary: \"High error rate detected\"}. Load rules: prometheus.yml: rule_files: ['alert.rules.yml']. Alertmanager config (alertmanager.yml): route: {receiver: 'slack'}; receivers: - name: 'slack'; slack_configs: [{api_url: 'https://hooks.slack.com/...', channel: '#alerts'}]. Node exporter: docker run -d -p 9100:9100 prom/node-exporter; # System metrics. Scrape: - job_name: 'node'; static_configs: - targets: ['localhost:9100']. Kubernetes service discovery: - job_name: 'kubernetes-pods'; kubernetes_sd_configs: [{role: pod}]; relabel_configs: [...].",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Scrape config (static): scrape_configs: - job_name: 'app'; scrape_interval: 30s; static_configs: - targets: ['app1:8000', 'app2:8000']; labels: {environment: 'production'}",
+        "PromQL rate: rate(http_requests_total{job=\"api\", status=\"200\"}[5m]); # Successful requests/sec averaged over 5 min",
+        "PromQL aggregation: sum by (endpoint) (rate(http_requests_total[5m])); # Requests/sec grouped by endpoint",
+        "PromQL percentile: histogram_quantile(0.99, sum by (le) (rate(http_request_duration_seconds_bucket[5m]))); # p99 latency",
+        "Alert rule: - alert: ServiceDown; expr: up{job=\"web\"} == 0; for: 2m; labels: {severity: critical}; annotations: {summary: \"Service {{ $labels.instance }} is down\"}",
+        "Recording rules (precompute): - record: job:http_requests:rate5m; expr: sum by (job) (rate(http_requests_total[5m]))",
+        "Alertmanager routing: route: {group_by: ['alertname']; receiver: 'team-slack'; routes: [{match: {severity: critical}, receiver: 'pagerduty'}]}",
+        "Blackbox exporter (probing): - job_name: 'blackbox'; metrics_path: /probe; params: {module: [http_2xx]}; static_configs: - targets: ['https://example.com']; relabel_configs: [...]; # HTTP probe",
+        "Kubernetes service discovery: - job_name: 'k8s-pods'; kubernetes_sd_configs: [{role: pod}]; relabel_configs: - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape]; action: keep; regex: true",
+        "Remote write (long-term storage): remote_write: - url: 'https://prometheus-remote-storage.example.com/api/v1/write'"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T22:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["prometheus", "monitoring", "metrics", "promql", "alerting", "time_series", "observability"],
+      "category": "TOOLS",
+      "subcategory": "OBSERVABILITY",
+      "version": "1.0.0",
+      "tested_on": ["Prometheus 2.x", "Kubernetes", "Docker", "Linux"],
+      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+    }
+  }
+}

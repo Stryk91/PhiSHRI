@@ -1,0 +1,45 @@
+{
+  "door_code": "T15ANSIBLE",
+  "semantic_path": "TOOLS.INFRASTRUCTURE.ANSIBLE",
+  "aliases": ["ansible", "ansible_playbook", "automation", "configuration_management", "yaml_automation"],
+  "context_bundle": {
+    "summary": "Ansible: Agentless automation tool for configuration management, app deployment, orchestration. YAML playbooks define tasks, inventory file lists hosts, modules perform actions (apt, yum, copy, service, docker_container). Idempotent: Re-running safe (doesn't duplicate changes). SSH-based (no agent required), push model (vs Puppet/Chef pull). Playbook structure: hosts, vars, tasks (name, module, params), handlers (triggered by notify). Roles for reusability. Ansible Galaxy for community roles. Use cases: Server provisioning, app deployment, config updates, multi-tier orchestrations. Best practices: Use roles, vaults for secrets (ansible-vault), tags for selective execution, check mode (--check dry-run), idempotent tasks.",
+    "prerequisites": ["T14TERRAFORM", "S13SECRETS_ROTATION"],
+    "related_doors": ["T11CICD", "W69ROLLING", "T12DOCKER_BUILD"],
+    "onboarding": {
+      "quick_start": "Ansible basics: Install: pip install ansible. Inventory (hosts.ini): [webservers]; web1.example.com; web2.example.com; [databases]; db1.example.com. Playbook (site.yml): - hosts: webservers; become: yes; tasks: - name: Install nginx; apt: name=nginx state=present; - name: Start nginx; service: name=nginx state=started enabled=yes; - name: Copy config; copy: src=nginx.conf dest=/etc/nginx/nginx.conf; notify: Reload nginx; handlers: - name: Reload nginx; service: name=nginx state=reloaded. Run: ansible-playbook -i hosts.ini site.yml. Ad-hoc commands: ansible webservers -i hosts.ini -m ping; ansible webservers -a 'uptime'; ansible all -m apt -a 'name=vim state=present' --become. Variables: vars: nginx_port: 80; task uses: {{ nginx_port }}. Roles (site.yml): roles: - nginx - mysql. Vault (encrypt secrets): ansible-vault create secrets.yml; ansible-playbook site.yml --ask-vault-pass. Tags: tasks tagged deploy: ansible-playbook site.yml --tags deploy. Check mode (dry-run): ansible-playbook site.yml --check.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Install package: - name: Install Docker; apt: name=docker.io state=present update_cache=yes; become: yes",
+        "Copy file: - name: Deploy app config; copy: src=files/app.conf dest=/etc/app/app.conf owner=root group=root mode='0644'; notify: Restart app",
+        "Start service: - name: Ensure PostgreSQL running; service: name=postgresql state=started enabled=yes",
+        "Run command: - name: Run migration; command: python manage.py migrate; args: chdir: /opt/myapp",
+        "Docker container: - name: Run web container; docker_container: name=web image=nginx:latest ports: ['80:80']; state=started",
+        "Variables in playbook: vars: app_version: 1.2.3; app_port: 8080; tasks: - name: Deploy app; copy: src=app-{{ app_version }}.jar dest=/opt/app.jar",
+        "Handlers (triggered by notify): handlers: - name: Restart nginx; service: name=nginx state=restarted; tasks: - copy: ...; notify: Restart nginx",
+        "Roles structure: roles/nginx/tasks/main.yml: - name: Install nginx; apt: name=nginx; roles/nginx/handlers/main.yml: - name: Restart nginx; service: name=nginx state=restarted",
+        "Vault encrypt: ansible-vault encrypt secrets.yml; ansible-vault view secrets.yml; ansible-vault edit secrets.yml",
+        "Conditionals: - name: Install on Debian; apt: name=nginx; when: ansible_os_family == 'Debian'"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T22:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["ansible", "automation", "configuration_management", "playbook", "yaml", "deployment"],
+      "category": "TOOLS",
+      "subcategory": "INFRASTRUCTURE",
+      "version": "1.0.0",
+      "tested_on": ["Linux", "Ubuntu", "CentOS", "Debian"],
+      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+    }
+  }
+}

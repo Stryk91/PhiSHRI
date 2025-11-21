@@ -1,0 +1,40 @@
+{
+  "door_code": "W26SYSTEM_PROMPT",
+  "semantic_path": "WORKFLOWS.AI_OPTIMIZATION.SYSTEM_PROMPT_DESIGN",
+  "aliases": ["system_prompt", "persona", "role_definition"],
+  "context_bundle": {
+    "summary": "System prompt design template: Role + Context + Objectives + Constraints + Output Format + Examples + Tone. Defines AI's behavior/persona. Be specific - more detail = better results. Use positive instructions, include few-shot examples for complex outputs.",
+    "prerequisites": ["W02PROMPT", "W25FEW_SHOT"],
+    "related_doors": ["W22XML_PROMPT", "W24COT"],
+    "onboarding": {
+      "quick_start": "System prompt = AI's identity + rules. Template: Role (who are you), Context (background), Objectives (goals 1-3), Constraints (boundaries), Output Format (structure), Examples (samples), Tone (style). Be specific, use positive framing, test systematically.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md",
+      "common_patterns": [
+        "Role: You are an expert [domain] specializing in [area]",
+        "Objectives: 1. [Primary] 2. [Secondary] 3. [Tertiary]",
+        "Constraints: Keep [x] under [y], Use [standard], Always include [z]",
+        "Output Format: [Structure specification]",
+        "Tone: [Communication style]"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T18:40:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["ai", "system_prompt", "persona", "role"],
+      "category": "WORKFLOWS",
+      "subcategory": "AI_OPTIMIZATION",
+      "version": "1.0.0",
+      "tested_on": ["Claude", "GPT-4", "Gemini"],
+      "agent_affinity": ["DC", "VSCC", "WEBC"]
+    }
+  }
+}

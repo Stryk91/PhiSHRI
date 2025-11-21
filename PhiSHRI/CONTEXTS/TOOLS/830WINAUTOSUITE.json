@@ -1,0 +1,51 @@
+{
+  "door_code": "830WINAUTOSUITE",
+  "semantic_path": "TOOLS.WINDOWS.AUTOMATION_SUITE",
+  "aliases": ["win_auto_suite", "ahk_suite", "powertoys_suite", "automation_bundle"],
+  "context_bundle": {
+    "summary": "Windows Automation Suite: Complete automation package with AutoHotkey scripts, PowerShell utilities, PowerToys configs, daemon service. Hotkeys (Win+H for list), window snapping, clipboard history, text expansion, system automation.",
+    "prerequisites": ["810AHK", "820PWSH"],
+    "related_doors": ["W09DAEMON", "W10STARTUP"],
+    "onboarding": {
+      "quick_start": "Extract to C:\\AutomationSuite. Enable PS scripts: Set-ExecutionPolicy RemoteSigned. Install AHK + PowerToys. Run MasterScript.ahk. Test: Win+H (hotkeys), Win+Alt+Left (snap), Win+V (clipboard), 'ddate'+Space (current date).",
+      "full_context_path": "/PhiDEX/WIN_AUTO_SUITE/WindowsAutomationSuite/QUICK_START.md",
+      "common_patterns": [
+        "Hotkeys: Win+H (show all hotkeys)",
+        "Window snapping: Win+Alt+Left/Right/Up/Down",
+        "Clipboard history: Win+V (PowerToys)",
+        "Text expansion: 'ddate' -> current date",
+        "Daemon service: AutomationDaemon.ps1 -Action Install"
+      ],
+      "known_errors": [
+        {
+          "error": "AHK scripts don't run",
+          "cause": "AutoHotkey not installed or MasterScript not started",
+          "solution": "Download AHK from autohotkey.com, double-click MasterScript.ahk",
+          "prevention": "Add MasterScript to startup folder",
+          "related_door": "W10STARTUP"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/WIN_AUTO_SUITE/WindowsAutomationSuite/QUICK_START.md",
+        "/PhiDEX/WIN_AUTO_SUITE/WindowsAutomationSuite/README.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T03:00:00Z",
+      "confidence": 0.97,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["windows", "automation", "ahk", "powertoys", "productivity"],
+      "category": "TOOLS",
+      "subcategory": "WINDOWS_AUTOMATION",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11"],
+      "agent_affinity": ["DC", "VSCC"]
+    }
+  }
+}

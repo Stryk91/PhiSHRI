@@ -1,0 +1,45 @@
+{
+  "door_code": "W117FILE_IPC",
+  "semantic_path": "WORKFLOWS.COMMUNICATION.FILE_IPC",
+  "aliases": ["file IPC", "file-based communication", "file polling", "filesystem bus"],
+  "context_bundle": {
+    "summary": "File-based inter-process communication using filesystem as message bus with atomic operations, file locking, and polling strategies",
+    "prerequisites": ["W116IPC", "W11FILE_CMD"],
+    "related_doors": ["W115MESSAGE_QUEUE", "W08FILEWATCHER", "W12PHISYNC"],
+    "onboarding": {
+      "quick_start": "Use directory structure (agent/inbox, agent/outbox, shared/events) with atomic file writes and lock files for synchronization",
+      "full_context_path": "/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md",
+      "common_patterns": [
+        "Directory structure: C:\\PhiVector\\ipc\\{agent}\\{inbox|outbox|state}",
+        "Atomic writes: Write to temp file, then move/rename to target",
+        "File locking: Create .lock files to prevent race conditions",
+        "Polling with backoff: Exponential delay to reduce filesystem overhead",
+        "Cleanup: Archive processed messages to prevent directory bloat"
+      ],
+      "known_errors": [
+        "Windows file locks can block atomic operations",
+        "File polling adds latency (100ms-5s)",
+        "Directory bloat without cleanup strategy",
+        "Race conditions without proper locking"
+      ]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T02:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["file IPC", "filesystem", "polling", "atomic operations", "file locks"],
+      "category": "WORKFLOWS",
+      "subcategory": "COMMUNICATION",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11"],
+      "agent_affinity": ["DC", "VSCC", "TERMC", "KALIC", "WEBC", "CMDC"]
+    }
+  }
+}

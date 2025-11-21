@@ -1,0 +1,45 @@
+{
+  "door_code": "W55POSTGRES",
+  "semantic_path": "WORKFLOWS.DATA_PROCESSING.POSTGRESQL_OPTIMIZATION",
+  "aliases": ["postgresql", "postgres", "sql_optimization", "rdbms", "database"],
+  "context_bundle": {
+    "summary": "PostgreSQL optimization: Indexing (B-Tree, partial, GIN for JSONB, covering), query optimization (avoid SELECT *, functions on indexed columns, UNION ALL vs UNION), partitioning (RANGE, HASH), materialized views (cache aggregations, 1000x speedup). EXPLAIN ANALYZE for execution plans. Connection pooling (pgbouncer). Migrations: Flyway (SQL), Liquibase (XML/YAML). Performance: partial indexes 275x improvement, partitioning 10-100x, proper indexing 400x.",
+    "prerequisites": ["W50ETL"],
+    "related_doors": ["W54REDIS", "W56MONGODB", "W57ELASTICSEARCH"],
+    "onboarding": {
+      "quick_start": "Postgres optimization: Create indexes: CREATE INDEX idx_users_email ON users(email), partial: WHERE is_active=true. Avoid SELECT *, use specific columns. UNION ALL instead of UNION. Partitioning: PARTITION BY RANGE (created_at), partitions for year/month. Materialized view: CREATE MATERIALIZED VIEW daily_summary AS SELECT..., REFRESH MATERIALIZED VIEW. EXPLAIN ANALYZE to check execution plans (look for Seq Scan -> Index Scan). Connection pool: pgbouncer, max_connections=100. Migrations: Flyway V1__Create_users.sql or Liquibase XML changesets. Performance: indexes 400x, partial indexes 275x, partitioning 100x.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/05_DATA_PROCESSING/DATA_PROCESSING_MANAGEMENT_RESEARCH.md",
+      "common_patterns": [
+        "B-Tree index: CREATE INDEX idx_users_email ON users(email)",
+        "Composite index: CREATE INDEX idx_email_created ON users(email, created_at)",
+        "Partial index: CREATE INDEX idx_active ON users(email) WHERE is_active=true",
+        "Covering index: CREATE INDEX idx_covering ON users(email) INCLUDE (username, created_at)",
+        "GIN JSONB: CREATE INDEX idx_metadata ON users USING GIN (metadata)",
+        "Avoid SELECT *: SELECT id, email FROM users instead of SELECT *",
+        "Avoid functions on indexes: WHERE created_at >= '2024-01-01' not WHERE YEAR(created_at)=2024",
+        "Partitioning: PARTITION BY RANGE (created_at), CREATE TABLE orders_2024 PARTITION OF orders",
+        "Materialized view: CREATE MATERIALIZED VIEW summary AS SELECT..., REFRESH CONCURRENTLY",
+        "EXPLAIN ANALYZE: check execution plan, Seq Scan bad, Index Scan good"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/05_DATA_PROCESSING/DATA_PROCESSING_MANAGEMENT_RESEARCH.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T19:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["postgresql", "postgres", "sql", "database", "optimization", "indexing", "rdbms"],
+      "category": "WORKFLOWS",
+      "subcategory": "DATA_PROCESSING",
+      "version": "1.0.0",
+      "tested_on": ["PostgreSQL 13+", "PostgreSQL 16"],
+      "agent_affinity": ["VSCC", "TERMC", "CMDC"]
+    }
+  }
+}

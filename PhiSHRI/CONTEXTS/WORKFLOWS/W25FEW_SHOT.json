@@ -1,0 +1,40 @@
+{
+  "door_code": "W25FEW_SHOT",
+  "semantic_path": "WORKFLOWS.AI_OPTIMIZATION.FEW_SHOT_LEARNING",
+  "aliases": ["few_shot", "one_shot", "zero_shot", "example_learning"],
+  "context_bundle": {
+    "summary": "Few-shot learning: providing examples to guide model behavior. Zero-shot (no examples), one-shot (1 example), few-shot (3-5 examples). More examples = better accuracy but higher token cost. Balance examples vs cost.",
+    "prerequisites": ["W02PROMPT"],
+    "related_doors": ["W24COT", "W04TOKEN"],
+    "onboarding": {
+      "quick_start": "Few-shot = learn from examples. Zero-shot: just instructions. One-shot: 1 example. Few-shot: 3-5 examples (optimal). Format: Example:\n[input]\n[output]\n\nNow classify:\n[new input]. Trade-off: accuracy vs tokens.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md",
+      "common_patterns": [
+        "Example 1:\nInput: [x]\nOutput: [y]",
+        "Provide 3-5 diverse examples covering edge cases",
+        "Format examples consistently",
+        "Use few-shot for classification/extraction tasks",
+        "Balance: more examples = better accuracy but more tokens"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T18:32:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["ai", "prompting", "few_shot", "learning", "examples"],
+      "category": "WORKFLOWS",
+      "subcategory": "AI_OPTIMIZATION",
+      "version": "1.0.0",
+      "tested_on": ["Claude", "GPT-4", "Gemini"],
+      "agent_affinity": ["DC", "VSCC", "WEBC"]
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "door_code": "W14GIT",
+  "semantic_path": "WORKFLOWS.DEVELOPMENT.GIT_OPTIMIZATION",
+  "aliases": ["git_workflow", "branching", "commits", "version_control"],
+  "context_bundle": {
+    "summary": "Git workflow optimization: branching strategies (GitFlow, GitHub Flow, trunk-based), commit message conventions (Conventional Commits), monorepo management. Focus on efficiency and collaboration.",
+    "prerequisites": [],
+    "related_doors": ["W15CICD", "A02VSCC"],
+    "onboarding": {
+      "quick_start": "Branching: main (prod), develop (integration), feature/* (work). Commits: type(scope): message (feat, fix, docs). Monorepos: Use sparse checkout, shallow clones for large repos.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Conventional Commits: feat(auth): add OAuth support",
+        "GitFlow: main <- develop <- feature/xyz",
+        "GitHub Flow: main <- feature-branch (simpler)",
+        "Trunk-based: Short-lived branches, frequent merges",
+        "Monorepo: git sparse-checkout for partial checkouts"
+      ],
+      "known_errors": [
+        {
+          "error": "Merge conflicts during integration",
+          "cause": "Long-lived branches, infrequent syncing",
+          "solution": "Rebase frequently, keep branches short-lived",
+          "prevention": "Trunk-based development, CI on all branches",
+          "related_door": "W14GIT"
+        }
+      ]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T02:57:00Z",
+      "confidence": 0.96,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["git", "workflow", "branching", "commits", "version_control"],
+      "category": "WORKFLOWS",
+      "subcategory": "DEVELOPMENT",
+      "version": "1.0.0",
+      "tested_on": ["Git 2.40+"],
+      "agent_affinity": ["VSCC", "DC"]
+    }
+  }
+}

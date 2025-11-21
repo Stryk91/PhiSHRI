@@ -1,0 +1,47 @@
+{
+  "door_code": "D02SILENT",
+  "semantic_path": "DEPLOYMENT.WINDOWS.SILENT_INSTALL",
+  "aliases": ["silent_install", "msiexec", "unattended", "quiet_mode"],
+  "context_bundle": {
+    "summary": "Silent installation patterns for Windows using msiexec. Enterprise deployment without user interaction. Key flags: /quiet (no UI), /norestart (no auto-reboot), /L*V (verbose logging).",
+    "prerequisites": ["D01WIX"],
+    "related_doors": ["D05ENTERPRISE", "W01COORD"],
+    "onboarding": {
+      "quick_start": "msiexec /i installer.msi /quiet /norestart /L*V log.txt. Flags: /qn (no UI), /passive (progress only), /norestart (prevent reboot). Always log for troubleshooting.",
+      "full_context_path": "/PhiDEX/DEPLOYMENT_ALMANAC/07_SILENT_INSTALL/SILENT_INSTALLATION_GUIDE.md",
+      "common_patterns": [
+        "Basic silent: msiexec /i app.msi /quiet /norestart",
+        "With logging: msiexec /i app.msi /quiet /L*V install.log",
+        "Passive mode: msiexec /i app.msi /passive",
+        "Property override: msiexec /i app.msi PROPERTY=VALUE /quiet"
+      ],
+      "known_errors": [
+        {
+          "error": "Installation fails silently, no error shown",
+          "cause": "/quiet suppresses all UI including errors",
+          "solution": "Add /L*V logging to capture errors in log file",
+          "prevention": "Always use logging in production deployments",
+          "related_door": "D02SILENT"
+        }
+      ]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/DEPLOYMENT_ALMANAC/07_SILENT_INSTALL/SILENT_INSTALLATION_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T02:55:00Z",
+      "confidence": 0.98,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["deployment", "silent", "msiexec", "enterprise", "automation"],
+      "category": "DEPLOYMENT",
+      "subcategory": "SILENT_INSTALL",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11"],
+      "agent_affinity": ["DC", "VSCC"]
+    }
+  }
+}

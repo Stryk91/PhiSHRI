@@ -1,0 +1,49 @@
+{
+  "door_code": "T27VAULT",
+  "semantic_path": "TOOLS.INFRASTRUCTURE.VAULT",
+  "aliases": ["HashiCorp Vault", "secrets management", "Vault", "secrets engine", "encryption"],
+  "context_bundle": {
+    "summary": "HashiCorp Vault for secrets management, encryption as a service, dynamic secrets generation, and secrets rotation with audit logging",
+    "prerequisites": ["S05SECRETS", "T13K8S_SECRETS"],
+    "related_doors": ["S07ENCRYPTION", "S15AUDIT_LOGGING", "T14TERRAFORM"],
+    "onboarding": {
+      "quick_start": "Initialize Vault server, unseal with keys, enable secrets engines (kv, pki, database), write secrets with vault kv put, read with vault kv get, rotate regularly.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md",
+      "common_patterns": [
+        "KV secrets engine: Store static key-value secrets",
+        "Dynamic secrets: Generate temporary database credentials on-demand",
+        "PKI engine: Issue and manage X.509 certificates",
+        "Transit engine: Encryption as a service without exposing keys",
+        "Policies: Define RBAC with path-based access control",
+        "Audit logging: Track all Vault operations for compliance"
+      ],
+      "known_errors": [
+        "Vault must be unsealed after restart using threshold of unseal keys",
+        "Tokens expire: Use token renewal or auth methods with long-lived tokens",
+        "Seal keys: Store securely (offline, split among keyholders)",
+        "High availability: Use Vault clusters for production reliability"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/09_ENTERPRISE/ENTERPRISE_DEPLOYMENT_GUIDE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T02:45:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["Vault", "secrets management", "HashiCorp", "encryption", "dynamic secrets"],
+      "category": "TOOLS",
+      "subcategory": "INFRASTRUCTURE",
+      "version": "1.0.0",
+      "tested_on": ["Linux", "Windows", "macOS", "Kubernetes"],
+      "agent_affinity": ["VSCC", "DC", "KALIC"]
+    }
+  }
+}

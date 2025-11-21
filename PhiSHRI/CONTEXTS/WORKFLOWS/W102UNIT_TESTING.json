@@ -1,0 +1,39 @@
+{
+  "door_code": "W102UNIT_TESTING",
+  "semantic_path": "WORKFLOWS.TESTING.UNIT",
+  "aliases": ["unit test", "unittest", "testing framework", "jest", "pytest", "junit"],
+  "context_bundle": {
+    "summary": "Unit testing patterns and frameworks for isolated component testing with minimal dependencies",
+    "prerequisites": ["W01COORD", "W03CONTEXT"],
+    "related_doors": ["W103INTEGRATION_TESTING", "W104MOCKING", "W109TEST_COVERAGE"],
+    "onboarding": {
+      "quick_start": "Implement proper testing using VS Code's testing framework with TypeScript for type safety and isolated test cases",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Use testing frameworks appropriate to language (Jest, pytest, JUnit)",
+        "Implement isolated test cases with minimal dependencies",
+        "Follow arrange-act-assert pattern for test structure",
+        "Use test doubles (mocks, stubs, fakes) for external dependencies"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T01:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["testing", "unit", "workflows", "jest", "pytest", "junit"],
+      "category": "WORKFLOWS",
+      "subcategory": "TESTING",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11", "Linux"],
+      "agent_affinity": ["VSCC", "DC", "TERMC"]
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "door_code": "W66COVERAGE",
+  "semantic_path": "WORKFLOWS.TESTING.CODE_COVERAGE",
+  "aliases": ["code_coverage", "test_coverage", "coverage", "code_cov"],
+  "context_bundle": {
+    "summary": "Code coverage: Measure how much code is executed by tests. Metrics: Line coverage (% lines executed), Branch coverage (% conditional branches), Function coverage (% functions called), Statement coverage. Tools: Coverage.py (Python), Istanbul/nyc (JavaScript), JaCoCo (Java), dotnet-coverage (.NET). Target: 70-80% for production code (100% not always practical). Generate reports: HTML, XML (Cobertura), LCOV. CI integration: Fail build if coverage drops below threshold. Focus on critical paths, not 100% coverage.",
+    "prerequisites": ["W58UNITTEST", "W64PYTEST", "W65JEST"],
+    "related_doors": ["W62TDD", "T11CICD", "W59INTEGRATION"],
+    "onboarding": {
+      "quick_start": "Code coverage: Measure test execution. Python (coverage.py): pip install coverage; coverage run -m pytest; coverage report (terminal), coverage html (generates htmlcov/index.html). Pytest: pytest --cov=myapp --cov-report=html --cov-report=term-missing. JavaScript (Jest): jest --coverage (generates coverage/ folder). Node.js (nyc): npx nyc npm test; npx nyc report --reporter=html. Metrics: Line coverage = (lines executed / total lines) * 100. Branch coverage = (branches taken / total branches) * 100. Threshold: pytest --cov=myapp --cov-fail-under=80 (fail if <80%). Config (pyproject.toml): [tool.coverage.run] source = ['src']; omit = ['*/tests/*', '*/migrations/*']; [tool.coverage.report] fail_under = 80; exclude_lines = ['pragma: no cover', 'def __repr__', 'raise NotImplementedError']. CI: Upload to Codecov, Coveralls. Focus: Cover critical paths (authentication, payment), not getters/setters.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Python coverage: coverage run -m pytest; coverage report; coverage html; open htmlcov/index.html",
+        "Pytest with coverage: pytest --cov=src --cov-report=html --cov-report=term-missing:skip-covered --cov-fail-under=80",
+        "Jest coverage: jest --coverage --coverageReporters=text --coverageReporters=html; open coverage/index.html",
+        "Coverage config (.coveragerc): [run]; source = src; omit = */tests/*, */venv/*; [report]; exclude_lines = pragma: no cover, def __repr__, if TYPE_CHECKING; fail_under = 80; precision = 2",
+        "CI (GitHub Actions): - run: pytest --cov=src --cov-report=xml; - uses: codecov/codecov-action@v3; with: file: ./coverage.xml; fail_ci_if_error: true",
+        "Branch coverage: coverage run --branch -m pytest; coverage report --show-missing",
+        "Exclude from coverage: def helper(): # pragma: no cover; return None",
+        "JaCoCo (Java): mvn test jacoco:report; open target/site/jacoco/index.html",
+        "dotnet (.NET): dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura; reportgenerator -reports:coverage.cobertura.xml -targetdir:coverage",
+        "Threshold enforcement (package.json): 'jest': { 'coverageThreshold': { 'global': { 'branches': 80, 'functions': 80, 'lines': 80, 'statements': 80 } } }",
+        "Focus areas: Authentication (100%), Payment (100%), Business logic (90%), Utils (70%), UI components (60%)"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T20:45:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["code_coverage", "test_coverage", "coverage.py", "istanbul", "jacoco", "metrics"],
+      "category": "WORKFLOWS",
+      "subcategory": "TESTING",
+      "version": "1.0.0",
+      "tested_on": ["Python", "JavaScript", "Java", ".NET"],
+      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "door_code": "E11RACE_CONDITIONS",
+  "semantic_path": "ERRORS.CONCURRENCY.RACE_CONDITIONS",
+  "aliases": ["race_condition", "concurrency_error", "thread_safety", "lock_contention"],
+  "context_bundle": {
+    "summary": "Race conditions occur when multiple threads/processes access shared resources concurrently causing data corruption, solved using locks, atomic operations, immutable data, optimistic locking, and proper synchronization mechanisms.",
+    "prerequisites": ["W78CONCURRENCY"],
+    "related_doors": ["W72CACHING", "W88STREAMING", "R07SAGA_PATTERN"],
+    "onboarding": {
+      "quick_start": "Race condition prevention: 1) Use locks (mutex, RWLock) for critical sections. 2) Atomic operations for counters (threading.Lock, atomic.AddInt64). 3) Immutable data structures to avoid shared state. 4) Optimistic locking with version/timestamp checks. 5) Database transactions with isolation levels. 6) Lock-free algorithms (CAS operations). 7) Avoid shared mutable state when possible. Common patterns: Check-then-act, read-modify-write, double-checked locking.",
+      "full_context_path": "/PhiDEX/industry_knowledge/race_condition_patterns.md",
+      "common_patterns": [
+        "Thread lock (Python): import threading; lock = threading.Lock(); counter = 0; def increment(): global counter; with lock: counter += 1  # Thread-safe",
+        "Atomic operations: import threading; counter = 0; lock = threading.Lock(); def atomic_increment(): with lock: value = counter; value += 1; counter = value  # Not truly atomic, use proper atomic types",
+        "Optimistic locking: def update_record(record_id, new_data, version): query = 'UPDATE records SET data = ?, version = version + 1 WHERE id = ? AND version = ?'; rows_affected = db.execute(query, (new_data, record_id, version)); if rows_affected == 0: raise RaceConditionError('Record was modified by another process')",
+        "Database transaction: with db.transaction(isolation='SERIALIZABLE'): balance = db.query('SELECT balance FROM accounts WHERE id = ?', account_id); if balance >= amount: db.execute('UPDATE accounts SET balance = balance - ? WHERE id = ?', (amount, account_id)); else: raise InsufficientFundsError()",
+        "Lock-free counter: from threading import atomic; counter = atomic.AtomicInteger(0); counter.increment()  # Thread-safe without locks",
+        "Double-checked locking: _instance = None; _lock = threading.Lock(); def get_singleton(): if _instance is None: with _lock: if _instance is None: _instance = create_instance(); return _instance"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/industry_knowledge/race_condition_patterns.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T00:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["race_condition", "concurrency", "thread_safety", "locks", "atomic_operations", "synchronization"],
+      "category": "ERRORS",
+      "subcategory": "CONCURRENCY",
+      "version": "1.0.0",
+      "tested_on": ["Python threading", "Java concurrent", "Go sync", "Database transactions"],
+      "agent_affinity": ["DC", "VSCC"]
+    }
+  }
+}

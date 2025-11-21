@@ -1,0 +1,39 @@
+{
+  "door_code": "W104MOCKING",
+  "semantic_path": "WORKFLOWS.TESTING.MOCKING",
+  "aliases": ["mock", "stub", "fake", "test double", "spy"],
+  "context_bundle": {
+    "summary": "Mocking and stubbing patterns for isolating units under test from external dependencies",
+    "prerequisites": ["W102UNIT_TESTING"],
+    "related_doors": ["W102UNIT_TESTING", "W103INTEGRATION_TESTING", "W105TEST_FIXTURES"],
+    "onboarding": {
+      "quick_start": "Use test doubles (mocks, stubs, fakes) to replace external dependencies and isolate test cases",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Mock external API calls for deterministic testing",
+        "Stub database connections for unit tests",
+        "Use test spies to verify method calls",
+        "Inject dependencies for easy mocking"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T01:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["testing", "mocking", "stub", "fake", "workflows"],
+      "category": "WORKFLOWS",
+      "subcategory": "TESTING",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11", "Linux"],
+      "agent_affinity": ["VSCC", "DC"]
+    }
+  }
+}

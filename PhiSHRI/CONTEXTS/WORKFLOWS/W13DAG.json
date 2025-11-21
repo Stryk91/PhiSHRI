@@ -1,0 +1,48 @@
+{
+  "door_code": "W13DAG",
+  "semantic_path": "WORKFLOWS.ORCHESTRATION.DAG_WORKFLOWS",
+  "aliases": ["dag", "workflow_graph", "task_dependencies", "orchestration"],
+  "context_bundle": {
+    "summary": "DAG (Directed Acyclic Graph) workflows for multi-agent orchestration. Models task dependencies, ensures correct execution order, enables parallel execution of independent tasks. DC = orchestrator in PhiVector.",
+    "prerequisites": ["W12PHISYNC", "W01COORD", "R01MULTI"],
+    "related_doors": ["A01DC", "W14PARALLEL"],
+    "onboarding": {
+      "quick_start": "DAG = task graph with dependencies. Node = task, edge = dependency. DC orchestrates: resolve dependencies, execute in order, parallelize independent tasks. No cycles allowed (acyclic).",
+      "full_context_path": "/PhiDEX/PhiSync/02_WORKFLOW_ORCHESTRATION/WORKFLOW_ORCHESTRATION_PATTERNS.md",
+      "common_patterns": [
+        "Define tasks with prerequisites: {id, action, depends_on: []}",
+        "Topological sort for execution order",
+        "Parallel execution: Tasks with no shared dependencies",
+        "Centralized orchestration: DC assigns tasks to agents",
+        "Status tracking: pending -> running -> completed/failed"
+      ],
+      "known_errors": [
+        {
+          "error": "Workflow deadlock, tasks waiting forever",
+          "cause": "Circular dependency (A depends on B, B depends on A)",
+          "solution": "Validate DAG is acyclic before execution",
+          "prevention": "Use topological sort validation, detect cycles upfront",
+          "related_door": "W13DAG"
+        }
+      ]
+    },
+    "resources": {
+      "docs": ["/PhiDEX/PhiSync/02_WORKFLOW_ORCHESTRATION/WORKFLOW_ORCHESTRATION_PATTERNS.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T02:55:00Z",
+      "confidence": 0.97,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["dag", "orchestration", "workflow", "dependencies", "parallel"],
+      "category": "WORKFLOWS",
+      "subcategory": "ORCHESTRATION",
+      "version": "1.0.0",
+      "tested_on": ["Windows 10", "Windows 11"],
+      "agent_affinity": ["DC"]
+    }
+  }
+}

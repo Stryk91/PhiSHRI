@@ -1,0 +1,39 @@
+{
+  "door_code": "W97VISUAL_REGRESSION",
+  "semantic_path": "WORKFLOWS.UI_AUTOMATION.VISUAL_REGRESSION_TESTING",
+  "aliases": ["visual_regression", "screenshot_testing", "visual_testing", "pixel_diff"],
+  "context_bundle": {
+    "summary": "Visual regression testing detects unintended UI changes by comparing screenshots using tools like Percy, Chromatic, or BackstopJS with pixel-diff algorithms, baseline management, and threshold configuration for acceptable differences.",
+    "prerequisites": ["W96UI_TESTING"],
+    "related_doors": ["W93SELENIUM", "W94PLAYWRIGHT", "W95CYPRESS"],
+    "onboarding": {
+      "quick_start": "Visual regression workflow: 1) Capture baseline screenshots of pages/components. 2) Run tests to capture new screenshots. 3) Compare new vs baseline using pixel-diff. 4) Review differences with threshold (e.g., 0.1% acceptable). 5) Approve changes to update baseline. 6) Integrate into CI/CD pipeline. Tools: Percy (cloud), Chromatic (Storybook), BackstopJS (open-source).",
+      "full_context_path": "/PhiDEX/industry_knowledge/visual_regression_patterns.md",
+      "common_patterns": [
+        "Playwright visual test: import { test, expect } from '@playwright/test'; test('homepage visual', async ({ page }) => { await page.goto('https://example.com'); await expect(page).toHaveScreenshot('homepage.png', { maxDiffPixels: 100 }) })",
+        "Percy with Cypress: import '@percy/cypress'; describe('Visual tests', () => { it('captures homepage', () => { cy.visit('/'); cy.percySnapshot('Homepage') }) })",
+        "BackstopJS config: { scenarios: [{ label: 'Homepage', url: 'https://example.com', selectors: ['viewport'], delay: 500 }], viewports: [{ label: 'desktop', width: 1920, height: 1080 }], paths: { bitmaps_reference: 'backstop_data/bitmaps_reference', bitmaps_test: 'backstop_data/bitmaps_test' } }",
+        "Threshold config: matchThreshold: 0.1, // 0.1% difference acceptable; ignoreRegions: ['.dynamic-timestamp', '.ad-banner']; // Ignore dynamic content"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/industry_knowledge/visual_regression_patterns.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-21T00:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["visual_regression", "screenshot_testing", "pixel_diff", "ui_testing"],
+      "category": "WORKFLOWS",
+      "subcategory": "UI_AUTOMATION",
+      "version": "1.0.0",
+      "tested_on": ["Percy", "Chromatic", "BackstopJS", "Playwright", "Cypress", "Selenium"],
+      "agent_affinity": ["DC", "VSCC", "WEBC"]
+    }
+  }
+}

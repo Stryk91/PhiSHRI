@@ -1,0 +1,45 @@
+{
+  "door_code": "R05SERVERLESS",
+  "semantic_path": "ARCHITECTURE.PATTERNS.SERVERLESS",
+  "aliases": ["serverless", "faas", "lambda", "cloud_functions", "function_as_a_service"],
+  "context_bundle": {
+    "summary": "Serverless architecture: Run code without managing servers (FaaS). Event-driven execution, pay-per-invocation, auto-scaling, stateless functions. Platforms: AWS Lambda, Azure Functions, Google Cloud Functions, Cloudflare Workers. Triggers: HTTP (API Gateway), S3 events, DynamoDB streams, SQS queues, scheduled (cron). Cold start: First invocation slower (container initialization), warm instances reused. Best practices: Keep functions small (<10MB), minimize dependencies, use env vars for config, async for long tasks (SQS queue), connection pooling for DB, VPC for private resources. Limitations: Timeout (15min AWS Lambda), memory limit (10GB), cold starts (100-1000ms). Use cases: APIs, data processing, webhooks, scheduled jobs, real-time file processing.",
+    "prerequisites": ["R03MICROSERVICE", "R04EVENT_DRIVEN", "T14TERRAFORM"],
+    "related_doors": ["W78CONCURRENCY", "S12API_SECURITY", "E04TIMEOUT"],
+    "onboarding": {
+      "quick_start": "Serverless (AWS Lambda): Python handler: def lambda_handler(event, context): return {'statusCode': 200, 'body': json.dumps({'message': 'Hello'})}. Deploy (AWS CLI): zip function.zip lambda_function.py; aws lambda create-function --function-name my-function --runtime python3.9 --role arn:aws:iam::123:role/lambda-role --handler lambda_function.lambda_handler --zip-file fileb://function.zip. Invoke: aws lambda invoke --function-name my-function output.txt. API Gateway trigger: Create REST API → Resource /hello → Method GET → Integration: Lambda my-function. Node.js: exports.handler = async (event) => { return { statusCode: 200, body: JSON.stringify({message: 'Hello'}) }; }. Serverless Framework: sls create --template aws-nodejs; Edit serverless.yml: functions: {hello: {handler: handler.hello, events: [{http: {path: hello, method: get}}]}}. Deploy: sls deploy. Environment variables: AWS_REGION, DB_HOST (set in Lambda config or serverless.yml). Cold start mitigation: Provisioned concurrency (keep warm instances), reduce package size, use lightweight runtimes (Python, Go). Database: Use connection pooling (RDS Proxy), or serverless DBs (DynamoDB, Aurora Serverless).",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "AWS Lambda Python with DynamoDB: import boto3; dynamodb = boto3.resource('dynamodb'); table = dynamodb.Table('Users'); def handler(event, context): table.put_item(Item={'id': '123', 'name': 'Alice'}); return {'statusCode': 200}",
+        "S3 event trigger: functions: {processImage: {handler: handler.process, events: [{s3: {bucket: my-bucket, event: s3:ObjectCreated:*}}]}}; def process(event, context): key = event['Records'][0]['s3']['object']['key']",
+        "API Gateway proxy: def handler(event, context): body = json.loads(event['body']); return {'statusCode': 200, 'headers': {'Content-Type': 'application/json'}, 'body': json.dumps({...})}",
+        "Scheduled Lambda (cron): functions: {cronJob: {handler: handler.run, events: [{schedule: rate(5 minutes)}]}}; # Runs every 5 min",
+        "SQS trigger (async processing): functions: {worker: {handler: handler.process, events: [{sqs: {arn: arn:aws:sqs:region:account:queue}}]}}; def process(event, context): for record in event['Records']: message = json.loads(record['body'])",
+        "Environment variables: environment: {DB_HOST: ${env:DB_HOST}, API_KEY: ${ssm:/api/key}}; import os; db_host = os.environ['DB_HOST']",
+        "Cold start optimization: import at module level (reused across invocations); db_conn = create_connection(); # Outside handler, reused when warm",
+        "Azure Functions: [FunctionName(\"Hello\")] public static async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, \"get\")] HttpRequest req) { return new OkObjectResult(\"Hello\"); }",
+        "Google Cloud Functions: exports.helloWorld = (req, res) => { res.send('Hello World'); }; Deploy: gcloud functions deploy helloWorld --runtime nodejs18 --trigger-http",
+        "Serverless Framework multi-region: provider: {deploymentBucket: {name: my-bucket-${opt:region}}}; Deploy: sls deploy --region us-east-1"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T22:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["serverless", "lambda", "faas", "aws_lambda", "azure_functions", "cloud_functions", "event_driven"],
+      "category": "ARCHITECTURE",
+      "subcategory": "PATTERNS",
+      "version": "1.0.0",
+      "tested_on": ["AWS Lambda", "Azure Functions", "Google Cloud Functions", "Serverless Framework"],
+      "agent_affinity": ["VSCC", "CMDC", "WEBC"]
+    }
+  }
+}

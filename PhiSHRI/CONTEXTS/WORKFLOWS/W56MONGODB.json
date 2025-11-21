@@ -1,0 +1,45 @@
+{
+  "door_code": "W56MONGODB",
+  "semantic_path": "WORKFLOWS.DATA_PROCESSING.MONGODB_PATTERNS",
+  "aliases": ["mongodb", "nosql", "document_database", "mongo"],
+  "context_bundle": {
+    "summary": "MongoDB document-oriented NoSQL database: JSON-like BSON documents in collections. Schema-flexible. Indexing: single-field, compound, text, geospatial. Aggregation pipeline: $match, $group, $project, $sort, $lookup (join). Sharding for horizontal scaling. Replication for HA (replica sets). Atlas (managed). Use cases: flexible schemas, rapid prototyping, hierarchical data, real-time analytics. Avoid: complex transactions (use Postgres), rigid schemas.",
+    "prerequisites": ["W55POSTGRES"],
+    "related_doors": ["W54REDIS", "W57ELASTICSEARCH", "W50ETL"],
+    "onboarding": {
+      "quick_start": "MongoDB basics: Collections (like tables), documents (JSON-like). Insert: db.users.insertOne({'email': 'john@example.com', 'age': 30}). Query: db.users.find({'age': {$gt: 18}}). Index: db.users.createIndex({'email': 1}), compound: {email: 1, created_at: -1}. Aggregation: db.orders.aggregate([{$match: {status: 'shipped'}}, {$group: {_id: '$user_id', total: {$sum: '$amount'}}}]). Sharding: shard by _id or custom key. Replication: replica sets for HA. Atlas: managed cloud MongoDB. Use for: flexible schemas, rapid iteration, hierarchical data. Avoid for: complex joins, ACID transactions (use Postgres).",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/05_DATA_PROCESSING/DATA_PROCESSING_MANAGEMENT_RESEARCH.md",
+      "common_patterns": [
+        "Insert: db.collection.insertOne({field: value}), insertMany([docs])",
+        "Query: db.collection.find({age: {$gt: 18}}), findOne({email: 'user@example.com'})",
+        "Index: db.collection.createIndex({email: 1}), compound: {field1: 1, field2: -1}",
+        "Update: db.collection.updateOne({_id: id}, {$set: {field: value}})",
+        "Aggregation: [{$match: {}}, {$group: {_id: '$field', count: {$sum: 1}}}]",
+        "Lookup (join): {$lookup: {from: 'orders', localField: '_id', foreignField: 'user_id', as: 'orders'}}",
+        "Text search: createIndex({description: 'text'}), find({$text: {$search: 'keyword'}})",
+        "Sharding: sh.enableSharding('db'), sh.shardCollection('db.collection', {_id: 'hashed'})",
+        "Replica set: 3+ nodes for HA, automatic failover",
+        "Atlas: managed, auto-scaling, backups, monitoring"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/05_DATA_PROCESSING/DATA_PROCESSING_MANAGEMENT_RESEARCH.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T19:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["mongodb", "nosql", "document_database", "mongo", "flexible_schema", "aggregation"],
+      "category": "WORKFLOWS",
+      "subcategory": "DATA_PROCESSING",
+      "version": "1.0.0",
+      "tested_on": ["MongoDB 5+", "MongoDB 7", "MongoDB Atlas"],
+      "agent_affinity": ["VSCC", "TERMC", "CMDC"]
+    }
+  }
+}

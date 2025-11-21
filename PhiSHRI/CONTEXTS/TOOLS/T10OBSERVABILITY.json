@@ -1,0 +1,45 @@
+{
+  "door_code": "T10OBSERVABILITY",
+  "semantic_path": "TOOLS.MONITORING.OBSERVABILITY_PATTERNS",
+  "aliases": ["observability", "monitoring", "metrics", "logs", "traces", "telemetry"],
+  "context_bundle": {
+    "summary": "Observability for system health and debugging: Three pillars: Metrics (Prometheus, Grafana), Logs (ELK Stack, Loki), Traces (Jaeger, Zipkin). Metrics: time-series data (CPU, memory, request rate, error rate). Logs: structured JSON logs. Traces: distributed tracing across services. Patterns: RED (Rate, Error, Duration), USE (Utilization, Saturation, Errors), Golden Signals (latency, traffic, errors, saturation). Tools: Prometheus + Grafana (metrics), ELK (logs), Jaeger (traces), OpenTelemetry (unified).",
+    "prerequisites": ["W50ETL", "W51STREAM"],
+    "related_doors": ["W57ELASTICSEARCH", "W53KAFKA", "R03MICROSERVICE"],
+    "onboarding": {
+      "quick_start": "Observability: Metrics (Prometheus): Counter, Gauge, Histogram. Scrape /metrics endpoint. Grafana dashboards visualize. Logs (ELK): Logstash ingests, Elasticsearch stores/indexes, Kibana visualizes. Structured logs: JSON with timestamp, level, message, context. Traces (Jaeger): spans track request across services, trace_id links spans. OpenTelemetry: unified SDK for metrics/logs/traces. Patterns: RED (Rate: requests/sec, Error: error rate %, Duration: latency p50/p99), USE (Utilization %, Saturation queue depth, Errors count). Golden Signals: latency, traffic, errors, saturation. Monitor: /metrics, /health endpoints.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/05_DATA_PROCESSING/DATA_PROCESSING_MANAGEMENT_RESEARCH.md",
+      "common_patterns": [
+        "Prometheus metrics: Counter (requests_total), Gauge (memory_usage), Histogram (latency_seconds)",
+        "Prometheus query: rate(requests_total[5m]), histogram_quantile(0.99, latency_seconds)",
+        "Grafana dashboard: panels with Prometheus queries, alerts on thresholds",
+        "Structured logs: {'timestamp': '2024-01-01T00:00:00Z', 'level': 'ERROR', 'message': 'Failed', 'user_id': 123}",
+        "ELK Stack: Logstash (ingest) -> Elasticsearch (index) -> Kibana (visualize)",
+        "Jaeger traces: span = tracer.start_span('operation'), span.set_tag('user_id', 123), span.finish()",
+        "OpenTelemetry: unified SDK, auto-instrumentation, export to Jaeger/Prometheus",
+        "RED metrics: rate(requests[5m]), sum(errors)/sum(requests), histogram_quantile(0.99, duration)",
+        "Golden Signals: latency (p50, p99), traffic (req/sec), errors (%), saturation (CPU/memory %)",
+        "Health check: /health endpoint returns 200 OK, monitors dependencies"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/05_DATA_PROCESSING/DATA_PROCESSING_MANAGEMENT_RESEARCH.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T19:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["observability", "monitoring", "metrics", "logs", "traces", "prometheus", "grafana", "elk", "jaeger"],
+      "category": "TOOLS",
+      "subcategory": "MONITORING",
+      "version": "1.0.0",
+      "tested_on": ["Prometheus", "Grafana", "ELK Stack", "Jaeger", "OpenTelemetry"],
+      "agent_affinity": ["VSCC", "CMDC", "TERMC", "WEBC"]
+    }
+  }
+}

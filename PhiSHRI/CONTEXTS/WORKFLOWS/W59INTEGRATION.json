@@ -1,0 +1,43 @@
+{
+  "door_code": "W59INTEGRATION",
+  "semantic_path": "WORKFLOWS.TESTING.INTEGRATION_TESTING",
+  "aliases": ["integration_test", "integration_testing", "component_testing"],
+  "context_bundle": {
+    "summary": "Integration testing: Test interaction between components/modules. Tests database connections, API calls, message queues, file I/O. Slower than unit tests (seconds per test) but faster than E2E. Use test databases (Docker, in-memory), mock external services, seed test data. Frameworks: Pytest with fixtures, Jest with test containers, Testcontainers (Docker-based). Patterns: Test database transactions, API endpoint responses, service-to-service communication. Clean up after tests (rollback, truncate tables).",
+    "prerequisites": ["W58UNITTEST"],
+    "related_doors": ["W60E2E", "W46TERRAFORM", "W47DOCKER_COMPOSE", "W54REDIS"],
+    "onboarding": {
+      "quick_start": "Integration tests: Test components working together (API + DB, Service + Queue). Setup: Use test database (Docker PostgreSQL, SQLite in-memory), seed data, configure test environment. Python (pytest + testcontainers): @pytest.fixture(scope='module') def postgres_container(): with PostgresContainer('postgres:15') as postgres: yield postgres; def test_create_user(postgres_container): db = connect(postgres_container.get_connection_url()); user = create_user(db, 'test@example.com'); assert user.id is not None; db.rollback(). JavaScript (Jest + Supertest): test('POST /users creates user', async () => { const res = await request(app).post('/users').send({email: 'test@example.com'}); expect(res.status).toBe(201); expect(res.body.id).toBeDefined(); }). Cleanup: Use transactions, rollback after test, or truncate tables. Docker Compose for test environment: services: db: image: postgres:15, environment: POSTGRES_DB=test.",
+      "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+      "common_patterns": [
+        "Test database setup (pytest): @pytest.fixture def db_session(): engine = create_engine('sqlite:///:memory:'); Base.metadata.create_all(engine); Session = sessionmaker(bind=engine); session = Session(); yield session; session.rollback(); session.close()",
+        "API integration (Supertest): const request = require('supertest'); test('GET /api/users', async () => { const res = await request(app).get('/api/users'); expect(res.status).toBe(200); expect(Array.isArray(res.body)).toBe(true); })",
+        "Testcontainers (Python): from testcontainers.postgres import PostgresContainer; with PostgresContainer('postgres:15', username='test', password='test', dbname='testdb') as postgres: conn_url = postgres.get_connection_url(); # Run tests",
+        "Redis integration: @pytest.fixture def redis_client(): client = fakeredis.FakeRedis(); yield client; client.flushall()",
+        "Message queue test: def test_process_message(rabbitmq_container): channel = connect_to_queue(rabbitmq_container.url); publish_message(channel, 'test_queue', {'data': 'test'}); message = consume_message(channel, 'test_queue'); assert message['data'] == 'test'",
+        "Seed test data: @pytest.fixture def sample_users(db_session): users = [User(email=f'user{i}@test.com') for i in range(5)]; db_session.add_all(users); db_session.commit(); return users",
+        "Parallel execution: pytest -n auto (pytest-xdist) for parallel test execution with isolated databases",
+        "CI integration (GitLab): services: postgres:15, redis:6. Environment variables for test DB connection"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-20T20:45:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": ["integration_testing", "testing", "database", "api", "testcontainers", "docker"],
+      "category": "WORKFLOWS",
+      "subcategory": "TESTING",
+      "version": "1.0.0",
+      "tested_on": ["Python", "JavaScript", "TypeScript", "Java"],
+      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+    }
+  }
+}
