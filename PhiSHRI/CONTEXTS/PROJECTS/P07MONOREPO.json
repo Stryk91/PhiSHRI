@@ -1,0 +1,17 @@
+{
+  "door_code": "P07MONOREPO",
+  "semantic_path": "PROJECTS.STRUCTURE.MONOREPO",
+  "title": "Monorepo Setup",
+  "aliases": [],
+  "context_bundle": {
+    "summary": "Configuring monorepo architecture with proper tooling",
+    "content": "Monorepo configuration for multi-package projects.\n\nStructure:\n/packages - Individual packages\n/apps - Applications using packages\n/tools - Build and dev tooling\n/docs - Documentation\n\nTooling:\n- Turborepo/Nx for build orchestration\n- pnpm workspaces for dependency management\n- Changesets for versioning\n\nBenefits: Code sharing, atomic commits, unified CI\nChallenges: Build times, git performance at scale",
+    "prerequisites": [],
+    "related_doors": []
+  },
+  "metadata": {
+    "category": "PROJECTS",
+    "version": "1.0",
+    "tokens_estimate": 70.2
+  }
+}

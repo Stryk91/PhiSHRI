@@ -1,0 +1,17 @@
+{
+  "door_code": "A18DEVOPS",
+  "semantic_path": "AGENTS.SPECIALIZED.DEVOPS",
+  "title": "DevOps Agent",
+  "aliases": [],
+  "context_bundle": {
+    "summary": "AI agent for DevOps automation",
+    "content": "DevOps agent capabilities.\n\nPipeline Optimization:\n- Build time reduction\n- Parallel execution\n- Cache strategies\n- Artifact management\n\nInfrastructure:\n- IaC review\n- Cost optimization\n- Security hardening\n- Disaster recovery\n\nMonitoring:\n- Alert tuning\n- Dashboard creation\n- SLO definition\n- Incident analysis",
+    "prerequisites": [],
+    "related_doors": []
+  },
+  "metadata": {
+    "category": "AGENTS",
+    "version": "1.0",
+    "tokens_estimate": 57.2
+  }
+}

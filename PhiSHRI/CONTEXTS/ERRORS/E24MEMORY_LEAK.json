@@ -1,0 +1,17 @@
+{
+  "door_code": "E24MEMORY_LEAK",
+  "semantic_path": "ERRORS.RESOURCE.MEMORY_LEAK",
+  "title": "Memory Leak Errors",
+  "aliases": [],
+  "context_bundle": {
+    "summary": "Detecting and fixing memory leaks",
+    "content": "Memory leak detection and resolution.\n\nSymptoms:\n- Gradual memory increase\n- OOM kills\n- Performance degradation\n- GC thrashing\n\nCommon Causes:\n- Event listener accumulation\n- Closure references\n- Cache without eviction\n- Circular references\n\nDetection Tools:\n- Chrome DevTools Memory tab\n- Node.js --inspect + heap snapshots\n- Valgrind for native code\n- APM memory tracking\n\nFixes:\n- Proper cleanup in useEffect/componentWillUnmount\n- WeakMap/WeakSet for caches\n- Event listener removal\n- Breaking circular refs",
+    "prerequisites": [],
+    "related_doors": []
+  },
+  "metadata": {
+    "category": "ERRORS",
+    "version": "1.0",
+    "tokens_estimate": 97.5
+  }
+}

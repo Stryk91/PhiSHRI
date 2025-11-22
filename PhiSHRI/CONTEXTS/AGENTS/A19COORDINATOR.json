@@ -1,0 +1,17 @@
+{
+  "door_code": "A19COORDINATOR",
+  "semantic_path": "AGENTS.MULTI.COORDINATOR",
+  "title": "Multi-Agent Coordinator",
+  "aliases": [],
+  "context_bundle": {
+    "summary": "Coordinating multiple AI agents",
+    "content": "Multi-agent coordination patterns.\n\nOrchestration:\n- Task decomposition\n- Agent assignment\n- Result aggregation\n- Conflict resolution\n\nCommunication:\n- Shared context (PhiSHRI doors)\n- Message passing\n- State synchronization\n- Handoff protocols\n\nPatterns:\n- Pipeline: Sequential processing\n- Fan-out: Parallel processing\n- Voting: Consensus decisions\n- Specialist: Domain routing",
+    "prerequisites": [],
+    "related_doors": []
+  },
+  "metadata": {
+    "category": "AGENTS",
+    "version": "1.0",
+    "tokens_estimate": 62.400000000000006
+  }
+}

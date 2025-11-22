@@ -1,0 +1,17 @@
+{
+  "door_code": "E27SERIALIZATION",
+  "semantic_path": "ERRORS.DATA.SERIALIZATION",
+  "title": "Serialization Errors",
+  "aliases": [],
+  "context_bundle": {
+    "summary": "JSON/data serialization issues",
+    "content": "Serialization error handling.\n\nCommon Issues:\n- Circular references\n- BigInt serialization\n- Date/time formats\n- Binary data encoding\n- Undefined vs null\n\nJSON Specific:\n- JSON.stringify circular ref error\n- NaN/Infinity become null\n- Function properties lost\n- Symbol keys ignored\n\nFixes:\n- Custom serializers (replacer function)\n- Class toJSON methods\n- Schema validation\n- Type coercion handling",
+    "prerequisites": [],
+    "related_doors": []
+  },
+  "metadata": {
+    "category": "ERRORS",
+    "version": "1.0",
+    "tokens_estimate": 75.4
+  }
+}

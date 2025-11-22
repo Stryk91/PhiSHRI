@@ -1,0 +1,17 @@
+{
+  "door_code": "E26RATE_LIMIT",
+  "semantic_path": "ERRORS.API.RATE_LIMIT",
+  "title": "Rate Limiting Errors",
+  "aliases": [],
+  "context_bundle": {
+    "summary": "Handling API rate limits",
+    "content": "Rate limit handling patterns.\n\nDetection:\n- HTTP 429 status\n- Retry-After header\n- X-RateLimit-* headers\n\nStrategies:\n1. Exponential backoff\n2. Request queuing\n3. Token bucket client-side\n4. Circuit breaker\n\nImplementation:\n- Respect Retry-After\n- Implement jitter\n- Queue non-urgent requests\n- Cache responses\n\nPrevention:\n- Batch requests\n- Use webhooks vs polling\n- Request deduplication\n- Efficient pagination",
+    "prerequisites": [],
+    "related_doors": []
+  },
+  "metadata": {
+    "category": "ERRORS",
+    "version": "1.0",
+    "tokens_estimate": 75.4
+  }
+}

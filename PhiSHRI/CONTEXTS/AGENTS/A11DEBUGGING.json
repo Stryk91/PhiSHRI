@@ -1,0 +1,17 @@
+{
+  "door_code": "A11DEBUGGING",
+  "semantic_path": "AGENTS.SPECIALIZED.DEBUGGING",
+  "title": "Debugging Agent",
+  "aliases": [],
+  "context_bundle": {
+    "summary": "AI agent for systematic debugging",
+    "content": "Debugging agent methodology.\n\nInvestigation Steps:\n1. Reproduce the issue\n2. Gather error logs/stack traces\n3. Identify recent changes\n4. Form hypothesis\n5. Test hypothesis\n6. Implement fix\n7. Verify fix\n8. Add regression test\n\nTools Integration:\n- Log aggregation queries\n- APM trace analysis\n- Git blame/history\n- Test execution\n\nOutput: Root cause analysis + fix recommendation",
+    "prerequisites": [],
+    "related_doors": []
+  },
+  "metadata": {
+    "category": "AGENTS",
+    "version": "1.0",
+    "tokens_estimate": 74.10000000000001
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "door_code": "E28TIMEOUT_CASCADE",
+  "semantic_path": "ERRORS.DISTRIBUTED.TIMEOUT_CASCADE",
+  "title": "Timeout Cascades",
+  "aliases": [],
+  "context_bundle": {
+    "summary": "Cascading timeout failures",
+    "content": "Timeout cascade prevention.\n\nProblem:\nService A (30s timeout) -> Service B (30s) -> Service C (30s)\nIf C slow, A and B both timeout and retry, amplifying load.\n\nSolutions:\n1. Timeout budgets: Pass remaining time downstream\n2. Deadline propagation: Absolute deadline header\n3. Adaptive timeouts: Adjust based on percentiles\n4. Fast fail: Fail early if budget exhausted\n\nImplementation:\n- gRPC deadline propagation\n- Custom timeout headers\n- Circuit breakers at each hop\n- Bulkhead isolation",
+    "prerequisites": [],
+    "related_doors": []
+  },
+  "metadata": {
+    "category": "ERRORS",
+    "version": "1.0",
+    "tokens_estimate": 97.5
+  }
+}

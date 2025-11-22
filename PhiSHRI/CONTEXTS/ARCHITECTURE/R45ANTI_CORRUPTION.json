@@ -1,0 +1,17 @@
+{
+  "door_code": "R45ANTI_CORRUPTION",
+  "semantic_path": "ARCHITECTURE.INTEGRATION.ANTI_CORRUPTION",
+  "title": "Anti-Corruption Layer",
+  "aliases": [],
+  "context_bundle": {
+    "summary": "Protecting domain from external models",
+    "content": "Anti-Corruption Layer (ACL) pattern.\n\nProblem:\nExternal systems have different models that can pollute your domain.\n\nSolution:\nTranslation layer between your domain and external system.\n\nComponents:\n- Facade: Simplified interface to external system\n- Adapter: Translates external calls to domain\n- Translator: Maps external models to domain models\n\nExample:\nExternal CRM has \"Contact\" with fields you don't need.\nACL translates to your \"Customer\" with clean model.\n\nBenefits:\n- Domain model stays clean\n- External changes isolated\n- Easier testing (mock ACL)\n- Clear integration boundaries",
+    "prerequisites": [],
+    "related_doors": []
+  },
+  "metadata": {
+    "category": "ARCHITECTURE",
+    "version": "1.0",
+    "tokens_estimate": 109.2
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "door_code": "P08MICROSERVICE_INIT",
+  "semantic_path": "PROJECTS.STRUCTURE.MICROSERVICES",
+  "title": "Microservice Project Init",
+  "aliases": [],
+  "context_bundle": {
+    "summary": "Bootstrapping microservice architecture projects",
+    "content": "Microservice project initialization patterns.\n\nPer-Service Structure:\n/src - Service code\n/tests - Unit and integration tests\n/docker - Container configs\n/k8s - Kubernetes manifests\n\nShared Infrastructure:\n- Service mesh (Istio/Linkerd)\n- API gateway (Kong/Ambassador)\n- Message broker (Kafka/RabbitMQ)\n\nBootstrap Checklist:\n1. Service template with health checks\n2. Docker + docker-compose for local dev\n3. CI/CD pipeline template\n4. Observability stack (logs, metrics, traces)",
+    "prerequisites": [],
+    "related_doors": []
+  },
+  "metadata": {
+    "category": "PROJECTS",
+    "version": "1.0",
+    "tokens_estimate": 81.9
+  }
+}

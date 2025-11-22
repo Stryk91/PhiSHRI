@@ -1,0 +1,17 @@
+{
+  "door_code": "A10CODE_REVIEW",
+  "semantic_path": "AGENTS.SPECIALIZED.CODE_REVIEW",
+  "title": "Code Review Agent",
+  "aliases": [],
+  "context_bundle": {
+    "summary": "AI agent specialized for code review tasks",
+    "content": "Code review agent configuration.\n\nFocus Areas:\n- Security vulnerabilities\n- Performance issues\n- Code style consistency\n- Test coverage gaps\n\nReview Checklist:\n1. Does it solve the stated problem?\n2. Are edge cases handled?\n3. Is error handling appropriate?\n4. Are there security concerns?\n5. Is it testable/tested?\n\nOutput Format:\n- Critical: Must fix before merge\n- Warning: Should address\n- Suggestion: Nice to have\n- Praise: Good patterns to reinforce",
+    "prerequisites": [],
+    "related_doors": []
+  },
+  "metadata": {
+    "category": "AGENTS",
+    "version": "1.0",
+    "tokens_estimate": 92.3
+  }
+}

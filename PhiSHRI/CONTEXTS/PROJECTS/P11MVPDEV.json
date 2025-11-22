@@ -1,0 +1,17 @@
+{
+  "door_code": "P11MVPDEV",
+  "semantic_path": "PROJECTS.STARTUP.MVP",
+  "title": "MVP Development Pattern",
+  "aliases": [],
+  "context_bundle": {
+    "summary": "Rapid MVP development methodology",
+    "content": "MVP development approach for startups.\n\nPhase 1 - Validate (1-2 weeks):\n- Problem interviews\n- Solution sketches\n- Landing page test\n\nPhase 2 - Build (2-4 weeks):\n- Core feature only\n- No premature optimization\n- Manual processes OK\n\nPhase 3 - Measure (ongoing):\n- Key metrics defined\n- Analytics integrated\n- User feedback loops\n\nTech Stack for Speed:\n- Next.js/Remix for full-stack\n- Supabase/Firebase for backend\n- Vercel/Railway for deployment\n- Stripe for payments",
+    "prerequisites": [],
+    "related_doors": []
+  },
+  "metadata": {
+    "category": "PROJECTS",
+    "version": "1.0",
+    "tokens_estimate": 97.5
+  }
+}

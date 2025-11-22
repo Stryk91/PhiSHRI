@@ -1,0 +1,17 @@
+{
+  "door_code": "E33REPLICATION_LAG",
+  "semantic_path": "ERRORS.DATABASE.REPLICATION_LAG",
+  "title": "Replication Lag",
+  "aliases": [],
+  "context_bundle": {
+    "summary": "Database replication lag issues",
+    "content": "Replication lag handling.\n\nSymptoms:\n- Read-after-write inconsistency\n- Stale data on replicas\n- Lag metrics increasing\n\nCauses:\n- Write-heavy workload\n- Large transactions\n- Network latency\n- Replica resource constraints\n\nMitigation:\n- Read from primary for critical reads\n- Session consistency (sticky sessions)\n- Causal consistency tokens\n- Lag-aware routing\n\nMonitoring:\n- Replica lag seconds\n- Replication slot status\n- Write throughput\n- Network metrics",
+    "prerequisites": [],
+    "related_doors": []
+  },
+  "metadata": {
+    "category": "ERRORS",
+    "version": "1.0",
+    "tokens_estimate": 84.5
+  }
+}
