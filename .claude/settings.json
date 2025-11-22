@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.0.0",
+  "project": "PhiSHRI",
+
+  "agent": {
+    "default": "builder",
+    "available": ["builder"]
+  },
+
+  "permissions": {
+    "file_read": true,
+    "file_write": true,
+    "bash_execute": true,
+    "network": true,
+    "git_operations": true
+  },
+
+  "paths": {
+    "doors": "PhiSHRI/CONTEXTS",
+    "indexes": "PhiSHRI/INDEXES",
+    "mcp_project": "C:/Dev/PhiSHRI_MCP/phishri-mcp",
+    "install_target": "~/.phishri"
+  },
+
+  "build": {
+    "rust_target": "x86_64-pc-windows-msvc",
+    "release_mode": true,
+    "run_tests_after_build": true
+  },
+
+  "validation": {
+    "strict_mode": false,
+    "auto_fix_minor": true,
+    "require_sources": false
+  },
+
+  "output": {
+    "style": "builder",
+    "verbose": false,
+    "show_file_paths": true
+  },
+
+  "thinking": {
+    "enabled": true,
+    "show_for": ["complex_decisions", "debugging", "architecture"]
+  }
+}
