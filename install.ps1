@@ -26,8 +26,7 @@
 #>
 
 param(
-    [ValidateSet("Auto", "Mcpb", "Dxt", "Manual")]
-    [string]$Method,
+    [string]$Method = "",
     [switch]$Verify,
     [switch]$Uninstall
 )
