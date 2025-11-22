@@ -1,0 +1,38 @@
+{
+  "door_code": "E35RUST_CATEGORY_SCAN",
+  "semantic_path": "ERRORS.RUST.HARDCODED_ARRAY",
+  "aliases": ["missing category", "rust scan directories", "hardcoded categories"],
+  "context_bundle": {
+    "summary": "Rust MCP scanner missing category due to hardcoded array",
+    "prerequisites": [],
+    "related_doors": ["T95WINDOWS_MCP_CORE"],
+    "onboarding": {
+      "quick_start": "When adding new categories, check for hardcoded category arrays in scanner code",
+      "symptoms": [
+        "Index rebuild shows fewer entries than filesystem",
+        "New category doors not appearing in searches",
+        "Stats tool shows wrong category count"
+      ],
+      "root_cause": {
+        "pattern": "let categories = [\"CAT1\", \"CAT2\", ...]; // Missing new category",
+        "location": "Usually in loader.rs or scanner module",
+        "why_hardcoded": "Performance optimization - avoids directory listing"
+      },
+      "diagnosis": {
+        "step_1": "Count files: find CONTEXTS -name '*.json' | wc -l",
+        "step_2": "Compare to index count from MCP stats tool",
+        "step_3": "If mismatch, grep for hardcoded category arrays"
+      },
+      "fix": {
+        "locate": "grep -r 'categories.*=' --include='*.rs' src/",
+        "add_category": "Add missing category string to array",
+        "rebuild": "cargo build --release && copy binary"
+      },
+      "real_example": {
+        "bug": "LANGUAGES category (50 doors) missing from scan",
+        "file": "src/door/loader.rs:269",
+        "fix": "Added 'LANGUAGES' to categories array"
+      }
+    }
+  }
+}

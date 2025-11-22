@@ -1,0 +1,35 @@
+{
+  "door_code": "W120PHISHRI_DOOR_SYNC",
+  "semantic_path": "WORKFLOWS.PHISHRI.DOOR_SYNC",
+  "aliases": ["sync doors", "copy doors to repo", "phishri door workflow"],
+  "context_bundle": {
+    "summary": "Workflow for syncing PhiSHRI doors between installed location and repo",
+    "prerequisites": [],
+    "related_doors": ["W118GIT_BRANCH_CLEANUP"],
+    "onboarding": {
+      "quick_start": "Doors created via MCP go to ~/.phishri/knowledge, must be copied to repo",
+      "locations": {
+        "installed": "~/.phishri/knowledge/CONTEXTS/",
+        "repo": "C:/Dev/PhiSRHI/PhiSHRI/CONTEXTS/",
+        "why_separate": "MCP creates doors at runtime, repo is source of truth"
+      },
+      "sync_workflow": {
+        "step_1": "Find new doors: find ~/.phishri/knowledge/CONTEXTS -newer timestamp",
+        "step_2": "Copy to repo: cp ~/.phishri/knowledge/CONTEXTS/CATEGORY/DOOR.json repo/PhiSHRI/CONTEXTS/CATEGORY/",
+        "step_3": "Rebuild indexes: python rebuild_phishri_indexes.py",
+        "step_4": "Verify count matches expected",
+        "step_5": "Commit and push"
+      },
+      "find_new_doors": {
+        "by_name": "find ~/.phishri -name '*PATTERN*'",
+        "by_time": "find ~/.phishri/knowledge/CONTEXTS -mmin -60 -name '*.json'",
+        "count_diff": "Compare 'find | wc -l' between locations"
+      },
+      "gotchas": [
+        "MCP may create doors with LF, git may convert to CRLF (harmless warning)",
+        "Always rebuild indexes after adding doors",
+        "Check for duplicate door_codes before copying"
+      ]
+    }
+  }
+}

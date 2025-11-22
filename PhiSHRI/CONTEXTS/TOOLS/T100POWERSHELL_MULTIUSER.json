@@ -1,0 +1,29 @@
+{
+  "door_code": "T100POWERSHELL_MULTIUSER",
+  "semantic_path": "TOOLS.POWERSHELL.MULTIUSER_DETECTION",
+  "aliases": ["multi-user windows", "user profile detection", "microsoft account vs local"],
+  "context_bundle": {
+    "summary": "PowerShell patterns for detecting and handling multiple Windows user profiles",
+    "prerequisites": [],
+    "related_doors": ["T101POWERSHELL_JSON", "E34USER_MISMATCH"],
+    "onboarding": {
+      "quick_start": "$env:USERPROFILE returns session user, but apps may run under different account",
+      "core_problem": "Claude Desktop runs under Microsoft account, script runs under local account",
+      "detection_pattern": {
+        "scan_all_users": "Get-ChildItem 'C:\\Users' -Directory | Where-Object { $_.Name -notin @('Public','Default','Default User','All Users') }",
+        "check_app_exists": "Test-Path (Join-Path $userPath 'AppData\\Roaming\\AppName')",
+        "explicit_string_cast": "[string]$userFolder.Name (prevents null/empty in PSCustomObject)"
+      },
+      "menu_pattern": {
+        "code": "for ($i = 0; $i -lt $configs.Count; $i++) { Write-Host \"[$($i+1)] $($configs[$i].User)\" }",
+        "marker_current": "if ($userName -eq $env:USERNAME) { ' (current)' }",
+        "show_path": "Write-Host \"  -> $($cfg.RoamingDir)\" -ForegroundColor DarkGray"
+      },
+      "gotchas": [
+        "Hashtable properties can be null, PSCustomObject more reliable",
+        "Always use [string] cast when storing folder names",
+        "Check both Roaming AND Local AppData locations"
+      ]
+    }
+  }
+}
