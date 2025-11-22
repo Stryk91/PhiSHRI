@@ -1,0 +1,17 @@
+{
+  "door_code": "E32QUEUE_OVERFLOW",
+  "semantic_path": "ERRORS.MESSAGING.QUEUE_OVERFLOW",
+  "title": "Queue Overflow",
+  "aliases": [],
+  "context_bundle": {
+    "summary": "Message queue overflow handling",
+    "content": "Queue overflow prevention and recovery.\n\nSymptoms:\n- Producer blocks/errors\n- Disk space exhaustion\n- Consumer lag increasing\n- Message age alerts\n\nCauses:\n- Consumer slower than producer\n- Consumer failures\n- Sudden traffic spike\n- Retention too long\n\nSolutions:\n- Back pressure to producers\n- Auto-scaling consumers\n- Dead letter queues\n- Message TTL\n- Priority queues\n\nRecovery:\n- Add consumers\n- Purge old messages (careful!)\n- Increase storage\n- Temporary rate limiting",
+    "prerequisites": [],
+    "related_doors": []
+  },
+  "metadata": {
+    "category": "ERRORS",
+    "version": "1.0",
+    "tokens_estimate": 94.9
+  }
+}

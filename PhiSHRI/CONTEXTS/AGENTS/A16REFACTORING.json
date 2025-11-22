@@ -1,0 +1,17 @@
+{
+  "door_code": "A16REFACTORING",
+  "semantic_path": "AGENTS.SPECIALIZED.REFACTORING",
+  "title": "Refactoring Agent",
+  "aliases": [],
+  "context_bundle": {
+    "summary": "AI agent for code refactoring",
+    "content": "Refactoring agent patterns.\n\nSafe Refactors:\n- Extract method/class\n- Rename for clarity\n- Remove dead code\n- Simplify conditionals\n\nRisky Refactors:\n- Change data structures\n- Modify public APIs\n- Database schema changes\n- Cross-cutting concerns\n\nProcess:\n1. Ensure test coverage\n2. Small incremental changes\n3. Run tests after each change\n4. Commit frequently",
+    "prerequisites": [],
+    "related_doors": []
+  },
+  "metadata": {
+    "category": "AGENTS",
+    "version": "1.0",
+    "tokens_estimate": 70.2
+  }
+}

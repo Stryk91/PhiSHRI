@@ -1,0 +1,17 @@
+{
+  "door_code": "P13PLATFORM_TEAM",
+  "semantic_path": "PROJECTS.ORGANIZATION.PLATFORM",
+  "title": "Platform Team Setup",
+  "aliases": [],
+  "context_bundle": {
+    "summary": "Establishing internal platform teams",
+    "content": "Platform team establishment guide.\n\nMission: Enable product teams to deliver faster through self-service infrastructure.\n\nCore Offerings:\n- CI/CD pipelines as code\n- Infrastructure templates\n- Observability stack\n- Security scanning\n\nTeam Structure:\n- Platform engineers (4-6)\n- Developer advocates (1-2)\n- Product manager (1)\n\nSuccess Metrics:\n- Time to first deploy (new team)\n- Deployment frequency\n- Lead time for changes\n- Developer satisfaction (NPS)",
+    "prerequisites": [],
+    "related_doors": []
+  },
+  "metadata": {
+    "category": "PROJECTS",
+    "version": "1.0",
+    "tokens_estimate": 84.5
+  }
+}

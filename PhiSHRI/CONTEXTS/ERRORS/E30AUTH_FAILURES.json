@@ -1,0 +1,17 @@
+{
+  "door_code": "E30AUTH_FAILURES",
+  "semantic_path": "ERRORS.SECURITY.AUTH_FAILURES",
+  "title": "Authentication Failures",
+  "aliases": [],
+  "context_bundle": {
+    "summary": "Handling authentication errors",
+    "content": "Authentication error handling.\n\nError Types:\n- 401: Not authenticated\n- 403: Not authorized\n- Token expired\n- Token invalid\n- MFA required\n\nHandling:\n- Clear error messages (without leaking info)\n- Automatic token refresh\n- Graceful session expiry\n- MFA flow handling\n\nSecurity:\n- Rate limit login attempts\n- Log auth failures\n- Alert on anomalies\n- Invalidate compromised tokens",
+    "prerequisites": [],
+    "related_doors": []
+  },
+  "metadata": {
+    "category": "ERRORS",
+    "version": "1.0",
+    "tokens_estimate": 78.0
+  }
+}

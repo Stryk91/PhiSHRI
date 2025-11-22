@@ -1,0 +1,17 @@
+{
+  "door_code": "R40BFF",
+  "semantic_path": "ARCHITECTURE.PATTERNS.BFF",
+  "title": "Backend for Frontend",
+  "aliases": [],
+  "context_bundle": {
+    "summary": "BFF pattern for multiple clients",
+    "content": "Backend for Frontend (BFF) pattern.\n\nConcept:\nDedicated backend per frontend type (web, mobile, IoT).\n\nStructure:\n- Mobile BFF: Optimized for bandwidth, battery\n- Web BFF: Rich responses, SSR support\n- Admin BFF: Full data access, batch operations\n\nEach BFF:\n- Aggregates microservice calls\n- Formats responses for client needs\n- Handles client-specific auth\n- Owns its own API contract\n\nBenefits:\n- Client-optimized APIs\n- Independent evolution\n- Team autonomy\n\nChallenges:\n- Code duplication across BFFs\n- Synchronizing shared logic",
+    "prerequisites": [],
+    "related_doors": []
+  },
+  "metadata": {
+    "category": "ARCHITECTURE",
+    "version": "1.0",
+    "tokens_estimate": 102.7
+  }
+}

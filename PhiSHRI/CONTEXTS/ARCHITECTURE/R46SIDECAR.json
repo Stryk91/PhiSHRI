@@ -1,0 +1,17 @@
+{
+  "door_code": "R46SIDECAR",
+  "semantic_path": "ARCHITECTURE.PATTERNS.SIDECAR",
+  "title": "Sidecar Pattern",
+  "aliases": [],
+  "context_bundle": {
+    "summary": "Auxiliary container pattern",
+    "content": "Sidecar pattern for cross-cutting concerns.\n\nConcept:\nDeploy helper container alongside main application container.\n\nUse Cases:\n- Service mesh proxy (Envoy)\n- Log collection (Fluentd)\n- Config sync (consul-template)\n- SSL termination\n- Metrics collection\n\nBenefits:\n- Language-agnostic features\n- Separate lifecycle\n- Reusable across services\n- Main app stays simple\n\nKubernetes:\nPod with multiple containers sharing:\n- Network namespace\n- Volume mounts\n- Lifecycle\n\nExample:\n- App container: Port 8080\n- Envoy sidecar: Port 15001 (proxy)\n- Fluentd sidecar: Reads /var/log",
+    "prerequisites": [],
+    "related_doors": []
+  },
+  "metadata": {
+    "category": "ARCHITECTURE",
+    "version": "1.0",
+    "tokens_estimate": 105.3
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "door_code": "E29STATE_CORRUPTION",
+  "semantic_path": "ERRORS.DATA.STATE_CORRUPTION",
+  "title": "State Corruption",
+  "aliases": [],
+  "context_bundle": {
+    "summary": "Detecting and recovering from state corruption",
+    "content": "State corruption handling.\n\nDetection:\n- Checksum validation\n- Schema validation\n- Invariant checks\n- Audit log comparison\n\nRecovery:\n1. Identify corruption scope\n2. Find last known good state\n3. Replay events/transactions\n4. Validate recovered state\n\nPrevention:\n- Immutable data structures\n- Event sourcing\n- Snapshot + WAL\n- Idempotent operations",
+    "prerequisites": [],
+    "related_doors": []
+  },
+  "metadata": {
+    "category": "ERRORS",
+    "version": "1.0",
+    "tokens_estimate": 65.0
+  }
+}

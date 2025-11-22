@@ -1,2294 +1,502 @@
 {
-  "W158FEATURE_STORE": {
-    "door_code": "W158FEATURE_STORE",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W158FEATURE_STORE.json",
-    "category": "WORKFLOWS",
-    "short_code": "W158"
-  },
-  "R04EVENT_DRIVEN": {
-    "door_code": "R04EVENT_DRIVEN",
-    "file_path": "CONTEXTS\\ARCHITECTURE\\R04EVENT_DRIVEN.json",
-    "category": "ARCHITECTURE",
-    "short_code": "R04"
-  },
-  "T05MCP_ARCH": {
-    "door_code": "T05MCP_ARCH",
-    "file_path": "CONTEXTS\\TOOLS\\T05MCP_ARCH.json",
-    "category": "TOOLS",
-    "short_code": "T05"
-  },
-  "T50PROMETHEUS": {
-    "door_code": "T50PROMETHEUS",
-    "file_path": "CONTEXTS\\TOOLS\\T50PROMETHEUS.json",
-    "category": "TOOLS",
-    "short_code": "T50"
-  },
-  "E04TIMEOUT": {
-    "door_code": "E04TIMEOUT",
-    "file_path": "CONTEXTS\\ERRORS\\E04TIMEOUT.json",
-    "category": "ERRORS",
-    "short_code": "E04"
-  },
-  "E06CIRCUIT_BREAKER": {
-    "door_code": "E06CIRCUIT_BREAKER",
-    "file_path": "CONTEXTS\\ERRORS\\E06CIRCUIT_BREAKER.json",
-    "category": "ERRORS",
-    "short_code": "E06"
-  },
-  "P01WAVE": {
-    "door_code": "P01WAVE",
-    "file_path": "CONTEXTS\\PROJECTS\\P01WAVE.json",
-    "category": "PROJECTS",
-    "short_code": "P01"
-  },
-  "W85TRACING": {
-    "door_code": "W85TRACING",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W85TRACING.json",
-    "category": "WORKFLOWS",
-    "short_code": "W85"
-  },
-  "W100SCHEDULING": {
-    "door_code": "W100SCHEDULING",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W100SCHEDULING.json",
-    "category": "WORKFLOWS",
-    "short_code": "W100"
-  },
-  "S10CORS": {
-    "door_code": "S10CORS",
-    "file_path": "CONTEXTS\\SECURITY\\S10CORS.json",
-    "category": "SECURITY",
-    "short_code": "S10"
-  },
-  "W109TEST_COVERAGE": {
-    "door_code": "W109TEST_COVERAGE",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W109TEST_COVERAGE.json",
-    "category": "WORKFLOWS",
-    "short_code": "W109"
-  },
-  "W164DATA_GOVERNANCE": {
-    "door_code": "W164DATA_GOVERNANCE",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W164DATA_GOVERNANCE.json",
-    "category": "WORKFLOWS",
-    "short_code": "W164"
-  },
-  "R23DDD": {
-    "door_code": "R23DDD",
-    "file_path": "CONTEXTS\\ARCHITECTURE\\R23DDD.json",
-    "category": "ARCHITECTURE",
-    "short_code": "R23"
-  },
-  "W72CACHING": {
-    "door_code": "W72CACHING",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W72CACHING.json",
-    "category": "WORKFLOWS",
-    "short_code": "W72"
-  },
-  "W160SCHEMA_REGISTRY": {
-    "door_code": "W160SCHEMA_REGISTRY",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W160SCHEMA_REGISTRY.json",
-    "category": "WORKFLOWS",
-    "short_code": "W160"
-  },
-  "W45CHEF": {
-    "door_code": "W45CHEF",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W45CHEF.json",
-    "category": "WORKFLOWS",
-    "short_code": "W45"
-  },
-  "R12STRATEGY_PATTERN": {
-    "door_code": "R12STRATEGY_PATTERN",
-    "file_path": "CONTEXTS\\ARCHITECTURE\\R12STRATEGY_PATTERN.json",
-    "category": "ARCHITECTURE",
-    "short_code": "R12"
-  },
-  "W40CRON": {
-    "door_code": "W40CRON",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W40CRON.json",
-    "category": "WORKFLOWS",
-    "short_code": "W40"
-  },
-  "S39CLOUD_NETWORK": {
-    "door_code": "S39CLOUD_NETWORK",
-    "file_path": "CONTEXTS\\SECURITY\\S39CLOUD_NETWORK.json",
-    "category": "SECURITY",
-    "short_code": "S39"
-  },
-  "R31FANOUT_PATTERN": {
-    "door_code": "R31FANOUT_PATTERN",
-    "file_path": "CONTEXTS\\ARCHITECTURE\\R31FANOUT_PATTERN.json",
-    "category": "ARCHITECTURE",
-    "short_code": "R31"
-  },
-  "S43SERVICE_MESH_SEC": {
-    "door_code": "S43SERVICE_MESH_SEC",
-    "file_path": "CONTEXTS\\SECURITY\\S43SERVICE_MESH_SEC.json",
-    "category": "SECURITY",
-    "short_code": "S43"
-  },
-  "S23XML_INJECTION": {
-    "door_code": "S23XML_INJECTION",
-    "file_path": "CONTEXTS\\SECURITY\\S23XML_INJECTION.json",
-    "category": "SECURITY",
-    "short_code": "S23"
-  },
-  "S15AUDIT_LOGGING": {
-    "door_code": "S15AUDIT_LOGGING",
-    "file_path": "CONTEXTS\\SECURITY\\S15AUDIT_LOGGING.json",
-    "category": "SECURITY",
-    "short_code": "S15"
-  },
-  "D01WIX": {
-    "door_code": "D01WIX",
-    "file_path": "CONTEXTS\\TOOLS\\D01WIX.json",
-    "category": "TOOLS",
-    "short_code": "D01"
-  },
-  "W101FILE_PROCESSING": {
-    "door_code": "W101FILE_PROCESSING",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W101FILE_PROCESSING.json",
-    "category": "WORKFLOWS",
-    "short_code": "W101"
-  },
-  "D10NOTARIZATION": {
-    "door_code": "D10NOTARIZATION",
-    "file_path": "CONTEXTS\\TOOLS\\D10NOTARIZATION.json",
-    "category": "TOOLS",
-    "short_code": "D10"
-  },
-  "W90BATCH_PROCESSING": {
-    "door_code": "W90BATCH_PROCESSING",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W90BATCH_PROCESSING.json",
-    "category": "WORKFLOWS",
-    "short_code": "W90"
-  },
-  "E09VALIDATION_ERRORS": {
-    "door_code": "E09VALIDATION_ERRORS",
-    "file_path": "CONTEXTS\\ERRORS\\E09VALIDATION_ERRORS.json",
-    "category": "ERRORS",
-    "short_code": "E09"
-  },
-  "S32CLICKJACKING": {
-    "door_code": "S32CLICKJACKING",
-    "file_path": "CONTEXTS\\SECURITY\\S32CLICKJACKING.json",
-    "category": "SECURITY",
-    "short_code": "S32"
-  },
-  "S09RBAC": {
-    "door_code": "S09RBAC",
-    "file_path": "CONTEXTS\\SECURITY\\S09RBAC.json",
-    "category": "SECURITY",
-    "short_code": "S09"
-  },
-  "T01MCP": {
-    "door_code": "T01MCP",
-    "file_path": "CONTEXTS\\TOOLS\\T01MCP.json",
-    "category": "TOOLS",
-    "short_code": "T01"
-  },
-  "W119PUBSUB": {
-    "door_code": "W119PUBSUB",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W119PUBSUB.json",
-    "category": "WORKFLOWS",
-    "short_code": "W119"
-  },
-  "W23MARKDOWN_PROMPT": {
-    "door_code": "W23MARKDOWN_PROMPT",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W23MARKDOWN_PROMPT.json",
-    "category": "WORKFLOWS",
-    "short_code": "W23"
-  },
-  "W30RAG": {
-    "door_code": "W30RAG",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W30RAG.json",
-    "category": "WORKFLOWS",
-    "short_code": "W30"
-  },
-  "W79REST_API": {
-    "door_code": "W79REST_API",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W79REST_API.json",
-    "category": "WORKFLOWS",
-    "short_code": "W79"
-  },
-  "D04PKG": {
-    "door_code": "D04PKG",
-    "file_path": "CONTEXTS\\TOOLS\\D04PKG.json",
-    "category": "TOOLS",
-    "short_code": "D04"
-  },
-  "R09FACTORY_PATTERN": {
-    "door_code": "R09FACTORY_PATTERN",
-    "file_path": "CONTEXTS\\ARCHITECTURE\\R09FACTORY_PATTERN.json",
-    "category": "ARCHITECTURE",
-    "short_code": "R09"
-  },
-  "T49TRAEFIK": {
-    "door_code": "T49TRAEFIK",
-    "file_path": "CONTEXTS\\TOOLS\\T49TRAEFIK.json",
-    "category": "TOOLS",
-    "short_code": "T49"
-  },
-  "W43ANSIBLE": {
-    "door_code": "W43ANSIBLE",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W43ANSIBLE.json",
-    "category": "WORKFLOWS",
-    "short_code": "W43"
-  },
-  "W110LAZY_LOADING": {
-    "door_code": "W110LAZY_LOADING",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W110LAZY_LOADING.json",
-    "category": "WORKFLOWS",
-    "short_code": "W110"
-  },
-  "W135CIRCUIT_BREAKER": {
-    "door_code": "W135CIRCUIT_BREAKER",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W135CIRCUIT_BREAKER.json",
-    "category": "WORKFLOWS",
-    "short_code": "W135"
-  },
-  "W35MONOREPO": {
-    "door_code": "W35MONOREPO",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W35MONOREPO.json",
-    "category": "WORKFLOWS",
-    "short_code": "W35"
-  },
-  "S17ZERO_TRUST": {
-    "door_code": "S17ZERO_TRUST",
-    "file_path": "CONTEXTS\\SECURITY\\S17ZERO_TRUST.json",
-    "category": "SECURITY",
-    "short_code": "S17"
-  },
-  "T26KUBERNETES": {
-    "door_code": "T26KUBERNETES",
-    "file_path": "CONTEXTS\\TOOLS\\T26KUBERNETES.json",
-    "category": "TOOLS",
-    "short_code": "T26"
-  },
-  "E02ENCODE": {
-    "door_code": "E02ENCODE",
-    "file_path": "CONTEXTS\\ERRORS\\E02ENCODE.json",
-    "category": "ERRORS",
-    "short_code": "E02"
-  },
-  "W36GITHUB_ACTIONS": {
-    "door_code": "W36GITHUB_ACTIONS",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W36GITHUB_ACTIONS.json",
-    "category": "WORKFLOWS",
-    "short_code": "W36"
-  },
-  "W77MEMORY_MGMT": {
-    "door_code": "W77MEMORY_MGMT",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W77MEMORY_MGMT.json",
-    "category": "WORKFLOWS",
-    "short_code": "W77"
-  },
-  "W25FEW_SHOT": {
-    "door_code": "W25FEW_SHOT",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W25FEW_SHOT.json",
-    "category": "WORKFLOWS",
-    "short_code": "W25"
-  },
-  "W83PAGINATION": {
-    "door_code": "W83PAGINATION",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W83PAGINATION.json",
-    "category": "WORKFLOWS",
-    "short_code": "W83"
-  },
-  "W32HYBRID_RAG": {
-    "door_code": "W32HYBRID_RAG",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W32HYBRID_RAG.json",
-    "category": "WORKFLOWS",
-    "short_code": "W32"
-  },
-  "W06WMI": {
-    "door_code": "W06WMI",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W06WMI.json",
-    "category": "WORKFLOWS",
-    "short_code": "W06"
-  },
-  "W34COMMIT_MSG": {
-    "door_code": "W34COMMIT_MSG",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W34COMMIT_MSG.json",
-    "category": "WORKFLOWS",
-    "short_code": "W34"
-  },
-  "E12MEMORY_ERRORS": {
-    "door_code": "E12MEMORY_ERRORS",
-    "file_path": "CONTEXTS\\ERRORS\\E12MEMORY_ERRORS.json",
-    "category": "ERRORS",
-    "short_code": "E12"
-  },
-  "T38ISTIO": {
-    "door_code": "T38ISTIO",
-    "file_path": "CONTEXTS\\TOOLS\\T38ISTIO.json",
-    "category": "TOOLS",
-    "short_code": "T38"
-  },
-  "830WINAUTOSUITE": {
-    "door_code": "830WINAUTOSUITE",
-    "file_path": "CONTEXTS\\TOOLS\\830WINAUTOSUITE.json",
-    "category": "TOOLS",
-    "short_code": "830"
-  },
-  "T16GRAFANA": {
-    "door_code": "T16GRAFANA",
-    "file_path": "CONTEXTS\\TOOLS\\T16GRAFANA.json",
-    "category": "TOOLS",
-    "short_code": "T16"
-  },
-  "W81GRPC": {
-    "door_code": "W81GRPC",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W81GRPC.json",
-    "category": "WORKFLOWS",
-    "short_code": "W81"
-  },
-  "T74IMAGE_AUTOMATION": {
-    "door_code": "T74IMAGE_AUTOMATION",
-    "file_path": "CONTEXTS\\TOOLS\\T74IMAGE_AUTOMATION.json",
-    "category": "TOOLS",
-    "short_code": "T74"
-  },
-  "W66COVERAGE": {
-    "door_code": "W66COVERAGE",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W66COVERAGE.json",
-    "category": "WORKFLOWS",
-    "short_code": "W66"
-  },
-  "T54DATADOG": {
-    "door_code": "T54DATADOG",
-    "file_path": "CONTEXTS\\TOOLS\\T54DATADOG.json",
-    "category": "TOOLS",
-    "short_code": "T54"
-  },
-  "W18POM": {
-    "door_code": "W18POM",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W18POM.json",
-    "category": "WORKFLOWS",
-    "short_code": "W18"
-  },
-  "T27VAULT": {
-    "door_code": "T27VAULT",
-    "file_path": "CONTEXTS\\TOOLS\\T27VAULT.json",
-    "category": "TOOLS",
-    "short_code": "T27"
-  },
-  "E05RETRY": {
-    "door_code": "E05RETRY",
-    "file_path": "CONTEXTS\\ERRORS\\E05RETRY.json",
-    "category": "ERRORS",
-    "short_code": "E05"
-  },
-  "T70FLUX": {
-    "door_code": "T70FLUX",
-    "file_path": "CONTEXTS\\TOOLS\\T70FLUX.json",
-    "category": "TOOLS",
-    "short_code": "T70"
-  },
-  "T36ARGOCD": {
-    "door_code": "T36ARGOCD",
-    "file_path": "CONTEXTS\\TOOLS\\T36ARGOCD.json",
-    "category": "TOOLS",
-    "short_code": "T36"
-  },
-  "W17PARALLEL": {
-    "door_code": "W17PARALLEL",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W17PARALLEL.json",
-    "category": "WORKFLOWS",
-    "short_code": "W17"
-  },
-  "S21DESERIALIZATION": {
-    "door_code": "S21DESERIALIZATION",
-    "file_path": "CONTEXTS\\SECURITY\\S21DESERIALIZATION.json",
-    "category": "SECURITY",
-    "short_code": "S21"
-  },
-  "W112BACKPRESSURE": {
-    "door_code": "W112BACKPRESSURE",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W112BACKPRESSURE.json",
-    "category": "WORKFLOWS",
-    "short_code": "W112"
-  },
-  "W54REDIS": {
-    "door_code": "W54REDIS",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W54REDIS.json",
-    "category": "WORKFLOWS",
-    "short_code": "W54"
-  },
-  "T19KAFKA": {
-    "door_code": "T19KAFKA",
-    "file_path": "CONTEXTS\\TOOLS\\T19KAFKA.json",
-    "category": "TOOLS",
-    "short_code": "T19"
-  },
-  "T42KUSTOMIZE": {
-    "door_code": "T42KUSTOMIZE",
-    "file_path": "CONTEXTS\\TOOLS\\T42KUSTOMIZE.json",
-    "category": "TOOLS",
-    "short_code": "T42"
-  },
-  "W105TEST_FIXTURES": {
-    "door_code": "W105TEST_FIXTURES",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W105TEST_FIXTURES.json",
-    "category": "WORKFLOWS",
-    "short_code": "W105"
-  },
-  "T35DOCKER_ADV": {
-    "door_code": "T35DOCKER_ADV",
-    "file_path": "CONTEXTS\\TOOLS\\T35DOCKER_ADV.json",
-    "category": "TOOLS",
-    "short_code": "T35"
-  },
-  "R05SERVERLESS": {
-    "door_code": "R05SERVERLESS",
-    "file_path": "CONTEXTS\\ARCHITECTURE\\R05SERVERLESS.json",
-    "category": "ARCHITECTURE",
-    "short_code": "R05"
-  },
-  "W128DEAD_LETTER": {
-    "door_code": "W128DEAD_LETTER",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W128DEAD_LETTER.json",
-    "category": "WORKFLOWS",
-    "short_code": "W128"
-  },
-  "A05KALIC": {
-    "door_code": "A05KALIC",
-    "file_path": "CONTEXTS\\AGENTS\\A05KALIC.json",
-    "category": "AGENTS",
-    "short_code": "A05"
-  },
-  "W139EVENT_SOURCING": {
-    "door_code": "W139EVENT_SOURCING",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W139EVENT_SOURCING.json",
-    "category": "WORKFLOWS",
-    "short_code": "W139"
-  },
-  "R25CLOUD_NATIVE": {
-    "door_code": "R25CLOUD_NATIVE",
-    "file_path": "CONTEXTS\\ARCHITECTURE\\R25CLOUD_NATIVE.json",
-    "category": "ARCHITECTURE",
-    "short_code": "R25"
-  },
-  "R30PUBSUB_ARCH": {
-    "door_code": "R30PUBSUB_ARCH",
-    "file_path": "CONTEXTS\\ARCHITECTURE\\R30PUBSUB_ARCH.json",
-    "category": "ARCHITECTURE",
-    "short_code": "R30"
-  },
-  "W131CSP": {
-    "door_code": "W131CSP",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W131CSP.json",
-    "category": "WORKFLOWS",
-    "short_code": "W131"
-  },
-  "W76OPTIMIZE_DB": {
-    "door_code": "W76OPTIMIZE_DB",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W76OPTIMIZE_DB.json",
-    "category": "WORKFLOWS",
-    "short_code": "W76"
-  },
-  "W137RATE_LIMIT": {
-    "door_code": "W137RATE_LIMIT",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W137RATE_LIMIT.json",
-    "category": "WORKFLOWS",
-    "short_code": "W137"
-  },
-  "W80GRAPHQL": {
-    "door_code": "W80GRAPHQL",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W80GRAPHQL.json",
-    "category": "WORKFLOWS",
-    "short_code": "W80"
-  },
-  "T35KUSTOMIZE": {
-    "door_code": "T35KUSTOMIZE",
-    "file_path": "CONTEXTS\\TOOLS\\T35KUSTOMIZE.json",
-    "category": "TOOLS",
-    "short_code": "T35"
-  },
-  "W65JEST": {
-    "door_code": "W65JEST",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W65JEST.json",
-    "category": "WORKFLOWS",
-    "short_code": "W65"
-  },
-  "T17PROMETHEUS": {
-    "door_code": "T17PROMETHEUS",
-    "file_path": "CONTEXTS\\TOOLS\\T17PROMETHEUS.json",
-    "category": "TOOLS",
-    "short_code": "T17"
-  },
-  "W57ELASTICSEARCH": {
-    "door_code": "W57ELASTICSEARCH",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W57ELASTICSEARCH.json",
-    "category": "WORKFLOWS",
-    "short_code": "W57"
-  },
-  "T31GITLAB_CI": {
-    "door_code": "T31GITLAB_CI",
-    "file_path": "CONTEXTS\\TOOLS\\T31GITLAB_CI.json",
-    "category": "TOOLS",
-    "short_code": "T31"
-  },
-  "T37CONTAINERD": {
-    "door_code": "T37CONTAINERD",
-    "file_path": "CONTEXTS\\TOOLS\\T37CONTAINERD.json",
-    "category": "TOOLS",
-    "short_code": "T37"
-  },
-  "T77KRATIX": {
-    "door_code": "T77KRATIX",
-    "file_path": "CONTEXTS\\TOOLS\\T77KRATIX.json",
-    "category": "TOOLS",
-    "short_code": "T77"
-  },
-  "A04WEBC": {
-    "door_code": "A04WEBC",
-    "file_path": "CONTEXTS\\AGENTS\\A04WEBC.json",
-    "category": "AGENTS",
-    "short_code": "A04"
-  },
-  "R28CDN_PATTERNS": {
-    "door_code": "R28CDN_PATTERNS",
-    "file_path": "CONTEXTS\\ARCHITECTURE\\R28CDN_PATTERNS.json",
-    "category": "ARCHITECTURE",
-    "short_code": "R28"
-  },
-  "W47DOCKER_COMPOSE": {
-    "door_code": "W47DOCKER_COMPOSE",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W47DOCKER_COMPOSE.json",
-    "category": "WORKFLOWS",
-    "short_code": "W47"
-  },
-  "W89DATA_VALIDATION": {
-    "door_code": "W89DATA_VALIDATION",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W89DATA_VALIDATION.json",
-    "category": "WORKFLOWS",
-    "short_code": "W89"
-  },
-  "R26SERVERLESS_ARCH": {
-    "door_code": "R26SERVERLESS_ARCH",
-    "file_path": "CONTEXTS\\ARCHITECTURE\\R26SERVERLESS_ARCH.json",
-    "category": "ARCHITECTURE",
-    "short_code": "R26"
-  },
-  "W125CHOREOGRAPHY": {
-    "door_code": "W125CHOREOGRAPHY",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W125CHOREOGRAPHY.json",
-    "category": "WORKFLOWS",
-    "short_code": "W125"
-  },
-  "T38BUILDAH": {
-    "door_code": "T38BUILDAH",
-    "file_path": "CONTEXTS\\TOOLS\\T38BUILDAH.json",
-    "category": "TOOLS",
-    "short_code": "T38"
-  },
-  "R19MVC": {
-    "door_code": "R19MVC",
-    "file_path": "CONTEXTS\\ARCHITECTURE\\R19MVC.json",
-    "category": "ARCHITECTURE",
-    "short_code": "R19"
-  },
-  "T10OBSERVABILITY": {
-    "door_code": "T10OBSERVABILITY",
-    "file_path": "CONTEXTS\\TOOLS\\T10OBSERVABILITY.json",
-    "category": "TOOLS",
-    "short_code": "T10"
-  },
-  "W29CONTEXT_WINDOW": {
-    "door_code": "W29CONTEXT_WINDOW",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W29CONTEXT_WINDOW.json",
-    "category": "WORKFLOWS",
-    "short_code": "W29"
-  },
-  "S26BROKEN_ACCESS": {
-    "door_code": "S26BROKEN_ACCESS",
-    "file_path": "CONTEXTS\\SECURITY\\S26BROKEN_ACCESS.json",
-    "category": "SECURITY",
-    "short_code": "S26"
-  },
-  "W149POSTMORTEM": {
-    "door_code": "W149POSTMORTEM",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W149POSTMORTEM.json",
-    "category": "WORKFLOWS",
-    "short_code": "W149"
-  },
-  "T60TERRAFORM": {
-    "door_code": "T60TERRAFORM",
-    "file_path": "CONTEXTS\\TOOLS\\T60TERRAFORM.json",
-    "category": "TOOLS",
-    "short_code": "T60"
-  },
-  "W05RUNSPACE": {
-    "door_code": "W05RUNSPACE",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W05RUNSPACE.json",
-    "category": "WORKFLOWS",
-    "short_code": "W05"
-  },
-  "T56LOKI": {
-    "door_code": "T56LOKI",
-    "file_path": "CONTEXTS\\TOOLS\\T56LOKI.json",
-    "category": "TOOLS",
-    "short_code": "T56"
-  },
-  "W15CICD": {
-    "door_code": "W15CICD",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W15CICD.json",
-    "category": "WORKFLOWS",
-    "short_code": "W15"
-  },
-  "W93SELENIUM": {
-    "door_code": "W93SELENIUM",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W93SELENIUM.json",
-    "category": "WORKFLOWS",
-    "short_code": "W93"
-  },
-  "W33GIT_BRANCH": {
-    "door_code": "W33GIT_BRANCH",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W33GIT_BRANCH.json",
-    "category": "WORKFLOWS",
-    "short_code": "W33"
-  },
-  "W104MOCKING": {
-    "door_code": "W104MOCKING",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W104MOCKING.json",
-    "category": "WORKFLOWS",
-    "short_code": "W104"
-  },
-  "W64PYTEST": {
-    "door_code": "W64PYTEST",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W64PYTEST.json",
-    "category": "WORKFLOWS",
-    "short_code": "W64"
-  },
-  "W157DATA_LINEAGE": {
-    "door_code": "W157DATA_LINEAGE",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W157DATA_LINEAGE.json",
-    "category": "WORKFLOWS",
-    "short_code": "W157"
-  },
-  "W37GITLAB_CI": {
-    "door_code": "W37GITLAB_CI",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W37GITLAB_CI.json",
-    "category": "WORKFLOWS",
-    "short_code": "W37"
-  },
-  "W86METRICS": {
-    "door_code": "W86METRICS",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W86METRICS.json",
-    "category": "WORKFLOWS",
-    "short_code": "W86"
-  },
-  "R24MULTI_CLOUD": {
-    "door_code": "R24MULTI_CLOUD",
-    "file_path": "CONTEXTS\\ARCHITECTURE\\R24MULTI_CLOUD.json",
-    "category": "ARCHITECTURE",
-    "short_code": "R24"
-  },
-  "D14COMPLIANCE_SCAN": {
-    "door_code": "D14COMPLIANCE_SCAN",
-    "file_path": "CONTEXTS\\TOOLS\\D14COMPLIANCE_SCAN.json",
-    "category": "TOOLS",
-    "short_code": "D14"
-  },
-  "T42ZIPKIN": {
-    "door_code": "T42ZIPKIN",
-    "file_path": "CONTEXTS\\TOOLS\\T42ZIPKIN.json",
-    "category": "TOOLS",
-    "short_code": "T42"
-  },
-  "T44DATADOG": {
-    "door_code": "T44DATADOG",
-    "file_path": "CONTEXTS\\TOOLS\\T44DATADOG.json",
-    "category": "TOOLS",
-    "short_code": "T44"
-  },
-  "T61PULUMI": {
-    "door_code": "T61PULUMI",
-    "file_path": "CONTEXTS\\TOOLS\\T61PULUMI.json",
-    "category": "TOOLS",
-    "short_code": "T61"
-  },
-  "T46LINKERD": {
-    "door_code": "T46LINKERD",
-    "file_path": "CONTEXTS\\TOOLS\\T46LINKERD.json",
-    "category": "TOOLS",
-    "short_code": "T46"
-  },
-  "W98MESSAGE_QUEUE": {
-    "door_code": "W98MESSAGE_QUEUE",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W98MESSAGE_QUEUE.json",
-    "category": "WORKFLOWS",
-    "short_code": "W98"
-  },
-  "T07VSCODE_EXT": {
-    "door_code": "T07VSCODE_EXT",
-    "file_path": "CONTEXTS\\TOOLS\\T07VSCODE_EXT.json",
-    "category": "TOOLS",
-    "short_code": "T07"
-  },
-  "W107CONTRACT_TESTING": {
-    "door_code": "W107CONTRACT_TESTING",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W107CONTRACT_TESTING.json",
-    "category": "WORKFLOWS",
-    "short_code": "W107"
-  },
-  "R02DISTRIB": {
-    "door_code": "R02DISTRIB",
-    "file_path": "CONTEXTS\\ARCHITECTURE\\R02DISTRIB.json",
-    "category": "ARCHITECTURE",
-    "short_code": "R02"
-  },
-  "T08API_PATTERN": {
-    "door_code": "T08API_PATTERN",
-    "file_path": "CONTEXTS\\TOOLS\\T08API_PATTERN.json",
-    "category": "TOOLS",
-    "short_code": "T08"
-  },
-  "W14GIT": {
-    "door_code": "W14GIT",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W14GIT.json",
-    "category": "WORKFLOWS",
-    "short_code": "W14"
-  },
-  "T30GITLAB": {
-    "door_code": "T30GITLAB",
-    "file_path": "CONTEXTS\\TOOLS\\T30GITLAB.json",
-    "category": "TOOLS",
-    "short_code": "T30"
-  },
-  "T79PLATFORM_TEAMS": {
-    "door_code": "T79PLATFORM_TEAMS",
-    "file_path": "CONTEXTS\\TOOLS\\T79PLATFORM_TEAMS.json",
-    "category": "TOOLS",
-    "short_code": "T79"
-  },
-  "W154CAPACITY": {
-    "door_code": "W154CAPACITY",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W154CAPACITY.json",
-    "category": "WORKFLOWS",
-    "short_code": "W154"
-  },
-  "W84LOGGING": {
-    "door_code": "W84LOGGING",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W84LOGGING.json",
-    "category": "WORKFLOWS",
-    "short_code": "W84"
-  },
-  "R22CLEAN_ARCH": {
-    "door_code": "R22CLEAN_ARCH",
-    "file_path": "CONTEXTS\\ARCHITECTURE\\R22CLEAN_ARCH.json",
-    "category": "ARCHITECTURE",
-    "short_code": "R22"
-  },
-  "T75BACKSTAGE": {
-    "door_code": "T75BACKSTAGE",
-    "file_path": "CONTEXTS\\TOOLS\\T75BACKSTAGE.json",
-    "category": "TOOLS",
-    "short_code": "T75"
-  },
-  "S14ENCRYPTION": {
-    "door_code": "S14ENCRYPTION",
-    "file_path": "CONTEXTS\\SECURITY\\S14ENCRYPTION.json",
-    "category": "SECURITY",
-    "short_code": "S14"
-  },
-  "D03SIGN": {
-    "door_code": "D03SIGN",
-    "file_path": "CONTEXTS\\TOOLS\\D03SIGN.json",
-    "category": "TOOLS",
-    "short_code": "D03"
-  },
-  "W26SYSTEM_PROMPT": {
-    "door_code": "W26SYSTEM_PROMPT",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W26SYSTEM_PROMPT.json",
-    "category": "WORKFLOWS",
-    "short_code": "W26"
-  },
-  "P05SESSION_CONT": {
-    "door_code": "P05SESSION_CONT",
-    "file_path": "CONTEXTS\\PROJECTS\\P05SESSION_CONT.json",
-    "category": "PROJECTS",
-    "short_code": "P05"
-  },
-  "W114COMPRESSION": {
-    "door_code": "W114COMPRESSION",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W114COMPRESSION.json",
-    "category": "WORKFLOWS",
-    "short_code": "W114"
-  },
-  "W07DOTNET": {
-    "door_code": "W07DOTNET",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W07DOTNET.json",
-    "category": "WORKFLOWS",
-    "short_code": "W07"
-  },
-  "W153TOIL": {
-    "door_code": "W153TOIL",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W153TOIL.json",
-    "category": "WORKFLOWS",
-    "short_code": "W153"
-  },
-  "W21STATE_SYNC": {
-    "door_code": "W21STATE_SYNC",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W21STATE_SYNC.json",
-    "category": "WORKFLOWS",
-    "short_code": "W21"
-  },
-  "W95CYPRESS": {
-    "door_code": "W95CYPRESS",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W95CYPRESS.json",
-    "category": "WORKFLOWS",
-    "short_code": "W95"
-  },
-  "T39LINKERD": {
-    "door_code": "T39LINKERD",
-    "file_path": "CONTEXTS\\TOOLS\\T39LINKERD.json",
-    "category": "TOOLS",
-    "short_code": "T39"
-  },
-  "E08NETWORK_ERRORS": {
-    "door_code": "E08NETWORK_ERRORS",
-    "file_path": "CONTEXTS\\ERRORS\\E08NETWORK_ERRORS.json",
-    "category": "ERRORS",
-    "short_code": "E08"
-  },
-  "S40K8S_SECRETS": {
-    "door_code": "S40K8S_SECRETS",
-    "file_path": "CONTEXTS\\SECURITY\\S40K8S_SECRETS.json",
-    "category": "SECURITY",
-    "short_code": "S40"
-  },
-  "W12PHISYNC": {
-    "door_code": "W12PHISYNC",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W12PHISYNC.json",
-    "category": "WORKFLOWS",
-    "short_code": "W12"
-  },
-  "W152CHAOS_ENG": {
-    "door_code": "W152CHAOS_ENG",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W152CHAOS_ENG.json",
-    "category": "WORKFLOWS",
-    "short_code": "W152"
-  },
-  "W133IDEMPOTENCY": {
-    "door_code": "W133IDEMPOTENCY",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W133IDEMPOTENCY.json",
-    "category": "WORKFLOWS",
-    "short_code": "W133"
-  },
-  "S33FILE_UPLOAD": {
-    "door_code": "S33FILE_UPLOAD",
-    "file_path": "CONTEXTS\\SECURITY\\S33FILE_UPLOAD.json",
-    "category": "SECURITY",
-    "short_code": "S33"
-  },
-  "W130ACTOR_MODEL": {
-    "door_code": "W130ACTOR_MODEL",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W130ACTOR_MODEL.json",
-    "category": "WORKFLOWS",
-    "short_code": "W130"
-  },
-  "W49HELM": {
-    "door_code": "W49HELM",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W49HELM.json",
-    "category": "WORKFLOWS",
-    "short_code": "W49"
-  },
-  "W52BATCH": {
-    "door_code": "W52BATCH",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W52BATCH.json",
-    "category": "WORKFLOWS",
-    "short_code": "W52"
-  },
-  "S01SEC": {
-    "door_code": "S01SEC",
-    "file_path": "CONTEXTS\\SECURITY\\S01SEC.json",
-    "category": "SECURITY",
-    "short_code": "S01"
-  },
-  "W55POSTGRES": {
-    "door_code": "W55POSTGRES",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W55POSTGRES.json",
-    "category": "WORKFLOWS",
-    "short_code": "W55"
-  },
-  "W68CANARY": {
-    "door_code": "W68CANARY",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W68CANARY.json",
-    "category": "WORKFLOWS",
-    "short_code": "W68"
-  },
-  "W87ETL": {
-    "door_code": "W87ETL",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W87ETL.json",
-    "category": "WORKFLOWS",
-    "short_code": "W87"
-  },
-  "W02PROMPT": {
-    "door_code": "W02PROMPT",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W02PROMPT.json",
-    "category": "WORKFLOWS",
-    "short_code": "W02"
-  },
-  "W22XML_PROMPT": {
-    "door_code": "W22XML_PROMPT",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W22XML_PROMPT.json",
-    "category": "WORKFLOWS",
-    "short_code": "W22"
-  },
-  "W63BDD": {
-    "door_code": "W63BDD",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W63BDD.json",
-    "category": "WORKFLOWS",
-    "short_code": "W63"
-  },
-  "W117FILE_IPC": {
-    "door_code": "W117FILE_IPC",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W117FILE_IPC.json",
-    "category": "WORKFLOWS",
-    "short_code": "W117"
-  },
-  "W50ETL": {
-    "door_code": "W50ETL",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W50ETL.json",
-    "category": "WORKFLOWS",
-    "short_code": "W50"
-  },
-  "R21HEXAGONAL": {
-    "door_code": "R21HEXAGONAL",
-    "file_path": "CONTEXTS\\ARCHITECTURE\\R21HEXAGONAL.json",
-    "category": "ARCHITECTURE",
-    "short_code": "R21"
-  },
-  "W141BACKOFF": {
-    "door_code": "W141BACKOFF",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W141BACKOFF.json",
-    "category": "WORKFLOWS",
-    "short_code": "W141"
-  },
-  "W08FILEWATCHER": {
-    "door_code": "W08FILEWATCHER",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W08FILEWATCHER.json",
-    "category": "WORKFLOWS",
-    "short_code": "W08"
-  },
-  "T20ELASTICSEARCH": {
-    "door_code": "T20ELASTICSEARCH",
-    "file_path": "CONTEXTS\\TOOLS\\T20ELASTICSEARCH.json",
-    "category": "TOOLS",
-    "short_code": "T20"
-  },
-  "S35MASS_ASSIGNMENT": {
-    "door_code": "S35MASS_ASSIGNMENT",
-    "file_path": "CONTEXTS\\SECURITY\\S35MASS_ASSIGNMENT.json",
-    "category": "SECURITY",
-    "short_code": "S35"
-  },
-  "T24NGINX": {
-    "door_code": "T24NGINX",
-    "file_path": "CONTEXTS\\TOOLS\\T24NGINX.json",
-    "category": "TOOLS",
-    "short_code": "T24"
-  },
-  "T37FLUX": {
-    "door_code": "T37FLUX",
-    "file_path": "CONTEXTS\\TOOLS\\T37FLUX.json",
-    "category": "TOOLS",
-    "short_code": "T37"
-  },
-  "W143LEADER_ELECTION": {
-    "door_code": "W143LEADER_ELECTION",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W143LEADER_ELECTION.json",
-    "category": "WORKFLOWS",
-    "short_code": "W143"
-  },
-  "R29OBJECT_STORAGE": {
-    "door_code": "R29OBJECT_STORAGE",
-    "file_path": "CONTEXTS\\ARCHITECTURE\\R29OBJECT_STORAGE.json",
-    "category": "ARCHITECTURE",
-    "short_code": "R29"
-  },
-  "W147ERROR_BUDGET": {
-    "door_code": "W147ERROR_BUDGET",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W147ERROR_BUDGET.json",
-    "category": "WORKFLOWS",
-    "short_code": "W147"
-  },
-  "W03CONTEXT": {
-    "door_code": "W03CONTEXT",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W03CONTEXT.json",
-    "category": "WORKFLOWS",
-    "short_code": "W03"
-  },
-  "R06EVENT_SOURCING": {
-    "door_code": "R06EVENT_SOURCING",
-    "file_path": "CONTEXTS\\ARCHITECTURE\\R06EVENT_SOURCING.json",
-    "category": "ARCHITECTURE",
-    "short_code": "R06"
-  },
-  "W27UNCERTAINTY": {
-    "door_code": "W27UNCERTAINTY",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W27UNCERTAINTY.json",
-    "category": "WORKFLOWS",
-    "short_code": "W27"
-  },
-  "T34CIRCLECI": {
-    "door_code": "T34CIRCLECI",
-    "file_path": "CONTEXTS\\TOOLS\\T34CIRCLECI.json",
-    "category": "TOOLS",
-    "short_code": "T34"
-  },
-  "W136BULKHEAD": {
-    "door_code": "W136BULKHEAD",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W136BULKHEAD.json",
-    "category": "WORKFLOWS",
-    "short_code": "W136"
-  },
-  "W156DATA_QUALITY": {
-    "door_code": "W156DATA_QUALITY",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W156DATA_QUALITY.json",
-    "category": "WORKFLOWS",
-    "short_code": "W156"
-  },
-  "W19PERF": {
-    "door_code": "W19PERF",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W19PERF.json",
-    "category": "WORKFLOWS",
-    "short_code": "W19"
-  },
-  "D06ENTERPRISE": {
-    "door_code": "D06ENTERPRISE",
-    "file_path": "CONTEXTS\\TOOLS\\D06ENTERPRISE.json",
-    "category": "TOOLS",
-    "short_code": "D06"
-  },
-  "T32GITHUB_ACTIONS": {
-    "door_code": "T32GITHUB_ACTIONS",
-    "file_path": "CONTEXTS\\TOOLS\\T32GITHUB_ACTIONS.json",
-    "category": "TOOLS",
-    "short_code": "T32"
-  },
-  "T47ENVOY": {
-    "door_code": "T47ENVOY",
-    "file_path": "CONTEXTS\\TOOLS\\T47ENVOY.json",
-    "category": "TOOLS",
-    "short_code": "T47"
-  },
-  "T55ELK_STACK": {
-    "door_code": "T55ELK_STACK",
-    "file_path": "CONTEXTS\\TOOLS\\T55ELK_STACK.json",
-    "category": "TOOLS",
-    "short_code": "T55"
-  },
-  "T64ANSIBLE_ADV": {
-    "door_code": "T64ANSIBLE_ADV",
-    "file_path": "CONTEXTS\\TOOLS\\T64ANSIBLE_ADV.json",
-    "category": "TOOLS",
-    "short_code": "T64"
-  },
-  "W31CHUNKING": {
-    "door_code": "W31CHUNKING",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W31CHUNKING.json",
-    "category": "WORKFLOWS",
-    "short_code": "W31"
-  },
-  "R03MICROSERVICE": {
-    "door_code": "R03MICROSERVICE",
-    "file_path": "CONTEXTS\\ARCHITECTURE\\R03MICROSERVICE.json",
-    "category": "ARCHITECTURE",
-    "short_code": "R03"
-  },
-  "S04XSS": {
-    "door_code": "S04XSS",
-    "file_path": "CONTEXTS\\SECURITY\\S04XSS.json",
-    "category": "SECURITY",
-    "short_code": "S04"
-  },
-  "W01COORD": {
-    "door_code": "W01COORD",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W01COORD.json",
-    "category": "WORKFLOWS",
-    "short_code": "W01"
-  },
-  "A08AGENT_COORD": {
-    "door_code": "A08AGENT_COORD",
-    "file_path": "CONTEXTS\\AGENTS\\A08AGENT_COORD.json",
-    "category": "AGENTS",
-    "short_code": "A08"
-  },
-  "D08AUTOPILOT": {
-    "door_code": "D08AUTOPILOT",
-    "file_path": "CONTEXTS\\TOOLS\\D08AUTOPILOT.json",
-    "category": "TOOLS",
-    "short_code": "D08"
-  },
-  "S22SSRF": {
-    "door_code": "S22SSRF",
-    "file_path": "CONTEXTS\\SECURITY\\S22SSRF.json",
-    "category": "SECURITY",
-    "short_code": "S22"
-  },
-  "W113THROTTLING": {
-    "door_code": "W113THROTTLING",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W113THROTTLING.json",
-    "category": "WORKFLOWS",
-    "short_code": "W113"
-  },
-  "T41HELM": {
-    "door_code": "T41HELM",
-    "file_path": "CONTEXTS\\TOOLS\\T41HELM.json",
-    "category": "TOOLS",
-    "short_code": "T41"
-  },
-  "R27EDGE_COMPUTING": {
-    "door_code": "R27EDGE_COMPUTING",
-    "file_path": "CONTEXTS\\ARCHITECTURE\\R27EDGE_COMPUTING.json",
-    "category": "ARCHITECTURE",
-    "short_code": "R27"
-  },
-  "T40K8S_NETWORKING": {
-    "door_code": "T40K8S_NETWORKING",
-    "file_path": "CONTEXTS\\TOOLS\\T40K8S_NETWORKING.json",
-    "category": "TOOLS",
-    "short_code": "T40"
-  },
-  "T12DOCKER_BUILD": {
-    "door_code": "T12DOCKER_BUILD",
-    "file_path": "CONTEXTS\\TOOLS\\T12DOCKER_BUILD.json",
-    "category": "TOOLS",
-    "short_code": "T12"
-  },
-  "W165DBT": {
-    "door_code": "W165DBT",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W165DBT.json",
-    "category": "WORKFLOWS",
-    "short_code": "W165"
-  },
-  "W58UNITTEST": {
-    "door_code": "W58UNITTEST",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W58UNITTEST.json",
-    "category": "WORKFLOWS",
-    "short_code": "W58"
-  },
-  "W126PIPELINE": {
-    "door_code": "W126PIPELINE",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W126PIPELINE.json",
-    "category": "WORKFLOWS",
-    "short_code": "W126"
-  },
-  "S37K8S_SECURITY": {
-    "door_code": "S37K8S_SECURITY",
-    "file_path": "CONTEXTS\\SECURITY\\S37K8S_SECURITY.json",
-    "category": "SECURITY",
-    "short_code": "S37"
-  },
-  "W91DATA_PIPELINE": {
-    "door_code": "W91DATA_PIPELINE",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W91DATA_PIPELINE.json",
-    "category": "WORKFLOWS",
-    "short_code": "W91"
-  },
-  "T76PORT": {
-    "door_code": "T76PORT",
-    "file_path": "CONTEXTS\\TOOLS\\T76PORT.json",
-    "category": "TOOLS",
-    "short_code": "T76"
-  },
-  "A02VSCC": {
-    "door_code": "A02VSCC",
-    "file_path": "CONTEXTS\\AGENTS\\A02VSCC.json",
-    "category": "AGENTS",
-    "short_code": "A02"
-  },
-  "800WINMCP": {
-    "door_code": "800WINMCP",
-    "file_path": "CONTEXTS\\TOOLS\\800WINMCP.json",
-    "category": "TOOLS",
-    "short_code": "800"
-  },
-  "W73PROFILING": {
-    "door_code": "W73PROFILING",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W73PROFILING.json",
-    "category": "WORKFLOWS",
-    "short_code": "W73"
-  },
-  "T02VSCODE": {
-    "door_code": "T02VSCODE",
-    "file_path": "CONTEXTS\\TOOLS\\T02VSCODE.json",
-    "category": "TOOLS",
-    "short_code": "T02"
-  },
-  "S27AUTH_FAILURES": {
-    "door_code": "S27AUTH_FAILURES",
-    "file_path": "CONTEXTS\\SECURITY\\S27AUTH_FAILURES.json",
-    "category": "SECURITY",
-    "short_code": "S27"
-  },
-  "T59SPLUNK": {
-    "door_code": "T59SPLUNK",
-    "file_path": "CONTEXTS\\TOOLS\\T59SPLUNK.json",
-    "category": "TOOLS",
-    "short_code": "T59"
-  },
-  "T67SEALED_SECRETS": {
-    "door_code": "T67SEALED_SECRETS",
-    "file_path": "CONTEXTS\\TOOLS\\T67SEALED_SECRETS.json",
-    "category": "TOOLS",
-    "short_code": "T67"
-  },
-  "S07OAUTH": {
-    "door_code": "S07OAUTH",
-    "file_path": "CONTEXTS\\SECURITY\\S07OAUTH.json",
-    "category": "SECURITY",
-    "short_code": "S07"
-  },
-  "W138LOAD_BALANCE": {
-    "door_code": "W138LOAD_BALANCE",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W138LOAD_BALANCE.json",
-    "category": "WORKFLOWS",
-    "short_code": "W138"
-  },
-  "W42TASK_SCHEDULER": {
-    "door_code": "W42TASK_SCHEDULER",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W42TASK_SCHEDULER.json",
-    "category": "WORKFLOWS",
-    "short_code": "W42"
-  },
-  "S11CSRF": {
-    "door_code": "S11CSRF",
-    "file_path": "CONTEXTS\\SECURITY\\S11CSRF.json",
-    "category": "SECURITY",
-    "short_code": "S11"
-  },
-  "W155DR": {
-    "door_code": "W155DR",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W155DR.json",
-    "category": "WORKFLOWS",
-    "short_code": "W155"
-  },
-  "W69ROLLING": {
-    "door_code": "W69ROLLING",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W69ROLLING.json",
-    "category": "WORKFLOWS",
-    "short_code": "W69"
-  },
-  "W145CRDT": {
-    "door_code": "W145CRDT",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W145CRDT.json",
-    "category": "WORKFLOWS",
-    "short_code": "W145"
-  },
-  "W48K8S_DEPLOY": {
-    "door_code": "W48K8S_DEPLOY",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W48K8S_DEPLOY.json",
-    "category": "WORKFLOWS",
-    "short_code": "W48"
-  },
-  "W144EVENTUAL_CONSISTENCY": {
-    "door_code": "W144EVENTUAL_CONSISTENCY",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W144EVENTUAL_CONSISTENCY.json",
-    "category": "WORKFLOWS",
-    "short_code": "W144"
-  },
-  "S29OUTDATED_COMPONENTS": {
-    "door_code": "S29OUTDATED_COMPONENTS",
-    "file_path": "CONTEXTS\\SECURITY\\S29OUTDATED_COMPONENTS.json",
-    "category": "SECURITY",
-    "short_code": "S29"
-  },
-  "S44API_GATEWAY_SEC": {
-    "door_code": "S44API_GATEWAY_SEC",
-    "file_path": "CONTEXTS\\SECURITY\\S44API_GATEWAY_SEC.json",
-    "category": "SECURITY",
-    "short_code": "S44"
-  },
-  "R07SAGA_PATTERN": {
-    "door_code": "R07SAGA_PATTERN",
-    "file_path": "CONTEXTS\\ARCHITECTURE\\R07SAGA_PATTERN.json",
-    "category": "ARCHITECTURE",
-    "short_code": "R07"
-  },
-  "D12PACKAGE_MANAGERS": {
-    "door_code": "D12PACKAGE_MANAGERS",
-    "file_path": "CONTEXTS\\TOOLS\\D12PACKAGE_MANAGERS.json",
-    "category": "TOOLS",
-    "short_code": "D12"
-  },
-  "W132SAGA": {
-    "door_code": "W132SAGA",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W132SAGA.json",
-    "category": "WORKFLOWS",
-    "short_code": "W132"
-  },
-  "D13NETWORK_DEPLOY": {
-    "door_code": "D13NETWORK_DEPLOY",
-    "file_path": "CONTEXTS\\TOOLS\\D13NETWORK_DEPLOY.json",
-    "category": "TOOLS",
-    "short_code": "D13"
-  },
-  "S05SECRETS": {
-    "door_code": "S05SECRETS",
-    "file_path": "CONTEXTS\\SECURITY\\S05SECRETS.json",
-    "category": "SECURITY",
-    "short_code": "S05"
-  },
-  "W108MUTATION_TESTING": {
-    "door_code": "W108MUTATION_TESTING",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W108MUTATION_TESTING.json",
-    "category": "WORKFLOWS",
-    "short_code": "W108"
-  },
-  "W115MESSAGE_QUEUE": {
-    "door_code": "W115MESSAGE_QUEUE",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W115MESSAGE_QUEUE.json",
-    "category": "WORKFLOWS",
-    "short_code": "W115"
-  },
-  "D09CODE_SIGNING": {
-    "door_code": "D09CODE_SIGNING",
-    "file_path": "CONTEXTS\\TOOLS\\D09CODE_SIGNING.json",
-    "category": "TOOLS",
-    "short_code": "D09"
-  },
-  "T22REDIS": {
-    "door_code": "T22REDIS",
-    "file_path": "CONTEXTS\\TOOLS\\T22REDIS.json",
-    "category": "TOOLS",
-    "short_code": "T22"
-  },
-  "S28SECURITY_MISCONFIG": {
-    "door_code": "S28SECURITY_MISCONFIG",
-    "file_path": "CONTEXTS\\SECURITY\\S28SECURITY_MISCONFIG.json",
-    "category": "SECURITY",
-    "short_code": "S28"
-  },
-  "R08CQRS": {
-    "door_code": "R08CQRS",
-    "file_path": "CONTEXTS\\ARCHITECTURE\\R08CQRS.json",
-    "category": "ARCHITECTURE",
-    "short_code": "R08"
-  },
-  "W44PUPPET": {
-    "door_code": "W44PUPPET",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W44PUPPET.json",
-    "category": "WORKFLOWS",
-    "short_code": "W44"
-  },
-  "W70FEATURE_FLAG": {
-    "door_code": "W70FEATURE_FLAG",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W70FEATURE_FLAG.json",
-    "category": "WORKFLOWS",
-    "short_code": "W70"
-  },
-  "W134DISTRIBUTED_TX": {
-    "door_code": "W134DISTRIBUTED_TX",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W134DISTRIBUTED_TX.json",
-    "category": "WORKFLOWS",
-    "short_code": "W134"
-  },
-  "W24COT": {
-    "door_code": "W24COT",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W24COT.json",
-    "category": "WORKFLOWS",
-    "short_code": "W24"
-  },
-  "W88STREAMING": {
-    "door_code": "W88STREAMING",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W88STREAMING.json",
-    "category": "WORKFLOWS",
-    "short_code": "W88"
-  },
-  "T28CONSUL": {
-    "door_code": "T28CONSUL",
-    "file_path": "CONTEXTS\\TOOLS\\T28CONSUL.json",
-    "category": "TOOLS",
-    "short_code": "T28"
-  },
-  "T66SOPS": {
-    "door_code": "T66SOPS",
-    "file_path": "CONTEXTS\\TOOLS\\T66SOPS.json",
-    "category": "TOOLS",
-    "short_code": "T66"
-  },
-  "T73PROGRESSIVE_DELIVERY": {
-    "door_code": "T73PROGRESSIVE_DELIVERY",
-    "file_path": "CONTEXTS\\TOOLS\\T73PROGRESSIVE_DELIVERY.json",
-    "category": "TOOLS",
-    "short_code": "T73"
-  },
-  "T78IDP": {
-    "door_code": "T78IDP",
-    "file_path": "CONTEXTS\\TOOLS\\T78IDP.json",
-    "category": "TOOLS",
-    "short_code": "T78"
-  },
-  "A03TERMC": {
-    "door_code": "A03TERMC",
-    "file_path": "CONTEXTS\\AGENTS\\A03TERMC.json",
-    "category": "AGENTS",
-    "short_code": "A03"
-  },
-  "W67BLUEGREEN": {
-    "door_code": "W67BLUEGREEN",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W67BLUEGREEN.json",
-    "category": "WORKFLOWS",
-    "short_code": "W67"
-  },
-  "R15BUILDER_PATTERN": {
-    "door_code": "R15BUILDER_PATTERN",
-    "file_path": "CONTEXTS\\ARCHITECTURE\\R15BUILDER_PATTERN.json",
-    "category": "ARCHITECTURE",
-    "short_code": "R15"
-  },
-  "S42NETWORK_POLICY": {
-    "door_code": "S42NETWORK_POLICY",
-    "file_path": "CONTEXTS\\SECURITY\\S42NETWORK_POLICY.json",
-    "category": "SECURITY",
-    "short_code": "S42"
-  },
-  "T63AWS_CDK": {
-    "door_code": "T63AWS_CDK",
-    "file_path": "CONTEXTS\\TOOLS\\T63AWS_CDK.json",
-    "category": "TOOLS",
-    "short_code": "T63"
-  },
-  "T53OPENTELEMETRY": {
-    "door_code": "T53OPENTELEMETRY",
-    "file_path": "CONTEXTS\\TOOLS\\T53OPENTELEMETRY.json",
-    "category": "TOOLS",
-    "short_code": "T53"
-  },
-  "R17COMMAND_PATTERN": {
-    "door_code": "R17COMMAND_PATTERN",
-    "file_path": "CONTEXTS\\ARCHITECTURE\\R17COMMAND_PATTERN.json",
-    "category": "ARCHITECTURE",
-    "short_code": "R17"
-  },
-  "W74LOAD_TEST": {
-    "door_code": "W74LOAD_TEST",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W74LOAD_TEST.json",
-    "category": "WORKFLOWS",
-    "short_code": "W74"
-  },
-  "R33COST_OPTIMIZATION": {
-    "door_code": "R33COST_OPTIMIZATION",
-    "file_path": "CONTEXTS\\ARCHITECTURE\\R33COST_OPTIMIZATION.json",
-    "category": "ARCHITECTURE",
-    "short_code": "R33"
-  },
-  "W163LAKEHOUSE": {
-    "door_code": "W163LAKEHOUSE",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W163LAKEHOUSE.json",
-    "category": "WORKFLOWS",
-    "short_code": "W163"
-  },
-  "W71AB_TEST": {
-    "door_code": "W71AB_TEST",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W71AB_TEST.json",
-    "category": "WORKFLOWS",
-    "short_code": "W71"
-  },
-  "S20CRYPTO_FAILURES": {
-    "door_code": "S20CRYPTO_FAILURES",
-    "file_path": "CONTEXTS\\SECURITY\\S20CRYPTO_FAILURES.json",
-    "category": "SECURITY",
-    "short_code": "S20"
-  },
-  "W161DATA_CONTRACTS": {
-    "door_code": "W161DATA_CONTRACTS",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W161DATA_CONTRACTS.json",
-    "category": "WORKFLOWS",
-    "short_code": "W161"
-  },
-  "820PWSH": {
-    "door_code": "820PWSH",
-    "file_path": "CONTEXTS\\TOOLS\\820PWSH.json",
-    "category": "TOOLS",
-    "short_code": "820"
-  },
-  "S08JWT": {
-    "door_code": "S08JWT",
-    "file_path": "CONTEXTS\\SECURITY\\S08JWT.json",
-    "category": "SECURITY",
-    "short_code": "S08"
-  },
-  "T34HELM": {
-    "door_code": "T34HELM",
-    "file_path": "CONTEXTS\\TOOLS\\T34HELM.json",
-    "category": "TOOLS",
-    "short_code": "T34"
-  },
-  "W39SCAFFOLDING": {
-    "door_code": "W39SCAFFOLDING",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W39SCAFFOLDING.json",
-    "category": "WORKFLOWS",
-    "short_code": "W39"
-  },
-  "T13K8S_SECRETS": {
-    "door_code": "T13K8S_SECRETS",
-    "file_path": "CONTEXTS\\TOOLS\\T13K8S_SECRETS.json",
-    "category": "TOOLS",
-    "short_code": "T13"
-  },
-  "P02PHIGEN": {
-    "door_code": "P02PHIGEN",
-    "file_path": "CONTEXTS\\PROJECTS\\P02PHIGEN.json",
-    "category": "PROJECTS",
-    "short_code": "P02"
-  },
-  "E03TIMEOUT": {
-    "door_code": "E03TIMEOUT",
-    "file_path": "CONTEXTS\\ERRORS\\E03TIMEOUT.json",
-    "category": "ERRORS",
-    "short_code": "E03"
-  },
-  "E13CONFIGURATION_ERRORS": {
-    "door_code": "E13CONFIGURATION_ERRORS",
-    "file_path": "CONTEXTS\\ERRORS\\E13CONFIGURATION_ERRORS.json",
-    "category": "ERRORS",
-    "short_code": "E13"
-  },
-  "W53KAFKA": {
-    "door_code": "W53KAFKA",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W53KAFKA.json",
-    "category": "WORKFLOWS",
-    "short_code": "W53"
-  },
-  "D07GPO": {
-    "door_code": "D07GPO",
-    "file_path": "CONTEXTS\\TOOLS\\D07GPO.json",
-    "category": "TOOLS",
-    "short_code": "D07"
-  },
-  "W120STATE_FILE": {
-    "door_code": "W120STATE_FILE",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W120STATE_FILE.json",
-    "category": "WORKFLOWS",
-    "short_code": "W120"
-  },
-  "W162DATA_MESH": {
-    "door_code": "W162DATA_MESH",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W162DATA_MESH.json",
-    "category": "WORKFLOWS",
-    "short_code": "W162"
-  },
-  "S31LOGGING_FAILURES": {
-    "door_code": "S31LOGGING_FAILURES",
-    "file_path": "CONTEXTS\\SECURITY\\S31LOGGING_FAILURES.json",
-    "category": "SECURITY",
-    "short_code": "S31"
-  },
-  "W92DATA_TRANSFORM": {
-    "door_code": "W92DATA_TRANSFORM",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W92DATA_TRANSFORM.json",
-    "category": "WORKFLOWS",
-    "short_code": "W92"
-  },
-  "T51GRAFANA": {
-    "door_code": "T51GRAFANA",
-    "file_path": "CONTEXTS\\TOOLS\\T51GRAFANA.json",
-    "category": "TOOLS",
-    "short_code": "T51"
-  },
-  "S13SECRETS_ROTATION": {
-    "door_code": "S13SECRETS_ROTATION",
-    "file_path": "CONTEXTS\\SECURITY\\S13SECRETS_ROTATION.json",
-    "category": "SECURITY",
-    "short_code": "S13"
-  },
-  "S36CONTAINER_ESCAPE": {
-    "door_code": "S36CONTAINER_ESCAPE",
-    "file_path": "CONTEXTS\\SECURITY\\S36CONTAINER_ESCAPE.json",
-    "category": "SECURITY",
-    "short_code": "S36"
-  },
-  "T45ISTIO": {
-    "door_code": "T45ISTIO",
-    "file_path": "CONTEXTS\\TOOLS\\T45ISTIO.json",
-    "category": "TOOLS",
-    "short_code": "T45"
-  },
-  "A01DC": {
-    "door_code": "A01DC",
-    "file_path": "CONTEXTS\\AGENTS\\A01DC.json",
-    "category": "AGENTS",
-    "short_code": "A01"
-  },
-  "P03VECTOR": {
-    "door_code": "P03VECTOR",
-    "file_path": "CONTEXTS\\PROJECTS\\P03VECTOR.json",
-    "category": "PROJECTS",
-    "short_code": "P03"
-  },
-  "E11RACE_CONDITIONS": {
-    "door_code": "E11RACE_CONDITIONS",
-    "file_path": "CONTEXTS\\ERRORS\\E11RACE_CONDITIONS.json",
-    "category": "ERRORS",
-    "short_code": "E11"
-  },
-  "W127CORRELATION_ID": {
-    "door_code": "W127CORRELATION_ID",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W127CORRELATION_ID.json",
-    "category": "WORKFLOWS",
-    "short_code": "W127"
-  },
-  "T69KMS": {
-    "door_code": "T69KMS",
-    "file_path": "CONTEXTS\\TOOLS\\T69KMS.json",
-    "category": "TOOLS",
-    "short_code": "T69"
-  },
-  "W97VISUAL_REGRESSION": {
-    "door_code": "W97VISUAL_REGRESSION",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W97VISUAL_REGRESSION.json",
-    "category": "WORKFLOWS",
-    "short_code": "W97"
-  },
-  "S12API_SECURITY": {
-    "door_code": "S12API_SECURITY",
-    "file_path": "CONTEXTS\\SECURITY\\S12API_SECURITY.json",
-    "category": "SECURITY",
-    "short_code": "S12"
-  },
-  "T58VECTOR": {
-    "door_code": "T58VECTOR",
-    "file_path": "CONTEXTS\\TOOLS\\T58VECTOR.json",
-    "category": "TOOLS",
-    "short_code": "T58"
-  },
-  "W60E2E": {
-    "door_code": "W60E2E",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W60E2E.json",
-    "category": "WORKFLOWS",
-    "short_code": "W60"
-  },
-  "A09MESSAGE_QUEUE": {
-    "door_code": "A09MESSAGE_QUEUE",
-    "file_path": "CONTEXTS\\AGENTS\\A09MESSAGE_QUEUE.json",
-    "category": "AGENTS",
-    "short_code": "A09"
-  },
-  "W150RUNBOOK": {
-    "door_code": "W150RUNBOOK",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W150RUNBOOK.json",
-    "category": "WORKFLOWS",
-    "short_code": "W150"
-  },
-  "T39KANIKO": {
-    "door_code": "T39KANIKO",
-    "file_path": "CONTEXTS\\TOOLS\\T39KANIKO.json",
-    "category": "TOOLS",
-    "short_code": "T39"
-  },
-  "W28JSON_OUTPUT": {
-    "door_code": "W28JSON_OUTPUT",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W28JSON_OUTPUT.json",
-    "category": "WORKFLOWS",
-    "short_code": "W28"
-  },
-  "T71GITOPS": {
-    "door_code": "T71GITOPS",
-    "file_path": "CONTEXTS\\TOOLS\\T71GITOPS.json",
-    "category": "TOOLS",
-    "short_code": "T71"
-  },
-  "S16INPUT_SANITIZATION": {
-    "door_code": "S16INPUT_SANITIZATION",
-    "file_path": "CONTEXTS\\SECURITY\\S16INPUT_SANITIZATION.json",
-    "category": "SECURITY",
-    "short_code": "S16"
-  },
-  "W148INCIDENT_MGMT": {
-    "door_code": "W148INCIDENT_MGMT",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W148INCIDENT_MGMT.json",
-    "category": "WORKFLOWS",
-    "short_code": "W148"
-  },
-  "W13DAG": {
-    "door_code": "W13DAG",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W13DAG.json",
-    "category": "WORKFLOWS",
-    "short_code": "W13"
-  },
-  "W159DATA_CATALOG": {
-    "door_code": "W159DATA_CATALOG",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W159DATA_CATALOG.json",
-    "category": "WORKFLOWS",
-    "short_code": "W159"
-  },
-  "S38CLOUD_IAM": {
-    "door_code": "S38CLOUD_IAM",
-    "file_path": "CONTEXTS\\SECURITY\\S38CLOUD_IAM.json",
-    "category": "SECURITY",
-    "short_code": "S38"
-  },
-  "S06ENCRYPTION": {
-    "door_code": "S06ENCRYPTION",
-    "file_path": "CONTEXTS\\SECURITY\\S06ENCRYPTION.json",
-    "category": "SECURITY",
-    "short_code": "S06"
-  },
-  "W46TERRAFORM": {
-    "door_code": "W46TERRAFORM",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W46TERRAFORM.json",
-    "category": "WORKFLOWS",
-    "short_code": "W46"
-  },
-  "T33CIRCLECI": {
-    "door_code": "T33CIRCLECI",
-    "file_path": "CONTEXTS\\TOOLS\\T33CIRCLECI.json",
-    "category": "TOOLS",
-    "short_code": "T33"
-  },
-  "T65VAULT_ADV": {
-    "door_code": "T65VAULT_ADV",
-    "file_path": "CONTEXTS\\TOOLS\\T65VAULT_ADV.json",
-    "category": "TOOLS",
-    "short_code": "T65"
-  },
-  "T18AIRFLOW": {
-    "door_code": "T18AIRFLOW",
-    "file_path": "CONTEXTS\\TOOLS\\T18AIRFLOW.json",
-    "category": "TOOLS",
-    "short_code": "T18"
-  },
-  "S30INTEGRITY_FAILURES": {
-    "door_code": "S30INTEGRITY_FAILURES",
-    "file_path": "CONTEXTS\\SECURITY\\S30INTEGRITY_FAILURES.json",
-    "category": "SECURITY",
-    "short_code": "S30"
-  },
-  "W82WEBHOOKS": {
-    "door_code": "W82WEBHOOKS",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W82WEBHOOKS.json",
-    "category": "WORKFLOWS",
-    "short_code": "W82"
-  },
-  "W51STREAM": {
-    "door_code": "W51STREAM",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W51STREAM.json",
-    "category": "WORKFLOWS",
-    "short_code": "W51"
-  },
-  "R11OBSERVER_PATTERN": {
-    "door_code": "R11OBSERVER_PATTERN",
-    "file_path": "CONTEXTS\\ARCHITECTURE\\R11OBSERVER_PATTERN.json",
-    "category": "ARCHITECTURE",
-    "short_code": "R11"
-  },
-  "T25DOCKER": {
-    "door_code": "T25DOCKER",
-    "file_path": "CONTEXTS\\TOOLS\\T25DOCKER.json",
-    "category": "TOOLS",
-    "short_code": "T25"
-  },
-  "W41SYSTEMD": {
-    "door_code": "W41SYSTEMD",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W41SYSTEMD.json",
-    "category": "WORKFLOWS",
-    "short_code": "W41"
-  },
-  "E07DATABASE_ERRORS": {
-    "door_code": "E07DATABASE_ERRORS",
-    "file_path": "CONTEXTS\\ERRORS\\E07DATABASE_ERRORS.json",
-    "category": "ERRORS",
-    "short_code": "E07"
-  },
-  "W11FILE_CMD": {
-    "door_code": "W11FILE_CMD",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W11FILE_CMD.json",
-    "category": "WORKFLOWS",
-    "short_code": "W11"
-  },
-  "W75BENCHMARK": {
-    "door_code": "W75BENCHMARK",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W75BENCHMARK.json",
-    "category": "WORKFLOWS",
-    "short_code": "W75"
-  },
-  "T09IPC_METHODS": {
-    "door_code": "T09IPC_METHODS",
-    "file_path": "CONTEXTS\\TOOLS\\T09IPC_METHODS.json",
-    "category": "TOOLS",
-    "short_code": "T09"
-  },
-  "T40ENVOY": {
-    "door_code": "T40ENVOY",
-    "file_path": "CONTEXTS\\TOOLS\\T40ENVOY.json",
-    "category": "TOOLS",
-    "short_code": "T40"
-  },
-  "810AHK": {
-    "door_code": "810AHK",
-    "file_path": "CONTEXTS\\TOOLS\\810AHK.json",
-    "category": "TOOLS",
-    "short_code": "810"
-  },
-  "T43OPERATORS": {
-    "door_code": "T43OPERATORS",
-    "file_path": "CONTEXTS\\TOOLS\\T43OPERATORS.json",
-    "category": "TOOLS",
-    "short_code": "T43"
-  },
-  "R16PROXY_PATTERN": {
-    "door_code": "R16PROXY_PATTERN",
-    "file_path": "CONTEXTS\\ARCHITECTURE\\R16PROXY_PATTERN.json",
-    "category": "ARCHITECTURE",
-    "short_code": "R16"
-  },
-  "T23RABBITMQ": {
-    "door_code": "T23RABBITMQ",
-    "file_path": "CONTEXTS\\TOOLS\\T23RABBITMQ.json",
-    "category": "TOOLS",
-    "short_code": "T23"
-  },
-  "T03PLAYWRIGHT": {
-    "door_code": "T03PLAYWRIGHT",
-    "file_path": "CONTEXTS\\TOOLS\\T03PLAYWRIGHT.json",
-    "category": "TOOLS",
-    "short_code": "T03"
-  },
-  "T68EXTERNAL_SECRETS": {
-    "door_code": "T68EXTERNAL_SECRETS",
-    "file_path": "CONTEXTS\\TOOLS\\T68EXTERNAL_SECRETS.json",
-    "category": "TOOLS",
-    "short_code": "T68"
-  },
-  "S03INPUT_VAL": {
-    "door_code": "S03INPUT_VAL",
-    "file_path": "CONTEXTS\\SECURITY\\S03INPUT_VAL.json",
-    "category": "SECURITY",
-    "short_code": "S03"
-  },
-  "W59INTEGRATION": {
-    "door_code": "W59INTEGRATION",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W59INTEGRATION.json",
-    "category": "WORKFLOWS",
-    "short_code": "W59"
-  },
-  "S41POD_SECURITY": {
-    "door_code": "S41POD_SECURITY",
-    "file_path": "CONTEXTS\\SECURITY\\S41POD_SECURITY.json",
-    "category": "SECURITY",
-    "short_code": "S41"
-  },
-  "W09DAEMON": {
-    "door_code": "W09DAEMON",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W09DAEMON.json",
-    "category": "WORKFLOWS",
-    "short_code": "W09"
-  },
-  "W10STARTUP": {
-    "door_code": "W10STARTUP",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W10STARTUP.json",
-    "category": "WORKFLOWS",
-    "short_code": "W10"
-  },
-  "W78CONCURRENCY": {
-    "door_code": "W78CONCURRENCY",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W78CONCURRENCY.json",
-    "category": "WORKFLOWS",
-    "short_code": "W78"
-  },
-  "W96UI_TESTING": {
-    "door_code": "W96UI_TESTING",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W96UI_TESTING.json",
-    "category": "WORKFLOWS",
-    "short_code": "W96"
-  },
-  "W16PWSH_BEST": {
-    "door_code": "W16PWSH_BEST",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W16PWSH_BEST.json",
-    "category": "WORKFLOWS",
-    "short_code": "W16"
-  },
-  "W111CONNECTION_POOLING": {
-    "door_code": "W111CONNECTION_POOLING",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W111CONNECTION_POOLING.json",
-    "category": "WORKFLOWS",
-    "short_code": "W111"
-  },
-  "T15ANSIBLE": {
-    "door_code": "T15ANSIBLE",
-    "file_path": "CONTEXTS\\TOOLS\\T15ANSIBLE.json",
-    "category": "TOOLS",
-    "short_code": "T15"
-  },
-  "T72DRIFT_DETECTION": {
-    "door_code": "T72DRIFT_DETECTION",
-    "file_path": "CONTEXTS\\TOOLS\\T72DRIFT_DETECTION.json",
-    "category": "TOOLS",
-    "short_code": "T72"
-  },
-  "A06CMDC": {
-    "door_code": "A06CMDC",
-    "file_path": "CONTEXTS\\AGENTS\\A06CMDC.json",
-    "category": "AGENTS",
-    "short_code": "A06"
-  },
-  "W62TDD": {
-    "door_code": "W62TDD",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W62TDD.json",
-    "category": "WORKFLOWS",
-    "short_code": "W62"
-  },
-  "W140CQRS_IMPL": {
-    "door_code": "W140CQRS_IMPL",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W140CQRS_IMPL.json",
-    "category": "WORKFLOWS",
-    "short_code": "W140"
-  },
-  "T52JAEGER": {
-    "door_code": "T52JAEGER",
-    "file_path": "CONTEXTS\\TOOLS\\T52JAEGER.json",
-    "category": "TOOLS",
-    "short_code": "T52"
-  },
-  "W116IPC": {
-    "door_code": "W116IPC",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W116IPC.json",
-    "category": "WORKFLOWS",
-    "short_code": "W116"
-  },
-  "W122DAG": {
-    "door_code": "W122DAG",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W122DAG.json",
-    "category": "WORKFLOWS",
-    "short_code": "W122"
-  },
-  "W103INTEGRATION_TESTING": {
-    "door_code": "W103INTEGRATION_TESTING",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W103INTEGRATION_TESTING.json",
-    "category": "WORKFLOWS",
-    "short_code": "W103"
-  },
-  "P04SHRI": {
-    "door_code": "P04SHRI",
-    "file_path": "CONTEXTS\\PROJECTS\\P04SHRI.json",
-    "category": "PROJECTS",
-    "short_code": "P04"
-  },
-  "S19PATH_TRAVERSAL": {
-    "door_code": "S19PATH_TRAVERSAL",
-    "file_path": "CONTEXTS\\SECURITY\\S19PATH_TRAVERSAL.json",
-    "category": "SECURITY",
-    "short_code": "S19"
-  },
-  "W118REQUEST_RESPONSE": {
-    "door_code": "W118REQUEST_RESPONSE",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W118REQUEST_RESPONSE.json",
-    "category": "WORKFLOWS",
-    "short_code": "W118"
-  },
-  "D02SILENT": {
-    "door_code": "D02SILENT",
-    "file_path": "CONTEXTS\\TOOLS\\D02SILENT.json",
-    "category": "TOOLS",
-    "short_code": "D02"
-  },
-  "W38CODE_GEN": {
-    "door_code": "W38CODE_GEN",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W38CODE_GEN.json",
-    "category": "WORKFLOWS",
-    "short_code": "W38"
-  },
-  "S18PENETRATION_TESTING": {
-    "door_code": "S18PENETRATION_TESTING",
-    "file_path": "CONTEXTS\\SECURITY\\S18PENETRATION_TESTING.json",
-    "category": "SECURITY",
-    "short_code": "S18"
-  },
-  "000START": {
-    "door_code": "000START",
-    "file_path": "CONTEXTS\\PROJECTS\\000START.json",
-    "category": "PROJECTS",
-    "short_code": "000"
-  },
-  "T57FLUENTD": {
-    "door_code": "T57FLUENTD",
-    "file_path": "CONTEXTS\\TOOLS\\T57FLUENTD.json",
-    "category": "TOOLS",
-    "short_code": "T57"
-  },
-  "T48CONSUL_MESH": {
-    "door_code": "T48CONSUL_MESH",
-    "file_path": "CONTEXTS\\TOOLS\\T48CONSUL_MESH.json",
-    "category": "TOOLS",
-    "short_code": "T48"
-  },
-  "W142DISTRIBUTED_LOCK": {
-    "door_code": "W142DISTRIBUTED_LOCK",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W142DISTRIBUTED_LOCK.json",
-    "category": "WORKFLOWS",
-    "short_code": "W142"
-  },
-  "T11CICD": {
-    "door_code": "T11CICD",
-    "file_path": "CONTEXTS\\TOOLS\\T11CICD.json",
-    "category": "TOOLS",
-    "short_code": "T11"
-  },
-  "W151ONCALL": {
-    "door_code": "W151ONCALL",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W151ONCALL.json",
-    "category": "WORKFLOWS",
-    "short_code": "W151"
-  },
-  "W94PLAYWRIGHT": {
-    "door_code": "W94PLAYWRIGHT",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W94PLAYWRIGHT.json",
-    "category": "WORKFLOWS",
-    "short_code": "W94"
-  },
-  "R10SINGLETON_PATTERN": {
-    "door_code": "R10SINGLETON_PATTERN",
-    "file_path": "CONTEXTS\\ARCHITECTURE\\R10SINGLETON_PATTERN.json",
-    "category": "ARCHITECTURE",
-    "short_code": "R10"
-  },
-  "E10SERIALIZATION_ERRORS": {
-    "door_code": "E10SERIALIZATION_ERRORS",
-    "file_path": "CONTEXTS\\ERRORS\\E10SERIALIZATION_ERRORS.json",
-    "category": "ERRORS",
-    "short_code": "E10"
-  },
-  "T06MCP_SETUP": {
-    "door_code": "T06MCP_SETUP",
-    "file_path": "CONTEXTS\\TOOLS\\T06MCP_SETUP.json",
-    "category": "TOOLS",
-    "short_code": "T06"
-  },
-  "T31JENKINS": {
-    "door_code": "T31JENKINS",
-    "file_path": "CONTEXTS\\TOOLS\\T31JENKINS.json",
-    "category": "TOOLS",
-    "short_code": "T31"
-  },
-  "S24COMMAND_INJECTION": {
-    "door_code": "S24COMMAND_INJECTION",
-    "file_path": "CONTEXTS\\SECURITY\\S24COMMAND_INJECTION.json",
-    "category": "SECURITY",
-    "short_code": "S24"
-  },
-  "R13DECORATOR_PATTERN": {
-    "door_code": "R13DECORATOR_PATTERN",
-    "file_path": "CONTEXTS\\ARCHITECTURE\\R13DECORATOR_PATTERN.json",
-    "category": "ARCHITECTURE",
-    "short_code": "R13"
-  },
-  "S45WAF": {
-    "door_code": "S45WAF",
-    "file_path": "CONTEXTS\\SECURITY\\S45WAF.json",
-    "category": "SECURITY",
-    "short_code": "S45"
-  },
-  "W61MOCKING": {
-    "door_code": "W61MOCKING",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W61MOCKING.json",
-    "category": "WORKFLOWS",
-    "short_code": "W61"
-  },
-  "T41JAEGER": {
-    "door_code": "T41JAEGER",
-    "file_path": "CONTEXTS\\TOOLS\\T41JAEGER.json",
-    "category": "TOOLS",
-    "short_code": "T41"
-  },
-  "W123ORCHESTRATION": {
-    "door_code": "W123ORCHESTRATION",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W123ORCHESTRATION.json",
-    "category": "WORKFLOWS",
-    "short_code": "W123"
-  },
-  "R32AUTO_SCALING": {
-    "door_code": "R32AUTO_SCALING",
-    "file_path": "CONTEXTS\\ARCHITECTURE\\R32AUTO_SCALING.json",
-    "category": "ARCHITECTURE",
-    "short_code": "R32"
-  },
-  "D05SILENT_INSTALL": {
-    "door_code": "D05SILENT_INSTALL",
-    "file_path": "CONTEXTS\\TOOLS\\D05SILENT_INSTALL.json",
-    "category": "TOOLS",
-    "short_code": "D05"
-  },
-  "W102UNIT_TESTING": {
-    "door_code": "W102UNIT_TESTING",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W102UNIT_TESTING.json",
-    "category": "WORKFLOWS",
-    "short_code": "W102"
-  },
-  "W99NOTIFICATION": {
-    "door_code": "W99NOTIFICATION",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W99NOTIFICATION.json",
-    "category": "WORKFLOWS",
-    "short_code": "W99"
-  },
-  "S25LDAP_INJECTION": {
-    "door_code": "S25LDAP_INJECTION",
-    "file_path": "CONTEXTS\\SECURITY\\S25LDAP_INJECTION.json",
-    "category": "SECURITY",
-    "short_code": "S25"
-  },
-  "S34OPEN_REDIRECT": {
-    "door_code": "S34OPEN_REDIRECT",
-    "file_path": "CONTEXTS\\SECURITY\\S34OPEN_REDIRECT.json",
-    "category": "SECURITY",
-    "short_code": "S34"
-  },
-  "W106E2E_TESTING": {
-    "door_code": "W106E2E_TESTING",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W106E2E_TESTING.json",
-    "category": "WORKFLOWS",
-    "short_code": "W106"
-  },
-  "W129POLLING": {
-    "door_code": "W129POLLING",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W129POLLING.json",
-    "category": "WORKFLOWS",
-    "short_code": "W129"
-  },
-  "W124PARALLEL": {
-    "door_code": "W124PARALLEL",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W124PARALLEL.json",
-    "category": "WORKFLOWS",
-    "short_code": "W124"
-  },
-  "T14TERRAFORM": {
-    "door_code": "T14TERRAFORM",
-    "file_path": "CONTEXTS\\TOOLS\\T14TERRAFORM.json",
-    "category": "TOOLS",
-    "short_code": "T14"
-  },
-  "W146SLI_SLO": {
-    "door_code": "W146SLI_SLO",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W146SLI_SLO.json",
-    "category": "WORKFLOWS",
-    "short_code": "W146"
-  },
-  "W121WORKFLOW_STATE": {
-    "door_code": "W121WORKFLOW_STATE",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W121WORKFLOW_STATE.json",
-    "category": "WORKFLOWS",
-    "short_code": "W121"
-  },
-  "T30JENKINS": {
-    "door_code": "T30JENKINS",
-    "file_path": "CONTEXTS\\TOOLS\\T30JENKINS.json",
-    "category": "TOOLS",
-    "short_code": "T30"
-  },
-  "T33ARGOCD": {
-    "door_code": "T33ARGOCD",
-    "file_path": "CONTEXTS\\TOOLS\\T33ARGOCD.json",
-    "category": "TOOLS",
-    "short_code": "T33"
-  },
-  "R18REPOSITORY_PATTERN": {
-    "door_code": "R18REPOSITORY_PATTERN",
-    "file_path": "CONTEXTS\\ARCHITECTURE\\R18REPOSITORY_PATTERN.json",
-    "category": "ARCHITECTURE",
-    "short_code": "R18"
-  },
-  "D11AUTO_UPDATE": {
-    "door_code": "D11AUTO_UPDATE",
-    "file_path": "CONTEXTS\\TOOLS\\D11AUTO_UPDATE.json",
-    "category": "TOOLS",
-    "short_code": "D11"
-  },
-  "T36PODMAN": {
-    "door_code": "T36PODMAN",
-    "file_path": "CONTEXTS\\TOOLS\\T36PODMAN.json",
-    "category": "TOOLS",
-    "short_code": "T36"
-  },
-  "S02SQL": {
-    "door_code": "S02SQL",
-    "file_path": "CONTEXTS\\SECURITY\\S02SQL.json",
-    "category": "SECURITY",
-    "short_code": "S02"
-  },
-  "W04TOKEN": {
-    "door_code": "W04TOKEN",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W04TOKEN.json",
-    "category": "WORKFLOWS",
-    "short_code": "W04"
-  },
-  "W20DATA_PIPE": {
-    "door_code": "W20DATA_PIPE",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W20DATA_PIPE.json",
-    "category": "WORKFLOWS",
-    "short_code": "W20"
-  },
-  "T62CROSSPLANE": {
-    "door_code": "T62CROSSPLANE",
-    "file_path": "CONTEXTS\\TOOLS\\T62CROSSPLANE.json",
-    "category": "TOOLS",
-    "short_code": "T62"
-  },
-  "W56MONGODB": {
-    "door_code": "W56MONGODB",
-    "file_path": "CONTEXTS\\WORKFLOWS\\W56MONGODB.json",
-    "category": "WORKFLOWS",
-    "short_code": "W56"
-  },
-  "R01MULTI": {
-    "door_code": "R01MULTI",
-    "file_path": "CONTEXTS\\ARCHITECTURE\\R01MULTI.json",
-    "category": "ARCHITECTURE",
-    "short_code": "R01"
-  },
-  "T21PROMETHEUS": {
-    "door_code": "T21PROMETHEUS",
-    "file_path": "CONTEXTS\\TOOLS\\T21PROMETHEUS.json",
-    "category": "TOOLS",
-    "short_code": "T21"
-  },
-  "T43OTEL": {
-    "door_code": "T43OTEL",
-    "file_path": "CONTEXTS\\TOOLS\\T43OTEL.json",
-    "category": "TOOLS",
-    "short_code": "T43"
-  },
-  "T44CRDS": {
-    "door_code": "T44CRDS",
-    "file_path": "CONTEXTS\\TOOLS\\T44CRDS.json",
-    "category": "TOOLS",
-    "short_code": "T44"
-  },
-  "E01PERM": {
-    "door_code": "E01PERM",
-    "file_path": "CONTEXTS\\ERRORS\\E01PERM.json",
-    "category": "ERRORS",
-    "short_code": "E01"
-  },
-  "840ENTERKEY": {
-    "door_code": "840ENTERKEY",
-    "file_path": "CONTEXTS\\TOOLS\\840ENTERKEY.json",
-    "category": "TOOLS",
-    "short_code": "840"
-  },
-  "R14ADAPTER_PATTERN": {
-    "door_code": "R14ADAPTER_PATTERN",
-    "file_path": "CONTEXTS\\ARCHITECTURE\\R14ADAPTER_PATTERN.json",
-    "category": "ARCHITECTURE",
-    "short_code": "R14"
-  },
-  "R20MVVM": {
-    "door_code": "R20MVVM",
-    "file_path": "CONTEXTS\\ARCHITECTURE\\R20MVVM.json",
-    "category": "ARCHITECTURE",
-    "short_code": "R20"
-  },
-  "T29ETCD": {
-    "door_code": "T29ETCD",
-    "file_path": "CONTEXTS\\TOOLS\\T29ETCD.json",
-    "category": "TOOLS",
-    "short_code": "T29"
-  },
-  "A00STRYK": {
-    "door_code": "A00STRYK",
-    "file_path": "CONTEXTS\\AGENTS\\A00STRYK.json",
-    "category": "AGENTS",
-    "short_code": "A00"
-  }
+  "A00STRYK": "CONTEXTS/AGENTS/A00STRYK.json",
+  "A01DC": "CONTEXTS/AGENTS/A01DC.json",
+  "A02VSCC": "CONTEXTS/AGENTS/A02VSCC.json",
+  "A03TERMC": "CONTEXTS/AGENTS/A03TERMC.json",
+  "A04WEBC": "CONTEXTS/AGENTS/A04WEBC.json",
+  "A05KALIC": "CONTEXTS/AGENTS/A05KALIC.json",
+  "A06CMDC": "CONTEXTS/AGENTS/A06CMDC.json",
+  "A08AGENT_COORD": "CONTEXTS/AGENTS/A08AGENT_COORD.json",
+  "A09MESSAGE_QUEUE": "CONTEXTS/AGENTS/A09MESSAGE_QUEUE.json",
+  "A10CODE_REVIEW": "CONTEXTS/AGENTS/A10CODE_REVIEW.json",
+  "A11DEBUGGING": "CONTEXTS/AGENTS/A11DEBUGGING.json",
+  "A12DOCUMENTATION": "CONTEXTS/AGENTS/A12DOCUMENTATION.json",
+  "A13TESTING": "CONTEXTS/AGENTS/A13TESTING.json",
+  "A14SECURITY": "CONTEXTS/AGENTS/A14SECURITY.json",
+  "A15PERFORMANCE": "CONTEXTS/AGENTS/A15PERFORMANCE.json",
+  "A16REFACTORING": "CONTEXTS/AGENTS/A16REFACTORING.json",
+  "A17ARCHITECT": "CONTEXTS/AGENTS/A17ARCHITECT.json",
+  "A18DEVOPS": "CONTEXTS/AGENTS/A18DEVOPS.json",
+  "A19COORDINATOR": "CONTEXTS/AGENTS/A19COORDINATOR.json",
+  "R01MULTI": "CONTEXTS/ARCHITECTURE/R01MULTI.json",
+  "R02DISTRIB": "CONTEXTS/ARCHITECTURE/R02DISTRIB.json",
+  "R03MICROSERVICE": "CONTEXTS/ARCHITECTURE/R03MICROSERVICE.json",
+  "R04EVENT_DRIVEN": "CONTEXTS/ARCHITECTURE/R04EVENT_DRIVEN.json",
+  "R05SERVERLESS": "CONTEXTS/ARCHITECTURE/R05SERVERLESS.json",
+  "R06EVENT_SOURCING": "CONTEXTS/ARCHITECTURE/R06EVENT_SOURCING.json",
+  "R07SAGA_PATTERN": "CONTEXTS/ARCHITECTURE/R07SAGA_PATTERN.json",
+  "R08CQRS": "CONTEXTS/ARCHITECTURE/R08CQRS.json",
+  "R09FACTORY_PATTERN": "CONTEXTS/ARCHITECTURE/R09FACTORY_PATTERN.json",
+  "R10SINGLETON_PATTERN": "CONTEXTS/ARCHITECTURE/R10SINGLETON_PATTERN.json",
+  "R11OBSERVER_PATTERN": "CONTEXTS/ARCHITECTURE/R11OBSERVER_PATTERN.json",
+  "R12STRATEGY_PATTERN": "CONTEXTS/ARCHITECTURE/R12STRATEGY_PATTERN.json",
+  "R13DECORATOR_PATTERN": "CONTEXTS/ARCHITECTURE/R13DECORATOR_PATTERN.json",
+  "R14ADAPTER_PATTERN": "CONTEXTS/ARCHITECTURE/R14ADAPTER_PATTERN.json",
+  "R15BUILDER_PATTERN": "CONTEXTS/ARCHITECTURE/R15BUILDER_PATTERN.json",
+  "R16PROXY_PATTERN": "CONTEXTS/ARCHITECTURE/R16PROXY_PATTERN.json",
+  "R17COMMAND_PATTERN": "CONTEXTS/ARCHITECTURE/R17COMMAND_PATTERN.json",
+  "R18REPOSITORY_PATTERN": "CONTEXTS/ARCHITECTURE/R18REPOSITORY_PATTERN.json",
+  "R19MVC": "CONTEXTS/ARCHITECTURE/R19MVC.json",
+  "R20MVVM": "CONTEXTS/ARCHITECTURE/R20MVVM.json",
+  "R21HEXAGONAL": "CONTEXTS/ARCHITECTURE/R21HEXAGONAL.json",
+  "R22CLEAN_ARCH": "CONTEXTS/ARCHITECTURE/R22CLEAN_ARCH.json",
+  "R23DDD": "CONTEXTS/ARCHITECTURE/R23DDD.json",
+  "R24MULTI_CLOUD": "CONTEXTS/ARCHITECTURE/R24MULTI_CLOUD.json",
+  "R25CLOUD_NATIVE": "CONTEXTS/ARCHITECTURE/R25CLOUD_NATIVE.json",
+  "R26SERVERLESS_ARCH": "CONTEXTS/ARCHITECTURE/R26SERVERLESS_ARCH.json",
+  "R27EDGE_COMPUTING": "CONTEXTS/ARCHITECTURE/R27EDGE_COMPUTING.json",
+  "R28CDN_PATTERNS": "CONTEXTS/ARCHITECTURE/R28CDN_PATTERNS.json",
+  "R29OBJECT_STORAGE": "CONTEXTS/ARCHITECTURE/R29OBJECT_STORAGE.json",
+  "R30PUBSUB_ARCH": "CONTEXTS/ARCHITECTURE/R30PUBSUB_ARCH.json",
+  "R31FANOUT_PATTERN": "CONTEXTS/ARCHITECTURE/R31FANOUT_PATTERN.json",
+  "R32AUTO_SCALING": "CONTEXTS/ARCHITECTURE/R32AUTO_SCALING.json",
+  "R33COST_OPTIMIZATION": "CONTEXTS/ARCHITECTURE/R33COST_OPTIMIZATION.json",
+  "R34EIP": "CONTEXTS/ARCHITECTURE/R34EIP.json",
+  "R35ESB": "CONTEXTS/ARCHITECTURE/R35ESB.json",
+  "R36HEXAGONAL": "CONTEXTS/ARCHITECTURE/R36HEXAGONAL.json",
+  "R37CLEAN_ARCH": "CONTEXTS/ARCHITECTURE/R37CLEAN_ARCH.json",
+  "R38VERTICAL_SLICE": "CONTEXTS/ARCHITECTURE/R38VERTICAL_SLICE.json",
+  "R39MODULAR_MONOLITH": "CONTEXTS/ARCHITECTURE/R39MODULAR_MONOLITH.json",
+  "R40BFF": "CONTEXTS/ARCHITECTURE/R40BFF.json",
+  "R41SAGA": "CONTEXTS/ARCHITECTURE/R41SAGA.json",
+  "R42OUTBOX": "CONTEXTS/ARCHITECTURE/R42OUTBOX.json",
+  "R43BULKHEAD": "CONTEXTS/ARCHITECTURE/R43BULKHEAD.json",
+  "R44STRANGLER": "CONTEXTS/ARCHITECTURE/R44STRANGLER.json",
+  "R45ANTI_CORRUPTION": "CONTEXTS/ARCHITECTURE/R45ANTI_CORRUPTION.json",
+  "R46SIDECAR": "CONTEXTS/ARCHITECTURE/R46SIDECAR.json",
+  "E01PERM": "CONTEXTS/ERRORS/E01PERM.json",
+  "E02ENCODE": "CONTEXTS/ERRORS/E02ENCODE.json",
+  "E03TIMEOUT": "CONTEXTS/ERRORS/E03TIMEOUT.json",
+  "E04TIMEOUT": "CONTEXTS/ERRORS/E04TIMEOUT.json",
+  "E05RETRY": "CONTEXTS/ERRORS/E05RETRY.json",
+  "E06CIRCUIT_BREAKER": "CONTEXTS/ERRORS/E06CIRCUIT_BREAKER.json",
+  "E07DATABASE_ERRORS": "CONTEXTS/ERRORS/E07DATABASE_ERRORS.json",
+  "E08NETWORK_ERRORS": "CONTEXTS/ERRORS/E08NETWORK_ERRORS.json",
+  "E09VALIDATION_ERRORS": "CONTEXTS/ERRORS/E09VALIDATION_ERRORS.json",
+  "E10SERIALIZATION_ERRORS": "CONTEXTS/ERRORS/E10SERIALIZATION_ERRORS.json",
+  "E11RACE_CONDITIONS": "CONTEXTS/ERRORS/E11RACE_CONDITIONS.json",
+  "E12MEMORY_ERRORS": "CONTEXTS/ERRORS/E12MEMORY_ERRORS.json",
+  "E13CONFIGURATION_ERRORS": "CONTEXTS/ERRORS/E13CONFIGURATION_ERRORS.json",
+  "E14DISTRIBUTED_TRACE": "CONTEXTS/ERRORS/E14DISTRIBUTED_TRACE.json",
+  "E15CASCADING": "CONTEXTS/ERRORS/E15CASCADING.json",
+  "E16DEADLOCK": "CONTEXTS/ERRORS/E16DEADLOCK.json",
+  "E17LIVELOCK": "CONTEXTS/ERRORS/E17LIVELOCK.json",
+  "E18RESOURCE_EXHAUSTION": "CONTEXTS/ERRORS/E18RESOURCE_EXHAUSTION.json",
+  "E19PARTIAL_FAILURE": "CONTEXTS/ERRORS/E19PARTIAL_FAILURE.json",
+  "E20CLOCK_SKEW": "CONTEXTS/ERRORS/E20CLOCK_SKEW.json",
+  "E21POISON_PILL": "CONTEXTS/ERRORS/E21POISON_PILL.json",
+  "E22SPLIT_BRAIN": "CONTEXTS/ERRORS/E22SPLIT_BRAIN.json",
+  "E23DATA_CORRUPTION": "CONTEXTS/ERRORS/E23DATA_CORRUPTION.json",
+  "E24MEMORY_LEAK": "CONTEXTS/ERRORS/E24MEMORY_LEAK.json",
+  "E25CONNECTION_POOL": "CONTEXTS/ERRORS/E25CONNECTION_POOL.json",
+  "E26RATE_LIMIT": "CONTEXTS/ERRORS/E26RATE_LIMIT.json",
+  "E27SERIALIZATION": "CONTEXTS/ERRORS/E27SERIALIZATION.json",
+  "E28TIMEOUT_CASCADE": "CONTEXTS/ERRORS/E28TIMEOUT_CASCADE.json",
+  "E29STATE_CORRUPTION": "CONTEXTS/ERRORS/E29STATE_CORRUPTION.json",
+  "E30AUTH_FAILURES": "CONTEXTS/ERRORS/E30AUTH_FAILURES.json",
+  "E31CONSENSUS_FAIL": "CONTEXTS/ERRORS/E31CONSENSUS_FAIL.json",
+  "E32QUEUE_OVERFLOW": "CONTEXTS/ERRORS/E32QUEUE_OVERFLOW.json",
+  "E33REPLICATION_LAG": "CONTEXTS/ERRORS/E33REPLICATION_LAG.json",
+  "L01PYTHON": "CONTEXTS/LANGUAGES/L01PYTHON.json",
+  "L02PYTHON_ASYNC": "CONTEXTS/LANGUAGES/L02PYTHON_ASYNC.json",
+  "L03PYTHON_TYPING": "CONTEXTS/LANGUAGES/L03PYTHON_TYPING.json",
+  "L04PYTHON_TESTING": "CONTEXTS/LANGUAGES/L04PYTHON_TESTING.json",
+  "L05PYTHON_PACKAGING": "CONTEXTS/LANGUAGES/L05PYTHON_PACKAGING.json",
+  "L06PYTHON_PERF": "CONTEXTS/LANGUAGES/L06PYTHON_PERF.json",
+  "L07PYTHON_DATA": "CONTEXTS/LANGUAGES/L07PYTHON_DATA.json",
+  "L08PYTHON_WEB": "CONTEXTS/LANGUAGES/L08PYTHON_WEB.json",
+  "L09PYTHON_CLI": "CONTEXTS/LANGUAGES/L09PYTHON_CLI.json",
+  "L10PYTHON_SECURITY": "CONTEXTS/LANGUAGES/L10PYTHON_SECURITY.json",
+  "L11NODEJS": "CONTEXTS/LANGUAGES/L11NODEJS.json",
+  "L12TYPESCRIPT": "CONTEXTS/LANGUAGES/L12TYPESCRIPT.json",
+  "L13TS_PATTERNS": "CONTEXTS/LANGUAGES/L13TS_PATTERNS.json",
+  "L14REACT_PATTERNS": "CONTEXTS/LANGUAGES/L14REACT_PATTERNS.json",
+  "L15NEXTJS": "CONTEXTS/LANGUAGES/L15NEXTJS.json",
+  "L16NODE_TESTING": "CONTEXTS/LANGUAGES/L16NODE_TESTING.json",
+  "L17NPM_PACKAGES": "CONTEXTS/LANGUAGES/L17NPM_PACKAGES.json",
+  "L18NODE_PERF": "CONTEXTS/LANGUAGES/L18NODE_PERF.json",
+  "L19DENO": "CONTEXTS/LANGUAGES/L19DENO.json",
+  "L20BUN": "CONTEXTS/LANGUAGES/L20BUN.json",
+  "L21GO_BASICS": "CONTEXTS/LANGUAGES/L21GO_BASICS.json",
+  "L22GO_CONCURRENCY": "CONTEXTS/LANGUAGES/L22GO_CONCURRENCY.json",
+  "L23GO_TESTING": "CONTEXTS/LANGUAGES/L23GO_TESTING.json",
+  "L24GO_MODULES": "CONTEXTS/LANGUAGES/L24GO_MODULES.json",
+  "L25GO_WEB": "CONTEXTS/LANGUAGES/L25GO_WEB.json",
+  "L26GO_CLI": "CONTEXTS/LANGUAGES/L26GO_CLI.json",
+  "L27GO_PERF": "CONTEXTS/LANGUAGES/L27GO_PERF.json",
+  "L28GO_GENERICS": "CONTEXTS/LANGUAGES/L28GO_GENERICS.json",
+  "L29GO_ERRORS": "CONTEXTS/LANGUAGES/L29GO_ERRORS.json",
+  "L30GO_CONTEXT": "CONTEXTS/LANGUAGES/L30GO_CONTEXT.json",
+  "L31RUST_BASICS": "CONTEXTS/LANGUAGES/L31RUST_BASICS.json",
+  "L32RUST_ERROR": "CONTEXTS/LANGUAGES/L32RUST_ERROR.json",
+  "L33RUST_ASYNC": "CONTEXTS/LANGUAGES/L33RUST_ASYNC.json",
+  "L34RUST_TRAITS": "CONTEXTS/LANGUAGES/L34RUST_TRAITS.json",
+  "L35RUST_TESTING": "CONTEXTS/LANGUAGES/L35RUST_TESTING.json",
+  "L36RUST_CARGO": "CONTEXTS/LANGUAGES/L36RUST_CARGO.json",
+  "L37RUST_UNSAFE": "CONTEXTS/LANGUAGES/L37RUST_UNSAFE.json",
+  "L38RUST_MACROS": "CONTEXTS/LANGUAGES/L38RUST_MACROS.json",
+  "L39RUST_PERF": "CONTEXTS/LANGUAGES/L39RUST_PERF.json",
+  "L40RUST_WASM": "CONTEXTS/LANGUAGES/L40RUST_WASM.json",
+  "L41SHELL_BASH": "CONTEXTS/LANGUAGES/L41SHELL_BASH.json",
+  "L42SHELL_ZSH": "CONTEXTS/LANGUAGES/L42SHELL_ZSH.json",
+  "L43POWERSHELL": "CONTEXTS/LANGUAGES/L43POWERSHELL.json",
+  "L44SQL_PATTERNS": "CONTEXTS/LANGUAGES/L44SQL_PATTERNS.json",
+  "L45GRAPHQL": "CONTEXTS/LANGUAGES/L45GRAPHQL.json",
+  "L46PROTOBUF": "CONTEXTS/LANGUAGES/L46PROTOBUF.json",
+  "L47REGEX": "CONTEXTS/LANGUAGES/L47REGEX.json",
+  "L48JSON_SCHEMA": "CONTEXTS/LANGUAGES/L48JSON_SCHEMA.json",
+  "L49MARKDOWN": "CONTEXTS/LANGUAGES/L49MARKDOWN.json",
+  "L50YAML": "CONTEXTS/LANGUAGES/L50YAML.json",
+  "000START": "CONTEXTS/PROJECTS/000START.json",
+  "P01WAVE": "CONTEXTS/PROJECTS/P01WAVE.json",
+  "P02PHIGEN": "CONTEXTS/PROJECTS/P02PHIGEN.json",
+  "P03VECTOR": "CONTEXTS/PROJECTS/P03VECTOR.json",
+  "P04SHRI": "CONTEXTS/PROJECTS/P04SHRI.json",
+  "P05SESSION_CONT": "CONTEXTS/PROJECTS/P05SESSION_CONT.json",
+  "P06AGILE_SETUP": "CONTEXTS/PROJECTS/P06AGILE_SETUP.json",
+  "P07MONOREPO": "CONTEXTS/PROJECTS/P07MONOREPO.json",
+  "P08MICROSERVICE_INIT": "CONTEXTS/PROJECTS/P08MICROSERVICE_INIT.json",
+  "P09OPENSOURCE_INIT": "CONTEXTS/PROJECTS/P09OPENSOURCE_INIT.json",
+  "P10ENTERPRISE_INIT": "CONTEXTS/PROJECTS/P10ENTERPRISE_INIT.json",
+  "P11MVPDEV": "CONTEXTS/PROJECTS/P11MVPDEV.json",
+  "P12MIGRATION": "CONTEXTS/PROJECTS/P12MIGRATION.json",
+  "P13PLATFORM_TEAM": "CONTEXTS/PROJECTS/P13PLATFORM_TEAM.json",
+  "P14GREENFIELD": "CONTEXTS/PROJECTS/P14GREENFIELD.json",
+  "P15BROWNFIELD": "CONTEXTS/PROJECTS/P15BROWNFIELD.json",
+  "S01SEC": "CONTEXTS/SECURITY/S01SEC.json",
+  "S02SQL": "CONTEXTS/SECURITY/S02SQL.json",
+  "S03INPUT_VAL": "CONTEXTS/SECURITY/S03INPUT_VAL.json",
+  "S04XSS": "CONTEXTS/SECURITY/S04XSS.json",
+  "S05SECRETS": "CONTEXTS/SECURITY/S05SECRETS.json",
+  "S06ENCRYPTION": "CONTEXTS/SECURITY/S06ENCRYPTION.json",
+  "S07OAUTH": "CONTEXTS/SECURITY/S07OAUTH.json",
+  "S08JWT": "CONTEXTS/SECURITY/S08JWT.json",
+  "S09RBAC": "CONTEXTS/SECURITY/S09RBAC.json",
+  "S10CORS": "CONTEXTS/SECURITY/S10CORS.json",
+  "S11CSRF": "CONTEXTS/SECURITY/S11CSRF.json",
+  "S12API_SECURITY": "CONTEXTS/SECURITY/S12API_SECURITY.json",
+  "S13SECRETS_ROTATION": "CONTEXTS/SECURITY/S13SECRETS_ROTATION.json",
+  "S14ENCRYPTION": "CONTEXTS/SECURITY/S14ENCRYPTION.json",
+  "S15AUDIT_LOGGING": "CONTEXTS/SECURITY/S15AUDIT_LOGGING.json",
+  "S16INPUT_SANITIZATION": "CONTEXTS/SECURITY/S16INPUT_SANITIZATION.json",
+  "S17ZERO_TRUST": "CONTEXTS/SECURITY/S17ZERO_TRUST.json",
+  "S18PENETRATION_TESTING": "CONTEXTS/SECURITY/S18PENETRATION_TESTING.json",
+  "S19PATH_TRAVERSAL": "CONTEXTS/SECURITY/S19PATH_TRAVERSAL.json",
+  "S20CRYPTO_FAILURES": "CONTEXTS/SECURITY/S20CRYPTO_FAILURES.json",
+  "S21DESERIALIZATION": "CONTEXTS/SECURITY/S21DESERIALIZATION.json",
+  "S22SSRF": "CONTEXTS/SECURITY/S22SSRF.json",
+  "S23XML_INJECTION": "CONTEXTS/SECURITY/S23XML_INJECTION.json",
+  "S24COMMAND_INJECTION": "CONTEXTS/SECURITY/S24COMMAND_INJECTION.json",
+  "S25LDAP_INJECTION": "CONTEXTS/SECURITY/S25LDAP_INJECTION.json",
+  "S26BROKEN_ACCESS": "CONTEXTS/SECURITY/S26BROKEN_ACCESS.json",
+  "S27AUTH_FAILURES": "CONTEXTS/SECURITY/S27AUTH_FAILURES.json",
+  "S28SECURITY_MISCONFIG": "CONTEXTS/SECURITY/S28SECURITY_MISCONFIG.json",
+  "S29OUTDATED_COMPONENTS": "CONTEXTS/SECURITY/S29OUTDATED_COMPONENTS.json",
+  "S30INTEGRITY_FAILURES": "CONTEXTS/SECURITY/S30INTEGRITY_FAILURES.json",
+  "S31LOGGING_FAILURES": "CONTEXTS/SECURITY/S31LOGGING_FAILURES.json",
+  "S32CLICKJACKING": "CONTEXTS/SECURITY/S32CLICKJACKING.json",
+  "S33FILE_UPLOAD": "CONTEXTS/SECURITY/S33FILE_UPLOAD.json",
+  "S34OPEN_REDIRECT": "CONTEXTS/SECURITY/S34OPEN_REDIRECT.json",
+  "S35MASS_ASSIGNMENT": "CONTEXTS/SECURITY/S35MASS_ASSIGNMENT.json",
+  "S36CONTAINER_ESCAPE": "CONTEXTS/SECURITY/S36CONTAINER_ESCAPE.json",
+  "S37K8S_SECURITY": "CONTEXTS/SECURITY/S37K8S_SECURITY.json",
+  "S38CLOUD_IAM": "CONTEXTS/SECURITY/S38CLOUD_IAM.json",
+  "S39CLOUD_NETWORK": "CONTEXTS/SECURITY/S39CLOUD_NETWORK.json",
+  "S40K8S_SECRETS": "CONTEXTS/SECURITY/S40K8S_SECRETS.json",
+  "S41POD_SECURITY": "CONTEXTS/SECURITY/S41POD_SECURITY.json",
+  "S42NETWORK_POLICY": "CONTEXTS/SECURITY/S42NETWORK_POLICY.json",
+  "S43SERVICE_MESH_SEC": "CONTEXTS/SECURITY/S43SERVICE_MESH_SEC.json",
+  "S44API_GATEWAY_SEC": "CONTEXTS/SECURITY/S44API_GATEWAY_SEC.json",
+  "S45WAF": "CONTEXTS/SECURITY/S45WAF.json",
+  "S46CONTAINER_ESCAPE": "CONTEXTS/SECURITY/S46CONTAINER_ESCAPE.json",
+  "S47K8S_SECURITY": "CONTEXTS/SECURITY/S47K8S_SECURITY.json",
+  "S48POD_SECURITY": "CONTEXTS/SECURITY/S48POD_SECURITY.json",
+  "S49NETWORK_POLICY": "CONTEXTS/SECURITY/S49NETWORK_POLICY.json",
+  "S50CLOUD_IAM": "CONTEXTS/SECURITY/S50CLOUD_IAM.json",
+  "S51CLOUD_NETWORK": "CONTEXTS/SECURITY/S51CLOUD_NETWORK.json",
+  "S52K8S_SECRETS": "CONTEXTS/SECURITY/S52K8S_SECRETS.json",
+  "S53SERVICE_MESH_SEC": "CONTEXTS/SECURITY/S53SERVICE_MESH_SEC.json",
+  "S54API_GATEWAY_SEC": "CONTEXTS/SECURITY/S54API_GATEWAY_SEC.json",
+  "S55WAF_RULES": "CONTEXTS/SECURITY/S55WAF_RULES.json",
+  "800WINMCP": "CONTEXTS/TOOLS/800WINMCP.json",
+  "810AHK": "CONTEXTS/TOOLS/810AHK.json",
+  "820PWSH": "CONTEXTS/TOOLS/820PWSH.json",
+  "830WINAUTOSUITE": "CONTEXTS/TOOLS/830WINAUTOSUITE.json",
+  "840ENTERKEY": "CONTEXTS/TOOLS/840ENTERKEY.json",
+  "D01WIX": "CONTEXTS/TOOLS/D01WIX.json",
+  "D02SILENT": "CONTEXTS/TOOLS/D02SILENT.json",
+  "D03SIGN": "CONTEXTS/TOOLS/D03SIGN.json",
+  "D04PKG": "CONTEXTS/TOOLS/D04PKG.json",
+  "D05SILENT_INSTALL": "CONTEXTS/TOOLS/D05SILENT_INSTALL.json",
+  "D06ENTERPRISE": "CONTEXTS/TOOLS/D06ENTERPRISE.json",
+  "D07GPO": "CONTEXTS/TOOLS/D07GPO.json",
+  "D08AUTOPILOT": "CONTEXTS/TOOLS/D08AUTOPILOT.json",
+  "D09CODE_SIGNING": "CONTEXTS/TOOLS/D09CODE_SIGNING.json",
+  "D10NOTARIZATION": "CONTEXTS/TOOLS/D10NOTARIZATION.json",
+  "D11AUTO_UPDATE": "CONTEXTS/TOOLS/D11AUTO_UPDATE.json",
+  "D12PACKAGE_MANAGERS": "CONTEXTS/TOOLS/D12PACKAGE_MANAGERS.json",
+  "D13NETWORK_DEPLOY": "CONTEXTS/TOOLS/D13NETWORK_DEPLOY.json",
+  "D14COMPLIANCE_SCAN": "CONTEXTS/TOOLS/D14COMPLIANCE_SCAN.json",
+  "T01MCP": "CONTEXTS/TOOLS/T01MCP.json",
+  "T02VSCODE": "CONTEXTS/TOOLS/T02VSCODE.json",
+  "T03PLAYWRIGHT": "CONTEXTS/TOOLS/T03PLAYWRIGHT.json",
+  "T05MCP_ARCH": "CONTEXTS/TOOLS/T05MCP_ARCH.json",
+  "T06MCP_SETUP": "CONTEXTS/TOOLS/T06MCP_SETUP.json",
+  "T07VSCODE_EXT": "CONTEXTS/TOOLS/T07VSCODE_EXT.json",
+  "T08API_PATTERN": "CONTEXTS/TOOLS/T08API_PATTERN.json",
+  "T09IPC_METHODS": "CONTEXTS/TOOLS/T09IPC_METHODS.json",
+  "T10OBSERVABILITY": "CONTEXTS/TOOLS/T10OBSERVABILITY.json",
+  "T11CICD": "CONTEXTS/TOOLS/T11CICD.json",
+  "T12DOCKER_BUILD": "CONTEXTS/TOOLS/T12DOCKER_BUILD.json",
+  "T13K8S_SECRETS": "CONTEXTS/TOOLS/T13K8S_SECRETS.json",
+  "T14TERRAFORM": "CONTEXTS/TOOLS/T14TERRAFORM.json",
+  "T15ANSIBLE": "CONTEXTS/TOOLS/T15ANSIBLE.json",
+  "T16GRAFANA": "CONTEXTS/TOOLS/T16GRAFANA.json",
+  "T17PROMETHEUS": "CONTEXTS/TOOLS/T17PROMETHEUS.json",
+  "T18AIRFLOW": "CONTEXTS/TOOLS/T18AIRFLOW.json",
+  "T19KAFKA": "CONTEXTS/TOOLS/T19KAFKA.json",
+  "T20ELASTICSEARCH": "CONTEXTS/TOOLS/T20ELASTICSEARCH.json",
+  "T21PROMETHEUS": "CONTEXTS/TOOLS/T21PROMETHEUS.json",
+  "T22REDIS": "CONTEXTS/TOOLS/T22REDIS.json",
+  "T23RABBITMQ": "CONTEXTS/TOOLS/T23RABBITMQ.json",
+  "T24NGINX": "CONTEXTS/TOOLS/T24NGINX.json",
+  "T25DOCKER": "CONTEXTS/TOOLS/T25DOCKER.json",
+  "T26KUBERNETES": "CONTEXTS/TOOLS/T26KUBERNETES.json",
+  "T27VAULT": "CONTEXTS/TOOLS/T27VAULT.json",
+  "T28CONSUL": "CONTEXTS/TOOLS/T28CONSUL.json",
+  "T29ETCD": "CONTEXTS/TOOLS/T29ETCD.json",
+  "T30JENKINS": "CONTEXTS/TOOLS/T30JENKINS.json",
+  "T31GITLAB_CI": "CONTEXTS/TOOLS/T31GITLAB_CI.json",
+  "T33ARGOCD": "CONTEXTS/TOOLS/T33ARGOCD.json",
+  "T34CIRCLECI": "CONTEXTS/TOOLS/T34CIRCLECI.json",
+  "T35DOCKER_ADV": "CONTEXTS/TOOLS/T35DOCKER_ADV.json",
+  "T36PODMAN": "CONTEXTS/TOOLS/T36PODMAN.json",
+  "T37CONTAINERD": "CONTEXTS/TOOLS/T37CONTAINERD.json",
+  "T38BUILDAH": "CONTEXTS/TOOLS/T38BUILDAH.json",
+  "T39KANIKO": "CONTEXTS/TOOLS/T39KANIKO.json",
+  "T40K8S_NETWORKING": "CONTEXTS/TOOLS/T40K8S_NETWORKING.json",
+  "T41HELM": "CONTEXTS/TOOLS/T41HELM.json",
+  "T42KUSTOMIZE": "CONTEXTS/TOOLS/T42KUSTOMIZE.json",
+  "T43OPERATORS": "CONTEXTS/TOOLS/T43OPERATORS.json",
+  "T44CRDS": "CONTEXTS/TOOLS/T44CRDS.json",
+  "T45ISTIO": "CONTEXTS/TOOLS/T45ISTIO.json",
+  "T46LINKERD": "CONTEXTS/TOOLS/T46LINKERD.json",
+  "T47ENVOY": "CONTEXTS/TOOLS/T47ENVOY.json",
+  "T48CONSUL_MESH": "CONTEXTS/TOOLS/T48CONSUL_MESH.json",
+  "T49TRAEFIK": "CONTEXTS/TOOLS/T49TRAEFIK.json",
+  "T50PROMETHEUS": "CONTEXTS/TOOLS/T50PROMETHEUS.json",
+  "T51GRAFANA": "CONTEXTS/TOOLS/T51GRAFANA.json",
+  "T52JAEGER": "CONTEXTS/TOOLS/T52JAEGER.json",
+  "T53OPENTELEMETRY": "CONTEXTS/TOOLS/T53OPENTELEMETRY.json",
+  "T54DATADOG": "CONTEXTS/TOOLS/T54DATADOG.json",
+  "T55ELK_STACK": "CONTEXTS/TOOLS/T55ELK_STACK.json",
+  "T56LOKI": "CONTEXTS/TOOLS/T56LOKI.json",
+  "T57FLUENTD": "CONTEXTS/TOOLS/T57FLUENTD.json",
+  "T58VECTOR": "CONTEXTS/TOOLS/T58VECTOR.json",
+  "T59SPLUNK": "CONTEXTS/TOOLS/T59SPLUNK.json",
+  "T60TERRAFORM": "CONTEXTS/TOOLS/T60TERRAFORM.json",
+  "T61PULUMI": "CONTEXTS/TOOLS/T61PULUMI.json",
+  "T62CROSSPLANE": "CONTEXTS/TOOLS/T62CROSSPLANE.json",
+  "T63AWS_CDK": "CONTEXTS/TOOLS/T63AWS_CDK.json",
+  "T64ANSIBLE_ADV": "CONTEXTS/TOOLS/T64ANSIBLE_ADV.json",
+  "T65VAULT_ADV": "CONTEXTS/TOOLS/T65VAULT_ADV.json",
+  "T66SOPS": "CONTEXTS/TOOLS/T66SOPS.json",
+  "T67SEALED_SECRETS": "CONTEXTS/TOOLS/T67SEALED_SECRETS.json",
+  "T68EXTERNAL_SECRETS": "CONTEXTS/TOOLS/T68EXTERNAL_SECRETS.json",
+  "T69KMS": "CONTEXTS/TOOLS/T69KMS.json",
+  "T70FLUX": "CONTEXTS/TOOLS/T70FLUX.json",
+  "T71GITOPS": "CONTEXTS/TOOLS/T71GITOPS.json",
+  "T72DRIFT_DETECTION": "CONTEXTS/TOOLS/T72DRIFT_DETECTION.json",
+  "T73PROGRESSIVE_DELIVERY": "CONTEXTS/TOOLS/T73PROGRESSIVE_DELIVERY.json",
+  "T74IMAGE_AUTOMATION": "CONTEXTS/TOOLS/T74IMAGE_AUTOMATION.json",
+  "T75BACKSTAGE": "CONTEXTS/TOOLS/T75BACKSTAGE.json",
+  "T76PORT": "CONTEXTS/TOOLS/T76PORT.json",
+  "T77KRATIX": "CONTEXTS/TOOLS/T77KRATIX.json",
+  "T78IDP": "CONTEXTS/TOOLS/T78IDP.json",
+  "T79PLATFORM_TEAMS": "CONTEXTS/TOOLS/T79PLATFORM_TEAMS.json",
+  "W01COORD": "CONTEXTS/WORKFLOWS/W01COORD.json",
+  "W02PROMPT": "CONTEXTS/WORKFLOWS/W02PROMPT.json",
+  "W03CONTEXT": "CONTEXTS/WORKFLOWS/W03CONTEXT.json",
+  "W04TOKEN": "CONTEXTS/WORKFLOWS/W04TOKEN.json",
+  "W05RUNSPACE": "CONTEXTS/WORKFLOWS/W05RUNSPACE.json",
+  "W06WMI": "CONTEXTS/WORKFLOWS/W06WMI.json",
+  "W07DOTNET": "CONTEXTS/WORKFLOWS/W07DOTNET.json",
+  "W08FILEWATCHER": "CONTEXTS/WORKFLOWS/W08FILEWATCHER.json",
+  "W09DAEMON": "CONTEXTS/WORKFLOWS/W09DAEMON.json",
+  "W100SCHEDULING": "CONTEXTS/WORKFLOWS/W100SCHEDULING.json",
+  "W101FILE_PROCESSING": "CONTEXTS/WORKFLOWS/W101FILE_PROCESSING.json",
+  "W102UNIT_TESTING": "CONTEXTS/WORKFLOWS/W102UNIT_TESTING.json",
+  "W103INTEGRATION_TESTING": "CONTEXTS/WORKFLOWS/W103INTEGRATION_TESTING.json",
+  "W104MOCKING": "CONTEXTS/WORKFLOWS/W104MOCKING.json",
+  "W105TEST_FIXTURES": "CONTEXTS/WORKFLOWS/W105TEST_FIXTURES.json",
+  "W106E2E_TESTING": "CONTEXTS/WORKFLOWS/W106E2E_TESTING.json",
+  "W107CONTRACT_TESTING": "CONTEXTS/WORKFLOWS/W107CONTRACT_TESTING.json",
+  "W108MUTATION_TESTING": "CONTEXTS/WORKFLOWS/W108MUTATION_TESTING.json",
+  "W109TEST_COVERAGE": "CONTEXTS/WORKFLOWS/W109TEST_COVERAGE.json",
+  "W10STARTUP": "CONTEXTS/WORKFLOWS/W10STARTUP.json",
+  "W110LAZY_LOADING": "CONTEXTS/WORKFLOWS/W110LAZY_LOADING.json",
+  "W111CONNECTION_POOLING": "CONTEXTS/WORKFLOWS/W111CONNECTION_POOLING.json",
+  "W112BACKPRESSURE": "CONTEXTS/WORKFLOWS/W112BACKPRESSURE.json",
+  "W113THROTTLING": "CONTEXTS/WORKFLOWS/W113THROTTLING.json",
+  "W114COMPRESSION": "CONTEXTS/WORKFLOWS/W114COMPRESSION.json",
+  "W115MESSAGE_QUEUE": "CONTEXTS/WORKFLOWS/W115MESSAGE_QUEUE.json",
+  "W116IPC": "CONTEXTS/WORKFLOWS/W116IPC.json",
+  "W117FILE_IPC": "CONTEXTS/WORKFLOWS/W117FILE_IPC.json",
+  "W118REQUEST_RESPONSE": "CONTEXTS/WORKFLOWS/W118REQUEST_RESPONSE.json",
+  "W119PUBSUB": "CONTEXTS/WORKFLOWS/W119PUBSUB.json",
+  "W11FILE_CMD": "CONTEXTS/WORKFLOWS/W11FILE_CMD.json",
+  "W120STATE_FILE": "CONTEXTS/WORKFLOWS/W120STATE_FILE.json",
+  "W121WORKFLOW_STATE": "CONTEXTS/WORKFLOWS/W121WORKFLOW_STATE.json",
+  "W122DAG": "CONTEXTS/WORKFLOWS/W122DAG.json",
+  "W123ORCHESTRATION": "CONTEXTS/WORKFLOWS/W123ORCHESTRATION.json",
+  "W124PARALLEL": "CONTEXTS/WORKFLOWS/W124PARALLEL.json",
+  "W125CHOREOGRAPHY": "CONTEXTS/WORKFLOWS/W125CHOREOGRAPHY.json",
+  "W126PIPELINE": "CONTEXTS/WORKFLOWS/W126PIPELINE.json",
+  "W127CORRELATION_ID": "CONTEXTS/WORKFLOWS/W127CORRELATION_ID.json",
+  "W128DEAD_LETTER": "CONTEXTS/WORKFLOWS/W128DEAD_LETTER.json",
+  "W129POLLING": "CONTEXTS/WORKFLOWS/W129POLLING.json",
+  "W12PHISYNC": "CONTEXTS/WORKFLOWS/W12PHISYNC.json",
+  "W130ACTOR_MODEL": "CONTEXTS/WORKFLOWS/W130ACTOR_MODEL.json",
+  "W131CSP": "CONTEXTS/WORKFLOWS/W131CSP.json",
+  "W132SAGA": "CONTEXTS/WORKFLOWS/W132SAGA.json",
+  "W133IDEMPOTENCY": "CONTEXTS/WORKFLOWS/W133IDEMPOTENCY.json",
+  "W134DISTRIBUTED_TX": "CONTEXTS/WORKFLOWS/W134DISTRIBUTED_TX.json",
+  "W135CIRCUIT_BREAKER": "CONTEXTS/WORKFLOWS/W135CIRCUIT_BREAKER.json",
+  "W136BULKHEAD": "CONTEXTS/WORKFLOWS/W136BULKHEAD.json",
+  "W137RATE_LIMIT": "CONTEXTS/WORKFLOWS/W137RATE_LIMIT.json",
+  "W138LOAD_BALANCE": "CONTEXTS/WORKFLOWS/W138LOAD_BALANCE.json",
+  "W139EVENT_SOURCING": "CONTEXTS/WORKFLOWS/W139EVENT_SOURCING.json",
+  "W13DAG": "CONTEXTS/WORKFLOWS/W13DAG.json",
+  "W140CQRS_IMPL": "CONTEXTS/WORKFLOWS/W140CQRS_IMPL.json",
+  "W141BACKOFF": "CONTEXTS/WORKFLOWS/W141BACKOFF.json",
+  "W142DISTRIBUTED_LOCK": "CONTEXTS/WORKFLOWS/W142DISTRIBUTED_LOCK.json",
+  "W143LEADER_ELECTION": "CONTEXTS/WORKFLOWS/W143LEADER_ELECTION.json",
+  "W144EVENTUAL_CONSISTENCY": "CONTEXTS/WORKFLOWS/W144EVENTUAL_CONSISTENCY.json",
+  "W145CRDT": "CONTEXTS/WORKFLOWS/W145CRDT.json",
+  "W146SLI_SLO": "CONTEXTS/WORKFLOWS/W146SLI_SLO.json",
+  "W147ERROR_BUDGET": "CONTEXTS/WORKFLOWS/W147ERROR_BUDGET.json",
+  "W148INCIDENT_MGMT": "CONTEXTS/WORKFLOWS/W148INCIDENT_MGMT.json",
+  "W149POSTMORTEM": "CONTEXTS/WORKFLOWS/W149POSTMORTEM.json",
+  "W14GIT": "CONTEXTS/WORKFLOWS/W14GIT.json",
+  "W150RUNBOOK": "CONTEXTS/WORKFLOWS/W150RUNBOOK.json",
+  "W151ONCALL": "CONTEXTS/WORKFLOWS/W151ONCALL.json",
+  "W152CHAOS_ENG": "CONTEXTS/WORKFLOWS/W152CHAOS_ENG.json",
+  "W153TOIL": "CONTEXTS/WORKFLOWS/W153TOIL.json",
+  "W154CAPACITY": "CONTEXTS/WORKFLOWS/W154CAPACITY.json",
+  "W155DR": "CONTEXTS/WORKFLOWS/W155DR.json",
+  "W156DATA_QUALITY": "CONTEXTS/WORKFLOWS/W156DATA_QUALITY.json",
+  "W157DATA_LINEAGE": "CONTEXTS/WORKFLOWS/W157DATA_LINEAGE.json",
+  "W158FEATURE_STORE": "CONTEXTS/WORKFLOWS/W158FEATURE_STORE.json",
+  "W159DATA_CATALOG": "CONTEXTS/WORKFLOWS/W159DATA_CATALOG.json",
+  "W15CICD": "CONTEXTS/WORKFLOWS/W15CICD.json",
+  "W160SCHEMA_REGISTRY": "CONTEXTS/WORKFLOWS/W160SCHEMA_REGISTRY.json",
+  "W161DATA_CONTRACTS": "CONTEXTS/WORKFLOWS/W161DATA_CONTRACTS.json",
+  "W162DATA_MESH": "CONTEXTS/WORKFLOWS/W162DATA_MESH.json",
+  "W163LAKEHOUSE": "CONTEXTS/WORKFLOWS/W163LAKEHOUSE.json",
+  "W164DATA_GOVERNANCE": "CONTEXTS/WORKFLOWS/W164DATA_GOVERNANCE.json",
+  "W165DBT": "CONTEXTS/WORKFLOWS/W165DBT.json",
+  "W166MLOPS": "CONTEXTS/WORKFLOWS/W166MLOPS.json",
+  "W167MODELSERVE": "CONTEXTS/WORKFLOWS/W167MODELSERVE.json",
+  "W168FEATURESTORE": "CONTEXTS/WORKFLOWS/W168FEATURESTORE.json",
+  "W169LLMOPS": "CONTEXTS/WORKFLOWS/W169LLMOPS.json",
+  "W16PWSH_BEST": "CONTEXTS/WORKFLOWS/W16PWSH_BEST.json",
+  "W170MLMONITOR": "CONTEXTS/WORKFLOWS/W170MLMONITOR.json",
+  "W171RESTAPI": "CONTEXTS/WORKFLOWS/W171RESTAPI.json",
+  "W172GRAPHQL": "CONTEXTS/WORKFLOWS/W172GRAPHQL.json",
+  "W173GRPC": "CONTEXTS/WORKFLOWS/W173GRPC.json",
+  "W174WEBHOOK": "CONTEXTS/WORKFLOWS/W174WEBHOOK.json",
+  "W175APIVERSION": "CONTEXTS/WORKFLOWS/W175APIVERSION.json",
+  "W176APIPAGINATION": "CONTEXTS/WORKFLOWS/W176APIPAGINATION.json",
+  "W177APIERROR": "CONTEXTS/WORKFLOWS/W177APIERROR.json",
+  "W178APIAUTH": "CONTEXTS/WORKFLOWS/W178APIAUTH.json",
+  "W179APICACHE": "CONTEXTS/WORKFLOWS/W179APICACHE.json",
+  "W17PARALLEL": "CONTEXTS/WORKFLOWS/W17PARALLEL.json",
+  "W180OPENAPI": "CONTEXTS/WORKFLOWS/W180OPENAPI.json",
+  "W181APIGATEWAY": "CONTEXTS/WORKFLOWS/W181APIGATEWAY.json",
+  "W182APITEST": "CONTEXTS/WORKFLOWS/W182APITEST.json",
+  "W183BFFPATTERN": "CONTEXTS/WORKFLOWS/W183BFFPATTERN.json",
+  "W184ASYNCAPI": "CONTEXTS/WORKFLOWS/W184ASYNCAPI.json",
+  "W185RATELIMIT": "CONTEXTS/WORKFLOWS/W185RATELIMIT.json",
+  "W18POM": "CONTEXTS/WORKFLOWS/W18POM.json",
+  "W19PERF": "CONTEXTS/WORKFLOWS/W19PERF.json",
+  "W20DATA_PIPE": "CONTEXTS/WORKFLOWS/W20DATA_PIPE.json",
+  "W21STATE_SYNC": "CONTEXTS/WORKFLOWS/W21STATE_SYNC.json",
+  "W22XML_PROMPT": "CONTEXTS/WORKFLOWS/W22XML_PROMPT.json",
+  "W23MARKDOWN_PROMPT": "CONTEXTS/WORKFLOWS/W23MARKDOWN_PROMPT.json",
+  "W24COT": "CONTEXTS/WORKFLOWS/W24COT.json",
+  "W25FEW_SHOT": "CONTEXTS/WORKFLOWS/W25FEW_SHOT.json",
+  "W26SYSTEM_PROMPT": "CONTEXTS/WORKFLOWS/W26SYSTEM_PROMPT.json",
+  "W27UNCERTAINTY": "CONTEXTS/WORKFLOWS/W27UNCERTAINTY.json",
+  "W28JSON_OUTPUT": "CONTEXTS/WORKFLOWS/W28JSON_OUTPUT.json",
+  "W29CONTEXT_WINDOW": "CONTEXTS/WORKFLOWS/W29CONTEXT_WINDOW.json",
+  "W30RAG": "CONTEXTS/WORKFLOWS/W30RAG.json",
+  "W31CHUNKING": "CONTEXTS/WORKFLOWS/W31CHUNKING.json",
+  "W32HYBRID_RAG": "CONTEXTS/WORKFLOWS/W32HYBRID_RAG.json",
+  "W33GIT_BRANCH": "CONTEXTS/WORKFLOWS/W33GIT_BRANCH.json",
+  "W34COMMIT_MSG": "CONTEXTS/WORKFLOWS/W34COMMIT_MSG.json",
+  "W35MONOREPO": "CONTEXTS/WORKFLOWS/W35MONOREPO.json",
+  "W36GITHUB_ACTIONS": "CONTEXTS/WORKFLOWS/W36GITHUB_ACTIONS.json",
+  "W37GITLAB_CI": "CONTEXTS/WORKFLOWS/W37GITLAB_CI.json",
+  "W38CODE_GEN": "CONTEXTS/WORKFLOWS/W38CODE_GEN.json",
+  "W39SCAFFOLDING": "CONTEXTS/WORKFLOWS/W39SCAFFOLDING.json",
+  "W40CRON": "CONTEXTS/WORKFLOWS/W40CRON.json",
+  "W41SYSTEMD": "CONTEXTS/WORKFLOWS/W41SYSTEMD.json",
+  "W42TASK_SCHEDULER": "CONTEXTS/WORKFLOWS/W42TASK_SCHEDULER.json",
+  "W43ANSIBLE": "CONTEXTS/WORKFLOWS/W43ANSIBLE.json",
+  "W44PUPPET": "CONTEXTS/WORKFLOWS/W44PUPPET.json",
+  "W45CHEF": "CONTEXTS/WORKFLOWS/W45CHEF.json",
+  "W46TERRAFORM": "CONTEXTS/WORKFLOWS/W46TERRAFORM.json",
+  "W47DOCKER_COMPOSE": "CONTEXTS/WORKFLOWS/W47DOCKER_COMPOSE.json",
+  "W48K8S_DEPLOY": "CONTEXTS/WORKFLOWS/W48K8S_DEPLOY.json",
+  "W49HELM": "CONTEXTS/WORKFLOWS/W49HELM.json",
+  "W50ETL": "CONTEXTS/WORKFLOWS/W50ETL.json",
+  "W51STREAM": "CONTEXTS/WORKFLOWS/W51STREAM.json",
+  "W52BATCH": "CONTEXTS/WORKFLOWS/W52BATCH.json",
+  "W53KAFKA": "CONTEXTS/WORKFLOWS/W53KAFKA.json",
+  "W54REDIS": "CONTEXTS/WORKFLOWS/W54REDIS.json",
+  "W55POSTGRES": "CONTEXTS/WORKFLOWS/W55POSTGRES.json",
+  "W56MONGODB": "CONTEXTS/WORKFLOWS/W56MONGODB.json",
+  "W57ELASTICSEARCH": "CONTEXTS/WORKFLOWS/W57ELASTICSEARCH.json",
+  "W58UNITTEST": "CONTEXTS/WORKFLOWS/W58UNITTEST.json",
+  "W59INTEGRATION": "CONTEXTS/WORKFLOWS/W59INTEGRATION.json",
+  "W60E2E": "CONTEXTS/WORKFLOWS/W60E2E.json",
+  "W61MOCKING": "CONTEXTS/WORKFLOWS/W61MOCKING.json",
+  "W62TDD": "CONTEXTS/WORKFLOWS/W62TDD.json",
+  "W63BDD": "CONTEXTS/WORKFLOWS/W63BDD.json",
+  "W64PYTEST": "CONTEXTS/WORKFLOWS/W64PYTEST.json",
+  "W65JEST": "CONTEXTS/WORKFLOWS/W65JEST.json",
+  "W66COVERAGE": "CONTEXTS/WORKFLOWS/W66COVERAGE.json",
+  "W67BLUEGREEN": "CONTEXTS/WORKFLOWS/W67BLUEGREEN.json",
+  "W68CANARY": "CONTEXTS/WORKFLOWS/W68CANARY.json",
+  "W69ROLLING": "CONTEXTS/WORKFLOWS/W69ROLLING.json",
+  "W70FEATURE_FLAG": "CONTEXTS/WORKFLOWS/W70FEATURE_FLAG.json",
+  "W71AB_TEST": "CONTEXTS/WORKFLOWS/W71AB_TEST.json",
+  "W72CACHING": "CONTEXTS/WORKFLOWS/W72CACHING.json",
+  "W73PROFILING": "CONTEXTS/WORKFLOWS/W73PROFILING.json",
+  "W74LOAD_TEST": "CONTEXTS/WORKFLOWS/W74LOAD_TEST.json",
+  "W75BENCHMARK": "CONTEXTS/WORKFLOWS/W75BENCHMARK.json",
+  "W76OPTIMIZE_DB": "CONTEXTS/WORKFLOWS/W76OPTIMIZE_DB.json",
+  "W77MEMORY_MGMT": "CONTEXTS/WORKFLOWS/W77MEMORY_MGMT.json",
+  "W78CONCURRENCY": "CONTEXTS/WORKFLOWS/W78CONCURRENCY.json",
+  "W79REST_API": "CONTEXTS/WORKFLOWS/W79REST_API.json",
+  "W80GRAPHQL": "CONTEXTS/WORKFLOWS/W80GRAPHQL.json",
+  "W81GRPC": "CONTEXTS/WORKFLOWS/W81GRPC.json",
+  "W82WEBHOOKS": "CONTEXTS/WORKFLOWS/W82WEBHOOKS.json",
+  "W83PAGINATION": "CONTEXTS/WORKFLOWS/W83PAGINATION.json",
+  "W84LOGGING": "CONTEXTS/WORKFLOWS/W84LOGGING.json",
+  "W85TRACING": "CONTEXTS/WORKFLOWS/W85TRACING.json",
+  "W86METRICS": "CONTEXTS/WORKFLOWS/W86METRICS.json",
+  "W87ETL": "CONTEXTS/WORKFLOWS/W87ETL.json",
+  "W88STREAMING": "CONTEXTS/WORKFLOWS/W88STREAMING.json",
+  "W89DATA_VALIDATION": "CONTEXTS/WORKFLOWS/W89DATA_VALIDATION.json",
+  "W90BATCH_PROCESSING": "CONTEXTS/WORKFLOWS/W90BATCH_PROCESSING.json",
+  "W91DATA_PIPELINE": "CONTEXTS/WORKFLOWS/W91DATA_PIPELINE.json",
+  "W92DATA_TRANSFORM": "CONTEXTS/WORKFLOWS/W92DATA_TRANSFORM.json",
+  "W93SELENIUM": "CONTEXTS/WORKFLOWS/W93SELENIUM.json",
+  "W94PLAYWRIGHT": "CONTEXTS/WORKFLOWS/W94PLAYWRIGHT.json",
+  "W95CYPRESS": "CONTEXTS/WORKFLOWS/W95CYPRESS.json",
+  "W96UI_TESTING": "CONTEXTS/WORKFLOWS/W96UI_TESTING.json",
+  "W97VISUAL_REGRESSION": "CONTEXTS/WORKFLOWS/W97VISUAL_REGRESSION.json",
+  "W98MESSAGE_QUEUE": "CONTEXTS/WORKFLOWS/W98MESSAGE_QUEUE.json",
+  "W99NOTIFICATION": "CONTEXTS/WORKFLOWS/W99NOTIFICATION.json"
 }

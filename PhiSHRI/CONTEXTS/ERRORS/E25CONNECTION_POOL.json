@@ -1,0 +1,17 @@
+{
+  "door_code": "E25CONNECTION_POOL",
+  "semantic_path": "ERRORS.DATABASE.CONNECTION_POOL",
+  "title": "Connection Pool Exhaustion",
+  "aliases": [],
+  "context_bundle": {
+    "summary": "Database connection pool issues",
+    "content": "Connection pool exhaustion errors.\n\nSymptoms:\n- Timeout acquiring connection\n- Hanging requests\n- Pool exhausted errors\n\nCauses:\n- Leaked connections (not returned)\n- Long-running queries\n- Pool too small for load\n- Connection validation overhead\n\nDiagnosis:\n- Pool metrics monitoring\n- Active connection count\n- Wait time percentiles\n- Query duration analysis\n\nFixes:\n- Proper connection closing (try-finally)\n- Query timeout settings\n- Pool size tuning\n- Connection leak detection",
+    "prerequisites": [],
+    "related_doors": []
+  },
+  "metadata": {
+    "category": "ERRORS",
+    "version": "1.0",
+    "tokens_estimate": 91.0
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "door_code": "A17ARCHITECT",
+  "semantic_path": "AGENTS.SPECIALIZED.ARCHITECT",
+  "title": "Architecture Agent",
+  "aliases": [],
+  "context_bundle": {
+    "summary": "AI agent for architecture decisions",
+    "content": "Architecture agent capabilities.\n\nDesign Review:\n- Pattern applicability\n- Scalability assessment\n- Maintainability scoring\n- Cost estimation\n\nTrade-off Analysis:\n- Build vs buy\n- Monolith vs microservices\n- SQL vs NoSQL\n- Sync vs async\n\nDeliverables:\n- Architecture Decision Records\n- System diagrams\n- Risk assessment\n- Migration paths",
+    "prerequisites": [],
+    "related_doors": []
+  },
+  "metadata": {
+    "category": "AGENTS",
+    "version": "1.0",
+    "tokens_estimate": 63.7
+  }
+}
