@@ -1,91 +1,119 @@
-#Requires -Version 5.1
 <#
 .SYNOPSIS
-    Uninstaller for PhiSHRI - Semantic Self-Hashing Radial Repository Index
+    PhiSHRI MCP Uninstaller for Windows
 
 .DESCRIPTION
-    Removes PhiSHRI installation from the system.
+    Removes the PhiSHRI MCP server installation completely.
+    Removes binary, knowledge base, sessions, and Claude Desktop configuration.
 
-.PARAMETER KeepConfig
-    Keep Claude Desktop configuration (don't remove MCP server entry)
+.PARAMETER KeepSessions
+    Keep session data when uninstalling (preserves ~/.phishri/sessions/)
 
-.PARAMETER Force
-    Skip confirmation prompt
+.EXAMPLE
+    .\uninstall.ps1
 
-.NOTES
-    Version: 1.0.0
-    Author: Stryk91
+.EXAMPLE
+    .\uninstall.ps1 -KeepSessions
 #>
 
-[CmdletBinding()]
 param(
-    [string]$InstallPath = "$env:USERPROFILE\.phishri",
-    [switch]$KeepConfig,
-    [switch]$Force
+    [switch]$KeepSessions
 )
 
-$ErrorActionPreference = 'Stop'
+$ErrorActionPreference = "Stop"
 
-function Write-Status {
-    param([string]$Message, [string]$Type = "INFO")
-    $color = switch ($Type) {
-        "INFO"    { "Cyan" }
-        "SUCCESS" { "Green" }
-        "WARNING" { "Yellow" }
-        "ERROR"   { "Red" }
-        default   { "White" }
+# Configuration
+$PhiSHRIRoot = Join-Path $env:USERPROFILE ".phishri"
+
+function Write-Step {
+    param([string]$Message, [string]$Status = "INFO")
+    $colors = @{
+        "INFO" = "Cyan"
+        "OK" = "Green"
+        "WARN" = "Yellow"
+        "ERROR" = "Red"
     }
-    Write-Host "[$Type] $Message" -ForegroundColor $color
+    Write-Host "[$Status] " -ForegroundColor $colors[$Status] -NoNewline
+    Write-Host $Message
 }
 
-# Banner
-Write-Host ""
-Write-Host "  PhiSHRI Uninstaller" -ForegroundColor Cyan
-Write-Host "  ===================" -ForegroundColor DarkGray
-Write-Host ""
+function Get-ClaudeConfigPath {
+    $possiblePaths = @(
+        (Join-Path $env:APPDATA "Claude\claude_desktop_config.json"),
+        (Join-Path $env:LOCALAPPDATA "Claude\claude_desktop_config.json")
+    )
 
-# Check if installed
-if (-not (Test-Path $InstallPath)) {
-    Write-Status "PhiSHRI not found at $InstallPath" "WARNING"
-    Write-Status "Nothing to uninstall" "INFO"
-    exit 0
-}
-
-# Read version info if available
-$versionFile = "$InstallPath\version.json"
-if (Test-Path $versionFile) {
-    $versionInfo = Get-Content $versionFile | ConvertFrom-Json
-    Write-Status "Found PhiSHRI v$($versionInfo.version) installed on $($versionInfo.installed)"
-    Write-Status "Doors: $($versionInfo.doors)"
-}
-
-# Confirmation
-if (-not $Force) {
-    Write-Host ""
-    $confirm = Read-Host "Remove PhiSHRI from $InstallPath? (y/N)"
-    if ($confirm -ne 'y' -and $confirm -ne 'Y') {
-        Write-Status "Uninstall cancelled" "INFO"
-        exit 0
+    foreach ($path in $possiblePaths) {
+        if (Test-Path $path) {
+            return $path
+        }
     }
+    return $null
+}
+
+Write-Host @"
+
+  ____  _     _ ____  _   _ ____  ___
+ |  _ \| |__ (_) ___|| | | |  _ \|_ _|
+ | |_) | '_ \| \___ \| |_| | |_) || |
+ |  __/| | | | |___) |  _  |  _ < | |
+ |_|   |_| |_|_|____/|_| |_|_| \_\___|
+
+  MCP Server Uninstaller
+
+"@ -ForegroundColor Magenta
+
+Write-Step "Uninstalling PhiSHRI..."
+
+# Remove from Claude config first
+$claudeConfig = Get-ClaudeConfigPath
+if ($claudeConfig -and (Test-Path $claudeConfig)) {
+    try {
+        $config = Get-Content $claudeConfig -Raw | ConvertFrom-Json -AsHashtable
+        if ($config.mcpServers -and $config.mcpServers.ContainsKey("phishri")) {
+            $config.mcpServers.Remove("phishri")
+            $config | ConvertTo-Json -Depth 10 | Set-Content $claudeConfig -Encoding UTF8
+            Write-Step "Removed PhiSHRI from Claude Desktop config" "OK"
+        }
+        else {
+            Write-Step "PhiSHRI not found in Claude config" "INFO"
+        }
+    }
+    catch {
+        Write-Step "Could not update Claude config: $_" "WARN"
+    }
+}
+else {
+    Write-Step "Claude Desktop config not found" "INFO"
 }
 
 # Remove installation directory
-Write-Status "Removing PhiSHRI installation..."
-try {
-    Remove-Item -Path $InstallPath -Recurse -Force
-    Write-Status "Installation directory removed" "SUCCESS"
-} catch {
-    Write-Status "Failed to remove installation: $_" "ERROR"
-    exit 1
-}
+if (Test-Path $PhiSHRIRoot) {
+    if ($KeepSessions) {
+        # Remove everything except sessions
+        $sessionsPath = Join-Path $PhiSHRIRoot "sessions"
 
-# Claude Desktop config reminder
-if (-not $KeepConfig) {
-    Write-Host ""
-    Write-Status "Remember to remove the 'phishri' entry from Claude Desktop config:" "WARNING"
-    Write-Host "  %APPDATA%\Claude\claude_desktop_config.json" -ForegroundColor DarkGray
+        Get-ChildItem $PhiSHRIRoot -Force | Where-Object { $_.Name -ne "sessions" } | ForEach-Object {
+            Remove-Item $_.FullName -Recurse -Force
+            Write-Step "Removed $($_.Name)"
+        }
+
+        if (Test-Path $sessionsPath) {
+            Write-Step "Kept sessions directory at $sessionsPath" "INFO"
+        }
+    }
+    else {
+        Remove-Item $PhiSHRIRoot -Recurse -Force
+        Write-Step "Removed $PhiSHRIRoot" "OK"
+    }
+}
+else {
+    Write-Step "PhiSHRI installation not found at $PhiSHRIRoot" "INFO"
 }
 
 Write-Host ""
-Write-Host "PhiSHRI uninstalled successfully" -ForegroundColor Green
+Write-Step "PhiSHRI has been uninstalled" "OK"
+Write-Host ""
+Write-Host "To reinstall, run:" -ForegroundColor Cyan
+Write-Host "  irm https://raw.githubusercontent.com/Stryk91/PhiSHRI/main/install.ps1 | iex"
 Write-Host ""

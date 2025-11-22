@@ -2,8 +2,9 @@
 
 **Solving the AI Context Continuity Problem**
 
-[![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)](https://github.com/Stryk91/PhiSHRI)
-[![Doors](https://img.shields.io/badge/doors-237-green.svg)](PhiSHRI/INDEX.json)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/Stryk91/PhiSHRI)
+[![Doors](https://img.shields.io/badge/doors-460-green.svg)](PhiSHRI/INDEX.json)
+[![MCP](https://img.shields.io/badge/MCP-available-brightgreen.svg)](https://github.com/Stryk91/PhiSHRI_MCP)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 ---
@@ -59,7 +60,48 @@ AI: [Reads D13 only - 1.6K tokens]
 
 ## Quick Start
 
-### For AI Agents (Current - v0.1)
+### Install PhiSHRI MCP (Recommended)
+
+**One-liner install for Windows:**
+```powershell
+irm https://raw.githubusercontent.com/Stryk91/PhiSHRI/main/install.ps1 | iex
+```
+
+**What it does:**
+1. Downloads PhiSHRI MCP binary
+2. Downloads complete knowledge base (~460 doors)
+3. Configures Claude Desktop automatically
+4. Creates agent configuration template
+
+**After install, restart Claude Desktop.** You should see `phishri` in your MCP servers list.
+
+**First conversation with PhiSHRI:**
+```
+You: "What doors are available?"
+Claude: [Lists categories and door counts via PhiSHRI tools]
+
+You: "Find doors about deployment"
+Claude: [Searches HASH_TABLE, returns matching doors]
+
+You: "Read D05SILENT_INSTALL"
+Claude: [Reads door, provides context]
+```
+
+**Verify installation:**
+```powershell
+.\install.ps1 -Verify
+```
+
+**Uninstall:**
+```powershell
+.\install.ps1 -Uninstall
+# or
+.\uninstall.ps1
+```
+
+---
+
+### For AI Agents (Manual Navigation)
 
 **Step 1: Read the onboarding door**
 ```
@@ -84,7 +126,7 @@ Resume next time by reading only new doors
 **View available doors:**
 ```bash
 cat PhiSHRI/INDEX.json
-# Shows all 237 doors organized by category
+# Shows all doors organized by category
 ```
 
 **Read the guide:**
@@ -95,26 +137,28 @@ cat PhiSHRI/HOW_TO_USE.md
 
 ---
 
-## Current Status: v0.1 (Manual Navigation)
+## Current Status: v1.0 (MCP Available)
 
-###  What Works Now
-- **237 context doors** - Complete, tested, ready to use
-- **Manual navigation** - Read doors directly by path
+### What Works Now
+
+- **~460 context doors** - Complete, tested, ready to use
+- **PhiSHRI MCP** - Rust MCP server for Claude Desktop integration
+- **One-liner install** - PowerShell installer handles everything
 - **Session continuity** - Use door codes as checkpoints
 - **Zero hallucinations** - All content from source documentation
 - **Comprehensive docs** - HOW_TO_USE.md, ARCHITECTURE.md
 
-###  In Progress (v0.2)
-- **PhiSHRI MCP** - Rust coded MCP for Interoperability.
-- **Python navigation API** - Programmatic door lookup
-- **Complete index files** - HASH_TABLE and SEMANTIC_MAP for all 237 doors
-- **CLI tool** - `phishri find "deployment"`
-- **NLP query matching** - Natural language door search
+### In Progress (v1.1)
 
-###  Future (v0.3+)
 - **Granularity markers** - Atomic/chunked/hierarchical door access
 - **Session checkpoint doors** - Explicit session state persistence
 - **Multi-agent coordination** - Shared door context between agents
+
+### Future (v2.0+)
+
+- **NLP query matching** - Natural language door search
+- **Cross-platform installers** - macOS, Linux support
+- **VS Code extension** - Direct IDE integration
 
 ---
 
@@ -372,12 +416,65 @@ This system was built to solve a real problem: **maintaining context across doze
 
 ---
 
+## Configuration (Power Users)
+
+### Environment Variables
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `PHISHRI_PATH` | Path to knowledge base (contains CONTEXTS/, INDEXES/) | `~/.phishri/knowledge` |
+| `PHISHRI_SESSION_ROOT` | Path for sessions and user data | `~/.phishri` |
+| `PHISHRI_AGENT_ID` | Agent identifier for multi-agent setups | `assistant` |
+| `PHISHRI_SESSION_ID` | Current session identifier | Auto-generated |
+
+### Custom Installation Paths
+
+For non-standard setups, set environment variables in Claude Desktop config:
+
+```json
+{
+  "mcpServers": {
+    "phishri": {
+      "command": "C:/custom/path/phishri-mcp.exe",
+      "env": {
+        "PHISHRI_PATH": "D:/knowledge-bases/phishri",
+        "PHISHRI_SESSION_ROOT": "C:/Users/me/.phishri"
+      }
+    }
+  }
+}
+```
+
+### Agent Configuration
+
+The installer creates `~/.phishri/agents.example.json` as a template. Copy to `agents.json` and customize:
+
+```json
+{
+  "default_agent": "dev",
+  "agents": [
+    {
+      "id": "dev",
+      "name": "Dev Assistant",
+      "description": "Primary development assistant"
+    },
+    {
+      "id": "reviewer",
+      "name": "Code Reviewer",
+      "description": "Focused on code review"
+    }
+  ]
+}
+```
+
+---
+
 ## Technical Details
 
-- **Total doors:** 237
+- **Total doors:** ~460
 - **Documentation base:** 4.67 MB (363 markdown files)
-- **Categories:** 7
-- **Door code ranges:** W01-W131, D01-D14, T01-T27, S01-S18, R01-R16, A00-A09, E01-E13
+- **Categories:** 8 (AGENTS, ARCHITECTURE, ERRORS, LANGUAGES, PROJECTS, SECURITY, TOOLS, WORKFLOWS)
+- **Door code ranges:** W01-W185, D01-D14, T01-T27, S01-S55, R01-R35, A00-A09, E01-E23, L01-L50
 - **Target performance:** <5s onboarding, <100ms lookup
 - **Zero hallucinations:** All content extracted from source docs
 
