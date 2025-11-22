@@ -66,31 +66,38 @@ $script:ClaudeConfigLocations = @(
 
 # Function to get all user profiles that might have Claude Desktop
 function Get-AllUserClaudeConfigs {
-    $configs = @()
+    $configs = [System.Collections.ArrayList]@()
     $usersDir = "C:\Users"
 
     if (Test-Path $usersDir) {
-        $userFolders = Get-ChildItem $usersDir -Directory | Where-Object {
+        $userFolders = Get-ChildItem $usersDir -Directory -ErrorAction SilentlyContinue | Where-Object {
             $_.Name -notin @("Public", "Default", "Default User", "All Users")
         }
 
         foreach ($userFolder in $userFolders) {
-            $roamingPath = Join-Path $userFolder.FullName "AppData\Roaming\Claude\claude_desktop_config.json"
-            $roamingDir = Split-Path $roamingPath -Parent
-            $localPath = Join-Path $userFolder.FullName "AppData\Local\Claude\claude_desktop_config.json"
-            $localDir = Split-Path $localPath -Parent
+            $userName = [string]$userFolder.Name
+            $userPath = $userFolder.FullName
+            $roamingDir = Join-Path $userPath "AppData\Roaming\Claude"
+            $localDir = Join-Path $userPath "AppData\Local\Claude"
+            $roamingPath = Join-Path $roamingDir "claude_desktop_config.json"
+            $localPath = Join-Path $localDir "claude_desktop_config.json"
 
             # Check if Claude folder exists (indicates Claude Desktop installed for this user)
-            if ((Test-Path $roamingDir) -or (Test-Path $localDir)) {
-                $configs += @{
-                    User = $userFolder.Name
+            $hasRoaming = Test-Path $roamingDir
+            $hasLocal = Test-Path $localDir
+
+            if ($hasRoaming -or $hasLocal) {
+                $entry = [PSCustomObject]@{
+                    User        = $userName
+                    UserPath    = $userPath
                     RoamingPath = $roamingPath
-                    RoamingDir = $roamingDir
-                    LocalPath = $localPath
-                    LocalDir = $localDir
-                    HasRoaming = Test-Path $roamingDir
-                    HasLocal = Test-Path $localDir
+                    RoamingDir  = $roamingDir
+                    LocalPath   = $localPath
+                    LocalDir    = $localDir
+                    HasRoaming  = $hasRoaming
+                    HasLocal    = $hasLocal
                 }
+                [void]$configs.Add($entry)
             }
         }
     }
@@ -172,8 +179,10 @@ function Find-ClaudeConfig {
 
         for ($i = 0; $i -lt $allUserConfigs.Count; $i++) {
             $cfg = $allUserConfigs[$i]
-            $marker = if ($cfg.User -eq $env:USERNAME) { " (current)" } else { "" }
-            Write-Host "  [$($i + 1)] $($cfg.User)$marker" -ForegroundColor White
+            $userName = $cfg.User
+            $marker = if ($userName -eq $env:USERNAME) { " (current)" } else { "" }
+            Write-Host "  [$($i + 1)] $userName$marker" -ForegroundColor White
+            Write-Host "       -> $($cfg.RoamingDir)" -ForegroundColor DarkGray
         }
         Write-Host ""
 
@@ -182,9 +191,10 @@ function Find-ClaudeConfig {
 
         if ($idx -ge 0 -and $idx -lt $allUserConfigs.Count) {
             $selected = $allUserConfigs[$idx]
+            $selectedUser = $selected.User
             $configPath = $selected.RoamingPath
-            Write-Step "  Selected: $($selected.User) ($configPath)" "OK"
-            return @{ Name = "Roaming ($($selected.User))"; Path = $configPath }
+            Write-Step "  Selected: $selectedUser ($configPath)" "OK"
+            return @{ Name = "Roaming ($selectedUser)"; Path = $configPath }
         }
     }
     elseif ($allUserConfigs.Count -eq 1) {
