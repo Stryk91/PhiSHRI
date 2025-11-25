@@ -1,0 +1,54 @@
+name: Rust CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup Rust
+      uses: dtolnay/rust-action@stable
+
+    - name: Build MCP Server
+      run: cargo build --verbose
+      working-directory: ./mcp-server
+
+    - name: Run tests
+      run: cargo test --verbose
+      working-directory: ./mcp-server
+
+    - name: Check formatting
+      run: cargo fmt --check
+      working-directory: ./mcp-server
+
+    - name: Clippy lints
+      run: cargo clippy -- -D warnings
+      working-directory: ./mcp-server
+
+  build-release:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup Rust
+      uses: dtolnay/rust-action@stable
+
+    - name: Build release binary
+      run: cargo build --release
+      working-directory: ./mcp-server
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: phishri-mcp-linux-x64
+        path: ./mcp-server/target/release/phishri-mcp
