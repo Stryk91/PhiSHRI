@@ -1,0 +1,82 @@
+{
+  "door_code": "W33CI_LINT_PHILOSOPHY",
+  "semantic_path": "workflows/ci/linting-philosophy",
+  "title": "CI Linting Philosophy - Ship First, Bikeshed Later",
+  "aliases": [
+    "linting",
+    "code style",
+    "cargo fmt",
+    "clippy",
+    "formatting"
+  ],
+  "summary": "Code style enforcement (fmt, clippy) is useful for large teams but can block shipping. Prioritize build and test passing over stylistic perfection. The CPU doesn't care about bracket placement.",
+  "context_bundle": {
+    "concepts": [
+      "linting vs compilation",
+      "style enforcement",
+      "team consistency",
+      "bikeshedding"
+    ],
+    "checks_that_matter": [
+      "cargo build - does it compile?",
+      "cargo test - do tests pass?",
+      "security scan - any vulnerabilities?"
+    ],
+    "checks_nice_to_have": [
+      "cargo fmt - is it pretty?",
+      "cargo clippy - code smells?",
+      "line length limits"
+    ],
+    "when_strict_linting": [
+      "large teams (10+ devs)",
+      "open source with many contributors",
+      "enterprise codebases"
+    ],
+    "when_skip_linting": [
+      "solo projects",
+      "small teams already aligned",
+      "MVP/prototype phase",
+      "need to ship NOW"
+    ],
+    "the_reality": {
+      "these_are_equivalent": [
+        "if x { y }",
+        "if x {\\n    y\\n}"
+      ],
+      "cpu_cares": false,
+      "users_care": false,
+      "only_other_devs_care": true
+    },
+    "examples": {
+      "strict_ci": "cargo fmt --check && cargo clippy -- -D warnings",
+      "pragmatic_ci": "cargo build && cargo test",
+      "compromise": "cargo clippy (warn but don't fail)"
+    },
+    "tools": [
+      "rustfmt",
+      "clippy",
+      "prettier",
+      "eslint"
+    ],
+    "antipatterns": [
+      "failing builds over whitespace",
+      "blocking PRs for style nitpicks",
+      "spending hours on formatting instead of features"
+    ],
+    "wisdom": [
+      "Ship working code first, bikeshed about bracket placement never",
+      "Coding jerk-offery - style wars that don't affect runtime",
+      "Green builds first, then polish",
+      "Same guys who spend 3 hours configuring vim before writing a line"
+    ]
+  },
+  "prerequisites": [
+    "W30GITHUB_ACTIONS_CI"
+  ],
+  "related_doors": [
+    "W30GITHUB_ACTIONS_CI"
+  ],
+  "created": "2025-11-25T21:00:00Z",
+  "version": "1.0.0",
+  "author": "BMETALC"
+}

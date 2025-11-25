@@ -1,0 +1,76 @@
+{
+  "door_code": "W31REPO_CONSOLIDATION",
+  "semantic_path": "workflows/git/repo-consolidation",
+  "title": "Single Repo Consolidation - Reducing Multi-Repo Confusion",
+  "aliases": [
+    "monorepo",
+    "repo merge",
+    "single repository",
+    "consolidate repos"
+  ],
+  "summary": "Merging multiple related repositories into a single repo simplifies maintenance, reduces confusion, and keeps related code together. Pattern for consolidating split projects.",
+  "context_bundle": {
+    "concepts": [
+      "monorepo",
+      "subfolder structure",
+      "single source of truth",
+      "unified releases",
+      "working-directory in CI"
+    ],
+    "patterns": [
+      "copy source to subfolder",
+      "update install scripts to reference subfolder",
+      "update CI working-directory",
+      "single release with all artifacts",
+      "archive or delete old repo"
+    ],
+    "when_to_consolidate": [
+      "constantly confusing yourself with multiple remotes",
+      "install scripts pointing to wrong repo",
+      "releases scattered across repos",
+      "tightly coupled code in separate repos"
+    ],
+    "structure_example": {
+      "before": ["repo-main", "repo-mcp", "repo-gui"],
+      "after": {
+        "single-repo": {
+          "mcp-server/": "rust mcp implementation",
+          "gui/": "tauri gui installer",
+          "install.sh": "unified installer",
+          "knowledge-base/": "data files"
+        }
+      }
+    },
+    "migration_steps": [
+      "copy source files to new subfolder",
+      "update install scripts (change repo URLs, add working directories)",
+      "update CI yaml (working-directory for subfolders)",
+      "update READMEs with new structure",
+      "push to main repo",
+      "archive/delete/privatize old repos"
+    ],
+    "tools": [
+      "git",
+      "github"
+    ],
+    "antipatterns": [
+      "leaving dead repos public",
+      "forgetting to update all script references",
+      "not updating CI working directories"
+    ],
+    "wisdom": [
+      "If you're confusing yourself with 2 remotes, users will be worse",
+      "Single repo, single release, single source of truth",
+      "Related code belongs together"
+    ]
+  },
+  "prerequisites": [
+    "G01GIT_BASICS"
+  ],
+  "related_doors": [
+    "W30GITHUB_ACTIONS_CI"
+  ],
+  "created": "2025-11-25T21:00:00Z",
+  "version": "1.0.0",
+  "author": "BMETALC"
+}

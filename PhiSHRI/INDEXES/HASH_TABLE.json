@@ -3136,5 +3136,59 @@
     "file_path": "CONTEXTS/TOOLS/T75BACKSTAGE.json",
     "category": "TOOLS",
     "short_code": "T75"
+  },
+  "L20RUST_DEPLOYMENT": {
+    "door_code": "L20RUST_DEPLOYMENT",
+    "file_path": "CONTEXTS/LANGUAGES/L20RUST_DEPLOYMENT.json",
+    "category": "LANGUAGES",
+    "short_code": "L20"
+  },
+  "L21PYTHON_PACKAGING": {
+    "door_code": "L21PYTHON_PACKAGING",
+    "file_path": "CONTEXTS/LANGUAGES/L21PYTHON_PACKAGING.json",
+    "category": "LANGUAGES",
+    "short_code": "L21"
+  },
+  "W30GITHUB_ACTIONS_CI": {
+    "door_code": "W30GITHUB_ACTIONS_CI",
+    "file_path": "CONTEXTS/WORKFLOWS/W30GITHUB_ACTIONS_CI.json",
+    "category": "WORKFLOWS",
+    "short_code": "W30"
+  },
+  "W31REPO_CONSOLIDATION": {
+    "door_code": "W31REPO_CONSOLIDATION",
+    "file_path": "CONTEXTS/WORKFLOWS/W31REPO_CONSOLIDATION.json",
+    "category": "WORKFLOWS",
+    "short_code": "W31"
+  },
+  "W32USER_FIRST_DOCS": {
+    "door_code": "W32USER_FIRST_DOCS",
+    "file_path": "CONTEXTS/WORKFLOWS/W32USER_FIRST_DOCS.json",
+    "category": "WORKFLOWS",
+    "short_code": "W32"
+  },
+  "W33CI_LINT_PHILOSOPHY": {
+    "door_code": "W33CI_LINT_PHILOSOPHY",
+    "file_path": "CONTEXTS/WORKFLOWS/W33CI_LINT_PHILOSOPHY.json",
+    "category": "WORKFLOWS",
+    "short_code": "W33"
+  },
+  "T20CROSS_PLATFORM_INSTALLERS": {
+    "door_code": "T20CROSS_PLATFORM_INSTALLERS",
+    "file_path": "CONTEXTS/TOOLS/T20CROSS_PLATFORM_INSTALLERS.json",
+    "category": "TOOLS",
+    "short_code": "T20"
+  },
+  "T21TAURI_APPS": {
+    "door_code": "T21TAURI_APPS",
+    "file_path": "CONTEXTS/TOOLS/T21TAURI_APPS.json",
+    "category": "TOOLS",
+    "short_code": "T21"
+  },
+  "A20MCP_SERVER_DESIGN": {
+    "door_code": "A20MCP_SERVER_DESIGN",
+    "file_path": "CONTEXTS/ARCHITECTURE/A20MCP_SERVER_DESIGN.json",
+    "category": "ARCHITECTURE",
+    "short_code": "A20"
   }
 }

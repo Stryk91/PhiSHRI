@@ -1,0 +1,72 @@
+{
+  "door_code": "T20CROSS_PLATFORM_INSTALLERS",
+  "semantic_path": "tools/installers/cross-platform",
+  "title": "Cross-Platform Installer Design - Double Click and Done",
+  "aliases": [
+    "installer design",
+    "cross platform install",
+    "deployment scripts",
+    "appimage",
+    "msi installer"
+  ],
+  "summary": "Effective installer design prioritizes user experience over developer convenience. Multiple format options per platform, GUI wrappers around scripts, and the golden rule: double click should work.",
+  "context_bundle": {
+    "concepts": [
+      "platform detection",
+      "fallback chains",
+      "GUI vs CLI installers",
+      "runtime script fetching",
+      "self-contained binaries"
+    ],
+    "patterns": [
+      "GUI downloads scripts at runtime (always current)",
+      "multiple formats per platform (AppImage, deb, script)",
+      "fallback: try prebuilt binary, then build from source",
+      "detect prerequisites, offer to install",
+      "verify installation after complete"
+    ],
+    "platform_formats": {
+      "linux": ["AppImage (universal)", ".deb (debian/ubuntu)", ".rpm (fedora)", "shell script"],
+      "windows": [".exe installer", ".msi", "PowerShell script"],
+      "macos": [".dmg", ".pkg", "shell script"]
+    },
+    "design_principles": [
+      "double click must work",
+      "no terminal required for basic users",
+      "terminal option for power users",
+      "clear error messages for failures",
+      "uninstall should be just as easy"
+    ],
+    "examples": {
+      "gui_wrapper_pattern": "Tauri app that downloads and runs install.ps1/install.sh at runtime",
+      "fallback_chain": "try download binary -> fail? -> check for rust -> build from source -> fail? -> show manual instructions"
+    },
+    "tools": [
+      "tauri",
+      "electron",
+      "appimage",
+      "nsis",
+      "wix"
+    ],
+    "antipatterns": [
+      "requiring dev tools for end users",
+      "terminal-only installation",
+      "no uninstall option",
+      "assuming users know what PATH is"
+    ],
+    "wisdom": [
+      "Your nan should be able to install it",
+      "If Microsoft needed terminal installers, they'd be worth $4",
+      "Dev convenience != user convenience",
+      "The 99% of users don't know what a terminal is"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [
+    "T21TAURI_APPS",
+    "L20RUST_DEPLOYMENT"
+  ],
+  "created": "2025-11-25T21:00:00Z",
+  "version": "1.0.0",
+  "author": "BMETALC"
+}

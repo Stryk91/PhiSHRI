@@ -1,0 +1,79 @@
+{
+  "door_code": "T21TAURI_APPS",
+  "semantic_path": "tools/tauri/desktop-apps",
+  "title": "Tauri Desktop Apps - Rust Backend, Web Frontend",
+  "aliases": [
+    "tauri",
+    "tauri v2",
+    "rust gui",
+    "desktop app",
+    "electron alternative"
+  ],
+  "summary": "Tauri provides lightweight desktop apps with Rust backend and web frontend. Much smaller than Electron, native performance, cross-platform builds from single codebase.",
+  "context_bundle": {
+    "concepts": [
+      "rust backend (src-tauri/)",
+      "web frontend (src/)",
+      "invoke commands",
+      "event emitters",
+      "plugins",
+      "app bundling"
+    ],
+    "patterns": [
+      "vite for frontend dev server",
+      "tauri::command for rust functions",
+      "window.emit for progress updates",
+      "plugin system for OS features",
+      "single binary output"
+    ],
+    "structure": {
+      "project_root": {
+        "src/": "HTML/CSS/JS frontend",
+        "src-tauri/": {
+          "src/main.rs": "rust backend logic",
+          "Cargo.toml": "rust dependencies",
+          "tauri.conf.json": "app config"
+        },
+        "package.json": "node dependencies"
+      }
+    },
+    "v2_gotchas": [
+      "use tauri::Emitter trait (not Manager)",
+      "shell plugin config: open: true (not scope)",
+      "vite needs root: 'src' if index.html in src/"
+    ],
+    "commands": {
+      "dev": "npm run tauri dev",
+      "build": "npm run tauri build",
+      "icons": "npx tauri icon path/to/icon.png"
+    },
+    "examples": {
+      "invoke_from_js": "await invoke('my_command', { arg: value })",
+      "emit_to_frontend": "window.emit('event-name', payload)",
+      "rust_command": "#[tauri::command] fn my_command(arg: String) -> Result<String, String>"
+    },
+    "tools": [
+      "tauri-cli",
+      "vite",
+      "cargo"
+    ],
+    "antipatterns": [
+      "blocking main thread in rust",
+      "huge frontend bundles",
+      "not using invoke for IPC"
+    ],
+    "vs_electron": {
+      "tauri": "~5MB binary, native webview, rust backend",
+      "electron": "~150MB+, bundled chromium, node backend"
+    }
+  },
+  "prerequisites": [
+    "L20RUST_DEPLOYMENT"
+  ],
+  "related_doors": [
+    "T20CROSS_PLATFORM_INSTALLERS"
+  ],
+  "created": "2025-11-25T21:00:00Z",
+  "version": "1.0.0",
+  "author": "BMETALC"
+}
