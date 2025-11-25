@@ -1,5 +1,8 @@
 /* PhiSHRI Installer - Dark Neon Green Theme */
 
+/* Import geometric/tech fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+
 :root {
     --bg-primary: #050a05;
     --bg-secondary: #0a120a;
@@ -53,25 +56,33 @@ body {
 /* Header */
 .header {
     text-align: center;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
+    padding-top: 16px;
 }
 
 .svg-logo {
-    width: 320px;
+    width: 420px;
     height: auto;
-    margin-bottom: 12px;
-    filter: drop-shadow(0 0 20px var(--accent-glow));
+    margin-bottom: 16px;
+    filter: drop-shadow(0 0 25px var(--accent-glow));
 }
 
 .tagline {
-    font-size: 14px;
+    font-family: 'Rajdhani', 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
     color: var(--text-secondary);
+    letter-spacing: 2px;
+    text-transform: uppercase;
     margin-bottom: 4px;
 }
 
 .version {
-    font-size: 12px;
+    font-family: 'Rajdhani', 'Segoe UI', system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
     color: var(--text-muted);
+    letter-spacing: 1px;
 }
 
 /* Status Panel */
