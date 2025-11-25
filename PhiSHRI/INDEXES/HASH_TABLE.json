@@ -3196,5 +3196,11 @@
     "file_path": "CONTEXTS/ARCHITECTURE/A21PRODUCT_HATE_FRAMEWORK.json",
     "category": "ARCHITECTURE",
     "short_code": "A21"
+  },
+  "W34BRICKLAYER_ESTIMATION": {
+    "door_code": "W34BRICKLAYER_ESTIMATION",
+    "file_path": "CONTEXTS/WORKFLOWS/W34BRICKLAYER_ESTIMATION.json",
+    "category": "WORKFLOWS",
+    "short_code": "W34"
   }
 }
