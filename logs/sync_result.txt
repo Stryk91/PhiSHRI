@@ -1,0 +1,16 @@
+SUCCESS
+Directory Comparison Results
+================================
+
+Dir 1: C:\temp\sync_test1
+Dir 2: C:\temp\sync_test2
+
+Identical Files: 1
+Different Files: 1
+
+Only in Dir 2:
+file3.txt (20 bytes)
+
+Different Size/Date:
+file2.txt | Dir1: 14b | Dir2: 16b
+

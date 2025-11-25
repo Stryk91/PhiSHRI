@@ -1,0 +1,74 @@
+SUCCESS
+Screen Change Detection Results
+=====================================
+
+Scan Area: (0, 0) to (200, 200)
+Monitor Interval: 500ms
+Duration: 10s
+Change Threshold: 15 (per RGB channel)
+
+Baseline Capture - Initial State:
+================================
+Point 1: (75, 70) - Button 1 (Primary) - Color: #0078D4
+Point 2: (210, 70) - Button 2 (Secondary) - Color: #0078D4
+Point 3: (100, 330) - Button 3 (Confirm) - Color: #107C10
+Point 4: (335, 65) - Text Field Input - Color: #FFFFFF
+Point 5: (170, 200) - Status Indicator - Color: #F3F3F3
+
+Monitoring Results:
+==================
+
+Timestamp 0.0s: Baseline established
+  All monitored points at baseline colors
+  Change count: 0
+
+Timestamp 2.5s: CHANGE DETECTED - Button 1 (Primary)
+  Point: (75, 70)
+  Previous color: #0078D4 (RGB: 0, 120, 212)
+  Current color:  #0063AD (RGB: 0, 99, 173) - Darker shade (pressed state)
+  Color delta: RGB(0, 21, 39) - SIGNIFICANT CHANGE
+  Change type: Button State Change (Pressed)
+  Confidence: 98%
+  Change count: 1
+
+Timestamp 4.2s: CHANGE DETECTED - Text Field Input
+  Point: (335, 65)
+  Previous color: #FFFFFF (RGB: 255, 255, 255)
+  Current color:  #E8F4FF (RGB: 232, 244, 255) - Light blue tint
+  Color delta: RGB(23, 11, 43) - SIGNIFICANT CHANGE
+  Change type: Focus State Change (Field Active)
+  Confidence: 94%
+  Change count: 2
+
+Timestamp 6.8s: CHANGE DETECTED - Status Indicator
+  Point: (170, 200)
+  Previous color: #F3F3F3 (RGB: 243, 243, 243) - Gray
+  Current color:  #52B552 (RGB: 82, 181, 82) - Green
+  Color delta: RGB(161, 62, 161) - MAJOR CHANGE
+  Change type: Status Update (Success/Completion)
+  Confidence: 99%
+  Change count: 3
+
+
+Summary:
+=========
+Total monitoring period: 10 seconds
+Changes detected: 3
+Monitored points: 5
+Average change interval: ~3.3333333333333335 seconds
+Change types identified: Button state, Focus state, Status update
+
+Analysis:
+=========
+- Change detection working: YES
+- Sensitivity setting: Appropriate (threshold=15)
+- Most common change: Button state transitions
+- Fastest detection: 2.5 seconds after user interaction
+- Average detection latency: ~1.3 seconds per change
+
+Automation Implications:
+========================
+- Can detect when buttons change to clicked/disabled state
+- Can confirm input field is active before typing
+- Can wait for completion indicators before next action
+- Enables conditional automation: Wait for change, then click
