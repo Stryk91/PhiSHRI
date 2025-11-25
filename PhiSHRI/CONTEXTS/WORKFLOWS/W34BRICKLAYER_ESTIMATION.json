@@ -1,0 +1,71 @@
+{
+  "door_code": "W34BRICKLAYER_ESTIMATION",
+  "semantic_path": "workflows/planning/bricklayer-estimation",
+  "title": "Bricklayer Estimation - Fuck the Exact Count, Start Building",
+  "aliases": [
+    "estimation",
+    "planning",
+    "rough calculation",
+    "just start",
+    "analysis paralysis"
+  ],
+  "summary": "You don't count every brick before building a house. Know the rough magnitude, order enough pallets, start laying. Over-planning is procrastination in a suit.",
+  "context_bundle": {
+    "concepts": [
+      "rough estimation",
+      "order of magnitude",
+      "good enough planning",
+      "action over analysis",
+      "adjust as you go"
+    ],
+    "the_method": {
+      "step_1": "Rough magnitude - is it 100, 1000, or 10000?",
+      "step_2": "Enough resources to start - not to finish",
+      "step_3": "Start building",
+      "step_4": "Adjust as reality reveals itself"
+    },
+    "bricklayer_vs_analyst": {
+      "bricklayer": {
+        "question": "How many bricks in this house?",
+        "answer": "Fuckin... lot of 'em. Let's go.",
+        "result": "House gets built"
+      },
+      "analyst": {
+        "question": "How many bricks in this house?",
+        "answer": "Let me create a spreadsheet, model the variables, account for breakage rates...",
+        "result": "Still calculating when bricklayer finishes"
+      }
+    },
+    "when_to_use": [
+      "project scoping",
+      "resource estimation",
+      "timeline planning",
+      "any situation where perfect info is impossible"
+    ],
+    "examples": {
+      "doors": "About 6000 doors in a year, about 300 books worth - close enough, start making doors",
+      "startup": "About 6 months runway, about 1000 users needed - close enough, start building",
+      "code": "About 5 files to change, about 200 lines - close enough, start coding"
+    },
+    "antipatterns": [
+      "calculating exact brick count before laying first brick",
+      "spreadsheets as procrastination",
+      "waiting for perfect information",
+      "planning the plan to plan"
+    ],
+    "wisdom": [
+      "Over-planning is procrastination in a suit",
+      "The bricks don't lay themselves while you're doing arithmetic",
+      "Direction right + magnitude right = details sort themselves",
+      "About 300, now shut up and make the next door",
+      "Rough and moving beats precise and stationary"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [
+    "A21PRODUCT_HATE_FRAMEWORK"
+  ],
+  "created": "2025-11-25T22:00:00Z",
+  "version": "1.0.0",
+  "author": "BMETALC"
+}

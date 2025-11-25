@@ -1,0 +1,29 @@
+[package]
+name = "phishri-mcp"
+version = "0.0.1"
+edition = "2021"
+license = "MIT"
+authors = ["STRYK", "VSCC"]
+description = "Universal AI session continuity via semantic door codes - MCP Server"
+repository = "https://github.com/phishri/phishri-mcp"
+keywords = ["mcp", "ai", "context", "session", "semantic"]
+categories = ["development-tools", "command-line-utilities"]
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1", features = ["full", "io-std"] }
+chrono = { version = "0.4", features = ["serde"] }
+thiserror = "1.0"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+atty = "0.2"
+
+[dev-dependencies]
+tempfile = "3.0"
+
+[profile.release]
+lto = true
+codegen-units = 1
+opt-level = 3
+strip = true

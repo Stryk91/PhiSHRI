@@ -1,99 +1,45 @@
-# PhiSHRI Installer GUI
+# PhiSHRI GUI - Development Only
 
-A modern, clean GUI wrapper for the PhiSHRI MCP installer built with Tauri.
+This folder contains the Tauri source code for building the GUI installer.
 
-## Features
+**Users should NOT be here.** Download pre-built installers from:
+- https://github.com/Stryk91/PhiSHRI/releases
 
-- Dark aesthetic theme matching PhiSHRI branding
-- Multiple installation methods: Auto, mcpb, DXT, Manual
-- Real-time progress tracking
-- Installation status checking
-- One-click install/uninstall
+---
 
-## Prerequisites
+## For Developers Only
 
-- [Node.js](https://nodejs.org/) v18+
-- [Rust](https://rustup.rs/) (latest stable)
-- [Tauri CLI](https://tauri.app/v1/guides/getting-started/prerequisites)
+### Prerequisites
+- Node.js 18+
+- Rust (latest stable)
+- Tauri CLI v2
 
-## Quick Start
+### Build
 
-```powershell
-# Install dependencies
-cd gui
+```bash
 npm install
-
-# Run in development mode
-npm run tauri dev
-
-# Build for production
 npm run tauri build
 ```
 
-## Project Structure
+Output: `src-tauri/target/release/bundle/`
 
-```
-gui/
-├── src/                    # Web frontend
-│   ├── index.html         # Main HTML
-│   ├── styles.css         # Dark theme styles
-│   └── main.js            # Frontend logic
-├── src-tauri/             # Rust backend
-│   ├── src/
-│   │   └── main.rs        # Tauri commands
-│   ├── Cargo.toml         # Rust dependencies
-│   └── tauri.conf.json    # Tauri config
-├── package.json           # Node dependencies
-└── vite.config.js         # Vite bundler config
-```
+### Dev Mode
 
-## Building
-
-### Development
-
-```powershell
+```bash
 npm run tauri dev
 ```
 
-### Production Build
+---
 
-```powershell
-npm run tauri build
-```
+## Release Artifacts
 
-The built installer will be in `src-tauri/target/release/bundle/`.
+After `npm run tauri build`:
 
-## Web Admin Extension
+| Platform | Output |
+|----------|--------|
+| Windows | `bundle/msi/PhiSHRI-Installer.msi` |
+| Linux | `bundle/appimage/PhiSHRI-Installer.AppImage` |
+| Linux | `bundle/deb/phishri-installer.deb` |
+| macOS | `bundle/dmg/PhiSHRI-Installer.dmg` |
 
-This GUI is designed to be extended into a web admin panel. The same web frontend can be served via a local HTTP server for browser-based management:
-
-```powershell
-# Future: Run as web admin
-phishri-admin --web --port 8080
-```
-
-## Architecture
-
-```
-┌─────────────────────────────────────────┐
-│           Tauri Window                   │
-├─────────────────────────────────────────┤
-│  Web Frontend (HTML/CSS/JS)              │
-│  - Method selection UI                   │
-│  - Progress display                      │
-│  - Status indicators                     │
-├─────────────────────────────────────────┤
-│  Rust Backend                            │
-│  - PowerShell integration                │
-│  - File system operations                │
-│  - Event emission                        │
-├─────────────────────────────────────────┤
-│  PowerShell Installer Script             │
-│  - install.ps1 (existing)                │
-│  - Multi-method support                  │
-└─────────────────────────────────────────┘
-```
-
-## License
-
-MIT
+Upload these to GitHub Releases for users to download.
