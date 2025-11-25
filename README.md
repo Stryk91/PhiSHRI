@@ -35,10 +35,10 @@ PhiSHRI provides persistent context "doors" - JSON bundles your AI can load to r
 
 ```
 Session 1: "Help with deployment" -> AI reads D05, D06, D07 [12K tokens]
-Session 2: "Resume: D05+D06+D07"  -> AI references without re-reading [0 tokens]
+Session 2: "Resume"  -> AI Reads Index , AI picks up with every aspect of the last of any conversation it had with user without processing 50,000 Words [Fractional Tokens]
 ```
 
-**500+ doors** across 8 categories. **83% token reduction. Zero context drift.**
+**500+ doors** across 8 categories. **60-75%% token reduction. Zero context drift.**
 
 ---
 
