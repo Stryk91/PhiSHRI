@@ -1,7 +1,7 @@
 # PhiSHRI - Claude Code Bootstrap
 
 ## Project Overview
-PhiSHRI (Phi-Symbol Human-Readable Intelligence) is an MCP (Model Context Protocol) server that provides a curated knowledge base of "doors" - structured JSON files containing technical documentation, patterns, and solutions.
+PhiSHRI (Phi-Symbol Semantic Hashing Radial Index) is an MCP (Model Context Protocol) server that provides a curated knowledge base of "doors" - structured JSON files containing technical documentation, patterns, and solutions.
 
 ## Current State (2025-11-25)
 - **523 doors** in knowledge base across CONTEXTS categories
