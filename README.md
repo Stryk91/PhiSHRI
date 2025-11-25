@@ -22,10 +22,10 @@ curl -fsSL https://raw.githubusercontent.com/Stryk91/PhiSHRI/main/install.sh | b
 
 | Platform | Download |
 |----------|----------|
-| **Windows** | [PhiSHRI-Installer.exe](https://github.com/Stryk91/PhiSHRI/releases/latest/download/PhiSHRI-Installer.exe) |
+| **Windows** | Coming soon |
 | **Linux** | [PhiSHRI-Installer.AppImage](https://github.com/Stryk91/PhiSHRI/releases/latest/download/PhiSHRI-Installer.AppImage) |
 | **Linux (Debian)** | [PhiSHRI-Installer.deb](https://github.com/Stryk91/PhiSHRI/releases/latest/download/PhiSHRI-Installer.deb) |
-| **macOS** | [PhiSHRI-Installer.dmg](https://github.com/Stryk91/PhiSHRI/releases/latest/download/PhiSHRI-Installer.dmg) |
+| **macOS** | Coming soon |
 
 ---
 

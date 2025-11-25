@@ -6,7 +6,7 @@ PhiSHRI (Phi-Symbol Human-Readable Intelligence) is an MCP (Model Context Protoc
 ## Current State (2025-11-22)
 - **523 doors** in knowledge base across CONTEXTS categories
 - **Tauri GUI installer** working in dev mode with hot-reload
-- Version: **1.1.0**
+- Version: **0.0.1**
 
 ## Repository Structure
 ```

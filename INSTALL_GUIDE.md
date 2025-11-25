@@ -19,16 +19,7 @@ You need **Claude Desktop** installed first. If you don't have it:
 
 ### Windows
 
-**Option A: One-Click Installer (Easiest)**
-
-1. Go to https://github.com/Stryk91/PhiSHRI/releases
-2. Download `PhiSHRI-Installer.exe`
-3. Double-click it
-4. Click "Install PhiSHRI"
-5. Wait for it to finish
-6. Close and reopen Claude Desktop
-
-**Option B: PowerShell Script**
+**Option A: PowerShell Script (Recommended)**
 
 1. Go to https://github.com/Stryk91/PhiSHRI/releases
 2. Download `install.ps1`
@@ -38,7 +29,7 @@ You need **Claude Desktop** installed first. If you don't have it:
 6. Wait for it to finish
 7. Close and reopen Claude Desktop
 
-**Option C: One-Line Command (Advanced)**
+**Option B: One-Line Command (Advanced)**
 
 1. Press `Windows key + X`
 2. Click "Terminal" or "PowerShell"
