@@ -3190,5 +3190,11 @@
     "file_path": "CONTEXTS/ARCHITECTURE/A20MCP_SERVER_DESIGN.json",
     "category": "ARCHITECTURE",
     "short_code": "A20"
+  },
+  "A21PRODUCT_HATE_FRAMEWORK": {
+    "door_code": "A21PRODUCT_HATE_FRAMEWORK",
+    "file_path": "CONTEXTS/ARCHITECTURE/A21PRODUCT_HATE_FRAMEWORK.json",
+    "category": "ARCHITECTURE",
+    "short_code": "A21"
   }
 }
