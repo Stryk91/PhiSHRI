@@ -1,4 +1,6 @@
 # PhiSHRI - Semantic Self-Hashing Radial Index
+https://github.com/Stryk91/PhiSHRI/blob/1c0f30588579c91e6296f0e8d75d74bf605d40f3/INSTALL_GUIDE.md
+
 
 > v0.0.1 - Early Development
 
