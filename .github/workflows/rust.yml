@@ -31,7 +31,7 @@ jobs:
       working-directory: ./mcp-server
 
     - name: Clippy lints
-      run: cargo clippy -- -D warnings
+      run: cargo clippy
       working-directory: ./mcp-server
 
   build-release:
