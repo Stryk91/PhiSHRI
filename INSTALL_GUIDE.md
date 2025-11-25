@@ -8,7 +8,7 @@ PhiSHRI is a plugin for Claude AI that gives it a memory. Instead of explaining 
 
 ## Before You Start
 
-You need **Claude Desktop** installed first. If you don't have it:
+For Easiest Experience get **Claude Desktop** installed first. If you don't have it:
 1. Go to https://claude.ai/download
 2. Download for your computer (Windows, Mac, or Linux)
 3. Install it and sign in
