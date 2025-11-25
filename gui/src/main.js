@@ -57,13 +57,21 @@ async function checkInstallation() {
             statusText.textContent = 'PhiSHRI is installed';
             statusDetails.innerHTML = `
                 <div>${result.door_count} doors available</div>
-                <div style="font-size: 11px; margin-top: 4px; color: var(--text-muted);">${result.paths.root}</div>
+                <div style="font-size: 11px; margin-top: 4px; color: var(--text-muted);">
+                    ${result.platform.os} ${result.platform.arch} | ${result.paths.root}
+                </div>
             `;
             installBtn.innerHTML = '<span class="btn-icon">+</span> Reinstall PhiSHRI';
         } else {
             statusDot.className = 'status-dot not-installed';
             statusText.textContent = 'PhiSHRI not installed';
-            statusDetails.textContent = 'Click Install to get started';
+            const platform = result.platform || { os: 'unknown', arch: 'unknown' };
+            statusDetails.innerHTML = `
+                <div>Click Install to get started</div>
+                <div style="font-size: 11px; margin-top: 4px; color: var(--text-muted);">
+                    Platform: ${platform.os} ${platform.arch}
+                </div>
+            `;
         }
     } catch (e) {
         statusDot.className = 'status-dot error';

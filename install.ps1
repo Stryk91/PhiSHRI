@@ -264,12 +264,88 @@ function Get-LatestRelease {
     }
 }
 
+function Test-RustAvailable {
+    try {
+        # Check if cargo is in PATH
+        $null = Get-Command cargo -ErrorAction Stop
+        return $true
+    }
+    catch {
+        # Check common Rust install locations
+        $cargoPath = Join-Path $env:USERPROFILE ".cargo\bin\cargo.exe"
+        if (Test-Path $cargoPath) {
+            $env:PATH = "$env:USERPROFILE\.cargo\bin;$env:PATH"
+            return $true
+        }
+        return $false
+    }
+}
+
+function Build-FromSource {
+    Write-Step "Building PhiSHRI MCP from source..."
+
+    $tempDir = Join-Path $env:TEMP "phishri-build"
+    $zipUrl = "https://github.com/$($script:Config.MCPRepo)/archive/refs/heads/main.zip"
+
+    try {
+        # Download source
+        Write-Step "  Downloading source..."
+        $zipPath = Join-Path $tempDir "source.zip"
+        if (Test-Path $tempDir) { Remove-Item $tempDir -Recurse -Force }
+        New-Item -ItemType Directory -Path $tempDir -Force | Out-Null
+        Invoke-WebRequest -Uri $zipUrl -OutFile $zipPath -UseBasicParsing
+
+        # Extract
+        Write-Step "  Extracting..."
+        Expand-Archive -Path $zipPath -DestinationPath $tempDir -Force
+
+        # Find extracted folder
+        $sourceDir = Get-ChildItem $tempDir -Directory | Where-Object { $_.Name -like "PhiSHRI_MCP*" } | Select-Object -First 1
+        if (!$sourceDir) {
+            throw "Could not find extracted source directory"
+        }
+
+        # Build
+        Write-Step "  Building (this may take a few minutes)..."
+        Push-Location $sourceDir.FullName
+        try {
+            $buildOutput = & cargo build --release 2>&1
+            if ($LASTEXITCODE -ne 0) {
+                throw "Cargo build failed: $buildOutput"
+            }
+        }
+        finally {
+            Pop-Location
+        }
+
+        # Copy binary
+        $builtBinary = Join-Path $sourceDir.FullName "target\release\phishri-mcp.exe"
+        if (Test-Path $builtBinary) {
+            Copy-Item -Path $builtBinary -Destination $script:Paths.Binary -Force
+            Write-Step "Binary built successfully" "OK"
+            return $true
+        }
+        else {
+            throw "Build completed but binary not found at $builtBinary"
+        }
+    }
+    catch {
+        Write-Step "Build failed: $_" "ERROR"
+        return $false
+    }
+    finally {
+        if (Test-Path $tempDir) { Remove-Item $tempDir -Recurse -Force -ErrorAction SilentlyContinue }
+    }
+}
+
 function Install-MCPBinary {
-    Write-Step "Downloading PhiSHRI MCP binary..."
+    Write-Step "Installing PhiSHRI MCP binary..."
 
     $release = Get-LatestRelease -Repo $script:Config.MCPRepo
     $downloadName = $script:Config.BinaryDownloadName
+    $downloadSuccess = $false
 
+    # Try to download prebuilt binary first
     if ($release) {
         $asset = $release.assets | Where-Object { $_.name -eq $downloadName }
         if ($asset) {
@@ -284,14 +360,42 @@ function Install-MCPBinary {
         $downloadUrl = "https://github.com/$($script:Config.MCPRepo)/releases/latest/download/$downloadName"
     }
 
-    Write-Step "  Downloading from: $downloadUrl"
+    Write-Step "  Trying prebuilt binary: $downloadName"
 
     try {
-        Invoke-WebRequest -Uri $downloadUrl -OutFile $script:Paths.Binary -UseBasicParsing
-        Write-Step "Binary downloaded" "OK"
+        Invoke-WebRequest -Uri $downloadUrl -OutFile $script:Paths.Binary -UseBasicParsing -ErrorAction Stop
+
+        # Verify the download is actually a binary (not an HTML error page)
+        $fileSize = (Get-Item $script:Paths.Binary).Length
+        if ($fileSize -gt 500KB) {
+            Write-Step "Prebuilt binary downloaded" "OK"
+            $downloadSuccess = $true
+        }
+        else {
+            Write-Step "Downloaded file seems too small ($fileSize bytes) - may be error page" "WARN"
+            Remove-Item $script:Paths.Binary -Force -ErrorAction SilentlyContinue
+        }
     }
     catch {
-        throw "Failed to download MCP binary: $_"
+        Write-Step "Prebuilt binary not available: $_" "WARN"
+    }
+
+    # Fallback: build from source
+    if (!$downloadSuccess) {
+        if (Test-RustAvailable) {
+            Write-Step "Building from source (Rust found)..." "INFO"
+            if (Build-FromSource) {
+                return
+            }
+        }
+        else {
+            Write-Step "Rust not installed. To build from source, install Rust:" "WARN"
+            Write-Host "  winget install Rustlang.Rust.MSVC" -ForegroundColor Cyan
+            Write-Host "  or visit: https://rustup.rs" -ForegroundColor Cyan
+            Write-Host ""
+        }
+
+        throw "Could not install binary. Install Rust and re-run, or download a prebuilt binary manually."
     }
 }
 
@@ -595,6 +699,44 @@ function Install-ClaudeConfigManual {
     return $true
 }
 
+function Test-ClaudeCodeCLI {
+    try {
+        $null = Get-Command claude -ErrorAction Stop
+        return $true
+    }
+    catch {
+        return $false
+    }
+}
+
+function Install-ClaudeCodeCLI {
+    Write-Step "Checking for Claude Code CLI..."
+
+    if (Test-ClaudeCodeCLI) {
+        Write-Step "  Found Claude Code CLI, configuring..."
+        try {
+            $binaryPath = $script:Paths.Binary -replace '\\', '/'
+            $knowledgePath = $script:Paths.Knowledge -replace '\\', '/'
+            $rootPath = $script:Paths.Root -replace '\\', '/'
+
+            & claude mcp add phishri $binaryPath `
+                --env "PHISHRI_PATH=$knowledgePath" `
+                --env "PHISHRI_SESSION_ROOT=$rootPath" 2>$null
+
+            Write-Step "Claude Code CLI configured" "OK"
+            return $true
+        }
+        catch {
+            Write-Step "Could not configure Claude Code CLI: $_" "WARN"
+            return $false
+        }
+    }
+    else {
+        Write-Step "  Claude Code CLI not found (skipping)" "INFO"
+        return $true
+    }
+}
+
 function Test-MCPLoads {
     Write-Step "Verifying MCP can start..."
 
@@ -765,6 +907,15 @@ function Uninstall-PhiSHRI {
         }
     }
 
+    # Remove from Claude Code CLI
+    if (Test-ClaudeCodeCLI) {
+        try {
+            & claude mcp remove phishri 2>$null
+            Write-Step "Removed from Claude Code CLI" "OK"
+        }
+        catch { }
+    }
+
     Write-Host ""
     Write-Step "PhiSHRI has been uninstalled" "OK"
     Write-Host ""
@@ -829,6 +980,9 @@ function Install-PhiSHRI {
             }
         }
 
+        # Also configure Claude Code CLI if available
+        Install-ClaudeCodeCLI | Out-Null
+
         Write-Host ""
 
         # Verify MCP can load
@@ -847,7 +1001,7 @@ function Install-PhiSHRI {
 
         Write-Host ""
         Write-Host "Next steps:" -ForegroundColor Yellow
-        Write-Host "  1. Restart Claude Desktop"
+        Write-Host "  1. Restart Claude Desktop (if using)"
         Write-Host "  2. Look for 'phishri' in the MCP servers list"
         Write-Host "  3. Try asking: 'What doors are available?'"
         Write-Host ""
