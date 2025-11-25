@@ -70,9 +70,20 @@ curl -fsSL https://raw.githubusercontent.com/Stryk91/PhiSHRI/main/install.sh | b
 
 ---
 
+## Repository Structure
+
+```
+PhiSHRI/
+├── install.ps1      # Windows installer
+├── install.sh       # Linux/macOS installer
+├── mcp-server/      # Rust MCP server source
+├── gui/             # Tauri GUI installer
+└── PhiSHRI/         # Knowledge base (500+ doors)
+    └── CONTEXTS/
+```
+
 ## Links
 
-- [MCP Server Repo](https://github.com/Stryk91/PhiSHRI_MCP) - Rust MCP implementation
 - [Documentation](https://stryk91.github.io/PhiSHRI/)
 - [Issues](https://github.com/Stryk91/PhiSHRI/issues)
 

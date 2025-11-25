@@ -12,9 +12,8 @@
 set -e
 
 # Configuration
-VERSION="1.2.0"
+VERSION="0.0.1"
 GITHUB_REPO="Stryk91/PhiSHRI"
-MCP_REPO="Stryk91/PhiSHRI_MCP"
 PHISHRI_ROOT="${PHISHRI_ROOT:-$HOME/.phishri}"
 
 # Derived paths
@@ -192,7 +191,7 @@ build_from_source() {
     log_info "Building PhiSHRI MCP from source..."
 
     local temp_dir=$(mktemp -d)
-    local repo_url="https://github.com/${MCP_REPO}/archive/refs/heads/main.zip"
+    local repo_url="https://github.com/${GITHUB_REPO}/archive/refs/heads/main.zip"
 
     # Download source
     log_info "  Downloading source..."
@@ -202,11 +201,12 @@ build_from_source() {
     log_info "  Extracting..."
     unzip -q "$temp_dir/source.zip" -d "$temp_dir"
 
-    # Find extracted folder
-    local source_dir=$(find "$temp_dir" -maxdepth 1 -type d -name "PhiSHRI_MCP*" | head -1)
+    # Find extracted folder and mcp-server subfolder
+    local extracted_dir=$(find "$temp_dir" -maxdepth 1 -type d -name "PhiSHRI*" | head -1)
+    local source_dir="$extracted_dir/mcp-server"
 
-    if [ -z "$source_dir" ]; then
-        log_error "Could not find extracted source directory"
+    if [ -z "$extracted_dir" ] || [ ! -d "$source_dir" ]; then
+        log_error "Could not find mcp-server source directory"
         rm -rf "$temp_dir"
         return 1
     fi
@@ -237,7 +237,7 @@ install_binary() {
     log_info "Installing PhiSHRI MCP binary..."
 
     # Try to download prebuilt binary first
-    local release_url="https://github.com/${MCP_REPO}/releases/latest/download/${BINARY_NAME}"
+    local release_url="https://github.com/${GITHUB_REPO}/releases/latest/download/${BINARY_NAME}"
     local temp_binary=$(mktemp)
 
     log_info "  Trying prebuilt binary: $BINARY_NAME"

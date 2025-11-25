@@ -36,10 +36,9 @@ $ProgressPreference = "SilentlyContinue"
 
 # Configuration
 $script:Config = @{
-    Version = "1.2.0"
+    Version = "0.0.1"
     PhiSHRIRoot = Join-Path $env:USERPROFILE ".phishri"
     GitHubRepo = "Stryk91/PhiSHRI"
-    MCPRepo = "Stryk91/PhiSHRI_MCP"
     BinaryName = "phishri-mcp.exe"
     BinaryDownloadName = "phishri-mcp-windows-x64.exe"
 }
@@ -285,7 +284,7 @@ function Build-FromSource {
     Write-Step "Building PhiSHRI MCP from source..."
 
     $tempDir = Join-Path $env:TEMP "phishri-build"
-    $zipUrl = "https://github.com/$($script:Config.MCPRepo)/archive/refs/heads/main.zip"
+    $zipUrl = "https://github.com/$($script:Config.GitHubRepo)/archive/refs/heads/main.zip"
 
     try {
         # Download source
@@ -299,15 +298,19 @@ function Build-FromSource {
         Write-Step "  Extracting..."
         Expand-Archive -Path $zipPath -DestinationPath $tempDir -Force
 
-        # Find extracted folder
-        $sourceDir = Get-ChildItem $tempDir -Directory | Where-Object { $_.Name -like "PhiSHRI_MCP*" } | Select-Object -First 1
-        if (!$sourceDir) {
+        # Find extracted folder and mcp-server subfolder
+        $extractedDir = Get-ChildItem $tempDir -Directory | Where-Object { $_.Name -like "PhiSHRI*" } | Select-Object -First 1
+        if (!$extractedDir) {
             throw "Could not find extracted source directory"
+        }
+        $sourceDir = Join-Path $extractedDir.FullName "mcp-server"
+        if (!(Test-Path $sourceDir)) {
+            throw "Could not find mcp-server subfolder"
         }
 
         # Build
         Write-Step "  Building (this may take a few minutes)..."
-        Push-Location $sourceDir.FullName
+        Push-Location $sourceDir
         try {
             $buildOutput = & cargo build --release 2>&1
             if ($LASTEXITCODE -ne 0) {
@@ -319,7 +322,7 @@ function Build-FromSource {
         }
 
         # Copy binary
-        $builtBinary = Join-Path $sourceDir.FullName "target\release\phishri-mcp.exe"
+        $builtBinary = Join-Path $sourceDir "target\release\phishri-mcp.exe"
         if (Test-Path $builtBinary) {
             Copy-Item -Path $builtBinary -Destination $script:Paths.Binary -Force
             Write-Step "Binary built successfully" "OK"
@@ -341,7 +344,7 @@ function Build-FromSource {
 function Install-MCPBinary {
     Write-Step "Installing PhiSHRI MCP binary..."
 
-    $release = Get-LatestRelease -Repo $script:Config.MCPRepo
+    $release = Get-LatestRelease -Repo $script:Config.GitHubRepo
     $downloadName = $script:Config.BinaryDownloadName
     $downloadSuccess = $false
 
@@ -353,11 +356,11 @@ function Install-MCPBinary {
             Write-Step "  Found release: $($release.tag_name)"
         }
         else {
-            $downloadUrl = "https://github.com/$($script:Config.MCPRepo)/releases/latest/download/$downloadName"
+            $downloadUrl = "https://github.com/$($script:Config.GitHubRepo)/releases/latest/download/$downloadName"
         }
     }
     else {
-        $downloadUrl = "https://github.com/$($script:Config.MCPRepo)/releases/latest/download/$downloadName"
+        $downloadUrl = "https://github.com/$($script:Config.GitHubRepo)/releases/latest/download/$downloadName"
     }
 
     Write-Step "  Trying prebuilt binary: $downloadName"
