@@ -8,7 +8,7 @@
   "current_task": {
     "priority": "READY",
     "action": "batch_door_generation",
-    "repository": "https://github.com/Stryk91/PhiSRHI",
+    "repository": "https://github.com/Stryk91/PhiSHRI",
     "current_state": {
       "total_doors": 268,
       "last_batch_completed": "8A",

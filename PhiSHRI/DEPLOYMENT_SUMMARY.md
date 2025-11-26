@@ -460,7 +460,7 @@ PhiSHRI is designed as the navigation layer for PhiVector multi-agent orchestrat
 
 ### Resources
 
-- **Repository**: https://github.com/Stryk91/PhiSRHI
+- **Repository**: https://github.com/Stryk91/PhiSHRI
 - **Branch**: Staging
 - **Documentation**: /PhiSHRI/README.md
 - **Tests**: /PhiSHRI/VALIDATION/test_navigation.py

@@ -147,7 +147,7 @@ A Rust binary that exposes PhiSHRI as a Model Context Protocol server. Any MCP-c
     "phishri": {
       "command": "C:\\Dev\\PhiSHRI_MCP\\phishri-mcp\\target\\release\\phishri-mcp.exe",
       "env": {
-        "PHISHRI_PATH": "C:\\Dev\\PhiSRHI\\PhiSHRI"
+        "PHISHRI_PATH": "C:\\Dev\\PhiSHRI\\PhiSHRI"
       }
     }
   }
