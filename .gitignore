@@ -4,3 +4,9 @@ PHIiSRHI/PhiDEX/
 # Archive directory (cleanup artifacts)
 .archive/
 logs/nul
+
+# Rust build artifacts
+**/target/
+
+# Node modules
+node_modules/
