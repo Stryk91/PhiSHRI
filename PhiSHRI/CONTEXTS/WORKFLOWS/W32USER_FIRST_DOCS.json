@@ -1,0 +1,77 @@
+{
+  "door_code": "W32USER_FIRST_DOCS",
+  "semantic_path": "workflows/documentation/user-first",
+  "title": "User-First Documentation - Write for the Dumbest User",
+  "aliases": [
+    "documentation",
+    "user docs",
+    "readme",
+    "install guide",
+    "beginner friendly"
+  ],
+  "summary": "Documentation should be written for users with zero technical knowledge. Devs assume too much. The 99% don't know what PATH is. Write for your nan.",
+  "context_bundle": {
+    "concepts": [
+      "assume nothing",
+      "step by step",
+      "multiple options per platform",
+      "visual cues",
+      "troubleshooting section"
+    ],
+    "patterns": [
+      "GUI option first, terminal second",
+      "numbered steps with exact commands",
+      "platform-specific sections",
+      "how do I know it worked section",
+      "common errors and fixes"
+    ],
+    "what_devs_get_wrong": [
+      "assuming users know what terminal is",
+      "assuming users know what PATH means",
+      "just pip install is not user friendly",
+      "clone the repo is not step 1 for normies",
+      "no verification steps after install"
+    ],
+    "good_doc_structure": {
+      "1_what_is_it": "one sentence, no jargon",
+      "2_prerequisites": "what they need first (with links)",
+      "3_installation": {
+        "option_a": "GUI (recommended) - download, double click",
+        "option_b": "script - download file, run it",
+        "option_c": "one-liner - for power users"
+      },
+      "4_verify": "how to confirm it worked",
+      "5_troubleshooting": "common problems and solutions",
+      "6_uninstall": "how to remove it"
+    },
+    "examples": {
+      "bad": "Clone the repo and run cargo build --release",
+      "good": "1. Download the installer\\n2. Double-click to run\\n3. Click Install\\n4. Done"
+    },
+    "tools": [
+      "markdown",
+      "screenshots",
+      "gifs for complex steps"
+    ],
+    "antipatterns": [
+      "assuming technical knowledge",
+      "terminal-only instructions",
+      "no troubleshooting section",
+      "jargon without explanation",
+      "dead links to non-existent releases"
+    ],
+    "wisdom": [
+      "This is what devs get WRONG - they assume or in their arrogance don't think of the 99% of users",
+      "If your nan can't follow the docs, rewrite them",
+      "Double click and run - that's the bar",
+      "Making things hard doesn't mean you're better, it's actually the opposite"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [
+    "T20CROSS_PLATFORM_INSTALLERS"
+  ],
+  "created": "2025-11-25T21:00:00Z",
+  "version": "1.0.0",
+  "author": "BMETALC"
+}

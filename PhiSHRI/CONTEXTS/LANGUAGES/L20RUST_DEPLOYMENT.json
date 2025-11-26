@@ -1,0 +1,72 @@
+{
+  "door_code": "L20RUST_DEPLOYMENT",
+  "semantic_path": "languages/rust/deployment",
+  "title": "Rust Deployment Philosophy - Pain Upfront, Ship Clean",
+  "aliases": [
+    "rust deployment",
+    "rust vs python",
+    "cargo build",
+    "single binary deployment",
+    "rust packaging"
+  ],
+  "summary": "Rust's deployment model frontloads complexity at compile time, producing single binaries with zero runtime dependencies. Contrast with Python's easy-write-nightmare-deploy pattern.",
+  "context_bundle": {
+    "concepts": [
+      "static linking",
+      "single binary",
+      "zero runtime dependencies",
+      "compile-time safety",
+      "borrow checker",
+      "cargo build --release"
+    ],
+    "patterns": [
+      "compile once, run anywhere",
+      "no interpreter required",
+      "no virtual environments",
+      "cross-compilation for targets",
+      "pain at compile time not runtime"
+    ],
+    "comparisons": {
+      "rust": {
+        "dev_speed": "slow",
+        "runtime_speed": "fastest",
+        "deployment": "single binary, just works",
+        "user_experience": "double click and run"
+      },
+      "python": {
+        "dev_speed": "fast",
+        "runtime_speed": "slow",
+        "deployment": "pip, venv, interpreter hell",
+        "user_experience": "47 steps before hello world"
+      }
+    },
+    "examples": {
+      "rust_deploy": "cargo build --release && ./target/release/myapp",
+      "python_deploy": "create venv, activate, pip install, wrong version, try pip3, externally managed environment, give up"
+    },
+    "tools": [
+      "cargo",
+      "rustup",
+      "cross-rs"
+    ],
+    "antipatterns": [
+      "shipping debug builds",
+      "requiring rust toolchain for end users",
+      "dynamic linking when static works"
+    ],
+    "wisdom": [
+      "The best code is code users never have to think about",
+      "Double click, it works - that's the bar",
+      "Complexity belongs at compile time, not install time",
+      "Your nan should be able to run it"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [
+    "L21PYTHON_PACKAGING",
+    "T10CARGO"
+  ],
+  "created": "2025-11-25T21:00:00Z",
+  "version": "1.0.0",
+  "author": "BMETALC"
+}

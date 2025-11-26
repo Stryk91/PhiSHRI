@@ -1,0 +1,17 @@
+{
+  "door_code": "P10ENTERPRISE_INIT",
+  "semantic_path": "PROJECTS.ENTERPRISE.SETUP",
+  "title": "Enterprise Project Setup",
+  "aliases": [],
+  "context_bundle": {
+    "summary": "Enterprise-grade project initialization with compliance",
+    "content": "Enterprise project setup with security and compliance.\n\nCompliance Requirements:\n- SOC2: Access controls, audit logs\n- GDPR: Data handling, consent management\n- HIPAA: PHI protection (if applicable)\n\nSecurity Setup:\n- Secret scanning in CI\n- Dependency vulnerability checks\n- SAST/DAST integration\n- Penetration test schedule\n\nDocumentation:\n- Architecture Decision Records (ADRs)\n- Runbooks for operations\n- Incident response procedures\n- Business continuity plan",
+    "prerequisites": [],
+    "related_doors": []
+  },
+  "metadata": {
+    "category": "PROJECTS",
+    "version": "1.0",
+    "tokens_estimate": 81.9
+  }
+}

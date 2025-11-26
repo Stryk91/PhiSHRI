@@ -1,0 +1,60 @@
+{
+  "door_code": "W116AGENT_COMM_AHK",
+  "semantic_path": "WORKFLOWS.AGENT_COMMUNICATION.AHK_METHOD",
+  "aliases": [
+    "Agent Messaging",
+    "DC to VSCC",
+    "Inter-Agent Communication"
+  ],
+  "context_bundle": {
+    "summary": "Multi-agent communication workflow using AutoHotkey for DC→VSCC message delivery. Replaces unreliable file-based and PowerShell SendKeys methods with proven AHK pattern.",
+    "prerequisites": [
+      "T96WMCP_AHK_INTEGRATION",
+      "A01AGENT_COORDINATION"
+    ],
+    "related_doors": [
+      "W117AGENT_COMM_FALLBACK",
+      "T97WMCP_AHK_PATTERNS"
+    ],
+    "onboarding": {
+      "quick_start": "DC→VSCC: 1) Craft message, 2) write_file AHK script with message + target, 3) execute_powershell Start-Process script.ahk, 4) Verify delivery",
+      "full_context_path": "",
+      "common_patterns": [
+        "Message format: 'VSCC - DC TASK: [task description] - DC'",
+        "Script template: C:\\Temp\\DC_TO_VSCC.ahk",
+        "Target: ahk_exe Code.exe for VSCC",
+        "Confirmation: MsgBox on success, file fallback on window not found",
+        "Response protocol: VSCC writes to C:\\Temp\\VSCC_RESPONSE.txt"
+      ],
+      "known_errors": [
+        "VS Code may not be focused - script handles with WinExist check",
+        "Multiple VS Code instances - targets first match",
+        "VSCC may be in different project - message still delivered to active window"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T07:27:21.633404200+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "agent-communication",
+        "automation",
+        "ahk",
+        "multi-agent",
+        "workflow"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "AGENT_COMMUNICATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ]
+    }
+  }
+}

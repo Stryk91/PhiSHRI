@@ -1,0 +1,17 @@
+{
+  "door_code": "R41SAGA",
+  "semantic_path": "ARCHITECTURE.PATTERNS.SAGA",
+  "title": "Saga Pattern",
+  "aliases": [],
+  "context_bundle": {
+    "summary": "Distributed transaction management",
+    "content": "Saga pattern for distributed transactions.\n\nProblem:\nDistributed systems can't use traditional ACID transactions across services.\n\nSolution:\nSequence of local transactions with compensating actions for rollback.\n\nTypes:\n1. Choreography: Services emit events, others react\n2. Orchestration: Central coordinator directs flow\n\nExample (Order Saga):\n1. Create Order (pending)\n2. Reserve Inventory\n3. Process Payment\n4. Confirm Order\n\nCompensation (if payment fails):\n3'. Release Inventory\n2'. Cancel Order\n\nImplementation:\n- State machine per saga\n- Idempotent operations\n- Timeout handling\n- Dead letter for failures",
+    "prerequisites": [],
+    "related_doors": []
+  },
+  "metadata": {
+    "category": "ARCHITECTURE",
+    "version": "1.0",
+    "tokens_estimate": 106.60000000000001
+  }
+}

@@ -3,673 +3,484 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PhiSHRI - AI Context Continuity</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <meta name="description" content="PhiSHRI - Addressable knowledge doors for AI agents. Read once, reference forever. No drift.">
+    <meta name="theme-color" content="#0a0a0a">
+    <title>PhiSHRI</title>
     <style>
-        :root {
-            --bg-primary: #0a0a0b;
-            --bg-secondary: #111113;
-            --bg-tertiary: #1a1a1d;
-            --text-primary: #fafafa;
-            --text-secondary: #a1a1aa;
-            --text-muted: #71717a;
-            --accent: #10b981;
-            --accent-dim: #059669;
-            --border: #27272a;
-            --code-bg: #18181b;
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');
+        
+        /* Fixedsys Excelsior - the real deal */
+        @font-face {
+            font-family: 'Fixedsys Excelsior';
+            src: url('https://cdn.jsdelivr.net/gh/kika/fixedsys@master/FSEX300.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
         }
-
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            --bg-black: #0a0a0a;
+            --bg-dark: #0f0f0f;
+            --bg-titlebar: #1a1a1a;
+            --text-white: #e8e8e8;
+            --text-gray: #888888;
+            --text-dim: #555555;
+            --term-green: #33ff33;
+            --term-green-dim: #22aa22;
+            --term-yellow: #ffff00;
+            --term-red: #ff3333;
+            --term-red-bg: #aa0000;
+        }
+
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            min-height: 100vh;
+            font-family: 'IBM Plex Mono', 'Lucida Console', 'Consolas', monospace;
+            background: var(--bg-black);
+            color: var(--text-gray);
+            display: flex;
+            flex-direction: column;
+            position: relative;
         }
 
-        /* Subtle grid background */
-        .bg-pattern {
-            position: fixed;
-            inset: 0;
-            background-image:
-                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-            background-size: 64px 64px;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* Navigation */
-        nav {
+        /* Subtle neural topology background - green tinted */
+        body::before {
+            content: '';
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            padding: 1.5rem 2rem;
+            bottom: 0;
+            pointer-events: none;
+            opacity: 0.06;
+            background:
+                radial-gradient(ellipse 800px 1px at 20% 30%, rgba(51, 255, 51, 0.4) 0%, transparent 70%),
+                radial-gradient(ellipse 600px 1px at 60% 25%, rgba(51, 255, 51, 0.3) 0%, transparent 70%),
+                radial-gradient(ellipse 400px 1px at 80% 40%, rgba(51, 255, 51, 0.4) 0%, transparent 70%),
+                radial-gradient(ellipse 700px 1px at 30% 60%, rgba(51, 255, 51, 0.3) 0%, transparent 70%),
+                radial-gradient(ellipse 500px 1px at 70% 70%, rgba(51, 255, 51, 0.4) 0%, transparent 70%),
+                radial-gradient(ellipse 300px 1px at 15% 80%, rgba(51, 255, 51, 0.3) 0%, transparent 70%),
+                radial-gradient(ellipse 450px 1px at 85% 55%, rgba(51, 255, 51, 0.4) 0%, transparent 70%),
+                radial-gradient(ellipse 1px 400px at 25% 50%, rgba(51, 255, 51, 0.3) 0%, transparent 70%),
+                radial-gradient(ellipse 1px 300px at 50% 40%, rgba(51, 255, 51, 0.4) 0%, transparent 70%),
+                radial-gradient(ellipse 1px 500px at 75% 60%, rgba(51, 255, 51, 0.3) 0%, transparent 70%),
+                radial-gradient(circle 3px at 20% 30%, rgba(51, 255, 51, 0.5) 0%, transparent 100%),
+                radial-gradient(circle 2px at 60% 25%, rgba(51, 255, 51, 0.4) 0%, transparent 100%),
+                radial-gradient(circle 4px at 45% 50%, rgba(51, 255, 51, 0.5) 0%, transparent 100%),
+                radial-gradient(circle 2px at 80% 40%, rgba(51, 255, 51, 0.3) 0%, transparent 100%),
+                radial-gradient(circle 3px at 30% 70%, rgba(51, 255, 51, 0.4) 0%, transparent 100%),
+                radial-gradient(circle 2px at 70% 65%, rgba(51, 255, 51, 0.5) 0%, transparent 100%);
+            z-index: 0;
+            animation: neural-drift 40s ease-in-out infinite alternate;
+        }
+
+        @keyframes neural-drift {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(-15px) translateY(-8px); }
+        }
+
+        /* Terminal window */
+        .terminal {
+            flex: 1;
             display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Title bar */
+        .titlebar {
+            background: var(--bg-titlebar);
+            padding: 6px 12px;
+            display: flex;
+            align-items: center;
             justify-content: space-between;
-            align-items: center;
-            z-index: 100;
-            background: linear-gradient(to bottom, var(--bg-primary), transparent);
+            border-bottom: 1px solid #252525;
+            font-size: 12px;
+            color: var(--text-gray);
+            user-select: none;
         }
 
-        .logo {
-            font-weight: 700;
-            font-size: 1.25rem;
-            letter-spacing: -0.02em;
+        .titlebar-title {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 10px;
         }
 
-        .logo-phi {
-            color: var(--accent);
-            font-size: 1.5rem;
+        .titlebar-icon {
+            color: var(--term-green);
+            font-size: 10px;
+            letter-spacing: 1px;
         }
 
-        .nav-links {
+        .titlebar-text {
+            color: var(--text-gray);
+        }
+
+        .titlebar-controls {
             display: flex;
-            gap: 2rem;
+            gap: 2px;
+        }
+
+        .titlebar-btn {
+            width: 40px;
+            height: 24px;
+            display: flex;
             align-items: center;
+            justify-content: center;
+            color: var(--text-gray);
+            font-size: 10px;
+            background: transparent;
+            cursor: default;
         }
 
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
+        .titlebar-btn:hover {
+            background: #333;
+        }
+
+        .titlebar-btn.close:hover {
+            background: var(--term-red);
+            color: white;
+        }
+
+        /* Terminal content */
+        .terminal-content {
+            flex: 1;
+            padding: 20px 24px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Ancient history - the DOS days */
+        .ancient-history {
+            margin-bottom: 20px;
+            opacity: 0.4;
+            font-size: 13px;
+        }
+
+        .ancient-history .dos-prompt {
+            color: var(--text-gray);
+        }
+
+        .ancient-history .dos-cmd {
+            color: var(--text-dim);
+        }
+
+        .ancient-history .blaster-line {
+            color: var(--term-green-dim);
+            opacity: 0.7;
+        }
+
+        /* Command history - the path error setup */
+        .history {
+            margin-bottom: 32px;
+        }
+
+        .prompt-line {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 2px;
+        }
+
+        .prompt {
+            color: var(--term-yellow);
+            margin-right: 6px;
+            white-space: nowrap;
+        }
+
+        .command {
+            color: var(--text-white);
+        }
+
+        .output {
+            padding-left: 0;
+            margin-bottom: 12px;
+        }
+
+        .error-line {
+            color: var(--term-red);
+        }
+
+        .error-cmd {
+            color: white;
+            background: var(--term-red-bg);
+            padding: 1px 5px;
             font-weight: 500;
-            transition: color 0.2s;
         }
 
-        .nav-links a:hover {
-            color: var(--text-primary);
+        .success-line {
+            color: var(--term-green);
         }
 
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.625rem 1.25rem;
-            border-radius: 8px;
-            font-weight: 500;
-            font-size: 0.9rem;
-            text-decoration: none;
-            transition: all 0.2s;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: var(--bg-primary);
-        }
-
-        .btn-primary:hover {
-            background: var(--accent-dim);
-        }
-
-        .btn-secondary {
-            background: var(--bg-tertiary);
-            color: var(--text-primary);
-            border: 1px solid var(--border);
-        }
-
-        .btn-secondary:hover {
-            background: var(--border);
-        }
-
-        /* Hero */
-        .hero {
-            min-height: 100vh;
+        /* The pitch - centered */
+        .pitch {
+            flex: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 6rem 2rem 4rem;
+            padding: 20px;
+        }
+
+        /* Title with font swap animation */
+        .pitch-title {
+            font-size: 36px;
+            font-weight: 500;
+            letter-spacing: 6px;
+            margin-bottom: 40px;
             position: relative;
-            z-index: 1;
+            height: 50px;
         }
 
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.375rem 1rem;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 100px;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
+        .pitch-title .modern,
+        .pitch-title .retro {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: opacity 1.5s ease-in-out;
         }
 
-        .badge-dot {
-            width: 6px;
-            height: 6px;
-            background: var(--accent);
-            border-radius: 50%;
-            animation: pulse 2s infinite;
+        .pitch-title .modern {
+            font-family: 'IBM Plex Mono', monospace;
+            color: var(--term-green);
+            text-shadow: 0 0 30px rgba(51, 255, 51, 0.3);
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+        .pitch-title .retro {
+            font-family: 'Fixedsys Excelsior', 'Fixedsys', monospace;
+            color: var(--term-green);
+            text-shadow: 0 0 20px rgba(51, 255, 51, 0.5);
+            opacity: 0;
         }
 
-        h1 {
-            font-size: clamp(3rem, 8vw, 5rem);
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
+        .pitch-title.show-retro .modern {
+            opacity: 0;
         }
 
-        .highlight {
-            background: linear-gradient(135deg, var(--accent), #34d399);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        .pitch-title.show-retro .retro {
+            opacity: 1;
         }
 
-        .subtitle {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin-bottom: 2.5rem;
+        .pitch-quote {
+            font-size: 16px;
+            color: var(--text-gray);
+            margin-bottom: 8px;
         }
 
-        .hero-cta {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 4rem;
-        }
-
-        /* Stats */
-        .stats {
-            display: flex;
-            gap: 3rem;
-            padding: 1.5rem 2rem;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-value {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-
-        .stat-value span {
-            color: var(--accent);
-        }
-
-        .stat-label {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        /* Code Example */
-        .code-section {
-            padding: 6rem 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .code-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .section-label {
-            font-size: 0.8rem;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 1rem;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .section-desc {
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            max-width: 500px;
-        }
-
-        .code-block {
-            background: var(--code-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .code-header {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1rem;
-            background: var(--bg-tertiary);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .code-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--border);
-        }
-
-        .code-dot.red { background: #ef4444; }
-        .code-dot.yellow { background: #eab308; }
-        .code-dot.green { background: #22c55e; }
-
-        .code-content {
-            padding: 1.5rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
-            line-height: 1.8;
-            overflow-x: auto;
-        }
-
-        .code-comment {
-            color: var(--text-muted);
-        }
-
-        .code-keyword {
-            color: #c084fc;
-        }
-
-        .code-string {
-            color: #4ade80;
-        }
-
-        .code-door {
-            color: var(--accent);
+        .pitch-answer {
+            font-size: 20px;
+            color: var(--text-white);
+            margin-bottom: 48px;
             font-weight: 500;
         }
 
-        /* Comparison */
-        .comparison {
-            padding: 6rem 2rem;
-            position: relative;
-            z-index: 1;
+        .pitch-features {
+            color: var(--text-gray);
+            margin-bottom: 56px;
+            line-height: 2.2;
         }
 
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 900px;
-            margin: 0 auto;
+        .pitch-features .marker {
+            color: var(--term-green);
+            margin-right: 10px;
         }
 
-        .comparison-card {
-            padding: 2rem;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
+        .pitch-features .feature {
+            color: var(--text-white);
         }
 
-        .comparison-card.highlight-card {
-            border-color: var(--accent);
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), transparent);
-        }
-
-        .comparison-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .comparison-card ul {
-            list-style: none;
-        }
-
-        .comparison-card li {
-            padding: 0.5rem 0;
-            color: var(--text-secondary);
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .icon-x {
-            color: #ef4444;
-        }
-
-        .icon-check {
-            color: var(--accent);
-        }
-
-        /* Features */
-        .features {
-            padding: 6rem 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .features-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .feature-card {
-            padding: 1.5rem;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            transition: border-color 0.2s;
-        }
-
-        .feature-card:hover {
-            border-color: var(--text-muted);
-        }
-
-        .feature-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--bg-tertiary);
-            border-radius: 8px;
+        /* Git clone line */
+        .clone-line {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1rem;
-            color: var(--accent);
-            font-size: 1.25rem;
+            font-size: 14px;
         }
 
-        .feature-card h3 {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
+        .clone-line .prompt {
+            color: var(--term-yellow);
         }
 
-        .feature-card p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
+        .clone-line .command {
+            color: var(--text-white);
         }
 
-        /* CTA */
-        .cta {
-            padding: 8rem 2rem;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .cta p {
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-        }
-
-        /* Footer */
-        footer {
-            padding: 2rem;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            border-top: 1px solid var(--border);
-            position: relative;
-            z-index: 1;
-        }
-
-        footer a {
-            color: var(--text-secondary);
+        .clone-line a {
+            color: var(--term-green);
             text-decoration: none;
         }
 
-        footer a:hover {
-            color: var(--text-primary);
+        .clone-line a:hover {
+            text-decoration: underline;
+            text-shadow: 0 0 8px rgba(51, 255, 51, 0.5);
+        }
+
+        /* Fat blinking cursor */
+        .cursor {
+            display: inline-block;
+            width: 11px;
+            height: 20px;
+            background: var(--term-green);
+            margin-left: 1px;
+            animation: blink 1s step-end infinite;
+            vertical-align: text-bottom;
+            box-shadow: 0 0 8px rgba(51, 255, 51, 0.4);
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
-            nav {
-                padding: 1rem;
+        @media (max-width: 700px) {
+            .terminal-content {
+                padding: 16px 18px;
+                font-size: 13px;
             }
 
-            .nav-links {
+            .pitch-title {
+                font-size: 28px;
+                letter-spacing: 4px;
+            }
+
+            .pitch-quote {
+                font-size: 14px;
+            }
+
+            .pitch-answer {
+                font-size: 17px;
+            }
+
+            .clone-line {
+                font-size: 12px;
+                flex-wrap: wrap;
+                gap: 4px;
+            }
+
+            .history {
+                font-size: 12px;
+            }
+
+            .ancient-history {
+                font-size: 11px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pitch-title {
+                font-size: 22px;
+                letter-spacing: 3px;
+            }
+
+            .history {
                 display: none;
             }
 
-            .hero {
-                padding: 5rem 1.5rem 3rem;
+            .ancient-history {
+                display: none;
             }
 
-            .stats {
-                flex-direction: column;
-                gap: 1.5rem;
+            .clone-line {
+                font-size: 10px;
             }
+        }
 
-            .hero-cta {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .hero-cta .btn {
-                width: 100%;
-                justify-content: center;
-            }
+        /* Selection */
+        ::selection {
+            background: var(--term-green);
+            color: var(--bg-black);
         }
     </style>
 </head>
 <body>
-    <div class="bg-pattern"></div>
-
-    <nav>
-        <div class="logo">
-            <span class="logo-phi">Φ</span>
-            <span>PhiSHRI</span>
-        </div>
-        <div class="nav-links">
-            <a href="#how-it-works">How it works</a>
-            <a href="#features">Features</a>
-            <a href="https://github.com/Stryk91/PhiSHRI">GitHub</a>
-            <a href="#" class="btn btn-primary">Get Started</a>
-        </div>
-    </nav>
-
-    <section class="hero">
-        <div class="badge">
-            <span class="badge-dot"></span>
-            <span>v0.2 — MCP Server Ready</span>
-        </div>
-
-        <h1>AI memory<br>that <span class="highlight">persists</span></h1>
-
-        <p class="subtitle">
-            Stop re-explaining context every session. PhiSHRI gives AI agents
-            addressable knowledge that survives across conversations.
-        </p>
-
-        <div class="hero-cta">
-            <a href="https://github.com/Stryk91/PhiSHRI" class="btn btn-primary">
-                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                View on GitHub
-            </a>
-            <a href="#how-it-works" class="btn btn-secondary">See how it works</a>
-        </div>
-
-        <div class="stats">
-            <div class="stat">
-                <div class="stat-value"><span>8</span></div>
-                <div class="stat-label">Knowledge Categories</div>
+    <div class="terminal">
+        <!-- Title bar -->
+        <div class="titlebar">
+            <div class="titlebar-title">
+                <span class="titlebar-icon">■</span>
+                <span class="titlebar-text">C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe</span>
             </div>
-            <div class="stat">
-                <div class="stat-value">500<span>+</span></div>
-                <div class="stat-label">Knowledge Doors</div>
-            </div>
-            <div class="stat">
-                <div class="stat-value"><span>0</span></div>
-                <div class="stat-label">Context Drift</div>
+            <div class="titlebar-controls">
+                <div class="titlebar-btn">─</div>
+                <div class="titlebar-btn">□</div>
+                <div class="titlebar-btn close">✕</div>
             </div>
         </div>
-    </section>
 
-    <section class="code-section" id="how-it-works">
-        <div class="code-container">
-            <div class="section-label">How it works</div>
-            <h2 class="section-title">One line to resume</h2>
-            <p class="section-desc">
-                Door codes replace walls of context. AI reads once, references forever.
-            </p>
+        <!-- Terminal content -->
+        <div class="terminal-content">
+            <!-- Ancient DOS history - faded like a memory -->
+            <div class="ancient-history">
+                <div><span class="dos-prompt">C:\&gt;</span><span class="dos-cmd">SET BLASTER=A220 I5 D1 H5 T4</span></div>
+                <div><span class="dos-prompt">C:\&gt;</span><span class="dos-cmd">A:</span></div>
+                <div><span class="dos-prompt">A:\&gt;</span><span class="dos-cmd">ALLEYCAT.EXE</span></div>
+                <div class="blaster-line">[ Sound Blaster 16 detected ]</div>
+            </div>
 
-            <div class="code-block">
-                <div class="code-header">
-                    <span class="code-dot red"></span>
-                    <span class="code-dot yellow"></span>
-                    <span class="code-dot green"></span>
+            <!-- Command history with the slash error -->
+            <div class="history">
+                <div class="prompt-line">
+                    <span class="prompt">PS C:\PhiSHRI&gt;</span>
+                    <span class="command">cd contexts/agents</span>
                 </div>
-                <div class="code-content">
-<span class="code-comment">// Session 1: Full context load</span>
-User: <span class="code-string">"Help with enterprise deployment"</span>
-AI: <span class="code-keyword">reads</span> <span class="code-door">[D05, D06, D07]</span> <span class="code-comment">// 12K tokens</span>
+                <div class="output error-line">
+                    <span class="error-cmd">cd</span> : Cannot find path 'C:\PhiSHRI\contexts/agents' because it does not exist.
+                </div>
+                <div class="prompt-line">
+                    <span class="prompt">PS C:\PhiSHRI&gt;</span>
+                    <span class="command">cd contexts\agents</span>
+                </div>
+                <div class="output success-line">
+                    Directory: C:\PhiSHRI\CONTEXTS\AGENTS
+                </div>
+            </div>
 
-<span class="code-comment">// Session 2: Next day, new conversation</span>
-User: <span class="code-string">"Resume: D05+D06+D07, add network optimization"</span>
-AI: <span class="code-keyword">reads</span> <span class="code-door">[D13]</span> <span class="code-comment">// 1.6K tokens — references D05-D07 without re-reading</span>
+            <!-- The pitch -->
+            <div class="pitch">
+                <div class="pitch-title" id="titleSwap">
+                    <span class="modern">PhiSHRI</span>
+                    <span class="retro">PhiSHRI</span>
+                </div>
+                
+                <div class="pitch-quote">"How many times do I have to explain myself?"</div>
+                <div class="pitch-answer">Ends that.</div>
 
-<span class="code-comment">// That's it. No re-explaining. No drift.</span>
+                <div class="pitch-features">
+                    <span class="marker">&gt;</span><span class="feature">addressable knowledge doors</span><br>
+                    <span class="marker">&gt;</span><span class="feature">read once, reference forever</span><br>
+                    <span class="marker">&gt;</span><span class="feature">no drift</span>
+                </div>
+
+                <div class="clone-line">
+                    <span class="prompt">PS C:\&gt;&nbsp;</span>
+                    <span class="command">git clone&nbsp;</span>
+                    <a href="https://github.com/Stryk91/PhiSHRI" target="_blank" rel="noopener">https://github.com/Stryk91/PhiSHRI.git</a>
+                    <span class="cursor"></span>
                 </div>
             </div>
         </div>
-    </section>
-
-    <section class="comparison">
-        <div class="comparison-grid">
-            <div class="comparison-card">
-                <h3>
-                    <span class="icon-x">✕</span>
-                    Traditional Approach
-                </h3>
-                <ul>
-                    <li><span class="icon-x">✕</span> Re-explain project every session</li>
-                    <li><span class="icon-x">✕</span> 320K tokens across 10 sessions</li>
-                    <li><span class="icon-x">✕</span> Context drift compounds</li>
-                    <li><span class="icon-x">✕</span> 5-10 min resume time</li>
-                    <li><span class="icon-x">✕</span> AI "forgets" decisions</li>
-                </ul>
-            </div>
-            <div class="comparison-card highlight-card">
-                <h3>
-                    <span class="icon-check">✓</span>
-                    PhiSHRI Approach
-                </h3>
-                <ul>
-                    <li><span class="icon-check">✓</span> Door codes as checkpoints</li>
-                    <li><span class="icon-check">✓</span> 56K tokens across 10 sessions</li>
-                    <li><span class="icon-check">✓</span> Zero drift — doors are immutable</li>
-                    <li><span class="icon-check">✓</span> 10 second resume time</li>
-                    <li><span class="icon-check">✓</span> Perfect recall via references</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section class="features" id="features">
-        <div class="features-header">
-            <div class="section-label">Features</div>
-            <h2 class="section-title">Built for developers</h2>
-        </div>
-
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">⚡</div>
-                <h3>MCP Ready</h3>
-                <p>Native Model Context Protocol server. Works with Claude Desktop, any MCP client.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📚</div>
-                <h3>500+ Doors</h3>
-                <p>Curated DevOps knowledge. CI/CD, Kubernetes, security, languages, and more.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🔍</div>
-                <h3>Semantic Search</h3>
-                <p>Find doors by natural language. "git workflow" → D05, D06, T12.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🔗</div>
-                <h3>Chain Loading</h3>
-                <p>Load prerequisite chains automatically. One command, full context.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">💾</div>
-                <h3>Session State</h3>
-                <p>Bootstrap files persist progress. Pick up exactly where you left off.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🛠️</div>
-                <h3>MIT Licensed</h3>
-                <p>Open source. Use it, fork it, extend it. No vendor lock-in.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta">
-        <h2>Ready to try?</h2>
-        <p>Clone the repo and load your first door in under a minute.</p>
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-            <a href="https://github.com/Stryk91/PhiSHRI" class="btn btn-primary">Get Started</a>
-            <a href="https://github.com/Stryk91/PhiSHRI/blob/main/PhiSHRI/HOW_TO_USE.md" class="btn btn-secondary">Read the Docs</a>
-        </div>
-    </section>
-
-    <footer>
-        <p>
-            Built by <a href="https://github.com/Stryk91">@Stryk91</a> ·
-            <a href="https://github.com/Stryk91/PhiSHRI">GitHub</a> ·
-            MIT License
-        </p>
-        <p style="margin-top: 0.5rem; font-size: 0.75rem;">
-            "350B parameters didn't help it count to 50. Size ≠ accuracy."
-        </p>
-    </footer>
+    </div>
 
     <script>
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
+        // Font swap every 10 seconds - like memories surfacing
+        const title = document.getElementById('titleSwap');
+        setInterval(() => {
+            title.classList.toggle('show-retro');
+        }, 10000);
     </script>
 </body>
 </html>

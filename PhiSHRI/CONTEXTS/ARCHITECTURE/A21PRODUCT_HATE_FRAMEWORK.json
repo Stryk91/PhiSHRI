@@ -1,0 +1,82 @@
+{
+  "door_code": "A21PRODUCT_HATE_FRAMEWORK",
+  "semantic_path": "architecture/product/hate-framework",
+  "title": "Product Hate Framework - Solve What People Hate, Not What They Want",
+  "aliases": [
+    "product design",
+    "user experience",
+    "pain points",
+    "product philosophy",
+    "ux design"
+  ],
+  "summary": "People don't know what they want, but they KNOW what pisses them off. Focus on eliminating hatred, not adding features. You're not building software - you're eliminating reasons to be pissed off at computers.",
+  "context_bundle": {
+    "concepts": [
+      "pain point elimination",
+      "hatred-driven development",
+      "absence of friction",
+      "it just works",
+      "invisible software"
+    ],
+    "the_framework": {
+      "step_1": "Efficient AI + Knowledge - context that persists, no re-explaining",
+      "step_2": "Automation tools - compound returns, feed the system",
+      "step_3": "Solve what everyone HATES - not what they say they want"
+    },
+    "universal_computer_hatred": [
+      "updates that break shit",
+      "where the fuck did that file go",
+      "password hell",
+      "waiting/loading/spinning",
+      "why is this so slow",
+      "settings that reset",
+      "47 clicks to do one thing",
+      "it worked yesterday",
+      "printer anything",
+      "please install this dependency first",
+      "restart required",
+      "not enough storage",
+      "compatibility issues"
+    ],
+    "what_people_say_they_want": [
+      "more features",
+      "AI integration",
+      "cloud sync",
+      "dark mode",
+      "mostly bullshit from ads"
+    ],
+    "what_people_actually_want": [
+      "the thing to just fucking work",
+      "same way every time",
+      "without asking permission",
+      "without updates",
+      "without logins",
+      "without tutorials"
+    ],
+    "examples": {
+      "apple": "Got rich on 'it just works' - not a feature list, absence of hatred",
+      "google_search": "One box, type, get answer - no menus, no options, no bullshit",
+      "phishri": "AI remembers context - eliminates the hatred of re-explaining"
+    },
+    "antipatterns": [
+      "feature bloat",
+      "adding options instead of making decisions",
+      "solving problems users don't have",
+      "listening to what users say vs watching what they hate"
+    ],
+    "wisdom": [
+      "People are fickle about wants, consistent about hatred",
+      "You're not building software - you're eliminating reasons to be pissed off",
+      "The best feature is the absence of friction",
+      "Nobody wakes up wanting features - they wake up pissed off at problems"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [
+    "W32USER_FIRST_DOCS",
+    "T20CROSS_PLATFORM_INSTALLERS"
+  ],
+  "created": "2025-11-25T21:30:00Z",
+  "version": "1.0.0",
+  "author": "BMETALC"
+}

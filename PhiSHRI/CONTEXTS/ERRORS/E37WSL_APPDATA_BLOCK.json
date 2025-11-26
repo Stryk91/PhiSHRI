@@ -1,0 +1,31 @@
+{
+  "door_code": "E37WSL_APPDATA_BLOCK",
+  "semantic_path": "ERRORS.WSL.APPDATA_BLOCK",
+  "aliases": ["wsl appdata", "wsl write windows", "permission denied appdata"],
+  "context_bundle": {
+    "summary": "WSL cannot write to Windows protected AppData directories",
+    "prerequisites": [],
+    "related_doors": ["E34USER_MISMATCH", "T102IRM_IEX_PATTERN"],
+    "onboarding": {
+      "quick_start": "Use native PowerShell for Windows config operations, not WSL bash",
+      "symptoms": [
+        "Permission denied writing to /mnt/c/Users/*/AppData",
+        "File created but app can't read it",
+        "Works in PowerShell, fails in WSL"
+      ],
+      "root_cause": {
+        "wsl_permissions": "WSL runs as different user context than Windows",
+        "appdata_protected": "AppData folders have special Windows permissions",
+        "cross_filesystem": "NTFS permissions don't map cleanly to Linux"
+      },
+      "solution": {
+        "use_powershell": "Run config operations in native PowerShell",
+        "avoid_wsl_for_config": "WSL fine for reading, not writing Windows config",
+        "alternative": "Use PowerShell remoting or direct execution"
+      },
+      "detection": {
+        "check": "If script needs to write to AppData, must be native Windows"
+      }
+    }
+  }
+}

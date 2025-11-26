@@ -1,0 +1,33 @@
+{
+  "door_code": "E39GIT_PUSH_403",
+  "semantic_path": "ERRORS.GIT.PUSH_403",
+  "aliases": ["git push denied", "403 push main", "branch protection"],
+  "context_bundle": {
+    "summary": "Git push to main fails with 403 - branch protection or permissions",
+    "prerequisites": [],
+    "related_doors": ["W118GIT_BRANCH_CLEANUP"],
+    "onboarding": {
+      "quick_start": "Create feature branch, push there, create PR to main",
+      "symptoms": [
+        "git push origin main returns 403",
+        "Error: permission denied",
+        "Protected branch rules triggered"
+      ],
+      "root_cause": {
+        "branch_protection": "Main branch has protection rules requiring PR",
+        "token_scope": "Git credential may lack push permission",
+        "org_policy": "Organization may require signed commits or reviews"
+      },
+      "solution": {
+        "use_feature_branch": "git checkout -b feature/my-change",
+        "push_branch": "git push -u origin feature/my-change",
+        "create_pr": "gh pr create --title 'My change' --body '...'",
+        "merge_via_pr": "Use GitHub UI or gh pr merge"
+      },
+      "check_protection": {
+        "github_ui": "Settings → Branches → Branch protection rules",
+        "common_rules": "Require PR, require reviews, require status checks"
+      }
+    }
+  }
+}

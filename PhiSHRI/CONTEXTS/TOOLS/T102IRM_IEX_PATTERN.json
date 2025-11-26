@@ -1,0 +1,34 @@
+{
+  "door_code": "T102IRM_IEX_PATTERN",
+  "semantic_path": "TOOLS.POWERSHELL.IRM_IEX",
+  "aliases": ["irm iex", "one-liner installer", "powershell remote install"],
+  "context_bundle": {
+    "summary": "PowerShell one-shot installer patterns and gotchas for irm | iex",
+    "prerequisites": ["E36VALIDATESET_IEX"],
+    "related_doors": ["T101POWERSHELL_JSON", "W121INSTALLER_FALLBACK"],
+    "onboarding": {
+      "quick_start": "irm URL | iex runs remote PowerShell script - design accordingly",
+      "pattern": {
+        "basic": "irm https://raw.githubusercontent.com/user/repo/main/install.ps1 | iex",
+        "with_args": "Not directly supported - use env vars or prompts"
+      },
+      "gotchas": {
+        "no_validateset": "ValidateSet parameters fail with irm | iex",
+        "no_args": "Can't pass -Parameters, must prompt or use defaults",
+        "execution_policy": "May need: Set-ExecutionPolicy Bypass -Scope Process",
+        "no_interactive": "Can use Read-Host but avoid complex interaction"
+      },
+      "best_practices": {
+        "defaults": "Provide sensible defaults, don't require parameters",
+        "detect": "Auto-detect as much as possible",
+        "fallback": "If auto-detect fails, prompt user",
+        "verify": "Always verify success before claiming complete"
+      },
+      "error_handling": {
+        "set_strict": "$ErrorActionPreference = 'Stop'",
+        "try_catch": "Wrap risky operations in try/catch",
+        "cleanup": "On failure, remove partial installation"
+      }
+    }
+  }
+}

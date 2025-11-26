@@ -1,0 +1,17 @@
+{
+  "door_code": "P14GREENFIELD",
+  "semantic_path": "PROJECTS.DEVELOPMENT.GREENFIELD",
+  "title": "Greenfield Project Guide",
+  "aliases": [],
+  "context_bundle": {
+    "summary": "Starting new projects from scratch",
+    "content": "Greenfield project best practices.\n\nWeek 1: Foundation\n- Tech stack decisions documented\n- Repository structure created\n- CI/CD pipeline working\n- First deployment to staging\n\nWeek 2-4: Core\n- Domain model established\n- API contracts defined\n- Authentication working\n- Basic CRUD operations\n\nMonth 2+: Features\n- Feature flag system\n- A/B testing capability\n- Performance baselines\n- Load testing setup\n\nAvoid:\n- Over-engineering early\n- Choosing unproven tech\n- Skipping documentation",
+    "prerequisites": [],
+    "related_doors": []
+  },
+  "metadata": {
+    "category": "PROJECTS",
+    "version": "1.0",
+    "tokens_estimate": 93.60000000000001
+  }
+}

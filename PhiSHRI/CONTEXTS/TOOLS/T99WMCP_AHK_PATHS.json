@@ -1,0 +1,57 @@
+{
+  "door_code": "T99WMCP_AHK_PATHS",
+  "semantic_path": "TOOLS.WINDOWS_MCP.AHK_PATHS",
+  "aliases": [
+    "AHK Paths",
+    "AutoHotkey Location",
+    "AHK Install"
+  ],
+  "context_bundle": {
+    "summary": "AutoHotkey installation paths and execution methods for Windows MCP. Covers standard install locations, UX wrapper, and path validation.",
+    "prerequisites": [
+      "T96WMCP_AHK_INTEGRATION"
+    ],
+    "related_doors": [
+      "T97WMCP_AHK_PATTERNS",
+      "T98WMCP_SENDKEYS_DEBUG"
+    ],
+    "onboarding": {
+      "quick_start": "Standard path: C:\\Program Files\\AutoHotkey\\UX\\AutoHotkeyUX.exe - Verify with: Get-Process AutoHotkey* | Select-Object Path",
+      "full_context_path": "",
+      "common_patterns": [
+        "Standard install: C:\\Program Files\\AutoHotkey\\UX\\AutoHotkeyUX.exe",
+        "Script execution: Start-Process 'script.ahk' (Windows handles .ahk association)",
+        "Direct execution: Start-Process 'C:\\Program Files\\AutoHotkey\\UX\\AutoHotkeyUX.exe' -ArgumentList 'script.ahk'",
+        "Path validation: Test-Path 'C:\\Program Files\\AutoHotkey\\UX\\AutoHotkeyUX.exe'"
+      ],
+      "known_errors": [
+        "Bash cannot execute AHK from WSL2 paths (/mnt/c/...)",
+        "Space in 'Program Files' requires quoting in some contexts",
+        "AHK v1 vs v2 install locations differ",
+        "System may have multiple AHK versions installed"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T07:27:21.632245900+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "autohotkey",
+        "paths",
+        "installation",
+        "file-system"
+      ],
+      "category": "TOOLS",
+      "subcategory": "WINDOWS_MCP",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ]
+    }
+  }
+}

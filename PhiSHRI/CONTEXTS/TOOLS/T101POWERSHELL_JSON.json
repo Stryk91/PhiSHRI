@@ -1,0 +1,32 @@
+{
+  "door_code": "T101POWERSHELL_JSON",
+  "semantic_path": "TOOLS.POWERSHELL.JSON_HANDLING",
+  "aliases": ["powershell json", "utf8 no bom", "json config merge"],
+  "context_bundle": {
+    "summary": "PowerShell JSON handling patterns - UTF8 encoding, config merging, syntax safety",
+    "prerequisites": [],
+    "related_doors": ["T100POWERSHELL_MULTIUSER"],
+    "onboarding": {
+      "quick_start": "Always use [System.IO.File]::WriteAllText with UTF8Encoding($false) for JSON",
+      "utf8_no_bom": {
+        "why": "BOM causes JSON parse errors in many tools",
+        "correct": "[System.IO.File]::WriteAllText($path, $json, [System.Text.UTF8Encoding]::new($false))",
+        "wrong": "Set-Content -Encoding UTF8 (adds BOM in older PS versions)"
+      },
+      "path_handling": {
+        "forward_slashes": "$path -replace '\\', '/' (cleaner in JSON, always works)",
+        "reason": "Backslashes require escaping in JSON, forward slashes don't"
+      },
+      "config_merge_pattern": {
+        "load_existing": "$config = Get-Content $path -Raw | ConvertFrom-Json",
+        "add_property": "$config | Add-Member -NotePropertyName 'key' -NotePropertyValue $value",
+        "update_nested": "if ($config.mcpServers.app) { $config.mcpServers.app = $new } else { Add-Member... }",
+        "write_back": "[System.IO.File]::WriteAllText($path, ($config | ConvertTo-Json -Depth 10), [System.Text.UTF8Encoding]::new($false))"
+      },
+      "ordered_hashtables": {
+        "syntax": "[ordered]@{ key1 = 'val1'; key2 = 'val2' }",
+        "benefit": "Preserves key order in JSON output"
+      }
+    }
+  }
+}

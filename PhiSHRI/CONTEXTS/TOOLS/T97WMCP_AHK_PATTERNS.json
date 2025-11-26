@@ -1,0 +1,62 @@
+{
+  "door_code": "T97WMCP_AHK_PATTERNS",
+  "semantic_path": "TOOLS.WINDOWS_MCP.AHK_PATTERNS",
+  "aliases": [
+    "AHK Patterns",
+    "AHK v2 Syntax",
+    "Window Targeting"
+  ],
+  "context_bundle": {
+    "summary": "Proven AutoHotkey v2.0 script patterns for Windows MCP automation. Includes window targeting by executable, SendText vs Send, sleep timing, and error handling patterns.",
+    "prerequisites": [
+      "T96WMCP_AHK_INTEGRATION"
+    ],
+    "related_doors": [
+      "T98WMCP_SENDKEYS_DEBUG",
+      "T99WMCP_AHK_PATHS"
+    ],
+    "onboarding": {
+      "quick_start": "#Requires AutoHotkey v2.0 header, use WinExist('ahk_exe app.exe'), WinActivate, Sleep 500, SendText for strings, Send for special keys",
+      "full_context_path": "",
+      "common_patterns": [
+        "#Requires AutoHotkey v2.0 - always first line",
+        "WinExist('ahk_exe Code.exe') - target by executable name",
+        "WinActivate - activate found window (no parameters)",
+        "Sleep 500 - ensure window focus before sending",
+        "SendText 'literal text' - for message strings",
+        "Send '{Enter}' - for special keys with braces",
+        "MsgBox 'message', 'title', 64 - success notification"
+      ],
+      "known_errors": [
+        "Missing #Requires directive causes v1/v2 syntax conflicts",
+        "SendKeys (v1) vs SendText (v2) incompatibility",
+        "Insufficient sleep timing causes lost characters",
+        "Window title matching less reliable than ahk_exe matching"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T07:27:21.631090200+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "autohotkey",
+        "ahk-v2",
+        "patterns",
+        "window-automation",
+        "sendtext"
+      ],
+      "category": "TOOLS",
+      "subcategory": "WINDOWS_MCP",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ]
+    }
+  }
+}

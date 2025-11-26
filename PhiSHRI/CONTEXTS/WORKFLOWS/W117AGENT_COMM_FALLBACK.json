@@ -1,0 +1,57 @@
+{
+  "door_code": "W117AGENT_COMM_FALLBACK",
+  "semantic_path": "WORKFLOWS.AGENT_COMMUNICATION.FALLBACK_METHODS",
+  "aliases": [
+    "Communication Fallback",
+    "File Messaging",
+    "Backup Communication"
+  ],
+  "context_bundle": {
+    "summary": "Fallback communication methods when primary AHK delivery fails. File-based messaging, taskbar flash monitoring, and manual notification patterns.",
+    "prerequisites": [
+      "W116AGENT_COMM_AHK"
+    ],
+    "related_doors": [
+      "T96WMCP_AHK_INTEGRATION"
+    ],
+    "onboarding": {
+      "quick_start": "If AHK fails: write_file message to C:\\Temp\\DC_TO_VSCC.txt, monitor_taskbar_flash for VSCC activity, or use existing coordination files",
+      "full_context_path": "",
+      "common_patterns": [
+        "Primary fallback: C:\\Temp\\DC_TO_VSCC.txt file write",
+        "Coordination files: agent-feed.jsonl system",
+        "Taskbar monitoring: detect when VSCC becomes active",
+        "Manual handoff: DC notes task in bootstrap for VSCC to read on next session"
+      ],
+      "known_errors": [
+        "File-based messaging requires manual checking by target agent",
+        "No automatic delivery confirmation",
+        "Race conditions if both agents write simultaneously",
+        "Requires established file protocol conventions"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T07:27:21.633993300+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "agent-communication",
+        "fallback",
+        "reliability",
+        "file-based"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "AGENT_COMMUNICATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ]
+    }
+  }
+}

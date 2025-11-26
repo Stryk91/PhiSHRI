@@ -1,0 +1,61 @@
+{
+  "door_code": "T98WMCP_SENDKEYS_DEBUG",
+  "semantic_path": "TOOLS.WINDOWS_MCP.SENDKEYS_DEBUG",
+  "aliases": [
+    "SendKeys Debug",
+    "MCP Troubleshooting",
+    "Window Focus Debug"
+  ],
+  "context_bundle": {
+    "summary": "Debugging workflow for Windows MCP send_keys failures. Diagnose PowerShell SendKeys issues, AHK path problems, and window targeting failures.",
+    "prerequisites": [
+      "T96WMCP_AHK_INTEGRATION",
+      "T97WMCP_AHK_PATTERNS"
+    ],
+    "related_doors": [
+      "E32WMCP_SENDKEYS_FAIL",
+      "T99WMCP_AHK_PATHS"
+    ],
+    "onboarding": {
+      "quick_start": "Test sequence: 1) list_windows to verify target exists, 2) try send_keys, 3) if fails, create AHK script, 4) verify AHK path exists, 5) execute via PowerShell",
+      "full_context_path": "",
+      "common_patterns": [
+        "list_windows - verify target window exists and get title",
+        "get_window_info 'title' - check window state and coordinates",
+        "execute_powershell: Get-Process AutoHotkey* | Select-Object Path",
+        "Test AHK: write simple script, execute, verify MsgBox appears",
+        "File fallback: write message to C:\\Temp\\message.txt when all else fails"
+      ],
+      "known_errors": [
+        "send_keys fails with 'Tool execution failed' - no details",
+        "Window title mismatch between list_windows and actual activation",
+        "AHK path spaces require proper quoting in PowerShell",
+        "Minimized windows may not receive SendKeys properly",
+        "PowerShell CreateDelegate overload errors in complex enumeration"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T07:27:21.631680100+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "debugging",
+        "troubleshooting",
+        "send_keys",
+        "windows-mcp",
+        "diagnostics"
+      ],
+      "category": "TOOLS",
+      "subcategory": "WINDOWS_MCP",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ]
+    }
+  }
+}

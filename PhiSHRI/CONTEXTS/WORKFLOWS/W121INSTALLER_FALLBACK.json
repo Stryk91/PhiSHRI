@@ -1,0 +1,33 @@
+{
+  "door_code": "W121INSTALLER_FALLBACK",
+  "semantic_path": "WORKFLOWS.INSTALLER.FALLBACK_CHAIN",
+  "aliases": ["installer fallback", "auto manual fallback", "install method chain"],
+  "context_bundle": {
+    "summary": "Installer fallback chain: Auto → mcpb → dxt → Manual",
+    "prerequisites": [],
+    "related_doors": ["T102IRM_IEX_PATTERN", "E36VALIDATESET_IEX"],
+    "onboarding": {
+      "quick_start": "Try automated methods first, fall back gracefully to manual",
+      "fallback_chain": {
+        "1_auto": "Detect best available method automatically",
+        "2_mcpb": "Try MCP Builder if available (npm tool)",
+        "3_dxt": "Try Desktop Extension installer if available",
+        "4_manual": "Direct file operations as last resort"
+      },
+      "implementation": {
+        "detect": "Test-Command mcpb; Test-Command dxt",
+        "try_catch": "Try preferred method, catch failure, try next",
+        "always_verify": "After any method, verify installation worked"
+      },
+      "user_override": {
+        "allow_skip": "-Method Manual skips auto-detection",
+        "reason": "User may know their system better"
+      },
+      "verification": {
+        "check_binary": "Test-Path $binaryPath",
+        "check_config": "Config contains expected entry",
+        "check_mcp_loads": "Binary executes without error"
+      }
+    }
+  }
+}

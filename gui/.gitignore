@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+src-tauri/target/
+src-tauri/gen/
+dist/
+
+# Lock files (optional - can be included for reproducible builds)
+package-lock.json
+src-tauri/Cargo.lock
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temp/generated
+%USERPROFILE%/
+*.log

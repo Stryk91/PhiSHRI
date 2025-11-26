@@ -1,0 +1,17 @@
+{
+  "door_code": "R42OUTBOX",
+  "semantic_path": "ARCHITECTURE.PATTERNS.OUTBOX",
+  "title": "Outbox Pattern",
+  "aliases": [],
+  "context_bundle": {
+    "summary": "Reliable event publishing",
+    "content": "Transactional outbox pattern.\n\nProblem:\nNeed to update DB and publish event atomically.\n\nSolution:\nWrite event to outbox table in same transaction, then publish asynchronously.\n\nFlow:\n1. Begin transaction\n2. Update business table\n3. Insert event to outbox table\n4. Commit transaction\n5. Background: Read outbox, publish, mark as sent\n\nBenefits:\n- At-least-once delivery guaranteed\n- No distributed transaction needed\n- Handles publisher failures\n\nConsiderations:\n- Outbox polling or CDC\n- Event ordering within aggregate\n- Duplicate handling (idempotency)",
+    "prerequisites": [],
+    "related_doors": []
+  },
+  "metadata": {
+    "category": "ARCHITECTURE",
+    "version": "1.0",
+    "tokens_estimate": 101.4
+  }
+}

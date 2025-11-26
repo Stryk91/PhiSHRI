@@ -1,0 +1,76 @@
+{
+  "door_code": "W30GITHUB_ACTIONS_CI",
+  "semantic_path": "workflows/ci/github-actions",
+  "title": "GitHub Actions CI/CD - Automated Build Verification",
+  "aliases": [
+    "github actions",
+    "ci cd",
+    "continuous integration",
+    "automated testing",
+    "workflow yaml"
+  ],
+  "summary": "GitHub Actions provides automated CI/CD pipelines triggered by git events. Clean VM builds catch 'works on my machine' bugs before users find them.",
+  "context_bundle": {
+    "concepts": [
+      "workflows",
+      "jobs",
+      "steps",
+      "runners",
+      "triggers",
+      "artifacts",
+      "matrix builds"
+    ],
+    "patterns": [
+      "build on push to main",
+      "test on pull request",
+      "upload artifacts on success",
+      "fail fast on errors",
+      "cache dependencies"
+    ],
+    "debug_layers": {
+      "layer_1": "local machine - it works here",
+      "layer_2": "local testing - catches obvious bugs",
+      "layer_3": "CI fresh VM - catches hidden dependencies"
+    },
+    "examples": {
+      "basic_rust_ci": {
+        "triggers": ["push to main", "pull request"],
+        "steps": ["checkout", "setup rust", "cargo build", "cargo test"],
+        "working_directory": "./subfolder if needed"
+      },
+      "common_actions": [
+        "actions/checkout@v4",
+        "dtolnay/rust-toolchain@stable",
+        "actions/upload-artifact@v4"
+      ]
+    },
+    "tools": [
+      "github actions",
+      "act (local testing)",
+      "gh cli"
+    ],
+    "antipatterns": [
+      "no CI at all",
+      "CI that never fails",
+      "ignoring failed builds",
+      "secrets in workflow files"
+    ],
+    "wisdom": [
+      "CI builds on clean VM - no cached bullshit",
+      "If it compiles locally but fails CI, you have hidden deps",
+      "Green checkmark before merge, always",
+      "Catches 'works on my machine' before it becomes 'why doesnt this work' issues"
+    ],
+    "free_tier": "2000 minutes/month - plenty for small projects"
+  },
+  "prerequisites": [
+    "G01GIT_BASICS"
+  ],
+  "related_doors": [
+    "W31GITHUB_RELEASES",
+    "T10CARGO"
+  ],
+  "created": "2025-11-25T21:00:00Z",
+  "version": "1.0.0",
+  "author": "BMETALC"
+}

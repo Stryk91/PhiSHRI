@@ -1,0 +1,5 @@
+SUCCESS
+Path: C:\AutomationSuite\CompTIA_Core2_Condensed.md
+Size: 2215 bytes
+Created: 2025-11-24 20:37:36
+Lines: 68

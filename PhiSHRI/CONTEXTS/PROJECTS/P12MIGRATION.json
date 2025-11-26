@@ -1,0 +1,17 @@
+{
+  "door_code": "P12MIGRATION",
+  "semantic_path": "PROJECTS.OPERATIONS.MIGRATION",
+  "title": "Legacy Migration Project",
+  "aliases": [],
+  "context_bundle": {
+    "summary": "Planning and executing legacy system migrations",
+    "content": "Legacy migration project patterns.\n\nAssessment Phase:\n- Current system inventory\n- Dependency mapping\n- Risk identification\n- Cost-benefit analysis\n\nMigration Strategies:\n1. Big Bang: Full cutover (risky, fast)\n2. Strangler Fig: Gradual replacement (safe, slow)\n3. Parallel Run: Both systems (expensive, safest)\n\nData Migration:\n- Schema mapping\n- Data cleansing\n- Validation scripts\n- Rollback procedures\n\nSuccess Criteria:\n- Feature parity verified\n- Performance benchmarks met\n- Zero data loss confirmed",
+    "prerequisites": [],
+    "related_doors": []
+  },
+  "metadata": {
+    "category": "PROJECTS",
+    "version": "1.0",
+    "tokens_estimate": 92.3
+  }
+}

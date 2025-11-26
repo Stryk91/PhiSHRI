@@ -1,0 +1,80 @@
+{
+  "door_code": "A20MCP_SERVER_DESIGN",
+  "semantic_path": "architecture/mcp/server-design",
+  "title": "MCP Server Architecture - AI Plugin System",
+  "aliases": [
+    "mcp server",
+    "model context protocol",
+    "claude plugin",
+    "ai tools"
+  ],
+  "summary": "MCP (Model Context Protocol) enables AI assistants to access external tools and data. Servers expose tools, resources, and prompts over stdio. The open plugin system for AI.",
+  "context_bundle": {
+    "concepts": [
+      "tools (callable functions)",
+      "resources (readable data)",
+      "prompts (reusable templates)",
+      "stdio transport",
+      "JSON-RPC protocol"
+    ],
+    "patterns": [
+      "expose read-only tools for safety",
+      "environment variables for config",
+      "structured tool responses",
+      "error handling with clear messages"
+    ],
+    "components": {
+      "server": "rust/python/node process",
+      "transport": "stdio (stdin/stdout)",
+      "protocol": "JSON-RPC 2.0",
+      "client": "Claude Desktop, Claude Code, etc"
+    },
+    "tool_design": [
+      "clear tool names and descriptions",
+      "typed parameters with descriptions",
+      "return structured data when possible",
+      "handle errors gracefully"
+    ],
+    "security_considerations": {
+      "low_risk": [
+        "read-only tools",
+        "local file access (user's own data)",
+        "no network calls"
+      ],
+      "higher_risk": [
+        "write operations",
+        "command execution",
+        "network access"
+      ],
+      "path_traversal": "validate paths stay within allowed directories"
+    },
+    "examples": {
+      "phishri_tools": [
+        "list_doors - enumerate available context",
+        "search_doors - find relevant context",
+        "open_door - load specific context"
+      ]
+    },
+    "tools": [
+      "mcp-rust-sdk",
+      "mcp-python-sdk",
+      "claude desktop"
+    ],
+    "antipatterns": [
+      "exposing destructive operations without confirmation",
+      "unbounded file access",
+      "no input validation"
+    ],
+    "ecosystem": {
+      "registries": ["lobehub", "mcp.run"],
+      "trend": "MCP is the plugin system AI needed - open, simple, no gatekeeping"
+    }
+  },
+  "prerequisites": [],
+  "related_doors": [
+    "A21MCP_TOOL_PATTERNS"
+  ],
+  "created": "2025-11-25T21:00:00Z",
+  "version": "1.0.0",
+  "author": "BMETALC"
+}

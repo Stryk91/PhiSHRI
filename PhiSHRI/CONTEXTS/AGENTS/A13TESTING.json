@@ -1,0 +1,17 @@
+{
+  "door_code": "A13TESTING",
+  "semantic_path": "AGENTS.SPECIALIZED.TESTING",
+  "title": "Testing Agent",
+  "aliases": [],
+  "context_bundle": {
+    "summary": "AI agent for test generation and analysis",
+    "content": "Testing agent capabilities.\n\nTest Generation:\n- Unit tests from function signatures\n- Integration tests from API specs\n- E2E tests from user stories\n- Property-based tests\n\nCoverage Analysis:\n- Line/branch coverage reporting\n- Uncovered path identification\n- Test quality assessment\n- Flaky test detection\n\nStrategies:\n- Happy path first\n- Edge cases second\n- Error conditions third\n- Performance scenarios last",
+    "prerequisites": [],
+    "related_doors": []
+  },
+  "metadata": {
+    "category": "AGENTS",
+    "version": "1.0",
+    "tokens_estimate": 79.3
+  }
+}

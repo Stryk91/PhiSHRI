@@ -1,0 +1,9 @@
+SUCCESS
+Color Sample Results
+================================
+
+Location: (150, 200)
+
+HEX: #DCA48C
+RGB: rgb(220, 164, 140)
+HSL: hsl(20, 48%, 71%)

@@ -1,0 +1,32 @@
+{
+  "door_code": "E36VALIDATESET_IEX",
+  "semantic_path": "ERRORS.POWERSHELL.VALIDATESET_IEX",
+  "aliases": ["validateset irm iex", "powershell parameter validation", "iex parameter error"],
+  "context_bundle": {
+    "summary": "PowerShell ValidateSet attribute fails when script is run via irm | iex",
+    "prerequisites": [],
+    "related_doors": ["T102IRM_IEX_PATTERN", "T101POWERSHELL_JSON"],
+    "onboarding": {
+      "quick_start": "Remove [ValidateSet()] from parameters when script will be run via irm | iex",
+      "symptoms": [
+        "Script works when run directly: .\\install.ps1",
+        "Script fails when run via: irm URL | iex",
+        "Error mentions parameter validation or ValidateSet"
+      ],
+      "root_cause": {
+        "why": "irm | iex doesn't pass parameters the same way as direct execution",
+        "validation_fails": "ValidateSet checks happen before script body executes",
+        "no_default": "Empty string doesn't match ValidateSet options"
+      },
+      "solution": {
+        "remove_validateset": "Change [ValidateSet('A','B')] to just [string]",
+        "validate_in_body": "Move validation logic inside the script body",
+        "provide_default": "Use default value that passes validation"
+      },
+      "code_example": {
+        "broken": "param([ValidateSet('Auto','Manual')]$Method)",
+        "fixed": "param([string]$Method = '')"
+      }
+    }
+  }
+}

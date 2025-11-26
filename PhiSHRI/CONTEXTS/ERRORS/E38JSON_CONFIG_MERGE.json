@@ -1,0 +1,31 @@
+{
+  "door_code": "E38JSON_CONFIG_MERGE",
+  "semantic_path": "ERRORS.CONFIG.JSON_MERGE",
+  "aliases": ["config overwrite", "mcp servers lost", "json merge not replace"],
+  "context_bundle": {
+    "summary": "Installer overwrites existing config instead of merging",
+    "prerequisites": ["T101POWERSHELL_JSON"],
+    "related_doors": ["T101POWERSHELL_JSON"],
+    "onboarding": {
+      "quick_start": "Load existing config, add/update your entry, write back - never overwrite",
+      "symptoms": [
+        "Other MCP servers disappear after install",
+        "User's custom settings lost",
+        "Config reset to defaults"
+      ],
+      "root_cause": {
+        "overwrite": "Script writes new config object instead of merging",
+        "no_load": "Didn't read existing config first"
+      },
+      "solution": {
+        "step_1": "Load existing: $config = Get-Content $path | ConvertFrom-Json",
+        "step_2": "Ensure parent exists: if (-not $config.mcpServers) { Add-Member... }",
+        "step_3": "Add/update entry: $config.mcpServers.myapp = $myConfig",
+        "step_4": "Write back: ConvertTo-Json -Depth 10"
+      },
+      "code_pattern": {
+        "merge": "if ($existing.mcpServers.phishri) { $existing.mcpServers.phishri = $new } else { Add-Member -NotePropertyName 'phishri' -NotePropertyValue $new }"
+      }
+    }
+  }
+}

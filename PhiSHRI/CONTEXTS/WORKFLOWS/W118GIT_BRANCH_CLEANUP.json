@@ -1,0 +1,34 @@
+{
+  "door_code": "W118GIT_BRANCH_CLEANUP",
+  "semantic_path": "WORKFLOWS.GIT.BRANCH_CLEANUP",
+  "aliases": ["branch cleanup", "stale branches", "git branch merge conflicts", "cherry-pick workflow"],
+  "context_bundle": {
+    "summary": "Workflow for analyzing and cleaning up stale Git branches with merge conflicts",
+    "prerequisites": [],
+    "related_doors": ["W119GIT_CONFLICT_ANALYSIS"],
+    "onboarding": {
+      "quick_start": "When branches diverge significantly, cherry-pick valuable files instead of merging",
+      "common_patterns": [
+        "git rev-list --left-right --count main...branch (shows ahead/behind)",
+        "git diff --name-only main...branch (files changed in branch)",
+        "git checkout main -- path/to/file (cherry-pick specific files)",
+        "git branch -D branchname (delete local)",
+        "git push origin --delete branchname (delete remote)",
+        "git fetch --prune (sync deleted remotes)"
+      ],
+      "workflow": {
+        "step_1": "Analyze: git rev-list --left-right --count main...branch",
+        "step_2": "If branch is far behind (>10 commits), check for conflicts",
+        "step_3": "List unique valuable files: git diff --name-only merge-base...branch",
+        "step_4": "Cherry-pick files: git checkout branch -- .claude/ docs/",
+        "step_5": "Commit cherry-picked files to main",
+        "step_6": "Delete stale branch: git branch -D && git push origin --delete"
+      },
+      "decision_tree": {
+        "branch_ahead_only": "Fast-forward merge or delete if obsolete",
+        "branch_behind_only": "Delete - no unique content",
+        "both_ahead_and_behind": "Check for conflicts, cherry-pick if conflicting"
+      }
+    }
+  }
+}

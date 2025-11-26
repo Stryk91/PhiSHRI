@@ -1,0 +1,58 @@
+{
+  "door_code": "E32WMCP_SENDKEYS_FAIL",
+  "semantic_path": "ERRORS.WINDOWS_MCP.SENDKEYS_FAILURE",
+  "aliases": [
+    "SendKeys Error",
+    "Tool Execution Failed",
+    "Send Keys Not Working"
+  ],
+  "context_bundle": {
+    "summary": "Windows MCP send_keys tool execution failure. Root cause: PowerShell SendKeys unreliable for window targeting. Solution: Use AutoHotkey v2.0 scripts instead.",
+    "prerequisites": [
+      "T95WINDOWS_MCP_CORE"
+    ],
+    "related_doors": [
+      "T96WMCP_AHK_INTEGRATION",
+      "T98WMCP_SENDKEYS_DEBUG"
+    ],
+    "onboarding": {
+      "quick_start": "Error: 'Tool execution failed' when calling send_keys. Fix: Create AHK script instead. Pattern in T96WMCP_AHK_INTEGRATION.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Symptom: send_keys returns 'Tool execution failed'",
+        "Symptom: No error details, silent failure",
+        "Root cause: PowerShell SendKeys window focus race conditions",
+        "Solution: write_file + execute_powershell with AHK script"
+      ],
+      "known_errors": [
+        "send_keys fails on VS Code windows",
+        "send_keys fails on terminal windows",
+        "Window title matching unreliable",
+        "PowerShell window enumeration CreateDelegate errors"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T07:27:21.632822800+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "error",
+        "send_keys",
+        "tool-failure",
+        "windows-mcp"
+      ],
+      "category": "ERRORS",
+      "subcategory": "WINDOWS_MCP",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ]
+    }
+  }
+}

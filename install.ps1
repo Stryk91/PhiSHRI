@@ -36,10 +36,9 @@ $ProgressPreference = "SilentlyContinue"
 
 # Configuration
 $script:Config = @{
-    Version = "1.1.0"
+    Version = "0.0.1"
     PhiSHRIRoot = Join-Path $env:USERPROFILE ".phishri"
     GitHubRepo = "Stryk91/PhiSHRI"
-    MCPRepo = "Stryk91/PhiSHRI_MCP"
     BinaryName = "phishri-mcp.exe"
     BinaryDownloadName = "phishri-mcp-windows-x64.exe"
 }
@@ -57,12 +56,53 @@ $script:Paths = @{
     AgentsExample = Join-Path $script:Config.PhiSHRIRoot "agents.example.json"
 }
 
-# Claude Desktop config locations to check
+# Claude Desktop config locations to check (for current user)
 $script:ClaudeConfigLocations = @(
     @{ Name = "Roaming"; Path = Join-Path $env:APPDATA "Claude\claude_desktop_config.json" },
     @{ Name = "Local"; Path = Join-Path $env:LOCALAPPDATA "Claude\claude_desktop_config.json" },
     @{ Name = "Extensions"; Path = Join-Path $env:LOCALAPPDATA "Claude\extensions\config.json" }
 )
+
+# Function to get all user profiles that might have Claude Desktop
+function Get-AllUserClaudeConfigs {
+    $configs = [System.Collections.ArrayList]@()
+    $usersDir = "C:\Users"
+
+    if (Test-Path $usersDir) {
+        $userFolders = Get-ChildItem $usersDir -Directory -ErrorAction SilentlyContinue | Where-Object {
+            $_.Name -notin @("Public", "Default", "Default User", "All Users")
+        }
+
+        foreach ($userFolder in $userFolders) {
+            $userName = [string]$userFolder.Name
+            $userPath = $userFolder.FullName
+            $roamingDir = Join-Path $userPath "AppData\Roaming\Claude"
+            $localDir = Join-Path $userPath "AppData\Local\Claude"
+            $roamingPath = Join-Path $roamingDir "claude_desktop_config.json"
+            $localPath = Join-Path $localDir "claude_desktop_config.json"
+
+            # Check if Claude folder exists (indicates Claude Desktop installed for this user)
+            $hasRoaming = Test-Path $roamingDir
+            $hasLocal = Test-Path $localDir
+
+            if ($hasRoaming -or $hasLocal) {
+                $entry = [PSCustomObject]@{
+                    User        = $userName
+                    UserPath    = $userPath
+                    RoamingPath = $roamingPath
+                    RoamingDir  = $roamingDir
+                    LocalPath   = $localPath
+                    LocalDir    = $localDir
+                    HasRoaming  = $hasRoaming
+                    HasLocal    = $hasLocal
+                }
+                [void]$configs.Add($entry)
+            }
+        }
+    }
+
+    return $configs
+}
 
 function Write-Step {
     param([string]$Message, [string]$Status = "INFO")
@@ -127,6 +167,44 @@ function Test-Prerequisites {
 function Find-ClaudeConfig {
     Write-Step "Detecting Claude Desktop configuration..."
 
+    # First check all user profiles
+    $allUserConfigs = Get-AllUserClaudeConfigs
+
+    if ($allUserConfigs.Count -gt 1) {
+        # Multiple users have Claude - ask which one to configure
+        Write-Host ""
+        Write-Host "Multiple user profiles found with Claude Desktop:" -ForegroundColor Yellow
+        Write-Host ""
+
+        for ($i = 0; $i -lt $allUserConfigs.Count; $i++) {
+            $cfg = $allUserConfigs[$i]
+            $userName = $cfg.User
+            $marker = if ($userName -eq $env:USERNAME) { " (current)" } else { "" }
+            Write-Host "  [$($i + 1)] $userName$marker" -ForegroundColor White
+            Write-Host "       -> $($cfg.RoamingDir)" -ForegroundColor DarkGray
+        }
+        Write-Host ""
+
+        $choice = Read-Host "Select user profile [1-$($allUserConfigs.Count)]"
+        $idx = [int]$choice - 1
+
+        if ($idx -ge 0 -and $idx -lt $allUserConfigs.Count) {
+            $selected = $allUserConfigs[$idx]
+            $selectedUser = $selected.User
+            $configPath = $selected.RoamingPath
+            Write-Step "  Selected: $selectedUser ($configPath)" "OK"
+            return @{ Name = "Roaming ($selectedUser)"; Path = $configPath }
+        }
+    }
+    elseif ($allUserConfigs.Count -eq 1) {
+        # Single user found
+        $selected = $allUserConfigs[0]
+        $configPath = $selected.RoamingPath
+        Write-Step "  Found: $($selected.User) ($configPath)" "OK"
+        return @{ Name = "Roaming ($($selected.User))"; Path = $configPath }
+    }
+
+    # Fallback: check current user's standard locations
     foreach ($loc in $script:ClaudeConfigLocations) {
         $configDir = Split-Path $loc.Path -Parent
         if (Test-Path $configDir) {
@@ -135,8 +213,9 @@ function Find-ClaudeConfig {
         }
     }
 
-    Write-Step "  Claude Desktop not found in standard locations" "WARN"
-    return $null
+    # Last resort: offer to create for current user
+    Write-Step "  Claude Desktop not found - will create config for current user" "WARN"
+    return @{ Name = "Roaming (new)"; Path = (Join-Path $env:APPDATA "Claude\claude_desktop_config.json") }
 }
 
 function Test-McpbAvailable {
@@ -184,12 +263,92 @@ function Get-LatestRelease {
     }
 }
 
+function Test-RustAvailable {
+    try {
+        # Check if cargo is in PATH
+        $null = Get-Command cargo -ErrorAction Stop
+        return $true
+    }
+    catch {
+        # Check common Rust install locations
+        $cargoPath = Join-Path $env:USERPROFILE ".cargo\bin\cargo.exe"
+        if (Test-Path $cargoPath) {
+            $env:PATH = "$env:USERPROFILE\.cargo\bin;$env:PATH"
+            return $true
+        }
+        return $false
+    }
+}
+
+function Build-FromSource {
+    Write-Step "Building PhiSHRI MCP from source..."
+
+    $tempDir = Join-Path $env:TEMP "phishri-build"
+    $zipUrl = "https://github.com/$($script:Config.GitHubRepo)/archive/refs/heads/main.zip"
+
+    try {
+        # Download source
+        Write-Step "  Downloading source..."
+        $zipPath = Join-Path $tempDir "source.zip"
+        if (Test-Path $tempDir) { Remove-Item $tempDir -Recurse -Force }
+        New-Item -ItemType Directory -Path $tempDir -Force | Out-Null
+        Invoke-WebRequest -Uri $zipUrl -OutFile $zipPath -UseBasicParsing
+
+        # Extract
+        Write-Step "  Extracting..."
+        Expand-Archive -Path $zipPath -DestinationPath $tempDir -Force
+
+        # Find extracted folder and mcp-server subfolder
+        $extractedDir = Get-ChildItem $tempDir -Directory | Where-Object { $_.Name -like "PhiSHRI*" } | Select-Object -First 1
+        if (!$extractedDir) {
+            throw "Could not find extracted source directory"
+        }
+        $sourceDir = Join-Path $extractedDir.FullName "mcp-server"
+        if (!(Test-Path $sourceDir)) {
+            throw "Could not find mcp-server subfolder"
+        }
+
+        # Build
+        Write-Step "  Building (this may take a few minutes)..."
+        Push-Location $sourceDir
+        try {
+            $buildOutput = & cargo build --release 2>&1
+            if ($LASTEXITCODE -ne 0) {
+                throw "Cargo build failed: $buildOutput"
+            }
+        }
+        finally {
+            Pop-Location
+        }
+
+        # Copy binary
+        $builtBinary = Join-Path $sourceDir "target\release\phishri-mcp.exe"
+        if (Test-Path $builtBinary) {
+            Copy-Item -Path $builtBinary -Destination $script:Paths.Binary -Force
+            Write-Step "Binary built successfully" "OK"
+            return $true
+        }
+        else {
+            throw "Build completed but binary not found at $builtBinary"
+        }
+    }
+    catch {
+        Write-Step "Build failed: $_" "ERROR"
+        return $false
+    }
+    finally {
+        if (Test-Path $tempDir) { Remove-Item $tempDir -Recurse -Force -ErrorAction SilentlyContinue }
+    }
+}
+
 function Install-MCPBinary {
-    Write-Step "Downloading PhiSHRI MCP binary..."
+    Write-Step "Installing PhiSHRI MCP binary..."
 
-    $release = Get-LatestRelease -Repo $script:Config.MCPRepo
+    $release = Get-LatestRelease -Repo $script:Config.GitHubRepo
     $downloadName = $script:Config.BinaryDownloadName
+    $downloadSuccess = $false
 
+    # Try to download prebuilt binary first
     if ($release) {
         $asset = $release.assets | Where-Object { $_.name -eq $downloadName }
         if ($asset) {
@@ -197,21 +356,49 @@ function Install-MCPBinary {
             Write-Step "  Found release: $($release.tag_name)"
         }
         else {
-            $downloadUrl = "https://github.com/$($script:Config.MCPRepo)/releases/latest/download/$downloadName"
+            $downloadUrl = "https://github.com/$($script:Config.GitHubRepo)/releases/latest/download/$downloadName"
         }
     }
     else {
-        $downloadUrl = "https://github.com/$($script:Config.MCPRepo)/releases/latest/download/$downloadName"
+        $downloadUrl = "https://github.com/$($script:Config.GitHubRepo)/releases/latest/download/$downloadName"
     }
 
-    Write-Step "  Downloading from: $downloadUrl"
+    Write-Step "  Trying prebuilt binary: $downloadName"
 
     try {
-        Invoke-WebRequest -Uri $downloadUrl -OutFile $script:Paths.Binary -UseBasicParsing
-        Write-Step "Binary downloaded" "OK"
+        Invoke-WebRequest -Uri $downloadUrl -OutFile $script:Paths.Binary -UseBasicParsing -ErrorAction Stop
+
+        # Verify the download is actually a binary (not an HTML error page)
+        $fileSize = (Get-Item $script:Paths.Binary).Length
+        if ($fileSize -gt 500KB) {
+            Write-Step "Prebuilt binary downloaded" "OK"
+            $downloadSuccess = $true
+        }
+        else {
+            Write-Step "Downloaded file seems too small ($fileSize bytes) - may be error page" "WARN"
+            Remove-Item $script:Paths.Binary -Force -ErrorAction SilentlyContinue
+        }
     }
     catch {
-        throw "Failed to download MCP binary: $_"
+        Write-Step "Prebuilt binary not available: $_" "WARN"
+    }
+
+    # Fallback: build from source
+    if (!$downloadSuccess) {
+        if (Test-RustAvailable) {
+            Write-Step "Building from source (Rust found)..." "INFO"
+            if (Build-FromSource) {
+                return
+            }
+        }
+        else {
+            Write-Step "Rust not installed. To build from source, install Rust:" "WARN"
+            Write-Host "  winget install Rustlang.Rust.MSVC" -ForegroundColor Cyan
+            Write-Host "  or visit: https://rustup.rs" -ForegroundColor Cyan
+            Write-Host ""
+        }
+
+        throw "Could not install binary. Install Rust and re-run, or download a prebuilt binary manually."
     }
 }
 
@@ -333,42 +520,71 @@ function Install-ClaudeConfigAuto {
     }
 
     # Load existing config or create new
-    $config = @{}
+    $existingConfig = $null
     if (Test-Path $configPath) {
         try {
             $configContent = Get-Content $configPath -Raw -ErrorAction Stop
             if ($configContent -and $configContent.Trim()) {
-                $config = $configContent | ConvertFrom-Json -AsHashtable
+                $existingConfig = $configContent | ConvertFrom-Json
                 Write-Step "  Loaded existing config (merging)" "INFO"
             }
         }
         catch {
             Write-Step "  Could not parse existing config, creating backup" "WARN"
             Copy-Item $configPath "$configPath.backup.$(Get-Date -Format 'yyyyMMddHHmmss')" -Force
-            $config = @{}
         }
     }
 
-    # Ensure mcpServers exists (preserve existing servers!)
-    if (!$config.ContainsKey("mcpServers")) {
-        $config["mcpServers"] = @{}
-    }
+    # Convert paths to forward slashes for JSON (cleaner, always works)
+    $binaryPath = $script:Paths.Binary -replace '\\', '/'
+    $knowledgePath = $script:Paths.Knowledge -replace '\\', '/'
+    $rootPath = $script:Paths.Root -replace '\\', '/'
 
-    # Only add/update PhiSHRI entry
-    $config["mcpServers"]["phishri"] = @{
-        command = $script:Paths.Binary
+    # Build PhiSHRI MCP config
+    $phishriConfig = [ordered]@{
+        command = $binaryPath
         args = @()
-        env = @{
-            PHISHRI_PATH = $script:Paths.Knowledge
-            PHISHRI_SESSION_ROOT = $script:Paths.Root
+        env = [ordered]@{
+            PHISHRI_PATH = $knowledgePath
+            PHISHRI_SESSION_ROOT = $rootPath
         }
     }
 
-    # Write config
-    $config | ConvertTo-Json -Depth 10 | Set-Content $configPath -Encoding UTF8
+    # Build final config (preserve existing or create new)
+    if ($existingConfig) {
+        # Ensure mcpServers exists
+        if (-not $existingConfig.mcpServers) {
+            $existingConfig | Add-Member -NotePropertyName "mcpServers" -NotePropertyValue ([ordered]@{})
+        }
+        # Add/update phishri entry
+        if ($existingConfig.mcpServers.phishri) {
+            $existingConfig.mcpServers.phishri = $phishriConfig
+        }
+        else {
+            $existingConfig.mcpServers | Add-Member -NotePropertyName "phishri" -NotePropertyValue $phishriConfig
+        }
+        $finalConfig = $existingConfig
+    }
+    else {
+        $finalConfig = [ordered]@{
+            mcpServers = [ordered]@{
+                phishri = $phishriConfig
+            }
+        }
+    }
 
-    Write-Step "Claude Desktop configured at $($ConfigLocation.Name)" "OK"
-    return $true
+    # Write config with explicit JSON formatting
+    try {
+        $jsonContent = $finalConfig | ConvertTo-Json -Depth 10
+        # Ensure proper UTF8 without BOM
+        [System.IO.File]::WriteAllText($configPath, $jsonContent, [System.Text.UTF8Encoding]::new($false))
+        Write-Step "Claude Desktop configured at $($ConfigLocation.Name)" "OK"
+        return $true
+    }
+    catch {
+        Write-Step "Failed to write config: $_" "ERROR"
+        return $false
+    }
 }
 
 function Install-ClaudeConfigMcpb {
@@ -484,6 +700,44 @@ function Install-ClaudeConfigManual {
     Write-Host ""
 
     return $true
+}
+
+function Test-ClaudeCodeCLI {
+    try {
+        $null = Get-Command claude -ErrorAction Stop
+        return $true
+    }
+    catch {
+        return $false
+    }
+}
+
+function Install-ClaudeCodeCLI {
+    Write-Step "Checking for Claude Code CLI..."
+
+    if (Test-ClaudeCodeCLI) {
+        Write-Step "  Found Claude Code CLI, configuring..."
+        try {
+            $binaryPath = $script:Paths.Binary -replace '\\', '/'
+            $knowledgePath = $script:Paths.Knowledge -replace '\\', '/'
+            $rootPath = $script:Paths.Root -replace '\\', '/'
+
+            & claude mcp add phishri $binaryPath `
+                --env "PHISHRI_PATH=$knowledgePath" `
+                --env "PHISHRI_SESSION_ROOT=$rootPath" 2>$null
+
+            Write-Step "Claude Code CLI configured" "OK"
+            return $true
+        }
+        catch {
+            Write-Step "Could not configure Claude Code CLI: $_" "WARN"
+            return $false
+        }
+    }
+    else {
+        Write-Step "  Claude Code CLI not found (skipping)" "INFO"
+        return $true
+    }
 }
 
 function Test-MCPLoads {
@@ -618,19 +872,51 @@ function Uninstall-PhiSHRI {
         Write-Step "Removed $($script:Paths.Root)" "OK"
     }
 
-    # Remove from all Claude config locations
+    # Remove from current user's Claude config locations
     foreach ($loc in $script:ClaudeConfigLocations) {
         if (Test-Path $loc.Path) {
             try {
-                $config = Get-Content $loc.Path -Raw | ConvertFrom-Json -AsHashtable
-                if ($config.mcpServers -and $config.mcpServers.ContainsKey("phishri")) {
-                    $config.mcpServers.Remove("phishri")
-                    $config | ConvertTo-Json -Depth 10 | Set-Content $loc.Path -Encoding UTF8
+                $configContent = Get-Content $loc.Path -Raw
+                $config = $configContent | ConvertFrom-Json
+                if ($config.mcpServers -and $config.mcpServers.phishri) {
+                    $config.mcpServers.PSObject.Properties.Remove("phishri")
+                    $jsonContent = $config | ConvertTo-Json -Depth 10
+                    [System.IO.File]::WriteAllText($loc.Path, $jsonContent, [System.Text.UTF8Encoding]::new($false))
                     Write-Step "Removed from $($loc.Name) config" "OK"
                 }
             }
             catch { }
         }
+    }
+
+    # Also check all user profiles
+    $allUserConfigs = Get-AllUserClaudeConfigs
+    foreach ($userCfg in $allUserConfigs) {
+        if ($userCfg.User -eq $env:USERNAME) { continue } # Already handled above
+
+        $configPath = $userCfg.RoamingPath
+        if (Test-Path $configPath) {
+            try {
+                $configContent = Get-Content $configPath -Raw
+                $config = $configContent | ConvertFrom-Json
+                if ($config.mcpServers -and $config.mcpServers.phishri) {
+                    $config.mcpServers.PSObject.Properties.Remove("phishri")
+                    $jsonContent = $config | ConvertTo-Json -Depth 10
+                    [System.IO.File]::WriteAllText($configPath, $jsonContent, [System.Text.UTF8Encoding]::new($false))
+                    Write-Step "Removed from $($userCfg.User)'s config" "OK"
+                }
+            }
+            catch { }
+        }
+    }
+
+    # Remove from Claude Code CLI
+    if (Test-ClaudeCodeCLI) {
+        try {
+            & claude mcp remove phishri 2>$null
+            Write-Step "Removed from Claude Code CLI" "OK"
+        }
+        catch { }
     }
 
     Write-Host ""
@@ -697,6 +983,9 @@ function Install-PhiSHRI {
             }
         }
 
+        # Also configure Claude Code CLI if available
+        Install-ClaudeCodeCLI | Out-Null
+
         Write-Host ""
 
         # Verify MCP can load
@@ -715,7 +1004,7 @@ function Install-PhiSHRI {
 
         Write-Host ""
         Write-Host "Next steps:" -ForegroundColor Yellow
-        Write-Host "  1. Restart Claude Desktop"
+        Write-Host "  1. Restart Claude Desktop (if using)"
         Write-Host "  2. Look for 'phishri' in the MCP servers list"
         Write-Host "  3. Try asking: 'What doors are available?'"
         Write-Host ""

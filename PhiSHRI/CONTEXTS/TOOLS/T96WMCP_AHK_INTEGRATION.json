@@ -1,0 +1,60 @@
+{
+  "door_code": "T96WMCP_AHK_INTEGRATION",
+  "semantic_path": "TOOLS.WINDOWS_MCP.AHK_INTEGRATION",
+  "aliases": [
+    "AHK Integration",
+    "SendKeys Fix",
+    "Window Automation"
+  ],
+  "context_bundle": {
+    "summary": "AutoHotkey v2.0 integration pattern for Windows MCP send_keys failures. Use AHK scripts instead of direct PowerShell SendKeys for reliable window activation and text injection.",
+    "prerequisites": [
+      "T95WINDOWS_MCP_CORE"
+    ],
+    "related_doors": [
+      "T97WMCP_AHK_PATTERNS",
+      "T98WMCP_SENDKEYS_DEBUG",
+      "E32WMCP_SENDKEYS_FAIL"
+    ],
+    "onboarding": {
+      "quick_start": "When Windows MCP send_keys fails: 1) write_file → create .ahk script, 2) execute_powershell → Start-Process script.ahk, 3) AHK handles window targeting",
+      "full_context_path": "",
+      "common_patterns": [
+        "write_file: C:\\Temp\\script.ahk with AHK v2.0 content",
+        "execute_powershell: Start-Process 'C:\\Temp\\script.ahk'",
+        "AHK pattern: if WinExist('ahk_exe target.exe') { WinActivate; Sleep 500; SendText message; Send '{Enter}' }"
+      ],
+      "known_errors": [
+        "send_keys tool execution fails silently",
+        "PowerShell SendKeys has window focus race conditions",
+        "CreateDelegate errors when using complex window enumeration",
+        "Direct SendKeys unreliable for VS Code and terminal windows"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T07:27:21.630161700+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "windows-mcp",
+        "autohotkey",
+        "ahk",
+        "send_keys",
+        "automation",
+        "window-control"
+      ],
+      "category": "TOOLS",
+      "subcategory": "WINDOWS_MCP",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ]
+    }
+  }
+}

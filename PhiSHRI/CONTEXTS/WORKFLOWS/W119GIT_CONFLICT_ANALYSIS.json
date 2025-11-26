@@ -1,0 +1,36 @@
+{
+  "door_code": "W119GIT_CONFLICT_ANALYSIS",
+  "semantic_path": "WORKFLOWS.GIT.CONFLICT_ANALYSIS",
+  "aliases": ["merge conflict", "git conflicts", "diverged branches", "merge-base"],
+  "context_bundle": {
+    "summary": "Analyzing Git merge conflicts before attempting merge",
+    "prerequisites": ["W118GIT_BRANCH_CLEANUP"],
+    "related_doors": [],
+    "onboarding": {
+      "quick_start": "Always analyze conflicts before merging diverged branches",
+      "common_patterns": [
+        "git merge-base main branch (find common ancestor)",
+        "git diff merge-base..main -- file (changes in main)",
+        "git diff merge-base..branch -- file (changes in branch)",
+        "git log --oneline merge-base..main -- file (commits touching file in main)",
+        "git log --oneline merge-base..branch -- file (commits touching file in branch)"
+      ],
+      "conflict_indicators": {
+        "same_file_both_branches": "HIGH conflict risk - both modified same file",
+        "same_filename_different_content": "CRITICAL - file recreated with different purpose",
+        "structural_changes": "Directory reorganization causes path conflicts"
+      },
+      "resolution_strategies": {
+        "keep_main": "When main has evolved significantly (e.g., v1.0 -> v1.2)",
+        "keep_branch": "When branch has unique content not in main",
+        "merge_manually": "When both have valuable changes to combine",
+        "cherry_pick": "When only specific files from branch are needed"
+      },
+      "real_example": {
+        "scenario": "Branch has install.ps1 v1.0.0, main has v1.2.1",
+        "analysis": "Main evolved through 6 commits, branch is stale",
+        "resolution": "Keep main's install.ps1, cherry-pick only .claude/ configs"
+      }
+    }
+  }
+}

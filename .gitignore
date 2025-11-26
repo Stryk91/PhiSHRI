@@ -3,3 +3,4 @@ PHIiSRHI/PhiDEX/
 
 # Archive directory (cleanup artifacts)
 .archive/
+logs/nul

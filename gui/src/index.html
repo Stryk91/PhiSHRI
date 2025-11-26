@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PhiSHRI MCP Server Installer - Knowledge Management System">
+    <meta name="theme-color" content="#00ff66">
     <title>PhiSHRI Installer</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -11,64 +13,88 @@
         <!-- Header -->
         <header class="header">
             <div class="logo">
-                <pre class="ascii-logo">
-  ____  _     _ ____  _   _ ____  ___
- |  _ \| |__ (_) ___|| | | |  _ \|_ _|
- | |_) | '_ \| \___ \| |_| | |_) || |
- |  __/| | | | |___) |  _  |  _ < | |
- |_|   |_| |_|_|____/|_| |_|_| \_\___|
-                </pre>
+                <img src="logo.svg" alt="PhiSHRI" class="svg-logo">
             </div>
             <p class="tagline">MCP Server Installer</p>
-            <p class="version">v1.1.0</p>
+            <p class="version">v0.0.1</p>
         </header>
 
         <!-- Status Panel -->
-        <div id="status-panel" class="status-panel">
+        <section id="status-panel" class="status-panel" aria-label="Installation Status">
             <div class="status-indicator" id="status-indicator">
-                <span class="status-dot" id="status-dot"></span>
-                <span class="status-text" id="status-text">Checking installation...</span>
+                <span class="status-dot" id="status-dot" role="status" aria-live="polite"></span>
+                <span class="status-text" id="status-text">Initializing system check...</span>
             </div>
             <div class="status-details" id="status-details"></div>
-        </div>
+        </section>
 
         <!-- Method Selection -->
-        <div id="method-section" class="method-section">
+        <section id="method-section" class="method-section" aria-label="Installation Method">
             <h2>Installation Method</h2>
-            <div class="method-grid">
-                <button class="method-card selected" data-method="Auto">
+            <div class="method-grid" role="radiogroup" aria-label="Select installation method">
+                <button class="method-card selected" data-method="Auto" role="radio" aria-checked="true">
                     <div class="method-icon">A</div>
                     <div class="method-name">Auto</div>
                     <div class="method-desc">Auto-detect Claude Desktop config</div>
                 </button>
-                <button class="method-card" data-method="Mcpb">
+                <button class="method-card" data-method="Mcpb" role="radio" aria-checked="false">
                     <div class="method-icon">M</div>
                     <div class="method-name">mcpb</div>
                     <div class="method-desc">Use MCP Builder tool</div>
                 </button>
-                <button class="method-card" data-method="Dxt">
+                <button class="method-card" data-method="Dxt" role="radio" aria-checked="false">
                     <div class="method-icon">D</div>
                     <div class="method-name">DXT</div>
                     <div class="method-desc">Desktop extension package</div>
                 </button>
-                <button class="method-card" data-method="Manual">
-                    <div class="method-icon">M</div>
+                <button class="method-card" data-method="Manual" role="radio" aria-checked="false">
+                    <div class="method-icon">⌘</div>
                     <div class="method-name">Manual</div>
                     <div class="method-desc">Download files, configure yourself</div>
                 </button>
             </div>
-        </div>
+        </section>
 
-        <!-- Progress Section -->
-        <div id="progress-section" class="progress-section hidden">
-            <h2>Installation Progress</h2>
-            <div class="progress-bar-container">
-                <div class="progress-bar" id="progress-bar"></div>
-                <span class="progress-text" id="progress-text">0%</span>
+        <!-- Terminal Panel - Always Visible -->
+        <section id="terminal-panel" class="terminal-panel" aria-label="System Terminal">
+            <div class="terminal-header">
+                <div class="terminal-tabs">
+                    <span class="terminal-tab active">CONSOLE</span>
+                    <span class="terminal-tab-indicator" id="terminal-indicator">●</span>
+                </div>
+                <div class="terminal-controls">
+                    <span class="terminal-status" id="terminal-status">IDLE</span>
+                </div>
             </div>
-            <div class="progress-step" id="progress-step">Waiting to start...</div>
-            <div class="log-container" id="log-container"></div>
-        </div>
+            <div class="terminal-body">
+                <!-- Progress Bar (hidden until active) -->
+                <div class="terminal-progress" id="terminal-progress">
+                    <div class="progress-bar-container" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar" id="progress-bar"></div>
+                    </div>
+                    <span class="progress-text" id="progress-text">0%</span>
+                    <span class="progress-step" id="progress-step"></span>
+                </div>
+                <!-- Terminal Output -->
+                <div class="terminal-output" id="terminal-output" aria-live="polite">
+                    <div class="terminal-line system">╔══════════════════════════════════════════════════════════════╗</div>
+                    <div class="terminal-line system">║  PhiSHRI MCP Server Installer                                ║</div>
+                    <div class="terminal-line system">║  Knowledge Management System                                 ║</div>
+                    <div class="terminal-line system">╠══════════════════════════════════════════════════════════════╣</div>
+                    <div class="terminal-line system">║                                                              ║</div>
+                    <div class="terminal-line system">║  ► Select installation method above                         ║</div>
+                    <div class="terminal-line system">║  ► Click [Install PhiSHRI] to begin                         ║</div>
+                    <div class="terminal-line system">║                                                              ║</div>
+                    <div class="terminal-line system">║  Status: Awaiting user input...                             ║</div>
+                    <div class="terminal-line system">║                                                              ║</div>
+                    <div class="terminal-line system">╚══════════════════════════════════════════════════════════════╝</div>
+                </div>
+            </div>
+            <div class="terminal-footer">
+                <span class="terminal-path" id="terminal-path">~</span>
+                <span class="terminal-cursor">▌</span>
+            </div>
+        </section>
 
         <!-- Action Buttons -->
         <div class="actions">
@@ -77,16 +103,16 @@
                 Install PhiSHRI
             </button>
             <button id="uninstall-btn" class="btn btn-secondary">
-                <span class="btn-icon">-</span>
+                <span class="btn-icon">−</span>
                 Uninstall
             </button>
         </div>
 
         <!-- Footer -->
         <footer class="footer">
-            <a href="https://github.com/Stryk91/PhiSHRI" target="_blank">GitHub</a>
-            <span class="separator">|</span>
-            <a href="https://stryk91.github.io/PhiSHRI/" target="_blank">Documentation</a>
+            <a href="https://github.com/Stryk91/PhiSHRI" target="_blank" rel="noopener">GitHub</a>
+            <span class="separator">│</span>
+            <a href="https://stryk91.github.io/PhiSHRI/" target="_blank" rel="noopener">Documentation</a>
         </footer>
     </div>
 

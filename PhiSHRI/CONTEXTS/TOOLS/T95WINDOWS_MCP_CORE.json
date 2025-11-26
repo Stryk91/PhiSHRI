@@ -1,0 +1,62 @@
+{
+  "door_code": "T95WINDOWS_MCP_CORE",
+  "semantic_path": "TOOLS.WINDOWS_MCP.CORE",
+  "aliases": [
+    "Windows MCP",
+    "MCP Tools",
+    "Windows Automation"
+  ],
+  "context_bundle": {
+    "summary": "Windows MCP server core functionality and tool matrix. Comprehensive Windows automation including file I/O, process management, PowerShell execution, clipboard, window control, and daemon services.",
+    "prerequisites": [],
+    "related_doors": [
+      "T96WMCP_AHK_INTEGRATION",
+      "T98WMCP_SENDKEYS_DEBUG"
+    ],
+    "onboarding": {
+      "quick_start": "17 tools: file read/write, PowerShell exec, clipboard get/set, window list/info, process list/kill, service management, scheduled tasks, daemon control, system cleanup",
+      "full_context_path": "",
+      "common_patterns": [
+        "File ops: read_file, write_file (both working)",
+        "PowerShell: execute_powershell (working, use for complex operations)",
+        "Clipboard: get_clipboard, set_clipboard (both working)",
+        "Windows: list_windows, get_window_info (working)",
+        "Processes: list_processes (working), kill_process (unreliable)",
+        "Services: manage_service (partial - permission issues)",
+        "Tasks: schedule_task list/create/delete (working)",
+        "Daemon: daemon_control status/start/stop (working)",
+        "Monitors: file_watcher_add, process_monitor_add (config generation working)"
+      ],
+      "known_errors": [
+        "send_keys: Tool execution failed - use AHK instead (T96)",
+        "get_system_info: PowerShell DisplayName property error",
+        "manage_files: PowerShell Count property error on duplicates",
+        "backup_user_data: Path parsing and Count property errors",
+        "kill_process: Execution failed but process terminates anyway",
+        "manage_service: Permission denied on some services (PrintNotify)"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-22T07:27:21.634569400+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "windows-mcp",
+        "automation",
+        "tools",
+        "system-control"
+      ],
+      "category": "TOOLS",
+      "subcategory": "WINDOWS_MCP",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ]
+    }
+  }
+}

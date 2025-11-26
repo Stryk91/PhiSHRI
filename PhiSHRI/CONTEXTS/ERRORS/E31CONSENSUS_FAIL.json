@@ -1,0 +1,17 @@
+{
+  "door_code": "E31CONSENSUS_FAIL",
+  "semantic_path": "ERRORS.DISTRIBUTED.CONSENSUS",
+  "title": "Consensus Failures",
+  "aliases": [],
+  "context_bundle": {
+    "summary": "Distributed consensus failures",
+    "content": "Consensus failure handling.\n\nFailure Modes:\n- Leader election timeout\n- Quorum not reached\n- Split vote\n- Network partition during consensus\n\nSymptoms:\n- Reads returning stale data\n- Writes rejected\n- Cluster unavailable\n- Inconsistent state across nodes\n\nRecovery:\n- Wait for leader election\n- Manual leader assignment\n- Quorum reduction (careful!)\n- Full cluster restart\n\nPrevention:\n- Proper node count (odd number)\n- Network reliability\n- Heartbeat tuning\n- Monitoring consensus metrics",
+    "prerequisites": [],
+    "related_doors": []
+  },
+  "metadata": {
+    "category": "ERRORS",
+    "version": "1.0",
+    "tokens_estimate": 94.9
+  }
+}

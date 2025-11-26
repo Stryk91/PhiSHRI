@@ -1,0 +1,32 @@
+{
+  "door_code": "E34USER_MISMATCH",
+  "semantic_path": "ERRORS.WINDOWS.USER_MISMATCH",
+  "aliases": ["wrong user config", "microsoft account local account", "userprofile mismatch"],
+  "context_bundle": {
+    "summary": "Windows user account mismatch - script user vs application user",
+    "prerequisites": [],
+    "related_doors": ["T100POWERSHELL_MULTIUSER"],
+    "onboarding": {
+      "quick_start": "$env:USERPROFILE may not match where apps store config",
+      "symptoms": [
+        "Config written but app doesn't see it",
+        "App shows 'no configuration found'",
+        "Works for some users, fails for others on same machine"
+      ],
+      "root_cause": {
+        "scenario": "User logs in as 'localuser', but Claude Desktop runs under Microsoft account 'email@outlook.com'",
+        "result": "Script writes to C:\\Users\\localuser, app reads from C:\\Users\\email",
+        "detection": "Multiple folders in C:\\Users with Claude AppData"
+      },
+      "solution": {
+        "step_1": "Scan all C:\\Users profiles for app's AppData folder",
+        "step_2": "If multiple found, prompt user to select",
+        "step_3": "Write config to selected profile, not $env:USERPROFILE"
+      },
+      "code_pattern": {
+        "detect": "Get-ChildItem 'C:\\Users' -Directory | ForEach-Object { if (Test-Path \"$($_.FullName)\\AppData\\Roaming\\AppName\") { $_ } }",
+        "prompt": "Read-Host 'Select profile [1-N]'"
+      }
+    }
+  }
+}

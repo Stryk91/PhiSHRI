@@ -1,0 +1,17 @@
+{
+  "door_code": "P09OPENSOURCE_INIT",
+  "semantic_path": "PROJECTS.COMMUNITY.OPENSOURCE",
+  "title": "Open Source Project Setup",
+  "aliases": [],
+  "context_bundle": {
+    "summary": "Setting up open source projects for community contribution",
+    "content": "Open source project essentials.\n\nRequired Files:\n- README.md - Project overview, quick start\n- CONTRIBUTING.md - How to contribute\n- CODE_OF_CONDUCT.md - Community standards\n- LICENSE - Legal terms (MIT, Apache, GPL)\n- CHANGELOG.md - Version history\n\nGitHub Setup:\n- Issue templates (bug, feature, question)\n- PR template with checklist\n- Branch protection rules\n- GitHub Actions for CI\n\nCommunity:\n- Discord/Slack for discussions\n- Good first issues for newcomers\n- Documentation site (Docusaurus, GitBook)",
+    "prerequisites": [],
+    "related_doors": []
+  },
+  "metadata": {
+    "category": "PROJECTS",
+    "version": "1.0",
+    "tokens_estimate": 97.5
+  }
+}

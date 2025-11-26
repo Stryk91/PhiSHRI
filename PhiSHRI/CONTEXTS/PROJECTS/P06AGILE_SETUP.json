@@ -1,0 +1,17 @@
+{
+  "door_code": "P06AGILE_SETUP",
+  "semantic_path": "PROJECTS.METHODOLOGY.AGILE",
+  "title": "Agile Project Setup",
+  "aliases": [],
+  "context_bundle": {
+    "summary": "Setting up agile workflows for software projects",
+    "content": "Agile project initialization guide covering sprint planning, backlog creation, and team ceremonies.\n\nKey Components:\n1. Sprint Planning: 2-week iterations, story point estimation\n2. Backlog Management: User stories, acceptance criteria, prioritization\n3. Daily Standups: 15-min sync, blockers, progress\n4. Retrospectives: What worked, what didn't, action items\n\nTools: Jira, Linear, GitHub Projects\nRoles: Product Owner, Scrum Master, Dev Team\n\nAnti-patterns:\n- Skipping retrospectives\n- No definition of done\n- Scope creep mid-sprint",
+    "prerequisites": [],
+    "related_doors": []
+  },
+  "metadata": {
+    "category": "PROJECTS",
+    "version": "1.0",
+    "tokens_estimate": 91.0
+  }
+}

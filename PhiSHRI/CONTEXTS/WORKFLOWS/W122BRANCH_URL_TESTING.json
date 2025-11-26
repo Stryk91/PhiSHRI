@@ -1,0 +1,33 @@
+{
+  "door_code": "W122BRANCH_URL_TESTING",
+  "semantic_path": "WORKFLOWS.GIT.BRANCH_URL_TESTING",
+  "aliases": ["test from branch", "raw url testing", "pre-merge validation"],
+  "context_bundle": {
+    "summary": "Test installer/scripts from feature branch raw URL before merging to main",
+    "prerequisites": ["E39GIT_PUSH_403"],
+    "related_doors": ["W123EXTERNAL_USER_TEST"],
+    "onboarding": {
+      "quick_start": "Push to feature branch, test via raw URL, then merge",
+      "workflow": {
+        "step_1": "Push changes to feature branch",
+        "step_2": "Get raw URL: https://raw.githubusercontent.com/user/repo/branch/file",
+        "step_3": "Test: irm <raw-url> | iex",
+        "step_4": "If works, create PR and merge",
+        "step_5": "Verify main branch URL works after merge"
+      },
+      "url_pattern": {
+        "main": "https://raw.githubusercontent.com/USER/REPO/main/install.ps1",
+        "branch": "https://raw.githubusercontent.com/USER/REPO/feature-branch/install.ps1"
+      },
+      "why_test_branch_first": [
+        "Avoids breaking main for other users",
+        "Can iterate quickly on fixes",
+        "PR shows diff for review"
+      ],
+      "gotchas": [
+        "GitHub caches raw files - wait a minute after push",
+        "Branch name in URL is case-sensitive"
+      ]
+    }
+  }
+}

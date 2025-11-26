@@ -1,0 +1,17 @@
+{
+  "door_code": "R36HEXAGONAL",
+  "semantic_path": "ARCHITECTURE.PATTERNS.HEXAGONAL",
+  "title": "Hexagonal Architecture",
+  "aliases": [],
+  "context_bundle": {
+    "summary": "Ports and adapters architecture pattern",
+    "content": "Hexagonal (Ports & Adapters) architecture.\n\nCore Concept:\nApplication core is isolated from external concerns through ports (interfaces) and adapters (implementations).\n\nStructure:\n- Domain: Business logic, entities\n- Ports: Interfaces for external interaction\n- Adapters: Implementations (DB, API, UI)\n\nBenefits:\n- Testable core (mock adapters)\n- Swappable infrastructure\n- Clear boundaries\n\nExample Ports:\n- UserRepository (persistence)\n- PaymentGateway (external service)\n- NotificationSender (outbound)\n\nExample Adapters:\n- PostgresUserRepository\n- StripePaymentGateway\n- SendGridNotificationSender",
+    "prerequisites": [],
+    "related_doors": []
+  },
+  "metadata": {
+    "category": "ARCHITECTURE",
+    "version": "1.0",
+    "tokens_estimate": 91.0
+  }
+}

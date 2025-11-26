@@ -1,0 +1,17 @@
+{
+  "door_code": "P15BROWNFIELD",
+  "semantic_path": "PROJECTS.DEVELOPMENT.BROWNFIELD",
+  "title": "Brownfield Project Guide",
+  "aliases": [],
+  "context_bundle": {
+    "summary": "Improving existing codebases",
+    "content": "Brownfield improvement strategies.\n\nAssessment:\n- Code quality metrics\n- Test coverage gaps\n- Technical debt inventory\n- Performance bottlenecks\n\nQuick Wins (Week 1):\n- Add linting/formatting\n- Fix critical bugs\n- Improve CI speed\n- Add basic monitoring\n\nMedium Term (Month 1):\n- Increase test coverage\n- Refactor hot paths\n- Update dependencies\n- Document architecture\n\nLong Term:\n- Modularization\n- API versioning\n- Database optimization\n- Infrastructure modernization",
+    "prerequisites": [],
+    "related_doors": []
+  },
+  "metadata": {
+    "category": "PROJECTS",
+    "version": "1.0",
+    "tokens_estimate": 89.7
+  }
+}

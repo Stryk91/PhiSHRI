@@ -1,0 +1,82 @@
+{
+  "door_code": "L21PYTHON_PACKAGING",
+  "semantic_path": "languages/python/packaging",
+  "title": "Python Packaging Hell - 34 Years of Unsolved Problems",
+  "aliases": [
+    "python packaging",
+    "pip hell",
+    "venv problems",
+    "python deployment",
+    "virtualenv"
+  ],
+  "summary": "Python's packaging ecosystem remains chaotic after 34 years. Multiple competing tools, environment management nightmares, and the infamous 'works on my machine' syndrome make distribution painful.",
+  "context_bundle": {
+    "concepts": [
+      "pip vs pip3",
+      "virtual environments",
+      "externally managed environment",
+      "requirements.txt",
+      "pyproject.toml",
+      "dependency conflicts"
+    ],
+    "patterns": [
+      "venv per project",
+      "pin all versions",
+      "docker as escape hatch",
+      "pyinstaller for distribution"
+    ],
+    "the_chaos": {
+      "package_managers": ["pip", "pip3", "conda", "poetry", "pipenv", "pdm"],
+      "env_tools": ["venv", "virtualenv", "conda", "pyenv", "pyenv-virtualenv"],
+      "config_files": ["setup.py", "setup.cfg", "pyproject.toml", "requirements.txt", "Pipfile"],
+      "years_to_fix": "34 and counting"
+    },
+    "common_errors": [
+      "pip not found",
+      "externally managed environment",
+      "no module named pip",
+      "permission denied",
+      "conflicting dependencies",
+      "wrong python version"
+    ],
+    "examples": {
+      "user_journey": [
+        "pip install requests",
+        "pip not found",
+        "pip3 install requests",
+        "externally managed environment",
+        "python -m pip install",
+        "no module named pip",
+        "create venv",
+        "which venv tool?",
+        "give up, use docker"
+      ]
+    },
+    "tools": [
+      "pip",
+      "venv",
+      "poetry",
+      "conda",
+      "pyinstaller"
+    ],
+    "antipatterns": [
+      "sudo pip install",
+      "global installs",
+      "unpinned requirements",
+      "mixing conda and pip"
+    ],
+    "wisdom": [
+      "The language is easy, the ecosystem is a nightmare",
+      "Cross-platform means different bugs on each platform",
+      "Easy to write, nightmare to distribute",
+      "A 2GB IDE just to manage the chaos Python created"
+    ]
+  },
+  "prerequisites": [],
+  "related_doors": [
+    "L20RUST_DEPLOYMENT"
+  ],
+  "created": "2025-11-25T21:00:00Z",
+  "version": "1.0.0",
+  "author": "BMETALC"
+}

@@ -1,0 +1,21 @@
+SUCCESS
+UI Region Detection Results
+================================
+
+Scan Area: (0, 0) to (400, 400)
+Grid Size: 50 pixels
+
+Regions Detected: 5
+
+Detected UI Elements:
+Region at (50, 50) Size: 100x40 Color: #0078D4 (Blue Button)
+Region at (150, 50) Size: 100x40 Color: #0078D4 (Blue Button)
+Region at (20, 100) Size: 300x200 Color: #F3F3F3 (Light Panel)
+Region at (330, 100) Size: 200x150 Color: #FFFFFF (White Area)
+Region at (50, 310) Size: 100x40 Color: #107C10 (Green Button)
+
+Interpretation:
+- Blue buttons typically represent primary actions
+- Green buttons typically represent positive/confirm actions
+- Light/white panels are content areas
+- Color consistency indicates UI element boundaries

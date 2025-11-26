@@ -1,0 +1,42 @@
+{
+  "door_code": "W123EXTERNAL_USER_TEST",
+  "semantic_path": "WORKFLOWS.TESTING.EXTERNAL_USER",
+  "aliases": ["fresh machine test", "external user validation", "clean install test"],
+  "context_bundle": {
+    "summary": "Fresh machine validation checklist for installers",
+    "prerequisites": ["W122BRANCH_URL_TESTING"],
+    "related_doors": ["W121INSTALLER_FALLBACK"],
+    "onboarding": {
+      "quick_start": "Test on machine without your dev environment",
+      "checklist": {
+        "pre_install": [
+          "No existing installation",
+          "No dev tools (git, node, etc) required",
+          "Different user account than developer",
+          "Different Windows configuration (local vs Microsoft account)"
+        ],
+        "install": [
+          "One-liner works: irm URL | iex",
+          "No errors or warnings",
+          "Correct user profile detected",
+          "Config written to correct location"
+        ],
+        "post_install": [
+          "App sees configuration",
+          "Binary executes correctly",
+          "No orphaned files on failure"
+        ],
+        "uninstall": [
+          "Uninstall removes all files",
+          "Config entry removed",
+          "No leftover directories"
+        ]
+      },
+      "common_failures": {
+        "works_on_dev": "Dev machine has tools/paths external users lack",
+        "wrong_user": "Installer uses dev's account, not target user",
+        "missing_deps": "Assumed tools (git, curl) not present"
+      }
+    }
+  }
+}
