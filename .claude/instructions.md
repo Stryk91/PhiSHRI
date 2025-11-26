@@ -16,14 +16,14 @@ When starting a new session in this project, **ALWAYS** follow this startup sequ
 
 2. **Verify current state:**
    ```
-   Read: C:\Dev\PhiSRHI\PhiSHRI\INDEX.json
+   Read: C:\Dev\PhiSHRI\PhiSHRI\INDEX.json
    ```
    Check `total_doors` field matches bootstrap file
 
 3. **Load PhiSHRI overview if first time:**
    ```
-   Read: C:\Dev\PhiSRHI\PhiSHRI\CONTEXTS\PROJECTS\000START.json
-   Read: C:\Dev\PhiSRHI\PhiSHRI\CONTEXTS\PROJECTS\P05SESSION_CONT.json
+   Read: C:\Dev\PhiSHRI\PhiSHRI\CONTEXTS\PROJECTS\000START.json
+   Read: C:\Dev\PhiSHRI\PhiSHRI\CONTEXTS\PROJECTS\P05SESSION_CONT.json
    ```
 
 4. **Ready to continue work!**

@@ -15,7 +15,7 @@ class PhiSHRINavigator:
     The Keymaster - Provides instant context loading through semantic navigation
     """
     
-    def __init__(self, base_path: str = "/workspace/PhiSRHI/PhiSHRI"):
+    def __init__(self, base_path: str = "/workspace/PhiSHRI/PhiSHRI"):
         self.base_path = Path(base_path)
         self.semantic_map = self._load_json("INDEXES/SEMANTIC_MAP.json")
         self.hash_table = self._load_json("INDEXES/HASH_TABLE.json")

@@ -851,7 +851,7 @@ class DoorGenerator:
         print(f"Updated INDEX.json with {len(doors)} total doors")
 
 def main():
-    generator = DoorGenerator('/workspace/PhiSRHI')
+    generator = DoorGenerator('/workspace/PhiSHRI')
     
     print("=" * 60)
     print("PhiSHRI Door Generator")

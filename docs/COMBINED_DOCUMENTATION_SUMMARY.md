@@ -16,7 +16,7 @@ This combined summary represents the complete documentation ecosystem across two
 
 ### C:\Dev (784 files, 10.64 MB)
 - **Focus:** AI workflow optimization, Windows automation, cross-platform development
-- **Key Projects:** PhiSRHI, PhiLaunch, CODEX/PhiDEX, Windows-MCP
+- **Key Projects:** PhiSHRI, PhiLaunch, CODEX/PhiDEX, Windows-MCP
 - **Strengths:** Automation frameworks, deployment guides, AI integration patterns
 
 ### Combined Statistics
@@ -56,7 +56,7 @@ This combined summary represents the complete documentation ecosystem across two
 - Git hooks for automated security
 
 ### 3. Audio Processing Excellence
-**PhiWave (E:) + PhiSRHI (C:)**
+**PhiWave (E:) + PhiSHRI (C:)**
 - Golden ratio (φ = 1.618) design philosophy
 - Fibonacci sequences for timing/spacing
 - Binaural beats + isochronic tones
@@ -133,7 +133,7 @@ This combined summary represents the complete documentation ecosystem across two
 
 ### GUI Frameworks
 - **PyQt6/PySide6** - Primary GUI (PhiGEN)
-- **Tkinter** - Audio apps (PhiWave, PhiSRHI)
+- **Tkinter** - Audio apps (PhiWave, PhiSHRI)
 - **Tauri** - Modern desktop apps
 - **Electron** - Legacy desktop apps
 
@@ -190,7 +190,7 @@ This combined summary represents the complete documentation ecosystem across two
 
 ### C:\Dev Projects
 
-#### 1. PhiSRHI (459 files)
+#### 1. PhiSHRI (459 files)
 - Audio processing suite
 - Same golden ratio philosophy as PhiWave
 - Procedural asset generation
@@ -272,7 +272,7 @@ This combined summary represents the complete documentation ecosystem across two
 **Supports:** Claude, ChatGPT, Perplexity, Gemini, Copilot
 
 ### 3. Golden Ratio Design System
-**Source:** PhiWave (E:), PhiSRHI (C:)
+**Source:** PhiWave (E:), PhiSHRI (C:)
 
 **φ = 1.618 Applications:**
 - UI spacing: 3, 5, 8, 13, 21, 34px (Fibonacci)
@@ -592,7 +592,7 @@ pyinstaller --onefile app.py
 - **ARCHITECTURE (AXX):** Design decisions, patterns
 - **WORKFLOWS (WXX):** Development processes, CI/CD
 - **AGENTS (DXX):** DC, JC, TERMC, KALIC contexts
-- **PROJECTS (PXX):** PhiGEN, PhiWave, PhiSRHI, PhiLaunch
+- **PROJECTS (PXX):** PhiGEN, PhiWave, PhiSHRI, PhiLaunch
 
 ### Phase 3: Intelligence (Month 3-6)
 **Goal: 500 doors with smart navigation**

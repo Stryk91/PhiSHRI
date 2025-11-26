@@ -8,7 +8,7 @@ Generate comprehensive test cases for the PhiSHRI MCP server.
 
 ## Server Location
 - Binary: `C:\Dev\PhiSHRI_MCP\phishri-mcp\target\release\phishri-mcp.exe`
-- Doors: `C:\Dev\PhiSRHI\PhiSHRI\` (env var: PHISHRI_PATH)
+- Doors: `C:\Dev\PhiSHRI\PhiSHRI\` (env var: PHISHRI_PATH)
 
 ## Tools to Test (10 total)
 1. `phishri_read_door` - Read door by code

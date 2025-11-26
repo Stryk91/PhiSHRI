@@ -242,7 +242,7 @@ class DocumentAnalyzer:
         return summary
 
 def main():
-    analyzer = DocumentAnalyzer('/workspace/PhiSRHI')
+    analyzer = DocumentAnalyzer('/workspace/PhiSHRI')
     
     print("=" * 60)
     print("PhiSHRI Documentation Analysis")
@@ -264,7 +264,7 @@ def main():
     print(f"Workflow Patterns: {summary['total_workflows']}")
     
     # Save results
-    output_file = '/workspace/PhiSRHI/analysis_results.json'
+    output_file = '/workspace/PhiSHRI/analysis_results.json'
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump({
             'summary': summary,

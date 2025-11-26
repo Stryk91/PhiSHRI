@@ -2,9 +2,9 @@
 
 **The Keymaster's Index System for Instant AI Agent Onboarding**
 
-Version: 1.0.0  
-Created: 2025-01-18  
-Repository: Stryk91/PhiSRHI  
+Version: 1.0.0
+Created: 2025-01-18
+Repository: Stryk91/PhiSHRI
 Branch: Staging
 
 ---
@@ -39,8 +39,8 @@ PhiSHRI provides:
 
 ```bash
 # Clone repository
-git clone https://github.com/Stryk91/PhiSRHI.git
-cd PhiSRHI
+git clone https://github.com/Stryk91/PhiSHRI.git
+cd PhiSHRI
 
 # Navigate to PhiSHRI system
 cd PhiSHRI
@@ -502,7 +502,7 @@ Part of the PhiVector multi-agent orchestration platform.
 ## Support
 
 For issues, questions, or contributions:
-- Repository: https://github.com/Stryk91/PhiSRHI
+- Repository: https://github.com/Stryk91/PhiSHRI
 - Branch: Staging
 
 ---

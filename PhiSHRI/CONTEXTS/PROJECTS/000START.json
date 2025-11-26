@@ -10,7 +10,7 @@
       "quick_start": "Welcome to PhiSHRI! You're in the right place. Read this door, then INDEX.json, then navigate by door codes.",
       "full_context_path": "/PhiSHRI/HOW_TO_USE.md",
       "common_patterns": [
-        "Step 1: Read C:\\Dev\\PhiSRHI\\PhiSHRI\\INDEX.json (master catalog)",
+        "Step 1: Read C:\\Dev\\PhiSHRI\\PhiSHRI\\INDEX.json (master catalog)",
         "Step 2: Identify door code for your topic (D05=deployment, W115=messaging, S05=secrets)",
         "Step 3: Read door directly: CONTEXTS/{CATEGORY}/{DOORCODE}.json",
         "Step 4: Follow prerequisites and related_doors for complete context",

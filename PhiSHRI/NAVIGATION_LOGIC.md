@@ -59,7 +59,7 @@ The `PhiSHRINavigator` class is the main interface to the PhiSHRI system.
 
 **Initialization:**
 ```python
-nav = PhiSHRINavigator(base_path="/workspace/PhiSRHI/PhiSHRI")
+nav = PhiSHRINavigator(base_path="/workspace/PhiSHRI/PhiSHRI")
 ```
 
 **What it loads:**
@@ -119,7 +119,7 @@ All `find_door()` calls return a consistent structure:
 
 ### PhiSHRINavigator Class
 
-#### `__init__(base_path: str = "/workspace/PhiSRHI/PhiSHRI")`
+#### `__init__(base_path: str = "/workspace/PhiSHRI/PhiSHRI")`
 
 Initialize the navigator.
 

@@ -360,7 +360,7 @@ The server needs to find PhiSHRI doors. Use these paths:
 **Default paths (in order of priority):**
 1. Environment variable: `PHISHRI_PATH`
 2. Current directory: `./PhiSHRI/`
-3. Windows default: `C:\Dev\PhiSRHI\PhiSHRI\`
+3. Windows default: `C:\Dev\PhiSHRI\PhiSHRI\`
 4. Unix default: `~/PhiSHRI/`
 
 **Bootstrap paths:**

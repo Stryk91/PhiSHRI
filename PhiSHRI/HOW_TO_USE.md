@@ -8,7 +8,7 @@
 
 ### Step 1: Read the Index
 ```
-Read: C:\Dev\PhiSRHI\PhiSHRI\INDEX.json
+Read: C:\Dev\PhiSHRI\PhiSHRI\INDEX.json
 ```
 This shows all 236 doors organized by category.
 
@@ -24,7 +24,7 @@ Door codes are **semantic** - they tell you what they contain:
 
 ### Step 3: Read the Door Directly
 ```
-Read: C:\Dev\PhiSRHI\PhiSHRI\CONTEXTS\TOOLS\D05SILENT_INSTALL.json
+Read: C:\Dev\PhiSHRI\PhiSHRI\CONTEXTS\TOOLS\D05SILENT_INSTALL.json
 ```
 Every door contains:
 - **Summary**: What this door covers
