@@ -1,0 +1,75 @@
+{
+  "door_code": "C13APLUS_M4L1",
+  "semantic_path": "CERTIFICATION.COMPTIA.APLUS.MODULE_4.LESSON_1",
+  "title": "Troubleshoot Common Microsoft Windows OS Problems and Security Issues",
+  "aliases": [
+    "windows troubleshooting",
+    "malware removal",
+    "bsod"
+  ],
+  "context_bundle": {
+    "summary": "Troubleshoot Common Microsoft Windows OS Problems and Security Issues",
+    "prerequisites": [
+      "C00APLUS_M1"
+    ],
+    "related_doors": [
+      "C14APLUS_M4L2"
+    ],
+    "onboarding": {
+      "quick_start": "Learn Windows troubleshooting: BSOD, startup issues, malware removal",
+      "common_patterns": [
+        "BSOD analysis",
+        "Safe Mode",
+        "System Restore",
+        "Malware symptoms",
+        "Task Manager diagnosis"
+      ],
+      "known_errors": [
+        "Corrupted restore points",
+        "Incomplete malware removal"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    }
+  },
+  "verification": {
+    "status": "verified",
+    "verified_by": "STRYK",
+    "verified_date": "2025-11-25",
+    "sources": [
+      {
+        "title": "CompTIA A+ Objectives",
+        "url": "https://www.comptia.org/",
+        "accessed": "2025-11-25"
+      }
+    ],
+    "tested_versions": [
+      "Windows 10",
+      "Windows 11"
+    ],
+    "confidence_score": 0.93,
+    "last_audit": "2025-11-25",
+    "audit_notes": "Content verified against CompTIA objectives"
+  },
+  "metadata": {
+    "last_updated": "2025-11-26T14:07:08.452520Z",
+    "version": "1.1.0",
+    "category": "CERTIFICATION",
+    "subcategory": "COMPTIA.MODULE_4",
+    "tags": [
+      "troubleshooting",
+      "windows",
+      "malware",
+      "bsod"
+    ],
+    "agent_affinity": [
+      "VSCC",
+      "DC",
+      "TERMC"
+    ]
+  }
+}

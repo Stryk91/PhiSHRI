@@ -1,0 +1,319 @@
+{
+  "door_code": "T112CLAUDE_CODE_SETTINGS",
+  "category": "TOOLS",
+  "short_code": "T112",
+  "title": "Claude Code Settings & Configuration Reference",
+  "version": "1.0.0",
+  "created": "2025-11-26",
+  "summary": "Comprehensive reference for Claude Code CLI configuration including settings.json hierarchy, environment variables, permissions, tools, hooks, MCP servers, and enterprise managed policies.",
+  
+  "settings_hierarchy": {
+    "description": "Settings are merged with higher levels overriding lower ones",
+    "precedence_order": [
+      "1. Enterprise managed policies (highest)",
+      "2. Command line arguments",
+      "3. Local project settings (.claude/settings.local.json)",
+      "4. Shared project settings (.claude/settings.json)",
+      "5. User settings (~/.claude/settings.json)"
+    ],
+    "file_locations": {
+      "user_settings": "~/.claude/settings.json",
+      "project_shared": ".claude/settings.json",
+      "project_local": ".claude/settings.local.json",
+      "managed_settings_windows": "C:\\ProgramData\\ClaudeCode\\managed-settings.json",
+      "managed_settings_mac": "/Library/Application Support/ClaudeCode/managed-settings.json",
+      "managed_settings_linux": "/etc/claude-code/managed-settings.json",
+      "managed_mcp_windows": "C:\\ProgramData\\ClaudeCode\\managed-mcp.json",
+      "managed_mcp_mac": "/Library/Application Support/ClaudeCode/managed-mcp.json",
+      "legacy_config": "~/.claude.json"
+    }
+  },
+
+  "environment_variables": {
+    "authentication": {
+      "ANTHROPIC_API_KEY": "API key sent as X-Api-Key header",
+      "ANTHROPIC_AUTH_TOKEN": "Alternative auth token",
+      "ANTHROPIC_BASE_URL": "Custom API endpoint URL"
+    },
+    "model_selection": {
+      "ANTHROPIC_MODEL": "Primary model to use (e.g., claude-sonnet-4-5-20250929)",
+      "ANTHROPIC_DEFAULT_HAIKU_MODEL": "Model for Haiku tasks",
+      "ANTHROPIC_SMALL_FAST_MODEL": "Model for quick operations",
+      "CLAUDE_CODE_DEFAULT_MODEL": "Default model override"
+    },
+    "timeouts": {
+      "BASH_DEFAULT_TIMEOUT_MS": "Default bash command timeout (default: 120000ms/2min)",
+      "BASH_MAX_TIMEOUT_MS": "Maximum bash timeout allowed",
+      "MCP_TIMEOUT": "MCP server connection timeout",
+      "MCP_TOOL_TIMEOUT": "MCP tool execution timeout",
+      "API_TIMEOUT_MS": "API request timeout",
+      "CLAUDE_CODE_API_KEY_HELPER_TTL_MS": "API key helper refresh frequency"
+    },
+    "performance": {
+      "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "Maximum output tokens",
+      "MAX_MCP_OUTPUT_TOKENS": "Maximum MCP output tokens",
+      "MAX_THINKING_TOKENS": "Extended thinking token limit",
+      "CLAUDE_CODE_PROMPT_CACHING": "Enable/disable prompt caching"
+    },
+    "privacy_telemetry": {
+      "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "Disables autoupdater, bug command, error reporting, and telemetry",
+      "DISABLE_AUTOUPDATER": "Disable automatic updates",
+      "DISABLE_BUG_COMMAND": "Disable /bug command",
+      "DISABLE_ERROR_REPORTING": "Disable error reporting",
+      "DISABLE_TELEMETRY": "Disable telemetry",
+      "CLAUDE_CODE_ENABLE_TELEMETRY": "Explicitly enable telemetry",
+      "OTEL_METRICS_EXPORTER": "OpenTelemetry metrics exporter (e.g., 'otlp')"
+    },
+    "cloud_providers": {
+      "CLAUDE_CODE_USE_BEDROCK": "Use AWS Bedrock (true/false)",
+      "CLAUDE_CODE_USE_VERTEX": "Use Google Vertex AI (true/false)",
+      "ANTHROPIC_BEDROCK_BASE_URL": "Custom Bedrock proxy URL",
+      "AWS_REGION": "AWS region for Bedrock",
+      "AWS_ACCESS_KEY_ID": "AWS access key",
+      "AWS_SECRET_ACCESS_KEY": "AWS secret key",
+      "CLOUD_ML_REGION": "GCP region for Vertex AI",
+      "ANTHROPIC_VERTEX_PROJECT_ID": "GCP project ID"
+    },
+    "debugging": {
+      "ANTHROPIC_LOG": "Log level (debug, info, warn, error)"
+    }
+  },
+
+  "settings_json_schema": {
+    "permissions": {
+      "description": "Tool permission configuration",
+      "properties": {
+        "allow": "Array of allowed tool patterns",
+        "deny": "Array of denied tool patterns",
+        "ask": "Array of tools requiring confirmation",
+        "defaultMode": "Default permission mode: default|acceptEdits|plan|bypassPermissions",
+        "disableBypassPermissionsMode": "Set to 'disable' to prevent dangerous bypass mode",
+        "additionalDirectories": "Array of additional directories Claude can access"
+      },
+      "example": {
+        "permissions": {
+          "allow": ["Bash(npm run lint)", "Bash(npm run test:*)", "Read(~/.zshrc)"],
+          "deny": ["Bash(curl:*)", "Read(./.env)", "Read(./.env.*)", "Read(./secrets/**)"],
+          "defaultMode": "default"
+        }
+      }
+    },
+    "env": {
+      "description": "Environment variables set for each session",
+      "example": {
+        "env": {
+          "BASH_DEFAULT_TIMEOUT_MS": "1800000",
+          "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1"
+        }
+      }
+    },
+    "sandbox": {
+      "description": "Advanced sandboxing configuration",
+      "properties": {
+        "enabled": "Enable sandboxing (boolean)",
+        "autoAllowBashIfSandboxed": "Auto-allow bash in sandbox (boolean)",
+        "excludedCommands": "Commands excluded from sandboxing (array)",
+        "network.allowUnixSockets": "Allowed Unix sockets (array)",
+        "network.allowLocalBinding": "Allow local network binding (boolean)"
+      }
+    },
+    "cleanupPeriodDays": {
+      "description": "Days to retain session transcripts (default: 30)"
+    },
+    "companyAnnouncements": {
+      "description": "Array of announcement strings shown to users (enterprise)"
+    },
+    "enabledPlugins": {
+      "description": "Object mapping plugin@marketplace to enabled status"
+    },
+    "extraKnownMarketplaces": {
+      "description": "Additional plugin marketplace definitions"
+    }
+  },
+
+  "available_tools": {
+    "file_operations": {
+      "Read": "Read file contents - supports glob patterns: Read(**/.env)",
+      "Write": "Write/create files",
+      "Edit": "Edit existing files - supports glob patterns",
+      "MultiEdit": "Multiple file edits in one operation",
+      "Glob": "File pattern matching",
+      "Grep": "Search file contents",
+      "LS": "List directory contents"
+    },
+    "execution": {
+      "Bash": "Execute shell commands - supports patterns: Bash(npm run *), Bash(git:*)",
+      "Task": "Execute multi-step tasks"
+    },
+    "web": {
+      "WebFetch": "HTTP requests - supports domains: WebFetch(domain:example.com)",
+      "WebSearch": "Web search queries"
+    },
+    "mcp_tools": {
+      "description": "MCP server tools use mcp__<server>__<tool> prefix",
+      "example": "mcp__filesystem__read_file"
+    }
+  },
+
+  "permission_patterns": {
+    "bash_patterns": {
+      "Bash(npm run *)": "Allow any npm run command",
+      "Bash(git:*)": "Allow any git command",
+      "Bash(sudo:*)": "Match sudo commands (typically denied)",
+      "Bash(curl:*)": "Match curl commands",
+      "Bash(ssh:*)": "Match ssh commands"
+    },
+    "file_patterns": {
+      "Read(**/.env)": "Match .env in any directory",
+      "Read(**/*.key)": "Match .key files anywhere",
+      "Read(**/node_modules/**)": "Match node_modules",
+      "Read(./secrets/**)": "Match secrets directory"
+    }
+  },
+
+  "hooks": {
+    "description": "Execute custom commands on tool events",
+    "events": [
+      "PreToolUse",
+      "PostToolUse",
+      "PermissionRequest"
+    ],
+    "configuration": {
+      "matcher": "Tool pattern to match (e.g., 'Write|Edit', '*' for all)",
+      "hooks": "Array of hook definitions",
+      "type": "command (bash) or prompt (LLM evaluation)",
+      "command": "Bash command to execute",
+      "prompt": "LLM prompt for evaluation"
+    },
+    "example": {
+      "hooks": {
+        "PostToolUse": [{
+          "matcher": "Write|Edit",
+          "hooks": [{
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/check-style.sh"
+          }]
+        }]
+      }
+    },
+    "environment_variables": {
+      "CLAUDE_PROJECT_DIR": "Project directory path (available in hook commands)"
+    }
+  },
+
+  "mcp_servers": {
+    "description": "Model Context Protocol server configuration",
+    "config_locations": [
+      "~/.claude/settings.json (mcpServers key)",
+      "~/.claude.json (projects.<path>.mcpServers)",
+      "managed-mcp.json (enterprise)"
+    ],
+    "server_definition": {
+      "command": "Executable to run",
+      "args": "Array of arguments",
+      "env": "Environment variables for server",
+      "type": "stdio (default) or http"
+    },
+    "example": {
+      "mcpServers": {
+        "filesystem": {
+          "command": "npx",
+          "args": ["-y", "@modelcontextprotocol/server-filesystem", "/allowed/path"]
+        }
+      }
+    }
+  },
+
+  "subagents": {
+    "description": "Custom AI assistants with specialized prompts and permissions",
+    "locations": {
+      "user_agents": "~/.claude/agents/",
+      "project_agents": ".claude/agents/"
+    },
+    "format": "Markdown files with YAML frontmatter"
+  },
+
+  "slash_commands": {
+    "built_in": [
+      "/config - Open settings interface",
+      "/permissions - Manage tool permissions",
+      "/allowed-tools - Configure allowed tools",
+      "/model - Select/validate model",
+      "/output-style - Change output style",
+      "/add-dir - Add additional directory",
+      "/rewind - Rewind to checkpoint",
+      "/hooks - Manage hooks",
+      "/plugin - Install plugins",
+      "/init - Initialize project"
+    ],
+    "custom_commands": {
+      "user_level": "~/.claude/commands/",
+      "project_level": ".claude/commands/",
+      "format": "Markdown files defining prompt templates"
+    }
+  },
+
+  "cli_flags": {
+    "--model": "Specify model",
+    "--add-dir": "Add additional directory",
+    "--append-system-prompt": "Append to system prompt",
+    "--settings": "Load settings from custom JSON file",
+    "--dangerously-skip-permissions": "Bypass all permission checks (dangerous)",
+    "--output-format": "Output format: text|json|stream-json",
+    "-p": "Print mode with prompt"
+  },
+
+  "output_styles": {
+    "description": "Modify Claude Code's system prompt for different use cases",
+    "built_in": [
+      "Default - Software engineering optimized",
+      "Explanatory - Educational insights while coding",
+      "Learning - Collaborative with TODO(human) markers"
+    ],
+    "custom_styles": "~/.claude/output-styles/"
+  },
+
+  "memory_files": {
+    "CLAUDE.md": {
+      "description": "Instructions and context loaded at startup",
+      "locations": [
+        "Project root CLAUDE.md",
+        "~/.claude/CLAUDE.md (global)"
+      ],
+      "usage": "Persistent instructions, coding standards, project context"
+    }
+  },
+
+  "best_practices": [
+    "Use .claude/settings.json for team-shared configuration",
+    "Use .claude/settings.local.json for personal preferences",
+    "Deny access to sensitive files (.env, secrets/, credentials)",
+    "Configure specific Bash patterns rather than blanket allow",
+    "Use hooks for automated linting/formatting",
+    "Set appropriate timeouts for long-running operations",
+    "Use managed-settings.json for enterprise security policies"
+  ],
+
+  "troubleshooting": {
+    "settings_not_applied": [
+      "Restart Claude Code completely",
+      "Validate JSON syntax",
+      "Check file permissions",
+      "Review precedence hierarchy"
+    ],
+    "timeout_issues": [
+      "Set BASH_DEFAULT_TIMEOUT_MS in settings.json env",
+      "Set BASH_MAX_TIMEOUT_MS for maximum limit",
+      "Increase MCP_TIMEOUT for slow servers"
+    ],
+    "permission_issues": [
+      "Check deny rules aren't blocking needed operations",
+      "Use /permissions to review current settings",
+      "Check managed-settings.json for enterprise overrides"
+    ]
+  },
+
+  "related_doors": ["T01MCP", "T06MCP_SETUP", "T05MCP_ARCH", "A02VSCC", "W02PROMPT"],
+  "prerequisites": ["T01MCP"],
+  "tags": ["claude-code", "configuration", "settings", "environment-variables", "permissions", "hooks", "mcp", "cli"]
+}

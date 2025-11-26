@@ -1,0 +1,73 @@
+{
+  "door_code": "C00APLUS_M1",
+  "semantic_path": "CERTIFICATION.COMPTIA.APLUS.MODULE_1",
+  "title": "Microsoft Windows Operating System Overview and Management",
+  "aliases": [
+    "a+ module 1",
+    "windows os",
+    "comptia a+ windows"
+  ],
+  "context_bundle": {
+    "summary": "CompTIA A+ Module 1: Microsoft Windows Operating System Overview and Management - covers installation, updates, administration, command-line tools, and security best practices for Windows environments",
+    "prerequisites": [],
+    "related_doors": [
+      "C01APLUS_M1L1",
+      "C02APLUS_M1L2",
+      "C03APLUS_M1L3"
+    ],
+    "onboarding": {
+      "quick_start": "Start with Lesson 1 for installation procedures, Lesson 2 for administration tools",
+      "common_patterns": [
+        "Windows installation",
+        "Using Task Manager",
+        "Disk Management"
+      ],
+      "known_errors": [
+        "Update failures",
+        "Startup issues"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    }
+  },
+  "verification": {
+    "status": "verified",
+    "verified_by": "STRYK",
+    "verified_date": "2025-11-25",
+    "sources": [
+      {
+        "title": "CompTIA A+ Objectives",
+        "url": "https://www.comptia.org/",
+        "accessed": "2025-11-25"
+      }
+    ],
+    "tested_versions": [
+      "Windows 10",
+      "Windows 11"
+    ],
+    "confidence_score": 0.92,
+    "last_audit": "2025-11-25",
+    "audit_notes": "Content verified against CompTIA objectives"
+  },
+  "metadata": {
+    "last_updated": "2025-11-26T14:07:08.452520Z",
+    "version": "1.1.0",
+    "category": "CERTIFICATION",
+    "subcategory": "COMPTIA.MODULE_1",
+    "tags": [
+      "comptia",
+      "a+",
+      "windows",
+      "os"
+    ],
+    "agent_affinity": [
+      "VSCC",
+      "DC",
+      "TERMC"
+    ]
+  }
+}

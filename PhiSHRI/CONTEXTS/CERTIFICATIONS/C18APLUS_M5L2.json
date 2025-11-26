@@ -1,0 +1,74 @@
+{
+  "door_code": "C18APLUS_M5L2",
+  "semantic_path": "CERTIFICATION.COMPTIA.APLUS.MODULE_5.LESSON_2",
+  "title": "Safety Protocols for Personnel and Equipment",
+  "aliases": [
+    "safety protocols",
+    "esd",
+    "ergonomics"
+  ],
+  "context_bundle": {
+    "summary": "Safety Protocols for Personnel and Equipment",
+    "prerequisites": [
+      "C00APLUS_M1"
+    ],
+    "related_doors": [
+      "C17APLUS_M5L1"
+    ],
+    "onboarding": {
+      "quick_start": "Learn ESD protection, ergonomics, and environmental safety",
+      "common_patterns": [
+        "ESD prevention",
+        "Proper lifting",
+        "HVAC management",
+        "Disposal regulations"
+      ],
+      "known_errors": [
+        "ESD damage",
+        "Back injuries"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    }
+  },
+  "verification": {
+    "status": "verified",
+    "verified_by": "STRYK",
+    "verified_date": "2025-11-25",
+    "sources": [
+      {
+        "title": "CompTIA A+ Objectives",
+        "url": "https://www.comptia.org/",
+        "accessed": "2025-11-25"
+      }
+    ],
+    "tested_versions": [
+      "Windows 10",
+      "Windows 11"
+    ],
+    "confidence_score": 0.93,
+    "last_audit": "2025-11-25",
+    "audit_notes": "Content verified against CompTIA objectives"
+  },
+  "metadata": {
+    "last_updated": "2025-11-26T14:07:08.452520Z",
+    "version": "1.1.0",
+    "category": "CERTIFICATION",
+    "subcategory": "COMPTIA.MODULE_5",
+    "tags": [
+      "safety",
+      "esd",
+      "ergonomics",
+      "osha"
+    ],
+    "agent_affinity": [
+      "VSCC",
+      "DC",
+      "TERMC"
+    ]
+  }
+}

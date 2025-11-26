@@ -1,0 +1,64 @@
+{
+  "door_code": "C03APLUS_M1L3",
+  "semantic_path": "CERTIFICATION.COMPTIA.APLUS.MODULE_1.LESSON_3",
+  "title": "Module 1 Glossary and Assessment",
+  "aliases": [
+    "windows glossary",
+    "a+ terminology"
+  ],
+  "context_bundle": {
+    "summary": "Module 1 Glossary and Assessment",
+    "prerequisites": [
+      "C01APLUS_M1L1",
+      "C02APLUS_M1L2"
+    ],
+    "related_doors": [],
+    "onboarding": {
+      "quick_start": "Review key terms from Module 1. Take practice assessments.",
+      "common_patterns": [
+        "Windows terminology"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    }
+  },
+  "verification": {
+    "status": "verified",
+    "verified_by": "STRYK",
+    "verified_date": "2025-11-25",
+    "sources": [
+      {
+        "title": "CompTIA A+ Objectives",
+        "url": "https://www.comptia.org/",
+        "accessed": "2025-11-25"
+      }
+    ],
+    "tested_versions": [
+      "Windows 10",
+      "Windows 11"
+    ],
+    "confidence_score": 0.9,
+    "last_audit": "2025-11-25",
+    "audit_notes": "Content verified against CompTIA objectives"
+  },
+  "metadata": {
+    "last_updated": "2025-11-26T14:07:08.452520Z",
+    "version": "1.1.0",
+    "category": "CERTIFICATION",
+    "subcategory": "COMPTIA.MODULE_1",
+    "tags": [
+      "glossary",
+      "assessment"
+    ],
+    "agent_affinity": [
+      "VSCC",
+      "DC",
+      "TERMC"
+    ]
+  }
+}

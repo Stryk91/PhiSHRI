@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "description": "Natural language query patterns mapped to door codes",
-  "total_patterns": 0,
+  "total_patterns": 19,
   "query_patterns": {
     "file_operations": {
       "keywords": ["file", "write", "read", "create", "delete", "move", "copy", "list", "search"],
@@ -155,6 +155,66 @@
         "unicode error",
         "utf8 problem",
         "decode error"
+      ]
+    },
+    "comptia_windows": {
+      "keywords": ["comptia", "a+", "windows", "installation", "administration", "powershell", "cmd"],
+      "contexts": ["certification", "windows"],
+      "door_codes": ["C00APLUS_M1", "C01APLUS_M1L1", "C02APLUS_M1L2", "C03APLUS_M1L3"],
+      "examples": [
+        "comptia a+ windows",
+        "windows installation",
+        "powershell administration",
+        "a+ module 1",
+        "windows certification"
+      ]
+    },
+    "comptia_linux_macos": {
+      "keywords": ["comptia", "a+", "linux", "macos", "unix", "terminal", "shell"],
+      "contexts": ["certification", "linux", "macos"],
+      "door_codes": ["C04APLUS_M2", "C05APLUS_M2L1", "C06APLUS_M2L2", "C07APLUS_M2L3"],
+      "examples": [
+        "comptia a+ linux",
+        "linux installation",
+        "macos administration",
+        "a+ module 2",
+        "unix certification"
+      ]
+    },
+    "comptia_network_security": {
+      "keywords": ["comptia", "a+", "security", "firewall", "encryption", "wireless", "wifi"],
+      "contexts": ["certification", "security", "network"],
+      "door_codes": ["C08APLUS_M3", "C09APLUS_M3L1", "C10APLUS_M3L2", "C11APLUS_M3L3"],
+      "examples": [
+        "comptia a+ security",
+        "windows firewall",
+        "wireless security",
+        "a+ module 3",
+        "network encryption"
+      ]
+    },
+    "comptia_troubleshooting": {
+      "keywords": ["comptia", "a+", "troubleshoot", "malware", "bsod", "diagnosis", "repair"],
+      "contexts": ["certification", "troubleshooting"],
+      "door_codes": ["C12APLUS_M4", "C13APLUS_M4L1", "C14APLUS_M4L2", "C15APLUS_M4L3"],
+      "examples": [
+        "comptia a+ troubleshooting",
+        "bsod diagnosis",
+        "malware removal",
+        "a+ module 4",
+        "system troubleshooting"
+      ]
+    },
+    "comptia_operations": {
+      "keywords": ["comptia", "a+", "operations", "documentation", "ticketing", "safety", "esd"],
+      "contexts": ["certification", "operations"],
+      "door_codes": ["C16APLUS_M5", "C17APLUS_M5L1", "C18APLUS_M5L2", "C19APLUS_M5L3"],
+      "examples": [
+        "comptia a+ operations",
+        "it ticketing",
+        "esd protection",
+        "a+ module 5",
+        "operational procedures"
       ]
     }
   },

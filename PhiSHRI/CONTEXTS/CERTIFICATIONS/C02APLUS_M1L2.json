@@ -1,0 +1,73 @@
+{
+  "door_code": "C02APLUS_M1L2",
+  "semantic_path": "CERTIFICATION.COMPTIA.APLUS.MODULE_1.LESSON_2",
+  "title": "Administering Microsoft Windows with Command Prompt and Management Console",
+  "aliases": [
+    "windows administration",
+    "command prompt",
+    "powershell"
+  ],
+  "context_bundle": {
+    "summary": "Administering Microsoft Windows with Command Prompt and Management Console",
+    "prerequisites": [
+      "C01APLUS_M1L1"
+    ],
+    "related_doors": [
+      "C01APLUS_M1L1"
+    ],
+    "onboarding": {
+      "quick_start": "Learn Windows administration tools, Command Prompt, PowerShell, and System utilities",
+      "common_patterns": [
+        "Command Prompt administration",
+        "ipconfig",
+        "Services.msc",
+        "Device Manager"
+      ],
+      "known_errors": [
+        "Insufficient privileges",
+        "Network misconfiguration"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    }
+  },
+  "verification": {
+    "status": "verified",
+    "verified_by": "STRYK",
+    "verified_date": "2025-11-25",
+    "sources": [
+      {
+        "title": "CompTIA A+ Objectives",
+        "url": "https://www.comptia.org/",
+        "accessed": "2025-11-25"
+      }
+    ],
+    "tested_versions": [
+      "Windows 10",
+      "Windows 11"
+    ],
+    "confidence_score": 0.93,
+    "last_audit": "2025-11-25",
+    "audit_notes": "Content verified against CompTIA objectives"
+  },
+  "metadata": {
+    "last_updated": "2025-11-26T14:07:08.452520Z",
+    "version": "1.1.0",
+    "category": "CERTIFICATION",
+    "subcategory": "COMPTIA.MODULE_1",
+    "tags": [
+      "administration",
+      "command-line",
+      "management"
+    ],
+    "agent_affinity": [
+      "VSCC",
+      "DC",
+      "TERMC"
+    ]
+  }
+}

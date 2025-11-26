@@ -1,0 +1,75 @@
+{
+  "door_code": "C10APLUS_M3L2",
+  "semantic_path": "CERTIFICATION.COMPTIA.APLUS.MODULE_3.LESSON_2",
+  "title": "Securing SOHO Router and Mobile Devices",
+  "aliases": [
+    "soho router",
+    "wireless security",
+    "mobile security"
+  ],
+  "context_bundle": {
+    "summary": "Securing SOHO Router and Mobile Devices",
+    "prerequisites": [
+      "Basic networking knowledge"
+    ],
+    "related_doors": [
+      "C09APLUS_M3L1"
+    ],
+    "onboarding": {
+      "quick_start": "Learn SOHO router and mobile device security configuration",
+      "common_patterns": [
+        "Router password change",
+        "WPA2/WPA3 setup",
+        "MAC filtering",
+        "Mobile lockscreen"
+      ],
+      "known_errors": [
+        "Weak encryption",
+        "Default credentials",
+        "Firmware not updated"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    }
+  },
+  "verification": {
+    "status": "verified",
+    "verified_by": "STRYK",
+    "verified_date": "2025-11-25",
+    "sources": [
+      {
+        "title": "CompTIA A+ Objectives",
+        "url": "https://www.comptia.org/",
+        "accessed": "2025-11-25"
+      }
+    ],
+    "tested_versions": [
+      "Windows 10",
+      "Windows 11"
+    ],
+    "confidence_score": 0.91,
+    "last_audit": "2025-11-25",
+    "audit_notes": "Content verified against CompTIA objectives"
+  },
+  "metadata": {
+    "last_updated": "2025-11-26T14:07:08.452520Z",
+    "version": "1.1.0",
+    "category": "CERTIFICATION",
+    "subcategory": "COMPTIA.MODULE_3",
+    "tags": [
+      "soho",
+      "wireless",
+      "security",
+      "mobile"
+    ],
+    "agent_affinity": [
+      "VSCC",
+      "DC",
+      "TERMC"
+    ]
+  }
+}

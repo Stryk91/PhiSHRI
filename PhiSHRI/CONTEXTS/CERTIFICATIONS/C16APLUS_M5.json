@@ -1,0 +1,77 @@
+{
+  "door_code": "C16APLUS_M5",
+  "semantic_path": "CERTIFICATION.COMPTIA.APLUS.MODULE_5",
+  "title": "Operational Procedures",
+  "aliases": [
+    "a+ module 5",
+    "operational procedures",
+    "documentation"
+  ],
+  "context_bundle": {
+    "summary": "CompTIA A+ Module 5: Operational Procedures",
+    "prerequisites": [
+      "C00APLUS_M1"
+    ],
+    "related_doors": [
+      "C17APLUS_M5L1",
+      "C18APLUS_M5L2",
+      "C19APLUS_M5L3"
+    ],
+    "onboarding": {
+      "quick_start": "Learn professional IT operations: documentation, safety, change management",
+      "common_patterns": [
+        "Ticketing systems",
+        "Change control",
+        "ESD protection",
+        "Ergonomics"
+      ],
+      "known_errors": [
+        "Incomplete tickets",
+        "Skipped change procedures",
+        "ESD damage"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    }
+  },
+  "verification": {
+    "status": "verified",
+    "verified_by": "STRYK",
+    "verified_date": "2025-11-25",
+    "sources": [
+      {
+        "title": "CompTIA A+ Objectives",
+        "url": "https://www.comptia.org/",
+        "accessed": "2025-11-25"
+      }
+    ],
+    "tested_versions": [
+      "Windows 10",
+      "Windows 11"
+    ],
+    "confidence_score": 0.92,
+    "last_audit": "2025-11-25",
+    "audit_notes": "Content verified against CompTIA objectives"
+  },
+  "metadata": {
+    "last_updated": "2025-11-26T14:07:08.452520Z",
+    "version": "1.1.0",
+    "category": "CERTIFICATION",
+    "subcategory": "COMPTIA.MODULE_5",
+    "tags": [
+      "comptia",
+      "a+",
+      "operational",
+      "procedures"
+    ],
+    "agent_affinity": [
+      "VSCC",
+      "DC",
+      "TERMC"
+    ]
+  }
+}

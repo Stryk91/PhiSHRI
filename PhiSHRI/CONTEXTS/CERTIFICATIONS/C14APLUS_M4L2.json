@@ -1,0 +1,76 @@
+{
+  "door_code": "C14APLUS_M4L2",
+  "semantic_path": "CERTIFICATION.COMPTIA.APLUS.MODULE_4.LESSON_2",
+  "title": "Troubleshoot Common Mobile OS and Application Problems and Security Issues",
+  "aliases": [
+    "mobile troubleshooting",
+    "app issues",
+    "android ios"
+  ],
+  "context_bundle": {
+    "summary": "Troubleshoot Common Mobile OS and Application Problems and Security Issues",
+    "prerequisites": [
+      "C04APLUS_M2"
+    ],
+    "related_doors": [
+      "C13APLUS_M4L1"
+    ],
+    "onboarding": {
+      "quick_start": "Learn mobile device troubleshooting: app problems, connectivity, battery",
+      "common_patterns": [
+        "App installation failures",
+        "WiFi issues",
+        "Battery drain",
+        "Factory reset",
+        "Account lockout"
+      ],
+      "known_errors": [
+        "Data loss on factory reset",
+        "Bricked devices",
+        "Account lockout"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    }
+  },
+  "verification": {
+    "status": "verified",
+    "verified_by": "STRYK",
+    "verified_date": "2025-11-25",
+    "sources": [
+      {
+        "title": "CompTIA A+ Objectives",
+        "url": "https://www.comptia.org/",
+        "accessed": "2025-11-25"
+      }
+    ],
+    "tested_versions": [
+      "Windows 10",
+      "Windows 11"
+    ],
+    "confidence_score": 0.91,
+    "last_audit": "2025-11-25",
+    "audit_notes": "Content verified against CompTIA objectives"
+  },
+  "metadata": {
+    "last_updated": "2025-11-26T14:07:08.452520Z",
+    "version": "1.1.0",
+    "category": "CERTIFICATION",
+    "subcategory": "COMPTIA.MODULE_4",
+    "tags": [
+      "mobile",
+      "troubleshooting",
+      "ios",
+      "android"
+    ],
+    "agent_affinity": [
+      "VSCC",
+      "DC",
+      "TERMC"
+    ]
+  }
+}

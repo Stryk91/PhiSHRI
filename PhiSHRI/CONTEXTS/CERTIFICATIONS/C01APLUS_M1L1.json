@@ -1,0 +1,70 @@
+{
+  "door_code": "C01APLUS_M1L1",
+  "semantic_path": "CERTIFICATION.COMPTIA.APLUS.MODULE_1.LESSON_1",
+  "title": "Installing and Updating a Microsoft Windows Operating System",
+  "aliases": [
+    "windows installation",
+    "os installation"
+  ],
+  "context_bundle": {
+    "summary": "Installing and Updating a Microsoft Windows Operating System",
+    "prerequisites": [],
+    "related_doors": [
+      "C02APLUS_M1L2"
+    ],
+    "onboarding": {
+      "quick_start": "Learn Windows installation from bootable media and system updates",
+      "common_patterns": [
+        "Creating installation media",
+        "BIOS/UEFI configuration",
+        "Windows activation"
+      ],
+      "known_errors": [
+        "Media corruption",
+        "Driver conflicts",
+        "Update failures"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    }
+  },
+  "verification": {
+    "status": "verified",
+    "verified_by": "STRYK",
+    "verified_date": "2025-11-25",
+    "sources": [
+      {
+        "title": "CompTIA A+ Objectives",
+        "url": "https://www.comptia.org/",
+        "accessed": "2025-11-25"
+      }
+    ],
+    "tested_versions": [
+      "Windows 10",
+      "Windows 11"
+    ],
+    "confidence_score": 0.94,
+    "last_audit": "2025-11-25",
+    "audit_notes": "Content verified against CompTIA objectives"
+  },
+  "metadata": {
+    "last_updated": "2025-11-26T14:07:08.452520Z",
+    "version": "1.1.0",
+    "category": "CERTIFICATION",
+    "subcategory": "COMPTIA.MODULE_1",
+    "tags": [
+      "installation",
+      "windows",
+      "update"
+    ],
+    "agent_affinity": [
+      "VSCC",
+      "DC",
+      "TERMC"
+    ]
+  }
+}

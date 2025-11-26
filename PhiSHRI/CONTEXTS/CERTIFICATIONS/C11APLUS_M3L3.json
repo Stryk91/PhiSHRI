@@ -1,0 +1,61 @@
+{
+  "door_code": "C11APLUS_M3L3",
+  "semantic_path": "CERTIFICATION.COMPTIA.APLUS.MODULE_3.LESSON_3",
+  "title": "Module 3 Glossary and Assessment",
+  "aliases": [
+    "module 3 glossary"
+  ],
+  "context_bundle": {
+    "summary": "Module 3 Glossary and Assessment",
+    "prerequisites": [
+      "C09APLUS_M3L1",
+      "C10APLUS_M3L2"
+    ],
+    "related_doors": [],
+    "onboarding": {
+      "quick_start": "Review security terminology",
+      "common_patterns": [],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    }
+  },
+  "verification": {
+    "status": "verified",
+    "verified_by": "STRYK",
+    "verified_date": "2025-11-25",
+    "sources": [
+      {
+        "title": "CompTIA A+ Objectives",
+        "url": "https://www.comptia.org/",
+        "accessed": "2025-11-25"
+      }
+    ],
+    "tested_versions": [
+      "Windows 10",
+      "Windows 11"
+    ],
+    "confidence_score": 0.9,
+    "last_audit": "2025-11-25",
+    "audit_notes": "Content verified against CompTIA objectives"
+  },
+  "metadata": {
+    "last_updated": "2025-11-26T14:07:08.452520Z",
+    "version": "1.1.0",
+    "category": "CERTIFICATION",
+    "subcategory": "COMPTIA.MODULE_3",
+    "tags": [
+      "glossary",
+      "assessment"
+    ],
+    "agent_affinity": [
+      "VSCC",
+      "DC",
+      "TERMC"
+    ]
+  }
+}

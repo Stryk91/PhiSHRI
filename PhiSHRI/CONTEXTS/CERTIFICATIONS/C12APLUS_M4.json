@@ -1,0 +1,75 @@
+{
+  "door_code": "C12APLUS_M4",
+  "semantic_path": "CERTIFICATION.COMPTIA.APLUS.MODULE_4",
+  "title": "Software Troubleshooting",
+  "aliases": [
+    "a+ module 4",
+    "software troubleshooting",
+    "malware"
+  ],
+  "context_bundle": {
+    "summary": "CompTIA A+ Module 4: Software Troubleshooting",
+    "prerequisites": [
+      "C00APLUS_M1"
+    ],
+    "related_doors": [
+      "C13APLUS_M4L1",
+      "C14APLUS_M4L2",
+      "C15APLUS_M4L3"
+    ],
+    "onboarding": {
+      "quick_start": "Learn systematic troubleshooting methodology for software issues",
+      "common_patterns": [
+        "Identify, research, test solutions",
+        "BSOD diagnosis",
+        "Malware removal"
+      ],
+      "known_errors": [
+        "Incomplete malware scans",
+        "Data loss during recovery"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    }
+  },
+  "verification": {
+    "status": "verified",
+    "verified_by": "STRYK",
+    "verified_date": "2025-11-25",
+    "sources": [
+      {
+        "title": "CompTIA A+ Objectives",
+        "url": "https://www.comptia.org/",
+        "accessed": "2025-11-25"
+      }
+    ],
+    "tested_versions": [
+      "Windows 10",
+      "Windows 11"
+    ],
+    "confidence_score": 0.92,
+    "last_audit": "2025-11-25",
+    "audit_notes": "Content verified against CompTIA objectives"
+  },
+  "metadata": {
+    "last_updated": "2025-11-26T14:07:08.452520Z",
+    "version": "1.1.0",
+    "category": "CERTIFICATION",
+    "subcategory": "COMPTIA.MODULE_4",
+    "tags": [
+      "comptia",
+      "a+",
+      "troubleshooting",
+      "malware"
+    ],
+    "agent_affinity": [
+      "VSCC",
+      "DC",
+      "TERMC"
+    ]
+  }
+}

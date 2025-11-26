@@ -1,0 +1,75 @@
+{
+  "door_code": "C06APLUS_M2L2",
+  "semantic_path": "CERTIFICATION.COMPTIA.APLUS.MODULE_2.LESSON_2",
+  "title": "macOS and Mobile Operating Systems",
+  "aliases": [
+    "macos",
+    "ios",
+    "android"
+  ],
+  "context_bundle": {
+    "summary": "macOS and Mobile Operating Systems",
+    "prerequisites": [
+      "C00APLUS_M1"
+    ],
+    "related_doors": [
+      "C05APLUS_M2L1"
+    ],
+    "onboarding": {
+      "quick_start": "Learn macOS, iOS, and Android platform management",
+      "common_patterns": [
+        "macOS recovery",
+        "iOS activation",
+        "Android setup",
+        "MDM basics"
+      ],
+      "known_errors": [
+        "Recovery issues",
+        "Activation locks",
+        "Account problems"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    }
+  },
+  "verification": {
+    "status": "verified",
+    "verified_by": "STRYK",
+    "verified_date": "2025-11-25",
+    "sources": [
+      {
+        "title": "CompTIA A+ Objectives",
+        "url": "https://www.comptia.org/",
+        "accessed": "2025-11-25"
+      }
+    ],
+    "tested_versions": [
+      "Windows 10",
+      "Windows 11"
+    ],
+    "confidence_score": 0.91,
+    "last_audit": "2025-11-25",
+    "audit_notes": "Content verified against CompTIA objectives"
+  },
+  "metadata": {
+    "last_updated": "2025-11-26T14:07:08.452520Z",
+    "version": "1.1.0",
+    "category": "CERTIFICATION",
+    "subcategory": "COMPTIA.MODULE_2",
+    "tags": [
+      "macos",
+      "ios",
+      "android",
+      "mobile"
+    ],
+    "agent_affinity": [
+      "VSCC",
+      "DC",
+      "TERMC"
+    ]
+  }
+}

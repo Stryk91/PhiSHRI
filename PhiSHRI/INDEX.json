@@ -5,8 +5,13 @@
   "description": "The Keymaster's Index System for instant AI agent onboarding",
   "created": "2025-01-18T00:00:00Z",
   "last_updated": "2025-11-21T22:48:43.246668Z",
-  "total_doors": 437,
+  "total_doors": 457,
   "categories": {
+    "CERTIFICATIONS": {
+      "count": 20,
+      "prefix": "CXXX",
+      "description": "Certification preparation and study materials, CompTIA A+, modules, lessons, glossaries, assessments"
+    },
     "WORKFLOWS": {
       "count": 165,
       "prefix": "WXX",

@@ -1,0 +1,71 @@
+{
+  "door_code": "C05APLUS_M2L1",
+  "semantic_path": "CERTIFICATION.COMPTIA.APLUS.MODULE_2.LESSON_1",
+  "title": "Installing and Updating a Linux Operating System",
+  "aliases": [
+    "linux installation",
+    "linux os"
+  ],
+  "context_bundle": {
+    "summary": "Installing and Updating a Linux Operating System",
+    "prerequisites": [
+      "Basic terminal knowledge"
+    ],
+    "related_doors": [
+      "C06APLUS_M2L2"
+    ],
+    "onboarding": {
+      "quick_start": "Learn Linux fundamentals: distributions, installation, terminal commands, and package management",
+      "common_patterns": [
+        "Creating boot media",
+        "Partitioning",
+        "Package managers (apt/yum)"
+      ],
+      "known_errors": [
+        "Bootloader failures",
+        "Repository configuration issues"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    }
+  },
+  "verification": {
+    "status": "verified",
+    "verified_by": "STRYK",
+    "verified_date": "2025-11-25",
+    "sources": [
+      {
+        "title": "CompTIA A+ Objectives",
+        "url": "https://www.comptia.org/",
+        "accessed": "2025-11-25"
+      }
+    ],
+    "tested_versions": [
+      "Windows 10",
+      "Windows 11"
+    ],
+    "confidence_score": 0.92,
+    "last_audit": "2025-11-25",
+    "audit_notes": "Content verified against CompTIA objectives"
+  },
+  "metadata": {
+    "last_updated": "2025-11-26T14:07:08.452520Z",
+    "version": "1.1.0",
+    "category": "CERTIFICATION",
+    "subcategory": "COMPTIA.MODULE_2",
+    "tags": [
+      "linux",
+      "installation",
+      "ubuntu"
+    ],
+    "agent_affinity": [
+      "VSCC",
+      "DC",
+      "TERMC"
+    ]
+  }
+}
