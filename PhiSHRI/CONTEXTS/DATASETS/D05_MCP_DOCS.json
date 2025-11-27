@@ -1,0 +1,61 @@
+{
+  "door_code": "D05_MCP_DOCS",
+  "semantic_path": "DATASETS.MCP.OFFICIAL_DOCS",
+  "aliases": [
+    "mcp_docs",
+    "mcp_documentation",
+    "model_context_protocol_docs",
+    "mcp_tutorials"
+  ],
+  "context_bundle": {
+    "summary": "Official MCP documentation site with tutorials, API references, and architectural guides. Includes weather server tutorial demonstrating Claude Desktop integration. Canonical source for MCP specifications. Backed by Anthropic and OpenAI.",
+    "prerequisites": [],
+    "related_doors": [
+      "D04_MCP_SERVERS",
+      "D06_MCP_IDEAS"
+    ],
+    "onboarding": {
+      "quick_start": "Visit modelcontextprotocol.io for docs. Start with 'Build an MCP server' tutorial. Protocol is open-standard, implementations MIT licensed.",
+      "full_context_path": "https://modelcontextprotocol.io",
+      "common_patterns": [
+        "Building MCP servers from scratch",
+        "Claude Desktop integration",
+        "API reference lookup",
+        "Protocol architecture understanding",
+        "Weather server tutorial walkthrough"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "https://modelcontextprotocol.io",
+        "https://modelcontextprotocol.io/tutorials/building-mcp-servers"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T00:00:00.000000",
+      "confidence": 0.95,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "mcp",
+        "documentation",
+        "tutorial",
+        "api_reference",
+        "anthropic",
+        "openai",
+        "open_standard"
+      ],
+      "category": "DATASETS",
+      "subcategory": "MCP",
+      "version": "1.0",
+      "tested_on": [],
+      "agent_affinity": [],
+      "license": "MIT (implementations)",
+      "backed_by": ["Anthropic", "OpenAI"]
+    }
+  }
+}
