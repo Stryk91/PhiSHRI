@@ -1,0 +1,76 @@
+{
+  "door_code": "D23_MMLU",
+  "semantic_path": "DATASETS.BENCHMARKS.MMLU",
+  "aliases": [
+    "mmlu",
+    "massive_multitask",
+    "knowledge_benchmark",
+    "57_subjects"
+  ],
+  "context_bundle": {
+    "summary": "MMLU - Massive Multitask Language Understanding. 14,000 multiple-choice questions across 57 subjects (STEM, humanities, social sciences, etc.). Tests broad knowledge and reasoning. Fast evaluation. De facto standard for knowledge benchmarking.",
+    "prerequisites": [],
+    "related_doors": [
+      "D21_HUMANEVAL",
+      "D22_GSM8K",
+      "D24_GAIA"
+    ],
+    "onboarding": {
+      "quick_start": "Load from HuggingFace: cais/mmlu. Each question has 4 choices (A/B/C/D). Score by accuracy per subject and overall. Few-shot (5) recommended.",
+      "full_context_path": "https://huggingface.co/datasets/cais/mmlu",
+      "common_patterns": [
+        "Format: Question + 4 choices → predict A/B/C/D",
+        "Few-shot: 5 examples from same subject",
+        "Scoring: Per-subject accuracy + macro average",
+        "Stratified: Easy/Medium/Hard subsets available"
+      ],
+      "known_errors": [
+        "Some questions have disputed answers",
+        "Domain-specific jargon in expert subjects",
+        "A few outdated facts (pre-2021)"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "https://huggingface.co/datasets/cais/mmlu",
+        "https://github.com/hendrycks/test"
+      ],
+      "code": [
+        "https://github.com/hendrycks/test"
+      ],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T00:00:00.000000",
+      "confidence": 0.95,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "benchmark",
+        "knowledge",
+        "multiple_choice",
+        "mmlu",
+        "57_subjects"
+      ],
+      "category": "DATASETS",
+      "subcategory": "BENCHMARKS",
+      "version": "1.0",
+      "tested_on": [],
+      "agent_affinity": [],
+      "benchmark_info": {
+        "questions": 14042,
+        "subjects": 57,
+        "time_estimate": "15-25 minutes",
+        "metric": "Accuracy (%)",
+        "format": "Multiple choice (A/B/C/D)"
+      },
+      "subject_categories": [
+        "STEM: math, physics, chemistry, CS, engineering",
+        "Humanities: history, philosophy, law",
+        "Social Sciences: economics, psychology, politics",
+        "Other: professional exams, miscellaneous"
+      ]
+    }
+  }
+}
