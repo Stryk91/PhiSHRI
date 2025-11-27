@@ -1,0 +1,63 @@
+{
+  "door_code": "D20_JS_BOT_TEMPLATE",
+  "semantic_path": "DATASETS.BOTBATTLE.JAVASCRIPT_STARTER",
+  "aliases": [
+    "js_bot",
+    "javascript_bot",
+    "js_template",
+    "robotrumble_js"
+  ],
+  "context_bundle": {
+    "summary": "JavaScript starter bot template for Robot Rumble with complete implementation: state parsing, distance calculations, target selection, movement logic, and attack coordination. Copy-paste ready.",
+    "prerequisites": [
+      "D14_ROBOTRUMBLE_BASICS"
+    ],
+    "related_doors": [
+      "D15_GRID_TACTICS",
+      "D16_ATTACK_PATTERNS",
+      "D19_PYTHON_BOT_TEMPLATE"
+    ],
+    "onboarding": {
+      "quick_start": "Copy the template, customize strategy. Main entry is robot(state, unit). Return Action.move() or Action.attack(). Focus fire on lowest HP enemy is solid baseline.",
+      "full_context_path": "https://codeclash.ai/arenas/robotrumble/index.html",
+      "common_patterns": [
+        "Use arrow functions for helpers",
+        "Destructure state for cleaner code",
+        "Map/filter/reduce for unit selection",
+        "Return Action object always"
+      ],
+      "known_errors": [
+        "undefined returns forfeit turn",
+        "Check array length before accessing",
+        "Validate direction before move"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "https://codeclash.ai/arenas/robotrumble/index.html"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T00:00:00.000000",
+      "confidence": 0.9,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "javascript",
+        "template",
+        "starter",
+        "bot",
+        "code"
+      ],
+      "category": "DATASETS",
+      "subcategory": "BOTBATTLE",
+      "version": "1.0",
+      "tested_on": [],
+      "agent_affinity": [],
+      "template_code": "// Robot Rumble - JavaScript Starter Bot\n// Adaptive focus-fire strategy\n\nfunction robot(state, unit) {\n  // Get all units\n  const allies = state.objsByTeam(state.ourTeam).filter(u => u.id !== unit.id);\n  const enemies = state.objsByTeam(state.otherTeam);\n  \n  if (enemies.length === 0) {\n    return Action.move(Direction.East); // No enemies, advance\n  }\n  \n  // Helper: Manhattan distance\n  const dist = (a, b) => \n    Math.abs(a.coords.x - b.coords.x) + Math.abs(a.coords.y - b.coords.y);\n  \n  // Find best target (lowest HP, then nearest)\n  const target = enemies.reduce((best, e) => {\n    if (!best) return e;\n    if (e.health < best.health) return e;\n    if (e.health === best.health && dist(unit, e) < dist(unit, best)) return e;\n    return best;\n  }, null);\n  \n  // If adjacent, attack\n  if (dist(unit, target) === 1) {\n    return Action.attack(directionTo(unit.coords, target.coords));\n  }\n  \n  // Otherwise, move toward target\n  return Action.move(directionTo(unit.coords, target.coords));\n}\n\nfunction directionTo(from, to) {\n  const dx = to.x - from.x;\n  const dy = to.y - from.y;\n  \n  // Prefer larger delta\n  if (Math.abs(dx) >= Math.abs(dy)) {\n    return dx > 0 ? Direction.East : Direction.West;\n  } else {\n    return dy > 0 ? Direction.North : Direction.South;\n  }\n}"
+    }
+  }
+}
