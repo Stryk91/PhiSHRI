@@ -1,0 +1,71 @@
+{
+  "door_code": "D21_HUMANEVAL",
+  "semantic_path": "DATASETS.BENCHMARKS.HUMANEVAL",
+  "aliases": [
+    "humaneval",
+    "human_eval",
+    "openai_humaneval",
+    "code_benchmark"
+  ],
+  "context_bundle": {
+    "summary": "HumanEval - OpenAI's code generation benchmark. 164 hand-written Python programming problems with unit tests. Tests function synthesis from docstrings. Fast to run (~10 min). Industry standard for code LLM evaluation. Pass@k metric.",
+    "prerequisites": [],
+    "related_doors": [
+      "D22_GSM8K",
+      "D23_MMLU"
+    ],
+    "onboarding": {
+      "quick_start": "pip install human-eval. Load from HuggingFace: openai/openai_humaneval. Generate function body from docstring, run tests. Report pass@1, pass@10, pass@100.",
+      "full_context_path": "https://github.com/openai/human-eval",
+      "common_patterns": [
+        "Load problem: prompt contains docstring + signature",
+        "Generate: Complete the function body",
+        "Test: Run against hidden unit tests",
+        "Score: pass@k = % solved in k attempts"
+      ],
+      "known_errors": [
+        "Sandbox required - generated code is executed",
+        "Some problems have ambiguous specs",
+        "Timeout issues with inefficient solutions"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "https://github.com/openai/human-eval",
+        "https://huggingface.co/datasets/openai_humaneval"
+      ],
+      "code": [
+        "https://github.com/openai/human-eval"
+      ],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T00:00:00.000000",
+      "confidence": 0.95,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "benchmark",
+        "code",
+        "python",
+        "openai",
+        "humaneval",
+        "function_synthesis"
+      ],
+      "category": "DATASETS",
+      "subcategory": "BENCHMARKS",
+      "version": "1.0",
+      "tested_on": [],
+      "agent_affinity": [],
+      "benchmark_info": {
+        "problems": 164,
+        "language": "Python",
+        "time_estimate": "10-15 minutes",
+        "metric": "pass@k",
+        "difficulty": "Medium"
+      },
+      "run_command": "evaluate_functional_correctness samples.jsonl"
+    }
+  }
+}
