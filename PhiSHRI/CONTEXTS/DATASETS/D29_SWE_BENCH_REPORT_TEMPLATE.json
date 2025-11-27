@@ -1,0 +1,107 @@
+{
+  "door_code": "D29_SWE_BENCH_REPORT_TEMPLATE",
+  "semantic_path": "DATASETS.BENCHMARKS.SWE_BENCH_TEMPLATE",
+  "aliases": [
+    "swe_report_template",
+    "bench_report",
+    "run_report_template",
+    "post_run_doc"
+  ],
+  "context_bundle": {
+    "summary": "Standard template for documenting SWE-bench runs. Fill out after each instance attempt. Captures: instance info, timeline phases, metrics (tool calls, blockers, second-guesses), lessons learned. Feeds into dashboard and PhiSHRI knowledge base.",
+    "prerequisites": [
+      "D28_SWE_BENCH_RUN_REPORT"
+    ],
+    "related_doors": [
+      "D21_HUMANEVAL",
+      "D26_SESSION_DUMP"
+    ],
+    "onboarding": {
+      "quick_start": "After completing SWE-bench instance: 1) Copy template. 2) Fill in all sections. 3) Save to reports/ folder. 4) Dashboard auto-updates from JSON. 5) Valuable patterns become doors.",
+      "full_context_path": "PhiSHRI/reports/swe-bench/",
+      "common_patterns": [
+        "Fill template immediately after run (context fresh)",
+        "Be honest about blockers and second-guesses",
+        "Note tools that helped vs hindered",
+        "Capture the 'aha' moment if there was one"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T00:00:00.000000",
+      "confidence": 0.9,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "template",
+        "swe_bench",
+        "reporting",
+        "metrics",
+        "dashboard"
+      ],
+      "category": "DATASETS",
+      "subcategory": "BENCHMARKS",
+      "version": "1.0",
+      "tested_on": [],
+      "agent_affinity": [],
+      "report_template_json": {
+        "instance": {
+          "instance_id": "",
+          "repo": "",
+          "version": "",
+          "base_commit": "",
+          "difficulty": "Easy|Medium|Hard",
+          "language": "Python|JavaScript|Java|etc",
+          "category": "regex|api|db|ui|test|etc"
+        },
+        "result": {
+          "status": "SOLVED|FAILED|PARTIAL|TIMEOUT",
+          "patch_accuracy": "0-100%",
+          "match_type": "exact|partial|wrong"
+        },
+        "metrics": {
+          "duration_minutes": 0,
+          "total_tool_calls": 0,
+          "blockers_hit": 0,
+          "second_guesses": 0,
+          "tokens_estimated": 0
+        },
+        "phases": {
+          "selection": {"duration_min": 0, "tool_calls": 0, "blockers": []},
+          "analysis": {"duration_min": 0, "tool_calls": 0, "blockers": []},
+          "setup": {"duration_min": 0, "tool_calls": 0, "blockers": []},
+          "implementation": {"duration_min": 0, "tool_calls": 0, "blockers": []},
+          "testing": {"duration_min": 0, "tool_calls": 0, "blockers": []}
+        },
+        "tools_used": {
+          "tool_name": "count"
+        },
+        "blockers": [
+          {"type": "", "description": "", "resolution": "", "time_lost_min": 0}
+        ],
+        "lessons": [],
+        "new_patterns": [],
+        "files_modified": [],
+        "would_do_differently": ""
+      },
+      "report_template_markdown": "# SWE-Bench Report: {instance_id}\n\n## Instance Summary\n| Field | Value |\n|-------|-------|\n| **Instance ID** | {instance_id} |\n| **Repository** | {repo} |\n| **Version** | {version} |\n| **Language** | {language} |\n| **Difficulty** | {difficulty} |\n| **Result** | {status} |\n\n## Problem\n{problem_description}\n\n## Solution\n{solution_description}\n\n---\n\n## Timeline & Metrics\n\n### Phase 1: Instance Selection\n| Metric | Value |\n|--------|-------|\n| **Duration** | {selection_duration} |\n| **Tool Calls** | {selection_tools} |\n| **Blockers** | {selection_blockers} |\n\n### Phase 2: Problem Analysis\n| Metric | Value |\n|--------|-------|\n| **Duration** | {analysis_duration} |\n| **Tool Calls** | {analysis_tools} |\n| **Blockers** | {analysis_blockers} |\n\n### Phase 3: Repository Setup\n| Metric | Value |\n|--------|-------|\n| **Duration** | {setup_duration} |\n| **Tool Calls** | {setup_tools} |\n| **Blockers** | {setup_blockers} |\n\n### Phase 4: Fix Implementation\n| Metric | Value |\n|--------|-------|\n| **Duration** | {impl_duration} |\n| **Tool Calls** | {impl_tools} |\n| **Blockers** | {impl_blockers} |\n\n### Phase 5: Test Verification\n| Metric | Value |\n|--------|-------|\n| **Duration** | {test_duration} |\n| **Tool Calls** | {test_tools} |\n| **Blockers** | {test_blockers} |\n\n---\n\n## Aggregate Metrics\n\n| Metric | Value |\n|--------|-------|\n| **Total Duration** | {total_duration} |\n| **Total Tool Calls** | {total_tools} |\n| **Blockers Hit** | {total_blockers} |\n| **Second-guesses** | {second_guesses} |\n| **Patch Accuracy** | {accuracy} |\n\n### Tool Usage Breakdown\n| Tool | Count | Purpose |\n|------|-------|--------|\n| {tool} | {count} | {purpose} |\n\n---\n\n## Lessons Learned\n\n### What Worked\n{what_worked}\n\n### What Didn't Work\n{what_failed}\n\n### Recommendations\n{recommendations}\n\n---\n\n## Files Modified\n{files_list}\n\n## Verification\n- [ ] Diff matches gold patch\n- [ ] Tests pass\n- [ ] No regressions",
+      "dashboard_fields": [
+        "instance_id",
+        "repo",
+        "language",
+        "difficulty",
+        "status",
+        "duration_minutes",
+        "tool_calls",
+        "blockers_hit",
+        "patch_accuracy"
+      ]
+    }
+  }
+}
