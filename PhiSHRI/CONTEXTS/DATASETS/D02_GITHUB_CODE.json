@@ -1,0 +1,59 @@
+{
+  "door_code": "D02_GITHUB_CODE",
+  "semantic_path": "DATASETS.CODE.GITHUB_CODE",
+  "aliases": [
+    "github_code",
+    "codeparrot_github",
+    "github_dataset",
+    "hf_github_code"
+  ],
+  "context_bundle": {
+    "summary": "Massive dataset of 115 million code files from public GitHub repos across 32 programming languages (~1TB). Each file tagged with repo name, file path, language, size, and license. Widely used for training LLMs like CodeParrot. Supports streaming via Hugging Face datasets library.",
+    "prerequisites": [],
+    "related_doors": [
+      "D01_CODENET",
+      "D03_MCEVAL"
+    ],
+    "onboarding": {
+      "quick_start": "Access via Hugging Face: huggingface.co/datasets/codeparrot/github-code. Use streaming to avoid full download. Filter by permissive licenses (MIT, Apache-2.0).",
+      "full_context_path": "https://huggingface.co/datasets/codeparrot/github-code",
+      "common_patterns": [
+        "LLM code training data",
+        "Language-specific model fine-tuning",
+        "Code completion model training",
+        "License-filtered dataset creation"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "https://huggingface.co/datasets/codeparrot/github-code"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T00:00:00.000000",
+      "confidence": 0.95,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "dataset",
+        "code",
+        "github",
+        "huggingface",
+        "llm_training",
+        "multilingual",
+        "streaming"
+      ],
+      "category": "DATASETS",
+      "subcategory": "CODE",
+      "version": "1.0",
+      "tested_on": [],
+      "agent_affinity": [],
+      "license": "Mixed (per-file license tags)",
+      "size": "115M files, 1TB, 32 languages"
+    }
+  }
+}
