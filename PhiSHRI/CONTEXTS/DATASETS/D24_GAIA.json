@@ -1,0 +1,82 @@
+{
+  "door_code": "D24_GAIA",
+  "semantic_path": "DATASETS.BENCHMARKS.GAIA_AGENT",
+  "aliases": [
+    "gaia",
+    "gaia_benchmark",
+    "agent_benchmark",
+    "assistant_eval"
+  ],
+  "context_bundle": {
+    "summary": "GAIA - General AI Assistants benchmark. 466 real-world questions requiring web browsing, file handling, and multi-step reasoning. Tests practical agent capability. Three difficulty levels. Humans score ~92%, best AI ~70%. Created by Meta/HuggingFace.",
+    "prerequisites": [],
+    "related_doors": [
+      "D21_HUMANEVAL",
+      "D22_GSM8K",
+      "D23_MMLU"
+    ],
+    "onboarding": {
+      "quick_start": "Load from HuggingFace: gaia-benchmark/GAIA. Requires tool use: web search, file reading, calculation. Answer is exact string match. Level 1 (easy) → Level 3 (hard).",
+      "full_context_path": "https://huggingface.co/datasets/gaia-benchmark/GAIA",
+      "common_patterns": [
+        "Web search: Many questions need current info",
+        "File handling: PDFs, spreadsheets, images",
+        "Multi-step: Chain multiple tools together",
+        "Exact match: Answers must be precise strings"
+      ],
+      "known_errors": [
+        "Some answers may be time-sensitive",
+        "File attachments required for some questions",
+        "Web access needed for many tasks"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "https://huggingface.co/datasets/gaia-benchmark/GAIA",
+        "https://huggingface.co/spaces/gaia-benchmark/leaderboard"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T00:00:00.000000",
+      "confidence": 0.9,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "benchmark",
+        "agent",
+        "gaia",
+        "tool_use",
+        "web_browsing",
+        "real_world"
+      ],
+      "category": "DATASETS",
+      "subcategory": "BENCHMARKS",
+      "version": "1.0",
+      "tested_on": [],
+      "agent_affinity": [],
+      "benchmark_info": {
+        "questions": 466,
+        "levels": {
+          "level_1": "Simple, 1-2 steps",
+          "level_2": "Medium, 3-5 steps",
+          "level_3": "Hard, 6+ steps, multi-tool"
+        },
+        "time_estimate": "1-2 hours",
+        "metric": "Exact match accuracy",
+        "human_baseline": "92%",
+        "best_ai": "~70% (GPT-4 + tools)"
+      },
+      "required_tools": [
+        "Web search",
+        "Web browsing",
+        "File reading (PDF, Excel, CSV)",
+        "Image analysis",
+        "Calculator",
+        "Code execution"
+      ]
+    }
+  }
+}
