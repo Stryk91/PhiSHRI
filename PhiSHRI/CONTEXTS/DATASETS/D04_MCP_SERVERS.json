@@ -1,0 +1,63 @@
+{
+  "door_code": "D04_MCP_SERVERS",
+  "semantic_path": "DATASETS.MCP.OFFICIAL_SERVERS",
+  "aliases": [
+    "mcp_servers",
+    "model_context_protocol_servers",
+    "mcp_reference_impl",
+    "official_mcp"
+  ],
+  "context_bundle": {
+    "summary": "Official GitHub repository for MCP (Model Context Protocol) reference server implementations. Maintained by MCP steering group. Includes servers for filesystem access, Git repos, web fetch, time/date, memory persistence. Built with official SDKs for Python, TypeScript, Java, Rust.",
+    "prerequisites": [],
+    "related_doors": [
+      "D05_MCP_DOCS",
+      "D06_MCP_IDEAS"
+    ],
+    "onboarding": {
+      "quick_start": "Clone: github.com/modelcontextprotocol/servers. MIT licensed. 73.4k+ stars. Ready-to-use server implementations for connecting LLMs to external tools.",
+      "full_context_path": "https://github.com/modelcontextprotocol/servers",
+      "common_patterns": [
+        "Filesystem MCP server setup",
+        "Git repository integration",
+        "Web content fetching for LLMs",
+        "Memory/state persistence",
+        "Multi-language SDK usage"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "https://github.com/modelcontextprotocol/servers",
+        "https://modelcontextprotocol.io"
+      ],
+      "code": [
+        "https://github.com/modelcontextprotocol/servers"
+      ],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T00:00:00.000000",
+      "confidence": 0.95,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "mcp",
+        "model_context_protocol",
+        "llm_tools",
+        "reference_implementation",
+        "anthropic",
+        "openai"
+      ],
+      "category": "DATASETS",
+      "subcategory": "MCP",
+      "version": "1.0",
+      "tested_on": [],
+      "agent_affinity": [],
+      "license": "MIT",
+      "github_stars": "73.4k+",
+      "sdks": ["Python", "TypeScript", "Java", "Rust"]
+    }
+  }
+}
