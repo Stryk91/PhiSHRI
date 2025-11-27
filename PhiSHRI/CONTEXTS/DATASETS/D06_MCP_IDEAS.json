@@ -1,0 +1,59 @@
+{
+  "door_code": "D06_MCP_IDEAS",
+  "semantic_path": "DATASETS.MCP.COMMUNITY_IDEAS",
+  "aliases": [
+    "mcp_ideas",
+    "mcp_examples",
+    "30_mcp_ideas",
+    "mcp_source_code"
+  ],
+  "context_bundle": {
+    "summary": "Community guide presenting 30+ practical MCP server ideas with complete source code and live demos. Examples include GitHub, Slack, weather API integrations. Shows how to securely expose external tools to LLMs using MCP. Published 2025.",
+    "prerequisites": [],
+    "related_doors": [
+      "D04_MCP_SERVERS",
+      "D05_MCP_DOCS"
+    ],
+    "onboarding": {
+      "quick_start": "Browse dev.to/mcp-ideas for 30+ ready-to-use MCP server examples. Each includes source code, deployment guidance. MIT licensed repos.",
+      "full_context_path": "https://dev.to/",
+      "common_patterns": [
+        "GitHub integration MCP server",
+        "Slack integration MCP server",
+        "Weather API MCP server",
+        "Secure tool exposure to LLMs",
+        "Deployment best practices"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "https://dev.to/"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T00:00:00.000000",
+      "confidence": 0.85,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "mcp",
+        "examples",
+        "community",
+        "source_code",
+        "tutorials",
+        "integrations"
+      ],
+      "category": "DATASETS",
+      "subcategory": "MCP",
+      "version": "1.0",
+      "tested_on": [],
+      "agent_affinity": [],
+      "license": "MIT (individual repos)",
+      "examples_count": "30+"
+    }
+  }
+}
