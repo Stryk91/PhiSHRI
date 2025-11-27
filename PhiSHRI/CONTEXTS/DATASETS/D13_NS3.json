@@ -1,0 +1,64 @@
+{
+  "door_code": "D13_NS3",
+  "semantic_path": "DATASETS.NETWORKING.NS3_SIMULATOR",
+  "aliases": [
+    "ns3",
+    "ns_3",
+    "network_simulator_3",
+    "discrete_event_simulator"
+  ],
+  "context_bundle": {
+    "summary": "NS-3 - Industry-standard discrete-event network simulator for research and education. Built-in models for TCP Reno, Cubic, BBR and other congestion control algorithms. Full-stack simulation of network topologies, traffic, and routing. Python and C++ scripting support.",
+    "prerequisites": [],
+    "related_doors": [
+      "D10_PCC_RL",
+      "D11_TCP_MECHANISMS",
+      "D12_TCP_EXPERIMENTS"
+    ],
+    "onboarding": {
+      "quick_start": "Download from nsnam.org. GPLv2 licensed. Extensive documentation and tutorials. Script simulations in Python or C++.",
+      "full_context_path": "https://www.nsnam.org/",
+      "common_patterns": [
+        "Network topology simulation",
+        "Congestion control algorithm testing",
+        "Traffic pattern analysis",
+        "Protocol development and validation"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "https://www.nsnam.org/",
+        "https://www.nsnam.org/documentation/"
+      ],
+      "code": [
+        "https://gitlab.com/nsnam/ns-3-dev"
+      ],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T00:00:00.000000",
+      "confidence": 0.95,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "networking",
+        "simulator",
+        "ns3",
+        "discrete_event",
+        "research",
+        "tcp",
+        "academic"
+      ],
+      "category": "DATASETS",
+      "subcategory": "NETWORKING",
+      "version": "1.0",
+      "tested_on": [],
+      "agent_affinity": [],
+      "license": "GPLv2",
+      "languages": ["Python", "C++"],
+      "type": "simulator"
+    }
+  }
+}
