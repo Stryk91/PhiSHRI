@@ -1,0 +1,63 @@
+{
+  "door_code": "D19_PYTHON_BOT_TEMPLATE",
+  "semantic_path": "DATASETS.BOTBATTLE.PYTHON_STARTER",
+  "aliases": [
+    "python_bot",
+    "python_template",
+    "starter_bot",
+    "robotrumble_python"
+  ],
+  "context_bundle": {
+    "summary": "Python starter bot template for Robot Rumble with complete implementation: state parsing, distance calculations, target selection, movement logic, and attack coordination. Copy-paste ready.",
+    "prerequisites": [
+      "D14_ROBOTRUMBLE_BASICS"
+    ],
+    "related_doors": [
+      "D15_GRID_TACTICS",
+      "D16_ATTACK_PATTERNS",
+      "D20_JS_BOT_TEMPLATE"
+    ],
+    "onboarding": {
+      "quick_start": "Copy the template, customize the strategy functions. Main entry point is robot() which returns Action. Focus fire on nearest enemy is a solid baseline.",
+      "full_context_path": "https://codeclash.ai/arenas/robotrumble/index.html",
+      "common_patterns": [
+        "Parse state in init_turn()",
+        "Select target in choose_target()",
+        "Decide action in robot() main function",
+        "Return Action.move() or Action.attack()"
+      ],
+      "known_errors": [
+        "Don't return None - always return an Action",
+        "Check bounds before moving",
+        "Verify target exists before attacking"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "https://codeclash.ai/arenas/robotrumble/index.html"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T00:00:00.000000",
+      "confidence": 0.9,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "python",
+        "template",
+        "starter",
+        "bot",
+        "code"
+      ],
+      "category": "DATASETS",
+      "subcategory": "BOTBATTLE",
+      "version": "1.0",
+      "tested_on": [],
+      "agent_affinity": [],
+      "template_code": "# Robot Rumble - Python Starter Bot\n# Adaptive focus-fire strategy\n\ndef robot(state, unit):\n    \"\"\"Main entry point - called each turn for each robot.\"\"\"\n    \n    # Get all units\n    allies = [u for u in state.objs_by_team(state.our_team) if u.id != unit.id]\n    enemies = list(state.objs_by_team(state.other_team))\n    \n    if not enemies:\n        return Action.move(Direction.East)  # No enemies, advance\n    \n    # Helper: Manhattan distance\n    def dist(a, b):\n        return abs(a.coords.x - b.coords.x) + abs(a.coords.y - b.coords.y)\n    \n    # Find best target (lowest HP, then nearest)\n    target = min(enemies, key=lambda e: (e.health, dist(unit, e)))\n    \n    # If adjacent, attack\n    if dist(unit, target) == 1:\n        direction = direction_to(unit.coords, target.coords)\n        return Action.attack(direction)\n    \n    # Otherwise, move toward target\n    return Action.move(direction_to(unit.coords, target.coords))\n\ndef direction_to(from_pos, to_pos):\n    \"\"\"Get direction from one position toward another.\"\"\"\n    dx = to_pos.x - from_pos.x\n    dy = to_pos.y - from_pos.y\n    \n    # Prefer larger delta\n    if abs(dx) >= abs(dy):\n        return Direction.East if dx > 0 else Direction.West\n    else:\n        return Direction.North if dy > 0 else Direction.South"
+    }
+  }
+}
