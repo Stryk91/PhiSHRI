@@ -1,0 +1,62 @@
+{
+  "door_code": "D10_PCC_RL",
+  "semantic_path": "DATASETS.NETWORKING.PCC_RL_CONGESTION",
+  "aliases": [
+    "pcc_rl",
+    "pcc_reinforcement_learning",
+    "congestion_control_rl",
+    "performance_oriented_cc"
+  ],
+  "context_bundle": {
+    "summary": "PCC-RL - Open-source reinforcement learning framework for designing and testing TCP congestion control algorithms. Implements Performance-oriented Congestion Control (PCC) model, learns optimal sending rates via RL. Built on OpenAI Gym for customizable network environments.",
+    "prerequisites": [],
+    "related_doors": [
+      "D11_TCP_MECHANISMS",
+      "D12_TCP_EXPERIMENTS",
+      "D13_NS3"
+    ],
+    "onboarding": {
+      "quick_start": "Clone: github.com/PCCproject/PCC-RL. MIT licensed. Compare against Reno, Cubic, BBR. Uses OpenAI Gym for RL training environments.",
+      "full_context_path": "https://github.com/PCCproject/PCC-RL",
+      "common_patterns": [
+        "RL-based congestion control training",
+        "Algorithm comparison benchmarks",
+        "Custom network environment setup",
+        "Sending rate optimization"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "https://github.com/PCCproject/PCC-RL"
+      ],
+      "code": [
+        "https://github.com/PCCproject/PCC-RL",
+        "https://github.com/PCCproject/PCC-Uspace"
+      ],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T00:00:00.000000",
+      "confidence": 0.9,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "networking",
+        "tcp",
+        "congestion_control",
+        "reinforcement_learning",
+        "pcc",
+        "openai_gym"
+      ],
+      "category": "DATASETS",
+      "subcategory": "NETWORKING",
+      "version": "1.0",
+      "tested_on": [],
+      "agent_affinity": [],
+      "license": "MIT",
+      "framework": "OpenAI Gym"
+    }
+  }
+}
