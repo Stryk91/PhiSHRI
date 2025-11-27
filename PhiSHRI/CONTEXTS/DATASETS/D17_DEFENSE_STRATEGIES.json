@@ -1,0 +1,69 @@
+{
+  "door_code": "D17_DEFENSE_STRATEGIES",
+  "semantic_path": "DATASETS.BOTBATTLE.DEFENSIVE_PLAY",
+  "aliases": [
+    "defense_strategies",
+    "retreat_tactics",
+    "survival",
+    "kiting"
+  ],
+  "context_bundle": {
+    "summary": "Defensive strategies for Robot Rumble: retreat mechanics, kiting patterns, protective formations, HP management, and survival-focused play for outnumbered situations or late-game advantage.",
+    "prerequisites": [
+      "D14_ROBOTRUMBLE_BASICS",
+      "D15_GRID_TACTICS"
+    ],
+    "related_doors": [
+      "D16_ATTACK_PATTERNS"
+    ],
+    "onboarding": {
+      "quick_start": "Kite: Attack then retreat. Protect low HP units behind healthy ones. Retreat when outnumbered locally. Trade efficiently (deal more damage than you take). Corner defense late game.",
+      "full_context_path": "https://codeclash.ai/arenas/robotrumble/index.html",
+      "common_patterns": [
+        "Kiting: Hit and run - attack then move away",
+        "Screening: Healthy robots protect wounded ones",
+        "Retreat trigger: Fall back when HP < 30%",
+        "Corner defense: Back against walls reduces attack angles",
+        "Regrouping: Scattered units move toward allies"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T00:00:00.000000",
+      "confidence": 0.85,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "defense",
+        "retreat",
+        "kiting",
+        "survival",
+        "formations",
+        "hp_management"
+      ],
+      "category": "DATASETS",
+      "subcategory": "BOTBATTLE",
+      "version": "1.0",
+      "tested_on": [],
+      "agent_affinity": [],
+      "retreat_conditions": [
+        "HP below threshold (e.g., 30%)",
+        "Outnumbered 2:1 or worse locally",
+        "No allies within support range",
+        "Enemy has positional advantage"
+      ],
+      "code_snippets": {
+        "should_retreat": "my_hp < max_hp * 0.3 or local_enemies > local_allies",
+        "kite_direction": "opposite_direction(nearest_enemy)",
+        "find_cover": "move_toward(nearest_wall_or_ally)",
+        "screen_formation": "wounded.move_behind(healthy)"
+      }
+    }
+  }
+}
