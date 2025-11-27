@@ -1,0 +1,60 @@
+{
+  "door_code": "D12_TCP_EXPERIMENTS",
+  "semantic_path": "DATASETS.NETWORKING.TCP_HANDSON_GUIDE",
+  "aliases": [
+    "tcp_experiments",
+    "dip_singh_tcp",
+    "tcp_linux_testing",
+    "congestion_control_handson"
+  ],
+  "context_bundle": {
+    "summary": "Hands-on blog and experiment series comparing TCP Reno, Cubic, and BBR under real Linux network conditions. Includes shell scripts, network configuration steps, and performance metrics. Practical for learning and reproducing experiments.",
+    "prerequisites": [],
+    "related_doors": [
+      "D10_PCC_RL",
+      "D11_TCP_MECHANISMS",
+      "D13_NS3"
+    ],
+    "onboarding": {
+      "quick_start": "Follow Dip Singh's blog for real-world TCP experiments on Linux. MIT licensed scripts. Reproduce Reno vs Cubic vs BBR comparisons.",
+      "full_context_path": "https://dipsingh.dev/tcp-congestion-control/",
+      "common_patterns": [
+        "Linux network configuration",
+        "Real-world performance testing",
+        "Shell script automation",
+        "Metric collection and analysis"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "https://dipsingh.dev/tcp-congestion-control/"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T00:00:00.000000",
+      "confidence": 0.85,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "networking",
+        "tcp",
+        "reno",
+        "cubic",
+        "bbr",
+        "linux",
+        "hands_on"
+      ],
+      "category": "DATASETS",
+      "subcategory": "NETWORKING",
+      "version": "1.0",
+      "tested_on": ["Linux"],
+      "agent_affinity": [],
+      "license": "MIT",
+      "type": "tutorial"
+    }
+  }
+}
