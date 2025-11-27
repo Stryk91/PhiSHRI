@@ -1,0 +1,334 @@
+{
+  "door_code": "F02DJANGO_ERRORS",
+  "semantic_path": "FRAMEWORKS.DJANGO.ERRORS",
+  "aliases": [
+    "django_errors",
+    "django_exceptions",
+    "django_debug",
+    "django_traceback"
+  ],
+  "context_bundle": {
+    "summary": "Django-specific errors, exceptions, and their solutions. Covers ORM errors, view errors, template errors, migration issues, and configuration problems. Critical for SWE-bench Django debugging.",
+    "prerequisites": ["F01DJANGO_PATTERNS", "L60PYTHON_COMMON_ERRORS"],
+    "related_doors": ["F01DJANGO_PATTERNS"],
+    "onboarding": {
+      "quick_start": "Django errors often stem from: ORM misuse (DoesNotExist, MultipleObjectsReturned), configuration (ImproperlyConfigured), templates (TemplateSyntaxError), or migrations (schema mismatches).",
+      "orm_errors": {
+        "DoesNotExist": {
+          "traceback": "app.models.Model.DoesNotExist: Model matching query does not exist",
+          "causes": [
+            ".get() with no matching object",
+            "Related object deleted (ForeignKey)",
+            "Wrong filter conditions"
+          ],
+          "fixes": [
+            "Use .filter().first() instead of .get() when object might not exist",
+            "Use get_object_or_404() in views",
+            "Use try/except Model.DoesNotExist",
+            "Check filter conditions match data"
+          ],
+          "pattern": "# Safe patterns\nobj = Model.objects.filter(pk=id).first()  # Returns None\nobj = get_object_or_404(Model, pk=id)  # Returns 404 response\n\ntry:\n    obj = Model.objects.get(pk=id)\nexcept Model.DoesNotExist:\n    obj = None"
+        },
+        "MultipleObjectsReturned": {
+          "traceback": "app.models.Model.MultipleObjectsReturned: get() returned more than one Model",
+          "causes": [
+            ".get() matches multiple objects",
+            "Non-unique field used as identifier",
+            "Data integrity issue (duplicates)"
+          ],
+          "fixes": [
+            "Add .first() to get single result",
+            "Add unique=True to field if should be unique",
+            "Fix duplicate data in database",
+            "Use more specific filter conditions"
+          ]
+        },
+        "FieldError": {
+          "traceback": "django.core.exceptions.FieldError: Cannot resolve keyword 'xxx' into field",
+          "causes": [
+            "Typo in field name",
+            "Field doesn't exist on model",
+            "Wrong related name",
+            "Trying to filter on method, not field"
+          ],
+          "fixes": [
+            "Check model definition for exact field names",
+            "Use _meta.get_fields() to list available fields",
+            "Check related_name for ForeignKey/M2M",
+            "Annotate computed values before filtering"
+          ]
+        },
+        "FieldDoesNotExist": {
+          "traceback": "django.core.exceptions.FieldDoesNotExist",
+          "causes": [
+            "Accessing field that doesn't exist",
+            "Migration not applied",
+            "Model changed but not reflected"
+          ],
+          "fixes": [
+            "Run makemigrations and migrate",
+            "Verify field exists in model",
+            "Check for model inheritance issues"
+          ]
+        },
+        "IntegrityError": {
+          "traceback": "django.db.IntegrityError: UNIQUE constraint failed / NOT NULL constraint failed / FOREIGN KEY constraint failed",
+          "causes": {
+            "UNIQUE": "Duplicate value for unique field",
+            "NOT_NULL": "None/null for required field",
+            "FOREIGN_KEY": "Referenced object doesn't exist"
+          },
+          "fixes": {
+            "UNIQUE": "Check existing data before insert, use get_or_create()",
+            "NOT_NULL": "Provide default value or make field nullable",
+            "FOREIGN_KEY": "Create related object first, or use on_delete=SET_NULL"
+          },
+          "pattern": "# Safe create with unique field\nobj, created = Model.objects.get_or_create(\n    unique_field=value,\n    defaults={'other_field': other_value}\n)"
+        },
+        "OperationalError": {
+          "traceback": "django.db.utils.OperationalError: no such table / no such column",
+          "causes": [
+            "Migrations not applied",
+            "Database out of sync with models",
+            "Wrong database configured"
+          ],
+          "fixes": [
+            "python manage.py migrate",
+            "python manage.py makemigrations",
+            "Check DATABASES in settings.py",
+            "Delete db.sqlite3 and re-migrate (dev only)"
+          ]
+        },
+        "ProgrammingError": {
+          "traceback": "django.db.utils.ProgrammingError: column does not exist / relation does not exist",
+          "causes": [
+            "PostgreSQL: migration not applied",
+            "Schema changed outside Django",
+            "Wrong database"
+          ],
+          "fixes": [
+            "Run migrate",
+            "Check database schema matches models",
+            "Fake migration if schema matches: python manage.py migrate --fake"
+          ]
+        }
+      },
+      "view_errors": {
+        "Http404": {
+          "traceback": "django.http.Http404",
+          "causes": [
+            "get_object_or_404() with no match",
+            "Explicitly raised in view",
+            "URL matches but object missing"
+          ],
+          "fixes": [
+            "Check filter conditions",
+            "Verify object exists in database",
+            "Check URL parameters being passed"
+          ]
+        },
+        "PermissionDenied": {
+          "traceback": "django.core.exceptions.PermissionDenied",
+          "causes": [
+            "User lacks required permission",
+            "Permission check in view failed",
+            "CSRF verification failed"
+          ],
+          "fixes": [
+            "Check user permissions",
+            "Add @permission_required decorator",
+            "Ensure CSRF token in forms"
+          ]
+        },
+        "SuspiciousOperation": {
+          "traceback": "django.core.exceptions.SuspiciousOperation",
+          "causes": [
+            "Invalid session data",
+            "Tampered cookies",
+            "Invalid file path"
+          ],
+          "fixes": [
+            "Clear session/cookies",
+            "Check file upload handling",
+            "Verify no path traversal"
+          ]
+        },
+        "BadRequest": {
+          "traceback": "django.core.exceptions.BadRequest (Django 3.2+)",
+          "causes": [
+            "Invalid request data",
+            "Malformed JSON",
+            "Missing required parameters"
+          ],
+          "fixes": [
+            "Validate input data",
+            "Check Content-Type header",
+            "Handle JSON decode errors"
+          ]
+        }
+      },
+      "template_errors": {
+        "TemplateSyntaxError": {
+          "traceback": "django.template.exceptions.TemplateSyntaxError",
+          "causes": [
+            "Invalid template tag syntax",
+            "Unclosed block tags",
+            "Unknown template tag/filter",
+            "Wrong number of arguments"
+          ],
+          "fixes": [
+            "Check {% %} tag syntax",
+            "Ensure {% endif %}, {% endfor %}, etc. present",
+            "Load required template tags: {% load static %}",
+            "Check filter syntax: {{ var|filter:arg }}"
+          ],
+          "common_mistakes": [
+            "{% if condition %} missing : → no colon in Django templates",
+            "{{ var.method }} missing () → Django auto-calls",
+            "{% url name %} missing quotes → {% url 'name' %}",
+            "{% static path %} → {% static 'path' %}"
+          ]
+        },
+        "TemplateDoesNotExist": {
+          "traceback": "django.template.exceptions.TemplateDoesNotExist: template_name.html",
+          "causes": [
+            "Template file missing",
+            "Wrong template path",
+            "App not in INSTALLED_APPS",
+            "TEMPLATES DIRS not configured"
+          ],
+          "fixes": [
+            "Create template file in app/templates/app/",
+            "Check template_name in view",
+            "Add app to INSTALLED_APPS",
+            "Configure TEMPLATES['DIRS'] in settings"
+          ],
+          "pattern": "# Convention: app/templates/app/template.html\n# Then reference as: 'app/template.html'"
+        },
+        "VariableDoesNotExist": {
+          "traceback": "django.template.base.VariableDoesNotExist",
+          "causes": [
+            "Variable not passed to context",
+            "Typo in variable name",
+            "Attribute doesn't exist"
+          ],
+          "fixes": [
+            "Check render() context dict",
+            "Use {{ var|default:'fallback' }}",
+            "Set TEMPLATES string_if_invalid for debugging"
+          ]
+        }
+      },
+      "configuration_errors": {
+        "ImproperlyConfigured": {
+          "traceback": "django.core.exceptions.ImproperlyConfigured",
+          "causes": [
+            "Missing required setting",
+            "Invalid configuration value",
+            "SECRET_KEY not set",
+            "Database misconfigured"
+          ],
+          "common_messages": {
+            "SECRET_KEY": "Set SECRET_KEY in settings or environment",
+            "DATABASES": "Check database configuration, install db driver",
+            "ALLOWED_HOSTS": "Add domain to ALLOWED_HOSTS in production",
+            "INSTALLED_APPS": "Add app to INSTALLED_APPS"
+          }
+        },
+        "AppRegistryNotReady": {
+          "traceback": "django.core.exceptions.AppRegistryNotReady: Apps aren't loaded yet",
+          "causes": [
+            "Importing models before django.setup()",
+            "Circular import at startup",
+            "Script not using manage.py"
+          ],
+          "fixes": [
+            "Call django.setup() in standalone scripts",
+            "Move imports inside functions",
+            "Use manage.py shell for testing"
+          ],
+          "pattern": "# Standalone script\nimport django\ndjango.setup()\n\nfrom app.models import Model"
+        }
+      },
+      "migration_errors": {
+        "InconsistentMigrationHistory": {
+          "traceback": "django.db.migrations.exceptions.InconsistentMigrationHistory",
+          "causes": [
+            "Migration applied then deleted",
+            "Branch merge with conflicting migrations",
+            "Database from different branch"
+          ],
+          "fixes": [
+            "python manage.py migrate --fake",
+            "Delete migration and recreate",
+            "Manually fix django_migrations table"
+          ]
+        },
+        "NodeNotFoundError": {
+          "traceback": "django.db.migrations.exceptions.NodeNotFoundError",
+          "causes": [
+            "Migration dependency doesn't exist",
+            "Deleted migration still referenced"
+          ],
+          "fixes": [
+            "Recreate missing migration",
+            "Update dependencies in migration file",
+            "Squash migrations to clean up"
+          ]
+        },
+        "CircularDependencyError": {
+          "traceback": "django.db.migrations.exceptions.CircularDependencyError",
+          "causes": [
+            "App A migration depends on App B, and vice versa",
+            "ForeignKey to model not yet created"
+          ],
+          "fixes": [
+            "Use string reference: ForeignKey('app.Model', ...)",
+            "Split migration manually",
+            "Reorder dependencies"
+          ]
+        }
+      },
+      "form_errors": {
+        "ValidationError": {
+          "traceback": "django.core.exceptions.ValidationError",
+          "causes": [
+            "Field validation failed",
+            "Custom clean method raised error",
+            "Model validation failed on save"
+          ],
+          "handling": "try:\n    form.full_clean()\nexcept ValidationError as e:\n    print(e.message_dict)  # {'field': ['error']}\n\n# Or in form\ndef clean_field(self):\n    value = self.cleaned_data['field']\n    if invalid:\n        raise ValidationError('Error message', code='invalid')\n    return value"
+        }
+      },
+      "common_swe_bench_django_issues": {
+        "query_optimization": {
+          "problem": "N+1 queries, slow performance",
+          "solution": "Use select_related() for ForeignKey, prefetch_related() for M2M",
+          "pattern": "# Before (N+1)\nfor article in Article.objects.all():\n    print(article.author.name)  # Query per article!\n\n# After (2 queries)\nfor article in Article.objects.select_related('author'):\n    print(article.author.name)  # No extra queries"
+        },
+        "race_conditions": {
+          "problem": "Lost updates when multiple processes write",
+          "solution": "Use F() expressions or select_for_update()",
+          "pattern": "# Atomic increment\nfrom django.db.models import F\nModel.objects.filter(pk=id).update(counter=F('counter') + 1)\n\n# Lock for update\nwith transaction.atomic():\n    obj = Model.objects.select_for_update().get(pk=id)\n    obj.field = new_value\n    obj.save()"
+        },
+        "timezone_issues": {
+          "problem": "Datetime comparisons fail, wrong times displayed",
+          "solution": "Use timezone-aware datetimes",
+          "pattern": "from django.utils import timezone\n\n# Always use timezone.now() not datetime.now()\ncurrent = timezone.now()\n\n# Make naive datetime aware\nfrom django.utils.timezone import make_aware\naware_dt = make_aware(naive_dt)"
+        }
+      }
+    },
+    "resources": {
+      "docs": ["https://docs.djangoproject.com/en/stable/ref/exceptions/"]
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T15:00:00Z",
+      "confidence": 0.98,
+      "tags": ["django", "errors", "debugging", "orm", "swe-bench"],
+      "category": "FRAMEWORKS",
+      "subcategory": "DJANGO",
+      "version": "1.0.0",
+      "agent_affinity": ["DC", "WEBC"]
+    }
+  }
+}

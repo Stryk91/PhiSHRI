@@ -1,0 +1,337 @@
+{
+  "door_code": "L60PYTHON_COMMON_ERRORS",
+  "semantic_path": "LANGUAGES.PYTHON.COMMON_ERRORS",
+  "aliases": [
+    "python_errors",
+    "python_exceptions",
+    "python_bugs",
+    "python_fix",
+    "python_traceback"
+  ],
+  "context_bundle": {
+    "summary": "Comprehensive Python error patterns, causes, and fixes. Covers the most common exceptions encountered in real-world codebases including Django, Flask, and general Python. Each error includes the exact traceback pattern, root cause analysis, and proven fixes.",
+    "prerequisites": ["L01PYTHON"],
+    "related_doors": ["E50PYTHON_DEBUG", "F01DJANGO", "F03FLASK"],
+    "onboarding": {
+      "quick_start": "Match traceback to error pattern below. Each has cause + fix. Most Python errors are: ImportError (path), AttributeError (None/typo), TypeError (wrong arg), KeyError (missing key), IndentationError (tabs/spaces).",
+      "error_patterns": {
+        "ImportError_ModuleNotFound": {
+          "traceback": "ModuleNotFoundError: No module named 'xxx'",
+          "causes": [
+            "Module not installed (pip install missing)",
+            "Virtual environment not activated",
+            "Module name typo",
+            "Relative import in wrong context",
+            "__init__.py missing in package"
+          ],
+          "fixes": [
+            "pip install <module>",
+            "source venv/bin/activate",
+            "Check spelling against PyPI",
+            "Use absolute import: from package.module import x",
+            "Add empty __init__.py to directory"
+          ],
+          "swe_bench_context": "Common when patch adds new import but forgets dependency or path"
+        },
+        "ImportError_Circular": {
+          "traceback": "ImportError: cannot import name 'X' from partially initialized module 'Y' (most likely due to a circular import)",
+          "causes": [
+            "Module A imports B, B imports A",
+            "Import at module level that should be in function"
+          ],
+          "fixes": [
+            "Move import inside function (lazy import)",
+            "Restructure modules to break cycle",
+            "Use TYPE_CHECKING block for type hints only"
+          ],
+          "pattern": "from typing import TYPE_CHECKING\nif TYPE_CHECKING:\n    from module import Class  # Only for type hints"
+        },
+        "AttributeError_NoneType": {
+          "traceback": "AttributeError: 'NoneType' object has no attribute 'xxx'",
+          "causes": [
+            "Function returned None unexpectedly",
+            "Variable not assigned in all code paths",
+            "Dictionary .get() returned None",
+            "ORM query returned None (not found)",
+            "Chained method on None result"
+          ],
+          "fixes": [
+            "Add None check: if obj is not None:",
+            "Use default: value = x or default",
+            "Use .get(key, default) with default value",
+            "Use .first() and check, or .get() with try/except",
+            "Break chain: result = a.method(); if result: result.next()"
+          ],
+          "swe_bench_context": "Very common in Django ORM - always check query results"
+        },
+        "AttributeError_NoAttribute": {
+          "traceback": "AttributeError: 'ClassName' object has no attribute 'xxx'",
+          "causes": [
+            "Typo in attribute name",
+            "Attribute defined in subclass only",
+            "Attribute set in __init__ conditionally",
+            "Property/method name confusion",
+            "Wrong class instance"
+          ],
+          "fixes": [
+            "Check spelling and case",
+            "Verify inheritance chain",
+            "Ensure __init__ always sets attribute",
+            "Use hasattr(obj, 'attr') check",
+            "Print type(obj) to verify class"
+          ]
+        },
+        "TypeError_Arguments": {
+          "traceback": "TypeError: function() takes X positional arguments but Y were given",
+          "causes": [
+            "Wrong number of arguments passed",
+            "Forgot self in method definition",
+            "Called instance method on class",
+            "Decorator ate an argument"
+          ],
+          "fixes": [
+            "Check function signature",
+            "Add self as first param in methods",
+            "Instantiate class first: obj = Class(); obj.method()",
+            "Check decorator preserves signature (@functools.wraps)"
+          ]
+        },
+        "TypeError_NotCallable": {
+          "traceback": "TypeError: 'xxx' object is not callable",
+          "causes": [
+            "Variable shadows function name",
+            "Forgot to define __call__",
+            "Property accessed with parentheses",
+            "Assigned result instead of function"
+          ],
+          "fixes": [
+            "Rename variable to not shadow function",
+            "Add __call__ method to class",
+            "Remove () from property access",
+            "Store function reference, not result: fn = func not fn = func()"
+          ]
+        },
+        "TypeError_NotSubscriptable": {
+          "traceback": "TypeError: 'xxx' object is not subscriptable",
+          "causes": [
+            "Using [] on non-sequence type",
+            "NoneType from failed operation",
+            "Integer or other scalar type"
+          ],
+          "fixes": [
+            "Check type before subscript",
+            "Ensure function returns list/dict",
+            "Convert to list: list(x)[0]"
+          ]
+        },
+        "TypeError_Unhashable": {
+          "traceback": "TypeError: unhashable type: 'list'",
+          "causes": [
+            "Using list as dictionary key",
+            "Using list in set",
+            "Mutable default argument"
+          ],
+          "fixes": [
+            "Convert to tuple: tuple(my_list)",
+            "Use frozenset for sets",
+            "Use None as default, assign in function"
+          ],
+          "pattern": "def func(items=None):\n    if items is None:\n        items = []"
+        },
+        "KeyError": {
+          "traceback": "KeyError: 'xxx'",
+          "causes": [
+            "Key doesn't exist in dict",
+            "Key name typo",
+            "Dict was modified during iteration",
+            "Expected key from API/data missing"
+          ],
+          "fixes": [
+            "Use .get(key, default)",
+            "Use 'if key in dict:' check",
+            "Use dict.setdefault(key, default)",
+            "Use try/except KeyError",
+            "Use collections.defaultdict"
+          ],
+          "swe_bench_context": "Common in Django views/serializers with request data"
+        },
+        "IndexError": {
+          "traceback": "IndexError: list index out of range",
+          "causes": [
+            "List is empty",
+            "Index exceeds length",
+            "Off-by-one error",
+            "Wrong list referenced"
+          ],
+          "fixes": [
+            "Check len(list) > 0 before access",
+            "Use list[-1] for last element safely",
+            "Use try/except IndexError",
+            "Verify list identity with print(list)"
+          ]
+        },
+        "ValueError": {
+          "traceback": "ValueError: xxx",
+          "common_variants": [
+            "invalid literal for int() with base 10",
+            "not enough values to unpack",
+            "too many values to unpack",
+            "could not convert string to float"
+          ],
+          "fixes": [
+            "Validate input before conversion: if s.isdigit(): int(s)",
+            "Check iterable length matches unpack targets",
+            "Use try/except around conversion",
+            "Strip whitespace: s.strip()"
+          ]
+        },
+        "IndentationError": {
+          "traceback": "IndentationError: unexpected indent / expected an indented block",
+          "causes": [
+            "Mixed tabs and spaces",
+            "Incorrect indentation level",
+            "Empty block without pass",
+            "Copy-paste from different source"
+          ],
+          "fixes": [
+            "Configure editor: spaces only (4)",
+            "Use 'python -tt script.py' to detect",
+            "Add 'pass' to empty blocks",
+            "Re-indent entire block"
+          ],
+          "swe_bench_context": "Patch application can mangle indentation - verify whitespace"
+        },
+        "SyntaxError": {
+          "traceback": "SyntaxError: invalid syntax",
+          "common_causes": [
+            "Missing colon after if/for/def/class",
+            "Unclosed parenthesis/bracket/quote",
+            "Python 2 vs 3 syntax (print statement)",
+            "Invalid f-string expression",
+            "Using reserved keyword as variable"
+          ],
+          "fixes": [
+            "Check line BEFORE error (often the real cause)",
+            "Match all brackets: (), [], {}",
+            "Use print() not print x",
+            "No assignment in f-strings",
+            "Rename variable (not: class, def, return, etc.)"
+          ]
+        },
+        "RecursionError": {
+          "traceback": "RecursionError: maximum recursion depth exceeded",
+          "causes": [
+            "Infinite recursion (no base case)",
+            "__repr__ calls itself",
+            "Property getter calls itself",
+            "Circular data structure repr"
+          ],
+          "fixes": [
+            "Add/fix base case",
+            "Use object.__repr__(self) in custom __repr__",
+            "Use backing attribute: self._value",
+            "Increase limit temporarily: sys.setrecursionlimit()"
+          ]
+        },
+        "StopIteration": {
+          "traceback": "StopIteration",
+          "causes": [
+            "next() on exhausted iterator",
+            "Generator finished unexpectedly"
+          ],
+          "fixes": [
+            "Use next(iter, default)",
+            "Wrap in try/except StopIteration",
+            "Use for loop instead of manual next()"
+          ]
+        },
+        "UnicodeDecodeError": {
+          "traceback": "UnicodeDecodeError: 'utf-8' codec can't decode byte",
+          "causes": [
+            "File not UTF-8 encoded",
+            "Binary data read as text",
+            "Mixed encodings in file"
+          ],
+          "fixes": [
+            "Specify encoding: open(f, encoding='utf-8')",
+            "Try latin-1: open(f, encoding='latin-1')",
+            "Read as binary: open(f, 'rb')",
+            "Use errors='ignore' or errors='replace'"
+          ]
+        },
+        "FileNotFoundError": {
+          "traceback": "FileNotFoundError: [Errno 2] No such file or directory",
+          "causes": [
+            "Path is relative, CWD is wrong",
+            "File doesn't exist",
+            "Typo in filename",
+            "Missing parent directories"
+          ],
+          "fixes": [
+            "Use absolute path: Path(__file__).parent / 'file'",
+            "Check os.path.exists() first",
+            "Use pathlib.Path for robust paths",
+            "Create dirs: os.makedirs(dir, exist_ok=True)"
+          ],
+          "pattern": "from pathlib import Path\nBASE = Path(__file__).resolve().parent\ndata = BASE / 'data' / 'file.txt'"
+        },
+        "PermissionError": {
+          "traceback": "PermissionError: [Errno 13] Permission denied",
+          "causes": [
+            "File owned by different user",
+            "File is read-only",
+            "Directory not writable",
+            "File open in another process"
+          ],
+          "fixes": [
+            "Check file permissions: ls -la",
+            "Use temp directory: tempfile.gettempdir()",
+            "Run with appropriate permissions",
+            "Close file handles before retry"
+          ]
+        },
+        "ConnectionError": {
+          "traceback": "ConnectionError / ConnectionRefusedError / ConnectionResetError",
+          "causes": [
+            "Service not running",
+            "Wrong host/port",
+            "Firewall blocking",
+            "Server crashed mid-request"
+          ],
+          "fixes": [
+            "Verify service is up",
+            "Check host:port configuration",
+            "Add retry with backoff",
+            "Use requests.Session() with retry adapter"
+          ],
+          "pattern": "from urllib3.util import Retry\nfrom requests.adapters import HTTPAdapter\nsession = requests.Session()\nsession.mount('http://', HTTPAdapter(max_retries=Retry(total=3, backoff_factor=0.1)))"
+        },
+        "TimeoutError": {
+          "traceback": "TimeoutError / socket.timeout",
+          "causes": [
+            "Network latency",
+            "Server overloaded",
+            "Timeout too short"
+          ],
+          "fixes": [
+            "Increase timeout: requests.get(url, timeout=30)",
+            "Add retry logic",
+            "Use async for concurrent requests"
+          ]
+        }
+      }
+    },
+    "resources": {
+      "docs": ["https://docs.python.org/3/library/exceptions.html"]
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T15:00:00Z",
+      "confidence": 0.98,
+      "tags": ["python", "errors", "exceptions", "debugging", "swe-bench"],
+      "category": "LANGUAGES",
+      "subcategory": "PYTHON",
+      "version": "1.0.0",
+      "agent_affinity": ["DC", "TERMC"]
+    }
+  }
+}

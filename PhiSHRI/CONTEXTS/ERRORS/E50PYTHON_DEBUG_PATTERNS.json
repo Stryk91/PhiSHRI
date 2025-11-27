@@ -1,0 +1,212 @@
+{
+  "door_code": "E50PYTHON_DEBUG_PATTERNS",
+  "semantic_path": "ERRORS.PYTHON.DEBUG_PATTERNS",
+  "aliases": [
+    "python_debug",
+    "python_debugging",
+    "pdb",
+    "traceback_analysis",
+    "python_troubleshooting"
+  ],
+  "context_bundle": {
+    "summary": "Python debugging patterns, traceback analysis, and systematic troubleshooting. Essential for diagnosing issues quickly when test failures or errors occur. Covers reading tracebacks, using debuggers, and common debugging strategies.",
+    "prerequisites": ["L60PYTHON_COMMON_ERRORS"],
+    "related_doors": ["F05PYTEST_PATTERNS", "L60PYTHON_COMMON_ERRORS"],
+    "onboarding": {
+      "quick_start": "Python traceback reads bottom-to-top: last line is error, work up to find cause. Use pdb/breakpoint() to pause and inspect. Add print(repr(var)) for quick checks. Check types with type(var).",
+
+      "reading_tracebacks": {
+        "anatomy": "Traceback (most recent call last):\n  File \"app.py\", line 42, in main\n    result = process_data(data)\n  File \"utils.py\", line 15, in process_data\n    return transform(data['key'])\n  File \"utils.py\", line 8, in transform\n    return value.upper()\nAttributeError: 'NoneType' object has no attribute 'upper'",
+        "how_to_read": [
+          "1. START at bottom: AttributeError tells you WHAT failed",
+          "2. Line above: value.upper() - which operation failed",
+          "3. Work up: transform() was called with value=None",
+          "4. Continue up: data['key'] returned None",
+          "5. Root cause: data dict has key but value is None"
+        ],
+        "key_info": {
+          "File": "Which file the error occurred in",
+          "line X": "Exact line number",
+          "in function": "Which function/method",
+          "code line": "The actual code that failed",
+          "Error type": "Exception class (last line)"
+        }
+      },
+
+      "debugging_tools": {
+        "builtin_pdb": {
+          "insert_breakpoint": "import pdb; pdb.set_trace()  # Python < 3.7\nbreakpoint()  # Python 3.7+",
+          "commands": {
+            "n": "next - execute line, step over function calls",
+            "s": "step - execute line, step into function calls",
+            "c": "continue - run until next breakpoint",
+            "r": "return - run until current function returns",
+            "l": "list - show code around current line",
+            "ll": "longlist - show entire current function",
+            "p expr": "print - evaluate and print expression",
+            "pp expr": "pretty print - formatted print",
+            "w": "where - show stack trace",
+            "u": "up - move up one stack frame",
+            "d": "down - move down one stack frame",
+            "b line": "breakpoint - set breakpoint at line",
+            "cl": "clear - remove breakpoints",
+            "q": "quit - exit debugger"
+          },
+          "example_session": "$ python script.py\n> script.py(15)process()\n-> result = data['key']\n(Pdb) p data\n{'key': None, 'other': 'value'}\n(Pdb) p type(data['key'])\n<class 'NoneType'>\n(Pdb) w\n  script.py(42)main()\n    process(data)\n> script.py(15)process()\n    result = data['key']"
+        },
+        "post_mortem": {
+          "description": "Debug after exception occurs",
+          "usage": "import pdb\ntry:\n    buggy_code()\nexcept:\n    pdb.post_mortem()",
+          "command_line": "python -m pdb script.py  # Drops into pdb on exception"
+        },
+        "ipdb": {
+          "description": "IPython-enhanced debugger",
+          "install": "pip install ipdb",
+          "usage": "import ipdb; ipdb.set_trace()\n# or\nexport PYTHONBREAKPOINT=ipdb.set_trace"
+        }
+      },
+
+      "print_debugging": {
+        "effective_prints": {
+          "show_value_and_type": "print(f'{var=}, {type(var)=}')",
+          "repr_for_strings": "print(repr(string_var))  # Shows quotes, escapes",
+          "check_none": "print(f'value is None: {value is None}')",
+          "function_entry": "print(f'Entering {func.__name__} with args={args}, kwargs={kwargs}')",
+          "checkpoint": "print(f'=== CHECKPOINT {n} REACHED ===')"
+        },
+        "f_string_debug": "# Python 3.8+ f-string debug syntax\nx = 42\nprint(f'{x=}')  # Output: x=42\nprint(f'{x + 1=}')  # Output: x + 1=43\nprint(f'{type(x)=}')  # Output: type(x)=<class 'int'>"
+      },
+
+      "systematic_strategies": {
+        "binary_search": {
+          "description": "Narrow down bug location by halving search space",
+          "method": [
+            "1. Add checkpoint in middle of suspect code",
+            "2. Run - if checkpoint reached, bug is after",
+            "3. If not reached, bug is before",
+            "4. Repeat, halving the range each time"
+          ]
+        },
+        "rubber_duck": {
+          "description": "Explain code line-by-line to find assumption errors",
+          "method": [
+            "1. For each line, state what you expect to happen",
+            "2. Verify with print/debugger that it actually happens",
+            "3. Mismatch between expectation and reality = bug"
+          ]
+        },
+        "minimal_reproduction": {
+          "description": "Create smallest code that reproduces bug",
+          "method": [
+            "1. Copy failing code to new file",
+            "2. Remove code until bug disappears",
+            "3. Add back last removed piece - that's the cause",
+            "4. Simplify inputs to minimum that triggers bug"
+          ]
+        },
+        "diff_debugging": {
+          "description": "Compare working vs broken states",
+          "method": [
+            "1. Find commit/version where it worked",
+            "2. Diff against current broken version",
+            "3. Examine changes for bug introduction",
+            "4. git bisect automates this"
+          ],
+          "git_bisect": "git bisect start\ngit bisect bad  # Current is broken\ngit bisect good abc123  # Known good commit\n# Git checks out middle commit\n# You test, then: git bisect good/bad\n# Repeat until bug commit found"
+        }
+      },
+
+      "common_scenarios": {
+        "none_appearing": {
+          "symptoms": "NoneType error, empty result",
+          "debug_steps": [
+            "Add print/breakpoint before the None appears",
+            "Check function return values: print(f'{func()=}')",
+            "Check dict .get() returns: print(d.get('key', 'MISSING'))",
+            "Verify query results: print(f'{queryset.count()=}')"
+          ]
+        },
+        "wrong_type": {
+          "symptoms": "TypeError, AttributeError on type mismatch",
+          "debug_steps": [
+            "Print type at each transform: print(f'{type(var)=}')",
+            "Check input types to function",
+            "Verify serialization/deserialization preserves type"
+          ]
+        },
+        "off_by_one": {
+          "symptoms": "IndexError, missing last/first element",
+          "debug_steps": [
+            "Print len() and indices used",
+            "Check range() bounds",
+            "Verify slice notation [start:end] - end is exclusive"
+          ]
+        },
+        "race_condition": {
+          "symptoms": "Intermittent failures, works sometimes",
+          "debug_steps": [
+            "Add logging with timestamps",
+            "Check for shared mutable state",
+            "Add locks or use atomic operations",
+            "Simplify to single-threaded to confirm"
+          ]
+        },
+        "import_issues": {
+          "symptoms": "ImportError, wrong version",
+          "debug_steps": [
+            "print(module.__file__) - which file loaded",
+            "print(module.__version__) - which version",
+            "print(sys.path) - where Python looks",
+            "pip list | grep module - installed versions"
+          ]
+        }
+      },
+
+      "logging_for_debug": {
+        "quick_setup": "import logging\nlogging.basicConfig(\n    level=logging.DEBUG,\n    format='%(asctime)s %(levelname)s %(name)s: %(message)s'\n)\nlogger = logging.getLogger(__name__)",
+        "levels": {
+          "DEBUG": "Detailed diagnostic info",
+          "INFO": "General operational info",
+          "WARNING": "Something unexpected but handled",
+          "ERROR": "Something failed",
+          "CRITICAL": "System is unusable"
+        },
+        "debug_pattern": "logger.debug(f'Processing {item}')\ntry:\n    result = process(item)\n    logger.debug(f'Result: {result}')\nexcept Exception as e:\n    logger.exception(f'Failed processing {item}')"
+      },
+
+      "assert_debugging": {
+        "description": "Use asserts to verify assumptions",
+        "pattern": "def process(data):\n    assert data is not None, 'data cannot be None'\n    assert isinstance(data, dict), f'data must be dict, got {type(data)}'\n    assert 'key' in data, f'data missing key, has: {data.keys()}'",
+        "note": "Asserts disabled with python -O, use for debugging only"
+      },
+
+      "swe_bench_debugging": {
+        "test_failure_workflow": [
+          "1. Run failing test with -v for verbose output",
+          "2. Read assertion error carefully",
+          "3. Add breakpoint in test before failing assert",
+          "4. Inspect actual vs expected values",
+          "5. Trace back to find where divergence starts"
+        ],
+        "quick_commands": [
+          "pytest test_file.py::test_name -v  # verbose",
+          "pytest test_file.py::test_name -vv  # very verbose",
+          "pytest test_file.py::test_name -s  # show prints",
+          "pytest test_file.py::test_name --pdb  # debug on fail"
+        ]
+      }
+    },
+    "resources": {
+      "docs": ["https://docs.python.org/3/library/pdb.html"]
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T15:00:00Z",
+      "confidence": 0.98,
+      "tags": ["python", "debugging", "pdb", "traceback", "swe-bench"],
+      "category": "ERRORS",
+      "subcategory": "DEBUGGING",
+      "version": "1.0.0",
+      "agent_affinity": ["DC", "TERMC"]
+    }
+  }
+}

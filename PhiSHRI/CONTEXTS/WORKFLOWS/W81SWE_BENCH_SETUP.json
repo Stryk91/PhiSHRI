@@ -1,0 +1,152 @@
+{
+  "door_code": "W81SWE_BENCH_SETUP",
+  "semantic_path": "WORKFLOWS.BENCHMARKS.SWE_BENCH_SETUP",
+  "aliases": [
+    "swe_bench_setup",
+    "swe_rex_setup",
+    "benchmark_setup",
+    "swe_bench_install"
+  ],
+  "context_bundle": {
+    "summary": "Setup guide for running SWE-bench benchmarks with PhiSHRI MCP integration. Uses SWE-ReX for sandbox execution and PhiSHRI doors for knowledge injection. Includes setup script, benchmark runner, and comparison methodology.",
+    "prerequisites": ["W80SWE_BENCH_STRATEGY"],
+    "related_doors": ["W80SWE_BENCH_STRATEGY", "F01DJANGO_PATTERNS"],
+    "onboarding": {
+      "quick_start": "Run scripts/setup-swe-bench.ps1 to install everything. Then: cd C:\\SWE-Bench && .\\activate-swe-bench.ps1 && python run_benchmark.py -n 10",
+
+      "components": {
+        "swe_rex": {
+          "what": "Runtime interface for sandboxed shell environments from Princeton NLP",
+          "why": "Handles command execution, output capture, parallel runs",
+          "install": "pip install swe-rex"
+        },
+        "swe_bench_dataset": {
+          "what": "GitHub issues from real Python repos (Django, Flask, etc.)",
+          "variants": {
+            "Lite": "300 issues - good for testing",
+            "Verified": "500 issues - human verified solvable",
+            "Full": "2294 issues - complete dataset"
+          },
+          "install": "pip install datasets && from datasets import load_dataset"
+        },
+        "phishri_integration": {
+          "what": "Knowledge injection via MCP",
+          "doors_used": ["W80 Strategy", "L60 Errors", "F01-F05 Frameworks", "E50-E52 Debug/Patch"],
+          "impact": "Pre-loaded context reduces trial-and-error"
+        }
+      },
+
+      "setup_steps": {
+        "step_1": {
+          "action": "Run setup script",
+          "command": "cd PhiSHRI\\scripts && .\\setup-swe-bench.ps1",
+          "creates": [
+            "C:\\SWE-Bench\\ (root directory)",
+            "C:\\SWE-Bench\\venv\\ (Python virtual environment)",
+            "C:\\SWE-Bench\\repos\\ (cloned repositories)",
+            "C:\\SWE-Bench\\results\\ (benchmark outputs)",
+            "C:\\SWE-Bench\\run_benchmark.py (runner script)"
+          ]
+        },
+        "step_2": {
+          "action": "Activate environment",
+          "command": "cd C:\\SWE-Bench && . .\\activate-swe-bench.ps1"
+        },
+        "step_3": {
+          "action": "Run benchmark",
+          "commands": {
+            "test_run": "python run_benchmark.py -n 10",
+            "with_mcps": "python run_benchmark.py -n 50 -o results_mcps.json",
+            "baseline": "python run_benchmark.py -n 50 --no-mcps -o results_baseline.json"
+          }
+        }
+      },
+
+      "benchmark_methodology": {
+        "comparison_design": {
+          "control": "Claude + standard tools, no PhiSHRI",
+          "treatment": "Claude + PhiSHRI doors + Everything MCP",
+          "sample_size": "50-100 instances minimum for statistical significance",
+          "metric": "% of instances where patch passes all tests"
+        },
+        "door_loading_strategy": {
+          "always_load": ["W80SWE_BENCH_STRATEGY", "L60PYTHON_COMMON_ERRORS", "E52GIT_PATCH_FORMAT"],
+          "repo_specific": {
+            "django/*": ["F01DJANGO_PATTERNS", "F02DJANGO_ERRORS"],
+            "pallets/flask": ["F03FLASK_PATTERNS"],
+            "psf/requests": ["L60PYTHON_COMMON_ERRORS"],
+            "*": ["F05PYTEST_PATTERNS", "E50PYTHON_DEBUG_PATTERNS"]
+          }
+        },
+        "expected_impact": {
+          "baseline": "~49-50% (Claude raw on SWE-bench Verified)",
+          "target": "55-60% with PhiSHRI",
+          "hypothesis": "Pre-loaded patterns reduce syntax errors, wrong-file edits, and over-engineering"
+        }
+      },
+
+      "integration_architecture": {
+        "diagram": "Claude Desktop\n    │\n    ├── Windows MCP ──► Shell execution (pip, python, git)\n    │\n    ├── Everything MCP ──► File search in benchmark repos\n    │\n    ├── PhiSHRI MCP ──► Load strategy + error + framework doors\n    │\n    └── SWE-ReX (via shell) ──► Sandbox execution, test running",
+        "data_flow": [
+          "1. Load SWE-bench instance (issue description)",
+          "2. PhiSHRI: Search and load relevant doors",
+          "3. Everything: Find files in repo matching patterns",
+          "4. Claude: Analyze with preloaded context",
+          "5. Claude: Generate minimal patch",
+          "6. SWE-ReX: Apply patch in sandbox",
+          "7. SWE-ReX: Run tests, capture results",
+          "8. Record pass/fail"
+        ]
+      },
+
+      "troubleshooting": {
+        "python_not_found": {
+          "error": "Python not found",
+          "fix": "winget install Python.Python.3.11"
+        },
+        "pip_install_fails": {
+          "error": "pip install fails with SSL error",
+          "fix": "pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org <package>"
+        },
+        "dataset_download_slow": {
+          "error": "HuggingFace download timeout",
+          "fix": "Set HF_HUB_ENABLE_HF_TRANSFER=1 and pip install hf_transfer"
+        },
+        "venv_activation_fails": {
+          "error": "Cannot run scripts, execution policy",
+          "fix": "Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser"
+        }
+      },
+
+      "results_analysis": {
+        "output_format": {
+          "file": "benchmark_results.json",
+          "structure": {
+            "config": "Benchmark configuration",
+            "instances": "List of instance results",
+            "summary": "Aggregate statistics"
+          }
+        },
+        "comparison_script": "import json\n\nwith open('results_mcps.json') as f:\n    mcps = json.load(f)\nwith open('results_baseline.json') as f:\n    base = json.load(f)\n\nmcp_rate = mcps['summary']['solved'] / mcps['summary']['total']\nbase_rate = base['summary']['solved'] / base['summary']['total']\n\nprint(f'Baseline: {base_rate:.1%}')\nprint(f'With MCPs: {mcp_rate:.1%}')\nprint(f'Improvement: {(mcp_rate - base_rate):.1%}')"
+      }
+    },
+    "resources": {
+      "repos": [
+        "https://github.com/princeton-nlp/SWE-bench",
+        "https://github.com/princeton-nlp/SWE-ReX"
+      ],
+      "scripts": [
+        "scripts/setup-swe-bench.ps1"
+      ]
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T16:00:00Z",
+      "confidence": 0.95,
+      "tags": ["swe-bench", "benchmark", "setup", "swe-rex", "phishri"],
+      "category": "WORKFLOWS",
+      "subcategory": "BENCHMARKS",
+      "version": "1.0.0",
+      "agent_affinity": ["DC", "TERMC"]
+    }
+  }
+}
