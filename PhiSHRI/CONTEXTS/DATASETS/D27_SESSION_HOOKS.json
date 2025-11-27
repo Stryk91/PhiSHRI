@@ -1,0 +1,72 @@
+{
+  "door_code": "D27_SESSION_HOOKS",
+  "semantic_path": "DATASETS.ARCHITECTURE.SESSION_HOOKS",
+  "aliases": [
+    "session_hooks",
+    "pre_compact",
+    "continuous_logging",
+    "context_preservation"
+  ],
+  "context_bundle": {
+    "summary": "Claude Code session hooks for continuous logging and pre-compaction dumps. Uses SessionStart, PostToolUse, PreCompact, and SessionEnd hooks. PreCompact cannot block - solution is continuous logging so nothing lost when compaction triggers.",
+    "prerequisites": [
+      "D25_BOOTSTRAP_PATTERN",
+      "D26_SESSION_DUMP"
+    ],
+    "related_doors": [
+      "D25_BOOTSTRAP_PATTERN",
+      "D26_SESSION_DUMP"
+    ],
+    "onboarding": {
+      "quick_start": "Run: ~/.phishri/scripts/install-session-hooks.sh. Restart Claude Code. Session logs auto-saved to ~/.claude/session-dumps/. PreCompact fires but can't block - continuous logging is the solution.",
+      "full_context_path": "PhiSHRI/scripts/session-hooks/",
+      "common_patterns": [
+        "SessionStart: Initialize log file with timestamp",
+        "PostToolUse: Log significant actions (Edit/Write/Bash)",
+        "PreCompact: Emergency dump marker before crunch",
+        "SessionEnd: Finalize and archive session"
+      ],
+      "known_errors": [
+        "PreCompact can't block - it's notification only",
+        "PostToolUse can be noisy - filter with matcher",
+        "Hook scripts must be fast (<5s) or they timeout"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "https://docs.anthropic.com/claude-code/hooks"
+      ],
+      "code": [
+        "PhiSHRI/scripts/session-hooks/install-session-hooks.sh"
+      ],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T00:00:00.000000",
+      "confidence": 0.9,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "hooks",
+        "claude_code",
+        "session",
+        "compaction",
+        "logging",
+        "persistence"
+      ],
+      "category": "DATASETS",
+      "subcategory": "ARCHITECTURE",
+      "version": "1.0",
+      "tested_on": ["Claude Code"],
+      "agent_affinity": [],
+      "hook_reference": {
+        "blocking_hooks": ["PreToolUse", "UserPromptSubmit", "Stop", "SubagentStop", "PermissionRequest"],
+        "non_blocking": ["PostToolUse", "PreCompact", "SessionStart", "SessionEnd", "Notification"],
+        "key_insight": "PreCompact exists but cannot block. Use continuous logging instead."
+      },
+      "settings_location": "~/.claude/settings.json",
+      "dump_location": "~/.claude/session-dumps/"
+    }
+  }
+}
