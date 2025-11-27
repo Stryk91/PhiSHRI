@@ -1,0 +1,73 @@
+{
+  "door_code": "D14_ROBOTRUMBLE_BASICS",
+  "semantic_path": "DATASETS.BOTBATTLE.ROBOTRUMBLE_CORE",
+  "aliases": [
+    "robotrumble",
+    "robot_rumble",
+    "codeclash_robots",
+    "grid_battle"
+  ],
+  "context_bundle": {
+    "summary": "Robot Rumble (CodeClash.ai) - Turn-based grid battle where you program robot teams. 100 turns, 60s execution limit per turn. Python/JavaScript supported. Destroy enemy robots while protecting yours. Each turn: receive state, output moves/attacks.",
+    "prerequisites": [],
+    "related_doors": [
+      "D15_GRID_TACTICS",
+      "D16_ATTACK_PATTERNS",
+      "D17_DEFENSE_STRATEGIES",
+      "D19_PYTHON_BOT_TEMPLATE"
+    ],
+    "onboarding": {
+      "quick_start": "Each turn your code receives game state (robot positions, health, grid). Return actions: move(direction) or attack(target). Win by eliminating all enemy robots within 100 turns.",
+      "full_context_path": "https://codeclash.ai/arenas/robotrumble/index.html",
+      "common_patterns": [
+        "State parsing: Extract ally/enemy positions from input",
+        "Distance calculation: Manhattan distance for targeting",
+        "Action priority: Attack if enemy adjacent, else move toward",
+        "Timeout prevention: Keep logic under 60s",
+        "Turn counting: Adjust aggression based on turn number"
+      ],
+      "known_errors": [
+        "Timeout (>60s) = forfeit turn",
+        "Invalid move = wasted turn",
+        "Attacking empty cell = wasted action"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "https://codeclash.ai/arenas/robotrumble/index.html",
+        "https://robotrumble.org"
+      ],
+      "code": [
+        "https://github.com/robot-rumble/logic"
+      ],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T00:00:00.000000",
+      "confidence": 0.9,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "botbattle",
+        "robotrumble",
+        "codeclash",
+        "competitive",
+        "python",
+        "javascript",
+        "grid",
+        "turnbased"
+      ],
+      "category": "DATASETS",
+      "subcategory": "BOTBATTLE",
+      "version": "1.0",
+      "tested_on": [],
+      "agent_affinity": [],
+      "game_params": {
+        "turns": 100,
+        "timeout_seconds": 60,
+        "languages": ["Python", "JavaScript"]
+      }
+    }
+  }
+}
