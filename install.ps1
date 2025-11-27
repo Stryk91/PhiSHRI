@@ -344,6 +344,19 @@ function Build-FromSource {
 function Install-MCPBinary {
     Write-Step "Installing PhiSHRI MCP binary..."
 
+    # CHECK IF BINARY ALREADY EXISTS FIRST
+    if (Test-Path $script:Paths.Binary) {
+        $existingSize = (Get-Item $script:Paths.Binary).Length
+        if ($existingSize -gt 500KB) {
+            Write-Step "Binary already exists ($([math]::Round($existingSize/1MB, 2)) MB) - skipping download" "OK"
+            return
+        }
+        else {
+            Write-Step "Existing binary too small ($existingSize bytes) - re-downloading" "WARN"
+            Remove-Item $script:Paths.Binary -Force -ErrorAction SilentlyContinue
+        }
+    }
+
     $release = Get-LatestRelease -Repo $script:Config.GitHubRepo
     $downloadName = $script:Config.BinaryDownloadName
     $downloadSuccess = $false
