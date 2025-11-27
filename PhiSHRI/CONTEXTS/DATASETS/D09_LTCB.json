@@ -1,0 +1,64 @@
+{
+  "door_code": "D09_LTCB",
+  "semantic_path": "DATASETS.COMPRESSION.LTCB_BENCHMARK",
+  "aliases": [
+    "ltcb",
+    "large_text_compression_benchmark",
+    "compression_benchmark",
+    "enwik9"
+  ],
+  "context_bundle": {
+    "summary": "Large Text Compression Benchmark - Standard corpus for evaluating lossless compression algorithms. Includes Calgary Corpus, Canterbury Corpus, and enwik9 datasets. Used to benchmark LZ77, DEFLATE, Brotli, and other algorithms. Maintained by Matt Mahoney.",
+    "prerequisites": [],
+    "related_doors": [
+      "D07_BROTLI",
+      "D08_RFC7932"
+    ],
+    "onboarding": {
+      "quick_start": "Download benchmark files from mattmahoney.net/dc/text.html. Public domain, free to use. Compare algorithm performance on standard test files.",
+      "full_context_path": "http://mattmahoney.net/dc/text.html",
+      "common_patterns": [
+        "Algorithm benchmarking",
+        "Compression ratio comparison",
+        "Speed vs ratio tradeoffs",
+        "Academic research baseline"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "http://mattmahoney.net/dc/text.html"
+      ],
+      "code": [],
+      "tests": [
+        "Calgary Corpus",
+        "Canterbury Corpus",
+        "enwik8",
+        "enwik9"
+      ],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T00:00:00.000000",
+      "confidence": 0.9,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "compression",
+        "benchmark",
+        "lossless",
+        "corpus",
+        "enwik",
+        "calgary",
+        "canterbury"
+      ],
+      "category": "DATASETS",
+      "subcategory": "COMPRESSION",
+      "version": "1.0",
+      "tested_on": [],
+      "agent_affinity": [],
+      "license": "Public Domain",
+      "maintainer": "Matt Mahoney"
+    }
+  }
+}
