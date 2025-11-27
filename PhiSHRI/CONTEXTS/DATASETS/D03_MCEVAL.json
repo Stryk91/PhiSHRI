@@ -1,0 +1,60 @@
+{
+  "door_code": "D03_MCEVAL",
+  "semantic_path": "DATASETS.CODE.MCEVAL_BENCHMARK",
+  "aliases": [
+    "mceval",
+    "multilingual_code_eval",
+    "code_benchmark",
+    "40_lang_benchmark"
+  ],
+  "context_bundle": {
+    "summary": "McEval - First large-scale hand-curated code evaluation benchmark covering 40 real-world programming languages with 16,000 code samples. Created from human handwriting and actual exercises. Enables robust evaluation of code understanding and generation models across diverse language paradigms.",
+    "prerequisites": [],
+    "related_doors": [
+      "D01_CODENET",
+      "D02_GITHUB_CODE"
+    ],
+    "onboarding": {
+      "quick_start": "Academic benchmark for multilingual code models. MIT licensed. Used for evaluating code understanding and generation across 40 languages.",
+      "full_context_path": "https://github.com/multilingual-code-eval/mceval",
+      "common_patterns": [
+        "Code model benchmarking",
+        "Multilingual code evaluation",
+        "Code understanding assessment",
+        "Code generation quality testing"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "https://github.com/multilingual-code-eval/mceval"
+      ],
+      "code": [
+        "https://github.com/multilingual-code-eval/mceval"
+      ],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T00:00:00.000000",
+      "confidence": 0.9,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "dataset",
+        "benchmark",
+        "code_eval",
+        "multilingual",
+        "academic",
+        "hand_curated"
+      ],
+      "category": "DATASETS",
+      "subcategory": "CODE",
+      "version": "1.0",
+      "tested_on": [],
+      "agent_affinity": [],
+      "license": "MIT",
+      "size": "16K samples, 40 languages"
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "door_code": "D11_TCP_MECHANISMS",
+  "semantic_path": "DATASETS.NETWORKING.TCP_CC_SIMULATION",
+  "aliases": [
+    "tcp_mechanisms",
+    "tcp_reno_simulation",
+    "tcp_bbr_simulation",
+    "congestion_control_sim"
+  ],
+  "context_bundle": {
+    "summary": "C++-based simulation framework implementing TCP Reno, New Reno, and BBR congestion control algorithms. Educational focus with source code, Makefiles, and experimental documentation. Ideal for understanding algorithm mechanics and controlled testing.",
+    "prerequisites": [],
+    "related_doors": [
+      "D10_PCC_RL",
+      "D12_TCP_EXPERIMENTS",
+      "D13_NS3"
+    ],
+    "onboarding": {
+      "quick_start": "Clone: github.com/Mohta3b/TCP-Congestion-Control-Mechanisms. MIT licensed. Build with make. Compare Reno, New Reno, BBR implementations.",
+      "full_context_path": "https://github.com/Mohta3b/TCP-Congestion-Control-Mechanisms",
+      "common_patterns": [
+        "Algorithm mechanics study",
+        "Comparative performance testing",
+        "Educational demonstrations",
+        "Controlled experiment setup"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "https://github.com/Mohta3b/TCP-Congestion-Control-Mechanisms"
+      ],
+      "code": [
+        "https://github.com/Mohta3b/TCP-Congestion-Control-Mechanisms"
+      ],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T00:00:00.000000",
+      "confidence": 0.9,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "networking",
+        "tcp",
+        "reno",
+        "new_reno",
+        "bbr",
+        "simulation",
+        "cpp"
+      ],
+      "category": "DATASETS",
+      "subcategory": "NETWORKING",
+      "version": "1.0",
+      "tested_on": [],
+      "agent_affinity": [],
+      "license": "MIT",
+      "language": "C++"
+    }
+  }
+}

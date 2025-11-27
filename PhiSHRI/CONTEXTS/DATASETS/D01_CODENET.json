@@ -1,0 +1,63 @@
+{
+  "door_code": "D01_CODENET",
+  "semantic_path": "DATASETS.CODE.IBM_CODENET",
+  "aliases": [
+    "codenet",
+    "project_codenet",
+    "ibm_codenet",
+    "code_samples_dataset"
+  ],
+  "context_bundle": {
+    "summary": "IBM Project CodeNet - Large-scale dataset with ~14 million code samples across 50+ programming languages, solving ~4,000 coding problems from competitive programming. Includes metadata: execution time, memory usage, CPU time, problem difficulty. Ideal for code similarity, classification, and performance prediction.",
+    "prerequisites": [],
+    "related_doors": [
+      "D02_GITHUB_CODE",
+      "D03_MCEVAL"
+    ],
+    "onboarding": {
+      "quick_start": "Clone from GitHub: github.com/IBM/Project_CodeNet. Contains preprocessing tools and Jupyter notebooks. Apache-2.0 license allows commercial use.",
+      "full_context_path": "https://github.com/IBM/Project_CodeNet",
+      "common_patterns": [
+        "Code similarity detection across languages",
+        "Code classification by problem type",
+        "Performance prediction from source code",
+        "Multi-language code analysis"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "https://github.com/IBM/Project_CodeNet",
+        "https://developer.ibm.com/exchanges/data/all/project-codenet/"
+      ],
+      "code": [
+        "https://github.com/IBM/Project_CodeNet"
+      ],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T00:00:00.000000",
+      "confidence": 0.95,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "dataset",
+        "code",
+        "ibm",
+        "multilingual",
+        "competitive_programming",
+        "ai_training",
+        "apache2"
+      ],
+      "category": "DATASETS",
+      "subcategory": "CODE",
+      "version": "1.0",
+      "tested_on": [],
+      "agent_affinity": [],
+      "license": "Apache-2.0",
+      "github_stars": "1.6k",
+      "size": "14M samples, 50+ languages"
+    }
+  }
+}

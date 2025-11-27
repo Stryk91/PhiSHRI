@@ -1,0 +1,64 @@
+{
+  "door_code": "D07_BROTLI",
+  "semantic_path": "DATASETS.COMPRESSION.GOOGLE_BROTLI",
+  "aliases": [
+    "brotli",
+    "google_brotli",
+    "brotli_compression",
+    "br_encoding"
+  ],
+  "context_bundle": {
+    "summary": "Google's open-source Brotli compression implementation combining LZ77 dictionary coding, Huffman coding, and second-order context modeling. Multi-language support (C, Python, Java, JavaScript). Widely used in HTTP compression and CDNs. 14.5k+ GitHub stars.",
+    "prerequisites": [],
+    "related_doors": [
+      "D08_RFC7932",
+      "D09_LTCB"
+    ],
+    "onboarding": {
+      "quick_start": "Clone: github.com/google/brotli. MIT licensed. Includes compression/decompression libs, tests, benchmarks. Install via package managers.",
+      "full_context_path": "https://github.com/google/brotli",
+      "common_patterns": [
+        "HTTP content compression",
+        "CDN asset compression",
+        "Static file pre-compression",
+        "Streaming compression",
+        "Web performance optimization"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "https://github.com/google/brotli",
+        "https://www.brotli.org/"
+      ],
+      "code": [
+        "https://github.com/google/brotli"
+      ],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T00:00:00.000000",
+      "confidence": 0.95,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "compression",
+        "brotli",
+        "google",
+        "lz77",
+        "huffman",
+        "http",
+        "cdn"
+      ],
+      "category": "DATASETS",
+      "subcategory": "COMPRESSION",
+      "version": "1.0",
+      "tested_on": [],
+      "agent_affinity": [],
+      "license": "MIT",
+      "github_stars": "14.5k+",
+      "languages": ["C", "Python", "Java", "JavaScript"]
+    }
+  }
+}

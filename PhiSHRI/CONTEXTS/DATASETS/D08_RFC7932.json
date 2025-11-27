@@ -1,0 +1,59 @@
+{
+  "door_code": "D08_RFC7932",
+  "semantic_path": "DATASETS.COMPRESSION.RFC7932_BROTLI_SPEC",
+  "aliases": [
+    "rfc7932",
+    "brotli_spec",
+    "brotli_rfc",
+    "ietf_brotli"
+  ],
+  "context_bundle": {
+    "summary": "Official IETF specification (RFC 7932) for Brotli compression algorithm. Details format, compression process, and decoding logic. Essential for implementing Brotli from scratch or verifying compliance. Authoritative reference for academic and engineering use.",
+    "prerequisites": [],
+    "related_doors": [
+      "D07_BROTLI",
+      "D09_LTCB"
+    ],
+    "onboarding": {
+      "quick_start": "Read RFC 7932 at tools.ietf.org/html/rfc7932. IETF open standard, freely distributable. Use for custom implementations or compliance verification.",
+      "full_context_path": "https://tools.ietf.org/html/rfc7932",
+      "common_patterns": [
+        "Custom Brotli encoder implementation",
+        "Compliance verification",
+        "Academic citation",
+        "Protocol specification reference"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [
+        "https://tools.ietf.org/html/rfc7932",
+        "https://datatracker.ietf.org/doc/html/rfc7932"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T00:00:00.000000",
+      "confidence": 0.95,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "compression",
+        "brotli",
+        "rfc",
+        "ietf",
+        "specification",
+        "standard"
+      ],
+      "category": "DATASETS",
+      "subcategory": "COMPRESSION",
+      "version": "1.0",
+      "tested_on": [],
+      "agent_affinity": [],
+      "license": "IETF Open Standard (public domain)",
+      "type": "specification"
+    }
+  }
+}
