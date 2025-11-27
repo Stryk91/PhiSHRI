@@ -1,0 +1,79 @@
+{
+  "door_code": "D30_BENCH_DASHBOARD",
+  "semantic_path": "DATASETS.BENCHMARKS.DASHBOARD",
+  "aliases": [
+    "bench_dashboard",
+    "swe_dashboard",
+    "metrics_dashboard",
+    "run_tracker"
+  ],
+  "context_bundle": {
+    "summary": "Local HTML dashboard for SWE-bench run metrics. Tracks: solve rate, duration, tokens, cost, tool calls, blockers. Dark theme, monospace font, card-based layout. Auto-generated from run reports. Located at C:/SWE-Bench/metrics/dashboard.html",
+    "prerequisites": [
+      "D29_SWE_BENCH_REPORT_TEMPLATE"
+    ],
+    "related_doors": [
+      "D28_SWE_BENCH_RUN_REPORT",
+      "D29_SWE_BENCH_REPORT_TEMPLATE"
+    ],
+    "onboarding": {
+      "quick_start": "Dashboard reads from run report JSONs, aggregates metrics, renders HTML. Open file:///C:/SWE-Bench/metrics/dashboard.html in browser. Refresh after new runs.",
+      "full_context_path": "C:/SWE-Bench/metrics/dashboard.html",
+      "common_patterns": [
+        "Summary cards: solve rate, duration, tokens, cost",
+        "Average metrics: per-instance breakdowns",
+        "Instance table: sortable details per run",
+        "Status indicators: green=solved, red=failed"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [
+        "C:/SWE-Bench/metrics/dashboard.html"
+      ],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-28T00:00:00.000000",
+      "confidence": 0.9,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "dashboard",
+        "metrics",
+        "swe_bench",
+        "html",
+        "visualization"
+      ],
+      "category": "DATASETS",
+      "subcategory": "BENCHMARKS",
+      "version": "1.0",
+      "tested_on": [],
+      "agent_affinity": [],
+      "current_metrics": {
+        "solve_rate": "100%",
+        "total_instances": 1,
+        "avg_duration_min": 10,
+        "avg_tool_calls": 22,
+        "avg_blockers": 4,
+        "avg_cost": "$0.44"
+      },
+      "cost_model": {
+        "model": "Opus 4.5",
+        "input_per_1m": "$5",
+        "output_per_1m": "$25"
+      },
+      "tracked_fields": [
+        "instance_id",
+        "status",
+        "duration",
+        "tool_calls",
+        "blockers",
+        "tokens",
+        "cost"
+      ]
+    }
+  }
+}
