@@ -1,0 +1,74 @@
+{
+  "door_code": "D22_GSM8K",
+  "semantic_path": "DATASETS.BENCHMARKS.GSM8K",
+  "aliases": [
+    "gsm8k",
+    "grade_school_math",
+    "math_reasoning",
+    "word_problems"
+  ],
+  "context_bundle": {
+    "summary": "GSM8K - Grade School Math 8K. 8,500 grade-school level math word problems requiring multi-step reasoning. Tests chain-of-thought capability. Fast to evaluate. Strong signal for reasoning ability. Created by OpenAI.",
+    "prerequisites": [],
+    "related_doors": [
+      "D21_HUMANEVAL",
+      "D23_MMLU"
+    ],
+    "onboarding": {
+      "quick_start": "Load from HuggingFace: gsm8k. Each problem is a word problem with numeric answer. Use chain-of-thought prompting. Extract final number for scoring.",
+      "full_context_path": "https://huggingface.co/datasets/gsm8k",
+      "common_patterns": [
+        "Chain-of-thought: Show step-by-step reasoning",
+        "Answer extraction: Parse final numeric answer",
+        "Few-shot: Include 4-8 examples in prompt",
+        "Self-consistency: Sample multiple times, vote"
+      ],
+      "known_errors": [
+        "Calculator errors in long chains",
+        "Unit confusion (dollars vs cents)",
+        "Off-by-one in counting problems"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "https://huggingface.co/datasets/gsm8k",
+        "https://github.com/openai/grade-school-math"
+      ],
+      "code": [
+        "https://github.com/openai/grade-school-math"
+      ],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T00:00:00.000000",
+      "confidence": 0.95,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "benchmark",
+        "math",
+        "reasoning",
+        "chain_of_thought",
+        "word_problems"
+      ],
+      "category": "DATASETS",
+      "subcategory": "BENCHMARKS",
+      "version": "1.0",
+      "tested_on": [],
+      "agent_affinity": [],
+      "benchmark_info": {
+        "problems": 8500,
+        "split": {"train": 7473, "test": 1319},
+        "time_estimate": "20-30 minutes",
+        "metric": "Exact match (numeric)",
+        "difficulty": "Grade school (2-8 steps)"
+      },
+      "prompting_tips": {
+        "zero_shot": "Let's solve this step by step:",
+        "few_shot": "Include 4-8 worked examples",
+        "cot": "Show all arithmetic steps explicitly"
+      }
+    }
+  }
+}
