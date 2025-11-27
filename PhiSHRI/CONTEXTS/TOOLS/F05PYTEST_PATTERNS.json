@@ -1,0 +1,116 @@
+{
+  "door_code": "F05PYTEST_PATTERNS",
+  "semantic_path": "FRAMEWORKS.PYTEST.PATTERNS",
+  "aliases": [
+    "pytest",
+    "python_testing",
+    "unit_tests",
+    "test_fixtures",
+    "mocking"
+  ],
+  "context_bundle": {
+    "summary": "Pytest testing framework patterns, fixtures, parametrization, mocking, and debugging. Critical for SWE-bench since all patches must pass existing tests. Understanding pytest output is essential for diagnosing failures.",
+    "prerequisites": ["L01PYTHON"],
+    "related_doors": ["L60PYTHON_COMMON_ERRORS"],
+    "onboarding": {
+      "quick_start": "pytest auto-discovers test_*.py files and test_* functions. Use assert for checks. Fixtures provide setup/teardown. Parametrize for multiple inputs. Mock external dependencies.",
+      "basic_usage": {
+        "test_file": "# test_example.py\ndef test_addition():\n    assert 1 + 1 == 2\n\ndef test_string():\n    assert 'hello'.upper() == 'HELLO'\n\nclass TestMath:\n    def test_multiply(self):\n        assert 3 * 4 == 12",
+        "running": {
+          "all_tests": "pytest",
+          "specific_file": "pytest test_example.py",
+          "specific_test": "pytest test_example.py::test_addition",
+          "specific_class": "pytest test_example.py::TestMath",
+          "keyword_match": "pytest -k 'addition or multiply'",
+          "verbose": "pytest -v",
+          "very_verbose": "pytest -vv",
+          "stop_on_first_fail": "pytest -x",
+          "show_locals": "pytest -l",
+          "show_print": "pytest -s",
+          "parallel": "pytest -n auto  # requires pytest-xdist"
+        }
+      },
+      "assertions": {
+        "basic": "assert value == expected\nassert value != other\nassert value is None\nassert value is not None\nassert item in collection\nassert item not in collection\nassert value  # truthy\nassert not value  # falsy",
+        "approximate": "import pytest\nassert 0.1 + 0.2 == pytest.approx(0.3)\nassert value == pytest.approx(expected, rel=1e-3)  # relative tolerance\nassert value == pytest.approx(expected, abs=0.01)  # absolute tolerance",
+        "exceptions": "import pytest\n\ndef test_raises():\n    with pytest.raises(ValueError):\n        int('not a number')\n\ndef test_raises_match():\n    with pytest.raises(ValueError, match=r'invalid literal'):\n        int('not a number')\n\ndef test_raises_capture():\n    with pytest.raises(ValueError) as exc_info:\n        int('not a number')\n    assert 'invalid literal' in str(exc_info.value)",
+        "warnings": "import warnings\nimport pytest\n\ndef test_warning():\n    with pytest.warns(DeprecationWarning):\n        warnings.warn('old', DeprecationWarning)"
+      },
+      "fixtures": {
+        "basic": "import pytest\n\n@pytest.fixture\ndef sample_data():\n    return {'name': 'test', 'value': 42}\n\ndef test_with_fixture(sample_data):\n    assert sample_data['name'] == 'test'",
+        "setup_teardown": "@pytest.fixture\ndef database():\n    # Setup\n    db = create_database()\n    db.connect()\n    \n    yield db  # Test runs here\n    \n    # Teardown\n    db.disconnect()\n    db.cleanup()",
+        "scopes": "@pytest.fixture(scope='function')  # Default: new for each test\n@pytest.fixture(scope='class')      # Once per test class\n@pytest.fixture(scope='module')     # Once per module\n@pytest.fixture(scope='session')    # Once per test session",
+        "autouse": "@pytest.fixture(autouse=True)\ndef setup_logging():\n    logging.basicConfig(level=logging.DEBUG)\n    yield\n    logging.shutdown()",
+        "parametrized_fixture": "@pytest.fixture(params=['sqlite', 'postgres', 'mysql'])\ndef database(request):\n    db = create_db(request.param)\n    yield db\n    db.close()\n\ndef test_query(database):  # Runs 3 times, once per db type\n    assert database.query('SELECT 1')",
+        "conftest": "# conftest.py - fixtures available to all tests in directory\nimport pytest\n\n@pytest.fixture\ndef app():\n    return create_app('testing')\n\n@pytest.fixture\ndef client(app):\n    return app.test_client()"
+      },
+      "parametrize": {
+        "basic": "@pytest.mark.parametrize('input,expected', [\n    (1, 2),\n    (2, 4),\n    (3, 6),\n])\ndef test_double(input, expected):\n    assert input * 2 == expected",
+        "multiple_params": "@pytest.mark.parametrize('x', [1, 2])\n@pytest.mark.parametrize('y', [10, 20])\ndef test_multiply(x, y):  # Runs 4 times: (1,10), (1,20), (2,10), (2,20)\n    assert x * y > 0",
+        "ids": "@pytest.mark.parametrize('input,expected', [\n    pytest.param(1, 2, id='one'),\n    pytest.param(2, 4, id='two'),\n    pytest.param(-1, -2, id='negative'),\n])\ndef test_double(input, expected):\n    assert input * 2 == expected"
+      },
+      "markers": {
+        "builtin": "@pytest.mark.skip(reason='Not implemented yet')\ndef test_future():\n    pass\n\n@pytest.mark.skipif(sys.platform == 'win32', reason='Unix only')\ndef test_unix():\n    pass\n\n@pytest.mark.xfail(reason='Known bug')\ndef test_known_failure():\n    assert False  # Won't count as failure\n\n@pytest.mark.xfail(strict=True)  # Must fail, or test fails\ndef test_must_fail():\n    assert False",
+        "custom": "# pytest.ini or pyproject.toml\n[pytest]\nmarkers =\n    slow: marks tests as slow\n    integration: marks as integration test\n\n# Usage\n@pytest.mark.slow\ndef test_slow_operation():\n    pass\n\n# Run only slow tests\npytest -m slow\n\n# Exclude slow tests\npytest -m 'not slow'"
+      },
+      "mocking": {
+        "monkeypatch": "def test_with_monkeypatch(monkeypatch):\n    # Replace attribute\n    monkeypatch.setattr('module.CONSTANT', 'new_value')\n    \n    # Replace function\n    monkeypatch.setattr('module.function', lambda x: 'mocked')\n    \n    # Set environment variable\n    monkeypatch.setenv('API_KEY', 'test-key')\n    \n    # Delete attribute\n    monkeypatch.delattr('module.optional_feature')",
+        "unittest_mock": "from unittest.mock import Mock, patch, MagicMock\n\ndef test_with_mock():\n    mock_api = Mock()\n    mock_api.get_data.return_value = {'key': 'value'}\n    \n    result = function_using_api(mock_api)\n    \n    mock_api.get_data.assert_called_once()\n    assert result == expected",
+        "patch_decorator": "@patch('module.external_api')\ndef test_patched(mock_api):\n    mock_api.return_value = 'mocked response'\n    result = function_under_test()\n    assert result == 'mocked response'",
+        "patch_context": "def test_with_context():\n    with patch('module.external_api') as mock_api:\n        mock_api.return_value = 'mocked'\n        result = function_under_test()\n    assert result == 'mocked'",
+        "mock_async": "@pytest.mark.asyncio\nasync def test_async():\n    with patch('module.async_func', new_callable=AsyncMock) as mock:\n        mock.return_value = 'async result'\n        result = await function_under_test()\n    assert result == 'async result'"
+      },
+      "output_interpretation": {
+        "symbols": {
+          ".": "PASSED",
+          "F": "FAILED - assertion failed",
+          "E": "ERROR - exception during test",
+          "s": "SKIPPED",
+          "x": "XFAIL - expected failure, did fail",
+          "X": "XPASS - expected failure, but passed",
+          "p": "PASSED (with output captured)"
+        },
+        "failure_anatomy": "=========================== FAILURES ===========================\n___________________________ test_name ___________________________\n\n    def test_name():\n        value = compute_something()\n>       assert value == expected\nE       AssertionError: assert 41 == 42\nE        +  where 41 = compute_something()\n\ntest_file.py:15: AssertionError\n\n# Key info:\n# - '>' shows failing line\n# - 'E' shows error details\n# - Path:line shows location"
+      },
+      "debugging": {
+        "pdb_on_fail": "pytest --pdb  # Drop into debugger on failure",
+        "breakpoint": "def test_debug():\n    value = compute()\n    breakpoint()  # Python 3.7+ built-in\n    assert value == expected",
+        "capture_output": "pytest -s  # Show print statements\npytest --capture=no  # Same as -s\npytest --capture=sys  # Capture sys.stdout/stderr",
+        "show_locals": "pytest -l  # Show local variables in tracebacks",
+        "traceback_modes": "pytest --tb=short  # Shorter traceback\npytest --tb=long   # More detail\npytest --tb=native # Standard Python traceback\npytest --tb=no     # No traceback"
+      },
+      "common_patterns": {
+        "temp_files": "def test_with_temp(tmp_path):\n    # tmp_path is a pathlib.Path to temp directory\n    file = tmp_path / 'test.txt'\n    file.write_text('content')\n    assert file.read_text() == 'content'",
+        "capsys": "def test_output(capsys):\n    print('hello')\n    captured = capsys.readouterr()\n    assert captured.out == 'hello\\n'",
+        "caplog": "def test_logging(caplog):\n    import logging\n    logging.warning('test warning')\n    assert 'test warning' in caplog.text\n    assert caplog.records[0].levelname == 'WARNING'"
+      },
+      "swe_bench_critical": {
+        "running_specific_test": "pytest path/to/test_file.py::TestClass::test_method -v",
+        "understanding_failures": [
+          "Read the assertion error carefully",
+          "Check 'where X = ...' for computed values",
+          "Look at test setup in fixtures",
+          "Check if test uses mocking that needs updating"
+        ],
+        "common_patch_mistakes": [
+          "Changed function signature - update test calls",
+          "Changed return value - update assertions",
+          "Added required parameter - update fixtures",
+          "Changed exception type - update pytest.raises"
+        ]
+      }
+    },
+    "resources": {
+      "docs": ["https://docs.pytest.org/"]
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T15:00:00Z",
+      "confidence": 0.98,
+      "tags": ["pytest", "testing", "python", "fixtures", "mocking", "swe-bench"],
+      "category": "FRAMEWORKS",
+      "subcategory": "TESTING",
+      "version": "1.0.0",
+      "agent_affinity": ["DC", "TERMC"]
+    }
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "door_code": "F01DJANGO_PATTERNS",
+  "semantic_path": "FRAMEWORKS.DJANGO.PATTERNS",
+  "aliases": [
+    "django",
+    "django_orm",
+    "django_views",
+    "django_models",
+    "django_patterns"
+  ],
+  "context_bundle": {
+    "summary": "Django framework patterns, ORM idioms, and best practices. Covers models, views, querysets, migrations, forms, and common architectural patterns. Essential for SWE-bench Django issues.",
+    "prerequisites": ["L01PYTHON"],
+    "related_doors": ["F02DJANGO_ERRORS", "F05PYTEST"],
+    "onboarding": {
+      "quick_start": "Django: MTV (Model-Template-View) framework. Models define DB schema, Views handle logic, Templates render HTML. ORM: Model.objects.filter() for queries. Migrations: makemigrations + migrate.",
+      "architecture": {
+        "project_structure": {
+          "pattern": "project/\n├── manage.py\n├── project/\n│   ├── __init__.py\n│   ├── settings.py\n│   ├── urls.py\n│   └── wsgi.py\n└── app/\n    ├── __init__.py\n    ├── models.py\n    ├── views.py\n    ├── urls.py\n    ├── forms.py\n    ├── admin.py\n    ├── tests.py\n    └── migrations/",
+          "key_files": {
+            "settings.py": "Configuration: INSTALLED_APPS, DATABASES, MIDDLEWARE",
+            "urls.py": "URL routing: path() and include()",
+            "models.py": "Database models: class MyModel(models.Model)",
+            "views.py": "Request handlers: function or class-based",
+            "forms.py": "Form validation: ModelForm, Form",
+            "admin.py": "Admin interface: admin.site.register()"
+          }
+        }
+      },
+      "models": {
+        "basic_model": "class Article(models.Model):\n    title = models.CharField(max_length=200)\n    content = models.TextField()\n    pub_date = models.DateTimeField(auto_now_add=True)\n    author = models.ForeignKey(User, on_delete=models.CASCADE)\n    \n    class Meta:\n        ordering = ['-pub_date']\n    \n    def __str__(self):\n        return self.title",
+        "field_types": {
+          "CharField": "max_length required, for short strings",
+          "TextField": "unlimited text",
+          "IntegerField": "integers",
+          "FloatField": "floating point",
+          "DecimalField": "precise decimals (max_digits, decimal_places)",
+          "BooleanField": "True/False",
+          "DateField": "date only",
+          "DateTimeField": "date + time, auto_now_add for creation",
+          "EmailField": "email validation",
+          "URLField": "URL validation",
+          "FileField": "file uploads",
+          "ImageField": "image uploads (requires Pillow)",
+          "ForeignKey": "many-to-one relation",
+          "ManyToManyField": "many-to-many relation",
+          "OneToOneField": "one-to-one relation",
+          "JSONField": "JSON data (Django 3.1+)"
+        },
+        "field_options": {
+          "null": "True allows NULL in DB",
+          "blank": "True allows empty in forms",
+          "default": "default value or callable",
+          "choices": "limit to predefined options",
+          "unique": "enforce uniqueness",
+          "db_index": "create database index",
+          "related_name": "reverse relation name",
+          "on_delete": "CASCADE, PROTECT, SET_NULL, SET_DEFAULT"
+        },
+        "model_methods": {
+          "save()": "override for custom save logic, call super().save(*args, **kwargs)",
+          "delete()": "override for custom delete logic",
+          "clean()": "model-level validation",
+          "get_absolute_url()": "return canonical URL for object",
+          "__str__()": "string representation"
+        }
+      },
+      "orm_querysets": {
+        "basic_queries": {
+          "all": "Model.objects.all()",
+          "filter": "Model.objects.filter(field=value)",
+          "exclude": "Model.objects.exclude(field=value)",
+          "get": "Model.objects.get(pk=1)  # raises DoesNotExist or MultipleObjectsReturned",
+          "first": "Model.objects.filter(...).first()  # returns None if not found",
+          "last": "Model.objects.filter(...).last()",
+          "exists": "Model.objects.filter(...).exists()  # returns bool",
+          "count": "Model.objects.filter(...).count()",
+          "create": "Model.objects.create(field=value)  # create + save",
+          "get_or_create": "obj, created = Model.objects.get_or_create(field=value, defaults={...})",
+          "update_or_create": "obj, created = Model.objects.update_or_create(field=value, defaults={...})",
+          "bulk_create": "Model.objects.bulk_create([Model(...), Model(...)])",
+          "bulk_update": "Model.objects.bulk_update(objs, ['field1', 'field2'])"
+        },
+        "field_lookups": {
+          "exact": "field__exact=value (or just field=value)",
+          "iexact": "field__iexact=value (case-insensitive)",
+          "contains": "field__contains='substring'",
+          "icontains": "field__icontains='substring' (case-insensitive)",
+          "startswith": "field__startswith='prefix'",
+          "endswith": "field__endswith='suffix'",
+          "in": "field__in=[1, 2, 3]",
+          "gt/gte/lt/lte": "field__gt=5 (greater than)",
+          "range": "field__range=(start, end)",
+          "isnull": "field__isnull=True",
+          "date": "datetime_field__date=date(2024,1,1)",
+          "year/month/day": "date_field__year=2024",
+          "regex": "field__regex=r'^pattern'"
+        },
+        "queryset_methods": {
+          "order_by": ".order_by('field', '-reverse_field')",
+          "distinct": ".distinct()",
+          "values": ".values('field1', 'field2')  # returns dicts",
+          "values_list": ".values_list('field', flat=True)  # returns tuples/list",
+          "annotate": ".annotate(count=Count('related'))  # add computed fields",
+          "aggregate": ".aggregate(Sum('field'), Avg('field'))  # compute over queryset",
+          "select_related": ".select_related('fk_field')  # JOIN for ForeignKey",
+          "prefetch_related": ".prefetch_related('m2m_field')  # separate query for M2M",
+          "only": ".only('field1', 'field2')  # load only specified fields",
+          "defer": ".defer('large_field')  # don't load specified fields"
+        },
+        "q_objects": {
+          "description": "Complex queries with OR, AND, NOT",
+          "pattern": "from django.db.models import Q\n\n# OR\nModel.objects.filter(Q(field1=val1) | Q(field2=val2))\n\n# AND\nModel.objects.filter(Q(field1=val1) & Q(field2=val2))\n\n# NOT\nModel.objects.filter(~Q(field=value))\n\n# Complex\nModel.objects.filter(\n    Q(status='active') & (Q(priority='high') | Q(urgent=True))\n)"
+        },
+        "f_expressions": {
+          "description": "Reference model fields in queries",
+          "pattern": "from django.db.models import F\n\n# Compare fields\nModel.objects.filter(field1__gt=F('field2'))\n\n# Update with field value\nModel.objects.update(counter=F('counter') + 1)\n\n# Arithmetic\nModel.objects.annotate(total=F('price') * F('quantity'))"
+        },
+        "aggregation": {
+          "pattern": "from django.db.models import Count, Sum, Avg, Max, Min\n\n# Aggregate entire queryset\nModel.objects.aggregate(\n    total=Sum('amount'),\n    average=Avg('amount'),\n    count=Count('id')\n)  # returns dict\n\n# Annotate each object\nAuthor.objects.annotate(\n    book_count=Count('book')\n).filter(book_count__gt=5)"
+        },
+        "subqueries": {
+          "pattern": "from django.db.models import Subquery, OuterRef\n\n# Latest related object\nlatest_comment = Comment.objects.filter(\n    post=OuterRef('pk')\n).order_by('-created')[:1]\n\nPost.objects.annotate(\n    latest_comment_date=Subquery(latest_comment.values('created'))\n)"
+        }
+      },
+      "views": {
+        "function_based": "from django.shortcuts import render, get_object_or_404, redirect\nfrom django.http import HttpResponse, JsonResponse\n\ndef my_view(request, pk):\n    if request.method == 'POST':\n        # handle POST\n        return redirect('success-url')\n    obj = get_object_or_404(Model, pk=pk)\n    return render(request, 'template.html', {'obj': obj})",
+        "class_based": {
+          "ListView": "from django.views.generic import ListView\n\nclass ArticleList(ListView):\n    model = Article\n    template_name = 'articles/list.html'\n    context_object_name = 'articles'\n    paginate_by = 20\n    \n    def get_queryset(self):\n        return super().get_queryset().filter(published=True)",
+          "DetailView": "class ArticleDetail(DetailView):\n    model = Article\n    template_name = 'articles/detail.html'\n    context_object_name = 'article'",
+          "CreateView": "class ArticleCreate(CreateView):\n    model = Article\n    fields = ['title', 'content']\n    success_url = reverse_lazy('article-list')\n    \n    def form_valid(self, form):\n        form.instance.author = self.request.user\n        return super().form_valid(form)",
+          "UpdateView": "class ArticleUpdate(UpdateView):\n    model = Article\n    fields = ['title', 'content']\n    \n    def get_success_url(self):\n        return reverse('article-detail', kwargs={'pk': self.object.pk})",
+          "DeleteView": "class ArticleDelete(DeleteView):\n    model = Article\n    success_url = reverse_lazy('article-list')"
+        },
+        "mixins": {
+          "LoginRequiredMixin": "from django.contrib.auth.mixins import LoginRequiredMixin\nclass MyView(LoginRequiredMixin, ListView):\n    login_url = '/login/'",
+          "PermissionRequiredMixin": "class MyView(PermissionRequiredMixin, UpdateView):\n    permission_required = 'app.change_model'",
+          "UserPassesTestMixin": "class MyView(UserPassesTestMixin, DetailView):\n    def test_func(self):\n        return self.request.user.is_staff"
+        }
+      },
+      "urls": {
+        "patterns": "from django.urls import path, include, re_path\n\nurlpatterns = [\n    path('', views.index, name='index'),\n    path('articles/', views.article_list, name='article-list'),\n    path('articles/<int:pk>/', views.article_detail, name='article-detail'),\n    path('articles/<slug:slug>/', views.by_slug, name='by-slug'),\n    path('api/', include('api.urls')),\n]",
+        "converters": {
+          "int": "<int:pk> - matches integers",
+          "str": "<str:name> - matches non-empty string (default)",
+          "slug": "<slug:slug> - matches slug (letters, numbers, hyphens, underscores)",
+          "uuid": "<uuid:id> - matches UUID",
+          "path": "<path:filepath> - matches any string including /"
+        },
+        "reverse": "from django.urls import reverse\nurl = reverse('article-detail', kwargs={'pk': 42})\n# or in template: {% url 'article-detail' pk=42 %}"
+      },
+      "forms": {
+        "model_form": "from django import forms\n\nclass ArticleForm(forms.ModelForm):\n    class Meta:\n        model = Article\n        fields = ['title', 'content', 'category']\n        # or exclude = ['created_at']\n        widgets = {\n            'content': forms.Textarea(attrs={'rows': 10}),\n        }\n    \n    def clean_title(self):\n        title = self.cleaned_data['title']\n        if 'spam' in title.lower():\n            raise forms.ValidationError('No spam allowed')\n        return title\n    \n    def clean(self):\n        cleaned_data = super().clean()\n        # cross-field validation\n        return cleaned_data",
+        "form_view_handling": "def create_article(request):\n    if request.method == 'POST':\n        form = ArticleForm(request.POST, request.FILES)\n        if form.is_valid():\n            article = form.save(commit=False)\n            article.author = request.user\n            article.save()\n            return redirect('article-detail', pk=article.pk)\n    else:\n        form = ArticleForm()\n    return render(request, 'create.html', {'form': form})"
+      },
+      "migrations": {
+        "commands": {
+          "makemigrations": "python manage.py makemigrations [app_name]",
+          "migrate": "python manage.py migrate",
+          "showmigrations": "python manage.py showmigrations",
+          "sqlmigrate": "python manage.py sqlmigrate app_name 0001",
+          "squashmigrations": "python manage.py squashmigrations app_name 0001 0010"
+        },
+        "data_migration": "from django.db import migrations\n\ndef forwards(apps, schema_editor):\n    Model = apps.get_model('app', 'Model')\n    for obj in Model.objects.all():\n        obj.new_field = compute_value(obj.old_field)\n        obj.save()\n\nclass Migration(migrations.Migration):\n    dependencies = [('app', '0001_initial')]\n    operations = [\n        migrations.RunPython(forwards, migrations.RunPython.noop),\n    ]"
+      },
+      "testing": {
+        "test_case": "from django.test import TestCase, Client\nfrom django.urls import reverse\n\nclass ArticleTests(TestCase):\n    def setUp(self):\n        self.client = Client()\n        self.user = User.objects.create_user('test', 'test@test.com', 'pass')\n        self.article = Article.objects.create(title='Test', author=self.user)\n    \n    def test_list_view(self):\n        response = self.client.get(reverse('article-list'))\n        self.assertEqual(response.status_code, 200)\n        self.assertContains(response, 'Test')\n        self.assertTemplateUsed(response, 'articles/list.html')\n    \n    def test_detail_view(self):\n        response = self.client.get(reverse('article-detail', kwargs={'pk': self.article.pk}))\n        self.assertEqual(response.status_code, 200)\n    \n    def test_create_requires_login(self):\n        response = self.client.get(reverse('article-create'))\n        self.assertRedirects(response, '/login/?next=/articles/create/')",
+        "fixtures": "class MyTest(TestCase):\n    fixtures = ['test_data.json']  # loads from app/fixtures/"
+      },
+      "common_patterns": {
+        "soft_delete": "class SoftDeleteModel(models.Model):\n    deleted_at = models.DateTimeField(null=True, blank=True)\n    \n    class Meta:\n        abstract = True\n    \n    def delete(self, *args, **kwargs):\n        self.deleted_at = timezone.now()\n        self.save()\n    \n    def hard_delete(self):\n        super().delete()\n\nclass ActiveManager(models.Manager):\n    def get_queryset(self):\n        return super().get_queryset().filter(deleted_at__isnull=True)",
+        "timestamped_model": "class TimestampedModel(models.Model):\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    \n    class Meta:\n        abstract = True",
+        "uuid_pk": "import uuid\n\nclass UUIDModel(models.Model):\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)\n    \n    class Meta:\n        abstract = True"
+      },
+      "swe_bench_tips": {
+        "finding_relevant_code": [
+          "Models in app/models.py",
+          "Views in app/views.py or app/views/ directory",
+          "URL routing in project/urls.py and app/urls.py",
+          "Settings in project/settings.py or split settings module",
+          "Tests in app/tests.py or app/tests/ directory"
+        ],
+        "common_issue_patterns": [
+          "ORM query returns wrong results → check filter conditions, joins",
+          "Migration fails → check field constraints, data migration order",
+          "View returns 404 → check URL pattern, get_object_or_404 conditions",
+          "Form validation fails → check clean methods, field validators",
+          "Template error → check context variables, template tags syntax"
+        ]
+      }
+    },
+    "resources": {
+      "docs": ["https://docs.djangoproject.com/"]
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T15:00:00Z",
+      "confidence": 0.98,
+      "tags": ["django", "python", "web", "orm", "swe-bench"],
+      "category": "FRAMEWORKS",
+      "subcategory": "DJANGO",
+      "version": "1.0.0",
+      "agent_affinity": ["DC", "WEBC"]
+    }
+  }
+}

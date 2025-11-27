@@ -1,0 +1,109 @@
+{
+  "door_code": "F03FLASK_PATTERNS",
+  "semantic_path": "FRAMEWORKS.FLASK.PATTERNS",
+  "aliases": [
+    "flask",
+    "flask_routes",
+    "flask_views",
+    "flask_api",
+    "werkzeug"
+  ],
+  "context_bundle": {
+    "summary": "Flask microframework patterns, routing, blueprints, extensions, and common idioms. Flask is minimalist - know the patterns because there's less magic than Django. Essential for SWE-bench Flask issues.",
+    "prerequisites": ["L01PYTHON"],
+    "related_doors": ["L60PYTHON_COMMON_ERRORS"],
+    "onboarding": {
+      "quick_start": "Flask is minimal: create app, add routes, run. No ORM built-in (use SQLAlchemy). No forms built-in (use WTForms). App factory pattern for larger apps. Blueprints for modular code.",
+      "basic_app": {
+        "minimal": "from flask import Flask\n\napp = Flask(__name__)\n\n@app.route('/')\ndef index():\n    return 'Hello World'\n\nif __name__ == '__main__':\n    app.run(debug=True)",
+        "with_config": "app = Flask(__name__)\napp.config.from_object('config.Config')\n# or\napp.config['SECRET_KEY'] = 'dev-key'\napp.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'"
+      },
+      "routing": {
+        "basic_routes": "@app.route('/')\ndef index():\n    return 'Home'\n\n@app.route('/user/<username>')\ndef user_profile(username):\n    return f'User: {username}'\n\n@app.route('/post/<int:post_id>')\ndef show_post(post_id):\n    return f'Post {post_id}'",
+        "converters": {
+          "string": "<username> - default, any text without slash",
+          "int": "<int:id> - integers",
+          "float": "<float:value> - floating point",
+          "path": "<path:subpath> - includes slashes",
+          "uuid": "<uuid:id> - UUID strings"
+        },
+        "methods": "@app.route('/login', methods=['GET', 'POST'])\ndef login():\n    if request.method == 'POST':\n        username = request.form['username']\n        return redirect(url_for('index'))\n    return render_template('login.html')",
+        "url_building": "from flask import url_for\n\nurl_for('index')  # '/'\nurl_for('user_profile', username='john')  # '/user/john'\nurl_for('static', filename='style.css')  # '/static/style.css'"
+      },
+      "request_response": {
+        "request_object": "from flask import request\n\n# Query params: /search?q=term\nquery = request.args.get('q', '')\n\n# Form data (POST)\nusername = request.form['username']\nusername = request.form.get('username', 'default')\n\n# JSON body\ndata = request.get_json()\n\n# Files\nfile = request.files['upload']\nfile.save('/path/to/save')\n\n# Headers\nauth = request.headers.get('Authorization')\n\n# Cookies\ntoken = request.cookies.get('session_token')\n\n# Method, path, etc.\nrequest.method  # 'GET', 'POST'\nrequest.path    # '/users/123'\nrequest.url     # full URL",
+        "response_types": "from flask import jsonify, make_response, redirect, render_template\n\n# String (HTML)\nreturn '<h1>Hello</h1>'\n\n# Template\nreturn render_template('index.html', name=name)\n\n# JSON\nreturn jsonify({'status': 'ok', 'data': data})\n\n# Custom status\nreturn jsonify({'error': 'Not found'}), 404\n\n# Custom headers\nresp = make_response(render_template('page.html'))\nresp.headers['X-Custom'] = 'value'\nreturn resp\n\n# Redirect\nreturn redirect(url_for('index'))\nreturn redirect(url_for('index'), code=301)  # permanent\n\n# Set cookie\nresp = make_response('OK')\nresp.set_cookie('key', 'value', max_age=3600)\nreturn resp"
+      },
+      "blueprints": {
+        "purpose": "Modular code organization, like Django apps",
+        "definition": "# blueprints/auth.py\nfrom flask import Blueprint\n\nauth_bp = Blueprint('auth', __name__, url_prefix='/auth')\n\n@auth_bp.route('/login')\ndef login():\n    return 'Login page'\n\n@auth_bp.route('/logout')\ndef logout():\n    return 'Logged out'",
+        "registration": "# app.py\nfrom blueprints.auth import auth_bp\nfrom blueprints.api import api_bp\n\napp.register_blueprint(auth_bp)\napp.register_blueprint(api_bp, url_prefix='/api/v1')",
+        "url_for_blueprint": "url_for('auth.login')  # blueprint_name.function_name"
+      },
+      "app_factory": {
+        "pattern": "# app/__init__.py\nfrom flask import Flask\nfrom flask_sqlalchemy import SQLAlchemy\n\ndb = SQLAlchemy()\n\ndef create_app(config_name='default'):\n    app = Flask(__name__)\n    app.config.from_object(config[config_name])\n    \n    db.init_app(app)\n    \n    from .blueprints.main import main_bp\n    from .blueprints.auth import auth_bp\n    app.register_blueprint(main_bp)\n    app.register_blueprint(auth_bp)\n    \n    return app",
+        "usage": "# run.py\nfrom app import create_app\n\napp = create_app('development')\n\nif __name__ == '__main__':\n    app.run()",
+        "testing": "# tests/conftest.py\nimport pytest\nfrom app import create_app, db\n\n@pytest.fixture\ndef app():\n    app = create_app('testing')\n    with app.app_context():\n        db.create_all()\n        yield app\n        db.drop_all()\n\n@pytest.fixture\ndef client(app):\n    return app.test_client()"
+      },
+      "context": {
+        "application_context": "with app.app_context():\n    # Can access current_app, g\n    # Required for database operations outside request\n    db.create_all()",
+        "request_context": "with app.test_request_context('/path'):\n    # Can access request object\n    print(request.path)",
+        "g_object": "from flask import g\n\n@app.before_request\ndef load_user():\n    g.user = get_current_user()\n\n@app.route('/profile')\ndef profile():\n    return f'Hello {g.user.name}'"
+      },
+      "sessions": {
+        "usage": "from flask import session\n\n@app.route('/login', methods=['POST'])\ndef login():\n    session['user_id'] = user.id\n    session.permanent = True  # Use PERMANENT_SESSION_LIFETIME\n    return redirect(url_for('index'))\n\n@app.route('/logout')\ndef logout():\n    session.pop('user_id', None)\n    # or session.clear()\n    return redirect(url_for('index'))",
+        "config": "app.config['SECRET_KEY'] = 'required-for-sessions'\napp.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=7)"
+      },
+      "error_handling": {
+        "error_handlers": "@app.errorhandler(404)\ndef not_found(error):\n    return render_template('404.html'), 404\n\n@app.errorhandler(500)\ndef server_error(error):\n    return render_template('500.html'), 500\n\n@app.errorhandler(Exception)\ndef handle_exception(e):\n    # Log the error\n    app.logger.error(f'Unhandled exception: {e}')\n    return jsonify({'error': 'Internal server error'}), 500",
+        "abort": "from flask import abort\n\n@app.route('/user/<int:id>')\ndef get_user(id):\n    user = User.query.get(id)\n    if user is None:\n        abort(404)  # Raises HTTPException\n    return jsonify(user.to_dict())"
+      },
+      "common_extensions": {
+        "flask_sqlalchemy": "from flask_sqlalchemy import SQLAlchemy\n\ndb = SQLAlchemy(app)\n\nclass User(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    username = db.Column(db.String(80), unique=True, nullable=False)\n    email = db.Column(db.String(120), unique=True, nullable=False)\n    \n    def __repr__(self):\n        return f'<User {self.username}>'",
+        "flask_login": "from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user\n\nlogin_manager = LoginManager()\nlogin_manager.init_app(app)\nlogin_manager.login_view = 'auth.login'\n\n@login_manager.user_loader\ndef load_user(user_id):\n    return User.query.get(int(user_id))\n\n@app.route('/protected')\n@login_required\ndef protected():\n    return f'Hello {current_user.username}'",
+        "flask_wtf": "from flask_wtf import FlaskForm\nfrom wtforms import StringField, PasswordField\nfrom wtforms.validators import DataRequired, Email\n\nclass LoginForm(FlaskForm):\n    email = StringField('Email', validators=[DataRequired(), Email()])\n    password = PasswordField('Password', validators=[DataRequired()])"
+      },
+      "testing": {
+        "test_client": "def test_index(client):\n    response = client.get('/')\n    assert response.status_code == 200\n    assert b'Welcome' in response.data\n\ndef test_login(client):\n    response = client.post('/login', data={\n        'username': 'test',\n        'password': 'secret'\n    }, follow_redirects=True)\n    assert response.status_code == 200",
+        "json_requests": "def test_api(client):\n    response = client.post('/api/data',\n        json={'key': 'value'},\n        headers={'Authorization': 'Bearer token'}\n    )\n    assert response.status_code == 200\n    data = response.get_json()\n    assert data['status'] == 'ok'"
+      },
+      "common_errors": {
+        "working_outside_context": {
+          "error": "RuntimeError: Working outside of application context",
+          "fix": "Wrap code in: with app.app_context():"
+        },
+        "working_outside_request": {
+          "error": "RuntimeError: Working outside of request context",
+          "fix": "Use test_request_context() or ensure code runs during request"
+        },
+        "circular_imports": {
+          "error": "ImportError: cannot import name 'app'",
+          "fix": "Use app factory pattern, import inside functions"
+        },
+        "secret_key_not_set": {
+          "error": "RuntimeError: The session is unavailable because no secret key was set",
+          "fix": "app.config['SECRET_KEY'] = 'your-secret-key'"
+        }
+      },
+      "swe_bench_tips": [
+        "Flask source is in flask/ directory",
+        "Werkzeug handles low-level HTTP (flask depends on it)",
+        "Check app.py or __init__.py for app factory",
+        "Routes often in views.py or routes.py",
+        "Extensions have their own patterns - check docs"
+      ]
+    },
+    "resources": {
+      "docs": ["https://flask.palletsprojects.com/"]
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T15:00:00Z",
+      "confidence": 0.97,
+      "tags": ["flask", "python", "web", "microframework", "swe-bench"],
+      "category": "FRAMEWORKS",
+      "subcategory": "FLASK",
+      "version": "1.0.0",
+      "agent_affinity": ["DC", "WEBC"]
+    }
+  }
+}

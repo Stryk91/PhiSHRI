@@ -1,0 +1,261 @@
+{
+  "door_code": "W80SWE_BENCH_STRATEGY",
+  "semantic_path": "WORKFLOWS.BENCHMARKS.SWE_BENCH",
+  "aliases": [
+    "swe_bench",
+    "swe-bench",
+    "github_issues",
+    "issue_to_patch",
+    "code_repair"
+  ],
+  "context_bundle": {
+    "summary": "Meta-strategy for solving SWE-bench tasks. SWE-bench presents real GitHub issues - you must understand the issue, locate relevant code, write a patch, and ensure tests pass. This door contains the optimal workflow, common failure modes, and winning patterns.",
+    "prerequisites": ["L60PYTHON_COMMON_ERRORS", "F01DJANGO_PATTERNS", "F05PYTEST_PATTERNS"],
+    "related_doors": ["E52GIT_PATCH", "F02DJANGO_ERRORS"],
+    "onboarding": {
+      "quick_start": "SWE-bench workflow: 1) Parse issue carefully, 2) Find relevant files, 3) Understand existing code, 4) Write minimal fix, 5) Run tests, 6) Iterate. NEVER modify tests. Patch must be minimal and targeted.",
+
+      "benchmark_structure": {
+        "input": {
+          "instance_id": "repo__owner__issue_number",
+          "repo": "GitHub repository (django/django, psf/requests, etc.)",
+          "base_commit": "Git commit SHA to start from",
+          "problem_statement": "GitHub issue description (may include error messages, expected behavior)",
+          "hints_text": "Optional hints about relevant files/areas",
+          "test_patch": "Tests that must pass (DO NOT MODIFY)"
+        },
+        "output": {
+          "model_patch": "Git diff format patch that fixes the issue"
+        },
+        "evaluation": "Your patch is applied, tests are run, success = all tests pass"
+      },
+
+      "optimal_workflow": {
+        "phase_1_understand": {
+          "duration": "20% of time",
+          "actions": [
+            "Read issue COMPLETELY - don't skim",
+            "Identify: What is broken? What should happen?",
+            "Extract: Error messages, stack traces, reproduction steps",
+            "Note: Mentioned file names, function names, class names",
+            "Check hints_text for explicit guidance"
+          ],
+          "common_mistake": "Starting to code before fully understanding the issue"
+        },
+
+        "phase_2_locate": {
+          "duration": "30% of time",
+          "actions": [
+            "Search for mentioned files/classes/functions",
+            "Find where the error occurs (trace the stack)",
+            "Identify the ROOT cause, not just symptoms",
+            "Read surrounding code for context",
+            "Check related test files to understand expected behavior"
+          ],
+          "search_strategies": [
+            "Exact error message → grep for unique strings",
+            "Class/function name → find definition",
+            "File mentioned in traceback → read that file",
+            "Test file → understand expected behavior"
+          ],
+          "common_mistake": "Fixing symptom instead of root cause"
+        },
+
+        "phase_3_fix": {
+          "duration": "30% of time",
+          "actions": [
+            "Write MINIMAL fix - smallest possible change",
+            "Match existing code style exactly",
+            "Don't refactor surrounding code",
+            "Don't add features beyond the fix",
+            "Don't change function signatures if avoidable",
+            "Preserve backward compatibility"
+          ],
+          "principles": [
+            "If 1 line fixes it, don't change 10 lines",
+            "If existing pattern exists, follow it",
+            "If tests exist for similar cases, match their approach"
+          ],
+          "common_mistake": "Over-engineering, changing more than necessary"
+        },
+
+        "phase_4_verify": {
+          "duration": "20% of time",
+          "actions": [
+            "Run the specific tests mentioned in issue",
+            "Run full test suite for affected module",
+            "Check for regressions - don't break existing tests",
+            "Verify fix addresses the EXACT issue described"
+          ],
+          "test_commands": [
+            "pytest path/to/test_file.py::test_specific -v",
+            "pytest path/to/test_file.py -v",
+            "pytest tests/ -k 'keyword'",
+            "python -m pytest --tb=short"
+          ],
+          "common_mistake": "Not running tests before submitting"
+        }
+      },
+
+      "common_failure_modes": {
+        "failure_1_wrong_file": {
+          "symptom": "Patch applies but tests still fail",
+          "cause": "Fixed the wrong location, real bug is elsewhere",
+          "solution": "Trace execution path from error, not just search for keywords"
+        },
+        "failure_2_incomplete_fix": {
+          "symptom": "Some tests pass, others fail",
+          "cause": "Edge cases not handled, fix is partial",
+          "solution": "Read all test cases to understand full scope"
+        },
+        "failure_3_syntax_error": {
+          "symptom": "Patch fails to apply or code won't run",
+          "cause": "Indentation wrong, missing colon, typo",
+          "solution": "Verify patch syntax, match exact indentation"
+        },
+        "failure_4_regression": {
+          "symptom": "New tests pass but existing tests break",
+          "cause": "Fix changes behavior other tests depend on",
+          "solution": "Make fix more targeted, add condition for specific case"
+        },
+        "failure_5_wrong_interpretation": {
+          "symptom": "Patch doesn't match issue intent",
+          "cause": "Misunderstood what issue was asking for",
+          "solution": "Re-read issue, check comments, look at test expectations"
+        }
+      },
+
+      "repo_specific_knowledge": {
+        "django": {
+          "structure": "django/core/, django/db/, django/forms/, django/views/",
+          "tests": "tests/ directory mirrors structure",
+          "run_tests": "python -m pytest tests/specific_test.py",
+          "key_areas": "ORM (db/models), Forms, Views, Templates, Migrations",
+          "gotchas": [
+            "Always check Meta class options",
+            "Migration changes need migration file updates",
+            "Manager methods vs QuerySet methods",
+            "Field validators vs clean methods"
+          ]
+        },
+        "flask": {
+          "structure": "src/flask/, tests/",
+          "tests": "pytest",
+          "key_areas": "Routing, Context, Blueprints, Sessions",
+          "gotchas": [
+            "Application context vs Request context",
+            "Extension initialization order",
+            "Werkzeug handles low-level HTTP"
+          ]
+        },
+        "requests": {
+          "structure": "src/requests/, tests/",
+          "tests": "pytest tests/",
+          "key_areas": "Sessions, Auth, Response, Hooks",
+          "gotchas": [
+            "urllib3 does actual HTTP",
+            "Session persistence behavior",
+            "Encoding detection"
+          ]
+        },
+        "scikit_learn": {
+          "structure": "sklearn/, tests in each submodule",
+          "tests": "pytest sklearn/module/tests/",
+          "key_areas": "Estimators, Transformers, Metrics, Utils",
+          "gotchas": [
+            "Estimator API compliance",
+            "Input validation patterns",
+            "Deprecation warning handling"
+          ]
+        },
+        "sympy": {
+          "structure": "sympy/, tests in each submodule",
+          "tests": "pytest sympy/module/tests/",
+          "key_areas": "Core, Simplify, Solvers, Printing",
+          "gotchas": [
+            "Symbolic vs numeric evaluation",
+            "Assumptions system",
+            "Printing for different formats"
+          ]
+        }
+      },
+
+      "patch_format": {
+        "git_diff_structure": "--- a/path/to/file.py\n+++ b/path/to/file.py\n@@ -line,count +line,count @@\n context line\n-removed line\n+added line\n context line",
+        "rules": [
+          "Path must match exactly (case-sensitive)",
+          "Context lines must match file exactly",
+          "Line numbers in @@ are informational, context matters",
+          "Whitespace must match exactly (spaces vs tabs)",
+          "Include enough context for unique match"
+        ],
+        "example": "--- a/django/forms/fields.py\n+++ b/django/forms/fields.py\n@@ -256,7 +256,8 @@ class CharField(Field):\n         super().__init__(**kwargs)\n \n     def to_python(self, value):\n-        if value in self.empty_values:\n+        if value is None:\n+            return value\n+        if value in self.empty_values and value != '':\n             return self.empty_value\n         return str(value)"
+      },
+
+      "winning_patterns": {
+        "pattern_1_add_condition": {
+          "when": "Bug is edge case not handled",
+          "approach": "Add if condition for specific case before general handling",
+          "example": "Add: if special_case: return handle_special()"
+        },
+        "pattern_2_fix_comparison": {
+          "when": "Bug is wrong comparison or off-by-one",
+          "approach": "Change operator or bounds",
+          "example": "Change: if x > 0 to if x >= 0"
+        },
+        "pattern_3_null_check": {
+          "when": "Bug is NoneType error",
+          "approach": "Add explicit None check before operation",
+          "example": "Add: if value is None: return default"
+        },
+        "pattern_4_type_handling": {
+          "when": "Bug is type coercion issue",
+          "approach": "Add explicit type conversion or isinstance check",
+          "example": "Add: if isinstance(value, str): value = int(value)"
+        },
+        "pattern_5_default_value": {
+          "when": "Bug is missing default",
+          "approach": "Add default parameter or fallback",
+          "example": "Change: def func(x) to def func(x=None)"
+        }
+      },
+
+      "time_management": {
+        "typical_issue": "15-30 minutes total",
+        "breakdown": {
+          "read_issue": "3-5 min",
+          "locate_code": "5-10 min",
+          "understand_context": "3-5 min",
+          "write_fix": "3-5 min",
+          "verify_tests": "2-5 min"
+        },
+        "warning_signs": [
+          "If >10 min and haven't found file → step back, re-read issue",
+          "If fix is >20 lines → probably over-engineering",
+          "If changing multiple files → verify that's necessary"
+        ]
+      },
+
+      "prompt_patterns": {
+        "issue_parsing": "Extract from the issue:\n1. What is the expected behavior?\n2. What is the actual behavior?\n3. What files/functions are mentioned?\n4. What error messages appear?\n5. What version/configuration is relevant?",
+        "code_search": "Search for:\n1. Exact error message strings\n2. Function/class names from traceback\n3. File paths mentioned in issue\n4. Related test files\n5. Similar patterns in codebase",
+        "fix_verification": "Before submitting:\n1. Does fix address exact issue described?\n2. Is fix minimal (smallest possible change)?\n3. Does fix match code style?\n4. Do all relevant tests pass?\n5. Any regressions in existing tests?"
+      }
+    },
+    "resources": {
+      "docs": [
+        "https://github.com/princeton-nlp/SWE-bench",
+        "https://swe-bench.github.io/"
+      ]
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T15:00:00Z",
+      "confidence": 0.99,
+      "tags": ["swe-bench", "benchmark", "strategy", "code-repair", "github-issues"],
+      "category": "WORKFLOWS",
+      "subcategory": "BENCHMARKS",
+      "version": "1.0.0",
+      "agent_affinity": ["DC", "TERMC"]
+    }
+  }
+}

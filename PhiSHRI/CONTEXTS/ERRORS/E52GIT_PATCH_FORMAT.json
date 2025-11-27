@@ -1,0 +1,171 @@
+{
+  "door_code": "E52GIT_PATCH_FORMAT",
+  "semantic_path": "ERRORS.GIT.PATCH_FORMAT",
+  "aliases": [
+    "git_patch",
+    "git_diff",
+    "unified_diff",
+    "patch_format",
+    "diff_format"
+  ],
+  "context_bundle": {
+    "summary": "Git patch/diff format specification for creating and applying patches. Critical for SWE-bench where output must be valid git diff format. Covers unified diff format, context requirements, and common patch errors.",
+    "prerequisites": [],
+    "related_doors": ["W80SWE_BENCH_STRATEGY"],
+    "onboarding": {
+      "quick_start": "Git diff: --- a/file (old) +++ b/file (new), @@ -old_start,count +new_start,count @@, then lines with space (context), - (removed), + (added). Whitespace matters. Context must match exactly.",
+
+      "format_specification": {
+        "file_header": {
+          "format": "--- a/path/to/file.ext\n+++ b/path/to/file.ext",
+          "rules": [
+            "Paths are relative to repo root",
+            "a/ prefix = old version",
+            "b/ prefix = new version",
+            "Path is case-sensitive",
+            "Must match actual file path exactly"
+          ]
+        },
+        "hunk_header": {
+          "format": "@@ -old_start,old_count +new_start,new_count @@ optional_context",
+          "examples": [
+            "@@ -10,7 +10,8 @@ def function_name():",
+            "@@ -1,3 +1,4 @@",
+            "@@ -50 +50,2 @@"
+          ],
+          "explanation": {
+            "-old_start,old_count": "Starting line and number of lines in original file",
+            "+new_start,new_count": "Starting line and number of lines in new file",
+            "optional_context": "Function/class name for context (after @@)"
+          },
+          "count_rules": [
+            "old_count = context lines + removed lines",
+            "new_count = context lines + added lines",
+            "If count is 1, can be omitted: @@ -10 +10 @@"
+          ]
+        },
+        "line_prefixes": {
+          " ": "Context line - unchanged, must match file exactly",
+          "-": "Removed line - exists in original, not in new",
+          "+": "Added line - not in original, exists in new",
+          "\\": "No newline at end of file marker"
+        }
+      },
+
+      "complete_example": {
+        "simple_change": "--- a/src/utils.py\n+++ b/src/utils.py\n@@ -15,7 +15,7 @@ def calculate(x, y):\n     '''Calculate result'''\n     if x is None:\n         return None\n-    return x + y\n+    return x + y + 1\n     \n def helper():\n     pass",
+        "add_lines": "--- a/config.py\n+++ b/config.py\n@@ -8,6 +8,8 @@ DEFAULT_TIMEOUT = 30\n RETRY_COUNT = 3\n \n # API Settings\n+API_VERSION = 'v2'\n+API_TIMEOUT = 60\n BASE_URL = 'https://api.example.com'\n AUTH_HEADER = 'Authorization'",
+        "remove_lines": "--- a/legacy.py\n+++ b/legacy.py\n@@ -20,9 +20,6 @@ class Handler:\n     def process(self, data):\n         result = self.validate(data)\n         \n-        # Legacy logging\n-        print(f'Processing: {data}')\n-        \n         return self.transform(result)",
+        "multiple_hunks": "--- a/views.py\n+++ b/views.py\n@@ -10,7 +10,7 @@ from django.shortcuts import render\n \n def index(request):\n-    return render(request, 'index.html')\n+    return render(request, 'home/index.html')\n \n def about(request):\n     return render(request, 'about.html')\n@@ -45,6 +45,9 @@ def profile(request):\n     user = request.user\n     if not user.is_authenticated:\n         return redirect('login')\n+    \n+    if not user.profile:\n+        user.profile = Profile.objects.create(user=user)\n     \n     return render(request, 'profile.html', {'user': user})"
+      },
+
+      "common_errors": {
+        "error_1_path_mismatch": {
+          "symptom": "patch does not apply / file not found",
+          "cause": "Path in patch doesn't match actual file path",
+          "fix": "Verify exact path from repo root, check case sensitivity",
+          "example_wrong": "--- a/Django/forms/fields.py",
+          "example_right": "--- a/django/forms/fields.py"
+        },
+        "error_2_context_mismatch": {
+          "symptom": "patch does not apply cleanly",
+          "cause": "Context lines don't match file content",
+          "fix": "Copy context lines exactly from file, including whitespace",
+          "common_causes": [
+            "Trailing whitespace differences",
+            "Tab vs space mismatch",
+            "Line modified since base commit"
+          ]
+        },
+        "error_3_wrong_line_numbers": {
+          "symptom": "Hunk FAILED / offset warnings",
+          "cause": "Line numbers in @@ header are wrong",
+          "fix": "Recalculate based on actual file, but context matters more than numbers"
+        },
+        "error_4_missing_newline": {
+          "symptom": "Unexpected end of file / malformed patch",
+          "cause": "File doesn't end with newline, patch doesn't indicate",
+          "fix": "Add '\\ No newline at end of file' after last line if needed",
+          "example": "-last line\n+new last line\n\\ No newline at end of file"
+        },
+        "error_5_indentation": {
+          "symptom": "SyntaxError after patch / IndentationError",
+          "cause": "Indentation in patch doesn't match file",
+          "fix": "Use exact same indent (spaces vs tabs, count)",
+          "python_critical": "Python indentation must be EXACT"
+        },
+        "error_6_hunk_count_wrong": {
+          "symptom": "malformed patch / unexpected input",
+          "cause": "Line counts in @@ don't match actual hunk content",
+          "fix": "Count: context + removed = old_count, context + added = new_count"
+        }
+      },
+
+      "creating_patches": {
+        "from_git": {
+          "unstaged_changes": "git diff",
+          "staged_changes": "git diff --staged",
+          "specific_file": "git diff path/to/file.py",
+          "between_commits": "git diff abc123 def456",
+          "save_to_file": "git diff > changes.patch"
+        },
+        "manual_creation": {
+          "steps": [
+            "1. Start with --- a/path and +++ b/path",
+            "2. Add @@ -start,count +start,count @@",
+            "3. Include 3 lines of context before change",
+            "4. Add - lines for removed content",
+            "5. Add + lines for added content",
+            "6. Include 3 lines of context after change",
+            "7. Verify counts match"
+          ],
+          "context_convention": "Standard is 3 lines context before/after, but more context = more reliable apply"
+        },
+        "applying_patches": {
+          "git_apply": "git apply patch.diff",
+          "check_first": "git apply --check patch.diff",
+          "with_stats": "git apply --stat patch.diff",
+          "force_apply": "git apply --3way patch.diff",
+          "reverse": "git apply -R patch.diff"
+        }
+      },
+
+      "swe_bench_specific": {
+        "output_format": "Patch must be valid unified diff format that git apply accepts",
+        "requirements": [
+          "Paths relative to repo root",
+          "Must apply cleanly to base_commit",
+          "No extra files modified",
+          "No formatting/whitespace only changes",
+          "Tests must pass after apply"
+        ],
+        "validation_command": "git apply --check your_patch.diff && pytest tests/",
+        "tips": [
+          "Generate patch from actual git diff when possible",
+          "If manual, copy context lines directly from file",
+          "Include enough context for unambiguous location",
+          "Verify patch before submission"
+        ]
+      },
+
+      "edge_cases": {
+        "new_file": "--- /dev/null\n+++ b/new_file.py\n@@ -0,0 +1,5 @@\n+# New file content\n+def new_function():\n+    pass",
+        "delete_file": "--- a/old_file.py\n+++ /dev/null\n@@ -1,5 +0,0 @@\n-# Old file content\n-def old_function():\n-    pass",
+        "rename_file": "--- a/old_name.py\n+++ b/new_name.py\n@@ same content or changes @@",
+        "binary_files": "Binary files a/image.png and b/image.png differ"
+      }
+    },
+    "resources": {
+      "docs": ["https://git-scm.com/docs/git-diff"]
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T15:00:00Z",
+      "confidence": 0.99,
+      "tags": ["git", "patch", "diff", "format", "swe-bench"],
+      "category": "ERRORS",
+      "subcategory": "GIT",
+      "version": "1.0.0",
+      "agent_affinity": ["DC", "TERMC"]
+    }
+  }
+}
