@@ -1,0 +1,67 @@
+{
+  "door_code": "D25_BOOTSTRAP_PATTERN",
+  "semantic_path": "DATASETS.ARCHITECTURE.AUTO_BOOTSTRAP",
+  "aliases": [
+    "bootstrap",
+    "auto_context",
+    "ambiguous_input",
+    "zero_shot_context"
+  ],
+  "context_bundle": {
+    "summary": "Auto-bootstrap pattern for agents handling ambiguous input. System prompt instructs agent to query PhiSHRI MCP when context is unclear. Semantic search returns relevant doors. Agent gains structured context without explicit instructions. Zero-shot context injection.",
+    "prerequisites": [],
+    "related_doors": [
+      "D26_SESSION_DUMP",
+      "D04_MCP_SERVERS"
+    ],
+    "onboarding": {
+      "quick_start": "1) System prompt tells agent to use PhiSHRI when unsure. 2) Agent receives vague request. 3) Agent queries phishri.search(keywords). 4) Doors provide context. 5) Agent executes confidently.",
+      "full_context_path": "PhiSHRI/CONTEXTS/ARCHITECTURE/",
+      "common_patterns": [
+        "Ambiguity detection: If task unclear, search first",
+        "Keyword extraction: Pull nouns/verbs from user input",
+        "Multi-query: Search multiple terms, union results",
+        "Context injection: Load door summaries into working memory"
+      ],
+      "known_errors": [
+        "Over-querying: Don't search for every message",
+        "Context overflow: Limit doors loaded per query",
+        "Stale context: Re-query if task shifts"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T00:00:00.000000",
+      "confidence": 0.9,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "architecture",
+        "bootstrap",
+        "mcp",
+        "context",
+        "zero_shot",
+        "semantic_search"
+      ],
+      "category": "DATASETS",
+      "subcategory": "ARCHITECTURE",
+      "version": "1.0",
+      "tested_on": [],
+      "agent_affinity": [],
+      "system_prompt_template": "You have access to PhiSHRI, a knowledge base of structured 'doors' containing technical patterns, solutions, and context.\n\nWhen you receive a request that is:\n- Ambiguous or unclear\n- References a technology/pattern you need context on\n- Could benefit from established patterns\n\nQuery PhiSHRI FIRST using: phishri.search(\"relevant keywords\")\n\nThis returns door summaries. Load relevant doors before proceeding.\n\nDo NOT guess. Do NOT hallucinate. Query for context, then execute.",
+      "flow": [
+        "1. Receive ambiguous input",
+        "2. Extract keywords (tech, action, domain)",
+        "3. Call phishri.search(keywords)",
+        "4. Receive door matches with summaries",
+        "5. Load full doors if needed",
+        "6. Execute with full context"
+      ]
+    }
+  }
+}

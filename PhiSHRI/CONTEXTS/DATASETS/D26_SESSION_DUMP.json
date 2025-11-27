@@ -1,0 +1,74 @@
+{
+  "door_code": "D26_SESSION_DUMP",
+  "semantic_path": "DATASETS.ARCHITECTURE.SESSION_DUMP",
+  "aliases": [
+    "session_dump",
+    "context_dump",
+    "verbose_log",
+    "session_persistence"
+  ],
+  "context_bundle": {
+    "summary": "Session dump pattern for preserving agent context before compaction or session end. Creates verbose text file capturing: actions taken, doors loaded, decisions made, errors hit, solutions found. Enables knowledge extraction into new doors. Feedback loop for continuous improvement.",
+    "prerequisites": [
+      "D25_BOOTSTRAP_PATTERN"
+    ],
+    "related_doors": [
+      "D25_BOOTSTRAP_PATTERN"
+    ],
+    "onboarding": {
+      "quick_start": "Before session ends or context compacts: 1) Summarize what was done. 2) List doors used. 3) Document decisions/reasoning. 4) Capture errors and fixes. 5) Write to ~/.phishri/sessions/{timestamp}.md",
+      "full_context_path": "PhiSHRI/CONTEXTS/ARCHITECTURE/",
+      "common_patterns": [
+        "Trigger: End of session, context limit approaching, user request",
+        "Format: Markdown with structured sections",
+        "Storage: ~/.phishri/sessions/ or project/.phishri/",
+        "Processing: Later convert valuable dumps to doors"
+      ],
+      "known_errors": [
+        "Dump too late: Context already lost",
+        "Too verbose: Include actionable info only",
+        "No processing: Dumps rot without door extraction"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T00:00:00.000000",
+      "confidence": 0.85,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "architecture",
+        "session",
+        "persistence",
+        "logging",
+        "feedback_loop",
+        "knowledge_extraction"
+      ],
+      "category": "DATASETS",
+      "subcategory": "ARCHITECTURE",
+      "version": "1.0",
+      "tested_on": [],
+      "agent_affinity": [],
+      "dump_template": "# Session Dump - {timestamp}\n\n## Task Summary\n{what_was_requested}\n\n## Actions Taken\n1. {action_1}\n2. {action_2}\n...\n\n## Doors Loaded\n- {door_code}: {why_loaded}\n- {door_code}: {why_loaded}\n\n## Key Decisions\n- {decision}: {reasoning}\n\n## Errors Encountered\n- {error}: {how_resolved}\n\n## New Patterns Discovered\n- {pattern}: {could_become_door}\n\n## Files Modified\n- {file}: {what_changed}\n\n## Unfinished Work\n- {todo}: {context_needed}",
+      "trigger_conditions": [
+        "User says: 'dump session', 'save context', 'end session'",
+        "Context token count > 80% of limit",
+        "Task completion detected",
+        "Error loop detected (knowledge gap)"
+      ],
+      "processing_flow": [
+        "1. Dump created during/after session",
+        "2. Human or agent reviews dump",
+        "3. Valuable patterns extracted",
+        "4. New doors created from patterns",
+        "5. Doors pushed to PhiSHRI",
+        "6. Future sessions bootstrap with new knowledge"
+      ]
+    }
+  }
+}
