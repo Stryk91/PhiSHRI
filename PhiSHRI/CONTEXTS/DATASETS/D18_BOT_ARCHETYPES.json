@@ -1,0 +1,94 @@
+{
+  "door_code": "D18_BOT_ARCHETYPES",
+  "semantic_path": "DATASETS.BOTBATTLE.BOT_PERSONALITIES",
+  "aliases": [
+    "bot_archetypes",
+    "bot_types",
+    "playstyles",
+    "strategies"
+  ],
+  "context_bundle": {
+    "summary": "Common bot archetypes for Robot Rumble: Aggro (rush), Turtle (defensive), Swarm (numbers), Assassin (focus fire), Kiter (hit-run), Adaptive (counter-play). Each with strengths, weaknesses, and counter-strategies.",
+    "prerequisites": [
+      "D14_ROBOTRUMBLE_BASICS"
+    ],
+    "related_doors": [
+      "D15_GRID_TACTICS",
+      "D16_ATTACK_PATTERNS",
+      "D17_DEFENSE_STRATEGIES"
+    ],
+    "onboarding": {
+      "quick_start": "Start with Aggro or Swarm for simplicity. Graduate to Adaptive for competitive play. Counter enemy archetype: Turtle beats Aggro, Aggro beats Kiter, Kiter beats Turtle.",
+      "full_context_path": "https://codeclash.ai/arenas/robotrumble/index.html",
+      "common_patterns": [
+        "Identify enemy archetype early (turns 1-10)",
+        "Switch modes based on game state",
+        "Hybrid approaches beat pure archetypes",
+        "Adapt aggression to unit count ratio"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T00:00:00.000000",
+      "confidence": 0.85,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "archetypes",
+        "strategy",
+        "playstyle",
+        "meta",
+        "counter_play"
+      ],
+      "category": "DATASETS",
+      "subcategory": "BOTBATTLE",
+      "version": "1.0",
+      "tested_on": [],
+      "agent_affinity": [],
+      "archetypes": {
+        "AGGRO": {
+          "description": "All-in rush, maximum aggression",
+          "strengths": "Fast kills, early advantage",
+          "weaknesses": "Poor trades, no fallback",
+          "countered_by": "Turtle, Kiter"
+        },
+        "TURTLE": {
+          "description": "Defensive formation, wait for mistakes",
+          "strengths": "Efficient trades, survives aggro",
+          "weaknesses": "Slow, loses to timeout",
+          "countered_by": "Swarm, late-game pressure"
+        },
+        "SWARM": {
+          "description": "Spread out, attack from all angles",
+          "strengths": "Hard to focus fire, surrounds",
+          "weaknesses": "Weak individuals, fragmented",
+          "countered_by": "Focus fire, Assassin"
+        },
+        "ASSASSIN": {
+          "description": "Focus fire one target at a time",
+          "strengths": "Guaranteed kills, efficient",
+          "weaknesses": "Predictable, kited easily",
+          "countered_by": "Kiter, screening"
+        },
+        "KITER": {
+          "description": "Hit and run, never commit",
+          "strengths": "Safe damage, wears down",
+          "weaknesses": "Slow kills, cornered = dead",
+          "countered_by": "Pincer, Swarm"
+        },
+        "ADAPTIVE": {
+          "description": "Switches modes based on state",
+          "strengths": "Counters pure strategies",
+          "weaknesses": "Complex to implement",
+          "countered_by": "Better adaptive bot"
+        }
+      }
+    }
+  }
+}
