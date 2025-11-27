@@ -1,0 +1,70 @@
+{
+  "door_code": "D16_ATTACK_PATTERNS",
+  "semantic_path": "DATASETS.BOTBATTLE.ATTACK_COORDINATION",
+  "aliases": [
+    "attack_patterns",
+    "combat_tactics",
+    "focus_fire",
+    "kill_priority"
+  ],
+  "context_bundle": {
+    "summary": "Attack coordination and timing strategies for Robot Rumble. Focus fire, target prioritization, kill securing, coordinated strikes, and damage optimization across multiple robots per turn.",
+    "prerequisites": [
+      "D14_ROBOTRUMBLE_BASICS",
+      "D15_GRID_TACTICS"
+    ],
+    "related_doors": [
+      "D17_DEFENSE_STRATEGIES"
+    ],
+    "onboarding": {
+      "quick_start": "Focus fire: All robots attack same target until dead. Prioritize low HP enemies for quick kills. Attack > Move when enemy adjacent. Coordinate to kill before enemy turn.",
+      "full_context_path": "https://codeclash.ai/arenas/robotrumble/index.html",
+      "common_patterns": [
+        "Focus fire: All units target lowest HP enemy",
+        "Kill securing: Finish wounded enemies first",
+        "Overkill prevention: Don't waste attacks on dying units",
+        "Threat assessment: Target highest damage enemy",
+        "Positional attacks: Attack enemies blocking retreat"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T00:00:00.000000",
+      "confidence": 0.85,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "combat",
+        "attack",
+        "focus_fire",
+        "targeting",
+        "coordination",
+        "damage"
+      ],
+      "category": "DATASETS",
+      "subcategory": "BOTBATTLE",
+      "version": "1.0",
+      "tested_on": [],
+      "agent_affinity": [],
+      "target_priority": [
+        "1. Enemy with HP <= your_damage (guaranteed kill)",
+        "2. Enemy adjacent to multiple allies (focus fire)",
+        "3. Lowest HP enemy (quick elimination)",
+        "4. Nearest enemy (efficiency)",
+        "5. Highest threat enemy (strategic)"
+      ],
+      "code_snippets": {
+        "can_kill": "enemy.hp <= my_damage",
+        "focus_target": "sorted(enemies, key=lambda e: e.hp)[0]",
+        "adjacent_enemies": "[e for e in enemies if dist(me, e) == 1]",
+        "attack_or_move": "attack(target) if adjacent(target) else move_toward(target)"
+      }
+    }
+  }
+}
