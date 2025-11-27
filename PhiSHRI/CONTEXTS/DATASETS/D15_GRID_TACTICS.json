@@ -1,0 +1,68 @@
+{
+  "door_code": "D15_GRID_TACTICS",
+  "semantic_path": "DATASETS.BOTBATTLE.GRID_MOVEMENT_TACTICS",
+  "aliases": [
+    "grid_tactics",
+    "movement_strategy",
+    "positioning",
+    "pathfinding"
+  ],
+  "context_bundle": {
+    "summary": "Grid-based movement and positioning tactics for Robot Rumble. Covers pathfinding algorithms, formation patterns, zone control, flanking maneuvers, and spatial dominance strategies for multi-robot coordination.",
+    "prerequisites": [
+      "D14_ROBOTRUMBLE_BASICS"
+    ],
+    "related_doors": [
+      "D16_ATTACK_PATTERNS",
+      "D17_DEFENSE_STRATEGIES"
+    ],
+    "onboarding": {
+      "quick_start": "Control the center, maintain unit spacing, use walls as cover. Manhattan distance = |x1-x2| + |y1-y2|. BFS for pathfinding. Avoid clustering (splash damage risk).",
+      "full_context_path": "https://codeclash.ai/arenas/robotrumble/index.html",
+      "common_patterns": [
+        "Center control: Move toward grid center early game",
+        "Spread formation: Keep 2-3 cells between allies",
+        "Pincer movement: Flank from multiple directions",
+        "Wall hugging: Use edges to protect flanks",
+        "Retreat corridors: Plan escape routes before engaging"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T00:00:00.000000",
+      "confidence": 0.85,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "tactics",
+        "grid",
+        "movement",
+        "pathfinding",
+        "positioning",
+        "bfs",
+        "formations"
+      ],
+      "category": "DATASETS",
+      "subcategory": "BOTBATTLE",
+      "version": "1.0",
+      "tested_on": [],
+      "agent_affinity": [],
+      "algorithms": {
+        "pathfinding": "BFS (Breadth-First Search)",
+        "distance": "Manhattan: |dx| + |dy|",
+        "targeting": "Nearest enemy first or lowest HP"
+      },
+      "code_snippets": {
+        "manhattan_distance": "def dist(a, b): return abs(a.x - b.x) + abs(a.y - b.y)",
+        "find_nearest": "min(enemies, key=lambda e: dist(me, e))",
+        "move_toward": "dx = sign(target.x - me.x); dy = sign(target.y - me.y)"
+      }
+    }
+  }
+}
