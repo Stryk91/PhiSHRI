@@ -10,3 +10,6 @@ logs/nul
 
 # Node modules
 node_modules/
+
+# Nested repos
+/DEX_AND_LAUNCHER/PhiDEX
