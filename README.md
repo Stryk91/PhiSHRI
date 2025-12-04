@@ -1,11 +1,11 @@
+https://carbyne.tiiny.site/
+
+
 # PhiSHRI - Semantic Self-Hashing Radial Index
 ### [MCP_INSTALL_GUIDE](https://github.com/Stryk91/PhiSHRI/blob/1c0f30588579c91e6296f0e8d75d74bf605d40f3/INSTALL_GUIDE.md)
 
 ### [MCP_README](https://github.com/Stryk91/PhiSHRI/blob/8c77cd8fd94998cf2f1ddef6aa56b3e5759a9687/PhiSHRI_MCP_README.md)
 
-
-> v0.0.1 - Early Development - Skeleton shown here , i actually have 120 Tools over 7 MCPs 
-[![MCP Badge](https://lobehub.com/badge/mcp/stryk91-phishri_mcp?style=plastic)](https://lobehub.com/mcp/stryk91-phishri_mcp)
 
 **AI session continuity via semantic door codes.** Load context, resume work, zero re-explanation.
 
