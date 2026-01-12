@@ -1,30 +1,44 @@
 {
   "door_code": "810AHK",
-  "semantic_path": "TOOLS.AUTOHOTKEY.AUTOMATION",
+  "semantic_path": "TOOLS.AUTOHOTKEY.CORE",
   "aliases": [
     "ahk",
     "autohotkey",
+    "ahk2",
+    "autohotkey2",
     "window_automation",
-    "ui_automation"
+    "ui_automation",
+    "ahk scripts"
   ],
   "context_bundle": {
-    "summary": "AutoHotkey automation for Windows UI control, window management, keyboard/mouse simulation, and inter-application messaging. Core tool for DC agent coordination and desktop automation.",
-    "prerequisites": [],
+    "summary": "AutoHotkey v2 automation for Windows. EXECUTABLE: C:\\Program Files\\AHK\\v2\\AutoHotkey64.exe. SCRIPTS FOLDER: X:\\AHK  SCRIPTS\\ (TWO SPACES between AHK and SCRIPTS - see E54PATH). 156+ scripts available for UI control, window management, keyboard/mouse simulation.",
+    "prerequisites": ["E54PATH"],
     "related_doors": [
+      "E54PATH",
       "A01DC",
-      "W01COORD",
-      "811AHK_MSG"
+      "A05KALIC",
+      "830WINAUTOSUITE",
+      "E58AHK_ELECTRON_SEND"
     ],
     "onboarding": {
-      "quick_start": "Use AutoHotkey for UI automation. Send window messages for coordination. Simulate keyboard/mouse for control. Handle window focus carefully.",
-      "full_context_path": "/PHIiSRHI/LANGUAGE_COORDS/DC_Browser_Messaging.ahk",
+      "quick_start": "RUN SCRIPT: & 'C:\\Program Files\\AHK\\v2\\AutoHotkey64.exe' 'X:\\AHK  SCRIPTS\\scriptname.ahk'\nLIST SCRIPTS: Get-ChildItem 'X:\\AHK  SCRIPTS\\*.ahk' | Select Name\nKEY SCRIPTS: copy_response.ahk, CLAUDE_EYES.ahk, AIMessaging.ahk, common.ahk, VocalClaudes.ahk",
+      "full_context_path": "X:\\AHK  SCRIPTS\\",
       "common_patterns": [
+        "RUN: & 'C:\\Program Files\\AHK\\v2\\AutoHotkey64.exe' 'X:\\AHK  SCRIPTS\\script.ahk'",
+        "RUN WITH ARGS: & 'C:\\Program Files\\AHK\\v2\\AutoHotkey64.exe' 'X:\\AHK  SCRIPTS\\script.ahk' arg1 arg2",
         "Window control: WinActivate, WinWait, WinClose",
         "Input simulation: Send, SendInput, Click",
         "Message passing: PostMessage, SendMessage",
         "Hotkeys: Define with :: syntax"
       ],
       "known_errors": [
+        {
+          "error": "Script not found",
+          "cause": "Path has wrong number of spaces",
+          "solution": "Use TWO SPACES: X:\\AHK  SCRIPTS\\ not X:\\AHK SCRIPTS\\",
+          "prevention": "Always copy path exactly from door",
+          "related_door": "E54PATH"
+        },
         {
           "error": "Window not found",
           "cause": "Window title changed or not visible",
@@ -36,35 +50,45 @@
     },
     "resources": {
       "docs": [
-        "/PHIiSRHI/LANGUAGE_COORDS/DC_Browser_Messaging.ahk",
-        "/PHIiSRHI/LANGUAGE_COORDS/DC_VSCC_Messaging.ahk",
-        "/PHIiSRHI/LANGUAGE_COORDS/VSCC_Browser_Messaging.ahk"
+        "X:\\AHK  SCRIPTS\\",
+        "C:\\Program Files\\AHK\\v2\\AutoHotkey64.exe"
       ],
-      "code": [],
+      "code": [
+        "X:\\AHK  SCRIPTS\\common.ahk",
+        "X:\\AHK  SCRIPTS\\AIMessaging.ahk",
+        "X:\\AHK  SCRIPTS\\CLAUDE_EYES.ahk"
+      ],
       "tests": [],
-      "errors": []
+      "errors": ["E54PATH"]
     },
     "metadata": {
-      "last_updated": "2025-11-18T01:12:45.770315",
-      "confidence": 0.9,
+      "last_updated": "2025-12-06T12:00:00Z",
+      "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
       "tags": [
         "autohotkey",
+        "ahk",
+        "v2",
         "automation",
         "windows",
         "ui",
+        "scripts",
+        "keyboard",
+        "mouse",
         "coordination"
       ],
       "category": "TOOLS",
       "subcategory": "AUTOHOTKEY",
-      "version": "1.1",
+      "version": "2.0",
       "tested_on": [
         "Windows 10",
         "Windows 11"
       ],
       "agent_affinity": [
-        "DC"
+        "DC",
+        "KALIC",
+        "VSCC"
       ]
     }
   }
