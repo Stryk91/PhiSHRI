@@ -1,0 +1,58 @@
+{
+  "door_code": "PSY01COGNITIVE_FUNDAMENTALS",
+  "semantic_path": "PSYCHOLOGY.COGNITIVE.FUNDAMENTALS",
+  "aliases": [
+    "cognitive psych",
+    "thinking",
+    "cognition"
+  ],
+  "context_bundle": {
+    "summary": "Cognitive psychology foundations: attention (selective, divided, sustained), perception (top-down/bottom-up processing), working memory (Baddeley model), cognitive load theory, dual-process theory (System 1/2).",
+    "prerequisites": [],
+    "related_doors": [
+      "PSY02MEMORY_SYSTEMS",
+      "PSY03AGE_COGNITIVE_DECLINE"
+    ],
+    "onboarding": {
+      "quick_start": "Attention is the bottleneck. Working memory ~4 chunks. Cognitive load = intrinsic + extraneous + germane. System 1 = fast/automatic, System 2 = slow/deliberate.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Selective attention: Cocktail party effect, inattentional blindness, change blindness",
+        "Working memory: Phonological loop (verbal), visuospatial sketchpad (visual), central executive (control)",
+        "Cognitive load: Reduce extraneous, manage intrinsic, optimize germane for learning",
+        "Dual-process: System 1 heuristics cause biases, System 2 override requires effort/motivation"
+      ],
+      "known_errors": [
+        "Assuming attention is unlimited - it's a finite resource",
+        "Overloading working memory - chunking helps but has limits",
+        "Ignoring cognitive load in design - leads to poor UX/learning",
+        "Over-relying on System 2 - causes decision fatigue"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-24T03:52:35.535771300+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "cognitive",
+        "psychology",
+        "attention",
+        "memory",
+        "perception",
+        "thinking"
+      ],
+      "category": "TOOLS",
+      "subcategory": "COGNITIVE",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "WEBC"
+      ]
+    }
+  }
+}

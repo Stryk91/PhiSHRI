@@ -1,11 +1,23 @@
 {
   "door_code": "R03MICROSERVICE",
   "semantic_path": "ARCHITECTURE.PATTERNS.MICROSERVICE_ARCHITECTURE",
-  "aliases": ["microservices", "microservice_architecture", "service_oriented", "distributed_systems"],
+  "aliases": [
+    "microservices",
+    "microservice_architecture",
+    "service_oriented",
+    "distributed_systems"
+  ],
   "context_bundle": {
     "summary": "Microservice architecture pattern: Decompose monolith into small, independent services. Each service: single responsibility, own database, REST/gRPC APIs, deployed independently. Patterns: API Gateway (entry point), Service Discovery (Consul, Eureka), Circuit Breaker (Hystrix, resilience4j), Saga (distributed transactions). Communication: sync (HTTP/gRPC) or async (Kafka, RabbitMQ). Benefits: independent deploy, tech diversity, scalability. Challenges: complexity, distributed data, network latency.",
-    "prerequisites": ["R01MULTI"],
-    "related_doors": ["R04EVENT_DRIVEN", "W48K8S_DEPLOY", "W53KAFKA", "T08API_PATTERN"],
+    "prerequisites": [
+      "R01MULTI"
+    ],
+    "related_doors": [
+      "R04EVENT_DRIVEN",
+      "W48K8S_DEPLOY",
+      "W53KAFKA",
+      "T08API_PATTERN"
+    ],
     "onboarding": {
       "quick_start": "Microservices: Break app into services (user-service, order-service, payment-service). Each service: REST/gRPC API, own DB, independent deploy. API Gateway: single entry (Kong, AWS API Gateway), routes to services. Service Discovery: register services (Consul, Eureka), clients discover dynamically. Circuit Breaker: prevent cascading failures (Hystrix), fallback on timeout. Saga: distributed transactions (orchestration or choreography). Sync: HTTP/gRPC for request-reply. Async: Kafka/RabbitMQ for events. Deploy: Docker + K8s, each service in pod. Benefits: scale independently, deploy fast. Challenges: distributed tracing, eventual consistency, network overhead.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/03_ARCHITECTURE/DISTRIBUTED_SYSTEMS_ARCHITECTURE.md",
@@ -24,7 +36,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/03_ARCHITECTURE/DISTRIBUTED_SYSTEMS_ARCHITECTURE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/03_ARCHITECTURE/DISTRIBUTED_SYSTEMS_ARCHITECTURE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +48,30 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["microservices", "architecture", "distributed", "api_gateway", "service_discovery", "saga"],
+      "tags": [
+        "microservices",
+        "architecture",
+        "distributed",
+        "api_gateway",
+        "service_discovery",
+        "saga"
+      ],
       "category": "ARCHITECTURE",
       "subcategory": "PATTERNS",
       "version": "1.0.0",
-      "tested_on": ["Kubernetes", "Docker", "Spring Boot", "Node.js"],
-      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+      "tested_on": [
+        "Kubernetes",
+        "Docker",
+        "Spring Boot",
+        "Node.js"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "CMDC",
+        "TERMC"
+      ],
+      "size_bytes": 3185,
+      "token_estimate": 797.0
     }
   }
 }

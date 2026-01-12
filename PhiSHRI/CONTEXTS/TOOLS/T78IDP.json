@@ -75,7 +75,9 @@
         "DC",
         "KALIC",
         "TERMC"
-      ]
+      ],
+      "size_bytes": 3021,
+      "token_estimate": 756.0
     }
   }
 }

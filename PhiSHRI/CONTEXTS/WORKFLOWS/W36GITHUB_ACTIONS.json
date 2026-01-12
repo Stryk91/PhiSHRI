@@ -1,11 +1,22 @@
 {
   "door_code": "W36GITHUB_ACTIONS",
   "semantic_path": "WORKFLOWS.CICD.GITHUB_ACTIONS",
-  "aliases": ["github_actions", "gh_actions", "gha", "github_ci"],
+  "aliases": [
+    "github_actions",
+    "gh_actions",
+    "gha",
+    "github_ci"
+  ],
   "context_bundle": {
     "summary": "GitHub Actions CI/CD: YAML workflows in .github/workflows/. Triggers: on push, pull_request, schedule, workflow_dispatch. Jobs run on runners (ubuntu-latest, windows-latest, macos-latest). Steps: actions/checkout, actions/setup-node, run commands. Secrets for credentials.",
-    "prerequisites": ["W14GIT", "W15CICD"],
-    "related_doors": ["W37GITLAB_CI", "W33GIT_BRANCH"],
+    "prerequisites": [
+      "W14GIT",
+      "W15CICD"
+    ],
+    "related_doors": [
+      "W37GITLAB_CI",
+      "W33GIT_BRANCH"
+    ],
     "onboarding": {
       "quick_start": "GitHub Actions: .github/workflows/*.yml. Structure: name, on (triggers), jobs (steps). Common: actions/checkout@v4, actions/setup-node@v4, run: npm test. Triggers: push, pull_request, schedule (cron). Secrets in Settings > Secrets. Matrix builds for multiple versions.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
@@ -20,7 +31,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -30,12 +43,24 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["github_actions", "ci_cd", "automation", "workflows"],
+      "tags": [
+        "github_actions",
+        "ci_cd",
+        "automation",
+        "workflows"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "CICD",
       "version": "1.0.0",
-      "tested_on": ["GitHub"],
-      "agent_affinity": ["DC", "VSCC"]
+      "tested_on": [
+        "GitHub"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 1849,
+      "token_estimate": 463.0
     }
   }
 }

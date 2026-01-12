@@ -1,11 +1,23 @@
 {
   "door_code": "A05KALIC",
   "semantic_path": "AGENTS.PHIVECTOR.KALIC",
-  "aliases": ["kalic", "kali_claude", "security_agent", "penetration_testing"],
+  "aliases": [
+    "kalic",
+    "kali_claude",
+    "security_agent",
+    "penetration_testing"
+  ],
   "context_bundle": {
     "summary": "KALIC (Kali Claude): Security auditing & penetration testing agent. Vulnerability scanning, code security review, compliance checking. Outputs: Security reports, remediation recommendations.",
-    "prerequisites": ["W12PHISYNC", "S01SEC"],
-    "related_doors": ["A01DC", "S02SQL", "S01SEC"],
+    "prerequisites": [
+      "W12PHISYNC",
+      "S01SEC"
+    ],
+    "related_doors": [
+      "A01DC",
+      "S02SQL",
+      "S01SEC"
+    ],
     "onboarding": {
       "quick_start": "KALIC = security agent. Scans for vulnerabilities, reviews code for OWASP top 10, checks compliance. Coordination: File-based commands. Outputs: Security assessment reports to PhiDEX.",
       "full_context_path": "/PhiDEX/PhiSync/README.md",
@@ -19,7 +31,10 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/PhiSync/README.md", "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/PhiSync/README.md",
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -29,12 +44,23 @@
       "confidence": 0.92,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["agent", "kalic", "security", "penetration_testing"],
+      "tags": [
+        "agent",
+        "kalic",
+        "security",
+        "penetration_testing"
+      ],
       "category": "AGENTS",
       "subcategory": "PHIVECTOR",
       "version": "1.0.0",
-      "tested_on": ["PhiVector"],
-      "agent_affinity": ["KALIC"]
+      "tested_on": [
+        "PhiVector"
+      ],
+      "agent_affinity": [
+        "KALIC"
+      ],
+      "size_bytes": 1709,
+      "token_estimate": 428.0
     }
   }
 }

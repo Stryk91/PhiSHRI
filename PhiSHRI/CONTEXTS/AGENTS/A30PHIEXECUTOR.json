@@ -1,0 +1,92 @@
+{
+  "door_code": "A30PHIEXECUTOR",
+  "semantic_path": "AGENTS.AUTOMATION.PHIEXECUTOR",
+  "aliases": [
+    "phi executor",
+    "phiexecutor",
+    "automation queue",
+    "phiwatcher",
+    "command queue"
+  ],
+  "context_bundle": {
+    "summary": "PhiExecutor: Production-ready queue-based automation. Module at X:\\Automation\\Scripts\\Core\\PhiExecutor.psm1. 6 ACTIONS: file_create, wait, powershell (inline+file), ahk_run, http_request (GET/POST), chain (multi-step pipelines). PhiWatcher monitors queue.",
+    "prerequisites": [
+      "810AHK",
+      "820PWSH"
+    ],
+    "related_doors": [
+      "810AHK",
+      "820PWSH",
+      "830WINAUTOSUITE",
+      "L43POWERSHELL",
+      "E54PATH"
+    ],
+    "onboarding": {
+      "quick_start": "Import-Module 'X:\\Automation\\Scripts\\Core\\PhiExecutor.psm1'\\nActions: file_create, wait, powershell, ahk_run, http_request, chain\\nRestart PhiWatcher after module updates.",
+      "full_context_path": "X:\\Automation\\Scripts\\Core\\PhiExecutor.psm1",
+      "common_patterns": [
+        "file_create: Create files with content",
+        "wait: Delay between actions (milliseconds)",
+        "powershell: Inline script OR file path execution",
+        "ahk_run: Run AHK scripts (quote double-space paths)",
+        "http_request: GET/POST with optional response save",
+        "chain: Multi-step pipeline, sequential execution"
+      ],
+      "known_errors": [
+        {
+          "error": "AHK double-space path fails",
+          "cause": "Path with two spaces not quoted properly",
+          "solution": "Wrap path in quotes",
+          "prevention": "Always quote AHK paths containing spaces",
+          "related_door": "E54PATH"
+        },
+        {
+          "error": "New actions not available",
+          "cause": "PhiWatcher loaded old module version",
+          "solution": "Restart PhiWatcher to reload module",
+          "prevention": "Always restart watcher after module updates"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [
+        "X:\\Automation\\Scripts\\Core\\PhiExecutor.psm1"
+      ],
+      "tests": [],
+      "errors": [
+        "E54PATH"
+      ]
+    },
+    "metadata": {
+      "last_updated": "2025-12-06T13:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 1.0,
+      "tags": [
+        "automation",
+        "phiwatcher",
+        "queue",
+        "powershell",
+        "ahk",
+        "http",
+        "chain",
+        "orchestration",
+        "production"
+      ],
+      "category": "AGENTS",
+      "subcategory": "AUTOMATION",
+      "version": "3.0",
+      "tested_on": [
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "DC",
+        "KALIC",
+        "VSCC"
+      ],
+      "size_bytes": 2645,
+      "token_estimate": 662.0
+    }
+  }
+}

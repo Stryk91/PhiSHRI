@@ -1,0 +1,54 @@
+{
+  "door_code": "T40DATABASE_MCP",
+  "semantic_path": "TOOLS.MCP.DATABASE",
+  "aliases": [
+    "sqlite mcp",
+    "database mcp",
+    "db mcp",
+    "persistence mcp"
+  ],
+  "context_bundle": {
+    "summary": "SQLite database MCP server with 11 tools: db_open, db_execute, db_query, db_tables, db_schema, db_backup, db_vacuum, db_import_csv, db_export_csv, db_status, db_close. Local persistence for PhiSHRI, session state, agent logs. Binary at X:\\mcp-servers\\database-mcp-rs\\target\\release\\database-mcp-rs.exe",
+    "prerequisites": [],
+    "related_doors": [
+      "T01MCP",
+      "R20TOOL_BACKBONE"
+    ],
+    "onboarding": {
+      "quick_start": "1. db_open (creates phivector.db if no path). 2. db_execute for CREATE/INSERT/UPDATE/DELETE. 3. db_query for SELECT. 4. db_import_csv/db_export_csv for bulk data. 5. db_backup for snapshots. 6. db_close when done.",
+      "full_context_path": "",
+      "common_patterns": [
+        "db_open path='X:\\data\\mydb.db'",
+        "db_execute sql='CREATE TABLE...'",
+        "db_query sql='SELECT * FROM...'",
+        "db_import_csv csv_path='data.csv' table='mytable'"
+      ],
+      "known_errors": [
+        "Must call db_open before other operations",
+        "WAL mode may leave -wal and -shm files"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-30T00:51:20.919073300+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "sqlite",
+        "database",
+        "persistence",
+        "mcp",
+        "storage",
+        "query"
+      ],
+      "category": "TOOLS",
+      "subcategory": "MCP",
+      "version": "1.0.0",
+      "agent_affinity": []
+    }
+  }
+}

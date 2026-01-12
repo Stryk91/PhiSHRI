@@ -1,0 +1,86 @@
+{
+  "door_code": "N02OFFLOAD",
+  "semantic_path": "NETWORK.NIC.OFFLOAD",
+  "aliases": [
+    "nic offload",
+    "checksum offload",
+    "lso",
+    "large send offload",
+    "tso",
+    "tcp segmentation",
+    "rss",
+    "receive side scaling"
+  ],
+  "context_bundle": {
+    "summary": "NIC hardware offload features that reduce CPU load. Checksum offload: NIC calculates TCP/IP checksums. LSO (Large Send Offload): OS sends large chunks, NIC segments into packets. RSS: Distributes receive processing across CPU cores (Ethernet only, not Wi-Fi).",
+    "prerequisites": [],
+    "related_doors": [
+      "N01WIFI7",
+      "N05TCPSTACK"
+    ],
+    "onboarding": {
+      "quick_start": "CHECK CHECKSUM: Get-NetAdapterChecksumOffload -Name 'Wi-Fi 3'\nCHECK LSO: Get-NetAdapterLso -Name 'Wi-Fi 3'\nCHECK RSS: Get-NetAdapterRss -Name 'Ethernet' (Wi-Fi doesn't support RSS)\nCHECK ALL ADVANCED: Get-NetAdapterAdvancedProperty -Name 'Wi-Fi 3'",
+      "full_context_path": null,
+      "common_patterns": [
+        "Checksum offload: RxTxEnabled for IPv4/IPv6 TCP/UDP",
+        "LSO v2: Max offload 64KB, both IPv4 and IPv6",
+        "RSS: Multi-queue for Ethernet NICs only",
+        "Leave offloads enabled for best performance"
+      ],
+      "known_errors": [
+        {
+          "error": "High CPU during network transfer",
+          "cause": "Offloads disabled",
+          "solution": "Enable checksum and LSO offloads",
+          "prevention": "Check offload settings after driver update"
+        }
+      ]
+    },
+    "technical_details": {
+      "checksum_offload": {
+        "ipv4": "RxTxEnabled (IP, TCP, UDP)",
+        "ipv6": "RxTxEnabled (TCP, UDP)",
+        "benefit": "CPU doesn't calculate checksums"
+      },
+      "lso": {
+        "version": "LSO v2",
+        "max_offload_size": "64512 bytes",
+        "ipv4_enabled": true,
+        "ipv6_enabled": true,
+        "benefit": "Reduces CPU overhead for large transfers"
+      },
+      "rss": {
+        "wifi_support": false,
+        "ethernet_support": true,
+        "benefit": "Distributes interrupt processing across cores"
+      }
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-17T00:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "offload",
+        "checksum",
+        "lso",
+        "tso",
+        "rss",
+        "nic",
+        "performance",
+        "cpu"
+      ],
+      "category": "NETWORK",
+      "subcategory": "NIC",
+      "version": "1.0",
+      "size_bytes": 2670,
+      "token_estimate": 668.0
+    }
+  }
+}

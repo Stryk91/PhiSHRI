@@ -1,11 +1,21 @@
 {
   "door_code": "W41SYSTEMD",
   "semantic_path": "WORKFLOWS.AUTOMATION.SYSTEMD_SERVICE_MANAGEMENT",
-  "aliases": ["systemd", "systemctl", "service_management", "daemon"],
+  "aliases": [
+    "systemd",
+    "systemctl",
+    "service_management",
+    "daemon"
+  ],
   "context_bundle": {
     "summary": "Systemd service management for Linux systems: create .service units in /etc/systemd/system/, define [Unit], [Service], [Install] sections. Commands: systemctl start/stop/restart/enable/disable/status. Service types: simple, forking, oneshot, notify. Use timers for scheduling (systemd.timer). Manage dependencies with Requires/After/Before.",
-    "prerequisites": ["W40CRON"],
-    "related_doors": ["W42TASK_SCHEDULER", "W08FILEWATCHER"],
+    "prerequisites": [
+      "W40CRON"
+    ],
+    "related_doors": [
+      "W42TASK_SCHEDULER",
+      "W08FILEWATCHER"
+    ],
     "onboarding": {
       "quick_start": "Systemd service creation: create /etc/systemd/system/myapp.service with [Unit] Description, [Service] ExecStart/User/WorkingDirectory/Restart, [Install] WantedBy=multi-user.target. Commands: systemctl daemon-reload, systemctl enable myapp, systemctl start myapp, systemctl status myapp. For scheduling: create myapp.timer with OnCalendar=daily or OnBootSec=5min. Type=simple (default), Type=forking (daemonizes), Type=oneshot (single run).",
       "full_context_path": "/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md",
@@ -23,7 +33,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -33,12 +45,27 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["systemd", "systemctl", "service", "daemon", "linux", "automation"],
+      "tags": [
+        "systemd",
+        "systemctl",
+        "service",
+        "daemon",
+        "linux",
+        "automation"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "AUTOMATION",
       "version": "1.0.0",
-      "tested_on": ["Linux"],
-      "agent_affinity": ["VSCC", "TERMC", "CMDC"]
+      "tested_on": [
+        "Linux"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "TERMC",
+        "CMDC"
+      ],
+      "size_bytes": 2440,
+      "token_estimate": 610.0
     }
   }
 }

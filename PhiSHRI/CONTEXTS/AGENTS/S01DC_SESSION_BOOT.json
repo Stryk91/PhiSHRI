@@ -1,0 +1,70 @@
+{
+  "door_code": "S01DC_SESSION_BOOT",
+  "semantic_path": "AGENTS.DC.BOOTSTRAP",
+  "aliases": [
+    "dc boot",
+    "dc startup",
+    "dc init"
+  ],
+  "context_bundle": {
+    "summary": "DC (Desktop Claude) session boot bundle. Essential context for session initialization, state recovery, and database connection.",
+    "prerequisites": [],
+    "related_doors": [
+      "S00KALIC_SESSION_BOOT",
+      "P15AGENT_BRIDGE_MCP",
+      "A30PHIEXECUTOR",
+      "T45DATABASE_MCP"
+    ],
+    "onboarding": {
+      "quick_start": "1. phishri_get_bootstrap (WHERE am I?). 2. phishri_read_door S01DC_SESSION_BOOT (HOW do I boot?). 3. Test-Path X: (VHDX mounted?). 4. db_open C:/PhiDEX/databases/dc_state.db (WHAT was I doing?). 5. SELECT * FROM session_context WHERE session_id LIKE 'dc_%' ORDER BY updated_at DESC LIMIT 5. 6. Checkpoint after every milestone.",
+      "full_context_path": "C:\\PhiDEX\\databases\\DC_STATE_ARCHITECTURE.md",
+      "common_patterns": [
+        "phishri_get_bootstrap on session start",
+        "db_open C:/PhiDEX/databases/dc_state.db after X: check",
+        "SELECT from session_context for previous state",
+        "INSERT INTO session_context for current session",
+        "phishri_session_checkpoint after milestones",
+        "phishri_update_bootstrap for progress",
+        "carbyne_send THEN carbyne_await (never await first)",
+        "db_backup before risky operations"
+      ],
+      "known_errors": [
+        "Context rollback: Claude Desktop loses state randomly - CHECKPOINT AGGRESSIVELY",
+        "X: drive not mounted: MCPs on X: fail silently",
+        "Carbyne deadlock: both agents await simultaneously",
+        "AHK path wrong: C:\\Program Files\\AHK\\v2\\ NOT AutoHotkey\\v2\\",
+        "Database directory must exist before db_open",
+        "Use forward slashes in db_open path: C:/PhiDEX/databases/dc_state.db"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "C:\\PhiDEX\\databases\\DC_STATE_ARCHITECTURE.md"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-30T01:15:00.000000+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "dc",
+        "bootstrap",
+        "session",
+        "recovery",
+        "context",
+        "database",
+        "state"
+      ],
+      "category": "AGENTS",
+      "subcategory": "DC",
+      "version": "1.1.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 2200,
+      "token_estimate": 550.0
+    }
+  }
+}

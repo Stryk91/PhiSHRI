@@ -1,11 +1,25 @@
 {
   "door_code": "W115MESSAGE_QUEUE",
   "semantic_path": "WORKFLOWS.COMMUNICATION.MESSAGE_QUEUE",
-  "aliases": ["message queue", "inbox", "outbox", "async messaging", "queue pattern"],
+  "aliases": [
+    "message queue",
+    "inbox",
+    "outbox",
+    "async messaging",
+    "queue pattern"
+  ],
   "context_bundle": {
     "summary": "Message queue pattern for asynchronous agent communication using inbox/outbox directories for fire-and-forget and request/response patterns",
-    "prerequisites": ["W01COORD", "A09MESSAGE_QUEUE"],
-    "related_doors": ["W116IPC", "W117FILE_IPC", "W98MESSAGE_QUEUE", "A08AGENT_COORD"],
+    "prerequisites": [
+      "W01COORD",
+      "A09MESSAGE_QUEUE"
+    ],
+    "related_doors": [
+      "W116IPC",
+      "W117FILE_IPC",
+      "W98MESSAGE_QUEUE",
+      "A08AGENT_COORD"
+    ],
     "onboarding": {
       "quick_start": "Implement agent mailboxes with inbox/outbox directories, use correlation IDs for request/response, poll with exponential backoff",
       "full_context_path": "/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md",
@@ -19,7 +33,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md"],
+      "docs": [
+        "/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -29,12 +45,31 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["message queue", "async", "IPC", "communication", "inbox", "outbox"],
+      "tags": [
+        "message queue",
+        "async",
+        "IPC",
+        "communication",
+        "inbox",
+        "outbox"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "COMMUNICATION",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11"],
-      "agent_affinity": ["DC", "VSCC", "TERMC", "KALIC", "WEBC", "CMDC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "TERMC",
+        "KALIC",
+        "WEBC",
+        "CMDC"
+      ],
+      "size_bytes": 1877,
+      "token_estimate": 470.0
     }
   }
 }

@@ -51,7 +51,9 @@
       "version": "1.0.0",
       "agent_affinity": [
         "DC"
-      ]
+      ],
+      "size_bytes": 1922,
+      "token_estimate": 481.0
     }
   }
 }

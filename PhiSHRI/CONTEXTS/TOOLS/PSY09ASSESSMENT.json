@@ -1,0 +1,59 @@
+{
+  "door_code": "PSY09ASSESSMENT",
+  "semantic_path": "PSYCHOLOGY.ASSESSMENT.TESTING",
+  "aliases": [
+    "psychological testing",
+    "assessment",
+    "psychometrics",
+    "IQ testing"
+  ],
+  "context_bundle": {
+    "summary": "Psychological assessment: Reliability (test-retest, internal consistency, inter-rater), validity (construct, criterion, content), standardization, norming, intelligence testing (WAIS, WISC), personality assessment (Big Five, MMPI).",
+    "prerequisites": [],
+    "related_doors": [
+      "PSY04RESEARCH_METHODS",
+      "PSY03AGE_COGNITIVE_DECLINE",
+      "PSY10NEUROPSYCH"
+    ],
+    "onboarding": {
+      "quick_start": "Reliability is necessary but not sufficient for validity. Standardized administration essential. Norms must match population. Multiple methods reduce bias. Test what the test measures, not what it's called.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Reliability: Test-retest (stability), internal consistency (α>.70), inter-rater (agreement between scorers)",
+        "Validity: Content (covers domain), criterion (predicts outcomes), construct (measures intended construct)",
+        "Intelligence: g-factor debate, fluid vs crystallized, WAIS-IV (adults), WISC-V (children)",
+        "Personality: Big Five (OCEAN) - trait approach, MMPI - clinical/validity scales"
+      ],
+      "known_errors": [
+        "Teaching to the test - inflates scores without improving construct",
+        "Ignoring confidence intervals - point estimates misleading",
+        "Cross-cultural bias - norms may not generalize",
+        "Over-interpreting subscale differences - need reliable difference"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-24T03:52:35.544811100+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "assessment",
+        "testing",
+        "psychometrics",
+        "intelligence",
+        "personality",
+        "measurement"
+      ],
+      "category": "TOOLS",
+      "subcategory": "ASSESSMENT",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ]
+    }
+  }
+}

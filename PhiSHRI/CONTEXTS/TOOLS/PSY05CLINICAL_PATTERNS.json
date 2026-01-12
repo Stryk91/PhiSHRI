@@ -1,0 +1,60 @@
+{
+  "door_code": "PSY05CLINICAL_PATTERNS",
+  "semantic_path": "PSYCHOLOGY.CLINICAL.PATTERNS",
+  "aliases": [
+    "clinical psych",
+    "therapy",
+    "mental health",
+    "treatment",
+    "diagnosis"
+  ],
+  "context_bundle": {
+    "summary": "Clinical psychology patterns: DSM-5 diagnostic framework, transdiagnostic factors (rumination, avoidance, negative affect), evidence-based treatments (CBT, DBT, ACT, exposure), therapeutic alliance, treatment matching.",
+    "prerequisites": [],
+    "related_doors": [
+      "PSY06BEHAVIORAL",
+      "PSY07SOCIAL",
+      "PSY10NEUROPSYCH"
+    ],
+    "onboarding": {
+      "quick_start": "Diagnosis = pattern recognition + functional impairment. CBT for anxiety/depression. DBT for emotion dysregulation. Exposure for phobias/OCD. Alliance predicts outcome across modalities.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Anxiety disorders: Avoidance maintains fear, exposure is gold standard, safety behaviors prevent learning",
+        "Depression: Behavioral activation, cognitive restructuring, rumination reduction",
+        "Transdiagnostic: Negative affect, avoidance, rumination cut across disorders - unified protocols",
+        "Therapeutic factors: Alliance (d=.57), empathy, goal consensus, positive regard"
+      ],
+      "known_errors": [
+        "Treating symptoms not function - same behavior different function needs different intervention",
+        "Ignoring therapeutic alliance - predicts more variance than specific technique",
+        "Rigid protocol adherence - flexibility within fidelity improves outcomes",
+        "Pathologizing normal distress - not all suffering is disorder"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-24T03:52:35.541458300+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "clinical",
+        "therapy",
+        "diagnosis",
+        "treatment",
+        "CBT",
+        "mental health"
+      ],
+      "category": "TOOLS",
+      "subcategory": "CLINICAL",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ]
+    }
+  }
+}

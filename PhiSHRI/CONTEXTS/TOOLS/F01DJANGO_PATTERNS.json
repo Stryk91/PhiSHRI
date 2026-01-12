@@ -10,8 +10,13 @@
   ],
   "context_bundle": {
     "summary": "Django framework patterns, ORM idioms, and best practices. Covers models, views, querysets, migrations, forms, and common architectural patterns. Essential for SWE-bench Django issues.",
-    "prerequisites": ["L01PYTHON"],
-    "related_doors": ["F02DJANGO_ERRORS", "F05PYTEST"],
+    "prerequisites": [
+      "L01PYTHON"
+    ],
+    "related_doors": [
+      "F02DJANGO_ERRORS",
+      "F05PYTEST"
+    ],
     "onboarding": {
       "quick_start": "Django: MTV (Model-Template-View) framework. Models define DB schema, Views handle logic, Templates render HTML. ORM: Model.objects.filter() for queries. Migrations: makemigrations + migrate.",
       "architecture": {
@@ -190,16 +195,29 @@
       }
     },
     "resources": {
-      "docs": ["https://docs.djangoproject.com/"]
+      "docs": [
+        "https://docs.djangoproject.com/"
+      ]
     },
     "metadata": {
       "last_updated": "2025-11-27T15:00:00Z",
       "confidence": 0.98,
-      "tags": ["django", "python", "web", "orm", "swe-bench"],
+      "tags": [
+        "django",
+        "python",
+        "web",
+        "orm",
+        "swe-bench"
+      ],
       "category": "FRAMEWORKS",
       "subcategory": "DJANGO",
       "version": "1.0.0",
-      "agent_affinity": ["DC", "WEBC"]
+      "agent_affinity": [
+        "DC",
+        "WEBC"
+      ],
+      "size_bytes": 16121,
+      "token_estimate": 4031.0
     }
   }
 }

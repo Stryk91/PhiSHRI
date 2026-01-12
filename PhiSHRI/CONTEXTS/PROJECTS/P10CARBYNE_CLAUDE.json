@@ -1,0 +1,41 @@
+{
+  "door_code": "P10CARBYNE_CLAUDE",
+  "category": "PROJECTS",
+  "semantic_path": "PROJECTS.CARBYNE.MASTER",
+  "summary": "Carbyne Claude: Portable DC runtime on USB. Self-contained claude.ai wrapper with PhiSHRI, MCP servers, missions, agents - plug and play on any Windows machine.",
+  "aliases": ["carbyne", "claude usb", "portable claude", "dc portable", "claude on a stick", "graphene claude"],
+  "tags": ["portable", "usb", "self-contained", "dc-runtime", "phishri", "mcp", "missions", "cyberdyne", "carbine"],
+  "prerequisites": ["T57CLAUDE_LITE", "A10DC_RUNTIME"],
+  "related_doors": ["T57CLAUDE_LITE", "A10DC_RUNTIME", "T50TAURI_CLIENT"],
+  "agent_affinity": ["DC", "STRYK"],
+  "quick_start": "Plug USB, run carbyne.exe, DC runtime boots with full context",
+  "common_patterns": [
+    "Single exe + data folder = fully portable",
+    "PhiSHRI doors in /knowledge", 
+    "MCP servers as embedded binaries",
+    "Missions = project contexts",
+    "WebView2 bootstraps from system or bundled"
+  ],
+  "known_errors": [
+    "WebView2 runtime may need bootstrap on fresh machines",
+    "Large binary if bundling all MCP servers",
+    "Cookie/session portability across machines TBD"
+  ],
+  "etymology": {
+    "graphene": "2D carbon allotrope - strongest material, single atom thick. Carbyne's foundation.",
+    "carbyne": "1D carbon chain - 2x stronger than graphene. The name.",
+    "cyberdyne": "Skynet creators. Miles Dyson. AI emergence.",
+    "carbine": "Standard issue rifle. Reliable, effective, gets it done.",
+    "carbon": "Element of life. What we're made of. Creators building creation."
+  },
+  "stages": {
+    "1_foundation": "DONE - Tauri wrapper, DC injection, tray, JS bridge",
+    "2_portable_structure": "TODO - Self-contained folder layout, relative paths",
+    "3_mcp_integration": "TODO - Rust MCP client, server management",
+    "4_mission_system": "TODO - Project contexts that travel",
+    "5_memory_context": "TODO - Persistent memory, auto-loading",
+    "6_offline": "TODO - Graceful degradation",
+    "7_polish": "TODO - Release build, branding, docs"
+  },
+  "confidence": 100
+}

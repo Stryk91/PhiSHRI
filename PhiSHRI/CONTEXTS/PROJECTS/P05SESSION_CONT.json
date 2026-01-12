@@ -1,11 +1,23 @@
 {
   "door_code": "P05SESSION_CONT",
   "semantic_path": "PROJECTS.PHISHRI.SESSION_CONTINUITY",
-  "aliases": ["session continuity", "phishri sessions", "door navigation", "context handoff"],
+  "aliases": [
+    "session continuity",
+    "phishri sessions",
+    "door navigation",
+    "context handoff"
+  ],
   "context_bundle": {
     "summary": "PhiSHRI session continuity protocol: Use door codes as stateless context checkpoints enabling AI agents to resume work across sessions with zero context loss. Bootstrap file + door codes + parallel reads = 5-second onboarding vs 5-minute rebuild.",
-    "prerequisites": ["P04SHRI", "000START"],
-    "related_doors": ["W146SESSION_CONT", "W147SESSION_STATE", "W148SESSION_RESUME"],
+    "prerequisites": [
+      "P04SHRI",
+      "000START"
+    ],
+    "related_doors": [
+      "W146SESSION_CONT",
+      "W147SESSION_STATE",
+      "W148SESSION_RESUME"
+    ],
     "onboarding": {
       "quick_start": "Session handoff: 1) Read C:\\Temp\\VSCC_SESSION_BOOTSTRAP.md, 2) Read INDEX.json for current state (267 doors), 3) Read relevant doors in parallel, 4) Continue work. No context drift, no re-explaining, instant pickup.",
       "full_context_path": "/PhiSHRI/HOW_TO_USE.md",
@@ -53,12 +65,29 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["session_continuity", "phishri", "context_handoff", "door_navigation", "bootstrap"],
+      "tags": [
+        "session_continuity",
+        "phishri",
+        "context_handoff",
+        "door_navigation",
+        "bootstrap"
+      ],
       "category": "PROJECTS",
       "subcategory": "PHISHRI",
       "version": "1.0.0",
-      "tested_on": ["Claude Code", "Desktop Claude", "VS Code Claude"],
-      "agent_affinity": ["VSCC", "DC", "WEBC", "TERMC"]
+      "tested_on": [
+        "Claude Code",
+        "Desktop Claude",
+        "VS Code Claude"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "WEBC",
+        "TERMC"
+      ],
+      "size_bytes": 8190,
+      "token_estimate": 2048.0
     }
   },
   "session_continuity_benefits": {

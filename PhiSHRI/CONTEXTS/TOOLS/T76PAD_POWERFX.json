@@ -1,0 +1,63 @@
+{
+  "door_code": "T76PAD_POWERFX",
+  "semantic_path": "TOOLS.AUTOMATION.PAD.POWERFX",
+  "aliases": [
+    "power fx",
+    "powerfx",
+    "pad formula",
+    "robin vs powerfx"
+  ],
+  "context_bundle": {
+    "summary": "Power Fx is alternative formula syntax for PAD (GA Nov 2024 v2.50). Excel-like expressions vs Robin %var% syntax. NOT Windows Pro only - available to all. Toggle at flow creation. IntelliSense, design-time validation, functional programming style. Robin still fully supported - no migration required",
+    "prerequisites": [
+      "T59POWER_AUTOMATE_DESKTOP"
+    ],
+    "related_doors": [
+      "T60PAD_VARIABLES",
+      "T61PAD_CONDITIONALS"
+    ],
+    "onboarding": {
+      "quick_start": "Create new flow -> toggle 'Power Fx enabled' ON before adding actions. Excel-like formula syntax replaces Robin %var% interpolation. Available to ALL PAD users (not Pro-only), GA since Nov 2024 v2.50",
+      "full_context_path": "",
+      "common_patterns": [
+        "Robin: Set variable MyVar to 'value' | Power Fx: Set(MyVar, \"value\")",
+        "Robin: %Variable% interpolation | Power Fx: Variable direct reference",
+        "Robin: If %X% = 'Y' Then | Power Fx: If(X = \"Y\", ...)",
+        "Robin: For each CurrentItem in %List% | Power Fx: ForAll(List, ...)",
+        "Power Fx functions: Text(), Value(), DateAdd(), Filter(), Sort(), Concat()"
+      ],
+      "known_errors": [
+        "Power Fx flows require explicit enable when creating new flow",
+        "Not all Robin actions have Power Fx equivalents yet",
+        "Can't mix Robin and Power Fx in same flow",
+        "Power Fx syntax errors show at design time vs Robin at runtime",
+        "IntelliSense/autocomplete only in Power Fx mode"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T17:36:15.991402700+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "pad",
+        "powerfx",
+        "formula",
+        "syntax",
+        "robin"
+      ],
+      "category": "TOOLS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 2194,
+      "token_estimate": 549.0
+    }
+  }
+}

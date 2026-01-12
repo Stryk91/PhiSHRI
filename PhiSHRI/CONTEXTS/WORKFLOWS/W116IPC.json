@@ -1,11 +1,23 @@
 {
   "door_code": "W116IPC",
   "semantic_path": "WORKFLOWS.COMMUNICATION.IPC",
-  "aliases": ["IPC", "inter-process communication", "named pipes", "sockets", "shared memory"],
+  "aliases": [
+    "IPC",
+    "inter-process communication",
+    "named pipes",
+    "sockets",
+    "shared memory"
+  ],
   "context_bundle": {
     "summary": "Inter-Process Communication mechanisms including named pipes, sockets, shared memory, and file-based IPC for agent coordination",
-    "prerequisites": ["W115MESSAGE_QUEUE"],
-    "related_doors": ["W117FILE_IPC", "T09IPC_METHODS", "W05RUNSPACE"],
+    "prerequisites": [
+      "W115MESSAGE_QUEUE"
+    ],
+    "related_doors": [
+      "W117FILE_IPC",
+      "T09IPC_METHODS",
+      "W05RUNSPACE"
+    ],
     "onboarding": {
       "quick_start": "Choose IPC method based on constraints: file-based for PhiVector (mandatory), named pipes for same-machine, sockets for network",
       "full_context_path": "/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md",
@@ -23,7 +35,9 @@
       ]
     },
     "resources": {
-      "docs": ["/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md"],
+      "docs": [
+        "/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -33,12 +47,29 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["IPC", "inter-process", "named pipes", "sockets", "communication"],
+      "tags": [
+        "IPC",
+        "inter-process",
+        "named pipes",
+        "sockets",
+        "communication"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "COMMUNICATION",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11", "Linux"],
-      "agent_affinity": ["DC", "VSCC", "TERMC", "CMDC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11",
+        "Linux"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "TERMC",
+        "CMDC"
+      ],
+      "size_bytes": 2055,
+      "token_estimate": 514.0
     }
   }
 }

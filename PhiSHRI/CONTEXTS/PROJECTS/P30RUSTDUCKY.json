@@ -1,0 +1,63 @@
+{
+  "door_code": "P30RUSTDUCKY",
+  "semantic_path": "PROJECTS.SECURITY.RUSTDUCKY",
+  "aliases": [
+    "rustducky",
+    "hid attacks",
+    "rubber ducky rust",
+    "usb hid",
+    "evry_mcp"
+  ],
+  "context_bundle": {
+    "summary": "RustDucky - Rust native HID attack framework inspired by Kali NetHunter. Part of larger EVRY_MCP security toolkit project including CAN bus, Bluetooth, SDR, and BadUSB tools.",
+    "prerequisites": [
+      "D05RUST_FUNDAMENTALS"
+    ],
+    "related_doors": [
+      "P25CVARMASTER_ADDON"
+    ],
+    "onboarding": {
+      "quick_start": "Bootstrap: C:\\\\Users\\\\Stryker_LOCAL\\\\Desktop\\\\RUSTDUCKY_BOOTSTRAP.md - Contains full architecture, phases, crate deps, and implementation plan for NetHunter-style tools in Rust.",
+      "full_context_path": "",
+      "common_patterns": [
+        "USB gadget via ConfigFS",
+        "nom parser combinators for .duck scripts",
+        "hidapi/nusb for HID device access",
+        "Cross-platform with cfg(target_os)"
+      ],
+      "known_errors": [
+        "Android USB gadget requires root",
+        "Windows HID access needs admin for some operations",
+        "USB gadget mode only works on OTG-capable devices"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-26T16:14:50.427671400+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "rust",
+        "security",
+        "hid",
+        "usb",
+        "rubber-ducky",
+        "nethunter",
+        "pentest",
+        "android",
+        "cross-platform"
+      ],
+      "category": "PROJECTS",
+      "subcategory": "SECURITY",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ]
+    }
+  }
+}

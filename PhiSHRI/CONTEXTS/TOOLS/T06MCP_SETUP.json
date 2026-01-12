@@ -1,11 +1,21 @@
 {
   "door_code": "T06MCP_SETUP",
   "semantic_path": "TOOLS.MCP.SETUP_INTEGRATION",
-  "aliases": ["mcp_setup", "claude_desktop_mcp", "mcp_config"],
+  "aliases": [
+    "mcp_setup",
+    "claude_desktop_mcp",
+    "mcp_config"
+  ],
   "context_bundle": {
     "summary": "MCP Claude Desktop setup: 2 methods - Desktop Extensions (one-click .mcpb files) or Manual config (claude_desktop_config.json). Windows: %APPDATA%\\Claude\\claude_desktop_config.json. Access: Settings > Developer > Edit Config. SDKs: Python, TypeScript, C#, Java.",
-    "prerequisites": ["T01MCP", "T05MCP_ARCH"],
-    "related_doors": ["T07MCP_CONFIG", "827HHWINC#"],
+    "prerequisites": [
+      "T01MCP",
+      "T05MCP_ARCH"
+    ],
+    "related_doors": [
+      "T07MCP_CONFIG",
+      "827HHWINC#"
+    ],
     "onboarding": {
       "quick_start": "MCP setup = 2 methods. Easy: Settings > Extensions > Browse > Install .mcpb file. Manual: Edit claude_desktop_config.json (Windows: %APPDATA%\\Claude). Define mcpServers with command/args. Restart Claude after config. SDKs available: Python, TS, C#, Java.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/02_TOOL_INTEGRATION/TOOL_INTEGRATION_INTEROPERABILITY_GUIDE.md",
@@ -19,7 +29,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/02_TOOL_INTEGRATION/TOOL_INTEGRATION_INTEROPERABILITY_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/02_TOOL_INTEGRATION/TOOL_INTEGRATION_INTEROPERABILITY_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -29,12 +41,26 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["mcp", "setup", "claude_desktop", "configuration"],
+      "tags": [
+        "mcp",
+        "setup",
+        "claude_desktop",
+        "configuration"
+      ],
       "category": "TOOLS",
       "subcategory": "MCP",
       "version": "1.0.0",
-      "tested_on": ["Claude Desktop", "Windows", "macOS"],
-      "agent_affinity": ["DC", "VSCC"]
+      "tested_on": [
+        "Claude Desktop",
+        "Windows",
+        "macOS"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 1939,
+      "token_estimate": 485.0
     }
   }
 }

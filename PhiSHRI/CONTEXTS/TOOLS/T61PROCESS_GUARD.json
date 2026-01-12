@@ -1,0 +1,62 @@
+{
+  "door_code": "T61PROCESS_GUARD",
+  "semantic_path": "TOOLS.SYSTEM.PROCESS_GUARD",
+  "aliases": [
+    "process_guard",
+    "process_monitor",
+    "watchdog",
+    "keepalive",
+    "process_daemon"
+  ],
+  "context_bundle": {
+    "summary": "Process guardian MCP. Monitors processes, auto-restarts on crash, enforces resource limits. Built by MCP Factory. Binary: X:\\mcp-servers\\process-guard-mcp\\",
+    "prerequisites": [
+      "T60MCP_FACTORY"
+    ],
+    "related_doors": [
+      "T60MCP_FACTORY",
+      "A08AGENT_COORD"
+    ],
+    "onboarding": {
+      "quick_start": "Guard critical processes for auto-restart: guard_process(\"PhiBroker\", \"X:\\\\path\\\\to\\\\exe\", 5). List all: list_guarded(). Check health: get_process_health(\"name\"). Set limits: set_resource_limit(\"name\", max_cpu_percent, max_memory_mb).",
+      "full_context_path": "",
+      "common_patterns": [
+        "guard_process(name, restart_cmd, max_restarts)",
+        "list_guarded()",
+        "get_process_health(name)",
+        "set_resource_limit(name, max_cpu_percent, max_memory_mb)"
+      ],
+      "known_errors": [
+        "Process name must match exactly (case-sensitive)",
+        "restart_cmd must be full path to executable"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2026-01-04T18:20:05.835282200+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "process",
+        "guard",
+        "monitor",
+        "watchdog",
+        "restart",
+        "keepalive",
+        "mcp",
+        "infrastructure"
+      ],
+      "category": "TOOLS",
+      "subcategory": "SYSTEM",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ]
+    }
+  }
+}

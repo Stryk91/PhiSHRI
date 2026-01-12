@@ -1,0 +1,61 @@
+{
+  "door_code": "T51CHUNKER",
+  "semantic_path": "TOOLS.CONTEXT.CHUNKER",
+  "aliases": [
+    "chunker",
+    "text splitter",
+    "document splitter",
+    "chunk-text",
+    "context chunking"
+  ],
+  "context_bundle": {
+    "summary": "Text chunker script - splits large documents into digestible pieces for feeding to AI without context explosion. Supports fixed-size, paragraph-aware, and sentence-boundary modes.",
+    "prerequisites": [],
+    "related_doors": [
+      "T50COMPACTOR",
+      "C01CONTEXT_RAM"
+    ],
+    "onboarding": {
+      "quick_start": "X:\\tools\\scripts\\Chunk-Text.ps1 -InputFile 'doc.txt' -ChunkSize 6000 -BySentence -OutputDir '.\\chunks'",
+      "full_context_path": "",
+      "common_patterns": [
+        "# Basic (4000 chars, 200 overlap): .\\Chunk-Text.ps1 -InputFile 'doc.txt'",
+        "# Paragraph-aware: .\\Chunk-Text.ps1 -InputFile 'doc.md' -ByParagraph",
+        "# Sentence-boundary: .\\Chunk-Text.ps1 -InputFile 'doc.txt' -BySentence -ChunkSize 5000",
+        "# Custom output: .\\Chunk-Text.ps1 -InputFile 'doc.txt' -OutputDir 'X:\\chunks\\project'"
+      ],
+      "known_errors": [
+        "Input must be plain text (.txt, .md) - PDF/DOCX must be converted first",
+        "Overlap parameter prevents context loss at chunk boundaries",
+        "Output: docname_chunk001.txt, docname_chunk002.txt, etc."
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T18:57:16.290711700+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "chunking",
+        "splitting",
+        "context",
+        "tokens",
+        "documents",
+        "large files"
+      ],
+      "category": "TOOLS",
+      "subcategory": "CONTEXT",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 1868,
+      "token_estimate": 467.0
+    }
+  }
+}

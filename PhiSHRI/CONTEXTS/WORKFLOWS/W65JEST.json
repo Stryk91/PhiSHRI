@@ -1,11 +1,23 @@
 {
   "door_code": "W65JEST",
   "semantic_path": "WORKFLOWS.TESTING.JEST_FRAMEWORK",
-  "aliases": ["jest", "javascript_testing", "js_testing", "react_testing"],
+  "aliases": [
+    "jest",
+    "javascript_testing",
+    "js_testing",
+    "react_testing"
+  ],
   "context_bundle": {
     "summary": "Jest: JavaScript/TypeScript testing framework by Meta. Zero-config, built-in mocking, snapshot testing, code coverage. Features: Fast parallel execution, watch mode, mock functions, DOM testing (JSDOM), async/await support. Matchers: expect(value).toBe(), toEqual(), toContain(), toThrow(). Mocking: jest.fn(), jest.mock(), jest.spyOn(). Snapshots: expect(component).toMatchSnapshot(). Run: jest (all tests), jest --watch (watch mode), jest --coverage. Config: jest.config.js or package.json.",
-    "prerequisites": ["W58UNITTEST"],
-    "related_doors": ["W61MOCKING", "W62TDD", "W66COVERAGE", "W60E2E"],
+    "prerequisites": [
+      "W58UNITTEST"
+    ],
+    "related_doors": [
+      "W61MOCKING",
+      "W62TDD",
+      "W66COVERAGE",
+      "W60E2E"
+    ],
     "onboarding": {
       "quick_start": "Jest: npm install --save-dev jest. Write test (sum.test.js): test('adds 1 + 2 to equal 3', () => { expect(sum(1, 2)).toBe(3); }). Run: npx jest. Matchers: expect(value).toBe(4) (strict equality), .toEqual({a: 1}) (deep equality), .toContain('item'), .toBeNull(), .toBeTruthy(), .toBeGreaterThan(3). Async: test('async data', async () => { const data = await fetchData(); expect(data).toBe('peanut butter'); }). Mock functions: const mockFn = jest.fn(); mockFn.mockReturnValue(42); expect(mockFn()).toBe(42); expect(mockFn).toHaveBeenCalled(). Snapshot: expect(tree).toMatchSnapshot() (creates __snapshots__ folder). Setup/teardown: beforeEach(() => { db.connect(); }); afterEach(() => { db.disconnect(); }). Watch: jest --watch (runs tests on file change). Coverage: jest --coverage (generates coverage/lcov-report/index.html).",
       "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
@@ -24,7 +36,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +48,31 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["jest", "javascript", "typescript", "testing", "react", "mocking", "snapshot"],
+      "tags": [
+        "jest",
+        "javascript",
+        "typescript",
+        "testing",
+        "react",
+        "mocking",
+        "snapshot"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "TESTING",
       "version": "1.0.0",
-      "tested_on": ["JavaScript", "TypeScript", "React", "Node.js"],
-      "agent_affinity": ["VSCC", "WEBC", "CMDC"]
+      "tested_on": [
+        "JavaScript",
+        "TypeScript",
+        "React",
+        "Node.js"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "WEBC",
+        "CMDC"
+      ],
+      "size_bytes": 4171,
+      "token_estimate": 1043.0
     }
   }
 }

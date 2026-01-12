@@ -1,0 +1,59 @@
+{
+  "door_code": "PSY06BEHAVIORAL",
+  "semantic_path": "PSYCHOLOGY.BEHAVIORAL.LEARNING",
+  "aliases": [
+    "behaviorism",
+    "conditioning",
+    "learning theory",
+    "habits",
+    "reinforcement"
+  ],
+  "context_bundle": {
+    "summary": "Behavioral psychology: Classical conditioning (Pavlov, acquisition, extinction, spontaneous recovery), operant conditioning (Skinner, reinforcement schedules, shaping), applied behavior analysis, habit formation/breaking.",
+    "prerequisites": [],
+    "related_doors": [
+      "PSY05CLINICAL_PATTERNS",
+      "PSY01COGNITIVE_FUNDAMENTALS"
+    ],
+    "onboarding": {
+      "quick_start": "Classical: Pair neutral + unconditioned → conditioned response. Operant: Consequences control behavior. Reinforce what you want, extinguish what you don't. Variable ratio most resistant to extinction.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Classical conditioning: CS-US pairing → CR. Extinction = CS alone. Spontaneous recovery = CR returns after rest",
+        "Operant schedules: Fixed ratio (piecework), variable ratio (gambling), fixed interval (salary), variable interval (email)",
+        "Reinforcement: Positive (+stimulus), negative (-stimulus). Both INCREASE behavior",
+        "Punishment: Positive (+aversive), negative (-pleasant). Both DECREASE behavior - but side effects"
+      ],
+      "known_errors": [
+        "Confusing negative reinforcement with punishment - reinforcement always increases",
+        "Inconsistent reinforcement during acquisition - slows learning",
+        "Punishment without alternative - suppresses but doesn't teach replacement",
+        "Ignoring context - behavior is function of antecedents AND consequences"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-24T03:52:35.542399800+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "behavioral",
+        "conditioning",
+        "learning",
+        "habits",
+        "reinforcement",
+        "behaviorism"
+      ],
+      "category": "TOOLS",
+      "subcategory": "BEHAVIORAL",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ]
+    }
+  }
+}

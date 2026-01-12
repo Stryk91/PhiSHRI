@@ -1,11 +1,23 @@
 {
   "door_code": "W131CSP",
   "semantic_path": "WORKFLOWS.ARCHITECTURE.CSP",
-  "aliases": ["CSP", "communicating sequential processes", "channels", "Go goroutines"],
+  "aliases": [
+    "CSP",
+    "communicating sequential processes",
+    "channels",
+    "Go goroutines"
+  ],
   "context_bundle": {
     "summary": "Communicating Sequential Processes (CSP) pattern where processes communicate through channels, inspired by Go goroutines and Clojure core.async",
-    "prerequisites": ["W130ACTOR_MODEL", "W115MESSAGE_QUEUE"],
-    "related_doors": ["W78CONCURRENCY", "W17PARALLEL", "R01MULTI"],
+    "prerequisites": [
+      "W130ACTOR_MODEL",
+      "W115MESSAGE_QUEUE"
+    ],
+    "related_doors": [
+      "W78CONCURRENCY",
+      "W17PARALLEL",
+      "R01MULTI"
+    ],
     "onboarding": {
       "quick_start": "Model communication through channels (not direct messaging). Channels can be synchronous (blocking) or buffered (async). PhiVector adaptation uses filesystem as channel.",
       "full_context_path": "/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md",
@@ -23,7 +35,9 @@
       ]
     },
     "resources": {
-      "docs": ["/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md"],
+      "docs": [
+        "/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -33,12 +47,28 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["CSP", "channels", "Go", "goroutines", "concurrency", "synchronization"],
+      "tags": [
+        "CSP",
+        "channels",
+        "Go",
+        "goroutines",
+        "concurrency",
+        "synchronization"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "ARCHITECTURE",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11"],
-      "agent_affinity": ["DC", "VSCC", "TERMC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "TERMC"
+      ],
+      "size_bytes": 2122,
+      "token_estimate": 531.0
     }
   }
 }

@@ -1,0 +1,60 @@
+{
+  "door_code": "T53ELECTRON_PROBLEMS",
+  "semantic_path": "TOOLS.DESKTOP.ELECTRON_ISSUES",
+  "aliases": [
+    "electron bloat",
+    "claude desktop slow",
+    "electron issues"
+  ],
+  "context_bundle": {
+    "summary": "Claude Desktop Electron app issues - performance problems, debugging, optimization attempts.",
+    "prerequisites": [],
+    "related_doors": [
+      "T50TAURI_CLIENT",
+      "E30MCP_ZORDERROR"
+    ],
+    "onboarding": {
+      "quick_start": "Config: $env:APPDATA\\Claude\\claude_desktop_config.json - set RUST_LOG=error for MCP servers",
+      "full_context_path": "",
+      "common_patterns": [
+        "1GB+ RAM idle for a text box",
+        "60 second freeze rendering MCP debug output",
+        "300MB download for chat window",
+        "Notice-level logging by default kills performance",
+        "isUsingBuiltInNodeForMcp: false to use system Node.js",
+        "Log files in $env:APPDATA\\Claude\\logs - clear regularly",
+        "MCP server env vars: RUST_LOG=error, Logging__LogLevel__Default=Error"
+      ],
+      "known_errors": [
+        "Zod schema explodes on null id (JSON-RPC notification spec compliant but Desktop crashes)",
+        "Built-in Node.js slower than system install",
+        "Log files grow to 50MB+ causing slowdown"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T03:02:48.510829400+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "electron",
+        "performance",
+        "claude-desktop",
+        "memory",
+        "startup"
+      ],
+      "category": "TOOLS",
+      "subcategory": "DESKTOP",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1762,
+      "token_estimate": 441.0
+    }
+  }
+}

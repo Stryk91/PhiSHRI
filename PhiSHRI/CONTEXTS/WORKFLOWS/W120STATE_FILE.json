@@ -1,11 +1,23 @@
 {
   "door_code": "W120STATE_FILE",
   "semantic_path": "WORKFLOWS.COMMUNICATION.STATE_FILE",
-  "aliases": ["state file", "shared state", "state synchronization", "agent state"],
+  "aliases": [
+    "state file",
+    "shared state",
+    "state synchronization",
+    "agent state"
+  ],
   "context_bundle": {
     "summary": "State file synchronization pattern where agents share state via periodically updated JSON files with atomic updates and file locking",
-    "prerequisites": ["W117FILE_IPC", "W21STATE_SYNC"],
-    "related_doors": ["W121WORKFLOW_STATE", "W122DAG", "R06EVENT_SOURCING"],
+    "prerequisites": [
+      "W117FILE_IPC",
+      "W21STATE_SYNC"
+    ],
+    "related_doors": [
+      "W121WORKFLOW_STATE",
+      "W122DAG",
+      "R06EVENT_SOURCING"
+    ],
     "onboarding": {
       "quick_start": "Each agent maintains state.json in agent directory, updates atomically with lock files, other agents poll for changes",
       "full_context_path": "/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md",
@@ -24,7 +36,9 @@
       ]
     },
     "resources": {
-      "docs": ["/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md"],
+      "docs": [
+        "/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +48,30 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["state file", "synchronization", "atomic update", "versioning", "shared state"],
+      "tags": [
+        "state file",
+        "synchronization",
+        "atomic update",
+        "versioning",
+        "shared state"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "COMMUNICATION",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11"],
-      "agent_affinity": ["DC", "VSCC", "TERMC", "KALIC", "WEBC", "CMDC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "TERMC",
+        "KALIC",
+        "WEBC",
+        "CMDC"
+      ],
+      "size_bytes": 2124,
+      "token_estimate": 531.0
     }
   }
 }

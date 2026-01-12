@@ -1,0 +1,59 @@
+{
+  "door_code": "W220PAD_VALUE_PYRAMID",
+  "semantic_path": "WORKFLOWS.AUTOMATION.PAD.VALUE_PYRAMID",
+  "aliases": [
+    "automation value",
+    "tier 1 2 3",
+    "quick wins"
+  ],
+  "context_bundle": {
+    "summary": "Automation Value Pyramid: Tier 1 (Foundation) = high volume/low complexity quick wins (data entry, file org, notifications). Tier 2 (Optimization) = multi-step cross-app workflows (approvals, onboarding). Tier 3 (Transformation) = strategic complex processes (predictive analytics, compliance). Start Tier 1 for stakeholder buy-in.",
+    "prerequisites": [
+      "T59POWER_AUTOMATE_DESKTOP"
+    ],
+    "related_doors": [
+      "W221PAD_IMPACT_FRAMEWORK",
+      "W222PAD_ROI_CALC"
+    ],
+    "onboarding": {
+      "quick_start": "Tier 1 first (quick wins) -> Tier 2 (demonstrate broader impact) -> Tier 3 (automation maturity achieved). 206% ROI average. 3.2 hrs/day saved per employee.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Time Savings = Hours/week * 52 * Hourly Cost",
+        "Error Value = Errors Prevented * Cost Per Error",
+        "Scalability = Headcount Avoided * Loaded Cost",
+        "Quick Win criteria: >10x/week, clear rules, high error rate manual"
+      ],
+      "known_errors": [
+        "Starting with Tier 3 = high risk, low buy-in",
+        "Ignoring change management kills adoption",
+        "ROI without baseline measurement = useless"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T18:17:18.436094500+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "pad",
+        "strategy",
+        "roi",
+        "prioritization",
+        "value"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1896,
+      "token_estimate": 474.0
+    }
+  }
+}

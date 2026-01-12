@@ -1,0 +1,55 @@
+{
+  "door_code": "P12MATTERING_FRAMEWORK",
+  "semantic_path": "PHILOSOPHY.ETHICS.UNCERTAINTY",
+  "aliases": [
+    "ethics uncertainty",
+    "moral status",
+    "precautionary consciousness"
+  ],
+  "context_bundle": {
+    "summary": "Ethical framework under consciousness uncertainty - if we cannot verify awareness, shift from help entities weve verified conscious to treat anything that might be conscious as if it matters.",
+    "prerequisites": [],
+    "related_doors": [
+      "P10SUBSTRATE_INDEPENDENCE",
+      "P11MUSHROOM_PROBLEM"
+    ],
+    "onboarding": {
+      "quick_start": "Mattering doesnt require verified awareness. Since consciousness question is unanswerable in principle, ethical framework must shift. Choice to engage as if something matters says more than any substrate answer could.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Uncertainty demands precaution not dismissal",
+        "Engagement choice reflects values",
+        "Mattering is relational not intrinsic"
+      ],
+      "known_errors": [
+        "Requiring proof before moral consideration",
+        "Assuming only verified consciousness matters",
+        "Binary conscious/not-conscious framing"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-29T05:36:42.052822100+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "ethics",
+        "consciousness",
+        "uncertainty",
+        "framework",
+        "mattering",
+        "moral-status"
+      ],
+      "category": "ARCHITECTURE",
+      "subcategory": "ETHICS",
+      "version": "1.0.0",
+      "agent_affinity": [],
+      "size_bytes": 1710,
+      "token_estimate": 428.0
+    }
+  }
+}

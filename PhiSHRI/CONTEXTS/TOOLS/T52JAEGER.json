@@ -49,7 +49,7 @@
       "errors": []
     },
     "metadata": {
-      "last_updated": "2025-11-21T22:12:33.835840Z",
+      "last_updated": "2025-11-21T22:12:33.83584Z",
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
@@ -75,7 +75,9 @@
         "DC",
         "KALIC",
         "TERMC"
-      ]
+      ],
+      "size_bytes": 3145,
+      "token_estimate": 787.0
     }
   }
 }

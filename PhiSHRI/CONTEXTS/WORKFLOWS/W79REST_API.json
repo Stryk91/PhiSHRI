@@ -1,11 +1,25 @@
 {
   "door_code": "W79REST_API",
   "semantic_path": "WORKFLOWS.API.REST_DESIGN",
-  "aliases": ["rest_api", "rest", "restful", "http_api", "api_design"],
+  "aliases": [
+    "rest_api",
+    "rest",
+    "restful",
+    "http_api",
+    "api_design"
+  ],
   "context_bundle": {
     "summary": "REST API design principles: Resource-based URLs (/users/{id}, not /getUser), HTTP methods (GET read, POST create, PUT update, DELETE remove), stateless (no session state on server), status codes (200 OK, 201 Created, 400 Bad Request, 401 Unauthorized, 404 Not Found, 500 Server Error), content negotiation (Accept: application/json), HATEOAS (hypermedia links). Versioning: URL (/api/v1/users), header (Accept: application/vnd.api+json; version=1), query param (?version=1). Best practices: Plural nouns (/users not /user), filter/sort/paginate (?status=active&sort=name&limit=20), idempotent PUT/DELETE, return created resource with 201+Location header, use ETags for caching.",
-    "prerequisites": ["S12API_SECURITY", "W83PAGINATION"],
-    "related_doors": ["W80GRAPHQL", "W81GRPC", "W82WEBHOOKS", "S10CORS"],
+    "prerequisites": [
+      "S12API_SECURITY",
+      "W83PAGINATION"
+    ],
+    "related_doors": [
+      "W80GRAPHQL",
+      "W81GRPC",
+      "W82WEBHOOKS",
+      "S10CORS"
+    ],
     "onboarding": {
       "quick_start": "REST API design patterns: Resource URLs: GET /api/v1/users (list), GET /api/v1/users/123 (get), POST /api/v1/users (create), PUT /api/v1/users/123 (update), DELETE /api/v1/users/123 (delete). HTTP methods: GET (safe, idempotent, cacheable), POST (not idempotent, creates), PUT (idempotent, full update), PATCH (partial update), DELETE (idempotent). Status codes: 200 (success), 201 (created, return Location header), 204 (no content), 400 (bad request), 401 (unauthorized), 403 (forbidden), 404 (not found), 409 (conflict), 422 (validation error), 500 (server error). Python Flask: @app.route('/users/<int:user_id>', methods=['GET']); def get_user(user_id): user = db.get(user_id); if not user: return jsonify({'error': 'Not found'}), 404; return jsonify(user), 200. Node.js Express: app.get('/users/:id', (req, res) => { const user = db.find(req.params.id); if (!user) return res.status(404).json({error: 'Not found'}); res.json(user); }). Versioning: /api/v1/users vs /api/v2/users. Pagination: GET /users?page=2&limit=20. Filtering: GET /users?status=active&role=admin. Security: Require auth token (Authorization: Bearer <token>), validate input, rate limit.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
@@ -24,7 +38,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +50,31 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["rest_api", "http", "api_design", "restful", "flask", "express", "crud"],
+      "tags": [
+        "rest_api",
+        "http",
+        "api_design",
+        "restful",
+        "flask",
+        "express",
+        "crud"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "API",
       "version": "1.0.0",
-      "tested_on": ["Python Flask", "Node.js Express", "Java Spring", ".NET Web API"],
-      "agent_affinity": ["VSCC", "WEBC", "CMDC"]
+      "tested_on": [
+        "Python Flask",
+        "Node.js Express",
+        "Java Spring",
+        ".NET Web API"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "WEBC",
+        "CMDC"
+      ],
+      "size_bytes": 4428,
+      "token_estimate": 1107.0
     }
   }
 }

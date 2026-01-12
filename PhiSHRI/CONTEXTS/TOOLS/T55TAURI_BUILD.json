@@ -1,0 +1,58 @@
+{
+  "door_code": "T55TAURI_BUILD",
+  "semantic_path": "TOOLS.DESKTOP.TAURI.BUILD",
+  "aliases": [
+    "tauri build",
+    "tauri compile",
+    "tauri-build"
+  ],
+  "context_bundle": {
+    "summary": "Tauri 2 build process - build.rs, tauri-build crate, and compilation requirements.",
+    "prerequisites": [
+      "T54TAURI_PROJECT_STRUCTURE"
+    ],
+    "related_doors": [
+      "T54TAURI_PROJECT_STRUCTURE",
+      "T56TAURI_WEBVIEW"
+    ],
+    "onboarding": {
+      "quick_start": "build.rs: fn main() { tauri_build::build() }",
+      "full_context_path": "",
+      "common_patterns": [
+        "build.rs is mandatory - invokes tauri resource bundling",
+        "cargo build compiles Rust, bundles frontend assets",
+        "tauri dev for hot-reload development",
+        "tauri build --release for production binary"
+      ],
+      "known_errors": [
+        "WebView2 runtime required on Windows",
+        "MSVC toolchain recommended over GNU for Windows",
+        "Large first compile - downloads WebView2 SDK"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T07:40:57.756941400+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "tauri",
+        "rust",
+        "build",
+        "compilation"
+      ],
+      "category": "TOOLS",
+      "subcategory": "DESKTOP",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1472,
+      "token_estimate": 368.0
+    }
+  }
+}

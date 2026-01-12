@@ -1,0 +1,59 @@
+{
+  "door_code": "W250CONTEXT_COMPACTOR",
+  "semantic_path": "WORKFLOWS.CONTEXT.COMPACTION",
+  "aliases": [
+    "chat compactor",
+    "context compression",
+    "conversation compactor"
+  ],
+  "context_bundle": {
+    "summary": "Chat compaction pipeline - strip tool calls, XML, code blocks from conversations. 3 versions: v1 basic XML strip, v2 filler removal (16%), v3 nuclear compression (52%). Topic segmenter splits into 5 RAM chunks (~10-15k tokens). PhiSHRI=disk, RAM files=working memory.",
+    "prerequisites": [],
+    "related_doors": [
+      "C01CONTEXT_RAM",
+      "H01ARMODAFINIL"
+    ],
+    "onboarding": {
+      "quick_start": "Hotkey: Ctrl+Shift+C runs compactor on clipboard. Output: C:\\Users\\Stryker_LOCAL\\Documents\\compacted-*.md. Segmenter: C:\\MCP-Servers\\chat-compactor\\segment-context.ps1. RAM files: C:\\Users\\Stryker_LOCAL\\Documents\\context-RAM\\",
+      "full_context_path": "",
+      "common_patterns": [
+        "Copy conversation -> Ctrl+Shift+C -> compacted file saved",
+        "Segmenter splits 170k into 5 topic chunks",
+        "PhiSHRI door points to RAM file for retrieval",
+        "10% context tax for full conversation recall"
+      ],
+      "known_errors": [
+        "Claude app clipboard shows blank - use browser or paste to Notepad first",
+        "Closing XML tags in scripts break Claude parser - use char codes"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-29T08:21:46.954367100+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "compactor",
+        "context",
+        "compression",
+        "clipboard",
+        "segmenter",
+        "ram",
+        "conversation"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "CONTEXT",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "STRYK"
+      ],
+      "size_bytes": 1918,
+      "token_estimate": 480.0
+    }
+  }
+}

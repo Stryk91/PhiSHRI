@@ -1,0 +1,58 @@
+{
+  "door_code": "P12CARBYNE_DASHBOARD_WEB",
+  "semantic_path": "PROJECTS.PHIVECTOR.CARBYNE_DASHBOARD_WEB",
+  "aliases": [
+    "carbyne dashboard",
+    "web dashboard",
+    "agent dashboard"
+  ],
+  "context_bundle": {
+    "summary": "Web dashboard for Carbyne. localhost:7778, real-time WebSocket updates, shows agent status, message flow, tool calls, tasks, alerts. Browser-based, low build cost.",
+    "prerequisites": [
+      "T22CARBYNE"
+    ],
+    "related_doors": [
+      "T22CARBYNE",
+      "P11CARBYNE_META_MCP",
+      "W22AHK_MESH"
+    ],
+    "onboarding": {
+      "quick_start": "Web-based Carbyne dashboard. HTTP server on 7778, WebSocket for live updates. Shows: agent status, message flow, tool calls, task queue, alerts. React or vanilla JS frontend. Carbyne serves static files + WS endpoint.",
+      "full_context_path": "",
+      "common_patterns": [
+        "HTTP on localhost:7778 serving static HTML/JS",
+        "WebSocket pushing real-time state updates",
+        "Panels: agents, messages, tools, tasks, alerts",
+        "Pulls from Carbyne state.json + live events"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-03T00:32:13.809273200+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "carbyne",
+        "dashboard",
+        "web",
+        "gui",
+        "monitoring",
+        "future"
+      ],
+      "category": "PROJECTS",
+      "subcategory": "PHIVECTOR",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ],
+      "size_bytes": 1634,
+      "token_estimate": 409.0
+    }
+  }
+}

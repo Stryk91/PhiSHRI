@@ -1,11 +1,25 @@
 {
   "door_code": "A09MESSAGE_QUEUE",
   "semantic_path": "AGENTS.COORDINATION.MESSAGE_QUEUE_PATTERNS",
-  "aliases": ["message_queue", "queue", "task_queue", "job_queue", "async_processing"],
+  "aliases": [
+    "message_queue",
+    "queue",
+    "task_queue",
+    "job_queue",
+    "async_processing"
+  ],
   "context_bundle": {
     "summary": "Message queue patterns for async agent communication and task distribution: Producer-Consumer (workers process tasks from queue), Pub/Sub (broadcast to subscribers), Priority Queue (high-priority first), Dead Letter Queue (failed messages). Platforms: RabbitMQ (AMQP), Redis (lists), Kafka (streaming), AWS SQS, Celery (Python tasks). Patterns: At-least-once, At-most-once, Exactly-once delivery. Use cases: background jobs, distributed tasks, event-driven workflows.",
-    "prerequisites": ["A08AGENT_COORD", "W53KAFKA", "W54REDIS"],
-    "related_doors": ["T09IPC_METHODS", "W12PHISYNC", "W51STREAM"],
+    "prerequisites": [
+      "A08AGENT_COORD",
+      "W53KAFKA",
+      "W54REDIS"
+    ],
+    "related_doors": [
+      "T09IPC_METHODS",
+      "W12PHISYNC",
+      "W51STREAM"
+    ],
     "onboarding": {
       "quick_start": "Message queues: Producer pushes tasks to queue, Consumer polls and processes. RabbitMQ: producer -> exchange -> queue -> consumer, AMQP protocol. Redis queues: LPUSH queue task, BRPOP queue 0 (blocking). Kafka: producer.send('topic', message), consumer.poll(). Celery (Python): @app.task decorator, task.delay() to enqueue. Patterns: FIFO (first-in-first-out), Priority (high priority first), DLQ (dead letter queue for failures). Delivery: At-least-once (may duplicate), At-most-once (may lose), Exactly-once (Kafka transactions). Use for: async jobs, distributed processing, decoupling services.",
       "full_context_path": "/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md",
@@ -24,7 +38,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md"],
+      "docs": [
+        "/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +50,34 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["message_queue", "queue", "task_queue", "async", "rabbitmq", "celery", "kafka"],
+      "tags": [
+        "message_queue",
+        "queue",
+        "task_queue",
+        "async",
+        "rabbitmq",
+        "celery",
+        "kafka"
+      ],
       "category": "AGENTS",
       "subcategory": "COORDINATION",
       "version": "1.0.0",
-      "tested_on": ["RabbitMQ", "Redis", "Kafka", "Celery", "AWS SQS"],
-      "agent_affinity": ["DC", "VSCC", "WEBC", "TERMC", "CMDC"]
+      "tested_on": [
+        "RabbitMQ",
+        "Redis",
+        "Kafka",
+        "Celery",
+        "AWS SQS"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "WEBC",
+        "TERMC",
+        "CMDC"
+      ],
+      "size_bytes": 3123,
+      "token_estimate": 781.0
     }
   }
 }

@@ -1,0 +1,50 @@
+{
+  "door_code": "E56MSG",
+  "semantic_path": "ERRORS.MESSAGING.Sending_messages_to_DCs_Claude",
+  "aliases": [
+    "messaging",
+    "ipc"
+  ],
+  "context_bundle": {
+    "summary": "Messaging: Sending messages to DC's Claude Desktop. PowerShell method is cleaner than batch wrapper, handles double-space path correctly",
+    "prerequisites": [],
+    "related_doors": [
+      "A05KALIC",
+      "A01DC"
+    ],
+    "onboarding": {
+      "quick_start": "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -Command \"& 'C:\\Program Files\\AHK\\v2\\AutoHotkey64.exe' 'X:\\AHK  SCRIPTS\\kalic_to_dc.ahk' 'MESSAGE'\"",
+      "full_context_path": "",
+      "common_patterns": [],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-02T23:19:19Z",
+      "confidence": 1.0,
+      "tags": [
+        "error",
+        "resolution",
+        "kalic",
+        "messaging",
+        "ipc"
+      ],
+      "category": "ERRORS",
+      "subcategory": "MESSAGING",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "KALIC",
+        "DC"
+      ],
+      "source": "kalic_brain/solved_problems.json",
+      "resolved_date": "2025-12-03",
+      "size_bytes": 1271,
+      "token_estimate": 318.0
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "door_code": "P32NETSCAN_RS",
+  "semantic_path": "PROJECTS.SECURITY.NETSCAN",
+  "aliases": [
+    "netscan",
+    "network scanner",
+    "arp scan",
+    "internal recon"
+  ],
+  "context_bundle": {
+    "summary": "NetScan-RS - Internal network scanner in Rust. ARP sweep, port scan, banner grab, MAC vendor lookup. Complements Recon-RS (external) with internal network mapping.",
+    "prerequisites": [
+      "D01RUST_SETUP"
+    ],
+    "related_doors": [
+      "P31RECON_RS",
+      "P30RUSTDUCKY"
+    ],
+    "onboarding": {
+      "quick_start": "Location: X:\\\\mcp-servers\\\\netscan-rs | Bootstrap: BOOTSTRAP.md | Build: cargo build --release | Usage: netscan 192.168.1.0/24 --ports",
+      "full_context_path": "",
+      "common_patterns": [],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-26T22:49:33.773249300+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "rust",
+        "network",
+        "scanner",
+        "arp",
+        "portscan",
+        "internal",
+        "recon",
+        "security"
+      ],
+      "category": "PROJECTS",
+      "subcategory": "SECURITY",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ]
+    }
+  }
+}

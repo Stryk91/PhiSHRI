@@ -40,7 +40,7 @@
       "errors": []
     },
     "metadata": {
-      "last_updated": "2025-11-18T01:12:45.770330",
+      "last_updated": "2025-11-18T01:12:45.77033",
       "confidence": 0.9,
       "usage_count": 0,
       "success_rate": 0.0,
@@ -60,7 +60,9 @@
       ],
       "agent_affinity": [
         "STRYK"
-      ]
+      ],
+      "size_bytes": 1924,
+      "token_estimate": 481.0
     }
   }
 }

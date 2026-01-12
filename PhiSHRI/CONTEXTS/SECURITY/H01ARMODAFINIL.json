@@ -1,0 +1,68 @@
+{
+  "door_code": "H01ARMODAFINIL",
+  "semantic_path": "HEALTH.NOOTROPICS.ARMODAFINIL",
+  "aliases": [
+    "waklert",
+    "artvigil",
+    "armodafinil",
+    "nuvigil",
+    "smart drugs",
+    "eugeroics"
+  ],
+  "context_bundle": {
+    "summary": "Waklert vs Artvigil comparison - same 150mg armodafinil compound, different subjective effects due to excipients, dissolution rates, and manufacturing quality. Sun Pharma Waklert hits faster/harder, HAB Pharma Artvigil smoother/gradual onset.",
+    "prerequisites": [],
+    "related_doors": [
+      "S25HEALTH",
+      "T01MCP"
+    ],
+    "onboarding": {
+      "quick_start": "Waklert 150mg (Sun Pharma) = faster onset ~2hr, sharper peak, preferred for focus. Artvigil 150mg (HAB Pharma) = slower onset ~3hr, smoother curve, better for stimulant-sensitive users.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Waklert hits harder due to faster GI absorption",
+        "Excipients/binders affect dissolution rate not molecule",
+        "CYP3A4 enzymes metabolize - buffer overload = stronger effect",
+        "No bioequivalence required in India = formulation variance",
+        "Crystal polymorphism affects bioavailability"
+      ],
+      "known_errors": [
+        "Same compound different effects is NOT placebo - pharmacokinetics differ",
+        "India generics skip bioequivalence studies required in US",
+        "Sun Pharma longer track record than HAB"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-29T05:31:37.746272900+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "armodafinil",
+        "waklert",
+        "artvigil",
+        "nootropics",
+        "sun-pharma",
+        "hab-pharma",
+        "modafinil",
+        "wakefulness",
+        "pharmacokinetics",
+        "bioavailability",
+        "generic-drugs"
+      ],
+      "category": "SECURITY",
+      "subcategory": "NOOTROPICS",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "STRYK"
+      ],
+      "size_bytes": 2088,
+      "token_estimate": 522.0
+    }
+  }
+}

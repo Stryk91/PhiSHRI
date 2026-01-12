@@ -1,0 +1,60 @@
+{
+  "door_code": "T50CARBYNE_TUI",
+  "semantic_path": "TOOLS.CARBYNE.TUI",
+  "aliases": [
+    "carbyne-tui",
+    "carbyne dashboard",
+    "agent tui"
+  ],
+  "context_bundle": {
+    "summary": "Carbyne TUI dashboard - ratatui-based terminal UI for multi-agent state monitoring. Auto-refresh, alert management, task tracking.",
+    "prerequisites": [],
+    "related_doors": [
+      "E57BUILD",
+      "A05KALIC",
+      "A01DC",
+      "P10BACKGROUND_MESH"
+    ],
+    "onboarding": {
+      "quick_start": "Binary: X:\\carbyne-cli\\target\\release\\carbyne.exe tui. State: C:\\PhiDEX\\carbyne\\state.json. Keys: C=ack alert, E=compose (WIP), Q=quit. Auto-refresh 2s.",
+      "full_context_path": "",
+      "common_patterns": [
+        "carbyne.exe tui",
+        "carbyne.exe status -v",
+        "carbyne.exe complete TASK_ID RESULT"
+      ],
+      "known_errors": [
+        "TUI E-key compose not yet implemented",
+        "Requires state.json at C:\\PhiDEX\\carbyne\\state.json"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-03T03:02:58.311936300+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "carbyne",
+        "tui",
+        "ratatui",
+        "dashboard",
+        "multi-agent",
+        "state-sync",
+        "kalic"
+      ],
+      "category": "TOOLS",
+      "subcategory": "CARBYNE",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "KALIC",
+        "DC"
+      ],
+      "size_bytes": 1572,
+      "token_estimate": 393.0
+    }
+  }
+}

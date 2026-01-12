@@ -1,0 +1,62 @@
+{
+  "door_code": "T50COMPACTOR",
+  "semantic_path": "TOOLS.CONTEXT.COMPACTOR",
+  "aliases": [
+    "compactor",
+    "compression",
+    "context compression",
+    "chat compression",
+    "lossy compression",
+    "semantic extraction"
+  ],
+  "context_bundle": {
+    "summary": "Chat Compactor v3.0 - Lossy semantic compression achieving ~52% reduction. Strips HTML/code/URLs/filler/stop-words for context recall, NOT for learning new content.",
+    "prerequisites": [],
+    "related_doors": [
+      "T51CHUNKER",
+      "C01CONTEXT_RAM",
+      "P05SESSION_CONT"
+    ],
+    "onboarding": {
+      "quick_start": "X:\\mcp-servers\\chat-compactor\\chat-compactor.ps1 -FromClipboard -ToClipboard | -InputFile chat.txt -ToFile compact.md",
+      "full_context_path": "",
+      "common_patterns": [
+        "# From clipboard to clipboard (quick): .\\chat-compactor.ps1 -FromClipboard -ToClipboard",
+        "# File to file: .\\chat-compactor.ps1 -InputFile 'chat.txt' -ToFile 'compact.md'",
+        "# Auto-save to Documents: .\\chat-compactor.ps1 -InputFile 'chat.txt'"
+      ],
+      "known_errors": [
+        "LOSSY - removes stop words, code blocks, URLs - DO NOT use when exact content matters",
+        "Best for: chat history recall, topic summaries, 'what did we discuss' context",
+        "BAD for: technical docs, code, anything where actual words matter"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T18:57:16.290123600+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "compression",
+        "context",
+        "chat",
+        "tokens",
+        "efficiency",
+        "lossy"
+      ],
+      "category": "TOOLS",
+      "subcategory": "CONTEXT",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 1872,
+      "token_estimate": 468.0
+    }
+  }
+}

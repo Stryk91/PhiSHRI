@@ -1,0 +1,57 @@
+{
+  "door_code": "H02PHARMACOKINETICS",
+  "semantic_path": "HEALTH.PHARMACOLOGY.KINETICS",
+  "aliases": [
+    "drug curves",
+    "absorption rates",
+    "metabolism",
+    "bioavailability"
+  ],
+  "context_bundle": {
+    "summary": "Drug absorption, metabolism, and effect curves - Cmax, Tmax, AUC, first-pass metabolism, CYP3A4 enzyme saturation, threshold effects on receptor occupancy.",
+    "prerequisites": [],
+    "related_doors": [
+      "H01ARMODAFINIL"
+    ],
+    "onboarding": {
+      "quick_start": "Key concepts: Cmax (peak concentration), Tmax (time to peak), AUC (total exposure), First-pass metabolism (liver processing before systemic circulation). CYP3A4 saturation = more drug reaches brain. DAT occupancy threshold ~60% for noticeable effects.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Faster dissolution = higher Cmax = sharper subjective effect",
+        "Same AUC different Cmax = same total exposure different experience",
+        "Enzyme saturation causes non-linear dose response"
+      ],
+      "known_errors": [
+        "2x dose != 2x effect due to receptor saturation",
+        "Empty stomach speeds absorption but binder matrix rate-limits dissolution"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-29T05:36:42.050674400+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "pharmacokinetics",
+        "bioavailability",
+        "cmax",
+        "auc",
+        "metabolism",
+        "cyp3a4",
+        "absorption",
+        "first-pass",
+        "dat-occupancy"
+      ],
+      "category": "SECURITY",
+      "subcategory": "PHARMACOLOGY",
+      "version": "1.0.0",
+      "agent_affinity": [],
+      "size_bytes": 1777,
+      "token_estimate": 445.0
+    }
+  }
+}

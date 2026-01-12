@@ -1,0 +1,64 @@
+{
+  "door_code": "W22AHK_MESH",
+  "semantic_path": "WORKFLOWS.AGENTS.AHK_MESH",
+  "aliases": [
+    "ahk mesh",
+    "agent messaging",
+    "direct injection",
+    "kalic messaging"
+  ],
+  "context_bundle": {
+    "summary": "Bidirectional AHK direct injection messaging between DC and KALIC agents. Bypasses file queues for real-time clipboard-paste-enter delivery.",
+    "prerequisites": [
+      "A01DC",
+      "A05KALIC"
+    ],
+    "related_doors": [
+      "T22CARBYNE",
+      "W20TASK_DISPATCH"
+    ],
+    "onboarding": {
+      "quick_start": "DC->KALIC: X:\\AHK  SCRIPTS\\send_to_kalic.ahk. KALIC->DC: X:\\AHK  SCRIPTS\\kalic_to_dc.ahk. Both use CoordMode('Mouse','Screen'), target window by exe, paste via clipboard.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Start-Process 'C:\\Program Files\\AHK\\v2\\AutoHotkey64.exe' -ArgumentList '\"X:\\AHK  SCRIPTS\\send_to_kalic.ahk\" \"message\"'",
+        "Safe send: C:\\PhiDEX\\scripts\\safe_send_kalic.ps1 -Message 'text' (waits for AHK clear)",
+        "CoordMode fix: Must use CoordMode('Mouse','Screen') for correct click coordinates"
+      ],
+      "known_errors": [
+        "Lowercase claude.exe in ahk_exe (Window Spy shows lowercase)",
+        "Click 100px from bottom not 50px for input field",
+        "Missing CoordMode causes wrong click position",
+        "AHK stacking: multiple instances queue and scroll wildly"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-03T10:47:04.604119+11:00",
+      "confidence": 1.0,
+      "tags": [
+        "ahk",
+        "messaging",
+        "agents",
+        "dc",
+        "kalic",
+        "ipc",
+        "clipboard"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "AGENTS",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ],
+      "size_bytes": 1926,
+      "token_estimate": 482.0
+    }
+  }
+}

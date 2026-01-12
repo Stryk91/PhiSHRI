@@ -1,0 +1,59 @@
+{
+  "door_code": "R60TOOL_HALLWAY",
+  "semantic_path": "ARCHITECTURE.PHISHRI.TOOL_HALLWAY",
+  "aliases": [
+    "tool_registry",
+    "dynamic_tools",
+    "mcp_hallway",
+    "tool_doors"
+  ],
+  "context_bundle": {
+    "summary": "Tool Hallway extends PhiSHRI with callable MCP tool definitions. Same Matrix hallway architecture - Knowledge Hallway for docs, Tool Hallway for executable schemas with examples and trigger patterns. Enables dynamic tool loading (95% context reduction) instead of stuffing all 119 tools upfront.",
+    "prerequisites": [],
+    "related_doors": [
+      "P04SHRI",
+      "T41MCP_INVENTORY",
+      "R20TOOL_BACKBONE"
+    ],
+    "onboarding": {
+      "quick_start": "Tool doors use MT_ prefix (MT_EV_SEARCH, MT_GIT_COMMIT). Each door contains: tool_definition (server, name, schema), usage_patterns (triggers, when_to_use), examples (intent + invocation), gotchas, and link to knowledge_door for deep context.",
+      "full_context_path": "",
+      "common_patterns": [
+        "MT_[SERVER]_[TOOL] naming convention",
+        "triggers array for intent matching",
+        "examples with intent + invocation pairs",
+        "knowledge_door link to T-series documentation",
+        "categories: FILE_SEARCH, GIT, SHELL, NETWORK, etc."
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-04T22:46:58.050097300+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "architecture",
+        "phishri",
+        "mcp",
+        "tools",
+        "dynamic_loading",
+        "context_optimization"
+      ],
+      "category": "ARCHITECTURE",
+      "subcategory": "PHISHRI",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC",
+        "ALL"
+      ],
+      "size_bytes": 1842,
+      "token_estimate": 461.0
+    }
+  }
+}

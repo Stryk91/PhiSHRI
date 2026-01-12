@@ -1,11 +1,24 @@
 {
   "door_code": "W57ELASTICSEARCH",
   "semantic_path": "WORKFLOWS.DATA_PROCESSING.ELASTICSEARCH_SEARCH",
-  "aliases": ["elasticsearch", "search", "full_text_search", "elk_stack", "elastic"],
+  "aliases": [
+    "elasticsearch",
+    "search",
+    "full_text_search",
+    "elk_stack",
+    "elastic"
+  ],
   "context_bundle": {
     "summary": "Elasticsearch distributed search and analytics engine: Full-text search, structured search, aggregations, real-time analytics. JSON documents in indexes (inverted index). Query DSL: match, term, range, bool. Aggregations: metrics, buckets (histogram, terms). ELK Stack: Elasticsearch (search/storage), Logstash (ingestion), Kibana (visualization). Use cases: log analytics, search engines, metrics, security (SIEM). Performance: horizontal scaling, sharding, replication.",
-    "prerequisites": ["W55POSTGRES", "W56MONGODB"],
-    "related_doors": ["W53KAFKA", "W50ETL", "T10OBSERVABILITY"],
+    "prerequisites": [
+      "W55POSTGRES",
+      "W56MONGODB"
+    ],
+    "related_doors": [
+      "W53KAFKA",
+      "W50ETL",
+      "T10OBSERVABILITY"
+    ],
     "onboarding": {
       "quick_start": "Elasticsearch basics: Indexes (like databases), documents (JSON), inverted index for fast search. Index: POST /users/_doc {\"name\": \"John\", \"email\": \"john@example.com\"}. Search: GET /users/_search {\"query\": {\"match\": {\"name\": \"John\"}}}. Term query (exact): {\"term\": {\"status\": \"active\"}}. Bool query: {\"bool\": {\"must\": [{\"match\": {...}}], \"filter\": [{\"range\": {...}}]}}. Aggregations: {\"aggs\": {\"by_status\": {\"terms\": {\"field\": \"status\"}}}}. ELK: Logstash (ingest) -> Elasticsearch (index) -> Kibana (visualize). Use for: logs, search, metrics, SIEM. Sharding for scale, replication for HA.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/05_DATA_PROCESSING/DATA_PROCESSING_MANAGEMENT_RESEARCH.md",
@@ -24,7 +37,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/05_DATA_PROCESSING/DATA_PROCESSING_MANAGEMENT_RESEARCH.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/05_DATA_PROCESSING/DATA_PROCESSING_MANAGEMENT_RESEARCH.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +49,30 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["elasticsearch", "search", "full_text", "elk", "logs", "analytics", "kibana"],
+      "tags": [
+        "elasticsearch",
+        "search",
+        "full_text",
+        "elk",
+        "logs",
+        "analytics",
+        "kibana"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "DATA_PROCESSING",
       "version": "1.0.0",
-      "tested_on": ["Elasticsearch 7+", "Elasticsearch 8", "ELK Stack"],
-      "agent_affinity": ["VSCC", "TERMC", "CMDC"]
+      "tested_on": [
+        "Elasticsearch 7+",
+        "Elasticsearch 8",
+        "ELK Stack"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "TERMC",
+        "CMDC"
+      ],
+      "size_bytes": 3165,
+      "token_estimate": 792.0
     }
   }
 }

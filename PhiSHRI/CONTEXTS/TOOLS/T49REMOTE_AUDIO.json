@@ -1,0 +1,50 @@
+{
+  "door_code": "T49REMOTE_AUDIO",
+  "semantic_path": "TOOLS.REMOTE.AUDIO",
+  "aliases": [
+    "remote sound",
+    "play audio mcp",
+    "session audio",
+    "interactive audio"
+  ],
+  "context_bundle": {
+    "summary": "Play audio on Windows PC via MCP from remote session. Uses scheduled task with Interactive logon to access desktop audio session.",
+    "prerequisites": [],
+    "related_doors": [
+      "T48PHIMSG",
+      "D05WINDOWS_MCP"
+    ],
+    "onboarding": {
+      "quick_start": "Script: X:\\AHK  SCRIPTS\\play-sound.ps1 | Usage: play-sound.ps1 \"C:\\Windows\\Media\\tada.wav\" | Key: ScheduledTask with -LogonType Interactive bypasses session isolation",
+      "full_context_path": "",
+      "common_patterns": [],
+      "known_errors": [
+        "Direct SoundPlayer.PlaySync() silent in MCP context - use scheduled task",
+        "Task must use -LogonType Interactive to access audio devices"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-27T06:10:17.114665200+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "remote",
+        "audio",
+        "mcp",
+        "scheduled-task",
+        "interactive-session",
+        "windows",
+        "powershell"
+      ],
+      "category": "TOOLS",
+      "subcategory": "REMOTE",
+      "version": "1.0.0",
+      "agent_affinity": []
+    }
+  }
+}

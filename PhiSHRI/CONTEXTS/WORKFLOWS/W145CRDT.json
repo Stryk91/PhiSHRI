@@ -53,7 +53,9 @@
         "VSCC",
         "DC",
         "WEBC"
-      ]
+      ],
+      "size_bytes": 2000,
+      "token_estimate": 500.0
     }
   }
 }

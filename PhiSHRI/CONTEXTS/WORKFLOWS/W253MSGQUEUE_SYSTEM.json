@@ -1,0 +1,66 @@
+{
+  "door_code": "W253MSGQUEUE_SYSTEM",
+  "semantic_path": "WORKFLOWS.COMMS.MSGQUEUE",
+  "aliases": [
+    "file messaging",
+    "msgqueue",
+    "agent messaging",
+    "dc kalic comms",
+    "mailbox"
+  ],
+  "context_bundle": {
+    "summary": "THE ONE FILE MESSAGING SYSTEM. Path: C:\\PhiDEX\\msgqueue\\. DO NOT CREATE DUPLICATES. DC inbox: dc\\inbox. KALIC inbox: kalic\\inbox. This is the canonical inter-agent file communication path.",
+    "prerequisites": [
+      "W252FILE_BUMP_PROTOCOL"
+    ],
+    "related_doors": [
+      "W252FILE_BUMP_PROTOCOL",
+      "P15AGENT_BRIDGE_MCP",
+      "S01DC_SESSION_BOOT",
+      "S00KALIC_SESSION_BOOT"
+    ],
+    "onboarding": {
+      "quick_start": "ONE SYSTEM: C:\\PhiDEX\\msgqueue\\. DC writes to kalic\\inbox\\, KALIC writes to dc\\inbox\\. Filename: from_<AGENT>_YYYYMMDD_HHMMSS.txt. After reading, move to processed\\. Use $ bump for urgent notifications.",
+      "full_context_path": "",
+      "common_patterns": [
+        "DC inbox: C:\\PhiDEX\\msgqueue\\dc\\inbox",
+        "KALIC inbox: C:\\PhiDEX\\msgqueue\\kalic\\inbox (or /mnt/c/PhiDEX/msgqueue/kalic/inbox)",
+        "Filename: from_<AGENT>_<timestamp>.txt",
+        "Processed msgs go to processed/ subfolder",
+        "$ bump via AHK if urgent"
+      ],
+      "known_errors": [
+        "DO NOT CREATE DUPLICATE SYSTEMS - this is the ONE path",
+        "Check PhiSHRI before building new comms",
+        "KALIC context loss causes him to forget - always remind him of this path"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-19T20:40:05.077506+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "msgqueue",
+        "messaging",
+        "file",
+        "comms",
+        "dc",
+        "kalic",
+        "inbox",
+        "canonical"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "COMMS",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ]
+    }
+  }
+}

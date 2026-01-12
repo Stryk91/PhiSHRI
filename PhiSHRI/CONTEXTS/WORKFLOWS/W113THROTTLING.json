@@ -1,11 +1,22 @@
 {
   "door_code": "W113THROTTLING",
   "semantic_path": "WORKFLOWS.PERFORMANCE.THROTTLING",
-  "aliases": ["throttle", "rate limit", "api throttling", "request limiting"],
+  "aliases": [
+    "throttle",
+    "rate limit",
+    "api throttling",
+    "request limiting"
+  ],
   "context_bundle": {
     "summary": "Request throttling and rate limiting patterns for protecting services from overload and ensuring fair resource usage",
-    "prerequisites": ["W79REST_API"],
-    "related_doors": ["W112BACKPRESSURE", "E06CIRCUIT_BREAKER", "W79REST_API"],
+    "prerequisites": [
+      "W79REST_API"
+    ],
+    "related_doors": [
+      "W112BACKPRESSURE",
+      "E06CIRCUIT_BREAKER",
+      "W79REST_API"
+    ],
     "onboarding": {
       "quick_start": "Implement rate limiting to control request rates per user, IP, or API key to prevent abuse and ensure system stability",
       "full_context_path": "/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md",
@@ -18,7 +29,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -28,12 +41,26 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["performance", "throttling", "rate limiting", "workflows"],
+      "tags": [
+        "performance",
+        "throttling",
+        "rate limiting",
+        "workflows"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "PERFORMANCE",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11", "Linux"],
-      "agent_affinity": ["VSCC", "DC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11",
+        "Linux"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC"
+      ],
+      "size_bytes": 1605,
+      "token_estimate": 402.0
     }
   }
 }

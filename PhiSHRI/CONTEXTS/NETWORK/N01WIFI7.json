@@ -1,0 +1,87 @@
+{
+  "door_code": "N01WIFI7",
+  "semantic_path": "NETWORK.WIRELESS.WIFI7",
+  "aliases": [
+    "wifi7",
+    "wifi 7",
+    "802.11be",
+    "be200",
+    "intel wifi 7",
+    "wi-fi 7",
+    "320mhz"
+  ],
+  "context_bundle": {
+    "summary": "Intel Wi-Fi 7 BE200 320MHz adapter. Latest wireless standard (802.11be). Supports 320MHz channels, MLO (Multi-Link Operation), 4K QAM, tri-band (2.4/5/6GHz). Theoretical max 5.8Gbps. Current link: 1.7Gbps on 6GHz band.",
+    "prerequisites": [],
+    "related_doors": [
+      "N02OFFLOAD",
+      "N03BBR",
+      "N05TCPSTACK",
+      "N06WIFI6E"
+    ],
+    "onboarding": {
+      "quick_start": "CHECK STATUS: Get-NetAdapter | Where-Object {$_.Name -like 'Wi-Fi*'} | Select Name, Status, LinkSpeed\nADVANCED PROPS: Get-NetAdapterAdvancedProperty -Name 'Wi-Fi 3'\nCHANGE SETTING: Set-NetAdapterAdvancedProperty -Name 'Wi-Fi 3' -DisplayName 'PropertyName' -DisplayValue 'Value'",
+      "full_context_path": null,
+      "common_patterns": [
+        "Wi-Fi 7 features: 320MHz channels, MLO, 4K QAM",
+        "6GHz band preferred for performance",
+        "Backward compatible with Wi-Fi 6E/6/5",
+        "Multiple virtual interfaces (Wi-Fi 3,4,5,6,7) for MLO"
+      ],
+      "known_errors": [
+        {
+          "error": "Lower than expected speed",
+          "cause": "Router doesn't support Wi-Fi 7 or 320MHz channels",
+          "solution": "Connect to 6GHz band on 6E router for 160MHz width",
+          "prevention": "Check router capabilities",
+          "related_door": "N06WIFI6E"
+        }
+      ]
+    },
+    "technical_details": {
+      "hardware": "Intel Wi-Fi 7 BE200 320MHz",
+      "mac_prefix": "A0:B3:39",
+      "bands": [
+        "2.4GHz",
+        "5GHz",
+        "6GHz"
+      ],
+      "max_channel_width": "320MHz (with Wi-Fi 7 router), 160MHz (with 6E router)",
+      "current_config": {
+        "wireless_mode": "802.11be",
+        "preferred_band": "6GHz",
+        "transmit_power": "Highest",
+        "roaming_aggressiveness": "Lowest",
+        "throughput_booster": "Enabled",
+        "mimo_power_save": "No SMPS (full performance)"
+      }
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-17T00:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "wifi",
+        "wifi7",
+        "802.11be",
+        "intel",
+        "be200",
+        "wireless",
+        "networking",
+        "6ghz"
+      ],
+      "category": "NETWORK",
+      "subcategory": "WIRELESS",
+      "version": "1.0",
+      "size_bytes": 2655,
+      "token_estimate": 664.0
+    }
+  }
+}

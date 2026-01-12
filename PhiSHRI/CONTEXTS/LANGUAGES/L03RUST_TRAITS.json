@@ -1,0 +1,57 @@
+{
+  "door_code": "L03RUST_TRAITS",
+  "semantic_path": "LANGUAGES.RUST.TRAITS",
+  "aliases": [
+    "rust traits",
+    "rust generics",
+    "rust interfaces",
+    "trait bounds"
+  ],
+  "context_bundle": {
+    "summary": "Rust traits and generics - trait definitions, implementations, bounds, associated types, orphan rule, monomorphization.",
+    "prerequisites": [
+      "L02RUST_OWNERSHIP"
+    ],
+    "related_doors": [
+      "L02RUST_OWNERSHIP",
+      "L04RUST_ASYNC"
+    ],
+    "onboarding": {
+      "quick_start": "trait Foo { fn bar(&self); } - define interface. impl Foo for MyType {} - implement. fn process<T: Foo>(x: T) - generic with bound.",
+      "full_context_path": "",
+      "common_patterns": [
+        "trait Summary { fn summarize(&self) -> String; }",
+        "impl<T: Display> ToString for T { ... } // blanket impl",
+        "fn process(item: &impl Summary) // impl trait syntax",
+        "where T: Clone + Debug // where clause for bounds"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T10:23:13.37299+11:00",
+      "confidence": 1.0,
+      "tags": [
+        "rust",
+        "traits",
+        "generics",
+        "polymorphism",
+        "type system"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "RUST",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 1488,
+      "token_estimate": 372.0
+    }
+  }
+}

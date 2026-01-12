@@ -1,0 +1,65 @@
+{
+  "door_code": "W120MCP_CREATION",
+  "semantic_path": "WORKFLOWS.MCP.STREAMLINED_CREATION",
+  "aliases": [
+    "mcp_workflow",
+    "create_mcp",
+    "mcp_dev_flow",
+    "build_mcp_server"
+  ],
+  "context_bundle": {
+    "summary": "Streamlined MCP creation workflow. 4 phases: Research (load MCP doors, check SDK docs), Setup (create project, add NuGet packages), Implement (tools with McpServerTool attribute, descriptions), Deploy (build, config claude_desktop_config.json, restart Claude).",
+    "prerequisites": [
+      "T01MCP",
+      "T05MCP_ARCH",
+      "T06MCP_SETUP"
+    ],
+    "related_doors": [
+      "T25EVERYTHING_MCP",
+      "827HHWINC#"
+    ],
+    "onboarding": {
+      "quick_start": "1. Load T01MCP+T05MCP_ARCH for protocol knowledge. 2. Check available runtimes (dotnet/node/python). 3. Create project: dotnet new console + add ModelContextProtocol --prerelease. 4. Implement tools: [McpServerToolType] class + [McpServerTool(Name='x'), Description('y')] methods. 5. Build Release. 6. Add to claude_desktop_config.json mcpServers. 7. Restart Claude Desktop.",
+      "full_context_path": "",
+      "common_patterns": [
+        "dotnet add package ModelContextProtocol --prerelease",
+        "dotnet add package Microsoft.Extensions.Hosting",
+        "[McpServerTool(Name = 'tool_name'), Description('desc')]",
+        "builder.Services.AddMcpServer().WithStdioServerTransport().WithToolsFromAssembly()",
+        "Config: {command: 'dotnet', args: ['run', '--project', 'path', '--configuration', 'Release']}"
+      ],
+      "known_errors": [
+        "McpServerToolAttribute constructor - use Name= property not positional",
+        "Logs to stderr - use consoleLogOptions.LogToStandardErrorThreshold",
+        "SDK preview - APIs may change between versions"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T09:32:57.078607800+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "mcp",
+        "workflow",
+        "creation",
+        "sdk",
+        "csharp",
+        "typescript"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "MCP",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 2288,
+      "token_estimate": 572.0
+    }
+  }
+}

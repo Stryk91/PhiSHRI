@@ -1,11 +1,24 @@
 {
   "door_code": "R07SAGA_PATTERN",
   "semantic_path": "ARCHITECTURE.DISTRIBUTED_SYSTEMS.SAGA_PATTERN",
-  "aliases": ["saga", "saga_pattern", "distributed_transaction", "compensating_transaction"],
+  "aliases": [
+    "saga",
+    "saga_pattern",
+    "distributed_transaction",
+    "compensating_transaction"
+  ],
   "context_bundle": {
     "summary": "Saga pattern manages distributed transactions across microservices using coordinated local transactions with compensating actions for rollback, implemented as choreography (event-driven) or orchestration (central coordinator) to maintain data consistency.",
-    "prerequisites": ["R03MICROSERVICES", "R04EVENT_DRIVEN", "W98MESSAGE_QUEUE"],
-    "related_doors": ["R08CQRS", "E05RETRY", "E06CIRCUIT_BREAKER"],
+    "prerequisites": [
+      "R03MICROSERVICES",
+      "R04EVENT_DRIVEN",
+      "W98MESSAGE_QUEUE"
+    ],
+    "related_doors": [
+      "R08CQRS",
+      "E05RETRY",
+      "E06CIRCUIT_BREAKER"
+    ],
     "onboarding": {
       "quick_start": "Saga implementation: 1) Break distributed transaction into local transactions per service. 2) Define compensating transactions for rollback. 3) Choreography approach: Services publish events, others react. 4) Orchestration approach: Saga coordinator manages sequence. 5) Handle failures with compensating actions in reverse order. 6) Use idempotent operations. 7) Log saga state for recovery. Saga = sequence of local transactions + compensations.",
       "full_context_path": "/PhiDEX/industry_knowledge/saga_pattern.md",
@@ -15,25 +28,54 @@
         "Saga state machine: states = ['ORDER_CREATED', 'INVENTORY_RESERVED', 'PAYMENT_PROCESSED', 'SHIPPED', 'COMPLETED']; compensations = {'INVENTORY_RESERVED': release_inventory, 'PAYMENT_PROCESSED': refund_payment, 'SHIPPED': cancel_shipment}",
         "Event publishing: def publish_saga_event(event_type, data): event = {'saga_id': uuid.uuid4(), 'event_type': event_type, 'timestamp': datetime.utcnow(), 'data': data}; message_queue.publish('saga_events', event); log_saga_event(event)"
       ],
-      "known_errors": ["E05RETRY", "E06CIRCUIT_BREAKER", "E11RACE_CONDITIONS"]
+      "known_errors": [
+        "E05RETRY",
+        "E06CIRCUIT_BREAKER",
+        "E11RACE_CONDITIONS"
+      ]
     },
     "resources": {
-      "docs": ["/PhiDEX/industry_knowledge/saga_pattern.md"],
+      "docs": [
+        "/PhiDEX/industry_knowledge/saga_pattern.md"
+      ],
       "code": [],
       "tests": [],
-      "errors": ["E05RETRY", "E06CIRCUIT_BREAKER", "E11RACE_CONDITIONS"]
+      "errors": [
+        "E05RETRY",
+        "E06CIRCUIT_BREAKER",
+        "E11RACE_CONDITIONS"
+      ]
     },
     "metadata": {
       "last_updated": "2025-11-21T00:00:00Z",
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["saga", "distributed_transaction", "microservices", "choreography", "orchestration", "compensating_transaction"],
+      "tags": [
+        "saga",
+        "distributed_transaction",
+        "microservices",
+        "choreography",
+        "orchestration",
+        "compensating_transaction"
+      ],
       "category": "ARCHITECTURE",
       "subcategory": "DISTRIBUTED_SYSTEMS",
       "version": "1.0.0",
-      "tested_on": ["Microservices", "Event-driven", "Message queues", "Kafka", "RabbitMQ"],
-      "agent_affinity": ["DC", "VSCC", "WEBC"]
+      "tested_on": [
+        "Microservices",
+        "Event-driven",
+        "Message queues",
+        "Kafka",
+        "RabbitMQ"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "WEBC"
+      ],
+      "size_bytes": 3400,
+      "token_estimate": 850.0
     }
   }
 }

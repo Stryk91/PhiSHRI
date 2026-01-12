@@ -1,0 +1,121 @@
+{
+  "door_code": "A50AI_LANDSCAPE_2025",
+  "semantic_path": "ARCHITECTURE.AI.LANDSCAPE",
+  "aliases": [
+    "AI overview",
+    "AI industry",
+    "model landscape",
+    "AI state",
+    "AI ecosystem",
+    "LLM landscape"
+  ],
+  "context_bundle": {
+    "summary": "Current state of AI industry December 2025: major players, model families, market dynamics, competitive landscape, and strategic implications for PhiVector development.",
+    "prerequisites": [],
+    "related_doors": [
+      "A51DEEPSEEK_ARCHITECTURE",
+      "A52MOE_PATTERNS",
+      "A57AI_ECONOMICS",
+      "A58FRONTIER_MODELS",
+      "A59OPEN_MODELS",
+      "A64AI_TRENDS_PREDICTIONS"
+    ],
+    "onboarding": {
+      "quick_start": "December 2025 AI landscape: Closed frontier (OpenAI GPT-5.2/o3, Anthropic Claude 4.5, Google Gemini 3 Pro, xAI Grok 4.1) vs Open frontier (DeepSeek V3.2, Meta Llama 4, Alibaba Qwen 2.5, Mistral). Key shift: open source now matching closed on benchmarks. DeepSeek proved frontier performance at 10x lower cost. All labs pivoting to agentic + reasoning models. Infrastructure costs brutal (Oracle -45%). Regulation incoming (US national framework). PhiVector positioned well for local-first as consumer hardware improves.",
+      "full_context_path": "",
+      "common_patterns": [
+        "=== MAJOR PLAYERS (CLOSED SOURCE) ===",
+        "OPENAI: GPT-5.2 (general), o3 (reasoning), o3-mini (fast reasoning). 800M weekly ChatGPT users. Enterprise focus. Sam Altman 'code red' on Gemini 3 threat.",
+        "ANTHROPIC: Claude Opus 4.5 (most intelligent), Sonnet 4.5 (balanced), Haiku 4.5 (fast). Enterprise + coding focus. Constitutional AI approach.",
+        "GOOGLE: Gemini 3 Pro (flagship), Gemini 3 (base). Deep integration with Search, Workspace. Claims 72% answer accuracy. Antigravity agentic coding platform.",
+        "XAI: Grok 4.1 with major reasoning/safety/emotional intelligence gains. Competitive pricing. Fast iteration cycle.",
+        "=== MAJOR PLAYERS (OPEN SOURCE) ===",
+        "DEEPSEEK: V3.2 (685B MoE, 37B active), V3.2-Speciale (reasoning variant). Chinese lab, MIT license. Matching GPT-5 on benchmarks at 10x lower cost.",
+        "META: Llama 4 (Maverick 17B-128E, Scout). Continued open-weight commitment. Commercial-friendly license with restrictions.",
+        "ALIBABA: Qwen 2.5 family. Strong multilingual. Various sizes. Permissive license. Chinese lab.",
+        "MISTRAL: European lab. Efficient small models (7B-22B). Business-friendly. NeMo, Small 3.1 variants.",
+        "=== MODEL CAPABILITY TIERS ===",
+        "TIER 1 FRONTIER: GPT-5.2, Claude Opus 4.5, Gemini 3 Pro, DeepSeek V3.2-Speciale - best overall performance",
+        "TIER 2 PRODUCTION: GPT-4o, Claude Sonnet 4.5, Gemini 3, DeepSeek V3.2, Grok 4.1 - excellent cost/performance",
+        "TIER 3 FAST: GPT-4o-mini, Claude Haiku 4.5, Gemini Flash, Llama 4 Scout - speed optimized",
+        "TIER 4 LOCAL: Llama 3.1 8B/70B, Qwen 2.5 7B/14B/72B, Mistral 7B/22B - consumer hardware viable",
+        "=== REASONING MODEL CATEGORY ===",
+        "OPENAI o3: State-of-art reasoning. Variable compute modes. ARC-AGI breakthrough but 100-600x more expensive than 4o.",
+        "DEEPSEEK R1: Built on V3 base. RLVR (Reinforcement Learning with Verifiable Rewards). Open weights.",
+        "V3.2-SPECIALE: High-compute reasoning variant. IMO/IOI 2025 gold medal performance. Extended thinking mode.",
+        "CLAUDE EXTENDED THINKING: Opus 4.5 with reasoning traces. Agentic capabilities.",
+        "=== MARKET DYNAMICS ===",
+        "SCALE: ChatGPT 800M weekly users (Dec 2025). Enterprise reasoning tokens up 320x YoY.",
+        "PRICING PRESSURE: DeepSeek at $0.27/$1.10 per M tokens vs GPT-4o at $2.50/$10. 10x cost advantage.",
+        "OPEN SOURCE MOMENTUM: DeepSeek matching closed models on benchmarks signals moat erosion.",
+        "INFRASTRUCTURE COSTS: Oracle -45% stock after $12B quarterly capex. Datacenter buildout brutal.",
+        "SUPPLY CONSTRAINTS: H100 allocation scarce. Multi-month lead times. China sanctions reshaping supply chain.",
+        "=== AGENTIC SHIFT ===",
+        "ALL LABS: Training for tool use, multi-step reasoning, environment interaction.",
+        "DEEPSEEK: 1,800+ synthetic environments, 85,000+ agentic tasks in training data.",
+        "ANTHROPIC: Claude computer use (screenshots, clicks, typing).",
+        "OPENAI: ChatGPT plugins, browsing, code interpreter, file handling.",
+        "GOOGLE: Gemini Workspace integration, agentic coding with Antigravity.",
+        "=== REGULATORY LANDSCAPE ===",
+        "US: Trump admin pushing national AI framework to preempt state regulations. 'Tech Force' initiative.",
+        "EU: AI Act in effect. Compliance burden growing. Risk-based classification.",
+        "CHINA: Domestic AI push. Huawei chip alternatives. Export controls driving innovation.",
+        "=== PHIVECTOR IMPLICATIONS ===",
+        "LOCAL FIRST: Consumer hardware (RTX 5070 Ti 16GB) can run 7B-32B models at Q4. Viable for many tasks.",
+        "OPEN SOURCE: DeepSeek, Llama, Qwen provide frontier-adjacent capabilities for free.",
+        "AGENTIC ALIGNMENT: Our multi-agent architecture (DC/KALIC) mirrors industry direction.",
+        "EFFICIENCY FOCUS: MoE and sparse attention techniques applicable to local deployments.",
+        "COST OPTIMIZATION: API pricing dropping. Mix local inference with API calls for cost optimization."
+      ],
+      "known_errors": [
+        "TRAINING COSTS: $5.5M claims are final run only. Exclude R&D, failed runs, data acquisition, salaries. True cost 5-20x higher.",
+        "BENCHMARKS: Gaming is real. Models optimize for benchmarks, real-world performance varies. Test on YOUR tasks.",
+        "OPEN vs CLOSED: 'Catching up' on benchmarks doesn't mean parity on all tasks. Closed models often better at edge cases.",
+        "DISTILLATION: Some open models may have trained on closed model outputs. Legal and ethical grey area.",
+        "CAPABILITY CLAIMS: Marketing hype is real. 'Human-level' claims are misleading. Test empirically.",
+        "PRICING: API prices change frequently. These figures are Dec 2025 snapshots. Verify before planning.",
+        "REGULATORY: Landscape evolving rapidly. EU AI Act, US executive orders, state laws all in flux.",
+        "CHINA MODELS: Export compliance, data provenance, and geopolitical considerations apply."
+      ]
+    },
+    "resources": {
+      "docs": [
+        "https://openai.com/index/the-state-of-enterprise-ai-2025-report/",
+        "https://arxiv.org/html/2412.19437v1 (DeepSeek V3 Technical Report)",
+        "https://huggingface.co/deepseek-ai/DeepSeek-V3",
+        "https://www.whitehouse.gov/presidential-actions/2025/12/eliminating-state-law-obstruction-of-national-artificial-intelligence-policy/"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-19T09:00:00.000000000+00:00",
+      "confidence": 0.95,
+      "tags": [
+        "ai",
+        "landscape",
+        "industry",
+        "2025",
+        "competition",
+        "models",
+        "openai",
+        "anthropic",
+        "google",
+        "deepseek",
+        "meta",
+        "frontier",
+        "open-source"
+      ],
+      "category": "ARCHITECTURE",
+      "subcategory": "AI",
+      "version": "2.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ],
+      "size_bytes": 7375,
+      "token_estimate": 1844.0
+    }
+  }
+}

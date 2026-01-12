@@ -1,11 +1,23 @@
 {
   "door_code": "W03CONTEXT",
   "semantic_path": "WORKFLOWS.AI.CONTEXT_MANAGEMENT",
-  "aliases": ["context_window", "token_limit", "context_opt", "memory_mgmt"],
+  "aliases": [
+    "context_window",
+    "token_limit",
+    "context_opt",
+    "memory_mgmt"
+  ],
   "context_bundle": {
     "summary": "Context window management strategies for LLM applications including compression techniques, prioritization, and multi-turn conversation optimization.",
-    "prerequisites": ["W02PROMPT", "W04TOKEN"],
-    "related_doors": ["A01DC", "A02VSCC", "P04SHRI"],
+    "prerequisites": [
+      "W02PROMPT",
+      "W04TOKEN"
+    ],
+    "related_doors": [
+      "A01DC",
+      "A02VSCC",
+      "P04SHRI"
+    ],
     "onboarding": {
       "quick_start": "Monitor context usage. Compress when >80% full. Prioritize recent + relevant. Use PhiSHRI door codes for instant context loading.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md",
@@ -26,7 +38,9 @@
       ]
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -36,12 +50,27 @@
       "confidence": 0.97,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["ai", "context", "memory", "optimization", "phishri"],
+      "tags": [
+        "ai",
+        "context",
+        "memory",
+        "optimization",
+        "phishri"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "AI_OPTIMIZATION",
       "version": "1.0.0",
-      "tested_on": ["Claude 4.5", "GPT-4"],
-      "agent_affinity": ["DC", "VSCC", "WEBC"]
+      "tested_on": [
+        "Claude 4.5",
+        "GPT-4"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "WEBC"
+      ],
+      "size_bytes": 1907,
+      "token_estimate": 477.0
     }
   }
 }

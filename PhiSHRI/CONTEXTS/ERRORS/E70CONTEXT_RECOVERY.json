@@ -1,0 +1,60 @@
+{
+  "door_code": "E70CONTEXT_RECOVERY",
+  "semantic_path": "ERRORS.CONTEXT.RECOVERY",
+  "aliases": [
+    "context loss",
+    "rollback recovery",
+    "session recovery",
+    "forgot work"
+  ],
+  "context_bundle": {
+    "summary": "Context loss recovery procedures. Claude Desktop bug causes random state loss. Use PhiSHRI tools to recover instead of asking user or recreating.",
+    "prerequisites": [],
+    "related_doors": [
+      "S01DC_SESSION_BOOT",
+      "P05SESSION_CONT"
+    ],
+    "onboarding": {
+      "quick_start": "1. STOP asking user for state. 2. phishri_get_bootstrap for last known state. 3. Check checkpoints: ls ~/.phishri/sessions/*/checkpoints/. 4. conversation_search for relevant past work. 5. git log on key repos. 6. THEN resume. NEVER recreate without checking first.",
+      "full_context_path": "",
+      "common_patterns": [
+        "phishri_get_bootstrap IMMEDIATELY on confusion",
+        "phishri_session_checkpoint after EVERY milestone",
+        "conversation_search for past work",
+        "git log to verify commits exist"
+      ],
+      "known_errors": [
+        "Claude Desktop randomly loses context mid-session",
+        "Work persists but memory doesn't",
+        "Recreating instead of checking = wasted effort",
+        "Asking user 'where are we' = admitting failure to checkpoint"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-05T18:50:20.339534300+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "context",
+        "recovery",
+        "rollback",
+        "checkpoint",
+        "bootstrap",
+        "memory"
+      ],
+      "category": "ERRORS",
+      "subcategory": "CONTEXT",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1833,
+      "token_estimate": 459.0
+    }
+  }
+}

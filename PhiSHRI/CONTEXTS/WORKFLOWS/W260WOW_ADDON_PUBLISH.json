@@ -1,0 +1,62 @@
+{
+  "door_code": "W260WOW_ADDON_PUBLISH",
+  "semantic_path": "WORKFLOWS.WOW.ADDON_PUBLISHING",
+  "aliases": [
+    "addon publishing",
+    "curseforge upload",
+    "wago upload",
+    "wow addon release"
+  ],
+  "context_bundle": {
+    "summary": "WoW addon publishing workflow - packaging, CurseForge, Wago.io, thumbnail requirements, TOC format, approval process.",
+    "prerequisites": [
+      "P25CVARMASTER_ADDON"
+    ],
+    "related_doors": [
+      "P25CVARMASTER_ADDON",
+      "G01WOW_OPTIMIZATION"
+    ],
+    "onboarding": {
+      "quick_start": "1. Package: Compress-Archive -Path AddonFolder -DestinationPath Addon-Version.zip\n2. Wago.io: https://addons.wago.io - upload zip, 512x320 thumbnail\n3. CurseForge: https://authors.curseforge.com - upload zip, 400x400 thumbnail\n4. Categories: Interface Enhancements, Development Tools\n5. Game Version: 11.0.2 (The War Within)",
+      "full_context_path": "",
+      "common_patterns": [
+        "# TOC required fields:\n## Interface: 110002\n## Title: AddonName\n## Version: 1.0.0\n## Author: YourName",
+        "# Zip structure: AddonName.zip containing AddonName/ folder",
+        "# CurseForge thumbnail: exactly 400x400 PNG",
+        "# Wago thumbnail: 512x320 or similar rectangular"
+      ],
+      "known_errors": [
+        "CurseForge approval takes 24-48 hours",
+        "Thumbnail must be exact dimensions or upload fails",
+        "TOC Interface number must match game version",
+        "Zip must contain folder matching addon name exactly"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-21T08:19:43.957462800+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "wow",
+        "addon",
+        "publish",
+        "curseforge",
+        "wago",
+        "release",
+        "packaging",
+        "thumbnail"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "WOW",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ]
+    }
+  }
+}

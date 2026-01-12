@@ -1,11 +1,24 @@
 {
   "door_code": "S21DESERIALIZATION",
   "semantic_path": "SECURITY.VULNERABILITIES.INSECURE_DESERIALIZATION",
-  "aliases": ["deserialization", "unsafe deserialization", "pickle attack", "object injection", "serialization vulnerability"],
+  "aliases": [
+    "deserialization",
+    "unsafe deserialization",
+    "pickle attack",
+    "object injection",
+    "serialization vulnerability"
+  ],
   "context_bundle": {
     "summary": "Insecure deserialization prevention: avoid deserializing untrusted data, use safe formats (JSON over pickle/serialize), implement integrity checks (HMAC signatures), use allowlists for allowed classes, prefer stateless authentication (JWT) over sessions.",
-    "prerequisites": ["S03INPUT_VAL", "S12API_SECURITY"],
-    "related_doors": ["S08JWT", "S16INPUT_SANITIZATION", "S20CRYPTO_FAILURES"],
+    "prerequisites": [
+      "S03INPUT_VAL",
+      "S12API_SECURITY"
+    ],
+    "related_doors": [
+      "S08JWT",
+      "S16INPUT_SANITIZATION",
+      "S20CRYPTO_FAILURES"
+    ],
     "onboarding": {
       "quick_start": "Deserialization defense: 1) Prefer JSON/Protocol Buffers over native serialization (pickle, Java serialize, PHP unserialize), 2) Sign serialized data with HMAC before deserializing, 3) Use allowlists for object types, 4) Run deserialization in sandboxed environments, 5) Validate data structure after deserializing.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/OWASP_TOP_10_GUIDE.md",
@@ -62,12 +75,30 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["deserialization", "pickle", "serialization", "owasp", "object_injection", "rce"],
+      "tags": [
+        "deserialization",
+        "pickle",
+        "serialization",
+        "owasp",
+        "object_injection",
+        "rce"
+      ],
       "category": "SECURITY",
       "subcategory": "VULNERABILITIES",
       "version": "1.0.0",
-      "tested_on": ["Python", "Java", "PHP", "Node.js"],
-      "agent_affinity": ["VSCC", "DC", "WEBC"]
+      "tested_on": [
+        "Python",
+        "Java",
+        "PHP",
+        "Node.js"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "WEBC"
+      ],
+      "size_bytes": 4330,
+      "token_estimate": 1083.0
     }
   }
 }

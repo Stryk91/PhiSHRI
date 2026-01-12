@@ -1,11 +1,24 @@
 {
   "door_code": "S24COMMAND_INJECTION",
   "semantic_path": "SECURITY.VULNERABILITIES.COMMAND_INJECTION",
-  "aliases": ["command injection", "shell injection", "os command injection", "code injection", "exec vulnerability"],
+  "aliases": [
+    "command injection",
+    "shell injection",
+    "os command injection",
+    "code injection",
+    "exec vulnerability"
+  ],
   "context_bundle": {
     "summary": "Command injection prevention: avoid shell execution with user input, use parameterized APIs (subprocess with array args), validate input against strict allowlists, escape shell metacharacters if shell required, prefer native libraries over shelling out, principle of least privilege for process execution.",
-    "prerequisites": ["S03INPUT_VAL", "S16INPUT_SANITIZATION"],
-    "related_doors": ["S02SQL", "S19PATH_TRAVERSAL", "E01PERM"],
+    "prerequisites": [
+      "S03INPUT_VAL",
+      "S16INPUT_SANITIZATION"
+    ],
+    "related_doors": [
+      "S02SQL",
+      "S19PATH_TRAVERSAL",
+      "E01PERM"
+    ],
     "onboarding": {
       "quick_start": "Command injection defense: 1) NEVER concatenate user input into shell commands, 2) Use subprocess/exec APIs with array arguments (avoids shell interpretation), 3) If shell required, use shlex.quote() or equivalent escaping, 4) Validate input against strict allowlist (alphanumeric only), 5) Run with minimal privileges.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/OWASP_TOP_10_GUIDE.md",
@@ -62,12 +75,30 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["command_injection", "shell_injection", "os_command", "rce", "owasp"],
+      "tags": [
+        "command_injection",
+        "shell_injection",
+        "os_command",
+        "rce",
+        "owasp"
+      ],
       "category": "SECURITY",
       "subcategory": "VULNERABILITIES",
       "version": "1.0.0",
-      "tested_on": ["Python", "Node.js", "PHP", "Java", "Ruby"],
-      "agent_affinity": ["VSCC", "DC", "TERMC"]
+      "tested_on": [
+        "Python",
+        "Node.js",
+        "PHP",
+        "Java",
+        "Ruby"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ],
+      "size_bytes": 4389,
+      "token_estimate": 1098.0
     }
   }
 }

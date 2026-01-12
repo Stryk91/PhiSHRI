@@ -1,0 +1,43 @@
+{
+  "door_code": "S07ENCRYPTION",
+  "semantic_path": "SECURITY.CRYPTO.ENCRYPTION",
+  "aliases": [
+    "encryption",
+    "crypto",
+    "aes",
+    "rsa"
+  ],
+  "context_bundle": {
+    "summary": "Encryption patterns. Use AES-256 for symmetric, RSA/ECDSA for asymmetric. Never roll your own crypto. Use established libraries.",
+    "prerequisites": [],
+    "related_doors": [],
+    "onboarding": {
+      "quick_start": "",
+      "full_context_path": "",
+      "common_patterns": [],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-05T19:58:22.362190200+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "security",
+        "encryption",
+        "crypto",
+        "aes"
+      ],
+      "category": "SECURITY",
+      "subcategory": "CRYPTO",
+      "version": "1.0.0",
+      "agent_affinity": [],
+      "size_bytes": 940,
+      "token_estimate": 235.0
+    }
+  }
+}

@@ -1,11 +1,27 @@
 {
   "door_code": "W86METRICS",
   "semantic_path": "WORKFLOWS.OBSERVABILITY.APPLICATION_METRICS",
-  "aliases": ["metrics", "prometheus", "application_metrics", "monitoring", "gauges", "counters", "histograms"],
+  "aliases": [
+    "metrics",
+    "prometheus",
+    "application_metrics",
+    "monitoring",
+    "gauges",
+    "counters",
+    "histograms"
+  ],
   "context_bundle": {
     "summary": "Application metrics for monitoring: Metric types - Counter (monotonic increasing, e.g., total_requests), Gauge (point-in-time value, e.g., active_connections), Histogram (distribution, e.g., request_duration_seconds), Summary (quantiles, e.g., p95 latency). Prometheus format: Scrape-based (Prometheus pulls /metrics endpoint), labels for dimensions (method, status_code), time-series database. Libraries: prometheus_client (Python), prom-client (Node.js), client_golang (Go). Best practices: Use _total suffix for counters, _seconds for duration, avoid high cardinality labels (user_id bad, status_code good), instrument at application level. Common metrics: http_requests_total, http_request_duration_seconds, error_rate, active_users, queue_depth. Visualization: Grafana dashboards, alerts on thresholds.",
-    "prerequisites": ["W84LOGGING", "W85TRACING", "T10OBSERVABILITY"],
-    "related_doors": ["T17PROMETHEUS", "T16GRAFANA", "W72CACHING"],
+    "prerequisites": [
+      "W84LOGGING",
+      "W85TRACING",
+      "T10OBSERVABILITY"
+    ],
+    "related_doors": [
+      "T17PROMETHEUS",
+      "T16GRAFANA",
+      "W72CACHING"
+    ],
     "onboarding": {
       "quick_start": "Application metrics (Prometheus): Python (prometheus_client): from prometheus_client import Counter, Histogram, Gauge, start_http_server; request_count = Counter('http_requests_total', 'Total HTTP requests', ['method', 'endpoint', 'status']); request_duration = Histogram('http_request_duration_seconds', 'HTTP request duration', ['endpoint']); active_connections = Gauge('active_connections', 'Active connections'); @app.before_request: start_time = time.time(); request.start_time = start_time; active_connections.inc(); @app.after_request: duration = time.time() - request.start_time; request_duration.labels(endpoint=request.path).observe(duration); request_count.labels(method=request.method, endpoint=request.path, status=response.status_code).inc(); active_connections.dec(); start_http_server(8000); # /metrics endpoint. Node.js: const client = require('prom-client'); const register = new client.Registry(); const httpRequestCounter = new client.Counter({ name: 'http_requests_total', help: 'Total requests', labelNames: ['method', 'route', 'status'], registers: [register] }); app.use((req, res, next) => { res.on('finish', () => { httpRequestCounter.inc({ method: req.method, route: req.route?.path, status: res.statusCode }) }); next(); }); app.get('/metrics', (req, res) => { res.set('Content-Type', register.contentType); res.end(register.metrics()) }). Prometheus query: rate(http_requests_total[5m]); # Requests per second. histogram_quantile(0.95, http_request_duration_seconds); # p95 latency. Grafana: Add Prometheus data source, create dashboard with panels.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
@@ -24,7 +40,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +52,34 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["metrics", "prometheus", "monitoring", "counter", "gauge", "histogram", "grafana", "observability"],
+      "tags": [
+        "metrics",
+        "prometheus",
+        "monitoring",
+        "counter",
+        "gauge",
+        "histogram",
+        "grafana",
+        "observability"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "OBSERVABILITY",
       "version": "1.0.0",
-      "tested_on": ["Python", "Node.js", "Go", "Java", "Prometheus", "Grafana"],
-      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+      "tested_on": [
+        "Python",
+        "Node.js",
+        "Go",
+        "Java",
+        "Prometheus",
+        "Grafana"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "CMDC",
+        "TERMC"
+      ],
+      "size_bytes": 5686,
+      "token_estimate": 1422.0
     }
   }
 }

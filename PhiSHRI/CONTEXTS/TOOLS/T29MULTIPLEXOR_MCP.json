@@ -1,0 +1,62 @@
+{
+  "door_code": "T29MULTIPLEXOR_MCP",
+  "semantic_path": "TOOLS.MCP.TERMINAL_MULTIPLEXOR",
+  "aliases": [
+    "multiplexor",
+    "terminal",
+    "session",
+    "tmux",
+    "shared terminal"
+  ],
+  "context_bundle": {
+    "summary": "Multiplexor MCP - 10 tools for shared terminal sessions. Create/kill sessions, send commands, read output, await patterns. Uses Process redirection (not ConPTY) to avoid MCP stdio collision.",
+    "prerequisites": [
+      "T01MCP"
+    ],
+    "related_doors": [
+      "T28SCREEN_MCP",
+      "T27GIT_MCP",
+      "A03TERMC"
+    ],
+    "onboarding": {
+      "quick_start": "session_create name:main shell:pwsh | session_send input:\"Get-Date\" | session_read lines:20 | session_await pattern:\"PS>\"",
+      "full_context_path": "",
+      "common_patterns": [
+        "session_create -> session_send -> session_read",
+        "session_send -> session_await pattern:PS> -> session_read"
+      ],
+      "known_errors": [
+        "ConPTY causes stdout collision with MCP stdio - use Process redirection instead",
+        "CREATE_NO_WINDOW breaks PTY output capture"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T14:58:09.649965300+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "mcp",
+        "terminal",
+        "session",
+        "multiplexor",
+        "process",
+        "shell"
+      ],
+      "category": "TOOLS",
+      "subcategory": "MCP",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "TERMC",
+        "ORCHESTRATOR"
+      ],
+      "size_bytes": 1629,
+      "token_estimate": 408.0
+    }
+  }
+}

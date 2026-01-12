@@ -1,0 +1,68 @@
+{
+  "door_code": "W56SAMSUNG_S10_ROOT_NETHUNTER",
+  "semantic_path": "WORKFLOWS.MOBILE.SAMSUNG.S10_ROOT_NETHUNTER",
+  "aliases": [
+    "s10 root",
+    "s10 5g nethunter",
+    "beyondx root",
+    "samsung root guide"
+  ],
+  "context_bundle": {
+    "summary": "Clean root + NetHunter install for Samsung S10 5G (G977B/beyondx). Critical: Root with Magisk BEFORE TWRP. Recovery partition boot model. Use Magisk 28.1 not 29.",
+    "prerequisites": [
+      "W55KALI_NETHUNTER_EXPORT"
+    ],
+    "related_doors": [
+      "W55KALI_NETHUNTER_EXPORT"
+    ],
+    "onboarding": {
+      "quick_start": "1. Unlock bootloader (OEM Unlock + Download Mode + Vol Up confirm). 2. Patch AP with Magisk 28.1 on phone. 3. Odin flash: BL+CP+patched_AP+CSC. 4. Install Magisk app, Direct Install. 5. Patch TWRP with Magisk, flash via Odin. 6. TWRP: Format Data, flash DM-Verity disabler, flash NetHunter zip, reflash Magisk.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Boot root: Power+Bixby+VolUp release at warning",
+        "Boot TWRP: Power+Bixby+VolUp hold VolUp",
+        "Boot stock: Power only",
+        "Firmware: SamFirm or Frija to download",
+        "Flash: Odin 3.14.1 or Heimdall"
+      ],
+      "known_errors": [
+        "Magisk 29 issues with NetHunter - use 28.1",
+        "TWRP before root = brick risk on S10",
+        "os_patch_level mismatch = PIN lock after kernel flash - use backtothefuture zip",
+        "Rollback protection if kernel/firmware mismatch"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-28T02:07:35.566760500+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "samsung",
+        "s10",
+        "5g",
+        "g977b",
+        "beyondx",
+        "root",
+        "magisk",
+        "twrp",
+        "nethunter",
+        "kali",
+        "odin",
+        "exynos9820"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "MOBILE",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 2079,
+      "token_estimate": 520.0
+    }
+  }
+}

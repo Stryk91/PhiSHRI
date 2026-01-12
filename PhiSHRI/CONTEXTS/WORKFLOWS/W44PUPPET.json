@@ -1,11 +1,22 @@
 {
   "door_code": "W44PUPPET",
   "semantic_path": "WORKFLOWS.AUTOMATION.PUPPET_CONFIGURATION_MANAGEMENT",
-  "aliases": ["puppet", "configuration_management", "infrastructure_automation", "manifest"],
+  "aliases": [
+    "puppet",
+    "configuration_management",
+    "infrastructure_automation",
+    "manifest"
+  ],
   "context_bundle": {
     "summary": "Puppet declarative configuration management using master-agent architecture or standalone (puppet apply). Manifests (.pp files) define resource state: package, service, file, user. Modules organize code (manifests/, files/, templates/). Puppet DSL: resource { 'title': attribute => value }. Catalog compilation ensures idempotency. Hiera for data separation. Facter collects system facts. PuppetDB stores state.",
-    "prerequisites": ["W43ANSIBLE", "W41SYSTEMD"],
-    "related_doors": ["W45CHEF", "W46TERRAFORM"],
+    "prerequisites": [
+      "W43ANSIBLE",
+      "W41SYSTEMD"
+    ],
+    "related_doors": [
+      "W45CHEF",
+      "W46TERRAFORM"
+    ],
     "onboarding": {
       "quick_start": "Puppet manifest syntax: package { 'nginx': ensure => installed } service { 'nginx': ensure => running, enable => true } file { '/etc/nginx/nginx.conf': source => 'puppet:///modules/nginx/nginx.conf' }. Standalone: puppet apply manifest.pp. Master-agent: puppetserver for master, puppet agent on nodes. Modules: /etc/puppetlabs/code/environments/production/modules/. Hiera data: /etc/puppetlabs/code/environments/production/data/. Facts: facter os, facter ipaddress.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md",
@@ -24,7 +35,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +47,27 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["puppet", "configuration_management", "automation", "infrastructure", "manifest"],
+      "tags": [
+        "puppet",
+        "configuration_management",
+        "automation",
+        "infrastructure",
+        "manifest"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "AUTOMATION",
       "version": "1.0.0",
-      "tested_on": ["Linux", "Windows"],
-      "agent_affinity": ["VSCC", "TERMC", "CMDC"]
+      "tested_on": [
+        "Linux",
+        "Windows"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "TERMC",
+        "CMDC"
+      ],
+      "size_bytes": 2754,
+      "token_estimate": 689.0
     }
   }
 }

@@ -1,0 +1,58 @@
+{
+  "door_code": "R21BRIDGE_ARCHITECTURE",
+  "semantic_path": "ARCHITECTURE.PATTERNS.HTTP_MCP_BRIDGE",
+  "aliases": [
+    "bridge",
+    "http bridge",
+    "mcp proxy"
+  ],
+  "context_bundle": {
+    "summary": "HTTP-to-MCP bridge pattern for non-MCP clients. Persistent stdio connection to MCP server, exposes HTTP endpoints. Enables any HTTP client to leverage MCP tools.",
+    "prerequisites": [
+      "T01MCP"
+    ],
+    "related_doors": [
+      "T26POWERTOYS_CLAUDE",
+      "R20TOOL_BACKBONE"
+    ],
+    "onboarding": {
+      "quick_start": "HttpListener on port -> Maintain Process with stdio -> Route requests -> Parse MCP JSON-RPC responses -> Return HTTP JSON",
+      "full_context_path": "",
+      "common_patterns": [
+        "POST /query -> tools/call",
+        "GET /status -> health check",
+        "Persistent Process + StreamReader/Writer"
+      ],
+      "known_errors": [
+        "MCP timeout - increase wait",
+        "Process exited - restart connection"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T10:45:25.615937200+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "architecture",
+        "bridge",
+        "http",
+        "proxy",
+        "pattern"
+      ],
+      "category": "ARCHITECTURE",
+      "subcategory": "PATTERNS",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 1476,
+      "token_estimate": 369.0
+    }
+  }
+}

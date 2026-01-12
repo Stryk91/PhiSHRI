@@ -1,0 +1,70 @@
+{
+  "door_code": "W251TASK_PARTITIONING",
+  "semantic_path": "WORKFLOWS.OPERATIONS.TASK_PARTITIONING",
+  "aliases": [
+    "task partitioning",
+    "chunking work",
+    "batch processing",
+    "work blocks"
+  ],
+  "context_bundle": {
+    "summary": "Task partitioning methodology: breaking large tasks into context-budget blocks with clear completion criteria and checkpoint-resume capability.",
+    "prerequisites": [
+      "W250CONTEXT_DISCIPLINE"
+    ],
+    "related_doors": [
+      "W250CONTEXT_DISCIPLINE",
+      "S01DC_SESSION_BOOT"
+    ],
+    "onboarding": {
+      "quick_start": "1. Estimate total work. 2. Define blocks (20-30% context each). 3. Number them. 4. Execute one block. 5. Checkpoint. 6. Continue or compact if needed.",
+      "full_context_path": "",
+      "common_patterns": [
+        "ESTIMATE FIRST: Before starting, estimate total scope and context cost",
+        "BLOCK DEFINITION: Define clear blocks with measurable completion criteria",
+        "BLOCK SIZE RULE: Each block should complete within 20-30% context budget",
+        "NUMBERED BLOCKS: 'Block 1 of 5: Doors A50-A52 extension' - explicit tracking",
+        "COMPLETION MARKER: Each block ends with bootstrap update AND spoken summary",
+        "DEPENDENCY ORDER: If blocks depend on each other, order matters - plan for it",
+        "INDEPENDENT BLOCKS: Where possible, make blocks independent so order doesn't matter",
+        "RESUME PROTOCOL: Bootstrap contains block number, what's done, what's next",
+        "SCOPE CREEP: If block grows during execution, STOP, re-partition, don't absorb",
+        "PARTIAL BLOCK: If context nears limit mid-block, gracefully stop, note progress, resume later"
+      ],
+      "known_errors": [
+        "Underestimating block size - tool responses are heavy",
+        "Not defining completion criteria = unclear when to checkpoint",
+        "Scope creep mid-block = context overflow",
+        "Skipping partition planning for 'quick' tasks that aren't quick",
+        "Forgetting to number blocks = confusion on resume"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-19T14:02:51.710880400+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "partitioning",
+        "blocks",
+        "batching",
+        "chunking",
+        "resume",
+        "workflow"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "OPERATIONS",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ],
+      "size_bytes": 2576,
+      "token_estimate": 644.0
+    }
+  }
+}

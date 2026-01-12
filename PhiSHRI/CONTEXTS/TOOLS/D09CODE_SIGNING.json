@@ -1,11 +1,25 @@
 {
   "door_code": "D09CODE_SIGNING",
   "semantic_path": "TOOLS.DEPLOYMENT.CODE_SIGNING",
-  "aliases": ["code signing", "Authenticode", "codesign", "signtool", "certificate", "signing certificate"],
+  "aliases": [
+    "code signing",
+    "Authenticode",
+    "codesign",
+    "signtool",
+    "certificate",
+    "signing certificate"
+  ],
   "context_bundle": {
     "summary": "Code signing workflows for Windows (Authenticode/signtool), macOS (codesign), and certificate management including EV vs OV certificates and SmartScreen reputation",
-    "prerequisites": ["D03SIGN", "S05SECRETS"],
-    "related_doors": ["D10NOTARIZATION", "T11CICD", "S07ENCRYPTION"],
+    "prerequisites": [
+      "D03SIGN",
+      "S05SECRETS"
+    ],
+    "related_doors": [
+      "D10NOTARIZATION",
+      "T11CICD",
+      "S07ENCRYPTION"
+    ],
     "onboarding": {
       "quick_start": "Obtain code signing cert from CA, sign with signtool (Windows) or codesign (macOS), always use timestamp servers for post-expiration validity",
       "full_context_path": "/PhiDEX/DEPLOYMENT_ALMANAC/04_SIGNING_TRUST/CODE_SIGNING_TRUST_GUIDE.md",
@@ -26,7 +40,9 @@
       ]
     },
     "resources": {
-      "docs": ["/PhiDEX/DEPLOYMENT_ALMANAC/04_SIGNING_TRUST/CODE_SIGNING_TRUST_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/DEPLOYMENT_ALMANAC/04_SIGNING_TRUST/CODE_SIGNING_TRUST_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -36,12 +52,29 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["code signing", "Authenticode", "signtool", "codesign", "certificate", "trust"],
+      "tags": [
+        "code signing",
+        "Authenticode",
+        "signtool",
+        "codesign",
+        "certificate",
+        "trust"
+      ],
       "category": "TOOLS",
       "subcategory": "DEPLOYMENT",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11", "macOS"],
-      "agent_affinity": ["VSCC", "DC", "TERMC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11",
+        "macOS"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ],
+      "size_bytes": 2372,
+      "token_estimate": 593.0
     }
   }
 }

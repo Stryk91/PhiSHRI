@@ -1,0 +1,44 @@
+{
+  "door_code": "S11RBAC",
+  "semantic_path": "SECURITY.ACCESS.RBAC",
+  "aliases": [
+    "rbac",
+    "role based access",
+    "permissions",
+    "access control"
+  ],
+  "context_bundle": {
+    "summary": "Role-Based Access Control. Define roles, assign permissions to roles, assign roles to users. Check permissions not roles in code.",
+    "prerequisites": [],
+    "related_doors": [],
+    "onboarding": {
+      "quick_start": "",
+      "full_context_path": "",
+      "common_patterns": [],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-05T19:58:22.363134700+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "security",
+        "rbac",
+        "access",
+        "permissions",
+        "authorization"
+      ],
+      "category": "SECURITY",
+      "subcategory": "ACCESS",
+      "version": "1.0.0",
+      "agent_affinity": [],
+      "size_bytes": 980,
+      "token_estimate": 245.0
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "door_code": "W226PAD_INVOICE_PATTERN",
+  "semantic_path": "WORKFLOWS.AUTOMATION.PAD.PATTERNS.INVOICE",
+  "aliases": [
+    "invoice processing",
+    "accounts payable",
+    "ap automation"
+  ],
+  "context_bundle": {
+    "summary": "Invoice Processing Pattern: Multi-channel capture (email/SharePoint/scan) -> AI/OCR extraction (vendor, amount, PO, terms) -> Validation (vendor master, PO match, duplicates) -> Intelligent routing (amount thresholds, cost center) -> Approval workflow (escalate 48hr) -> Payment batch -> Archive with audit trail. 15min->2min per invoice, $156K/yr value.",
+    "prerequisites": [
+      "T59POWER_AUTOMATE_DESKTOP",
+      "W221PAD_IMPACT_FRAMEWORK"
+    ],
+    "related_doors": [
+      "T78PAD_HTTP_ADV",
+      "T80PAD_DATABASE_ADV"
+    ],
+    "onboarding": {
+      "quick_start": "1. Monitor inbox + SharePoint for invoices. 2. AI Builder extract fields. 3. Match to PO (<10% variance). 4. Route by amount: <$1K=mgr, <$10K=director, >$10K=VP. 5. Create payment batch on approval. 6. Archive to SharePoint.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Amount routing: <$1K mgr, $1K-$10K director, >$10K exec",
+        "Duplicate check: Same vendor + invoice# + amount within 90 days",
+        "Anomaly flags: >10% over PO, new vendor, unusual terms",
+        "Escalation: No response 48hr -> manager's manager"
+      ],
+      "known_errors": [
+        "New vendors need manual setup first",
+        "OCR accuracy needs training on your invoice formats",
+        "PO matching fails without clean PO data",
+        "Early payment discount logic needs payment term parsing"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T18:18:50.050899500+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "pad",
+        "invoice",
+        "finance",
+        "ocr",
+        "ap"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 2104,
+      "token_estimate": 526.0
+    }
+  }
+}

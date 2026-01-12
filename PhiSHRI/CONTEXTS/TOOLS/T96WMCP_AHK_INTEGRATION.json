@@ -54,7 +54,9 @@
       "agent_affinity": [
         "DC",
         "VSCC"
-      ]
+      ],
+      "size_bytes": 1977,
+      "token_estimate": 495.0
     }
   }
 }

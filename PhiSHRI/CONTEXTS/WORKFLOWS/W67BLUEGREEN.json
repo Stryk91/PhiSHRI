@@ -1,11 +1,24 @@
 {
   "door_code": "W67BLUEGREEN",
   "semantic_path": "WORKFLOWS.DEPLOYMENT.BLUE_GREEN_DEPLOYMENT",
-  "aliases": ["blue_green", "bluegreen", "blue_green_deployment", "zero_downtime"],
+  "aliases": [
+    "blue_green",
+    "bluegreen",
+    "blue_green_deployment",
+    "zero_downtime"
+  ],
   "context_bundle": {
     "summary": "Blue/Green deployment: Run two identical production environments (Blue=current, Green=new). Deploy to Green, test, switch traffic from Blue to Green. Zero downtime, instant rollback (switch back to Blue). Requires: Load balancer, duplicate infrastructure, database migration strategy. Patterns: DNS switch, load balancer routing, container orchestration (Kubernetes services). Pros: Zero downtime, easy rollback, full testing in production. Cons: Double infrastructure cost, database sync complexity. Tools: AWS Elastic Beanstalk, Kubernetes, Cloud Foundry, Azure App Service slots.",
-    "prerequisites": ["T11CICD", "W47DOCKER_COMPOSE"],
-    "related_doors": ["W68CANARY", "W69ROLLING", "W48K8S_DEPLOY", "W46TERRAFORM"],
+    "prerequisites": [
+      "T11CICD",
+      "W47DOCKER_COMPOSE"
+    ],
+    "related_doors": [
+      "W68CANARY",
+      "W69ROLLING",
+      "W48K8S_DEPLOY",
+      "W46TERRAFORM"
+    ],
     "onboarding": {
       "quick_start": "Blue/Green: Maintain two environments. Blue (current production), Green (new version). Steps: 1) Deploy to Green, 2) Test Green in production, 3) Switch load balancer from Blue to Green, 4) Keep Blue running for rollback. Load balancer switch: Update target group (AWS ALB), change service selector (Kubernetes), swap deployment slots (Azure). Kubernetes: Two deployments (blue, green), one service. Switch: kubectl patch service myapp -p '{\"spec\":{\"selector\":{\"version\":\"green\"}}}'. Rollback: Switch service back to blue. Database: Use backward-compatible migrations (add columns, not drop). AWS: Use Route 53 weighted routing or ALB target groups. Docker Compose: nginx proxy, switch upstream. Pros: Instant rollback, zero downtime, production testing. Cons: 2x infrastructure, database compatibility required. Pattern: deploy green -> test -> switch traffic -> monitor -> decommission blue (or keep for next release).",
       "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
@@ -22,7 +35,10 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md", "/PhiDEX/DEPLOYMENT_ALMANAC/09_ENTERPRISE/ENTERPRISE_DEPLOYMENT_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
+        "/PhiDEX/DEPLOYMENT_ALMANAC/09_ENTERPRISE/ENTERPRISE_DEPLOYMENT_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -32,12 +48,30 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["blue_green", "deployment", "zero_downtime", "kubernetes", "aws", "rollback"],
+      "tags": [
+        "blue_green",
+        "deployment",
+        "zero_downtime",
+        "kubernetes",
+        "aws",
+        "rollback"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "DEPLOYMENT",
       "version": "1.0.0",
-      "tested_on": ["Kubernetes", "AWS", "Azure", "Docker"],
-      "agent_affinity": ["CMDC", "VSCC", "TERMC"]
+      "tested_on": [
+        "Kubernetes",
+        "AWS",
+        "Azure",
+        "Docker"
+      ],
+      "agent_affinity": [
+        "CMDC",
+        "VSCC",
+        "TERMC"
+      ],
+      "size_bytes": 4472,
+      "token_estimate": 1118.0
     }
   }
 }

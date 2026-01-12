@@ -1,11 +1,23 @@
 {
   "door_code": "W93SELENIUM",
   "semantic_path": "WORKFLOWS.UI_AUTOMATION.SELENIUM",
-  "aliases": ["selenium", "webdriver", "selenium_webdriver", "browser_automation", "web_automation"],
+  "aliases": [
+    "selenium",
+    "webdriver",
+    "selenium_webdriver",
+    "browser_automation",
+    "web_automation"
+  ],
   "context_bundle": {
     "summary": "Selenium WebDriver automates web browsers for testing and scraping using element selectors (ID, XPath, CSS), explicit waits, page object pattern, and multi-browser support (Chrome, Firefox, Edge, Safari).",
-    "prerequisites": ["W96UI_TESTING"],
-    "related_doors": ["W94PLAYWRIGHT", "W95CYPRESS", "W97VISUAL_REGRESSION"],
+    "prerequisites": [
+      "W96UI_TESTING"
+    ],
+    "related_doors": [
+      "W94PLAYWRIGHT",
+      "W95CYPRESS",
+      "W97VISUAL_REGRESSION"
+    ],
     "onboarding": {
       "quick_start": "Selenium basics: 1) Initialize WebDriver for browser. 2) Navigate to URL with driver.get(). 3) Find elements using find_element(By.ID/CSS/XPATH). 4) Interact with elements (.click(), .send_keys(), .submit()). 5) Use explicit waits for dynamic content. 6) Implement Page Object pattern for maintainability. 7) Close browser with driver.quit().",
       "full_context_path": "/PhiDEX/industry_knowledge/ui_automation_patterns.md",
@@ -15,25 +27,53 @@
         "Explicit wait: wait = WebDriverWait(driver, 10); element = wait.until(EC.presence_of_element_located((By.ID, 'dynamic-content'))); element = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, '.submit-btn')))",
         "Page Object pattern: class LoginPage: def __init__(self, driver): self.driver = driver; self.username = (By.ID, 'username'); self.password = (By.ID, 'password'); self.submit = (By.CSS_SELECTOR, 'button[type=\"submit\"]'); def login(self, user, pwd): self.driver.find_element(*self.username).send_keys(user); self.driver.find_element(*self.password).send_keys(pwd); self.driver.find_element(*self.submit).click()"
       ],
-      "known_errors": ["E03TIMEOUT", "E08NETWORK_ERRORS"]
+      "known_errors": [
+        "E03TIMEOUT",
+        "E08NETWORK_ERRORS"
+      ]
     },
     "resources": {
-      "docs": ["/PhiDEX/industry_knowledge/ui_automation_patterns.md"],
+      "docs": [
+        "/PhiDEX/industry_knowledge/ui_automation_patterns.md"
+      ],
       "code": [],
       "tests": [],
-      "errors": ["E03TIMEOUT", "E08NETWORK_ERRORS"]
+      "errors": [
+        "E03TIMEOUT",
+        "E08NETWORK_ERRORS"
+      ]
     },
     "metadata": {
       "last_updated": "2025-11-21T00:00:00Z",
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["selenium", "webdriver", "browser_automation", "ui_testing", "web_scraping"],
+      "tags": [
+        "selenium",
+        "webdriver",
+        "browser_automation",
+        "ui_testing",
+        "web_scraping"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "UI_AUTOMATION",
       "version": "1.0.0",
-      "tested_on": ["Python", "Java", "JavaScript", "C#", "Chrome", "Firefox", "Edge"],
-      "agent_affinity": ["DC", "VSCC", "WEBC"]
+      "tested_on": [
+        "Python",
+        "Java",
+        "JavaScript",
+        "C#",
+        "Chrome",
+        "Firefox",
+        "Edge"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "WEBC"
+      ],
+      "size_bytes": 3016,
+      "token_estimate": 754.0
     }
   }
 }

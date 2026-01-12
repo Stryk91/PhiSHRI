@@ -1,0 +1,64 @@
+{
+  "door_code": "T78PAD_HTTP_ADV",
+  "semantic_path": "TOOLS.AUTOMATION.PAD.HTTP_ADVANCED",
+  "aliases": [
+    "pad api",
+    "oauth",
+    "rest api",
+    "api authentication"
+  ],
+  "context_bundle": {
+    "summary": "Advanced HTTP/REST patterns: OAuth 2.0 flow (auth code -> token -> refresh), API key auth (header/query/bearer), Basic auth (Base64), pagination (offset/cursor/page), rate limiting (429 handling, exponential backoff), file upload via PowerShell multipart",
+    "prerequisites": [
+      "T66PAD_WEB"
+    ],
+    "related_doors": [
+      "T70PAD_SYSTEM",
+      "T71PAD_DATABASE"
+    ],
+    "onboarding": {
+      "quick_start": "Auth header: {\"Authorization\": \"Bearer token\"} or {\"X-API-Key\": \"key\"}. Handle 429 with exponential backoff. Parse JSON response -> access %JsonObj.property%",
+      "full_context_path": "",
+      "common_patterns": [
+        "Bearer: {\"Authorization\": \"Bearer %Token%\"}",
+        "API Key header: {\"X-API-Key\": \"%ApiKey%\"}",
+        "Basic: {\"Authorization\": \"Basic \" + Base64(user:pass)}",
+        "OAuth refresh: POST /token grant_type=refresh_token",
+        "Pagination loop: offset += limit until response.count < limit",
+        "429 handler: Wait (2^RetryCount) seconds, max 60s"
+      ],
+      "known_errors": [
+        "Content-Type must match body (application/json for JSON)",
+        "File upload needs PowerShell - PAD lacks multipart/form-data",
+        "401 = re-auth needed, 403 = authorized but forbidden",
+        "Rate limits in headers: X-RateLimit-Remaining, Retry-After"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T17:47:52.414336700+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "pad",
+        "http",
+        "api",
+        "oauth",
+        "rest",
+        "authentication"
+      ],
+      "category": "TOOLS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 2053,
+      "token_estimate": 514.0
+    }
+  }
+}

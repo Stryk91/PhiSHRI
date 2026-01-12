@@ -1,0 +1,58 @@
+{
+  "door_code": "F10CRYPTO_MARKET_BASICS",
+  "semantic_path": "FINANCE.CRYPTO.FUNDAMENTALS",
+  "aliases": [
+    "bitcoin basics",
+    "crypto fundamentals",
+    "market cycles"
+  ],
+  "context_bundle": {
+    "summary": "Crypto market fundamentals: BTC halving cycles (2012/2016/2020/2024), bull/bear phases, macro drivers (Fed rates, DXY, liquidity), market cap dominance, Fear & Greed Index interpretation.",
+    "prerequisites": [],
+    "related_doors": [
+      "F11TRADING_BOT_PATTERNS",
+      "F12MARKET_CONDITIONS"
+    ],
+    "onboarding": {
+      "quick_start": "Bull markets: 12-18mo post-halving. Bear markets: 12-18mo after blow-off top. Watch Fed policy, DXY strength, global liquidity. Fear & Greed <20 = accumulation zone, >80 = distribution.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Halving cycle: Supply shock → 12-18mo rally → blow-off top → 80% drawdown → accumulation",
+        "Macro correlation: Risk-on (rate cuts, QE) = BTC up. Risk-off (rate hikes, QT) = BTC down",
+        "Dominance cycle: BTC dominance rises early bull, falls late bull as alts pump",
+        "Whale watching: Large wallet movements signal distribution/accumulation phases"
+      ],
+      "known_errors": [
+        "Assuming past cycles repeat exactly - each has unique characteristics",
+        "Ignoring macro - crypto doesn't exist in vacuum, Fed policy matters",
+        "FOMO buying at ATH during euphoria phase",
+        "Panic selling during capitulation - often the bottom"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-24T03:49:51.020462300+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "crypto",
+        "bitcoin",
+        "market",
+        "trading",
+        "halving",
+        "macro"
+      ],
+      "category": "TOOLS",
+      "subcategory": "CRYPTO",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "WEBC"
+      ]
+    }
+  }
+}

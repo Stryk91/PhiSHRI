@@ -1,11 +1,25 @@
 {
   "door_code": "D13NETWORK_DEPLOY",
   "semantic_path": "TOOLS.DEPLOYMENT.NETWORK",
-  "aliases": ["BITS", "BranchCache", "CDN", "distribution points", "network optimization", "bandwidth management"],
+  "aliases": [
+    "BITS",
+    "BranchCache",
+    "CDN",
+    "distribution points",
+    "network optimization",
+    "bandwidth management"
+  ],
   "context_bundle": {
     "summary": "Network optimization for enterprise deployments using BITS (Background Intelligent Transfer Service), BranchCache, CDN, and distribution points to reduce WAN usage",
-    "prerequisites": ["D06ENTERPRISE", "D07GPO"],
-    "related_doors": ["T24NGINX", "T22REDIS", "R03MICROSERVICE"],
+    "prerequisites": [
+      "D06ENTERPRISE",
+      "D07GPO"
+    ],
+    "related_doors": [
+      "T24NGINX",
+      "T22REDIS",
+      "R03MICROSERVICE"
+    ],
     "onboarding": {
       "quick_start": "Enable BITS throttling, configure BranchCache for branch offices, use distribution point groups, implement CDN for global content delivery",
       "full_context_path": "/PhiDEX/DEPLOYMENT_ALMANAC/09_ENTERPRISE/ENTERPRISE_DEPLOYMENT_GUIDE.md",
@@ -25,7 +39,9 @@
       ]
     },
     "resources": {
-      "docs": ["/PhiDEX/DEPLOYMENT_ALMANAC/09_ENTERPRISE/ENTERPRISE_DEPLOYMENT_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/DEPLOYMENT_ALMANAC/09_ENTERPRISE/ENTERPRISE_DEPLOYMENT_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -35,12 +51,30 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["BITS", "BranchCache", "CDN", "distribution", "network", "bandwidth", "WAN"],
+      "tags": [
+        "BITS",
+        "BranchCache",
+        "CDN",
+        "distribution",
+        "network",
+        "bandwidth",
+        "WAN"
+      ],
       "category": "TOOLS",
       "subcategory": "DEPLOYMENT",
       "version": "1.0.0",
-      "tested_on": ["Windows Server 2019", "Windows Server 2022", "MECM", "Intune"],
-      "agent_affinity": ["DC", "VSCC"]
+      "tested_on": [
+        "Windows Server 2019",
+        "Windows Server 2022",
+        "MECM",
+        "Intune"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 2328,
+      "token_estimate": 582.0
     }
   }
 }

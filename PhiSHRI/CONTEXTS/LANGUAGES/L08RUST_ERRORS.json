@@ -1,0 +1,55 @@
+{
+  "door_code": "L08RUST_ERRORS",
+  "semantic_path": "LANGUAGES.RUST.ERRORS",
+  "aliases": [
+    "rust errors",
+    "rust compiler errors",
+    "rust e0382",
+    "borrow checker errors"
+  ],
+  "context_bundle": {
+    "summary": "Rust compiler error guide - common error codes (E0382, E0499, E0106, etc.) with explanations and solutions.",
+    "prerequisites": [],
+    "related_doors": [
+      "L02RUST_OWNERSHIP",
+      "L03RUST_TRAITS"
+    ],
+    "onboarding": {
+      "quick_start": "rustc --explain E0382 for detailed help. Common: E0382 (moved value), E0499 (multiple &mut), E0106 (missing lifetime), E0277 (trait bound).",
+      "full_context_path": "",
+      "common_patterns": [
+        "E0382: Clone or use references instead of move",
+        "E0499: Scope mutable borrows separately",
+        "E0106: Add lifetime annotation fn foo<'a>(x: &'a str)",
+        "E0277: Add trait bound fn foo<T: Display>(x: T)"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-29T23:23:13.374873200+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "rust",
+        "errors",
+        "compiler",
+        "troubleshooting",
+        "debugging"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "RUST",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 1450,
+      "token_estimate": 363.0
+    }
+  }
+}

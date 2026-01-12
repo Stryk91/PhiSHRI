@@ -1,11 +1,25 @@
 {
   "door_code": "S07OAUTH",
   "semantic_path": "SECURITY.AUTHENTICATION.OAUTH2",
-  "aliases": ["oauth", "oauth2", "authorization", "oauth2.0", "access_token"],
+  "aliases": [
+    "oauth",
+    "oauth2",
+    "authorization",
+    "oauth2.0",
+    "access_token"
+  ],
   "context_bundle": {
     "summary": "OAuth 2.0 authorization framework for delegated access: Authorization Code flow (web apps), Client Credentials (machine-to-machine), PKCE (mobile/SPA), Implicit flow (deprecated). Tokens: Access token (short-lived), Refresh token (long-lived). Scopes limit permissions. Use HTTPS, validate redirect URIs, implement state parameter for CSRF protection. Authorization server issues tokens after user consent.",
-    "prerequisites": ["S08JWT", "S11CSRF", "S05SECRETS"],
-    "related_doors": ["S09RBAC", "S10CORS", "W01COORD"],
+    "prerequisites": [
+      "S08JWT",
+      "S11CSRF",
+      "S05SECRETS"
+    ],
+    "related_doors": [
+      "S09RBAC",
+      "S10CORS",
+      "W01COORD"
+    ],
     "onboarding": {
       "quick_start": "OAuth 2.0 flows: 1) Authorization Code (most secure, for web apps): Client redirects user to auth server -> user logs in/consents -> auth server redirects back with code -> client exchanges code for access token. 2) Client Credentials (machine-to-machine): Client authenticates directly with client_id + client_secret. 3) PKCE (mobile/SPA): Like Authorization Code + code_verifier/code_challenge to prevent interception. Tokens: Access token (bearer, short TTL), Refresh token (rotate on use). Scopes: read, write, admin. Security: Always HTTPS, validate redirect_uri (exact match), use state param (CSRF), store client_secret securely. NIST 2024: Enforce MFA for OAuth, use short-lived access tokens (15 min), rotate refresh tokens.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md",
@@ -22,7 +36,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -32,12 +48,32 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["oauth", "oauth2", "authorization", "authentication", "access_token", "refresh_token", "pkce", "security"],
+      "tags": [
+        "oauth",
+        "oauth2",
+        "authorization",
+        "authentication",
+        "access_token",
+        "refresh_token",
+        "pkce",
+        "security"
+      ],
       "category": "SECURITY",
       "subcategory": "AUTHENTICATION",
       "version": "1.0.0",
-      "tested_on": ["Web Applications", "Mobile Apps", "SPAs", "APIs"],
-      "agent_affinity": ["VSCC", "WEBC", "CMDC"]
+      "tested_on": [
+        "Web Applications",
+        "Mobile Apps",
+        "SPAs",
+        "APIs"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "WEBC",
+        "CMDC"
+      ],
+      "size_bytes": 3519,
+      "token_estimate": 880.0
     }
   }
 }

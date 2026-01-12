@@ -1,0 +1,52 @@
+{
+  "door_code": "L01RUST_MASTER",
+  "semantic_path": "LANGUAGES.RUST.MASTER",
+  "aliases": [
+    "rust guide",
+    "rust master",
+    "rust complete",
+    "rust programming"
+  ],
+  "context_bundle": {
+    "summary": "Complete Rust programming guide - master index covering fundamentals through advanced topics with 29 sections.",
+    "prerequisites": [],
+    "related_doors": [
+      "L02RUST_OWNERSHIP",
+      "L03RUST_TRAITS",
+      "L04RUST_ASYNC",
+      "L05RUST_UNSAFE"
+    ],
+    "onboarding": {
+      "quick_start": "Comprehensive Rust guide: Part I (Foundations 20%), Part II (Intermediate 30%), Part III (Advanced 30%), Part IV (Practical 20%). Use RUST-COMMANDO skill for quick reference.",
+      "full_context_path": "",
+      "common_patterns": [],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-29T23:23:13.370342500+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "rust",
+        "programming",
+        "language",
+        "guide",
+        "master"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "RUST",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 1276,
+      "token_estimate": 319.0
+    }
+  }
+}

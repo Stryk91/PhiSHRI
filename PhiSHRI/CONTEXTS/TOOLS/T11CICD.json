@@ -1,11 +1,25 @@
 {
   "door_code": "T11CICD",
   "semantic_path": "TOOLS.AUTOMATION.CICD_PIPELINES",
-  "aliases": ["cicd", "ci_cd", "continuous_integration", "continuous_delivery", "pipeline"],
+  "aliases": [
+    "cicd",
+    "ci_cd",
+    "continuous_integration",
+    "continuous_delivery",
+    "pipeline"
+  ],
   "context_bundle": {
     "summary": "CI/CD pipelines: Automate build, test, deploy. CI (Continuous Integration): Merge code frequently, run tests automatically. CD (Continuous Delivery/Deployment): Auto-deploy to staging/production. Stages: Checkout -> Build -> Test -> Deploy. Tools: GitHub Actions, GitLab CI, Jenkins, CircleCI, Travis CI. Patterns: Pipeline as code (YAML), matrix builds (multiple environments), caching (dependencies), artifacts (build outputs), secrets management. Best practices: Fast feedback (<10 min), fail fast, parallel jobs, deploy on every merge to main.",
-    "prerequisites": ["W67BLUEGREEN", "W58UNITTEST"],
-    "related_doors": ["W69ROLLING", "W66COVERAGE", "T12DOCKER_BUILD", "S05SECRETS"],
+    "prerequisites": [
+      "W67BLUEGREEN",
+      "W58UNITTEST"
+    ],
+    "related_doors": [
+      "W69ROLLING",
+      "W66COVERAGE",
+      "T12DOCKER_BUILD",
+      "S05SECRETS"
+    ],
     "onboarding": {
       "quick_start": "CI/CD: Automate software delivery. GitHub Actions (.github/workflows/ci.yml): on: push: branches: [main]; pull_request. jobs: test: runs-on: ubuntu-latest; steps: - uses: actions/checkout@v4; - uses: actions/setup-node@v4; with: node-version: 18; - run: npm ci; - run: npm test; - run: npm run build. Deploy: deploy: needs: test; if: github.ref == 'refs/heads/main'; steps: - run: npm run deploy. GitLab CI (.gitlab-ci.yml): stages: [build, test, deploy]; test: stage: test; script: - npm test; coverage: '/All files.*?\\s+([\\d\\.]+)/'. Jenkins (Jenkinsfile): pipeline { agent any; stages { stage('Build') { steps { sh 'npm install' } } stage('Test') { steps { sh 'npm test' } } } }. Best practices: Cache dependencies (node_modules, .m2, pip cache), run tests in parallel, fail fast on error, use secrets for credentials (GitHub: ${{ secrets.API_KEY }}), deploy only on main branch.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
@@ -22,7 +36,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -32,12 +48,30 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["cicd", "github_actions", "gitlab_ci", "jenkins", "automation", "devops"],
+      "tags": [
+        "cicd",
+        "github_actions",
+        "gitlab_ci",
+        "jenkins",
+        "automation",
+        "devops"
+      ],
       "category": "TOOLS",
       "subcategory": "AUTOMATION",
       "version": "1.0.0",
-      "tested_on": ["GitHub Actions", "GitLab CI", "Jenkins", "CircleCI"],
-      "agent_affinity": ["CMDC", "VSCC", "TERMC"]
+      "tested_on": [
+        "GitHub Actions",
+        "GitLab CI",
+        "Jenkins",
+        "CircleCI"
+      ],
+      "agent_affinity": [
+        "CMDC",
+        "VSCC",
+        "TERMC"
+      ],
+      "size_bytes": 4132,
+      "token_estimate": 1033.0
     }
   }
 }

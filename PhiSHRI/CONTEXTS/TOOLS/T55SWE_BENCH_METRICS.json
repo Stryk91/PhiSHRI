@@ -1,0 +1,60 @@
+{
+  "door_code": "T55SWE_BENCH_METRICS",
+  "semantic_path": "TOOLS.BENCHMARKS.SWE_BENCH.METRICS",
+  "aliases": [
+    "swe bench metrics",
+    "token cost tracker",
+    "benchmark dashboard",
+    "solve metrics"
+  ],
+  "context_bundle": {
+    "summary": "SWE-Bench metrics infrastructure. Token counter, cost calculator (Opus 4.5 $5/$25), dashboard aggregator, and HTML visualization. Tracks duration, tool calls, blockers, second-guesses per instance.",
+    "prerequisites": [
+      "W50SWE_BENCH_REPORTS"
+    ],
+    "related_doors": [
+      "W50SWE_BENCH_REPORTS",
+      "W45SWE_BENCH_LITE"
+    ],
+    "onboarding": {
+      "quick_start": "Run dashboard: python C:\\\\SWE-Bench\\\\metrics\\\\dashboard.py. HTML: python C:\\\\SWE-Bench\\\\metrics\\\\html_dashboard.py. Reports go in C:\\\\SWE-Bench\\\\reports\\\\*.md",
+      "full_context_path": "",
+      "common_patterns": [
+        "python C:\\SWE-Bench\\metrics\\dashboard.py",
+        "python C:\\SWE-Bench\\metrics\\html_dashboard.py",
+        "Opus 4.5: $5/1M input, $25/1M output"
+      ],
+      "known_errors": [
+        "UnicodeEncodeError on checkmarks - use ASCII [OK]/[FAIL]",
+        "cp1252 encoding - add encoding='utf-8' to file ops"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T19:46:47.901467900+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "swe-bench",
+        "metrics",
+        "tokens",
+        "cost",
+        "dashboard",
+        "opus-pricing"
+      ],
+      "category": "TOOLS",
+      "subcategory": "BENCHMARKS",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 1726,
+      "token_estimate": 432.0
+    }
+  }
+}

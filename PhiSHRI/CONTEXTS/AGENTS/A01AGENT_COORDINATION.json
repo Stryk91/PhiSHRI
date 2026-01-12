@@ -1,0 +1,48 @@
+{
+  "door_code": "A01AGENT_COORDINATION",
+  "semantic_path": "AGENTS.COORDINATION.CORE",
+  "aliases": [
+    "agent coordination",
+    "multi-agent",
+    "dc kalic",
+    "inter-agent"
+  ],
+  "context_bundle": {
+    "summary": "Multi-agent coordination patterns. DC-KALIC messaging via carbyne-bridge or AHK fallback. See P15AGENT_BRIDGE_MCP for implementation, W23AGENT_SEND for file-based AHK method.",
+    "prerequisites": [],
+    "related_doors": [
+      "P15AGENT_BRIDGE_MCP",
+      "W23AGENT_SEND",
+      "A01DC",
+      "A05KALIC"
+    ],
+    "onboarding": {
+      "quick_start": "",
+      "full_context_path": "",
+      "common_patterns": [],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-05T19:57:58.820664100+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "agents",
+        "coordination",
+        "messaging",
+        "ipc"
+      ],
+      "category": "AGENTS",
+      "subcategory": "COORDINATION",
+      "version": "1.0.0",
+      "agent_affinity": [],
+      "size_bytes": 1114,
+      "token_estimate": 279.0
+    }
+  }
+}

@@ -1,11 +1,22 @@
 {
   "door_code": "840ENTERKEY",
   "semantic_path": "TOOLS.WINDOWS.ENTER_KEY_INJECTION",
-  "aliases": ["enter_key", "vk_return", "keybd_event", "key_injection"],
+  "aliases": [
+    "enter_key",
+    "vk_return",
+    "keybd_event",
+    "key_injection"
+  ],
   "context_bundle": {
     "summary": "CRITICAL: Reliable Enter key sending via Win32 keybd_event. MCP send_keys fails with \\n in terminals (sends Unicode, not VK code). Solution: Direct keybd_event(VK_RETURN=0x0D) injection. Finds window, sets focus, sends VK_RETURN press+release.",
-    "prerequisites": ["820PWSH", "810AHK"],
-    "related_doors": ["800WINMCP", "W01COORD"],
+    "prerequisites": [
+      "820PWSH",
+      "810AHK"
+    ],
+    "related_doors": [
+      "800WINMCP",
+      "W01COORD"
+    ],
     "onboarding": {
       "quick_start": "Problem: send_keys('\\n') fails in terminals. Root cause: Unicode newline vs VK_RETURN virtual key. Solution: Use Win32 keybd_event(0x0D, 0, 0, 0) for press, (0x0D, 0, KEYEVENTF_KEYUP, 0) for release. Reliable Enter submission.",
       "full_context_path": "/PhiDEX/CRITICAL_ENTER_KEY_METHOD.md",
@@ -27,7 +38,9 @@
       ]
     },
     "resources": {
-      "docs": ["/PhiDEX/CRITICAL_ENTER_KEY_METHOD.md"],
+      "docs": [
+        "/PhiDEX/CRITICAL_ENTER_KEY_METHOD.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -37,12 +50,26 @@
       "confidence": 0.99,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["windows", "keyboard", "enter_key", "win32", "terminal"],
+      "tags": [
+        "windows",
+        "keyboard",
+        "enter_key",
+        "win32",
+        "terminal"
+      ],
       "category": "TOOLS",
       "subcategory": "KEYBOARD_AUTOMATION",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11"],
-      "agent_affinity": ["DC", "VSCC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 2142,
+      "token_estimate": 536.0
     }
   }
 }

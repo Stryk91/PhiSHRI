@@ -1,11 +1,22 @@
 {
   "door_code": "W105TEST_FIXTURES",
   "semantic_path": "WORKFLOWS.TESTING.FIXTURES",
-  "aliases": ["test data", "fixture", "test setup", "test data management"],
+  "aliases": [
+    "test data",
+    "fixture",
+    "test setup",
+    "test data management"
+  ],
   "context_bundle": {
     "summary": "Test fixtures and data management patterns for consistent and repeatable test environments",
-    "prerequisites": ["W102UNIT_TESTING"],
-    "related_doors": ["W102UNIT_TESTING", "W104MOCKING", "W103INTEGRATION_TESTING"],
+    "prerequisites": [
+      "W102UNIT_TESTING"
+    ],
+    "related_doors": [
+      "W102UNIT_TESTING",
+      "W104MOCKING",
+      "W103INTEGRATION_TESTING"
+    ],
     "onboarding": {
       "quick_start": "Create reusable test data and setup/teardown procedures to ensure consistent test environments",
       "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
@@ -18,7 +29,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -28,12 +41,26 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["testing", "fixtures", "test data", "workflows"],
+      "tags": [
+        "testing",
+        "fixtures",
+        "test data",
+        "workflows"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "TESTING",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11", "Linux"],
-      "agent_affinity": ["VSCC", "DC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11",
+        "Linux"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC"
+      ],
+      "size_bytes": 1582,
+      "token_estimate": 396.0
     }
   }
 }

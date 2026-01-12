@@ -1,0 +1,57 @@
+{
+  "door_code": "L07RUST_PATTERNS",
+  "semantic_path": "LANGUAGES.RUST.PATTERNS",
+  "aliases": [
+    "rust patterns",
+    "rust design patterns",
+    "rust idioms",
+    "rust builder"
+  ],
+  "context_bundle": {
+    "summary": "Rust design patterns - Builder, Newtype, Type State, RAII, Iterator patterns, error handling patterns.",
+    "prerequisites": [
+      "L03RUST_TRAITS"
+    ],
+    "related_doors": [
+      "L03RUST_TRAITS",
+      "L08RUST_ERRORS"
+    ],
+    "onboarding": {
+      "quick_start": "Builder: chain methods, return Self. Newtype: struct Meters(f64). Type State: Door<Locked>/Door<Unlocked>. RAII: Drop trait for cleanup.",
+      "full_context_path": "",
+      "common_patterns": [
+        "ConfigBuilder::new().host(h).port(p).build()",
+        "struct UserId(u32); // newtype for type safety",
+        "impl Door<Locked> { fn unlock(self) -> Door<Unlocked> }",
+        "impl Drop for Resource { fn drop(&mut self) { cleanup(); } }"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-29T23:23:13.374509100+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "rust",
+        "patterns",
+        "design",
+        "builder",
+        "newtype"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "RUST",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 1475,
+      "token_estimate": 369.0
+    }
+  }
+}

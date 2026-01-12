@@ -1,0 +1,60 @@
+{
+  "door_code": "W224PAD_MATURITY_MODEL",
+  "semantic_path": "WORKFLOWS.AUTOMATION.PAD.MATURITY_MODEL",
+  "aliases": [
+    "automation maturity",
+    "center of excellence",
+    "citizen developer"
+  ],
+  "context_bundle": {
+    "summary": "5-Stage Maturity Model: 1-Ad Hoc (individual automations), 2-Opportunistic (dept-level, some standards), 3-Repeatable (formal program, cross-functional), 4-Managed (strategy-aligned, AI integration), 5-Optimized (embedded in DNA, self-optimizing). Build CoE at Stage 2, Citizen Developer program Stage 2-3.",
+    "prerequisites": [
+      "W220PAD_VALUE_PYRAMID"
+    ],
+    "related_doors": [
+      "W221PAD_IMPACT_FRAMEWORK",
+      "W225PAD_CHANGE_MGMT"
+    ],
+    "onboarding": {
+      "quick_start": "Stage 1: Find champions, document wins. Stage 2: Create CoE, develop standards. Stage 3: Scale patterns, measure systematically. Stage 4: Align to strategy, add AI. Stage 5: Innovation culture.",
+      "full_context_path": "",
+      "common_patterns": [
+        "CoE roles: Standards, guidance, components, training, health monitoring",
+        "Citizen dev: Build for their area, follow standards, share knowledge",
+        "Governance: Exec sponsor, CoE, Process owners, Citizen devs, IT support",
+        "Monthly cycle: Collect data -> Analyze -> Plan -> Implement"
+      ],
+      "known_errors": [
+        "Skipping governance = chaos at scale",
+        "No citizen developer training = shadow IT risks",
+        "CoE as bottleneck not enabler = kills adoption",
+        "No executive sponsor = program dies"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T18:18:00.248968800+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "pad",
+        "maturity",
+        "adoption",
+        "governance",
+        "coe"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 2044,
+      "token_estimate": 511.0
+    }
+  }
+}

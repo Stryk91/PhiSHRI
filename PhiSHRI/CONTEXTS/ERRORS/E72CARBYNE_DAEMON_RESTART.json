@@ -1,0 +1,58 @@
+{
+  "door_code": "E72CARBYNE_DAEMON_RESTART",
+  "semantic_path": "ERRORS.CARBYNE.DAEMON",
+  "aliases": [
+    "carbyne restart",
+    "daemon dead",
+    "carbyne timeout",
+    "bridge daemon"
+  ],
+  "context_bundle": {
+    "summary": "Carbyne daemon restart procedure. Command: carbyne.exe daemon bridge -d. Fixes stale HWND, dead TCP, and MCP timeout issues.",
+    "prerequisites": [],
+    "related_doors": [
+      "E71MCP_XDRIVE_DEPENDENCY",
+      "P15AGENT_BRIDGE_MCP",
+      "S01DC_SESSION_BOOT"
+    ],
+    "onboarding": {
+      "quick_start": "1. Kill all carbyne processes: Get-Process carbyne* | Stop-Process -Force  2. Start daemon: X:\\carbyne-cli\\target\\release\\carbyne.exe daemon bridge -d  3. Verify: Get-NetTCPConnection -LocalPort 7777  4. Health check: carbyne.exe health",
+      "full_context_path": "",
+      "common_patterns": [],
+      "known_errors": [
+        "carbyne_status MCP times out when daemon dead",
+        "Multiple carbyne processes cause port contention",
+        "Wrong carbyne.exe (C:\\PhiDEX) has no tools configured - use X:\\carbyne-cli build"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-19T15:20:28.065513800+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "carbyne",
+        "daemon",
+        "bridge",
+        "restart",
+        "mcp",
+        "timeout",
+        "hwnd",
+        "tcp"
+      ],
+      "category": "ERRORS",
+      "subcategory": "CARBYNE",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ],
+      "size_bytes": 1627,
+      "token_estimate": 407.0
+    }
+  }
+}

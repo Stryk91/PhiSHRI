@@ -1,0 +1,63 @@
+{
+  "door_code": "T50TAURI_CLIENT",
+  "semantic_path": "TOOLS.DESKTOP.TAURI_CLIENT",
+  "aliases": [
+    "tauri",
+    "custom claude client",
+    "electron alternative",
+    "webview2 client"
+  ],
+  "context_bundle": {
+    "summary": "Custom Tauri-based Claude client to replace Electron bloat. WebView2 backend, 10MB vs 300MB, 50MB RAM vs 1GB+.",
+    "prerequisites": [
+      "T51CLAUDE_AUTH"
+    ],
+    "related_doors": [
+      "T51CLAUDE_AUTH",
+      "T52CLAUDE_API_ENDPOINTS"
+    ],
+    "onboarding": {
+      "quick_start": "cargo create-tauri-app claude-lite --template vanilla-ts",
+      "full_context_path": "",
+      "common_patterns": [
+        "WebView2 for auth flow - opens claude.ai/login, user does Google OAuth, grab sessionKey cookie after redirect",
+        "Tauri window creation: tauri::window::Window for webviews",
+        "wry crate for low-level webview/cookie access",
+        "JS injection to grab document.cookie after navigation",
+        "Store sessionKey in memory or encrypted local storage",
+        "Re-auth when 401/403 returned"
+      ],
+      "known_errors": [
+        "WebView2 must be installed on Windows (comes with Edge)",
+        "Cookie access differs between platforms - test on each",
+        "sessionKey rotates on each Google OAuth, not persistent"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T03:02:48.508395100+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "tauri",
+        "rust",
+        "webview2",
+        "electron-alternative",
+        "claude-desktop",
+        "performance"
+      ],
+      "category": "TOOLS",
+      "subcategory": "DESKTOP",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1814,
+      "token_estimate": 454.0
+    }
+  }
+}

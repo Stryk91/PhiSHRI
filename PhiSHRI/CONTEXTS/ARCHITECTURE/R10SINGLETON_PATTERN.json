@@ -1,11 +1,20 @@
 {
   "door_code": "R10SINGLETON_PATTERN",
   "semantic_path": "ARCHITECTURE.PATTERNS.CREATIONAL.SINGLETON",
-  "aliases": ["singleton", "single instance", "global state"],
+  "aliases": [
+    "singleton",
+    "single instance",
+    "global state"
+  ],
   "context_bundle": {
     "summary": "Singleton pattern ensures a class has only one instance and provides global access point to it",
-    "prerequisites": ["R01MULTI"],
-  "related_doors": ["R09FACTORY_PATTERN", "W21STATE_SYNC"],
+    "prerequisites": [
+      "R01MULTI"
+    ],
+    "related_doors": [
+      "R09FACTORY_PATTERN",
+      "W21STATE_SYNC"
+    ],
     "onboarding": {
       "quick_start": "Restrict class instantiation to one object by making constructor private and providing static getInstance method",
       "full_context_path": "/PhiDEX/MASTER_CODEX/02_PATTERNS/DESIGN_PATTERNS_GUIDE.md",
@@ -15,25 +24,45 @@
         "Use for shared resources (connection pools, configs)",
         "Consider alternatives like dependency injection"
       ],
-      "known_errors": ["E11RACE_CONDITIONS"]
+      "known_errors": [
+        "E11RACE_CONDITIONS"
+      ]
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/02_PATTERNS/DESIGN_PATTERNS_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/02_PATTERNS/DESIGN_PATTERNS_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
-      "errors": ["E11RACE_CONDITIONS"]
+      "errors": [
+        "E11RACE_CONDITIONS"
+      ]
     },
     "metadata": {
       "last_updated": "2025-11-22T01:00:00Z",
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["architecture", "design pattern", "singleton", "creational"],
+      "tags": [
+        "architecture",
+        "design pattern",
+        "singleton",
+        "creational"
+      ],
       "category": "ARCHITECTURE",
       "subcategory": "PATTERNS",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11", "Linux"],
-      "agent_affinity": ["VSCC", "DC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11",
+        "Linux"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC"
+      ],
+      "size_bytes": 1582,
+      "token_estimate": 396.0
     }
   }
 }

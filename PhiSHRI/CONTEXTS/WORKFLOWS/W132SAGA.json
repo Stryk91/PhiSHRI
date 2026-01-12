@@ -1,11 +1,25 @@
 {
   "door_code": "W132SAGA",
   "semantic_path": "WORKFLOWS.DISTRIBUTED.SAGA_PATTERN",
-  "aliases": ["saga", "distributed transaction", "compensation", "long-running transaction"],
+  "aliases": [
+    "saga",
+    "distributed transaction",
+    "compensation",
+    "long-running transaction"
+  ],
   "context_bundle": {
     "summary": "Saga pattern for distributed transactions: break long-running transaction into sequence of local transactions with compensating actions for rollback. Each step either succeeds (commit) or fails (triggers compensation chain). Two approaches: orchestration (central coordinator) and choreography (event-driven).",
-    "prerequisites": ["R07SAGA_PATTERN", "W122DAG", "W115MESSAGE_QUEUE"],
-    "related_doors": ["W133IDEMPOTENCY", "W134DISTRIBUTED_TX", "W128DEAD_LETTER", "R04EVENT_DRIVEN"],
+    "prerequisites": [
+      "R07SAGA_PATTERN",
+      "W122DAG",
+      "W115MESSAGE_QUEUE"
+    ],
+    "related_doors": [
+      "W133IDEMPOTENCY",
+      "W134DISTRIBUTED_TX",
+      "W128DEAD_LETTER",
+      "R04EVENT_DRIVEN"
+    ],
     "onboarding": {
       "quick_start": "Saga steps: 1) Break distributed transaction into local transactions T1,T2,T3..., 2) Each Ti has compensating action Ci, 3) If Tn fails, execute Cn-1, Cn-2, ... C1 in reverse order, 4) Use orchestrator (central coord) or choreography (events), 5) Make operations idempotent.",
       "full_context_path": "/PhiDEX/PhiSync/03_COORDINATION_PATTERNS/SAGA_COMPENSATION_GUIDE.md",
@@ -55,12 +69,27 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["saga", "distributed_transaction", "compensation", "orchestration", "choreography"],
+      "tags": [
+        "saga",
+        "distributed_transaction",
+        "compensation",
+        "orchestration",
+        "choreography"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "DISTRIBUTED",
       "version": "1.0.0",
-      "tested_on": ["Microservices", "Distributed systems"],
-      "agent_affinity": ["VSCC", "DC", "WEBC"]
+      "tested_on": [
+        "Microservices",
+        "Distributed systems"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "WEBC"
+      ],
+      "size_bytes": 3873,
+      "token_estimate": 969.0
     }
   }
 }

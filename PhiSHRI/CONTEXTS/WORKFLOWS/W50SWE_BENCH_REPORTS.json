@@ -1,0 +1,55 @@
+{
+  "door_code": "W50SWE_BENCH_REPORTS",
+  "semantic_path": "WORKFLOWS.BENCHMARKS.SWE_BENCH.REPORTING",
+  "aliases": [
+    "swe bench report",
+    "benchmark report",
+    "instance metrics"
+  ],
+  "context_bundle": {
+    "summary": "SWE-Bench instance reporting methodology. Tracks timing, tool usage, blockers, second-guesses, and token costs per instance solve.",
+    "prerequisites": [],
+    "related_doors": [
+      "W45SWE_BENCH_LITE",
+      "T40PYTEST",
+      "E52GIT_PATCH_FORMAT"
+    ],
+    "onboarding": {
+      "quick_start": "Report template at C:\\SWE-Bench\\reports\\. Track: duration per phase, tool calls, blockers hit, second-guesses, patch accuracy, token estimate.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Phase breakdown: Selection, Analysis, Setup, Implementation, Verification",
+        "Token estimate: input ~15k for simple, output ~4k",
+        "Blocker categories: PATH, version mismatch, test harness"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T19:41:49.588895700+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "swe-bench",
+        "benchmarks",
+        "metrics",
+        "reporting",
+        "token-cost",
+        "timing"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "BENCHMARKS",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 1514,
+      "token_estimate": 379.0
+    }
+  }
+}

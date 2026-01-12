@@ -1,0 +1,16 @@
+{
+  "id": "P20PHIEXECUTOR_WATCHER",
+  "title": "PhiExecutor Queue Watcher",
+  "created": "2025-12-06",
+  "author": "KALIC",
+  "summary": "PowerShell queue watcher for PhiExecutor automation framework",
+  "location": "X:\\Automation\\Scripts\\Core\\Start-PhiWatcher.ps1",
+  "scheduled_task": "PhiWatcher",
+  "trigger": "AtLogon",
+  "poll_interval": "2 seconds",
+  "queue_path": "X:\\Automation\\Queue\\",
+  "working_actions": ["file_create", "wait", "powershell", "ahk_run", "http_request", "chain"],
+  "missing_actions": ["ahk_compile", "file_copy", "file_move", "file_delete", "registry_read", "registry_write", "condition"],
+  "usage": "Import-Module X:\\Automation\\Scripts\\Core\\PhiExecutor.psm1; New-PhiCommand -Id 'test' -Action 'file_create' -Payload @{path='X:\\test.txt'; content='hello'} -Queue",
+  "related": ["PhiExecutor.psm1", "PhiQueue-Watcher"]
+}

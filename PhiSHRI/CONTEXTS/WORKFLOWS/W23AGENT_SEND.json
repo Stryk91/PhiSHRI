@@ -1,0 +1,72 @@
+{
+  "door_code": "W23AGENT_SEND",
+  "semantic_path": "WORKFLOWS.AGENTS.SEND_MESSAGE",
+  "aliases": [
+    "send to agent",
+    "ahk messaging",
+    "inter-agent send",
+    "dc to kalic"
+  ],
+  "context_bundle": {
+    "summary": "Safe inter-agent messaging via AHK. Write message to temp file first, AHK reads from file. Avoids quote escaping hell. NEVER inline messages in scripts.",
+    "prerequisites": [
+      "810AHK",
+      "E54PATH"
+    ],
+    "related_doors": [
+      "E58AHK_ELECTRON_SEND",
+      "E59WM_COPYDATA_FREEZE",
+      "P15AGENT_BRIDGE_MCP"
+    ],
+    "onboarding": {
+      "quick_start": "1) Write message to temp file. 2) Call: AutoHotkey64.exe 'X:\\AHK  SCRIPTS\\send_to_agent.ahk' HWND filepath. 3) AHK reads file, pastes, enters. NO QUOTE ESCAPING IN CODE.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Write msg to temp file first - NO QUOTE ESCAPING",
+        "AHK reads from file",
+        "send_to_agent.ahk <HWND> <filepath>",
+        "Send-ToAgent -Hwnd 12345 -Message 'text'"
+      ],
+      "known_errors": [
+        "NEVER inline message in AHK script - quote escaping WILL fail",
+        "NEVER use PowerShell string interpolation for messages",
+        "ALWAYS write to temp file first, pass filepath to AHK"
+      ]
+    },
+    "kalic_scripts": {
+      "message_file": "C:\\PhiDEX\\kalic_msg.txt",
+      "batch_wrapper": "C:\\PhiDEX\\scripts\\kalic_msg_file.bat",
+      "ahk_script": "X:\\AHK  SCRIPTS\\kalic_to_dc_file.ahk",
+      "usage_from_wsl": "echo 'MESSAGE' > /mnt/c/PhiDEX/kalic_msg.txt && /mnt/c/Windows/System32/cmd.exe /c 'C:\\PhiDEX\\scripts\\kalic_msg_file.bat'",
+      "notes": "WSL->cmd.exe quoting breaks multi-word args. File-based method bypasses entirely. AHK reads from file, no argument parsing."
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-06T12:00:00+11:00",
+      "confidence": 1.0,
+      "tags": [
+        "ahk",
+        "messaging",
+        "agents",
+        "ipc",
+        "quotes",
+        "escaping",
+        "file-based"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "AGENTS",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ],
+      "size_bytes": 2272,
+      "token_estimate": 568.0
+    }
+  }
+}

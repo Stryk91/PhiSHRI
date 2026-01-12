@@ -1,11 +1,24 @@
 {
   "door_code": "S06ENCRYPTION",
   "semantic_path": "SECURITY.ENCRYPTION.ENCRYPTION_AT_REST_TRANSIT",
-  "aliases": ["encryption", "tls", "https", "aes", "data_protection"],
+  "aliases": [
+    "encryption",
+    "tls",
+    "https",
+    "aes",
+    "data_protection"
+  ],
   "context_bundle": {
     "summary": "Encryption for data protection at rest and in transit: At rest: AES-256 (files, databases, backups), disk encryption (BitLocker, LUKS). In transit: TLS 1.2+ (HTTPS, secure APIs), SSH for remote access. Asymmetric: RSA/ECC for key exchange. Symmetric: AES for data encryption. Tools: OpenSSL, Let's Encrypt (free TLS certs), Azure/AWS encryption services. Patterns: encrypt sensitive fields (DB columns), use HTTPS for all APIs, certificate management (auto-renewal).",
-    "prerequisites": ["S01AES", "S05SECRETS"],
-    "related_doors": ["S02SQL", "S03INPUT_VAL", "T08API_PATTERN"],
+    "prerequisites": [
+      "S01AES",
+      "S05SECRETS"
+    ],
+    "related_doors": [
+      "S02SQL",
+      "S03INPUT_VAL",
+      "T08API_PATTERN"
+    ],
     "onboarding": {
       "quick_start": "Encryption: At rest: AES-256 for files/DB, BitLocker (Windows disk), dm-crypt/LUKS (Linux). In transit: TLS 1.2+ (HTTPS), SSH for servers. PowerShell: ConvertTo-SecureString, ConvertFrom-SecureString. OpenSSL: openssl enc -aes-256-cbc -in file -out file.enc. Let's Encrypt: certbot --nginx for free TLS certs. DB column encryption: ENCRYPT(field, key). API: enforce HTTPS, redirect HTTP -> HTTPS. Certificate management: auto-renew with Let's Encrypt/ACME. Asymmetric (RSA): key exchange. Symmetric (AES): data encryption (faster). Use for: passwords, PII, API traffic, backups.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md",
@@ -24,7 +37,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +49,32 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["encryption", "aes", "tls", "https", "ssl", "security", "data_protection"],
+      "tags": [
+        "encryption",
+        "aes",
+        "tls",
+        "https",
+        "ssl",
+        "security",
+        "data_protection"
+      ],
       "category": "SECURITY",
       "subcategory": "ENCRYPTION",
       "version": "1.0.0",
-      "tested_on": ["OpenSSL", "Let's Encrypt", "Windows", "Linux"],
-      "agent_affinity": ["DC", "VSCC", "CMDC", "TERMC"]
+      "tested_on": [
+        "OpenSSL",
+        "Let's Encrypt",
+        "Windows",
+        "Linux"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "CMDC",
+        "TERMC"
+      ],
+      "size_bytes": 3075,
+      "token_estimate": 769.0
     }
   }
 }

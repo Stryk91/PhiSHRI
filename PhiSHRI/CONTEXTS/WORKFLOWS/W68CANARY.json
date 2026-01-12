@@ -1,11 +1,24 @@
 {
   "door_code": "W68CANARY",
   "semantic_path": "WORKFLOWS.DEPLOYMENT.CANARY_DEPLOYMENT",
-  "aliases": ["canary", "canary_deployment", "canary_release", "progressive_delivery"],
+  "aliases": [
+    "canary",
+    "canary_deployment",
+    "canary_release",
+    "progressive_delivery"
+  ],
   "context_bundle": {
     "summary": "Canary deployment: Gradually roll out new version to subset of users. Start with 5-10% traffic, monitor metrics, increase to 25%, 50%, 100% if healthy. Automatic rollback if error rate spikes. Requires: Traffic splitting (load balancer, service mesh), metrics/monitoring, automated health checks. Patterns: Percentage-based (10% users), user-based (specific cohorts), geography-based. Pros: Risk mitigation, real-user testing, gradual rollout. Cons: Complex infrastructure, requires monitoring. Tools: Istio, Linkerd, Flagger (Kubernetes), AWS App Mesh, LaunchDarkly.",
-    "prerequisites": ["W67BLUEGREEN", "T10OBSERVABILITY"],
-    "related_doors": ["W69ROLLING", "W70FEATURE_FLAG", "W48K8S_DEPLOY", "R04EVENT_DRIVEN"],
+    "prerequisites": [
+      "W67BLUEGREEN",
+      "T10OBSERVABILITY"
+    ],
+    "related_doors": [
+      "W69ROLLING",
+      "W70FEATURE_FLAG",
+      "W48K8S_DEPLOY",
+      "R04EVENT_DRIVEN"
+    ],
     "onboarding": {
       "quick_start": "Canary: Route small % traffic to new version, increase gradually. Steps: 1) Deploy canary (v2) alongside stable (v1), 2) Route 10% traffic to canary, 3) Monitor error rate/latency for 10-15 min, 4) If healthy, increase to 25%, 50%, 100%, 5) If unhealthy, rollback (route 100% to v1). Kubernetes + Istio: VirtualService with traffic weights: http: - route: - destination: subset: v1, weight: 90; - destination: subset: v2, weight: 10. Increase weight: 90/10 -> 50/50 -> 0/100. Flagger (automated): Canary resource, auto-increments traffic based on metrics (success rate >99%, latency <500ms). AWS: ALB with weighted target groups. Metrics to monitor: Error rate, P99 latency, CPU/memory, custom business metrics. Rollback: If error rate >1% or latency >2x baseline, route 100% to stable. Automated with Flagger: spec: canaryAnalysis: threshold: 5, stepWeight: 10, metrics: - name: request-success-rate, thresholdRange: min: 99.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
@@ -22,7 +35,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -32,12 +47,31 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["canary", "deployment", "progressive_delivery", "istio", "flagger", "traffic_splitting"],
+      "tags": [
+        "canary",
+        "deployment",
+        "progressive_delivery",
+        "istio",
+        "flagger",
+        "traffic_splitting"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "DEPLOYMENT",
       "version": "1.0.0",
-      "tested_on": ["Kubernetes", "Istio", "Flagger", "AWS", "Nginx"],
-      "agent_affinity": ["CMDC", "VSCC", "TERMC"]
+      "tested_on": [
+        "Kubernetes",
+        "Istio",
+        "Flagger",
+        "AWS",
+        "Nginx"
+      ],
+      "agent_affinity": [
+        "CMDC",
+        "VSCC",
+        "TERMC"
+      ],
+      "size_bytes": 4261,
+      "token_estimate": 1066.0
     }
   }
 }

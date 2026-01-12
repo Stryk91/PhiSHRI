@@ -1,11 +1,19 @@
 {
   "door_code": "R15BUILDER_PATTERN",
   "semantic_path": "ARCHITECTURE.PATTERNS.CREATIONAL.BUILDER",
-  "aliases": ["builder", "fluent builder", "construction pattern"],
+  "aliases": [
+    "builder",
+    "fluent builder",
+    "construction pattern"
+  ],
   "context_bundle": {
     "summary": "Builder pattern separates construction of complex object from its representation, allowing same construction process to create different representations",
-    "prerequisites": ["R01MULTI"],
-    "related_doors": ["R09FACTORY_PATTERN"],
+    "prerequisites": [
+      "R01MULTI"
+    ],
+    "related_doors": [
+      "R09FACTORY_PATTERN"
+    ],
     "onboarding": {
       "quick_start": "Use builder class with fluent interface to construct complex objects step-by-step with readable, maintainable code",
       "full_context_path": "/PhiDEX/MASTER_CODEX/02_PATTERNS/DESIGN_PATTERNS_GUIDE.md",
@@ -18,7 +26,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/02_PATTERNS/DESIGN_PATTERNS_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/02_PATTERNS/DESIGN_PATTERNS_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -28,12 +38,26 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["architecture", "design pattern", "builder", "creational"],
+      "tags": [
+        "architecture",
+        "design pattern",
+        "builder",
+        "creational"
+      ],
       "category": "ARCHITECTURE",
       "subcategory": "PATTERNS",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11", "Linux"],
-      "agent_affinity": ["VSCC", "DC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11",
+        "Linux"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC"
+      ],
+      "size_bytes": 1587,
+      "token_estimate": 397.0
     }
   }
 }

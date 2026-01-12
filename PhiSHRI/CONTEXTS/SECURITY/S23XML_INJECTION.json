@@ -1,11 +1,24 @@
 {
   "door_code": "S23XML_INJECTION",
   "semantic_path": "SECURITY.VULNERABILITIES.XML_INJECTION",
-  "aliases": ["xml injection", "xxe", "xml external entity", "xml bomb", "billion laughs"],
+  "aliases": [
+    "xml injection",
+    "xxe",
+    "xml external entity",
+    "xml bomb",
+    "billion laughs"
+  ],
   "context_bundle": {
     "summary": "XML injection and XXE (XML External Entity) prevention: disable external entity processing, disable DTD processing, use defusedxml library (Python), validate XML against schema, limit XML size/depth, prefer JSON over XML when possible.",
-    "prerequisites": ["S03INPUT_VAL", "S16INPUT_SANITIZATION"],
-    "related_doors": ["S02SQL", "S04XSS", "S21DESERIALIZATION"],
+    "prerequisites": [
+      "S03INPUT_VAL",
+      "S16INPUT_SANITIZATION"
+    ],
+    "related_doors": [
+      "S02SQL",
+      "S04XSS",
+      "S21DESERIALIZATION"
+    ],
     "onboarding": {
       "quick_start": "XML security: 1) Disable external entities (XXE protection), 2) Disable DTD entirely if not needed, 3) Limit XML size and nesting depth (prevents billion laughs), 4) Use secure parsers (defusedxml, Xerces with security features), 5) Validate against strict XML schema (XSD).",
       "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/OWASP_TOP_10_GUIDE.md",
@@ -62,12 +75,31 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["xml", "xxe", "xml_injection", "billion_laughs", "owasp", "external_entity"],
+      "tags": [
+        "xml",
+        "xxe",
+        "xml_injection",
+        "billion_laughs",
+        "owasp",
+        "external_entity"
+      ],
       "category": "SECURITY",
       "subcategory": "VULNERABILITIES",
       "version": "1.0.0",
-      "tested_on": ["Python", "Java", "PHP", ".NET", "Node.js"],
-      "agent_affinity": ["VSCC", "DC", "WEBC"]
+      "tested_on": [
+        "Python",
+        "Java",
+        "PHP",
+        ".NET",
+        "Node.js"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "WEBC"
+      ],
+      "size_bytes": 4246,
+      "token_estimate": 1062.0
     }
   }
 }

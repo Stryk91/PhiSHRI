@@ -1,0 +1,122 @@
+{
+  "door_code": "P31RECON_RS",
+  "semantic_path": "PROJECTS.SECURITY.RECON_RS",
+  "aliases": [
+    "recon",
+    "reconnaissance",
+    "dns enum",
+    "subdomain",
+    "portscan",
+    "ssl cert",
+    "whois lookup"
+  ],
+  "context_bundle": {
+    "summary": "Recon-RS v0.1 - All-in-one Rust reconnaissance toolkit. 6 modules: DNS, Subdomains, Ports (with banner grabbing), Web fingerprinting, WHOIS, SSL/TLS cert analysis. Replaces dnsenum, sublist3r, amass, whatweb, nmap (basic), whois, openssl s_client.",
+    "prerequisites": [],
+    "related_doors": [
+      "P30RUSTDUCKY",
+      "D05CARGO_BUILD"
+    ],
+    "onboarding": {
+      "quick_start": "BINARY: X:\\mcp-servers\\recon-rs\\target\\release\\recon-rs.exe | BUILD: cargo build --release | USAGE: recon-rs.exe <domain> [flags] | OUTPUT: -o table|json|markdown",
+      "full_context_path": "X:\\mcp-servers\\recon-rs",
+      "common_patterns": [
+        "recon-rs github.com -a                    # Full scan all modules",
+        "recon-rs target.com --dns --ports         # DNS + port scan only",
+        "recon-rs target.com --ssl                 # SSL cert analysis only",
+        "recon-rs target.com -a -o json > out.json # Export to JSON",
+        "recon-rs target.com -a -o markdown        # Markdown report"
+      ],
+      "known_errors": [
+        "crt.sh rate limiting - wait and retry",
+        "WHOIS timeouts on some TLDs (.io, ccTLDs)",
+        "Port scan requires DNS A record first",
+        "AlienVault OTX needs OTX_API_KEY env var"
+      ]
+    },
+    "modules": {
+      "dns": {
+        "file": "src/modules/dns.rs",
+        "features": ["A", "AAAA", "MX", "NS", "TXT records"],
+        "lib": "hickory-resolver"
+      },
+      "subdomain": {
+        "file": "src/modules/subdomain.rs",
+        "sources": ["crt.sh", "hackertarget"],
+        "features": ["Certificate Transparency", "passive DNS"]
+      },
+      "portscan": {
+        "file": "src/modules/portscan.rs",
+        "features": ["async TCP connect", "top 100 ports", "banner grabbing", "service detection"]
+      },
+      "web": {
+        "file": "src/modules/web.rs",
+        "features": ["status code", "server header", "title extraction", "tech detection (React, Vue, Angular, WordPress, etc.)"]
+      },
+      "whois": {
+        "file": "src/modules/whois.rs",
+        "features": ["registrar", "created/expires dates", "nameservers"],
+        "server": "whois.verisign-grs.com:43"
+      },
+      "ssl": {
+        "file": "src/modules/ssl.rs",
+        "features": ["certificate subject/issuer", "validity dates", "expiry check", "SAN extraction"],
+        "lib": "native-tls + x509-parser",
+        "note": "SANs auto-added to subdomain list"
+      }
+    },
+    "cli_flags": {
+      "-d, --dns": "DNS enumeration",
+      "-s, --subdomains": "Subdomain discovery",
+      "-p, --ports": "Port scanning",
+      "-w, --web": "Web fingerprinting",
+      "--whois": "WHOIS lookup",
+      "--ssl": "SSL/TLS certificate analysis",
+      "-a, --all": "Run all modules",
+      "-o, --output": "Output format: table (default), json, markdown",
+      "-t, --threads": "Thread count (default 50)",
+      "--top-ports": "Top N ports to scan (default 100)",
+      "--timeout": "Timeout in seconds (default 5)",
+      "-v, --verbose": "Verbose logging"
+    },
+    "resources": {
+      "docs": [],
+      "code": [
+        "src/main.rs",
+        "src/lib.rs",
+        "src/modules/*.rs",
+        "src/output/*.rs",
+        "src/sources/*.rs"
+      ],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-27T06:15:00Z",
+      "confidence": 1.0,
+      "tags": [
+        "recon",
+        "dns",
+        "subdomain",
+        "portscan",
+        "whois",
+        "ssl",
+        "tls",
+        "certificate",
+        "web-fingerprint",
+        "security",
+        "pentest",
+        "osint",
+        "rust"
+      ],
+      "category": "PROJECTS",
+      "subcategory": "SECURITY",
+      "version": "0.1.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ],
+      "contributors": ["DC (initial build)", "KALIC (SSL module, markdown output, banner grabbing)"]
+    }
+  }
+}

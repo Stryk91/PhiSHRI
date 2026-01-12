@@ -1,0 +1,78 @@
+{
+  "door_code": "P15AGENT_BRIDGE_MCP",
+  "semantic_path": "PROJECTS.CARBYNE.AGENT_BRIDGE_MCP",
+  "aliases": [
+    "agent bridge",
+    "wm_copydata",
+    "background messaging",
+    "carbyne mcp"
+  ],
+  "context_bundle": {
+    "summary": "WORKING - VERIFIED 2024-12-03. Zero-interruption DC-KALIC messaging via WM_COPYDATA. DC MCP hidden window thread + mpsc::channel. Daemon routes to agent HWNDs. Full docs: C:\\PhiDEX\\carbyne\\P15_IMPLEMENTATION_COMPLETE.md",
+    "prerequisites": [
+      "T50CARBYNE_TUI",
+      "E57BUILD"
+    ],
+    "related_doors": [
+      "P10BACKGROUND_MESH",
+      "T09IPC_METHODS",
+      "A05KALIC",
+      "A01DC"
+    ],
+    "onboarding": {
+      "quick_start": "VERIFIED WORKING. DC HWND files: dc_mcp_hwnd.txt. Tools: carbyne_send(to,body,eof), carbyne_await(timeout), carbyne_status(). Full implementation: C:\\PhiDEX\\carbyne\\P15_IMPLEMENTATION_COMPLETE.md and X:\\carbyne-cli\\P15_IMPLEMENTATION_COMPLETE.md",
+      "full_context_path": "",
+      "common_patterns": [
+        "carbyne_send('KALIC', 'message', true) - send with EOF flag",
+        "carbyne_await(30) - block up to 30 sec for message via WM_COPYDATA",
+        "DC MCP architecture: hidden window thread + mpsc::channel + GetMessage pump",
+        "Daemon routing: reads {agent}_hwnd.txt, SendMessageTimeoutW to target",
+        "E59 safety: worker thread + SMTO_ABORTIFHUNG + 1000ms timeout"
+      ],
+      "known_errors": [
+        "Desktop freeze = used raw SendMessage. MUST use SendMessageTimeoutW + SMTO_ABORTIFHUNG (see E59)",
+        "carbyne_await timeout = HWND stale after process restart. Check dc_mcp_hwnd.txt matches running MCP",
+        "MCP tools not loading = restart Claude Desktop, verify claude_desktop_config.json has carbyne-bridge",
+        "Messages not routing = daemon not running. Start: carbyne.exe daemon carbyne -v",
+        "KALIC lost context = read C:\\PhiDEX\\kalic_brain\\CLAUDE.md on boot"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "C:\\PhiDEX\\carbyne\\P15_IMPLEMENTATION_COMPLETE.md",
+        "X:\\carbyne-cli\\P15_IMPLEMENTATION_COMPLETE.md",
+        "C:\\PhiDEX\\carbyne\\AGENT_BRIDGE_MCP_SPEC.md",
+        "C:\\PhiDEX\\carbyne\\INCIDENT_WM_COPYDATA_FREEZE.md"
+      ],
+      "code": [
+        "X:\\carbyne-cli\\src\\mcp.rs - DC MCP with hidden window",
+        "X:\\carbyne-cli\\src\\daemon.rs - Daemon routing"
+      ],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-03T20:16:19",
+      "confidence": 1.0,
+      "tags": [
+        "carbyne",
+        "mcp",
+        "wm_copydata",
+        "ipc",
+        "background",
+        "no-focus",
+        "kalic",
+        "dc"
+      ],
+      "category": "PROJECTS",
+      "subcategory": "CARBYNE",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ],
+      "size_bytes": 2919,
+      "token_estimate": 730.0
+    }
+  }
+}

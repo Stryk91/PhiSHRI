@@ -1,0 +1,62 @@
+{
+  "door_code": "P11CARBYNE_META_MCP",
+  "semantic_path": "PROJECTS.PHIVECTOR.CARBYNE_META_MCP",
+  "aliases": [
+    "carbyne mcp",
+    "meta mcp",
+    "tool proxy",
+    "mcp proxy"
+  ],
+  "context_bundle": {
+    "summary": "Future project: Carbyne as Meta-MCP proxy. Single MCP entry in Claude Desktop, compressed tool index, lazy-loads real servers on tools/call. Reduces context overhead from 119 full schemas to slim one-liners.",
+    "prerequisites": [
+      "T22CARBYNE",
+      "T01MCP"
+    ],
+    "related_doors": [
+      "T22CARBYNE",
+      "T01MCP",
+      "T05MCP_ARCH"
+    ],
+    "onboarding": {
+      "quick_start": "Convert Carbyne CLI/daemon into MCP server. Speaks JSON-RPC stdio. Returns slim tool index on tools/list. Proxies tools/call to real servers on-demand. Reduces tool definition overhead from ~15-20k tokens to ~2-3k. Requires rmcp stdio transport layer.",
+      "full_context_path": "",
+      "common_patterns": [
+        "tools/list returns compressed index (~2-3k tokens vs ~15-20k)",
+        "tools/call routes to real server via process spawn",
+        "Single claude_desktop_config entry replaces 6+ servers",
+        "Lazy-load: full schema fetched only on first tool use"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-03T11:29:10.606354+11:00",
+      "confidence": 1.0,
+      "tags": [
+        "carbyne",
+        "mcp",
+        "proxy",
+        "meta",
+        "optimization",
+        "tokens",
+        "lazy-load",
+        "future"
+      ],
+      "category": "PROJECTS",
+      "subcategory": "PHIVECTOR",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ],
+      "size_bytes": 1784,
+      "token_estimate": 446.0
+    }
+  }
+}

@@ -10,8 +10,14 @@
   ],
   "context_bundle": {
     "summary": "Comprehensive Python error patterns, causes, and fixes. Covers the most common exceptions encountered in real-world codebases including Django, Flask, and general Python. Each error includes the exact traceback pattern, root cause analysis, and proven fixes.",
-    "prerequisites": ["L01PYTHON"],
-    "related_doors": ["E50PYTHON_DEBUG", "F01DJANGO", "F03FLASK"],
+    "prerequisites": [
+      "L01PYTHON"
+    ],
+    "related_doors": [
+      "E50PYTHON_DEBUG",
+      "F01DJANGO",
+      "F03FLASK"
+    ],
     "onboarding": {
       "quick_start": "Match traceback to error pattern below. Each has cause + fix. Most Python errors are: ImportError (path), AttributeError (None/typo), TypeError (wrong arg), KeyError (missing key), IndentationError (tabs/spaces).",
       "error_patterns": {
@@ -322,16 +328,29 @@
       }
     },
     "resources": {
-      "docs": ["https://docs.python.org/3/library/exceptions.html"]
+      "docs": [
+        "https://docs.python.org/3/library/exceptions.html"
+      ]
     },
     "metadata": {
       "last_updated": "2025-11-27T15:00:00Z",
       "confidence": 0.98,
-      "tags": ["python", "errors", "exceptions", "debugging", "swe-bench"],
+      "tags": [
+        "python",
+        "errors",
+        "exceptions",
+        "debugging",
+        "swe-bench"
+      ],
       "category": "LANGUAGES",
       "subcategory": "PYTHON",
       "version": "1.0.0",
-      "agent_affinity": ["DC", "TERMC"]
+      "agent_affinity": [
+        "DC",
+        "TERMC"
+      ],
+      "size_bytes": 13507,
+      "token_estimate": 3377.0
     }
   }
 }

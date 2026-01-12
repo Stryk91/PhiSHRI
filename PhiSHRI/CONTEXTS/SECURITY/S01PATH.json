@@ -1,0 +1,42 @@
+{
+  "door_code": "S01PATH",
+  "semantic_path": "SECURITY.VALIDATION.PATH",
+  "aliases": [
+    "path validation",
+    "path traversal",
+    "directory traversal"
+  ],
+  "context_bundle": {
+    "summary": "Path validation and traversal prevention. Normalize paths, reject .., validate against allowed directories. Never trust user-supplied paths.",
+    "prerequisites": [],
+    "related_doors": [],
+    "onboarding": {
+      "quick_start": "",
+      "full_context_path": "",
+      "common_patterns": [],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-05T19:57:58.821533900+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "security",
+        "path",
+        "traversal",
+        "validation"
+      ],
+      "category": "SECURITY",
+      "subcategory": "VALIDATION",
+      "version": "1.0.0",
+      "agent_affinity": [],
+      "size_bytes": 970,
+      "token_estimate": 243.0
+    }
+  }
+}

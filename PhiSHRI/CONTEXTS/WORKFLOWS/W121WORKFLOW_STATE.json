@@ -1,11 +1,23 @@
 {
   "door_code": "W121WORKFLOW_STATE",
   "semantic_path": "WORKFLOWS.ORCHESTRATION.WORKFLOW_STATE",
-  "aliases": ["workflow state", "execution state", "task status", "workflow tracking"],
+  "aliases": [
+    "workflow state",
+    "execution state",
+    "task status",
+    "workflow tracking"
+  ],
   "context_bundle": {
     "summary": "Workflow state management for tracking task execution status, dependencies, results, and failures in multi-agent orchestration",
-    "prerequisites": ["W120STATE_FILE", "W01COORD"],
-    "related_doors": ["W122DAG", "W13DAG", "W123ORCHESTRATION"],
+    "prerequisites": [
+      "W120STATE_FILE",
+      "W01COORD"
+    ],
+    "related_doors": [
+      "W122DAG",
+      "W13DAG",
+      "W123ORCHESTRATION"
+    ],
     "onboarding": {
       "quick_start": "Maintain workflow state with task statuses (pending, running, completed, failed), track dependencies, aggregate results",
       "full_context_path": "/PhiDEX/PhiSync/02_WORKFLOW_ORCHESTRATION/WORKFLOW_ORCHESTRATION_PATTERNS.md",
@@ -19,7 +31,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/PhiSync/02_WORKFLOW_ORCHESTRATION/WORKFLOW_ORCHESTRATION_PATTERNS.md"],
+      "docs": [
+        "/PhiDEX/PhiSync/02_WORKFLOW_ORCHESTRATION/WORKFLOW_ORCHESTRATION_PATTERNS.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -29,12 +43,26 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["workflow state", "task tracking", "orchestration", "status", "progress"],
+      "tags": [
+        "workflow state",
+        "task tracking",
+        "orchestration",
+        "status",
+        "progress"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "ORCHESTRATION",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11"],
-      "agent_affinity": ["DC", "VSCC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 1848,
+      "token_estimate": 462.0
     }
   }
 }

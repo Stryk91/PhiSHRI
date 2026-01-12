@@ -1,11 +1,22 @@
 {
   "door_code": "E03TIMEOUT",
   "semantic_path": "ERRORS.COORDINATION.TIMEOUT_HANDLING",
-  "aliases": ["timeout", "deadlock", "hanging", "unresponsive"],
+  "aliases": [
+    "timeout",
+    "deadlock",
+    "hanging",
+    "unresponsive"
+  ],
   "context_bundle": {
     "summary": "Timeout & deadlock error patterns in multi-agent coordination. Causes: Agent unresponsive, circular dependencies, file lock contention. Solutions: Timeout policies, watchdogs, deadlock detection, circuit breakers.",
-    "prerequisites": ["W12PHISYNC", "W13DAG"],
-    "related_doors": ["E04LOCK", "W08FILEWATCHER"],
+    "prerequisites": [
+      "W12PHISYNC",
+      "W13DAG"
+    ],
+    "related_doors": [
+      "E04LOCK",
+      "W08FILEWATCHER"
+    ],
     "onboarding": {
       "quick_start": "Timeout = agent doesn't respond within deadline. Deadlock = circular wait (A waits for B, B waits for A). Solutions: Set timeouts on all waits, watchdog monitors, detect cycles in dependency graph, circuit breaker fails fast.",
       "full_context_path": "/PhiDEX/PhiSync/02_WORKFLOW_ORCHESTRATION/WORKFLOW_ORCHESTRATION_PATTERNS.md",
@@ -27,7 +38,9 @@
       ]
     },
     "resources": {
-      "docs": ["/PhiDEX/PhiSync/02_WORKFLOW_ORCHESTRATION/WORKFLOW_ORCHESTRATION_PATTERNS.md"],
+      "docs": [
+        "/PhiDEX/PhiSync/02_WORKFLOW_ORCHESTRATION/WORKFLOW_ORCHESTRATION_PATTERNS.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -37,12 +50,24 @@
       "confidence": 0.97,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["errors", "timeout", "deadlock", "coordination"],
+      "tags": [
+        "errors",
+        "timeout",
+        "deadlock",
+        "coordination"
+      ],
       "category": "ERRORS",
       "subcategory": "COORDINATION",
       "version": "1.0.0",
-      "tested_on": ["PhiVector"],
-      "agent_affinity": ["DC", "VSCC"]
+      "tested_on": [
+        "PhiVector"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 2166,
+      "token_estimate": 542.0
     }
   }
 }

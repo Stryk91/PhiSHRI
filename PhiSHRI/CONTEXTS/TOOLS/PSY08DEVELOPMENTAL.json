@@ -1,0 +1,59 @@
+{
+  "door_code": "PSY08DEVELOPMENTAL",
+  "semantic_path": "PSYCHOLOGY.DEVELOPMENTAL.LIFESPAN",
+  "aliases": [
+    "developmental psych",
+    "child development",
+    "attachment",
+    "lifespan"
+  ],
+  "context_bundle": {
+    "summary": "Developmental psychology: Piaget's stages, Vygotsky's sociocultural theory, attachment theory (Bowlby/Ainsworth), Erikson's psychosocial stages, adolescent brain development, lifespan perspective.",
+    "prerequisites": [],
+    "related_doors": [
+      "PSY03AGE_COGNITIVE_DECLINE",
+      "PSY07SOCIAL",
+      "PSY09ASSESSMENT"
+    ],
+    "onboarding": {
+      "quick_start": "Development is stage-like AND continuous. Early attachment shapes internal working models. Adolescent prefrontal cortex still developing (risk-taking). Development continues through adulthood.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Piaget: Sensorimotor→Preoperational→Concrete→Formal operations. Assimilation/accommodation",
+        "Attachment: Secure, anxious-ambivalent, avoidant, disorganized. Internal working models persist",
+        "Adolescence: Prefrontal maturation lags limbic - emotional intensity, risk-taking, peer sensitivity",
+        "Erikson: Trust vs mistrust → Integrity vs despair. Each stage builds on resolution of previous"
+      ],
+      "known_errors": [
+        "Rigid stage thinking - development is messier than clean stages suggest",
+        "Critical period determinism - plasticity exists throughout lifespan",
+        "Assuming attachment is destiny - earned security is possible",
+        "Ignoring cultural variation - WEIRD developmental norms aren't universal"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-24T03:52:35.544166100+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "developmental",
+        "psychology",
+        "attachment",
+        "childhood",
+        "adolescence",
+        "lifespan"
+      ],
+      "category": "TOOLS",
+      "subcategory": "DEVELOPMENTAL",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ]
+    }
+  }
+}

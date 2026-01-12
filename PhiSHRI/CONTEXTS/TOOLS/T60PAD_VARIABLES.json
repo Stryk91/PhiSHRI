@@ -1,0 +1,61 @@
+{
+  "door_code": "T60PAD_VARIABLES",
+  "semantic_path": "TOOLS.AUTOMATION.PAD.VARIABLES",
+  "aliases": [
+    "pad variables",
+    "datatable",
+    "pad list"
+  ],
+  "context_bundle": {
+    "summary": "PAD variable actions: Set, Increase, Decrease, Lists (Create/Add/Remove/Sort/Clear), Random, DataTables (Create/Insert/Update/Filter/Sort/FindReplace), JSON conversion, Truncate",
+    "prerequisites": [
+      "T59POWER_AUTOMATE_DESKTOP"
+    ],
+    "related_doors": [
+      "T61PAD_CONDITIONALS",
+      "T62PAD_LOOPS"
+    ],
+    "onboarding": {
+      "quick_start": "Set variable: NewVar to 0. Lists: %MyList[0]% for first item. DataTable: %DT[row].ColumnName%. JSON: Convert JSON to Custom Object then access %JsonObj.property%",
+      "full_context_path": "",
+      "common_patterns": [
+        "Set variable NewVar to 0|FilePath to 'C:\\path'|IsProcessed to False",
+        "Create new list -> Add item 'value' into list -> %List[0]% access",
+        "Create new data table -> Insert row -> Filter data table (AND/OR rules)",
+        "Convert JSON to Custom Object -> %JsonAsCustomObject.property%",
+        "Generate random number min:0 max:100 -> %RandomNumber%"
+      ],
+      "known_errors": [
+        "DataTable item index out of range - verify row/column exists first",
+        "JSON parse error - validate JSON syntax before conversion",
+        "List items 0-indexed - %List[0]% not %List[1]% for first item"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T17:10:45.031658700+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "pad",
+        "variables",
+        "datatable",
+        "list",
+        "json",
+        "rpa"
+      ],
+      "category": "TOOLS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1913,
+      "token_estimate": 479.0
+    }
+  }
+}

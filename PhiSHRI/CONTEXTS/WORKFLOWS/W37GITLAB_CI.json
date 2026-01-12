@@ -1,11 +1,21 @@
 {
   "door_code": "W37GITLAB_CI",
   "semantic_path": "WORKFLOWS.CICD.GITLAB_CI",
-  "aliases": ["gitlab_ci", "gitlab_pipelines", "gitlab_cicd"],
+  "aliases": [
+    "gitlab_ci",
+    "gitlab_pipelines",
+    "gitlab_cicd"
+  ],
   "context_bundle": {
     "summary": "GitLab CI/CD: .gitlab-ci.yml in repo root. Structure: stages, jobs, scripts. Jobs run in stages (build, test, deploy). Runners execute jobs. Variables for config. artifacts for passing files between jobs. cache for dependencies. Use rules for conditional execution.",
-    "prerequisites": ["W14GIT", "W15CICD"],
-    "related_doors": ["W36GITHUB_ACTIONS", "W33GIT_BRANCH"],
+    "prerequisites": [
+      "W14GIT",
+      "W15CICD"
+    ],
+    "related_doors": [
+      "W36GITHUB_ACTIONS",
+      "W33GIT_BRANCH"
+    ],
     "onboarding": {
       "quick_start": "GitLab CI: .gitlab-ci.yml with stages/jobs. stages: [build, test, deploy]. Jobs: script (commands), stage (placement), only/except (triggers). artifacts: paths to pass between jobs. cache: paths to cache (node_modules). image: docker image for runner. rules for conditions.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
@@ -20,7 +30,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -30,12 +42,24 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["gitlab", "ci_cd", "pipelines", "automation"],
+      "tags": [
+        "gitlab",
+        "ci_cd",
+        "pipelines",
+        "automation"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "CICD",
       "version": "1.0.0",
-      "tested_on": ["GitLab"],
-      "agent_affinity": ["DC", "VSCC"]
+      "tested_on": [
+        "GitLab"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 1855,
+      "token_estimate": 464.0
     }
   }
 }

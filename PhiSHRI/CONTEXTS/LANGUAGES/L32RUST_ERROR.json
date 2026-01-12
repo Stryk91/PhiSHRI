@@ -73,7 +73,9 @@
         "VSCC",
         "DC",
         "TERMC"
-      ]
+      ],
+      "size_bytes": 3075,
+      "token_estimate": 769.0
     }
   }
 }

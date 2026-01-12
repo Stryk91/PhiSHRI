@@ -1,11 +1,20 @@
 {
   "door_code": "W29CONTEXT_WINDOW",
   "semantic_path": "WORKFLOWS.AI_OPTIMIZATION.CONTEXT_WINDOW_MANAGEMENT",
-  "aliases": ["context_window", "token_limit", "context_size"],
+  "aliases": [
+    "context_window",
+    "token_limit",
+    "context_size"
+  ],
   "context_bundle": {
     "summary": "Context window sizes: GPT-4 Turbo/GPT-4o (128K), Claude 3 (200K), Gemini 1.5 Pro (1M). Performance degrades: Llama-3.1-405B after 32K, GPT-4 after 64K. 'Lost in the middle' problem - LLMs better at extracting info from start/end than middle.",
-    "prerequisites": ["W04TOKEN"],
-    "related_doors": ["W30RAG", "W31CHUNKING"],
+    "prerequisites": [
+      "W04TOKEN"
+    ],
+    "related_doors": [
+      "W30RAG",
+      "W31CHUNKING"
+    ],
     "onboarding": {
       "quick_start": "Context windows = how much text model can process. 2024-2025: GPT-4 128K (~250 pages), Claude 200K (~500 pages), Gemini 1M (700K words). Performance drops after limits. Put important info at start/end, not middle. Monitor token usage.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md",
@@ -19,7 +28,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -29,12 +40,28 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["ai", "context_window", "tokens", "limits"],
+      "tags": [
+        "ai",
+        "context_window",
+        "tokens",
+        "limits"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "AI_OPTIMIZATION",
       "version": "1.0.0",
-      "tested_on": ["Claude", "GPT-4", "Gemini", "Llama"],
-      "agent_affinity": ["DC", "VSCC", "WEBC"]
+      "tested_on": [
+        "Claude",
+        "GPT-4",
+        "Gemini",
+        "Llama"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "WEBC"
+      ],
+      "size_bytes": 1817,
+      "token_estimate": 455.0
     }
   }
 }

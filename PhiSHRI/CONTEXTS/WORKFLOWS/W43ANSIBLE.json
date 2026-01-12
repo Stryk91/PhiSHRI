@@ -1,11 +1,24 @@
 {
   "door_code": "W43ANSIBLE",
   "semantic_path": "WORKFLOWS.AUTOMATION.ANSIBLE_CONFIGURATION_MANAGEMENT",
-  "aliases": ["ansible", "playbook", "configuration_management", "infrastructure_automation"],
+  "aliases": [
+    "ansible",
+    "playbook",
+    "configuration_management",
+    "infrastructure_automation"
+  ],
   "context_bundle": {
     "summary": "Ansible agentless automation: uses SSH (Linux) or WinRM (Windows) to execute playbooks (YAML tasks) on inventory hosts. Modules: apt, yum, service, copy, template, shell, file. Idempotent tasks ensure desired state. Inventory defines hosts/groups. Variables via group_vars, host_vars. Roles organize reusable components. ansible-playbook site.yml -i inventory. Ad-hoc: ansible all -m ping.",
-    "prerequisites": ["W40CRON", "W41SYSTEMD", "W42TASK_SCHEDULER"],
-    "related_doors": ["W44PUPPET", "W45CHEF", "W46TERRAFORM"],
+    "prerequisites": [
+      "W40CRON",
+      "W41SYSTEMD",
+      "W42TASK_SCHEDULER"
+    ],
+    "related_doors": [
+      "W44PUPPET",
+      "W45CHEF",
+      "W46TERRAFORM"
+    ],
     "onboarding": {
       "quick_start": "Ansible basics: create inventory file (hosts: [webservers] server1.com), write playbook.yml with - hosts: webservers, tasks: - name: Install nginx, apt: name=nginx state=present. Run: ansible-playbook playbook.yml -i inventory. Ad-hoc commands: ansible all -m ping, ansible webservers -m shell -a 'uptime'. Use modules (apt, yum, service, copy) for idempotency. Organize with roles: roles/webserver/tasks/main.yml. Variables: group_vars/all.yml, {{ variable }}.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md",
@@ -24,7 +37,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +49,27 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["ansible", "automation", "configuration_management", "playbook", "infrastructure"],
+      "tags": [
+        "ansible",
+        "automation",
+        "configuration_management",
+        "playbook",
+        "infrastructure"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "AUTOMATION",
       "version": "1.0.0",
-      "tested_on": ["Linux", "Windows"],
-      "agent_affinity": ["VSCC", "TERMC", "CMDC"]
+      "tested_on": [
+        "Linux",
+        "Windows"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "TERMC",
+        "CMDC"
+      ],
+      "size_bytes": 2687,
+      "token_estimate": 672.0
     }
   }
 }

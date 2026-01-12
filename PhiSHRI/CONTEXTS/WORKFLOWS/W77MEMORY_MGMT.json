@@ -1,11 +1,23 @@
 {
   "door_code": "W77MEMORY_MGMT",
   "semantic_path": "WORKFLOWS.PERFORMANCE.MEMORY_MANAGEMENT",
-  "aliases": ["memory_management", "memory_leak", "garbage_collection", "gc_tuning", "heap_management"],
+  "aliases": [
+    "memory_management",
+    "memory_leak",
+    "garbage_collection",
+    "gc_tuning",
+    "heap_management"
+  ],
   "context_bundle": {
     "summary": "Memory management optimizes RAM usage: Garbage collection tuning (Java G1GC balanced, ZGC ultra-low latency <10ms, generational collection), leak detection (Valgrind memcheck C/C++, Eclipse MAT Java heap analyzer, Chrome DevTools JS, AddressSanitizer ASan), best practices (proper deallocation, avoid circular references, use weak references, object pooling reduces GC). 2024 stats: 30% performance problems involve resource failures, 70,000 CPU cores saved via GC tuning. Tools: YourKit (Java/.NET low-overhead), Scalene (Python line-level), dotMemory (.NET leak finder). Strategies: chunked processing (generators/iterators), efficient data types (int8 vs int64), container right-sizing, backpressure for unbounded growth.",
-    "prerequisites": ["W73PROFILING", "W75BENCHMARK"],
-    "related_doors": ["W78CONCURRENCY", "E07DATABASE_ERRORS"],
+    "prerequisites": [
+      "W73PROFILING",
+      "W75BENCHMARK"
+    ],
+    "related_doors": [
+      "W78CONCURRENCY",
+      "E07DATABASE_ERRORS"
+    ],
     "onboarding": {
       "quick_start": "Memory management techniques: Python chunked processing: def process_large_file(filename): with open(filename) as f: for chunk in iter(lambda: f.read(8192), ''): process(chunk); # Avoid loading entire file. Leak detection (Valgrind C++): valgrind --leak-check=full --show-leak-kinds=all ./myapp; # Detects leaks, buffer overflows. Java GC tuning (G1GC): java -XX:+UseG1GC -XX:MaxGCPauseMillis=200 -Xms2g -Xmx4g MyApp; # Target <200ms pause, 2-4GB heap. ZGC (ultra-low latency): java -XX:+UseZGC -XX:ConcGCThreads=2 -Xmx16g MyApp; # <10ms pauses. Python memory profiling (Scalene): pip install scalene; scalene --cpu --memory script.py; # Line-by-line memory usage. Java heap dump: jmap -dump:format=b,file=heap.bin PID; # Analyze with Eclipse MAT. Object pooling (Python): pool = Queue(); for _ in range(10): pool.put(ExpensiveObject()); obj = pool.get(); use(obj); pool.put(obj); # Reuse objects. Weak references (avoid cycles): import weakref; weak_obj = weakref.ref(obj); # Doesn't prevent GC. Monitor: Track heap usage, GC frequency, pause times. Alert if memory grows unbounded (leak).",
       "full_context_path": "/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md",
@@ -24,7 +36,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +48,33 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["memory_management", "garbage_collection", "gc_tuning", "memory_leak", "valgrind", "scalene", "eclipse_mat", "object_pooling"],
+      "tags": [
+        "memory_management",
+        "garbage_collection",
+        "gc_tuning",
+        "memory_leak",
+        "valgrind",
+        "scalene",
+        "eclipse_mat",
+        "object_pooling"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "PERFORMANCE",
       "version": "1.0.0",
-      "tested_on": ["Java", "Python", "C/C++", ".NET", "JavaScript"],
-      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+      "tested_on": [
+        "Java",
+        "Python",
+        "C/C++",
+        ".NET",
+        "JavaScript"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "CMDC",
+        "TERMC"
+      ],
+      "size_bytes": 4398,
+      "token_estimate": 1100.0
     }
   }
 }

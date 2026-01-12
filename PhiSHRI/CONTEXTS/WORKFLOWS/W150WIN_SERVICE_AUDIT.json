@@ -1,0 +1,59 @@
+{
+  "door_code": "W150WIN_SERVICE_AUDIT",
+  "semantic_path": "WORKFLOWS.WINDOWS.SERVICE_AUDIT",
+  "aliases": [
+    "service audit",
+    "windows bloat",
+    "service cleanup",
+    "disable services"
+  ],
+  "context_bundle": {
+    "summary": "Windows service audit and bloat elimination. Identifies telemetry, redundant services, and resource hogs. Includes safe-to-disable list and TCP localhost diagnostics.",
+    "prerequisites": [],
+    "related_doors": [
+      "W151TCP_LOCALHOST_DEBUG",
+      "S50WIN_TELEMETRY"
+    ],
+    "onboarding": {
+      "quick_start": "Get-Service | Where-Object { $_.Status -eq 'Running' } | Measure-Object → then categorize by third-party vs Microsoft vs bloat",
+      "full_context_path": "",
+      "common_patterns": [
+        "# Safe to disable: DiagTrack, WSearch (if using Everything), SysMain, PhoneSvc, WpnUserService, OneSyncSvc, CDPUserSvc, InventorySvc, DoSvc, IpOverUsbSvc, whesvc",
+        "# Stop and disable: Stop-Service -Name 'ServiceName' -Force; Set-Service -Name 'ServiceName' -StartupType Disabled",
+        "# Check TCP localhost pollution: Get-NetTCPConnection -LocalAddress 127.0.0.1 | Group-Object State"
+      ],
+      "known_errors": [
+        "Some services resist stopping - will die on reboot if set to Disabled",
+        "IncrediBuild causes TCP localhost pollution with stuck Closing/FinWait2 connections",
+        "CSR Harmony Bluetooth = 7 processes bloat, safe to kill if using Windows native BT stack"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T21:10:39.914458600+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "windows",
+        "services",
+        "bloat",
+        "optimization",
+        "telemetry",
+        "audit"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "WINDOWS",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 1995,
+      "token_estimate": 499.0
+    }
+  }
+}

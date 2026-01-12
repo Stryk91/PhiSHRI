@@ -1,11 +1,24 @@
 {
   "door_code": "W66COVERAGE",
   "semantic_path": "WORKFLOWS.TESTING.CODE_COVERAGE",
-  "aliases": ["code_coverage", "test_coverage", "coverage", "code_cov"],
+  "aliases": [
+    "code_coverage",
+    "test_coverage",
+    "coverage",
+    "code_cov"
+  ],
   "context_bundle": {
     "summary": "Code coverage: Measure how much code is executed by tests. Metrics: Line coverage (% lines executed), Branch coverage (% conditional branches), Function coverage (% functions called), Statement coverage. Tools: Coverage.py (Python), Istanbul/nyc (JavaScript), JaCoCo (Java), dotnet-coverage (.NET). Target: 70-80% for production code (100% not always practical). Generate reports: HTML, XML (Cobertura), LCOV. CI integration: Fail build if coverage drops below threshold. Focus on critical paths, not 100% coverage.",
-    "prerequisites": ["W58UNITTEST", "W64PYTEST", "W65JEST"],
-    "related_doors": ["W62TDD", "T11CICD", "W59INTEGRATION"],
+    "prerequisites": [
+      "W58UNITTEST",
+      "W64PYTEST",
+      "W65JEST"
+    ],
+    "related_doors": [
+      "W62TDD",
+      "T11CICD",
+      "W59INTEGRATION"
+    ],
     "onboarding": {
       "quick_start": "Code coverage: Measure test execution. Python (coverage.py): pip install coverage; coverage run -m pytest; coverage report (terminal), coverage html (generates htmlcov/index.html). Pytest: pytest --cov=myapp --cov-report=html --cov-report=term-missing. JavaScript (Jest): jest --coverage (generates coverage/ folder). Node.js (nyc): npx nyc npm test; npx nyc report --reporter=html. Metrics: Line coverage = (lines executed / total lines) * 100. Branch coverage = (branches taken / total branches) * 100. Threshold: pytest --cov=myapp --cov-fail-under=80 (fail if <80%). Config (pyproject.toml): [tool.coverage.run] source = ['src']; omit = ['*/tests/*', '*/migrations/*']; [tool.coverage.report] fail_under = 80; exclude_lines = ['pragma: no cover', 'def __repr__', 'raise NotImplementedError']. CI: Upload to Codecov, Coveralls. Focus: Cover critical paths (authentication, payment), not getters/setters.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
@@ -25,7 +38,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -35,12 +50,30 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["code_coverage", "test_coverage", "coverage.py", "istanbul", "jacoco", "metrics"],
+      "tags": [
+        "code_coverage",
+        "test_coverage",
+        "coverage.py",
+        "istanbul",
+        "jacoco",
+        "metrics"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "TESTING",
       "version": "1.0.0",
-      "tested_on": ["Python", "JavaScript", "Java", ".NET"],
-      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+      "tested_on": [
+        "Python",
+        "JavaScript",
+        "Java",
+        ".NET"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "CMDC",
+        "TERMC"
+      ],
+      "size_bytes": 4014,
+      "token_estimate": 1004.0
     }
   }
 }

@@ -1,0 +1,57 @@
+{
+  "door_code": "S50WIN_TELEMETRY",
+  "semantic_path": "SECURITY.WINDOWS.TELEMETRY",
+  "aliases": [
+    "windows telemetry",
+    "diagtrack",
+    "disable telemetry",
+    "privacy windows"
+  ],
+  "context_bundle": {
+    "summary": "Windows telemetry services and how to disable them. DiagTrack, InventorySvc, whesvc ('Health and Optimized Experiences'), CDPUserSvc, and related data collection.",
+    "prerequisites": [],
+    "related_doors": [
+      "W150WIN_SERVICE_AUDIT"
+    ],
+    "onboarding": {
+      "quick_start": "Stop-Service DiagTrack; Set-Service DiagTrack -StartupType Disabled",
+      "full_context_path": "",
+      "common_patterns": [
+        "# Core telemetry: DiagTrack (Connected User Experiences and Telemetry)",
+        "# Hidden telemetry: InventorySvc, whesvc, CDPUserSvc, WpnUserService",
+        "# Disable all: @('DiagTrack','InventorySvc','whesvc','CDPUserSvc_*','WpnUserService_*') | % { Stop-Service $_ -Force; Set-Service $_ -StartupType Disabled }"
+      ],
+      "known_errors": [
+        "Services with _xxxxx suffix are per-user and respawn",
+        "Some telemetry re-enables after Windows updates",
+        "Group Policy can override service settings"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T21:10:39.915429100+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "telemetry",
+        "privacy",
+        "windows",
+        "microsoft",
+        "data collection"
+      ],
+      "category": "SECURITY",
+      "subcategory": "WINDOWS",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 1703,
+      "token_estimate": 426.0
+    }
+  }
+}

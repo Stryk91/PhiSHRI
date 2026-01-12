@@ -1,11 +1,23 @@
 {
   "door_code": "W103INTEGRATION_TESTING",
   "semantic_path": "WORKFLOWS.TESTING.INTEGRATION",
-  "aliases": ["integration test", "component test", "service test", "api test"],
+  "aliases": [
+    "integration test",
+    "component test",
+    "service test",
+    "api test"
+  ],
   "context_bundle": {
     "summary": "Integration testing strategies for verifying interactions between multiple components or services",
-    "prerequisites": ["W102UNIT_TESTING", "W01COORD"],
-    "related_doors": ["W102UNIT_TESTING", "W106E2E_TESTING", "W104MOCKING"],
+    "prerequisites": [
+      "W102UNIT_TESTING",
+      "W01COORD"
+    ],
+    "related_doors": [
+      "W102UNIT_TESTING",
+      "W106E2E_TESTING",
+      "W104MOCKING"
+    ],
     "onboarding": {
       "quick_start": "Test interactions between modules, components, or services to verify they work together correctly",
       "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
@@ -18,7 +30,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -28,12 +42,27 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["testing", "integration", "workflows", "api"],
+      "tags": [
+        "testing",
+        "integration",
+        "workflows",
+        "api"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "TESTING",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11", "Linux"],
-      "agent_affinity": ["VSCC", "DC", "TERMC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11",
+        "Linux"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ],
+      "size_bytes": 1636,
+      "token_estimate": 409.0
     }
   }
 }

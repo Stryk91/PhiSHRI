@@ -1,0 +1,63 @@
+{
+  "door_code": "T40SIGCON6",
+  "semantic_path": "TOOLS.MCP.SIGCON6",
+  "aliases": [
+    "sigcon6",
+    "signal control",
+    "windows diagnostics",
+    "system probe"
+  ],
+  "context_bundle": {
+    "summary": "SIGCON6 MCP - Signal Control 6. 26 Windows system diagnostic tools for network adapters, IP config, TCP/UDP connections, SMB, Hyper-V, NAT, firewall. Built from msdbg.STRYK cmdlet reference.",
+    "prerequisites": [],
+    "related_doors": [
+      "800WINMCP",
+      "T01MCP"
+    ],
+    "onboarding": {
+      "quick_start": "26 Windows diagnostic tools. Path: C:\\MCP-Servers\\sigcon6\\publish\\SIGCON6.exe. Categories: Network Adapter (3), Network IP (4), Connections (3), SMB (3), System (4), VM/HNS (3), NAT (2), Firewall (2). Authorship: STRYK;DC PhiVector.",
+      "full_context_path": "",
+      "common_patterns": [
+        "sig_get_adapters - NIC status",
+        "sig_tcp - netstat style connections",
+        "sig_listening - ports with process names",
+        "sig_sysinfo - OS/RAM/CPU summary",
+        "sig_fw_rules - firewall rules"
+      ],
+      "known_errors": [
+        "Hyper-V tools require Hyper-V role enabled",
+        "Some tools need admin elevation"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-29T08:22:00.541885300+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "sigcon6",
+        "mcp",
+        "diagnostics",
+        "network",
+        "windows",
+        "smb",
+        "firewall",
+        "hyper-v",
+        "phivector"
+      ],
+      "category": "TOOLS",
+      "subcategory": "MCP",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "STRYK"
+      ],
+      "size_bytes": 1755,
+      "token_estimate": 439.0
+    }
+  }
+}

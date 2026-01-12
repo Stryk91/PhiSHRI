@@ -1,0 +1,64 @@
+{
+  "door_code": "T67PAD_UI",
+  "semantic_path": "TOOLS.AUTOMATION.PAD.UI",
+  "aliases": [
+    "pad ui",
+    "desktop automation",
+    "ui automation",
+    "window control"
+  ],
+  "context_bundle": {
+    "summary": "PAD UI automation: Click/Populate/Select elements in Windows apps, Get element details, Focus window, Wait for UI element appear/disappear. Desktop app automation counterpart to web",
+    "prerequisites": [
+      "T59POWER_AUTOMATE_DESKTOP"
+    ],
+    "related_doors": [
+      "T66PAD_WEB",
+      "810AHK"
+    ],
+    "onboarding": {
+      "quick_start": "Focus window -> Wait for UI element -> Click button -> Populate text field -> Select dropdown item -> Get element details for validation",
+      "full_context_path": "",
+      "common_patterns": [
+        "Focus window 'Window Title' -> bring to foreground",
+        "Wait for UI element appear timeout:30 seconds",
+        "Click UI element in window type:LeftClick|RightClick|DoubleClick",
+        "Populate text field emulate typing:False for fast input",
+        "Select item in dropdown list by:Name|Index",
+        "Get details of UI element attribute:'Text'|'IsEnabled'|'IsVisible' -> %Value%"
+      ],
+      "known_errors": [
+        "UIPI blocks cross-elevation - run PAD as admin if target is elevated",
+        "Element selector broken after UI update - re-record element",
+        "Focus window fails if minimized to tray",
+        "Emulate typing:True needed for some secure text fields"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T17:10:45.036100800+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "pad",
+        "ui",
+        "desktop",
+        "windows",
+        "automation",
+        "rpa"
+      ],
+      "category": "TOOLS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1965,
+      "token_estimate": 492.0
+    }
+  }
+}

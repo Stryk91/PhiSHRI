@@ -1,0 +1,80 @@
+{
+  "door_code": "N06WIFI6E",
+  "semantic_path": "NETWORK.WIRELESS.WIFI6E",
+  "aliases": [
+    "wifi6e",
+    "wifi 6e",
+    "802.11ax",
+    "6ghz",
+    "6ghz band",
+    "6e router"
+  ],
+  "context_bundle": {
+    "summary": "Wi-Fi 6E extends Wi-Fi 6 (802.11ax) to 6GHz band. Cleaner spectrum with less congestion than 2.4/5GHz. Supports 160MHz channels. Wi-Fi 7 card on 6E router: max ~2.4Gbps theoretical. Current ASUS 6E router provides 1.7Gbps link speed.",
+    "prerequisites": [],
+    "related_doors": [
+      "N01WIFI7"
+    ],
+    "onboarding": {
+      "quick_start": "6GHz band requires Wi-Fi 6E or 7 hardware on both ends. Less interference, wider channels. Set Preferred Band to 6GHz in adapter properties.",
+      "full_context_path": null,
+      "common_patterns": [
+        "6GHz band: Clean spectrum, no legacy devices",
+        "160MHz channels (vs 320MHz in Wi-Fi 7)",
+        "Lower range than 5GHz, best for same-room use",
+        "Backward compatible: 6E devices work on 6/5/2.4GHz"
+      ],
+      "known_errors": [
+        {
+          "error": "Can't see 6GHz network",
+          "cause": "Device doesn't support 6E, or 6GHz disabled",
+          "solution": "Check adapter supports 6E, enable Ultra High Band in properties",
+          "prevention": "Verify hardware before expecting 6GHz"
+        }
+      ]
+    },
+    "technical_details": {
+      "standard": "802.11ax (Wi-Fi 6 extended to 6GHz)",
+      "bands": [
+        "6GHz (new)",
+        "5GHz",
+        "2.4GHz"
+      ],
+      "max_channel_width": "160MHz",
+      "benefits": [
+        "Uncongested spectrum",
+        "No legacy device interference",
+        "Lower latency",
+        "Higher throughput"
+      ],
+      "current_setup": {
+        "router": "ASUS Wi-Fi 6E",
+        "client": "Intel BE200 (Wi-Fi 7, backward compatible)",
+        "link_speed": "1.7 Gbps"
+      }
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-17T00:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "wifi6e",
+        "802.11ax",
+        "6ghz",
+        "wireless"
+      ],
+      "category": "NETWORK",
+      "subcategory": "WIRELESS",
+      "version": "1.0",
+      "size_bytes": 2339,
+      "token_estimate": 585.0
+    }
+  }
+}

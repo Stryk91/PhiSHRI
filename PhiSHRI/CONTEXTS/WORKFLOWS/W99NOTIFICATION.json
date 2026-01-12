@@ -1,11 +1,23 @@
 {
   "door_code": "W99NOTIFICATION",
   "semantic_path": "WORKFLOWS.MESSAGING.NOTIFICATION_SYSTEMS",
-  "aliases": ["notification", "notifications", "email", "sms", "push_notification", "alerts"],
+  "aliases": [
+    "notification",
+    "notifications",
+    "email",
+    "sms",
+    "push_notification",
+    "alerts"
+  ],
   "context_bundle": {
     "summary": "Notification systems deliver messages via email (SMTP, SendGrid), SMS (Twilio, SNS), and push notifications (FCM, APNs) with templating, scheduling, delivery tracking, and retry logic for reliable user communications.",
-    "prerequisites": ["W98MESSAGE_QUEUE", "W84LOGGING"],
-    "related_doors": ["W100SCHEDULING"],
+    "prerequisites": [
+      "W98MESSAGE_QUEUE",
+      "W84LOGGING"
+    ],
+    "related_doors": [
+      "W100SCHEDULING"
+    ],
     "onboarding": {
       "quick_start": "Notification workflow: 1) Define notification templates (email, SMS, push). 2) Queue notifications asynchronously. 3) Send via provider APIs with retry logic. 4) Track delivery status (sent, delivered, failed). 5) Handle opt-outs and preferences. 6) Log all notifications for audit. Use batching for bulk notifications and rate limiting to avoid provider throttling.",
       "full_context_path": "/PhiDEX/industry_knowledge/notification_patterns.md",
@@ -16,25 +28,53 @@
         "Template rendering: from jinja2 import Template; template = Template('Hello {{ name }}, your order #{{ order_id }} is ready.'); body = template.render(name='John', order_id='12345')",
         "Async queuing: from celery import Celery; app = Celery('tasks'); @app.task(bind=True, max_retries=3); def send_email(self, to, subject, body): try: email_service.send(to, subject, body) except Exception as e: self.retry(exc=e, countdown=60)"
       ],
-      "known_errors": ["E08NETWORK_ERRORS", "E05RETRY"]
+      "known_errors": [
+        "E08NETWORK_ERRORS",
+        "E05RETRY"
+      ]
     },
     "resources": {
-      "docs": ["/PhiDEX/industry_knowledge/notification_patterns.md"],
+      "docs": [
+        "/PhiDEX/industry_knowledge/notification_patterns.md"
+      ],
       "code": [],
       "tests": [],
-      "errors": ["E08NETWORK_ERRORS", "E05RETRY"]
+      "errors": [
+        "E08NETWORK_ERRORS",
+        "E05RETRY"
+      ]
     },
     "metadata": {
       "last_updated": "2025-11-21T00:00:00Z",
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["notification", "email", "sms", "push_notification", "messaging", "alerts"],
+      "tags": [
+        "notification",
+        "email",
+        "sms",
+        "push_notification",
+        "messaging",
+        "alerts"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "MESSAGING",
       "version": "1.0.0",
-      "tested_on": ["SendGrid", "Twilio", "Firebase", "AWS SNS", "AWS SES", "Mailgun"],
-      "agent_affinity": ["DC", "VSCC", "WEBC"]
+      "tested_on": [
+        "SendGrid",
+        "Twilio",
+        "Firebase",
+        "AWS SNS",
+        "AWS SES",
+        "Mailgun"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "WEBC"
+      ],
+      "size_bytes": 2987,
+      "token_estimate": 747.0
     }
   }
 }

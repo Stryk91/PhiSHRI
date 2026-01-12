@@ -1,0 +1,65 @@
+{
+  "door_code": "T46REFERENCE_DATABASES",
+  "semantic_path": "TOOLS.DATABASE.REFERENCE",
+  "aliases": [
+    "reference databases",
+    "lookup tables",
+    "offline db",
+    "local reference"
+  ],
+  "context_bundle": {
+    "summary": "Pre-loaded SQLite reference databases for offline lookups: IANA ports (14,496), MAC OUI vendors (56,539), file signatures (54), country codes (249), HTTP status codes (62), MIME types (62). Total 71,462 reference records.",
+    "prerequisites": [
+      "T45DATABASE_MCP"
+    ],
+    "related_doors": [
+      "T45DATABASE_MCP",
+      "800WINMCP"
+    ],
+    "onboarding": {
+      "quick_start": "1. db_open C:/PhiDEX/databases/dc_state.db\\n2. Query reference tables: iana_ports (14,496), mac_oui (56,539), file_signatures (54), country_codes (249), http_status_codes (62), mime_types (62)\\n3. Use for offline lookups without web search",
+      "full_context_path": "",
+      "common_patterns": [
+        "SELECT * FROM iana_ports WHERE \"Port Number\" = '443'",
+        "SELECT * FROM mac_oui WHERE \"Mac Prefix\" LIKE '00:11:22%'",
+        "SELECT * FROM file_signatures WHERE hex_signature LIKE '50 4B%'",
+        "SELECT * FROM http_status_codes WHERE code = 404"
+      ],
+      "known_errors": [
+        "Column names with spaces need double quotes in queries",
+        "MAC prefix format varies - normalize before lookup"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-30T02:41:40.498981800+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "reference",
+        "database",
+        "offline",
+        "ports",
+        "mac",
+        "oui",
+        "mime",
+        "http",
+        "country",
+        "file-signatures",
+        "lookup"
+      ],
+      "category": "TOOLS",
+      "subcategory": "DATABASE",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC",
+        "GEMMA"
+      ]
+    }
+  }
+}

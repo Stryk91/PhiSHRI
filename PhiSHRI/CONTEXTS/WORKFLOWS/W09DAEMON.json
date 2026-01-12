@@ -1,11 +1,24 @@
 {
   "door_code": "W09DAEMON",
   "semantic_path": "WORKFLOWS.ARCHITECTURE.DAEMON_PATTERN",
-  "aliases": ["daemon", "background_service", "persistent_process", "auto_launch"],
+  "aliases": [
+    "daemon",
+    "background_service",
+    "persistent_process",
+    "auto_launch"
+  ],
   "context_bundle": {
     "summary": "Daemon pattern for persistent background automation. Uses Startup folder for user-mode auto-launch, FileSystemWatcher for commands, Runspaces for async work. Enables full DC autonomy.",
-    "prerequisites": ["W05RUNSPACE", "W08FILEWATCHER", "820PWSH"],
-    "related_doors": ["W01COORD", "A01DC", "W10STARTUP"],
+    "prerequisites": [
+      "W05RUNSPACE",
+      "W08FILEWATCHER",
+      "820PWSH"
+    ],
+    "related_doors": [
+      "W01COORD",
+      "A01DC",
+      "W10STARTUP"
+    ],
     "onboarding": {
       "quick_start": "Daemon = infinite loop + FileSystemWatcher + Runspaces. Startup folder = auto-launch on login. No Task Scheduler needed. DC drops commands, daemon executes autonomously.",
       "full_context_path": "/PhiDEX/BREAKTHROUGH.md",
@@ -26,7 +39,10 @@
       ]
     },
     "resources": {
-      "docs": ["/PhiDEX/BREAKTHROUGH.md", "/PhiDEX/DC_AUTOMATION_PATTERNS.md"],
+      "docs": [
+        "/PhiDEX/BREAKTHROUGH.md",
+        "/PhiDEX/DC_AUTOMATION_PATTERNS.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -36,12 +52,25 @@
       "confidence": 0.99,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["daemon", "service", "persistence", "autonomy", "breakthrough"],
+      "tags": [
+        "daemon",
+        "service",
+        "persistence",
+        "autonomy",
+        "breakthrough"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "ARCHITECTURE",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11"],
-      "agent_affinity": ["DC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1974,
+      "token_estimate": 494.0
     }
   }
 }

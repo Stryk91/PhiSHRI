@@ -1,11 +1,24 @@
 {
   "door_code": "S25LDAP_INJECTION",
   "semantic_path": "SECURITY.VULNERABILITIES.LDAP_INJECTION",
-  "aliases": ["ldap injection", "ldap filter injection", "directory injection", "active directory injection"],
+  "aliases": [
+    "ldap injection",
+    "ldap filter injection",
+    "directory injection",
+    "active directory injection"
+  ],
   "context_bundle": {
     "summary": "LDAP injection prevention: use parameterized LDAP queries, escape special characters in user input (* ( ) \\ NUL), validate input against allowlists, use bind variables when available, implement least privilege LDAP access, consider using ORM-like LDAP libraries.",
-    "prerequisites": ["S03INPUT_VAL", "S02SQL", "S16INPUT_SANITIZATION"],
-    "related_doors": ["S09RBAC", "S17ZERO_TRUST", "S12API_SECURITY"],
+    "prerequisites": [
+      "S03INPUT_VAL",
+      "S02SQL",
+      "S16INPUT_SANITIZATION"
+    ],
+    "related_doors": [
+      "S09RBAC",
+      "S17ZERO_TRUST",
+      "S12API_SECURITY"
+    ],
     "onboarding": {
       "quick_start": "LDAP injection defense: 1) Escape LDAP special chars: * ( ) \\ NUL in user input, 2) Use parameterized queries if library supports, 3) Validate input (alphanumeric + @.-_ for usernames), 4) Avoid string concatenation in filters, 5) Use minimal LDAP privileges (read-only for auth checks).",
       "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/OWASP_TOP_10_GUIDE.md",
@@ -62,12 +75,28 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["ldap", "ldap_injection", "directory_services", "active_directory", "owasp"],
+      "tags": [
+        "ldap",
+        "ldap_injection",
+        "directory_services",
+        "active_directory",
+        "owasp"
+      ],
       "category": "SECURITY",
       "subcategory": "VULNERABILITIES",
       "version": "1.0.0",
-      "tested_on": ["Active Directory", "OpenLDAP", "389 Directory Server"],
-      "agent_affinity": ["VSCC", "DC", "WEBC"]
+      "tested_on": [
+        "Active Directory",
+        "OpenLDAP",
+        "389 Directory Server"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "WEBC"
+      ],
+      "size_bytes": 4436,
+      "token_estimate": 1109.0
     }
   }
 }

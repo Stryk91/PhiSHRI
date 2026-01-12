@@ -1,0 +1,61 @@
+{
+  "door_code": "PSY03AGE_COGNITIVE_DECLINE",
+  "semantic_path": "PSYCHOLOGY.COGNITIVE.AGING",
+  "aliases": [
+    "cognitive aging",
+    "mental decline",
+    "dementia",
+    "alzheimers",
+    "MCI"
+  ],
+  "context_bundle": {
+    "summary": "Age-related cognitive changes: Processing speed decline (most robust), working memory reduction, episodic memory impairment, preserved semantic memory/crystallized intelligence. MCI vs dementia differentiation, cognitive reserve, protective factors.",
+    "prerequisites": [],
+    "related_doors": [
+      "PSY02MEMORY_SYSTEMS",
+      "PSY10NEUROPSYCH",
+      "PSY04RESEARCH_METHODS"
+    ],
+    "onboarding": {
+      "quick_start": "Processing speed declines ~15% per decade after 30. Episodic memory vulnerable, semantic preserved. Cognitive reserve (education/occupation/engagement) delays clinical symptoms. Physical exercise is neuroprotective.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Processing speed: First to decline, cascades to other domains, explains ~50% of age-related variance",
+        "Memory: Episodic encoding/retrieval impaired, semantic intact until late-stage, procedural preserved",
+        "Executive function: Set-shifting, inhibition, updating decline - frontal vulnerability hypothesis",
+        "Cognitive reserve: Higher baseline = longer before symptoms manifest, same pathology different presentation"
+      ],
+      "known_errors": [
+        "Assuming all decline is pathological - normal aging has trajectory",
+        "Ignoring modifiable risk factors - 40% of dementia potentially preventable",
+        "Confusing MCI with early dementia - MCI may be stable or revert",
+        "Dismissing complaints as 'just aging' - can miss treatable causes"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-24T03:52:35.537566800+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "aging",
+        "cognitive decline",
+        "dementia",
+        "MCI",
+        "memory",
+        "neurodegeneration"
+      ],
+      "category": "TOOLS",
+      "subcategory": "COGNITIVE",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "WEBC"
+      ]
+    }
+  }
+}

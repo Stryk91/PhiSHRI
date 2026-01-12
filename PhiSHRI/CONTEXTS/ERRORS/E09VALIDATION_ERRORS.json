@@ -1,11 +1,22 @@
 {
   "door_code": "E09VALIDATION_ERRORS",
   "semantic_path": "ERRORS.INPUT.VALIDATION_ERRORS",
-  "aliases": ["validation_error", "input_validation", "validation_failure", "invalid_input"],
+  "aliases": [
+    "validation_error",
+    "input_validation",
+    "validation_failure",
+    "invalid_input"
+  ],
   "context_bundle": {
     "summary": "Validation errors occur when input fails schema, type, range, or business rule checks per OWASP guidelines using allowlisting, syntactic/semantic validation, and fail-fast error reporting with detailed messages for debugging.",
-    "prerequisites": ["S01INPUT_VALIDATION"],
-    "related_doors": ["W89DATA_VALIDATION", "S02SQL_INJECTION", "E10SERIALIZATION_ERRORS"],
+    "prerequisites": [
+      "S01INPUT_VALIDATION"
+    ],
+    "related_doors": [
+      "W89DATA_VALIDATION",
+      "S02SQL_INJECTION",
+      "E10SERIALIZATION_ERRORS"
+    ],
     "onboarding": {
       "quick_start": "Validation error handling: 1) Validate at multiple layers (client + server). 2) Use allowlisting over denylisting. 3) Syntactic validation: Check structure, types, format (email, URL, date). 4) Semantic validation: Check business rules (age range, stock availability). 5) Fail fast with clear error messages. 6) Log validation failures for security monitoring. 7) Never expose internal details in error messages. Return structured validation errors (field, message, code).",
       "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md#12-input-validation-checklist",
@@ -19,7 +30,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -29,12 +42,29 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["validation_error", "input_validation", "owasp", "allowlisting", "error_handling"],
+      "tags": [
+        "validation_error",
+        "input_validation",
+        "owasp",
+        "allowlisting",
+        "error_handling"
+      ],
       "category": "ERRORS",
       "subcategory": "INPUT",
       "version": "1.0.0",
-      "tested_on": ["Python", "Pydantic", "Joi", "Yup", "JSON Schema"],
-      "agent_affinity": ["DC", "VSCC"]
+      "tested_on": [
+        "Python",
+        "Pydantic",
+        "Joi",
+        "Yup",
+        "JSON Schema"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 3411,
+      "token_estimate": 853.0
     }
   }
 }

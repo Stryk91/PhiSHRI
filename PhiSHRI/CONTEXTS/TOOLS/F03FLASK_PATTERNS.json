@@ -10,8 +10,12 @@
   ],
   "context_bundle": {
     "summary": "Flask microframework patterns, routing, blueprints, extensions, and common idioms. Flask is minimalist - know the patterns because there's less magic than Django. Essential for SWE-bench Flask issues.",
-    "prerequisites": ["L01PYTHON"],
-    "related_doors": ["L60PYTHON_COMMON_ERRORS"],
+    "prerequisites": [
+      "L01PYTHON"
+    ],
+    "related_doors": [
+      "L60PYTHON_COMMON_ERRORS"
+    ],
     "onboarding": {
       "quick_start": "Flask is minimal: create app, add routes, run. No ORM built-in (use SQLAlchemy). No forms built-in (use WTForms). App factory pattern for larger apps. Blueprints for modular code.",
       "basic_app": {
@@ -94,16 +98,29 @@
       ]
     },
     "resources": {
-      "docs": ["https://flask.palletsprojects.com/"]
+      "docs": [
+        "https://flask.palletsprojects.com/"
+      ]
     },
     "metadata": {
       "last_updated": "2025-11-27T15:00:00Z",
       "confidence": 0.97,
-      "tags": ["flask", "python", "web", "microframework", "swe-bench"],
+      "tags": [
+        "flask",
+        "python",
+        "web",
+        "microframework",
+        "swe-bench"
+      ],
       "category": "FRAMEWORKS",
       "subcategory": "FLASK",
       "version": "1.0.0",
-      "agent_affinity": ["DC", "WEBC"]
+      "agent_affinity": [
+        "DC",
+        "WEBC"
+      ],
+      "size_bytes": 10230,
+      "token_estimate": 2558.0
     }
   }
 }

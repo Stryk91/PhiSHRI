@@ -1,0 +1,61 @@
+{
+  "door_code": "T26POWERTOYS_CLAUDE",
+  "semantic_path": "TOOLS.MCP.POWERTOYS_INTEGRATION",
+  "aliases": [
+    "powertoys",
+    "pt run",
+    "claude plugin",
+    "launcher"
+  ],
+  "context_bundle": {
+    "summary": "PowerToys Run plugin with Claude MCP bridge for instant command execution from Windows launcher. HTTP bridge on localhost:7777 maintains persistent MCP connection.",
+    "prerequisites": [
+      "T01MCP",
+      "T06MCP_SETUP"
+    ],
+    "related_doors": [
+      "T25EVERYTHING_MCP",
+      "W120MCP_CREATION"
+    ],
+    "onboarding": {
+      "quick_start": "1. Start ClaudeBridge (localhost:7777) 2. Restart PowerToys 3. Alt+Space -> cl <command> -> Enter 4. Result copied to clipboard",
+      "full_context_path": "",
+      "common_patterns": [
+        "cl Get-Date",
+        "cl Get-Process",
+        "cl dir C:\\Dev"
+      ],
+      "known_errors": [
+        "Bridge not running - start ClaudeBridge first",
+        "HttpRequestException - check port 7777"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T10:45:25.614873500+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "powertoys",
+        "plugin",
+        "bridge",
+        "launcher",
+        "mcp",
+        "http"
+      ],
+      "category": "TOOLS",
+      "subcategory": "MCP",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "ORCHESTRATOR"
+      ],
+      "size_bytes": 1491,
+      "token_estimate": 373.0
+    }
+  }
+}

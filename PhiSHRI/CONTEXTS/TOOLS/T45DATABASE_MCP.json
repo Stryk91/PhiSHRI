@@ -1,0 +1,63 @@
+{
+  "door_code": "T45DATABASE_MCP",
+  "semantic_path": "TOOLS.MCP.DATABASE",
+  "aliases": [
+    "db mcp",
+    "sqlite mcp",
+    "database server",
+    "persistent storage"
+  ],
+  "context_bundle": {
+    "summary": "SQLite database MCP providing persistent structured storage, CSV import/export, backup, and SQL query capabilities for cross-session state management and data analysis.",
+    "prerequisites": [
+      "E71MCP_XDRIVE_DEPENDENCY"
+    ],
+    "related_doors": [
+      "800WINMCP",
+      "D05PHISHRI"
+    ],
+    "onboarding": {
+      "quick_start": "1. db_open to create/connect database\\n2. db_execute for DDL/DML (CREATE, INSERT, UPDATE, DELETE)\\n3. db_query for SELECT operations\\n4. db_import_csv / db_export_csv for bulk operations\\n5. db_backup before risky operations\\n6. db_vacuum to compact",
+      "full_context_path": "",
+      "common_patterns": [
+        "session_context table for key-value state",
+        "task_queue table for prioritized operations",
+        "knowledge_cache table for result caching",
+        "CSV import for bulk data loading"
+      ],
+      "known_errors": [
+        "Directory must exist before db_open",
+        "Use forward slashes in paths",
+        "CSV import may duplicate if run twice - use DROP_EXISTING or UNIQUE constraints"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-30T01:00:20.662029+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "database",
+        "sqlite",
+        "mcp",
+        "persistence",
+        "csv",
+        "sql",
+        "storage",
+        "cache",
+        "backup"
+      ],
+      "category": "TOOLS",
+      "subcategory": "MCP",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ]
+    }
+  }
+}

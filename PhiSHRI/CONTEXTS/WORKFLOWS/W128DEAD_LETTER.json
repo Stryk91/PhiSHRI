@@ -1,11 +1,23 @@
 {
   "door_code": "W128DEAD_LETTER",
   "semantic_path": "WORKFLOWS.COMMUNICATION.DEAD_LETTER",
-  "aliases": ["dead letter queue", "DLQ", "failed messages", "retry queue"],
+  "aliases": [
+    "dead letter queue",
+    "DLQ",
+    "failed messages",
+    "retry queue"
+  ],
   "context_bundle": {
     "summary": "Dead Letter Queue pattern for handling failed message processing with retry logic, exponential backoff, and failure analysis",
-    "prerequisites": ["W115MESSAGE_QUEUE", "E05RETRY"],
-    "related_doors": ["E06CIRCUIT_BREAKER", "W84LOGGING", "W86METRICS"],
+    "prerequisites": [
+      "W115MESSAGE_QUEUE",
+      "E05RETRY"
+    ],
+    "related_doors": [
+      "E06CIRCUIT_BREAKER",
+      "W84LOGGING",
+      "W86METRICS"
+    ],
     "onboarding": {
       "quick_start": "Move failed messages to dlq directory, implement separate retry process with exponential backoff, monitor DLQ size, analyze failure patterns",
       "full_context_path": "/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md",
@@ -23,7 +35,9 @@
       ]
     },
     "resources": {
-      "docs": ["/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md"],
+      "docs": [
+        "/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -33,12 +47,30 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["dead letter", "DLQ", "retry", "failure handling", "poison message"],
+      "tags": [
+        "dead letter",
+        "DLQ",
+        "retry",
+        "failure handling",
+        "poison message"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "COMMUNICATION",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11"],
-      "agent_affinity": ["DC", "VSCC", "TERMC", "KALIC", "WEBC", "CMDC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "TERMC",
+        "KALIC",
+        "WEBC",
+        "CMDC"
+      ],
+      "size_bytes": 2051,
+      "token_estimate": 513.0
     }
   }
 }

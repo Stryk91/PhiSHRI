@@ -1,0 +1,61 @@
+{
+  "door_code": "T45WA_ENCODER_RS",
+  "semantic_path": "TOOLS.WOW.WEAKAURA_ENCODER",
+  "aliases": [
+    "wa-encoder",
+    "weakaura encoder",
+    "wa encoder rust",
+    "libserialize rust",
+    "wago encoder"
+  ],
+  "context_bundle": {
+    "summary": "Rust WeakAura encoder/decoder - native implementation of LibSerialize + LibDeflate + EncodeForPrint. Decodes/encodes !WA:2! import strings without Lua runtime.",
+    "prerequisites": [],
+    "related_doors": [
+      "P25CVARMASTER_ADDON",
+      "G01WOW_OPTIMIZATION"
+    ],
+    "onboarding": {
+      "quick_start": "Binary: X:\\mcp-servers\\wa-encoder-rs\\target\\release\\wa-encoder-rs.exe (1MB). CLI: encode/decode/validate/test. MCP mode: run with no args. Tools: wa_encode, wa_decode, wa_validate. Added to claude_desktop_config.json.",
+      "known_errors": [
+        "Endianness: LibSerialize=big-endian, EncodeForPrint=little-endian",
+        "Use 'type' not 'finish' in animation sections",
+        "Use v:2000 not v:2 for version field"
+      ],
+      "common_patterns": [
+        "wa-encoder-rs decode < wa_string.txt",
+        "wa-encoder-rs encode my_aura.json",
+        "wa-encoder-rs validate '!WA:2!...'",
+        "WA wrapper: m=d, s=5.17.0, d={aura}, v=2000"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2026-01-02T03:26:12.214001600+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "rust",
+        "weakaura",
+        "wow",
+        "libserialize",
+        "libdeflate",
+        "encoder",
+        "decoder",
+        "mcp",
+        "wago"
+      ],
+      "category": "TOOLS",
+      "subcategory": "WOW",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ]
+    }
+  }
+}

@@ -1,11 +1,20 @@
 {
   "door_code": "E04TIMEOUT",
   "semantic_path": "ERRORS.PATTERNS.TIMEOUT_HANDLING",
-  "aliases": ["timeout", "timeout_error", "request_timeout", "connection_timeout"],
+  "aliases": [
+    "timeout",
+    "timeout_error",
+    "request_timeout",
+    "connection_timeout"
+  ],
   "context_bundle": {
     "summary": "Timeout handling: Prevent indefinite waits. Types: Connection timeout (establish connection), Read timeout (receive response), Operation timeout (complete task). Patterns: Set reasonable timeouts (API calls 10-30s, DB queries 5-10s, batch jobs 1h), implement retries with backoff, fail fast. Languages: Python (requests timeout=10), JavaScript (AbortController, Promise.race), Java (SocketTimeoutException), Go (context.WithTimeout). Best practices: Always set timeouts (never infinite wait), use context propagation, log timeout events, alert on high timeout rates. Debugging: Check network latency, slow dependencies, resource exhaustion.",
     "prerequisites": [],
-    "related_doors": ["E05RETRY", "E06CIRCUIT_BREAKER", "T10OBSERVABILITY"],
+    "related_doors": [
+      "E05RETRY",
+      "E06CIRCUIT_BREAKER",
+      "T10OBSERVABILITY"
+    ],
     "onboarding": {
       "quick_start": "Timeout handling: Limit wait time. Python (requests): import requests; try: response = requests.get('https://api.example.com', timeout=10); except requests.Timeout: print('Request timed out after 10 seconds'); # Handle timeout. JavaScript (fetch + AbortController): const controller = new AbortController(); const timeoutId = setTimeout(() => controller.abort(), 10000); try { const response = await fetch(url, {signal: controller.signal}); } catch (err) { if (err.name === 'AbortError') { console.log('Request timed out'); } } finally { clearTimeout(timeoutId); }. Go (context): ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second); defer cancel(); req, _ := http.NewRequestWithContext(ctx, 'GET', url, nil); resp, err := client.Do(req); if err != nil { if ctx.Err() == context.DeadlineExceeded { // Timeout } }. Database (SQLAlchemy): engine = create_engine(url, pool_pre_ping=True, connect_args={'connect_timeout': 5}). Best practices: Set timeouts on all I/O (HTTP, DB, file), use shorter timeouts for health checks (1-2s), longer for batch operations (minutes), retry with exponential backoff.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
@@ -24,7 +33,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +45,30 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["timeout", "error_handling", "resilience", "requests", "context", "deadline"],
+      "tags": [
+        "timeout",
+        "error_handling",
+        "resilience",
+        "requests",
+        "context",
+        "deadline"
+      ],
       "category": "ERRORS",
       "subcategory": "PATTERNS",
       "version": "1.0.0",
-      "tested_on": ["Python", "JavaScript", "Go", "Java"],
-      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+      "tested_on": [
+        "Python",
+        "JavaScript",
+        "Go",
+        "Java"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "CMDC",
+        "TERMC"
+      ],
+      "size_bytes": 4346,
+      "token_estimate": 1087.0
     }
   }
 }

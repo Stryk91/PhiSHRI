@@ -1,11 +1,22 @@
 {
   "door_code": "P02PHIGEN",
   "semantic_path": "PROJECTS.TOOLS.PHIGEN_CODEGEN",
-  "aliases": ["phigen", "code_generation", "scaffolding", "templates"],
+  "aliases": [
+    "phigen",
+    "code_generation",
+    "scaffolding",
+    "templates"
+  ],
   "context_bundle": {
     "summary": "PhiGEN: Code generation tool for PhiLaunch ecosystem. Template-based scaffolding for PowerShell, Rust, Python, Batch. Generates scripts from natural language prompts. Integrated with PhiLaunch deployment pipeline.",
-    "prerequisites": ["W16PWSH_BEST", "W14GIT"],
-    "related_doors": ["P01WAVE", "P04SHRI"],
+    "prerequisites": [
+      "W16PWSH_BEST",
+      "W14GIT"
+    ],
+    "related_doors": [
+      "P01WAVE",
+      "P04SHRI"
+    ],
     "onboarding": {
       "quick_start": "PhiGEN generates code from prompts. Usage: New-CodeFromPrompt -Prompt 'Remove old files' -Language PowerShell. Templates for common patterns. Output validated, tested, ready-to-deploy.",
       "full_context_path": "/PhiDEX/PhiLaunch/codegen/README.md",
@@ -18,7 +29,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/PhiLaunch/codegen/README.md"],
+      "docs": [
+        "/PhiDEX/PhiLaunch/codegen/README.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -28,12 +41,24 @@
       "confidence": 0.94,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["codegen", "philaunch", "automation", "templates"],
+      "tags": [
+        "codegen",
+        "philaunch",
+        "automation",
+        "templates"
+      ],
       "category": "PROJECTS",
       "subcategory": "CODE_GENERATION",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11"],
-      "agent_affinity": ["VSCC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "VSCC"
+      ],
+      "size_bytes": 1643,
+      "token_estimate": 411.0
     }
   }
 }

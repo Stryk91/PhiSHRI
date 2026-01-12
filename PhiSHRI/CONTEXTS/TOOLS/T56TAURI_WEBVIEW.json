@@ -1,0 +1,59 @@
+{
+  "door_code": "T56TAURI_WEBVIEW",
+  "semantic_path": "TOOLS.DESKTOP.TAURI.WEBVIEW",
+  "aliases": [
+    "tauri webview",
+    "webview2",
+    "tauri window"
+  ],
+  "context_bundle": {
+    "summary": "Tauri WebView2 integration - window creation, navigation, cookie access for auth flows.",
+    "prerequisites": [
+      "T55TAURI_BUILD"
+    ],
+    "related_doors": [
+      "T51CLAUDE_AUTH",
+      "T50TAURI_CLIENT"
+    ],
+    "onboarding": {
+      "quick_start": "WebviewBuilder::new() for custom webview with cookie access",
+      "full_context_path": "",
+      "common_patterns": [
+        "tauri::WebviewWindowBuilder for main window",
+        "on_navigation event to detect OAuth redirect",
+        "webview.eval() for JS injection to read cookies",
+        "window.url() to check current location",
+        "Cookie access via JS: document.cookie in webview context"
+      ],
+      "known_errors": [
+        "HttpOnly cookies not visible to JS - need Tauri 2 cookie API",
+        "Cross-origin cookie access restricted",
+        "WebView2 caches aggressively - clear for fresh auth"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T07:40:57.757293400+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "tauri",
+        "webview2",
+        "cookies",
+        "auth"
+      ],
+      "category": "TOOLS",
+      "subcategory": "DESKTOP",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1545,
+      "token_estimate": 387.0
+    }
+  }
+}

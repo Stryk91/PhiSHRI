@@ -1,11 +1,24 @@
 {
   "door_code": "W83PAGINATION",
   "semantic_path": "WORKFLOWS.API.PAGINATION",
-  "aliases": ["pagination", "paging", "cursor_pagination", "offset_pagination", "limit_offset"],
+  "aliases": [
+    "pagination",
+    "paging",
+    "cursor_pagination",
+    "offset_pagination",
+    "limit_offset"
+  ],
   "context_bundle": {
     "summary": "API pagination strategies: Offset-based (page/limit, simple but skips/duplicates on data changes: ?page=2&limit=20), Cursor-based (stable, opaque cursor points to last item: ?cursor=abc&limit=20, best for real-time feeds), Keyset pagination (indexed column like id>100, efficient for sorted data). Response format: Include total_count, next/prev links, has_more boolean. Best practices: Default limit (20-100), max limit cap (1000), return pagination metadata. SQL offset: SELECT * FROM users LIMIT 20 OFFSET 40 (page 3). Cursor: SELECT * FROM users WHERE id > ? LIMIT 20. GraphQL: Relay connection spec (edges, pageInfo). Performance: Offset degrades on large offsets (LIMIT 1000 OFFSET 100000 slow), cursor/keyset efficient.",
-    "prerequisites": ["W79REST_API", "W80GRAPHQL", "W76OPTIMIZE_DB"],
-    "related_doors": ["W86METRICS", "E07DATABASE_ERRORS"],
+    "prerequisites": [
+      "W79REST_API",
+      "W80GRAPHQL",
+      "W76OPTIMIZE_DB"
+    ],
+    "related_doors": [
+      "W86METRICS",
+      "E07DATABASE_ERRORS"
+    ],
     "onboarding": {
       "quick_start": "Pagination patterns: Offset-based (simple): GET /users?page=2&limit=20. Response: {\"data\": [...], \"page\": 2, \"limit\": 20, \"total\": 1000, \"total_pages\": 50}. SQL: offset = (page - 1) * limit; SELECT * FROM users LIMIT ? OFFSET ?. Cursor-based (stable): GET /users?cursor=abc123&limit=20. Response: {\"data\": [...], \"next_cursor\": \"xyz789\", \"has_more\": true}. SQL: SELECT * FROM users WHERE id > decode_cursor(cursor) ORDER BY id LIMIT 20. Encode cursor: import base64; cursor = base64.b64encode(f'{last_id}'.encode()).decode(). Keyset (efficient): GET /users?after_id=100&limit=20. SQL: SELECT * FROM users WHERE id > ? ORDER BY id LIMIT 20. GraphQL (Relay): query { users(first: 20, after: \"cursor\") { edges { node { id name } cursor } pageInfo { endCursor hasNextPage } } }. Python Flask: @app.route('/users'): page = request.args.get('page', 1, type=int); limit = min(request.args.get('limit', 20, type=int), 100); offset = (page - 1) * limit; users = db.query('SELECT * FROM users LIMIT ? OFFSET ?', limit, offset); total = db.scalar('SELECT COUNT(*) FROM users'); return jsonify({\"data\": users, \"page\": page, \"limit\": limit, \"total\": total}). Performance: Avoid large offsets (slow), use cursor for infinite scroll, add index on cursor column.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
@@ -24,7 +37,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +49,32 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["pagination", "cursor", "offset", "keyset", "rest_api", "graphql", "relay"],
+      "tags": [
+        "pagination",
+        "cursor",
+        "offset",
+        "keyset",
+        "rest_api",
+        "graphql",
+        "relay"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "API",
       "version": "1.0.0",
-      "tested_on": ["Python Flask", "Django", "Node.js", "GraphQL", "SQL"],
-      "agent_affinity": ["VSCC", "WEBC", "CMDC"]
+      "tested_on": [
+        "Python Flask",
+        "Django",
+        "Node.js",
+        "GraphQL",
+        "SQL"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "WEBC",
+        "CMDC"
+      ],
+      "size_bytes": 5474,
+      "token_estimate": 1369.0
     }
   }
 }

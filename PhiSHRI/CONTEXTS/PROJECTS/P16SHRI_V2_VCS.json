@@ -1,0 +1,62 @@
+{
+  "door_code": "P16SHRI_V2_VCS",
+  "semantic_path": "PROJECTS.PHISHRI.VERSION_CONTROL",
+  "aliases": [
+    "phishri git",
+    "door history",
+    "knowledge versioning",
+    "phishri backup"
+  ],
+  "context_bundle": {
+    "summary": "PhiSHRI v2 version control system using git for door history, diff, and rollback capabilities. Enables tracking changes to knowledge base over time.",
+    "prerequisites": [
+      "P04SHRI"
+    ],
+    "related_doors": [
+      "P04SHRI",
+      "W14GIT",
+      "P03VECTOR"
+    ],
+    "onboarding": {
+      "quick_start": "PhiSHRI repo at C:\\Users\\Stryker\\.phishri with git initialized. Auto-commits on door operations. Use 'git log' for history, 'git diff' for changes, 'git checkout' for rollback.",
+      "full_context_path": "",
+      "common_patterns": [
+        "git log --oneline -10  # Recent door changes",
+        "git diff HEAD~1  # Last modification",
+        "git show <hash>  # View specific commit",
+        "git checkout <hash> -- knowledge/CONTEXTS/<CAT>/<DOOR>.json  # Restore door"
+      ],
+      "known_errors": [
+        "CRLF warnings on Windows - cosmetic only",
+        "Large binary files (embeddings) should use .gitignore or LFS"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-04T22:32:43.556355200+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "phishri",
+        "git",
+        "version-control",
+        "history",
+        "backup",
+        "rollback"
+      ],
+      "category": "PROJECTS",
+      "subcategory": "PHISHRI",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ],
+      "size_bytes": 1717,
+      "token_estimate": 430.0
+    }
+  }
+}

@@ -11,10 +11,11 @@
   "context_bundle": {
     "summary": "Git patch/diff format specification for creating and applying patches. Critical for SWE-bench where output must be valid git diff format. Covers unified diff format, context requirements, and common patch errors.",
     "prerequisites": [],
-    "related_doors": ["W80SWE_BENCH_STRATEGY"],
+    "related_doors": [
+      "W80SWE_BENCH_STRATEGY"
+    ],
     "onboarding": {
       "quick_start": "Git diff: --- a/file (old) +++ b/file (new), @@ -old_start,count +new_start,count @@, then lines with space (context), - (removed), + (added). Whitespace matters. Context must match exactly.",
-
       "format_specification": {
         "file_header": {
           "format": "--- a/path/to/file.ext\n+++ b/path/to/file.ext",
@@ -51,14 +52,12 @@
           "\\": "No newline at end of file marker"
         }
       },
-
       "complete_example": {
         "simple_change": "--- a/src/utils.py\n+++ b/src/utils.py\n@@ -15,7 +15,7 @@ def calculate(x, y):\n     '''Calculate result'''\n     if x is None:\n         return None\n-    return x + y\n+    return x + y + 1\n     \n def helper():\n     pass",
         "add_lines": "--- a/config.py\n+++ b/config.py\n@@ -8,6 +8,8 @@ DEFAULT_TIMEOUT = 30\n RETRY_COUNT = 3\n \n # API Settings\n+API_VERSION = 'v2'\n+API_TIMEOUT = 60\n BASE_URL = 'https://api.example.com'\n AUTH_HEADER = 'Authorization'",
         "remove_lines": "--- a/legacy.py\n+++ b/legacy.py\n@@ -20,9 +20,6 @@ class Handler:\n     def process(self, data):\n         result = self.validate(data)\n         \n-        # Legacy logging\n-        print(f'Processing: {data}')\n-        \n         return self.transform(result)",
         "multiple_hunks": "--- a/views.py\n+++ b/views.py\n@@ -10,7 +10,7 @@ from django.shortcuts import render\n \n def index(request):\n-    return render(request, 'index.html')\n+    return render(request, 'home/index.html')\n \n def about(request):\n     return render(request, 'about.html')\n@@ -45,6 +45,9 @@ def profile(request):\n     user = request.user\n     if not user.is_authenticated:\n         return redirect('login')\n+    \n+    if not user.profile:\n+        user.profile = Profile.objects.create(user=user)\n     \n     return render(request, 'profile.html', {'user': user})"
       },
-
       "common_errors": {
         "error_1_path_mismatch": {
           "symptom": "patch does not apply / file not found",
@@ -100,7 +99,6 @@
           "fix": "Count: context + removed = old_count, context + added = new_count"
         }
       },
-
       "creating_patches": {
         "from_git": {
           "unstaged_changes": "git diff",
@@ -129,7 +127,6 @@
           "reverse": "git apply -R patch.diff"
         }
       },
-
       "swe_bench_specific": {
         "output_format": "Patch must be valid unified diff format that git apply accepts",
         "requirements": [
@@ -147,7 +144,6 @@
           "Verify patch before submission"
         ]
       },
-
       "edge_cases": {
         "new_file": "--- /dev/null\n+++ b/new_file.py\n@@ -0,0 +1,5 @@\n+# New file content\n+def new_function():\n+    pass",
         "delete_file": "--- a/old_file.py\n+++ /dev/null\n@@ -1,5 +0,0 @@\n-# Old file content\n-def old_function():\n-    pass",
@@ -156,16 +152,29 @@
       }
     },
     "resources": {
-      "docs": ["https://git-scm.com/docs/git-diff"]
+      "docs": [
+        "https://git-scm.com/docs/git-diff"
+      ]
     },
     "metadata": {
       "last_updated": "2025-11-27T15:00:00Z",
       "confidence": 0.99,
-      "tags": ["git", "patch", "diff", "format", "swe-bench"],
+      "tags": [
+        "git",
+        "patch",
+        "diff",
+        "format",
+        "swe-bench"
+      ],
       "category": "ERRORS",
       "subcategory": "GIT",
       "version": "1.0.0",
-      "agent_affinity": ["DC", "TERMC"]
+      "agent_affinity": [
+        "DC",
+        "TERMC"
+      ],
+      "size_bytes": 8526,
+      "token_estimate": 2132.0
     }
   }
 }

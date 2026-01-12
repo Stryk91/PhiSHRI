@@ -1,11 +1,22 @@
 {
   "door_code": "T24NGINX",
   "semantic_path": "TOOLS.WEB_SERVER.NGINX",
-  "aliases": ["nginx", "reverse proxy", "load balancer", "web server"],
+  "aliases": [
+    "nginx",
+    "reverse proxy",
+    "load balancer",
+    "web server"
+  ],
   "context_bundle": {
     "summary": "Nginx high-performance web server, reverse proxy, and load balancer with efficient event-driven architecture",
-    "prerequisites": ["W79REST_API"],
-    "related_doors": ["W79REST_API", "W113THROTTLING", "S12API_SECURITY"],
+    "prerequisites": [
+      "W79REST_API"
+    ],
+    "related_doors": [
+      "W79REST_API",
+      "W113THROTTLING",
+      "S12API_SECURITY"
+    ],
     "onboarding": {
       "quick_start": "Deploy Nginx as reverse proxy, load balancer, or static file server with SSL/TLS termination and rate limiting",
       "full_context_path": "/PhiDEX/MASTER_CODEX/02_TOOL_INTEGRATION/TOOL_INTEGRATION_INTEROPERABILITY_GUIDE.md",
@@ -15,25 +26,47 @@
         "SSL/TLS termination at edge",
         "Rate limiting and request throttling"
       ],
-      "known_errors": ["E13CONFIGURATION_ERRORS"]
+      "known_errors": [
+        "E13CONFIGURATION_ERRORS"
+      ]
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/02_TOOL_INTEGRATION/TOOL_INTEGRATION_INTEROPERABILITY_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/02_TOOL_INTEGRATION/TOOL_INTEGRATION_INTEROPERABILITY_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
-      "errors": ["E13CONFIGURATION_ERRORS"]
+      "errors": [
+        "E13CONFIGURATION_ERRORS"
+      ]
     },
     "metadata": {
       "last_updated": "2025-11-22T01:00:00Z",
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["tools", "nginx", "web server", "reverse proxy", "load balancer"],
+      "tags": [
+        "tools",
+        "nginx",
+        "web server",
+        "reverse proxy",
+        "load balancer"
+      ],
       "category": "TOOLS",
       "subcategory": "WEB_SERVER",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11", "Linux"],
-      "agent_affinity": ["DC", "VSCC", "TERMC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11",
+        "Linux"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "TERMC"
+      ],
+      "size_bytes": 1626,
+      "token_estimate": 407.0
     }
   }
 }

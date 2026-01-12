@@ -1,0 +1,62 @@
+{
+  "door_code": "T81PAD_DATETIME_ADV",
+  "semantic_path": "TOOLS.AUTOMATION.PAD.DATETIME_ADVANCED",
+  "aliases": [
+    "business days",
+    "timezone",
+    "fiscal year",
+    "working days"
+  ],
+  "context_bundle": {
+    "summary": "Timezone handling (UTC offset calc, DST detection), business day calculations (exclude weekends + holidays), fiscal year/quarter logic, age calculation (days/365.25 for leap years)",
+    "prerequisites": [
+      "T69PAD_DATETIME"
+    ],
+    "related_doors": [
+      "T62PAD_LOOPS"
+    ],
+    "onboarding": {
+      "quick_start": "Business days: Loop date range, skip Sat/Sun (dddd format check) and holiday list. Timezone: Get UTC, Add/Subtract offset hours. Age: (Today-Birth)/365.25 truncated",
+      "full_context_path": "",
+      "common_patterns": [
+        "Weekday check: Convert DateTime to Text format:dddd -> check <> Saturday AND <> Sunday",
+        "Business days loop: If weekday AND not in HolidayList -> count++",
+        "Add N business days: Loop adding 1 day, only increment counter on weekdays",
+        "Fiscal year (Apr start): If month >= 4 then FY=year else FY=year-1",
+        "Quarter: month 1-3=Q1, 4-6=Q2, 7-9=Q3, 10-12=Q4",
+        "DST check (US): month 3-10 = DST active, adjust offset"
+      ],
+      "known_errors": [
+        "DST changes timezone offset - EST=-5 vs EDT=-4",
+        "Leap year: use 365.25 divisor for accurate age/duration",
+        "Holiday lists need annual updates",
+        "Date comparison fails if comparing DateTime to Text - convert first"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T17:47:52.417570200+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "pad",
+        "datetime",
+        "timezone",
+        "business days",
+        "fiscal year"
+      ],
+      "category": "TOOLS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 2024,
+      "token_estimate": 506.0
+    }
+  }
+}

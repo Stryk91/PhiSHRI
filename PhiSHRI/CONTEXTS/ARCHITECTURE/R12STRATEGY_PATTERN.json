@@ -1,11 +1,20 @@
 {
   "door_code": "R12STRATEGY_PATTERN",
   "semantic_path": "ARCHITECTURE.PATTERNS.BEHAVIORAL.STRATEGY",
-  "aliases": ["strategy", "algorithm family", "policy pattern"],
+  "aliases": [
+    "strategy",
+    "algorithm family",
+    "policy pattern"
+  ],
   "context_bundle": {
     "summary": "Strategy pattern defines family of algorithms, encapsulates each one, and makes them interchangeable at runtime",
-    "prerequisites": ["R01MULTI"],
-    "related_doors": ["R09FACTORY_PATTERN", "R12STRATEGY_PATTERN"],
+    "prerequisites": [
+      "R01MULTI"
+    ],
+    "related_doors": [
+      "R09FACTORY_PATTERN",
+      "R12STRATEGY_PATTERN"
+    ],
     "onboarding": {
       "quick_start": "Define interface for algorithm family, implement concrete strategies, and allow client to select strategy at runtime",
       "full_context_path": "/PhiDEX/MASTER_CODEX/02_PATTERNS/DESIGN_PATTERNS_GUIDE.md",
@@ -18,7 +27,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/02_PATTERNS/DESIGN_PATTERNS_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/02_PATTERNS/DESIGN_PATTERNS_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -28,12 +39,26 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["architecture", "design pattern", "strategy", "behavioral"],
+      "tags": [
+        "architecture",
+        "design pattern",
+        "strategy",
+        "behavioral"
+      ],
       "category": "ARCHITECTURE",
       "subcategory": "PATTERNS",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11", "Linux"],
-      "agent_affinity": ["VSCC", "DC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11",
+        "Linux"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC"
+      ],
+      "size_bytes": 1562,
+      "token_estimate": 391.0
     }
   }
 }

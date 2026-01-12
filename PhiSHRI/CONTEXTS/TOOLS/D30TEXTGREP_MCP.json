@@ -1,0 +1,62 @@
+{
+  "door_code": "D30TEXTGREP_MCP",
+  "semantic_path": "TOOLS.MCP.TEXTGREP",
+  "aliases": [
+    "textgrep",
+    "text grep",
+    "grep mcp",
+    "text search mcp",
+    "regex mcp"
+  ],
+  "context_bundle": {
+    "summary": "Rust-based MCP server for high-performance text searching, filtering, and replacement. 12 tools: grep, grep_context, grep_count, grep_files, extract_matches, extract_lines, file_stats, compare_files, find_duplicates, replace (preview), replace_confirm, filter_lines.",
+    "prerequisites": [
+      "L07RUST_PATTERNS"
+    ],
+    "related_doors": [
+      "D01EVERYTHING_MCP",
+      "W100CARGO_BUILD"
+    ],
+    "onboarding": {
+      "quick_start": "EXE: X:/mcp-servers/textgrep-mcp-rs/target/release/textgrep-mcp-rs.exe. Key tools: grep (pattern search with regex), grep_context (N lines around matches), replace (safe 2-step with preview+confirm). Use filter_lines for complex multi-condition filtering.",
+      "full_context_path": "",
+      "common_patterns": [
+        "grep with file glob: *.rs, *.md",
+        "grep_context with before=2, after=2",
+        "replace preview then confirm with token",
+        "filter_lines with contains + not_contains for complex filters"
+      ],
+      "known_errors": [
+        "Replace requires preview first (returns token), then confirm",
+        "Large file operations may timeout - use file_stats first to check sizes"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-21T11:29:19.732797800+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "mcp",
+        "rust",
+        "grep",
+        "regex",
+        "text",
+        "search",
+        "replace",
+        "filter"
+      ],
+      "category": "TOOLS",
+      "subcategory": "MCP",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ]
+    }
+  }
+}

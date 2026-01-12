@@ -1,0 +1,72 @@
+{
+  "door_code": "W250CONTEXT_DISCIPLINE",
+  "semantic_path": "WORKFLOWS.OPERATIONS.CONTEXT_MANAGEMENT",
+  "aliases": [
+    "context management",
+    "context flooding",
+    "window management",
+    "checkpoint resume",
+    "context discipline"
+  ],
+  "context_bundle": {
+    "summary": "Context window management discipline: monitoring usage, partitioning large tasks, checkpoint-resume protocol, and graceful degradation at 85% capacity.",
+    "prerequisites": [
+      "S01DC_SESSION_BOOT"
+    ],
+    "related_doors": [
+      "W251TASK_PARTITIONING",
+      "S01DC_SESSION_BOOT"
+    ],
+    "onboarding": {
+      "quick_start": "MONITOR context fill. PARTITION big tasks into blocks. CHECKPOINT after each block. At 85% full: STOP, summarize, update bootstrap, request compaction, reload and continue.",
+      "full_context_path": "",
+      "common_patterns": [
+        "CONTEXT AWARENESS: Estimate context usage - tool responses are HEAVY (1-10KB each), conversation text lighter",
+        "85% THRESHOLD: At ~85% capacity, STOP current work, don't push to failure",
+        "PARTITION PLANNING: Before big task, estimate blocks needed, plan checkpoints",
+        "BLOCK SIZE: Each block should use ~20-30% of window max, leave headroom",
+        "CHECKPOINT PROTOCOL: After each block - update bootstrap with progress, what's done, what's next",
+        "GRACEFUL STOP: 'Hey STRYK, I'm at ~85% capacity. Here's my progress: [summary]. Updating bootstrap. Request compaction then I'll reload and continue.'",
+        "BOOTSTRAP MARKERS: Use phishri_update_bootstrap with specific progress field after each block",
+        "TOOL RESPONSE AWARENESS: Large tool outputs (file reads, searches) eat context fast - be selective",
+        "SUMMARIZE DON'T STORE: After processing large data, summarize findings, don't keep raw data in context",
+        "RELOAD PROTOCOL: After compaction - call phishri_get_bootstrap FIRST, then continue from last checkpoint"
+      ],
+      "known_errors": [
+        "Context compaction in Electron app helps but doesn't solve mid-task flooding",
+        "No native context meter available - must estimate based on message count and tool usage",
+        "Tool responses are deceptively large - 10 search results can be 5-10KB",
+        "Forgetting to checkpoint before hitting limit = lost work",
+        "Continuing past 85% risks degraded performance, confusion, or context loss"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-19T14:02:34.293544600+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "context",
+        "window",
+        "checkpoint",
+        "resume",
+        "compaction",
+        "discipline",
+        "operations"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "OPERATIONS",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ],
+      "size_bytes": 2963,
+      "token_estimate": 741.0
+    }
+  }
+}

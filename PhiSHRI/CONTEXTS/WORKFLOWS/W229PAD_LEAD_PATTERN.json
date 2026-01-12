@@ -1,0 +1,62 @@
+{
+  "door_code": "W229PAD_LEAD_PATTERN",
+  "semantic_path": "WORKFLOWS.AUTOMATION.PAD.PATTERNS.LEAD_MGMT",
+  "aliases": [
+    "lead management",
+    "lead scoring",
+    "nurturing",
+    "sales automation"
+  ],
+  "context_bundle": {
+    "summary": "Lead Management Pattern: Multi-source capture (web, events, content, social) -> Lead scoring (demographic 30% + behavioral 40% + engagement 20% + predictive 10%) -> Intelligent routing (Hot 80-100: immediate SMS+email to rep, Warm 60-79: daily call list, Cold 40-59: nurture campaign) -> Personalized nurturing (content by industry/stage) -> Sales enablement package. 25%->38% conversion. $11.3M/yr value.",
+    "prerequisites": [
+      "T59POWER_AUTOMATE_DESKTOP",
+      "T78PAD_HTTP_ADV"
+    ],
+    "related_doors": [
+      "T65PAD_EMAIL",
+      "T80PAD_DATABASE_ADV"
+    ],
+    "onboarding": {
+      "quick_start": "1. Capture all sources to CRM. 2. Score: Demo (company size, title, industry) + Behavior (pages, downloads, events) + Engagement (frequency, recency). 3. Hot leads: 5-min response via SMS. 4. Nurture by segment. 5. Auto-create sales intel package.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Score formula: (Demo*0.3) + (Behavior*0.4) + (Engage*0.2) + (Predict*0.1)",
+        "Hot 80-100: SMS+email in 5min, assign rep, high-priority task",
+        "Behavioral triggers: Pricing page -> ROI calc, Case study -> related stories",
+        "Re-score monthly, recalibrate quarterly on conversion data"
+      ],
+      "known_errors": [
+        "Score calibration needs quarterly adjustment on win/loss data",
+        "Behavioral tracking requires proper UTM/cookie setup",
+        "Nurture content library needs ongoing refresh",
+        "CRM data quality limits scoring accuracy"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T18:18:50.052152100+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "pad",
+        "leads",
+        "crm",
+        "sales",
+        "nurturing"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 2246,
+      "token_estimate": 562.0
+    }
+  }
+}

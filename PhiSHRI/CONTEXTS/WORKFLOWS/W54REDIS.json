@@ -1,11 +1,22 @@
 {
   "door_code": "W54REDIS",
   "semantic_path": "WORKFLOWS.DATA_PROCESSING.REDIS_CACHING",
-  "aliases": ["redis", "caching", "key_value_store", "in_memory_db"],
+  "aliases": [
+    "redis",
+    "caching",
+    "key_value_store",
+    "in_memory_db"
+  ],
   "context_bundle": {
     "summary": "Redis in-memory data store for caching, sessions, pub/sub, queues: Key-value pairs with strings, hashes, lists, sets, sorted sets. Sub-millisecond latency. Persistence: RDB snapshots or AOF (append-only file). Patterns: Cache-aside, write-through, TTL expiration. Commands: SET/GET, HSET/HGET, LPUSH/LPOP, ZADD/ZRANGE. Pub/Sub: PUBLISH/SUBSCRIBE. Use cases: session store, leaderboards, rate limiting, job queues (Celery, BullMQ).",
-    "prerequisites": ["W53KAFKA"],
-    "related_doors": ["W55POSTGRES", "W56MONGODB", "W50ETL"],
+    "prerequisites": [
+      "W53KAFKA"
+    ],
+    "related_doors": [
+      "W55POSTGRES",
+      "W56MONGODB",
+      "W50ETL"
+    ],
     "onboarding": {
       "quick_start": "Redis basics: redis-cli or client libraries. SET key value EX 3600 (1 hour TTL), GET key. Hashes: HSET user:1 name 'John' email 'john@example.com', HGET user:1 name. Lists: LPUSH queue task1, RPOP queue (FIFO queue). Sorted sets: ZADD leaderboard 100 user1, ZRANGE leaderboard 0 -1 WITHSCORES. Pub/Sub: PUBLISH channel message, SUBSCRIBE channel. Caching: cache-aside (check cache, miss -> query DB, set cache). TTL: EXPIRE key 3600. Persistence: save RDB or appendonly yes. Use for: sessions, caching, leaderboards, rate limiting.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/05_DATA_PROCESSING/DATA_PROCESSING_MANAGEMENT_RESEARCH.md",
@@ -24,7 +35,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/05_DATA_PROCESSING/DATA_PROCESSING_MANAGEMENT_RESEARCH.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/05_DATA_PROCESSING/DATA_PROCESSING_MANAGEMENT_RESEARCH.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +47,30 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["redis", "caching", "key_value", "in_memory", "session", "pub_sub", "queue"],
+      "tags": [
+        "redis",
+        "caching",
+        "key_value",
+        "in_memory",
+        "session",
+        "pub_sub",
+        "queue"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "DATA_PROCESSING",
       "version": "1.0.0",
-      "tested_on": ["Redis", "Redis Cluster", "Redis Cloud"],
-      "agent_affinity": ["VSCC", "TERMC", "CMDC"]
+      "tested_on": [
+        "Redis",
+        "Redis Cluster",
+        "Redis Cloud"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "TERMC",
+        "CMDC"
+      ],
+      "size_bytes": 2828,
+      "token_estimate": 707.0
     }
   }
 }

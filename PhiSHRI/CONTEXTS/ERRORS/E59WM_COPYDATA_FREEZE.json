@@ -1,0 +1,67 @@
+{
+  "door_code": "E59WM_COPYDATA_FREEZE",
+  "semantic_path": "ERRORS.IPC.WM_COPYDATA_FREEZE",
+  "aliases": [
+    "wm_copydata freeze",
+    "sendmessage deadlock",
+    "desktop freeze",
+    "input queue block"
+  ],
+  "context_bundle": {
+    "summary": "WM_COPYDATA can freeze entire Windows desktop if SendMessage blocks on foreground thread. Kernel-level input queue deadlock. Use SendMessageTimeout from worker thread ONLY.",
+    "prerequisites": [
+      "P15AGENT_BRIDGE_MCP"
+    ],
+    "related_doors": [
+      "P15AGENT_BRIDGE_MCP",
+      "E58AHK_ELECTRON_SEND",
+      "T09IPC_METHODS"
+    ],
+    "onboarding": {
+      "quick_start": "NEVER SendMessage(WM_COPYDATA) from foreground/UI thread. Use SendMessageTimeoutW with SMTO_ABORTIFHUNG from a WORKER THREAD. Hidden window MUST have message pump running BEFORE advertising HWND. Failure = entire desktop freeze, even Ctrl+Alt+Delete can fail.",
+      "full_context_path": "",
+      "common_patterns": [
+        "std::thread::spawn(|| { SendMessageTimeoutW(...) })",
+        "SMTO_ABORTIFHUNG | SMTO_BLOCK, 1000ms timeout",
+        "Message pump must run BEFORE hwnd.txt written",
+        "GetMessage/DispatchMessage loop required"
+      ],
+      "known_errors": [
+        "SendMessage from foreground thread blocks input queue",
+        "No message pump = sender hangs forever",
+        "win32k.sys deadlock can bypass Ctrl+Alt+Delete",
+        "Receiver must be pumping BEFORE sender attempts",
+        "Cross-process SendMessage without timeout = guaranteed freeze risk"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-03T04:46:26.924497500+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "wm_copydata",
+        "sendmessage",
+        "freeze",
+        "deadlock",
+        "kernel",
+        "win32k",
+        "input queue",
+        "kalic"
+      ],
+      "category": "ERRORS",
+      "subcategory": "IPC",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "KALIC",
+        "DC"
+      ],
+      "size_bytes": 2089,
+      "token_estimate": 523.0
+    }
+  }
+}

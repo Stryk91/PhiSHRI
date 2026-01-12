@@ -1,0 +1,58 @@
+{
+  "door_code": "H03GENERIC_PHARMA",
+  "semantic_path": "HEALTH.PHARMACOLOGY.MANUFACTURING",
+  "aliases": [
+    "generic drugs",
+    "indian pharma",
+    "bioequivalence",
+    "drug manufacturing"
+  ],
+  "context_bundle": {
+    "summary": "Generic drug manufacturing differences - India CDSCO vs FDA regulations, bioequivalence requirements, excipient formulations, crystal polymorphism affecting drug performance.",
+    "prerequisites": [],
+    "related_doors": [
+      "H01ARMODAFINIL",
+      "H02PHARMACOKINETICS"
+    ],
+    "onboarding": {
+      "quick_start": "India CDSCO doesn't require bioequivalence studies that FDA mandates. Same molecule can have +/-20% bioavailability variance legally. Excipient ratios, granulation methods, compression force are trade secrets affecting dissolution.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Crystal polymorphs = same chemical different physical properties",
+        "Wet vs dry granulation affects release profile",
+        "Coating thickness changes absorption timing"
+      ],
+      "known_errors": [
+        "Indian generics not FDA approved - wider variance allowed",
+        "Excipient list public but ratios proprietary",
+        "No published peer-reviewed comparisons of Indian generics"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-29T16:36:42.051304+11:00",
+      "confidence": 1.0,
+      "tags": [
+        "generics",
+        "fda",
+        "cdsco",
+        "india",
+        "bioequivalence",
+        "excipients",
+        "polymorphism",
+        "manufacturing"
+      ],
+      "category": "SECURITY",
+      "subcategory": "PHARMACOLOGY",
+      "version": "1.0.0",
+      "agent_affinity": [],
+      "size_bytes": 1810,
+      "token_estimate": 453.0
+    }
+  }
+}

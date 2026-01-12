@@ -1,0 +1,61 @@
+{
+  "door_code": "W230PAD_COMPLIANCE_PATTERN",
+  "semantic_path": "WORKFLOWS.AUTOMATION.PAD.PATTERNS.COMPLIANCE",
+  "aliases": [
+    "compliance monitoring",
+    "audit trail",
+    "certification tracking"
+  ],
+  "context_bundle": {
+    "summary": "Compliance Pattern: Centralized repository (certs, training, policies, access logs) -> Proactive monitoring (90/60/30 day alerts for expiring certs) -> Automated checks (required training by role, policy acknowledgments, access reviews quarterly) -> Risk-based alerting (critical: imminent expiration) -> Auto-reporting (daily critical, weekly status, quarterly regulatory). 100hr->10hr/month. $307K/yr value.",
+    "prerequisites": [
+      "T59POWER_AUTOMATE_DESKTOP",
+      "W221PAD_IMPACT_FRAMEWORK"
+    ],
+    "related_doors": [
+      "T65PAD_EMAIL",
+      "T80PAD_DATABASE_ADV"
+    ],
+    "onboarding": {
+      "quick_start": "1. Centralize all compliance data in SharePoint+Dataverse. 2. Alert 90/60/30 days before cert expiry. 3. Assign required training by role, track completion. 4. Quarterly access review workflow. 5. Auto-generate audit packages on demand.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Cert alerts: 90 day (info), 60 day (warning), 30 day (urgent), 0 day (critical escalate)",
+        "Training: Assign by role template, remind weekly until complete, escalate to manager at deadline",
+        "Access review: Quarterly pull -> Manager approve/revoke -> Auto-revoke if no response 2 weeks",
+        "Audit package: Query all relevant docs + logs + approvals -> compile to single PDF"
+      ],
+      "known_errors": [
+        "Role->training mapping needs HR/Compliance alignment",
+        "Cert renewal often external - can't auto-complete",
+        "Access review needs manager buy-in or becomes checkbox exercise",
+        "Retention policies need legal review"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T18:18:50.052516400+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "pad",
+        "compliance",
+        "audit",
+        "certifications",
+        "training"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 2357,
+      "token_estimate": 590.0
+    }
+  }
+}

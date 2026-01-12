@@ -1,11 +1,27 @@
 {
   "door_code": "W74LOAD_TEST",
   "semantic_path": "WORKFLOWS.PERFORMANCE.LOAD_TESTING",
-  "aliases": ["load_testing", "stress_testing", "locust", "jmeter", "k6", "performance_testing", "load_test"],
+  "aliases": [
+    "load_testing",
+    "stress_testing",
+    "locust",
+    "jmeter",
+    "k6",
+    "performance_testing",
+    "load_test"
+  ],
   "context_bundle": {
     "summary": "Load testing evaluates system performance under load: Tools - Locust (Python-based, code-as-config, distributed), JMeter (Java, GUI, extensive protocols), K6 (JavaScript, modern, Grafana integration), Artillery (Node.js, YAML config). Metrics: Response time (p50, p95, p99), throughput (requests/sec), error rate, concurrent users. Patterns: Ramp-up (gradual increase), spike (sudden load), soak (sustained load), stress (find breaking point). Best practices: Test in staging, realistic data, monitor backend resources, establish baselines, automate in CI/CD.",
-    "prerequisites": ["W75BENCHMARK", "W86METRICS", "T10OBSERVABILITY"],
-    "related_doors": ["W68CANARY", "W69ROLLING", "E04TIMEOUT"],
+    "prerequisites": [
+      "W75BENCHMARK",
+      "W86METRICS",
+      "T10OBSERVABILITY"
+    ],
+    "related_doors": [
+      "W68CANARY",
+      "W69ROLLING",
+      "E04TIMEOUT"
+    ],
     "onboarding": {
       "quick_start": "Load testing tools: Locust (Python): pip install locust; Create locustfile.py: from locust import HttpUser, task, between; class MyUser(HttpUser): wait_time = between(1, 3); @task def index(self): self.client.get('/'); Run: locust -f locustfile.py --host=https://example.com --users=100 --spawn-rate=10. K6 (modern): k6 run script.js; Script: import http from 'k6/http'; import { sleep, check } from 'k6'; export let options = { stages: [{duration: '2m', target: 100}, {duration: '5m', target: 100}, {duration: '2m', target: 0}] }; export default function() { let res = http.get('https://example.com'); check(res, {'status 200': (r) => r.status === 200}); sleep(1); }; JMeter: jmeter -n -t test.jmx -l results.jtl -e -o ./report; # GUI for test plan creation. Artillery: npm install -g artillery; artillery quick --count 100 --num 10 https://example.com; # 100 virtual users, 10 req/sec. Analyze: p95 latency <500ms, error rate <1%, throughput meets target (e.g., 1000 req/sec).",
       "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
@@ -24,7 +40,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +52,34 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["load_testing", "locust", "jmeter", "k6", "artillery", "performance", "stress_testing", "benchmarking"],
+      "tags": [
+        "load_testing",
+        "locust",
+        "jmeter",
+        "k6",
+        "artillery",
+        "performance",
+        "stress_testing",
+        "benchmarking"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "PERFORMANCE",
       "version": "1.0.0",
-      "tested_on": ["Locust", "K6", "JMeter", "Artillery", "Python", "JavaScript"],
-      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+      "tested_on": [
+        "Locust",
+        "K6",
+        "JMeter",
+        "Artillery",
+        "Python",
+        "JavaScript"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "CMDC",
+        "TERMC"
+      ],
+      "size_bytes": 4213,
+      "token_estimate": 1054.0
     }
   }
 }

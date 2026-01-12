@@ -1,11 +1,22 @@
 {
   "door_code": "T12DOCKER_BUILD",
   "semantic_path": "TOOLS.CONTAINERIZATION.DOCKER_BUILD_OPTIMIZATION",
-  "aliases": ["docker_build", "dockerfile", "docker_optimization", "multi_stage_build"],
+  "aliases": [
+    "docker_build",
+    "dockerfile",
+    "docker_optimization",
+    "multi_stage_build"
+  ],
   "context_bundle": {
     "summary": "Docker build optimization: Reduce image size, speed up builds. Techniques: Multi-stage builds (builder + runtime), layer caching (.dockerignore, COPY order), minimize layers (RUN chaining), use slim base images (alpine, distroless), BuildKit (parallel builds, cache mounts). Patterns: Copy package files first (cache dependencies), copy code last (invalidate less), use .dockerignore (exclude node_modules, .git). Metrics: Image size (<100MB ideal, <500MB acceptable), build time (<2 min ideal). Tools: docker build, buildx (BuildKit), dive (layer analysis), hadolint (Dockerfile linter).",
-    "prerequisites": ["W47DOCKER_COMPOSE"],
-    "related_doors": ["T11CICD", "W48K8S_DEPLOY", "W67BLUEGREEN"],
+    "prerequisites": [
+      "W47DOCKER_COMPOSE"
+    ],
+    "related_doors": [
+      "T11CICD",
+      "W48K8S_DEPLOY",
+      "W67BLUEGREEN"
+    ],
     "onboarding": {
       "quick_start": "Docker build optimization: Multi-stage build: FROM node:18 AS builder; WORKDIR /app; COPY package*.json ./; RUN npm ci; COPY . .; RUN npm run build; FROM node:18-alpine AS runtime; WORKDIR /app; COPY --from=builder /app/dist ./dist; COPY --from=builder /app/node_modules ./node_modules; EXPOSE 3000; CMD ['node', 'dist/server.js']. Layer caching: COPY package files before code (dependencies change less). .dockerignore: node_modules, .git, *.md, .env, dist. Slim bases: node:18-alpine (40MB vs node:18 full 900MB), python:3.11-slim (45MB vs python:3.11 350MB), distroless/nodejs (tiny, no shell). BuildKit cache mounts: RUN --mount=type=cache,target=/root/.npm npm ci (reuse npm cache across builds). Build: DOCKER_BUILDKIT=1 docker build -t myapp:latest . Analysis: dive myapp:latest (layer-by-layer size). Hadolint: hadolint Dockerfile (best practices linter).",
       "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
@@ -24,7 +35,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +47,29 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["docker", "dockerfile", "multi_stage", "optimization", "buildkit", "containerization"],
+      "tags": [
+        "docker",
+        "dockerfile",
+        "multi_stage",
+        "optimization",
+        "buildkit",
+        "containerization"
+      ],
       "category": "TOOLS",
       "subcategory": "CONTAINERIZATION",
       "version": "1.0.0",
-      "tested_on": ["Docker", "BuildKit", "Kubernetes"],
-      "agent_affinity": ["CMDC", "VSCC", "TERMC"]
+      "tested_on": [
+        "Docker",
+        "BuildKit",
+        "Kubernetes"
+      ],
+      "agent_affinity": [
+        "CMDC",
+        "VSCC",
+        "TERMC"
+      ],
+      "size_bytes": 4236,
+      "token_estimate": 1059.0
     }
   }
 }

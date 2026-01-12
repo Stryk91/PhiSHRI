@@ -1,11 +1,20 @@
 {
   "door_code": "S01SEC",
   "semantic_path": "SECURITY.HARDENING.INPUT_VALIDATION",
-  "aliases": ["input_validation", "sanitization", "security", "owasp"],
+  "aliases": [
+    "input_validation",
+    "sanitization",
+    "security",
+    "owasp"
+  ],
   "context_bundle": {
     "summary": "Input sanitization & validation per OWASP 2024 standards. Allowlisting (recommended) over denylisting. Validate syntactic + semantic levels. Multi-layer defense (client + server). Prevent SQL injection, XSS, path traversal.",
     "prerequisites": [],
-    "related_doors": ["S02SQL", "S03XSS", "S04DOS"],
+    "related_doors": [
+      "S02SQL",
+      "S03XSS",
+      "S04DOS"
+    ],
     "onboarding": {
       "quick_start": "Allowlist: Define permitted inputs, reject all else. Validate early in data flow. Multi-layer: Client + server. Syntactic: Format checks. Semantic: Business logic checks. Canonicalize paths, strip dangerous chars.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md",
@@ -27,7 +36,9 @@
       ]
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -37,12 +48,26 @@
       "confidence": 0.99,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["security", "owasp", "validation", "sanitization", "hardening"],
+      "tags": [
+        "security",
+        "owasp",
+        "validation",
+        "sanitization",
+        "hardening"
+      ],
       "category": "SECURITY",
       "subcategory": "INPUT_VALIDATION",
       "version": "1.0.0",
-      "tested_on": ["All platforms"],
-      "agent_affinity": ["VSCC", "KALIC", "DC"]
+      "tested_on": [
+        "All platforms"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "KALIC",
+        "DC"
+      ],
+      "size_bytes": 2131,
+      "token_estimate": 533.0
     }
   }
 }

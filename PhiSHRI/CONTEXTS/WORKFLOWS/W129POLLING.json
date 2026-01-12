@@ -1,11 +1,23 @@
 {
   "door_code": "W129POLLING",
   "semantic_path": "WORKFLOWS.COMMUNICATION.POLLING",
-  "aliases": ["polling strategy", "exponential backoff", "poll interval", "busy waiting"],
+  "aliases": [
+    "polling strategy",
+    "exponential backoff",
+    "poll interval",
+    "busy waiting"
+  ],
   "context_bundle": {
     "summary": "Polling strategies with exponential backoff for checking file-based message queues and state files without blocking",
-    "prerequisites": ["W117FILE_IPC", "W115MESSAGE_QUEUE"],
-    "related_doors": ["W08FILEWATCHER", "W19PERF", "W73PROFILING"],
+    "prerequisites": [
+      "W117FILE_IPC",
+      "W115MESSAGE_QUEUE"
+    ],
+    "related_doors": [
+      "W08FILEWATCHER",
+      "W19PERF",
+      "W73PROFILING"
+    ],
     "onboarding": {
       "quick_start": "Poll inbox/outbox with exponential backoff: Start at 100ms, double each iteration, cap at 5s max. Return after max attempts to prevent indefinite blocking.",
       "full_context_path": "/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md",
@@ -24,7 +36,9 @@
       ]
     },
     "resources": {
-      "docs": ["/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md"],
+      "docs": [
+        "/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +48,30 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["polling", "exponential backoff", "delay", "busy waiting", "file monitoring"],
+      "tags": [
+        "polling",
+        "exponential backoff",
+        "delay",
+        "busy waiting",
+        "file monitoring"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "COMMUNICATION",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11"],
-      "agent_affinity": ["DC", "VSCC", "TERMC", "KALIC", "WEBC", "CMDC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "TERMC",
+        "KALIC",
+        "WEBC",
+        "CMDC"
+      ],
+      "size_bytes": 2158,
+      "token_estimate": 540.0
     }
   }
 }

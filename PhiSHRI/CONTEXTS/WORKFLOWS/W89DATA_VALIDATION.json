@@ -1,11 +1,23 @@
 {
   "door_code": "W89DATA_VALIDATION",
   "semantic_path": "WORKFLOWS.DATA_PROCESSING.DATA_VALIDATION",
-  "aliases": ["validation", "data_quality", "schema_validation", "data_validation", "quality_checks"],
+  "aliases": [
+    "validation",
+    "data_quality",
+    "schema_validation",
+    "data_validation",
+    "quality_checks"
+  ],
   "context_bundle": {
     "summary": "Data validation ensures data quality through schema validation, type checking, range validation, format validation, referential integrity checks, and completeness checks with comprehensive error reporting.",
-    "prerequisites": ["E09VALIDATION_ERRORS"],
-    "related_doors": ["W87ETL", "W92DATA_TRANSFORM", "S01INPUT_VALIDATION"],
+    "prerequisites": [
+      "E09VALIDATION_ERRORS"
+    ],
+    "related_doors": [
+      "W87ETL",
+      "W92DATA_TRANSFORM",
+      "S01INPUT_VALIDATION"
+    ],
     "onboarding": {
       "quick_start": "Validation layers: 1) Schema validation (structure, types, required fields). 2) Business rule validation (ranges, formats, constraints). 3) Referential integrity (foreign keys, relationships). 4) Data quality metrics (completeness, accuracy, consistency). Fail fast on critical errors, log warnings for quality issues.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md#12-input-validation-checklist",
@@ -15,25 +27,48 @@
         "Completeness check: def check_completeness(record, required_fields): missing = [f for f in required_fields if f not in record or record[f] is None]; if missing: raise ValidationError(f'Missing required fields: {missing}'); return True",
         "Batch validation: results = {'valid': [], 'invalid': []}; for record in batch: try: validate(record); results['valid'].append(record) except ValidationError as e: results['invalid'].append({'record': record, 'error': str(e)}); return results"
       ],
-      "known_errors": ["E09VALIDATION_ERRORS"]
+      "known_errors": [
+        "E09VALIDATION_ERRORS"
+      ]
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
-      "errors": ["E09VALIDATION_ERRORS"]
+      "errors": [
+        "E09VALIDATION_ERRORS"
+      ]
     },
     "metadata": {
       "last_updated": "2025-11-21T00:00:00Z",
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["validation", "data_quality", "schema", "quality_checks", "data_validation"],
+      "tags": [
+        "validation",
+        "data_quality",
+        "schema",
+        "quality_checks",
+        "data_validation"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "DATA_PROCESSING",
       "version": "1.0.0",
-      "tested_on": ["Python", "Pydantic", "Cerberus", "Great Expectations", "Pandas"],
-      "agent_affinity": ["DC", "VSCC"]
+      "tested_on": [
+        "Python",
+        "Pydantic",
+        "Cerberus",
+        "Great Expectations",
+        "Pandas"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 2915,
+      "token_estimate": 729.0
     }
   }
 }

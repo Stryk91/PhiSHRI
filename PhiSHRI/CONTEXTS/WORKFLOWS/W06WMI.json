@@ -1,11 +1,22 @@
 {
   "door_code": "W06WMI",
   "semantic_path": "WORKFLOWS.POWERSHELL.WMI_PROCESS",
-  "aliases": ["wmi", "win32_process", "process_create", "wmi_launch"],
+  "aliases": [
+    "wmi",
+    "win32_process",
+    "process_create",
+    "wmi_launch"
+  ],
   "context_bundle": {
     "summary": "WMI Process Creation using Win32_Process.Create() bypasses Start-Process restrictions in sandboxed environments. Alternative process spawning method for DC autonomy.",
-    "prerequisites": ["820PWSH", "W05RUNSPACE"],
-    "related_doors": ["W07DOTNET", "A01DC"],
+    "prerequisites": [
+      "820PWSH",
+      "W05RUNSPACE"
+    ],
+    "related_doors": [
+      "W07DOTNET",
+      "A01DC"
+    ],
     "onboarding": {
       "quick_start": "Use ([wmiclass]'Win32_Process').Create('notepad.exe') to spawn processes when Start-Process is blocked. Returns process ID on success.",
       "full_context_path": "/PhiDEX/BREAKTHROUGH.md",
@@ -26,7 +37,9 @@
       ]
     },
     "resources": {
-      "docs": ["/PhiDEX/BREAKTHROUGH.md"],
+      "docs": [
+        "/PhiDEX/BREAKTHROUGH.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -36,12 +49,25 @@
       "confidence": 0.97,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["wmi", "process", "sandbox", "powershell", "breakthrough"],
+      "tags": [
+        "wmi",
+        "process",
+        "sandbox",
+        "powershell",
+        "breakthrough"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "POWERSHELL_ADVANCED",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11"],
-      "agent_affinity": ["DC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1796,
+      "token_estimate": 449.0
     }
   }
 }

@@ -1,0 +1,61 @@
+{
+  "door_code": "C02CONTEXT_STRATEGY",
+  "semantic_path": "ARCHITECTURE.CONTEXT.STRATEGY",
+  "aliases": [
+    "context strategy",
+    "context management",
+    "token efficiency",
+    "context overflow"
+  ],
+  "context_bundle": {
+    "summary": "Context management strategy: Compactor for lossy recall (chat history), Chunker for lossless feeding (new content). Plain .txt is most efficient - PDF is rendering data not content.",
+    "prerequisites": [],
+    "related_doors": [
+      "T50COMPACTOR",
+      "T51CHUNKER",
+      "C01CONTEXT_RAM",
+      "P05SESSION_CONT"
+    ],
+    "onboarding": {
+      "quick_start": "Use T50COMPACTOR for 'what did we discuss' recall. Use T51CHUNKER for learning new large documents. Never let full document dump into AI context.",
+      "full_context_path": "",
+      "common_patterns": [
+        "RECALL (lossy OK): Chat history -> Compactor -> 52% smaller context",
+        "LEARN (lossless): Large doc -> Chunker -> Feed chunks one at a time",
+        "DANGER: Converting/extracting large files dumps content into AI response context = brain explosion"
+      ],
+      "known_errors": [
+        "PDF extraction in-session will blow context - extract EXTERNALLY first",
+        "Plain .txt is minimum overhead - 1 byte per ASCII char, no formatting bloat",
+        "Compression (gzip) doesn't help - decompression dumps content anyway"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T18:57:16.291117300+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "context",
+        "strategy",
+        "tokens",
+        "efficiency",
+        "architecture"
+      ],
+      "category": "ARCHITECTURE",
+      "subcategory": "CONTEXT",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "WEBC"
+      ],
+      "size_bytes": 1900,
+      "token_estimate": 475.0
+    }
+  }
+}

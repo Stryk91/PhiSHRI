@@ -1,11 +1,25 @@
 {
   "door_code": "A08AGENT_COORD",
   "semantic_path": "AGENTS.COORDINATION.AGENT_COORDINATION_PROTOCOL",
-  "aliases": ["agent_coordination", "multi_agent", "agent_communication", "coordination"],
+  "aliases": [
+    "agent_coordination",
+    "multi_agent",
+    "agent_communication",
+    "coordination"
+  ],
   "context_bundle": {
     "summary": "Multi-agent coordination patterns: Message-based communication (pub/sub, queue, IPC), shared state (Redis, database), orchestration (central coordinator) vs choreography (decentralized). Protocols: request-reply, fire-and-forget, broadcast. PhiSync file-based IPC for DC↔VSCC. Patterns: leader election, consensus (Raft, Paxos), heartbeat, circuit breaker. Tools: Kafka (messaging), Redis (state), etcd (consensus).",
-    "prerequisites": ["A01DC", "A02VSCC", "T09IPC_METHODS"],
-    "related_doors": ["A09MESSAGE_QUEUE", "W53KAFKA", "W54REDIS", "W12PHISYNC"],
+    "prerequisites": [
+      "A01DC",
+      "A02VSCC",
+      "T09IPC_METHODS"
+    ],
+    "related_doors": [
+      "A09MESSAGE_QUEUE",
+      "W53KAFKA",
+      "W54REDIS",
+      "W12PHISYNC"
+    ],
     "onboarding": {
       "quick_start": "Agent coordination: Message-based (Kafka pub/sub, Redis pub/sub, files for PhiSync), Shared state (Redis, DB), Orchestration (central coordinator assigns tasks) vs Choreography (agents react to events). Protocols: Request-Reply (sync), Fire-and-Forget (async), Broadcast (all agents). PhiSync: DC writes C:\\Temp\\DC_TO_VSCC.txt, VSCC reads and processes. Patterns: Leader election (etcd, ZooKeeper), Consensus (Raft for distributed agreement), Heartbeat (liveness check), Circuit breaker (fault isolation). Tools: Kafka (messaging), Redis (pub/sub + state), etcd (distributed config).",
       "full_context_path": "/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md",
@@ -24,7 +38,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md"],
+      "docs": [
+        "/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +50,34 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["agent", "coordination", "multi_agent", "communication", "distributed", "protocol"],
+      "tags": [
+        "agent",
+        "coordination",
+        "multi_agent",
+        "communication",
+        "distributed",
+        "protocol"
+      ],
       "category": "AGENTS",
       "subcategory": "COORDINATION",
       "version": "1.0.0",
-      "tested_on": ["DC", "VSCC", "WEBC", "TERMC", "CMDC"],
-      "agent_affinity": ["DC", "VSCC", "WEBC", "TERMC", "CMDC", "KALIC"]
+      "tested_on": [
+        "DC",
+        "VSCC",
+        "WEBC",
+        "TERMC",
+        "CMDC"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "WEBC",
+        "TERMC",
+        "CMDC",
+        "KALIC"
+      ],
+      "size_bytes": 2990,
+      "token_estimate": 748.0
     }
   }
 }

@@ -1,11 +1,23 @@
 {
   "door_code": "W45CHEF",
   "semantic_path": "WORKFLOWS.AUTOMATION.CHEF_INFRASTRUCTURE_AUTOMATION",
-  "aliases": ["chef", "configuration_management", "infrastructure_automation", "cookbook", "recipe"],
+  "aliases": [
+    "chef",
+    "configuration_management",
+    "infrastructure_automation",
+    "cookbook",
+    "recipe"
+  ],
   "context_bundle": {
     "summary": "Chef infrastructure automation using Ruby DSL: cookbooks contain recipes (code) defining system configuration. Resources: package, service, file, template, execute. Chef client pulls from Chef server or runs standalone (chef-solo, chef-zero). Knife tool manages cookbooks/nodes. Test Kitchen for testing. InSpec for compliance. Attributes for configuration data. chef-client runs recipes.",
-    "prerequisites": ["W43ANSIBLE", "W44PUPPET"],
-    "related_doors": ["W46TERRAFORM", "W41SYSTEMD"],
+    "prerequisites": [
+      "W43ANSIBLE",
+      "W44PUPPET"
+    ],
+    "related_doors": [
+      "W46TERRAFORM",
+      "W41SYSTEMD"
+    ],
     "onboarding": {
       "quick_start": "Chef cookbook structure: cookbook_name/recipes/default.rb contains resources. Syntax: package 'nginx' do action :install end, service 'nginx' do action [:enable, :start] end, template '/etc/nginx/nginx.conf' do source 'nginx.conf.erb' notifies :reload, 'service[nginx]' end. Create cookbook: chef generate cookbook mycookbook. Test: kitchen test. Upload: knife cookbook upload mycookbook. Run: chef-client (pulls from server) or chef-solo -c solo.rb (standalone).",
       "full_context_path": "/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md",
@@ -24,7 +36,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +48,28 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["chef", "configuration_management", "automation", "infrastructure", "cookbook", "recipe"],
+      "tags": [
+        "chef",
+        "configuration_management",
+        "automation",
+        "infrastructure",
+        "cookbook",
+        "recipe"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "AUTOMATION",
       "version": "1.0.0",
-      "tested_on": ["Linux", "Windows"],
-      "agent_affinity": ["VSCC", "TERMC", "CMDC"]
+      "tested_on": [
+        "Linux",
+        "Windows"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "TERMC",
+        "CMDC"
+      ],
+      "size_bytes": 2829,
+      "token_estimate": 708.0
     }
   }
 }

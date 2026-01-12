@@ -1,11 +1,21 @@
 {
   "door_code": "S04XSS",
   "semantic_path": "SECURITY.VULNERABILITIES.XSS_PREVENTION",
-  "aliases": ["xss", "cross_site_scripting", "html_escaping", "xss_prevention"],
+  "aliases": [
+    "xss",
+    "cross_site_scripting",
+    "html_escaping",
+    "xss_prevention"
+  ],
   "context_bundle": {
     "summary": "XSS (Cross-Site Scripting) prevention: Escape output based on context (HTML entity encoding, JavaScript escaping, URL encoding, CSS escaping). Use framework auto-escaping (React, Vue, Angular). Content Security Policy (CSP) headers. Sanitize rich text with libraries (DOMPurify). Never insert untrusted data in <script>, event handlers, CSS.",
-    "prerequisites": ["S01SEC", "S03INPUT_VAL"],
-    "related_doors": ["S02SQL"],
+    "prerequisites": [
+      "S01SEC",
+      "S03INPUT_VAL"
+    ],
+    "related_doors": [
+      "S02SQL"
+    ],
     "onboarding": {
       "quick_start": "XSS prevention: Context-aware output escaping. HTML: escape <, >, &, ', \". JavaScript: JSON.stringify + escape. URL: encodeURIComponent. Use framework auto-escaping. CSP headers. DOMPurify for rich text. Never: untrusted data in <script>, onclick, href=javascript:, <style>.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md",
@@ -20,7 +30,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -30,12 +42,25 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["security", "xss", "escaping", "owasp"],
+      "tags": [
+        "security",
+        "xss",
+        "escaping",
+        "owasp"
+      ],
       "category": "SECURITY",
       "subcategory": "VULNERABILITIES",
       "version": "1.0.0",
-      "tested_on": ["Web applications"],
-      "agent_affinity": ["DC", "VSCC", "KALIC"]
+      "tested_on": [
+        "Web applications"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "KALIC"
+      ],
+      "size_bytes": 2003,
+      "token_estimate": 501.0
     }
   }
 }

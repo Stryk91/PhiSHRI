@@ -1,0 +1,59 @@
+{
+  "door_code": "W50CURSEFORGE_RELEASE",
+  "semantic_path": "WORKFLOWS.WOW.CURSEFORGE_RELEASE",
+  "aliases": [
+    "curse release",
+    "curseforge publish",
+    "wow addon release",
+    "curse webhook",
+    "addon deploy"
+  ],
+  "context_bundle": {
+    "summary": "GitHub to CurseForge automated release workflow for WoW addons. Covers webhook setup, tagging conventions, and the full release process.",
+    "prerequisites": [],
+    "related_doors": [
+      "D05GIT_WORKFLOW"
+    ],
+    "onboarding": {
+      "quick_start": "1. Ensure TOC has X-Curse-Project-ID. 2. Commit and push changes. 3. Create annotated tag: git tag -a 1.0.1 -m \"message\". 4. Push tag: git push origin 1.0.1. 5. CurseForge auto-packages within minutes.",
+      "full_context_path": "",
+      "common_patterns": [
+        "git tag -a VERSION -m \"Release description\"",
+        "git push origin VERSION",
+        "git push origin --delete TAG (to re-trigger)",
+        "## X-Curse-Project-ID: 1410205 (in TOC)"
+      ],
+      "known_errors": [
+        "Tag push without webhook = no CurseForge build",
+        "Missing X-Curse-Project-ID in TOC",
+        "Tag containing 'alpha' or 'beta' changes release type",
+        "Re-push tag to re-trigger: delete remote, delete local, recreate, push"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-21T21:57:26.039868800+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "curseforge",
+        "wow",
+        "addon",
+        "release",
+        "webhook",
+        "github",
+        "tagging"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "WOW",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ]
+    }
+  }
+}

@@ -9,8 +9,13 @@
   ],
   "context_bundle": {
     "summary": "Django-specific errors, exceptions, and their solutions. Covers ORM errors, view errors, template errors, migration issues, and configuration problems. Critical for SWE-bench Django debugging.",
-    "prerequisites": ["F01DJANGO_PATTERNS", "L60PYTHON_COMMON_ERRORS"],
-    "related_doors": ["F01DJANGO_PATTERNS"],
+    "prerequisites": [
+      "F01DJANGO_PATTERNS",
+      "L60PYTHON_COMMON_ERRORS"
+    ],
+    "related_doors": [
+      "F01DJANGO_PATTERNS"
+    ],
     "onboarding": {
       "quick_start": "Django errors often stem from: ORM misuse (DoesNotExist, MultipleObjectsReturned), configuration (ImproperlyConfigured), templates (TemplateSyntaxError), or migrations (schema mismatches).",
       "orm_errors": {
@@ -319,16 +324,29 @@
       }
     },
     "resources": {
-      "docs": ["https://docs.djangoproject.com/en/stable/ref/exceptions/"]
+      "docs": [
+        "https://docs.djangoproject.com/en/stable/ref/exceptions/"
+      ]
     },
     "metadata": {
       "last_updated": "2025-11-27T15:00:00Z",
       "confidence": 0.98,
-      "tags": ["django", "errors", "debugging", "orm", "swe-bench"],
+      "tags": [
+        "django",
+        "errors",
+        "debugging",
+        "orm",
+        "swe-bench"
+      ],
       "category": "FRAMEWORKS",
       "subcategory": "DJANGO",
       "version": "1.0.0",
-      "agent_affinity": ["DC", "WEBC"]
+      "agent_affinity": [
+        "DC",
+        "WEBC"
+      ],
+      "size_bytes": 14195,
+      "token_estimate": 3549.0
     }
   }
 }

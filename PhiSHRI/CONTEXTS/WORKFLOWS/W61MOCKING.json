@@ -1,11 +1,23 @@
 {
   "door_code": "W61MOCKING",
   "semantic_path": "WORKFLOWS.TESTING.MOCKING_STUBBING",
-  "aliases": ["mocking", "stubbing", "test_doubles", "mock", "spy"],
+  "aliases": [
+    "mocking",
+    "stubbing",
+    "test_doubles",
+    "mock",
+    "spy"
+  ],
   "context_bundle": {
     "summary": "Mocking and stubbing for test isolation: Replace external dependencies with test doubles. Types: Mock (verify interactions), Stub (return predetermined values), Spy (partial mock, tracks calls), Fake (working implementation). Python: unittest.mock (Mock, patch, MagicMock), pytest-mock. JavaScript: Jest mocks, Sinon.js. Patterns: Patch external APIs, mock databases, stub file I/O, spy on function calls. Verify call count, arguments, return values. Avoid over-mocking (fragile tests).",
-    "prerequisites": ["W58UNITTEST"],
-    "related_doors": ["W59INTEGRATION", "W62TDD", "S05SECRETS"],
+    "prerequisites": [
+      "W58UNITTEST"
+    ],
+    "related_doors": [
+      "W59INTEGRATION",
+      "W62TDD",
+      "S05SECRETS"
+    ],
     "onboarding": {
       "quick_start": "Mocking: Replace dependencies with controlled test doubles. Python (unittest.mock): from unittest.mock import Mock, patch; db_mock = Mock(); db_mock.query.return_value = [{'id': 1}]; result = get_users(db_mock); assert result == [{'id': 1}]; db_mock.query.assert_called_once_with('SELECT * FROM users'). Patch decorator: @patch('requests.get') def test_api(mock_get): mock_get.return_value.status_code = 200; mock_get.return_value.json.return_value = {'data': []}; result = fetch_data(); assert result == []; mock_get.assert_called_once(). Jest: jest.mock('axios'); axios.get.mockResolvedValue({data: {users: []}}); const result = await fetchUsers(); expect(result).toEqual([]); expect(axios.get).toHaveBeenCalledWith('/api/users'). Spy: jest.spyOn(math, 'random').mockReturnValue(0.5); const result = rollDice(); expect(result).toBe(3); expect(math.random).toHaveBeenCalled(). Types: Mock (verify behavior), Stub (return values), Spy (track calls), Fake (simplified implementation).",
       "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
@@ -22,7 +34,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -32,12 +46,29 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["mocking", "stubbing", "test_doubles", "unittest_mock", "jest", "sinon"],
+      "tags": [
+        "mocking",
+        "stubbing",
+        "test_doubles",
+        "unittest_mock",
+        "jest",
+        "sinon"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "TESTING",
       "version": "1.0.0",
-      "tested_on": ["Python", "JavaScript", "TypeScript"],
-      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+      "tested_on": [
+        "Python",
+        "JavaScript",
+        "TypeScript"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "CMDC",
+        "TERMC"
+      ],
+      "size_bytes": 4029,
+      "token_estimate": 1008.0
     }
   }
 }

@@ -1,11 +1,20 @@
 {
   "door_code": "W31CHUNKING",
   "semantic_path": "WORKFLOWS.AI_OPTIMIZATION.CHUNKING_STRATEGIES",
-  "aliases": ["chunking", "text_splitting", "document_segmentation"],
+  "aliases": [
+    "chunking",
+    "text_splitting",
+    "document_segmentation"
+  ],
   "context_bundle": {
     "summary": "Chunking strategies for RAG: 1. Fixed-size (256-512 tokens for factoid, 1024+ for analytical), 2. Recursive (hierarchical separators \\n\\n, \\n, space), 3. Semantic (sentence embeddings + similarity). Always use overlap (50-200 tokens) to preserve context across chunks.",
-    "prerequisites": ["W30RAG"],
-    "related_doors": ["W04TOKEN", "W32HYBRID_RAG"],
+    "prerequisites": [
+      "W30RAG"
+    ],
+    "related_doors": [
+      "W04TOKEN",
+      "W32HYBRID_RAG"
+    ],
     "onboarding": {
       "quick_start": "Chunking = split docs into retrievable pieces. Strategies: Fixed-size (simple, 256-1024 tokens), Recursive (respects structure: paragraphs → sentences → words), Semantic (group by meaning). Always overlap chunks 50-200 tokens. LangChain: RecursiveCharacterTextSplitter.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md",
@@ -19,7 +28,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -29,12 +40,25 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["ai", "chunking", "text_splitting", "rag"],
+      "tags": [
+        "ai",
+        "chunking",
+        "text_splitting",
+        "rag"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "AI_OPTIMIZATION",
       "version": "1.0.0",
-      "tested_on": ["RAG systems"],
-      "agent_affinity": ["DC", "VSCC", "WEBC"]
+      "tested_on": [
+        "RAG systems"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "WEBC"
+      ],
+      "size_bytes": 1900,
+      "token_estimate": 475.0
     }
   }
 }

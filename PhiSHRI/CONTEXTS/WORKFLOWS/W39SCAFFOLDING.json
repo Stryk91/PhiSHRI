@@ -1,11 +1,21 @@
 {
   "door_code": "W39SCAFFOLDING",
   "semantic_path": "WORKFLOWS.DEVELOPMENT.SCAFFOLDING_TOOLS",
-  "aliases": ["scaffolding", "project_templates", "yeoman", "plop"],
+  "aliases": [
+    "scaffolding",
+    "project_templates",
+    "yeoman",
+    "plop"
+  ],
   "context_bundle": {
     "summary": "Scaffolding tools: Yeoman (yo generator-*), Plop (team-specific templates), Create React App, Vite, Next.js CLI. Generate project structure, boilerplate code, config files. Use generators for consistency across projects. Custom generators for team patterns.",
-    "prerequisites": ["W38CODE_GEN"],
-    "related_doors": ["T07VSCODE_EXT", "W14GIT"],
+    "prerequisites": [
+      "W38CODE_GEN"
+    ],
+    "related_doors": [
+      "T07VSCODE_EXT",
+      "W14GIT"
+    ],
     "onboarding": {
       "quick_start": "Scaffolding = project structure generators. Yeoman: npm install -g yo, yo generator-name (community generators). Plop: team-specific templates, plop component-name. Framework CLIs: create-react-app, npm create vite@latest, npx create-next-app. Use for: new projects, components, modules.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
@@ -19,7 +29,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -29,12 +41,24 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["scaffolding", "yeoman", "plop", "templates"],
+      "tags": [
+        "scaffolding",
+        "yeoman",
+        "plop",
+        "templates"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "DEVELOPMENT",
       "version": "1.0.0",
-      "tested_on": ["Node.js"],
-      "agent_affinity": ["DC", "VSCC"]
+      "tested_on": [
+        "Node.js"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 1855,
+      "token_estimate": 464.0
     }
   }
 }

@@ -1,0 +1,52 @@
+{
+  "door_code": "E81MULTIPLEXOR_SHELL_ENV",
+  "semantic_path": "ERRORS.MULTIPLEXOR.SHELL_ENV",
+  "aliases": [
+    "multiplexor shell",
+    "cargo cmd",
+    "pwsh broken"
+  ],
+  "context_bundle": {
+    "summary": "Multiplexor pwsh sessions have broken environment - $env:COMSPEC null, Get-Command fails. Use cmd shell for cargo/rust work. Root cause: multiplexor env inheritance bug.",
+    "prerequisites": [
+      "E80CARGO_PATH_FIX"
+    ],
+    "related_doors": [],
+    "onboarding": {
+      "quick_start": "For cargo/rust work use: session_create with shell='cmd'. PowerShell sessions have broken env var inheritance in multiplexor. If pwsh needed, use Start-Process with full path or explicit function wrappers.",
+      "full_context_path": "",
+      "common_patterns": [
+        "session_create with shell='cmd' for cargo work",
+        "pwsh sessions have broken env var inheritance",
+        "Start-Process with full path works in pwsh"
+      ],
+      "known_errors": [
+        "pwsh sessions via multiplexor have $env:COMSPEC=null",
+        "PowerShell Get-Command fails even with correct PATH",
+        "multiplexor uses -NoProfile so profile fixes don't help"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-29T22:17:29.749732700+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "multiplexor",
+        "powershell",
+        "cmd",
+        "environment",
+        "cargo",
+        "shell"
+      ],
+      "category": "ERRORS",
+      "subcategory": "MULTIPLEXOR",
+      "version": "1.0.0",
+      "agent_affinity": []
+    }
+  }
+}

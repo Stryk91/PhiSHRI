@@ -1,11 +1,22 @@
 {
   "door_code": "E11RACE_CONDITIONS",
   "semantic_path": "ERRORS.CONCURRENCY.RACE_CONDITIONS",
-  "aliases": ["race_condition", "concurrency_error", "thread_safety", "lock_contention"],
+  "aliases": [
+    "race_condition",
+    "concurrency_error",
+    "thread_safety",
+    "lock_contention"
+  ],
   "context_bundle": {
     "summary": "Race conditions occur when multiple threads/processes access shared resources concurrently causing data corruption, solved using locks, atomic operations, immutable data, optimistic locking, and proper synchronization mechanisms.",
-    "prerequisites": ["W78CONCURRENCY"],
-    "related_doors": ["W72CACHING", "W88STREAMING", "R07SAGA_PATTERN"],
+    "prerequisites": [
+      "W78CONCURRENCY"
+    ],
+    "related_doors": [
+      "W72CACHING",
+      "W88STREAMING",
+      "R07SAGA_PATTERN"
+    ],
     "onboarding": {
       "quick_start": "Race condition prevention: 1) Use locks (mutex, RWLock) for critical sections. 2) Atomic operations for counters (threading.Lock, atomic.AddInt64). 3) Immutable data structures to avoid shared state. 4) Optimistic locking with version/timestamp checks. 5) Database transactions with isolation levels. 6) Lock-free algorithms (CAS operations). 7) Avoid shared mutable state when possible. Common patterns: Check-then-act, read-modify-write, double-checked locking.",
       "full_context_path": "/PhiDEX/industry_knowledge/race_condition_patterns.md",
@@ -20,7 +31,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/industry_knowledge/race_condition_patterns.md"],
+      "docs": [
+        "/PhiDEX/industry_knowledge/race_condition_patterns.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -30,12 +43,29 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["race_condition", "concurrency", "thread_safety", "locks", "atomic_operations", "synchronization"],
+      "tags": [
+        "race_condition",
+        "concurrency",
+        "thread_safety",
+        "locks",
+        "atomic_operations",
+        "synchronization"
+      ],
       "category": "ERRORS",
       "subcategory": "CONCURRENCY",
       "version": "1.0.0",
-      "tested_on": ["Python threading", "Java concurrent", "Go sync", "Database transactions"],
-      "agent_affinity": ["DC", "VSCC"]
+      "tested_on": [
+        "Python threading",
+        "Java concurrent",
+        "Go sync",
+        "Database transactions"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 3230,
+      "token_estimate": 808.0
     }
   }
 }

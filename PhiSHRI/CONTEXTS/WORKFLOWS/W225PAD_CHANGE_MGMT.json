@@ -1,0 +1,59 @@
+{
+  "door_code": "W225PAD_CHANGE_MGMT",
+  "semantic_path": "WORKFLOWS.AUTOMATION.PAD.CHANGE_MANAGEMENT",
+  "aliases": [
+    "change management",
+    "adoption",
+    "resistance management"
+  ],
+  "context_bundle": {
+    "summary": "Change Management for automation: Communication phases (Awareness -> Education -> Adoption). Address fears: job elimination (emphasize augmentation), trust (demo reliability), complexity (training), status quo (show benefits), failure (establish support). Celebrate early adopters, share metrics, recognize contributions.",
+    "prerequisites": [
+      "W224PAD_MATURITY_MODEL"
+    ],
+    "related_doors": [
+      "W220PAD_VALUE_PYRAMID"
+    ],
+    "onboarding": {
+      "quick_start": "1. Announce vision + benefits. 2. Train on new processes. 3. Celebrate adopters, share wins. Common fears: 'Will eliminate my job' -> 'Augments, frees you for strategic work'",
+      "full_context_path": "",
+      "common_patterns": [
+        "Fear: Job elimination -> Response: Augmentation not replacement",
+        "Fear: Don't trust automation -> Response: Demo reliability + controls",
+        "Fear: Too complicated -> Response: Training + support",
+        "Fear: Always done it this way -> Response: Tangible personal benefits"
+      ],
+      "known_errors": [
+        "Ignoring resistance = sabotage",
+        "No training = frustrated users",
+        "No quick wins communicated = no momentum",
+        "Forcing adoption without support = failure"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T18:18:00.250840200+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "pad",
+        "change management",
+        "adoption",
+        "resistance",
+        "communication"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1981,
+      "token_estimate": 496.0
+    }
+  }
+}

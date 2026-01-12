@@ -1,0 +1,60 @@
+{
+  "door_code": "PSY10NEUROPSYCH",
+  "semantic_path": "PSYCHOLOGY.NEURO.ASSESSMENT",
+  "aliases": [
+    "neuropsych",
+    "brain-behavior",
+    "cognitive neuroscience",
+    "neurorehab"
+  ],
+  "context_bundle": {
+    "summary": "Neuropsychology: Brain-behavior relationships, localization vs networks, neuropsych assessment batteries (Halstead-Reitan, NEPSY), lesion studies, functional neuroimaging (fMRI, PET), plasticity and rehabilitation.",
+    "prerequisites": [],
+    "related_doors": [
+      "PSY03AGE_COGNITIVE_DECLINE",
+      "PSY02MEMORY_SYSTEMS",
+      "PSY09ASSESSMENT"
+    ],
+    "onboarding": {
+      "quick_start": "Function emerges from networks, not just regions. Double dissociations reveal distinct systems. Assessment batteries sample multiple domains. Plasticity enables rehabilitation but has limits.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Localization: Broca's (speech production), Wernicke's (comprehension), hippocampus (memory encoding), prefrontal (executive)",
+        "Networks: Default mode (self-referential), salience (attention switching), central executive (cognitive control)",
+        "Assessment: Attention, memory, language, visuospatial, executive function - pattern analysis for localization",
+        "Plasticity: Experience-dependent, compensation vs restoration, critical periods but lifelong capacity"
+      ],
+      "known_errors": [
+        "Strict localizationism - networks matter more than single regions",
+        "Assuming imaging = understanding - correlation not mechanism",
+        "Ignoring individual differences - same lesion, different outcomes",
+        "Rehabilitation nihilism - plasticity enables meaningful recovery"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-24T03:52:35.545467300+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "neuropsychology",
+        "brain",
+        "assessment",
+        "cognition",
+        "neuroscience",
+        "rehabilitation"
+      ],
+      "category": "TOOLS",
+      "subcategory": "NEURO",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "WEBC"
+      ]
+    }
+  }
+}

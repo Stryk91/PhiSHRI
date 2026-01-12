@@ -1,11 +1,24 @@
 {
   "door_code": "W119PUBSUB",
   "semantic_path": "WORKFLOWS.COMMUNICATION.PUBSUB",
-  "aliases": ["pub/sub", "publish subscribe", "event bus", "broadcast", "topic"],
+  "aliases": [
+    "pub/sub",
+    "publish subscribe",
+    "event bus",
+    "broadcast",
+    "topic"
+  ],
   "context_bundle": {
     "summary": "Publish/subscribe pattern for event-driven agent communication where publishers broadcast events to multiple subscribers without coupling",
-    "prerequisites": ["W115MESSAGE_QUEUE", "W117FILE_IPC"],
-    "related_doors": ["W118REQUEST_RESPONSE", "W99NOTIFICATION", "R04EVENT_DRIVEN"],
+    "prerequisites": [
+      "W115MESSAGE_QUEUE",
+      "W117FILE_IPC"
+    ],
+    "related_doors": [
+      "W118REQUEST_RESPONSE",
+      "W99NOTIFICATION",
+      "R04EVENT_DRIVEN"
+    ],
     "onboarding": {
       "quick_start": "Publisher writes event to shared/events directory, subscribers poll for new events matching their subscribed event types",
       "full_context_path": "/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md",
@@ -23,7 +36,9 @@
       ]
     },
     "resources": {
-      "docs": ["/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md"],
+      "docs": [
+        "/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -33,12 +48,30 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["pub/sub", "publish subscribe", "event bus", "broadcast", "loose coupling"],
+      "tags": [
+        "pub/sub",
+        "publish subscribe",
+        "event bus",
+        "broadcast",
+        "loose coupling"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "COMMUNICATION",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11"],
-      "agent_affinity": ["DC", "VSCC", "TERMC", "KALIC", "WEBC", "CMDC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "TERMC",
+        "KALIC",
+        "WEBC",
+        "CMDC"
+      ],
+      "size_bytes": 2059,
+      "token_estimate": 515.0
     }
   }
 }

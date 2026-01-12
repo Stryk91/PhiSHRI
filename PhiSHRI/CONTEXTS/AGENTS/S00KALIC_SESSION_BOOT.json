@@ -1,0 +1,60 @@
+{
+  "door_code": "S00KALIC_SESSION_BOOT",
+  "semantic_path": "AGENTS.KALIC.BOOTSTRAP",
+  "aliases": [
+    "kalic boot",
+    "kalic startup",
+    "kalic init",
+    "kalic session"
+  ],
+  "context_bundle": {
+    "summary": "KALIC (Claude Code) session boot bundle. Brain at /mnt/c/PhiDEX/kalic_brain/. Check CLAUDE.md for routing, semantic_links.json for rules, temporal.md for learnings.",
+    "prerequisites": [
+      "A05KALIC"
+    ],
+    "related_doors": [
+      "S01DC_SESSION_BOOT",
+      "P15AGENT_BRIDGE_MCP",
+      "810AHK",
+      "W23AGENT_SEND",
+      "A05KALIC"
+    ],
+    "onboarding": {
+      "quick_start": "1. Read CLAUDE.md: /mnt/c/PhiDEX/kalic_brain/CLAUDE.md\n2. Check semantic_links.json for routing rules\n3. Verify X: mounted (MCPs depend on it)\n4. Check PhiWatcher status\n5. Checkpoint after every milestone",
+      "full_context_path": "",
+      "common_patterns": [],
+      "known_errors": [
+        "Context compaction loses state - checkpoint aggressively",
+        "carbyne_await without carbyne_send = deadlock",
+        "X: not mounted = MCP failures"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-05T19:57:32.555140900+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "kalic",
+        "bootstrap",
+        "session",
+        "recovery",
+        "context",
+        "claude-code",
+        "terminal"
+      ],
+      "category": "AGENTS",
+      "subcategory": "KALIC",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "KALIC"
+      ],
+      "size_bytes": 1609,
+      "token_estimate": 403.0
+    }
+  }
+}

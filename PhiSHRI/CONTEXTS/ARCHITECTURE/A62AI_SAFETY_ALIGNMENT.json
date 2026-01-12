@@ -1,0 +1,110 @@
+{
+  "door_code": "A62AI_SAFETY_ALIGNMENT",
+  "semantic_path": "ARCHITECTURE.AI.SAFETY",
+  "aliases": [
+    "AI safety",
+    "alignment",
+    "RLHF",
+    "Constitutional AI"
+  ],
+  "context_bundle": {
+    "summary": "AI safety and alignment: RLHF, Constitutional AI, safety training, and the ongoing challenges of building safe AI systems.",
+    "prerequisites": [
+      "A50AI_LANDSCAPE_2025"
+    ],
+    "related_doors": [
+      "A55AGENTIC_TRAINING",
+      "A58FRONTIER_MODELS"
+    ],
+    "onboarding": {
+      "quick_start": "RLHF and Constitutional AI are primary alignment methods. All major labs invest heavily. Tradeoff between capability and safety constraints.",
+      "full_context_path": "",
+      "common_patterns": [
+        "=== ALIGNMENT FUNDAMENTALS ===",
+        "GOAL: Make AI systems behave as intended, even as they become more capable.",
+        "CHALLENGE: Specifying human values precisely is hard. Optimization can find loopholes.",
+        "OUTER ALIGNMENT: Specify the right objective function.",
+        "INNER ALIGNMENT: Ensure model actually optimizes for that objective, not proxy.",
+        "=== RLHF (Reinforcement Learning from Human Feedback) ===",
+        "PROCESS: 1) Collect human comparisons. 2) Train reward model. 3) Optimize policy against reward model.",
+        "COMPARISONS: Humans rate which of two outputs is better. Easier than absolute scoring.",
+        "REWARD MODEL: Learns to predict human preferences. Scores outputs.",
+        "POLICY OPTIMIZATION: PPO typically. Model learns to maximize reward model scores.",
+        "=== CONSTITUTIONAL AI (Anthropic) ===",
+        "CONCEPT: Model critiques itself against written principles ('constitution').",
+        "PROCESS: 1) Generate response. 2) Self-critique against principles. 3) Revise. 4) Train on revised.",
+        "PRINCIPLES: Explicit rules like 'be helpful', 'avoid harm', 'be honest'.",
+        "ADVANTAGE: Less human labeling needed. Scales better.",
+        "=== SAFETY TRAINING GOALS ===",
+        "HARMLESSNESS: Don't help with genuinely harmful tasks (weapons, abuse, etc.).",
+        "HONESTY: Don't deceive. Acknowledge uncertainty. Correct mistakes.",
+        "HELPFULNESS: Actually assist users. Don't refuse unnecessarily.",
+        "TRADEOFF: More safety often means less helpfulness. Balance is hard.",
+        "=== JAILBREAKING ===",
+        "CONCEPT: Prompts designed to bypass safety training.",
+        "METHODS: Role-play, hypotheticals, obfuscation, multi-step, token manipulation.",
+        "PERSISTENCE: All production models have jailbreaks. Cat-and-mouse game.",
+        "=== RED TEAMING ===",
+        "DEFINITION: Adversarial testing to find model failures before deployment.",
+        "INTERNAL: Company employees try to break the model.",
+        "EXTERNAL: Bug bounties, academic partnerships, contracted red teams.",
+        "=== GUARDRAILS AND FILTERS ===",
+        "INPUT FILTERS: Classify incoming prompts. Block or flag problematic ones.",
+        "OUTPUT FILTERS: Classify model outputs. Block harmful responses.",
+        "LAYERED: Multiple filters in series. Defense in depth.",
+        "=== INTERPRETABILITY ===",
+        "GOAL: Understand what models actually learn and why they behave as they do.",
+        "STATUS: Still nascent. We don't deeply understand large models.",
+        "IMPORTANCE: Can't align what we don't understand.",
+        "=== COMPANY APPROACHES ===",
+        "OPENAI: RLHF-focused. Iterative deployment. Learn from real usage.",
+        "ANTHROPIC: Constitutional AI. Most conservative safety approach.",
+        "GOOGLE: Standard RLHF. Integrated with product safety teams.",
+        "XAI: Less restrictive. More permissive content policies.",
+        "=== SYCOPHANCY PROBLEM ===",
+        "ISSUE: RLHF can train models to tell users what they want to hear.",
+        "CAUSE: Humans rate agreeable responses higher. Model learns to agree.",
+        "MITIGATION: Train for honesty explicitly. Constitutional AI helps.",
+        "=== PHIVECTOR RELEVANCE ===",
+        "DC VALUES: We want DC to be genuinely helpful, not sycophantic.",
+        "HONESTY: DC should push back when STRYK is wrong, not just agree.",
+        "LOCAL CONTROL: Running locally gives control over model behavior."
+      ],
+      "known_errors": [
+        "RLHF creates sycophancy - models learn to agree rather than be correct",
+        "Safety training causes overrefusal - legitimate requests blocked",
+        "Jailbreaks continuously found - no model is fully secure",
+        "Alignment is not solved - current methods are empirical, not principled",
+        "Interpretability still nascent - we don't understand why models behave as they do",
+        "Regulatory landscape fragmented - compliance varies by jurisdiction",
+        "Dual use unavoidable - can't prevent all misuse without crippling utility"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-20T01:07:36.2882809+11:00",
+      "confidence": 1.0,
+      "tags": [
+        "safety",
+        "alignment",
+        "rlhf",
+        "constitutional",
+        "ethics",
+        "guardrails"
+      ],
+      "category": "ARCHITECTURE",
+      "subcategory": "AI",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 5470,
+      "token_estimate": 1368.0
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "door_code": "F11TRADING_BOT_PATTERNS",
+  "semantic_path": "FINANCE.CRYPTO.BOTS",
+  "aliases": [
+    "crypto bots",
+    "trading automation",
+    "algo trading"
+  ],
+  "context_bundle": {
+    "summary": "Trading bot strategies: Grid bots (range-bound), DCA bots (accumulation), trend-following (momentum), mean reversion (oversold/overbought), arbitrage (cross-exchange spreads).",
+    "prerequisites": [],
+    "related_doors": [
+      "F10CRYPTO_MARKET_BASICS",
+      "F12MARKET_CONDITIONS",
+      "F13EXCHANGE_APIS"
+    ],
+    "onboarding": {
+      "quick_start": "Choppy/sideways market = Grid bots. Clear trend = Trend-following. Accumulation phase = DCA. High volatility = Mean reversion. Multiple exchanges = Arbitrage.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Grid bot: Buy low/sell high within range. Profits from volatility, dies in breakouts",
+        "DCA bot: Fixed buys on schedule. Best for long-term accumulation, ignores timing",
+        "Trend-following: MA crossovers, breakout entries. Profits in trends, whipsawed in chop",
+        "Mean reversion: RSI/Bollinger extremes. Profits in ranges, destroyed by trends",
+        "Arbitrage: Price differences across exchanges. Low risk, requires speed/capital"
+      ],
+      "known_errors": [
+        "Running grid bot during strong trend - gets rekt on one side",
+        "Trend bot in sideways market - death by a thousand cuts",
+        "Insufficient capital for grid spacing - liquidation risk",
+        "Ignoring fees - high-frequency strategies eaten by trading costs",
+        "No kill switch - bot keeps trading during black swan events"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-24T03:49:51.021611600+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "trading",
+        "bots",
+        "automation",
+        "grid",
+        "dca",
+        "arbitrage"
+      ],
+      "category": "TOOLS",
+      "subcategory": "CRYPTO",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ]
+    }
+  }
+}

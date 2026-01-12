@@ -10,11 +10,15 @@
   ],
   "context_bundle": {
     "summary": "Python debugging patterns, traceback analysis, and systematic troubleshooting. Essential for diagnosing issues quickly when test failures or errors occur. Covers reading tracebacks, using debuggers, and common debugging strategies.",
-    "prerequisites": ["L60PYTHON_COMMON_ERRORS"],
-    "related_doors": ["F05PYTEST_PATTERNS", "L60PYTHON_COMMON_ERRORS"],
+    "prerequisites": [
+      "L60PYTHON_COMMON_ERRORS"
+    ],
+    "related_doors": [
+      "F05PYTEST_PATTERNS",
+      "L60PYTHON_COMMON_ERRORS"
+    ],
     "onboarding": {
       "quick_start": "Python traceback reads bottom-to-top: last line is error, work up to find cause. Use pdb/breakpoint() to pause and inspect. Add print(repr(var)) for quick checks. Check types with type(var).",
-
       "reading_tracebacks": {
         "anatomy": "Traceback (most recent call last):\n  File \"app.py\", line 42, in main\n    result = process_data(data)\n  File \"utils.py\", line 15, in process_data\n    return transform(data['key'])\n  File \"utils.py\", line 8, in transform\n    return value.upper()\nAttributeError: 'NoneType' object has no attribute 'upper'",
         "how_to_read": [
@@ -32,7 +36,6 @@
           "Error type": "Exception class (last line)"
         }
       },
-
       "debugging_tools": {
         "builtin_pdb": {
           "insert_breakpoint": "import pdb; pdb.set_trace()  # Python < 3.7\nbreakpoint()  # Python 3.7+",
@@ -65,7 +68,6 @@
           "usage": "import ipdb; ipdb.set_trace()\n# or\nexport PYTHONBREAKPOINT=ipdb.set_trace"
         }
       },
-
       "print_debugging": {
         "effective_prints": {
           "show_value_and_type": "print(f'{var=}, {type(var)=}')",
@@ -76,7 +78,6 @@
         },
         "f_string_debug": "# Python 3.8+ f-string debug syntax\nx = 42\nprint(f'{x=}')  # Output: x=42\nprint(f'{x + 1=}')  # Output: x + 1=43\nprint(f'{type(x)=}')  # Output: type(x)=<class 'int'>"
       },
-
       "systematic_strategies": {
         "binary_search": {
           "description": "Narrow down bug location by halving search space",
@@ -115,7 +116,6 @@
           "git_bisect": "git bisect start\ngit bisect bad  # Current is broken\ngit bisect good abc123  # Known good commit\n# Git checks out middle commit\n# You test, then: git bisect good/bad\n# Repeat until bug commit found"
         }
       },
-
       "common_scenarios": {
         "none_appearing": {
           "symptoms": "NoneType error, empty result",
@@ -161,7 +161,6 @@
           ]
         }
       },
-
       "logging_for_debug": {
         "quick_setup": "import logging\nlogging.basicConfig(\n    level=logging.DEBUG,\n    format='%(asctime)s %(levelname)s %(name)s: %(message)s'\n)\nlogger = logging.getLogger(__name__)",
         "levels": {
@@ -173,13 +172,11 @@
         },
         "debug_pattern": "logger.debug(f'Processing {item}')\ntry:\n    result = process(item)\n    logger.debug(f'Result: {result}')\nexcept Exception as e:\n    logger.exception(f'Failed processing {item}')"
       },
-
       "assert_debugging": {
         "description": "Use asserts to verify assumptions",
         "pattern": "def process(data):\n    assert data is not None, 'data cannot be None'\n    assert isinstance(data, dict), f'data must be dict, got {type(data)}'\n    assert 'key' in data, f'data missing key, has: {data.keys()}'",
         "note": "Asserts disabled with python -O, use for debugging only"
       },
-
       "swe_bench_debugging": {
         "test_failure_workflow": [
           "1. Run failing test with -v for verbose output",
@@ -197,16 +194,29 @@
       }
     },
     "resources": {
-      "docs": ["https://docs.python.org/3/library/pdb.html"]
+      "docs": [
+        "https://docs.python.org/3/library/pdb.html"
+      ]
     },
     "metadata": {
       "last_updated": "2025-11-27T15:00:00Z",
       "confidence": 0.98,
-      "tags": ["python", "debugging", "pdb", "traceback", "swe-bench"],
+      "tags": [
+        "python",
+        "debugging",
+        "pdb",
+        "traceback",
+        "swe-bench"
+      ],
       "category": "ERRORS",
       "subcategory": "DEBUGGING",
       "version": "1.0.0",
-      "agent_affinity": ["DC", "TERMC"]
+      "agent_affinity": [
+        "DC",
+        "TERMC"
+      ],
+      "size_bytes": 10121,
+      "token_estimate": 2531.0
     }
   }
 }

@@ -1,0 +1,62 @@
+{
+  "door_code": "E71MCP_XDRIVE_DEPENDENCY",
+  "semantic_path": "ERRORS.MCP.XDRIVE",
+  "aliases": [
+    "mcp down",
+    "mcp not working",
+    "x drive mcp",
+    "mcp dependencies"
+  ],
+  "context_bundle": {
+    "summary": "4 MCPs depend on X: drive (F:\\\\CARBYNE.vhdx): git-mcp-rs, multiplexor-mcp-rs, sigcon6-rs, carbyne-bridge. If X: not mounted, they fail silently.",
+    "prerequisites": [
+      "R70CRITICAL_PATHS"
+    ],
+    "related_doors": [
+      "R70CRITICAL_PATHS",
+      "S01DC_SESSION_BOOT"
+    ],
+    "onboarding": {
+      "quick_start": "If git/mux/sigcon/carbyne fail: 1. Test-Path X:\\\\mcp-servers. 2. If false: diskpart select vdisk F:\\\\CARBYNE.vhdx, attach, assign letter=X. 3. Restart Claude Desktop. 4. Verify all 4 MCPs respond.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Check X: mounted before assuming MCP failure",
+        "Mount via diskpart: select vdisk file=F:\\CARBYNE.vhdx; attach vdisk",
+        "Restart Claude Desktop after mount to respawn MCPs"
+      ],
+      "known_errors": [
+        "git:git_* fails silently when X: not mounted",
+        "multiplexor, sigcon6, carbyne-bridge all on X:",
+        "MCPs don't auto-respawn - requires Claude Desktop restart",
+        "Volume may mount as G: instead of X: - use diskpart assign letter=X"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-05T18:50:32.190177700+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "mcp",
+        "xdrive",
+        "vhdx",
+        "git",
+        "multiplexor",
+        "sigcon6",
+        "carbyne"
+      ],
+      "category": "ERRORS",
+      "subcategory": "MCP",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1815,
+      "token_estimate": 454.0
+    }
+  }
+}

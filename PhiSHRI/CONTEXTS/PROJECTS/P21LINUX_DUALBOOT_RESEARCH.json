@@ -1,0 +1,19 @@
+{
+  "id": "P21LINUX_DUALBOOT_RESEARCH",
+  "title": "Linux Dual-Boot Research",
+  "created": "2025-12-06",
+  "author": "KALIC",
+  "summary": "Research findings for adding native Linux dual-boot to STRYK workstation",
+  "recommended_target": "D: drive (4TB HDD, 2.36TB free)",
+  "boot_mode": "UEFI + GPT",
+  "bootloader": "GRUB (auto-detects all OS)",
+  "vhdx_verdict": "Linux cannot native-boot from VHDX - Windows only feature",
+  "pre_install_steps": [
+    "Disable Fast Startup in Windows",
+    "Disable hibernation",
+    "Document BitLocker recovery key if enabled"
+  ],
+  "partition_suggestion": "100GB root, 8GB swap, rest for /home",
+  "risks": "Windows updates may reset UEFI boot order",
+  "status": "READY - awaiting STRYK approval"
+}

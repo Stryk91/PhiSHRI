@@ -1,11 +1,24 @@
 {
   "door_code": "T25DOCKER",
   "semantic_path": "TOOLS.INFRASTRUCTURE.DOCKER",
-  "aliases": ["Docker", "containers", "Dockerfile", "docker-compose", "containerization"],
+  "aliases": [
+    "Docker",
+    "containers",
+    "Dockerfile",
+    "docker-compose",
+    "containerization"
+  ],
   "context_bundle": {
     "summary": "Docker containerization for packaging applications with dependencies, building images, running containers, and orchestrating multi-container applications with docker-compose",
-    "prerequisites": ["T11CICD", "T12DOCKER_BUILD"],
-    "related_doors": ["T26KUBERNETES", "D06ENTERPRISE", "W47DOCKER_COMPOSE"],
+    "prerequisites": [
+      "T11CICD",
+      "T12DOCKER_BUILD"
+    ],
+    "related_doors": [
+      "T26KUBERNETES",
+      "D06ENTERPRISE",
+      "W47DOCKER_COMPOSE"
+    ],
     "onboarding": {
       "quick_start": "Write Dockerfile with base image, dependencies, and CMD. Build with docker build -t name:tag. Run with docker run. Orchestrate with docker-compose.yml.",
       "full_context_path": "/PhiDEX/DEPLOYMENT_ALMANAC/09_ENTERPRISE/ENTERPRISE_DEPLOYMENT_GUIDE.md",
@@ -37,12 +50,30 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["Docker", "containers", "Dockerfile", "docker-compose", "containerization"],
+      "tags": [
+        "Docker",
+        "containers",
+        "Dockerfile",
+        "docker-compose",
+        "containerization"
+      ],
       "category": "TOOLS",
       "subcategory": "INFRASTRUCTURE",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11", "Linux", "macOS"],
-      "agent_affinity": ["VSCC", "DC", "TERMC", "KALIC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11",
+        "Linux",
+        "macOS"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC",
+        "KALIC"
+      ],
+      "size_bytes": 2396,
+      "token_estimate": 599.0
     }
   }
 }

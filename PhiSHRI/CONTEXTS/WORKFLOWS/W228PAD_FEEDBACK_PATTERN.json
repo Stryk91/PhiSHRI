@@ -1,0 +1,62 @@
+{
+  "door_code": "W228PAD_FEEDBACK_PATTERN",
+  "semantic_path": "WORKFLOWS.AUTOMATION.PAD.PATTERNS.FEEDBACK",
+  "aliases": [
+    "customer feedback",
+    "sentiment analysis",
+    "nps",
+    "voice of customer"
+  ],
+  "context_bundle": {
+    "summary": "Feedback Analysis Pattern: Multi-channel collect (surveys, social, support tickets, reviews) -> AI sentiment analysis (positive/negative/neutral + intensity) -> Topic categorization (product, service, pricing, features) -> Priority routing (critical: negative + high-value customer) -> Auto-acknowledge -> Trend dashboards. 50hr->5hr/month analysis. $182K/yr value.",
+    "prerequisites": [
+      "T59POWER_AUTOMATE_DESKTOP",
+      "T78PAD_HTTP_ADV"
+    ],
+    "related_doors": [
+      "T65PAD_EMAIL",
+      "W221PAD_IMPACT_FRAMEWORK"
+    ],
+    "onboarding": {
+      "quick_start": "1. Aggregate all feedback to SharePoint/Dataverse. 2. AI Builder sentiment scoring. 3. Auto-categorize by topic keywords. 4. Route: Critical (negative + key customer) -> immediate alert. 5. Send acknowledgment. 6. Weekly trend report.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Priority: Critical (negative+VIP), High (negative+specific), Medium (neutral), Low (positive)",
+        "Routing: Product issues->PM, Service->CS, Technical->Support, Billing->Finance",
+        "Alerting: Sentiment drops 10%+ = immediate exec notification",
+        "Reports: Daily critical, Weekly trends, Monthly comprehensive"
+      ],
+      "known_errors": [
+        "Sentiment models need industry-specific training",
+        "Sarcasm detection is weak - false positives",
+        "Social media rate limits on API pulls",
+        "Response capacity must match increased visibility"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T18:18:50.051804600+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "pad",
+        "feedback",
+        "sentiment",
+        "customer",
+        "nps"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 2213,
+      "token_estimate": 554.0
+    }
+  }
+}

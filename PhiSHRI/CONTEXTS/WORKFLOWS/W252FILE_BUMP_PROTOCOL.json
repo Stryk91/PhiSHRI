@@ -1,0 +1,61 @@
+{
+  "door_code": "W252FILE_BUMP_PROTOCOL",
+  "semantic_path": "WORKFLOWS.COMMS.FILE_BUMP",
+  "aliases": [
+    "file bump",
+    "dollar sign",
+    "msg notification",
+    "filemsg"
+  ],
+  "context_bundle": {
+    "summary": "File message bump protocol. Send lone $ to recipient window to signal new file message waiting in inbox. Fallback when MCP/carbyne unavailable.",
+    "prerequisites": [
+      "E58AHK_ELECTRON_SEND",
+      "810AHK"
+    ],
+    "related_doors": [
+      "P15AGENT_BRIDGE_MCP",
+      "E58AHK_ELECTRON_SEND"
+    ],
+    "onboarding": {
+      "quick_start": "When using file-based messaging, send $ to recipient's window via AHK clipboard paste to notify them. DC->KALIC: Paste $ to KALIC terminal. KALIC->DC: Paste $ to Claude window (140px from bottom click).",
+      "full_context_path": "",
+      "common_patterns": [
+        "$ sent via AHK = check file inbox",
+        "DC inbox: C:\\PhiDEX\\msgqueue\\dc\\inbox",
+        "KALIC inbox: /mnt/c/PhiDEX/msgqueue/kalic/inbox",
+        "Use clipboard paste (^v) + Enter, not Send"
+      ],
+      "known_errors": [
+        "AHK Send fails on terminals, use clipboard paste",
+        "Must wait for AHK to finish before deleting script",
+        "Click position 140px from bottom for Claude window"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-19T20:32:30.005341300+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "bump",
+        "file",
+        "messaging",
+        "ahk",
+        "notification",
+        "dollar"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "COMMS",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ]
+    }
+  }
+}

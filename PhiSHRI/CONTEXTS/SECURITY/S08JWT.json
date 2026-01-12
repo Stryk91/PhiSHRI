@@ -1,11 +1,23 @@
 {
   "door_code": "S08JWT",
   "semantic_path": "SECURITY.AUTHENTICATION.JWT_TOKENS",
-  "aliases": ["jwt", "json_web_token", "bearer_token", "token_authentication"],
+  "aliases": [
+    "jwt",
+    "json_web_token",
+    "bearer_token",
+    "token_authentication"
+  ],
   "context_bundle": {
     "summary": "JSON Web Tokens (JWT) for stateless authentication: Structure: header.payload.signature (Base64URL encoded). Header: algorithm (HS256, RS256), type (JWT). Payload: claims (iss, sub, aud, exp, iat, nbf). Signature: HMAC or RSA to verify integrity. Use RS256 (asymmetric) for public/private key scenarios, HS256 (symmetric) for shared secret. Validate signature, check expiration (exp), verify audience (aud) and issuer (iss). Store securely (HttpOnly cookies or Authorization header).",
-    "prerequisites": ["S05SECRETS", "S06ENCRYPTION"],
-    "related_doors": ["S07OAUTH", "S09RBAC", "S11CSRF"],
+    "prerequisites": [
+      "S05SECRETS",
+      "S06ENCRYPTION"
+    ],
+    "related_doors": [
+      "S07OAUTH",
+      "S09RBAC",
+      "S11CSRF"
+    ],
     "onboarding": {
       "quick_start": "JWT structure: header.payload.signature. Header: {\"alg\": \"RS256\", \"typ\": \"JWT\"}. Payload: {\"sub\": \"user123\", \"iss\": \"auth.example.com\", \"aud\": \"api.example.com\", \"exp\": 1699999999, \"iat\": 1699996399, \"roles\": [\"admin\"]}. Signature: RS256 uses private key to sign, public key to verify. Validation: 1) Verify signature with public key, 2) Check exp > current time, 3) Verify aud matches expected audience, 4) Verify iss matches expected issuer. Security: Never store sensitive data in payload (Base64 is encoding, not encryption), use short expiration (15 min for access, 7 days for refresh), rotate signing keys, use HTTPS only. Libraries: jsonwebtoken (Node.js), PyJWT (Python), jose (Go), jose4j (Java).",
       "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md",
@@ -22,7 +34,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -32,12 +46,32 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["jwt", "json_web_token", "authentication", "bearer_token", "rs256", "hs256", "security", "stateless"],
+      "tags": [
+        "jwt",
+        "json_web_token",
+        "authentication",
+        "bearer_token",
+        "rs256",
+        "hs256",
+        "security",
+        "stateless"
+      ],
       "category": "SECURITY",
       "subcategory": "AUTHENTICATION",
       "version": "1.0.0",
-      "tested_on": ["Web APIs", "Microservices", "SPAs", "Mobile Apps"],
-      "agent_affinity": ["VSCC", "WEBC", "CMDC"]
+      "tested_on": [
+        "Web APIs",
+        "Microservices",
+        "SPAs",
+        "Mobile Apps"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "WEBC",
+        "CMDC"
+      ],
+      "size_bytes": 3778,
+      "token_estimate": 945.0
     }
   }
 }

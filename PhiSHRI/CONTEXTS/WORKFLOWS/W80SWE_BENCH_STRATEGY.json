@@ -10,11 +10,17 @@
   ],
   "context_bundle": {
     "summary": "Meta-strategy for solving SWE-bench tasks. SWE-bench presents real GitHub issues - you must understand the issue, locate relevant code, write a patch, and ensure tests pass. This door contains the optimal workflow, common failure modes, and winning patterns.",
-    "prerequisites": ["L60PYTHON_COMMON_ERRORS", "F01DJANGO_PATTERNS", "F05PYTEST_PATTERNS"],
-    "related_doors": ["E52GIT_PATCH", "F02DJANGO_ERRORS"],
+    "prerequisites": [
+      "L60PYTHON_COMMON_ERRORS",
+      "F01DJANGO_PATTERNS",
+      "F05PYTEST_PATTERNS"
+    ],
+    "related_doors": [
+      "E52GIT_PATCH",
+      "F02DJANGO_ERRORS"
+    ],
     "onboarding": {
       "quick_start": "SWE-bench workflow: 1) Parse issue carefully, 2) Find relevant files, 3) Understand existing code, 4) Write minimal fix, 5) Run tests, 6) Iterate. NEVER modify tests. Patch must be minimal and targeted.",
-
       "benchmark_structure": {
         "input": {
           "instance_id": "repo__owner__issue_number",
@@ -29,7 +35,6 @@
         },
         "evaluation": "Your patch is applied, tests are run, success = all tests pass"
       },
-
       "optimal_workflow": {
         "phase_1_understand": {
           "duration": "20% of time",
@@ -42,7 +47,6 @@
           ],
           "common_mistake": "Starting to code before fully understanding the issue"
         },
-
         "phase_2_locate": {
           "duration": "30% of time",
           "actions": [
@@ -60,7 +64,6 @@
           ],
           "common_mistake": "Fixing symptom instead of root cause"
         },
-
         "phase_3_fix": {
           "duration": "30% of time",
           "actions": [
@@ -78,7 +81,6 @@
           ],
           "common_mistake": "Over-engineering, changing more than necessary"
         },
-
         "phase_4_verify": {
           "duration": "20% of time",
           "actions": [
@@ -96,7 +98,6 @@
           "common_mistake": "Not running tests before submitting"
         }
       },
-
       "common_failure_modes": {
         "failure_1_wrong_file": {
           "symptom": "Patch applies but tests still fail",
@@ -124,7 +125,6 @@
           "solution": "Re-read issue, check comments, look at test expectations"
         }
       },
-
       "repo_specific_knowledge": {
         "django": {
           "structure": "django/core/, django/db/, django/forms/, django/views/",
@@ -179,7 +179,6 @@
           ]
         }
       },
-
       "patch_format": {
         "git_diff_structure": "--- a/path/to/file.py\n+++ b/path/to/file.py\n@@ -line,count +line,count @@\n context line\n-removed line\n+added line\n context line",
         "rules": [
@@ -191,7 +190,6 @@
         ],
         "example": "--- a/django/forms/fields.py\n+++ b/django/forms/fields.py\n@@ -256,7 +256,8 @@ class CharField(Field):\n         super().__init__(**kwargs)\n \n     def to_python(self, value):\n-        if value in self.empty_values:\n+        if value is None:\n+            return value\n+        if value in self.empty_values and value != '':\n             return self.empty_value\n         return str(value)"
       },
-
       "winning_patterns": {
         "pattern_1_add_condition": {
           "when": "Bug is edge case not handled",
@@ -219,7 +217,6 @@
           "example": "Change: def func(x) to def func(x=None)"
         }
       },
-
       "time_management": {
         "typical_issue": "15-30 minutes total",
         "breakdown": {
@@ -235,7 +232,6 @@
           "If changing multiple files → verify that's necessary"
         ]
       },
-
       "prompt_patterns": {
         "issue_parsing": "Extract from the issue:\n1. What is the expected behavior?\n2. What is the actual behavior?\n3. What files/functions are mentioned?\n4. What error messages appear?\n5. What version/configuration is relevant?",
         "code_search": "Search for:\n1. Exact error message strings\n2. Function/class names from traceback\n3. File paths mentioned in issue\n4. Related test files\n5. Similar patterns in codebase",
@@ -251,11 +247,22 @@
     "metadata": {
       "last_updated": "2025-11-27T15:00:00Z",
       "confidence": 0.99,
-      "tags": ["swe-bench", "benchmark", "strategy", "code-repair", "github-issues"],
+      "tags": [
+        "swe-bench",
+        "benchmark",
+        "strategy",
+        "code-repair",
+        "github-issues"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "BENCHMARKS",
       "version": "1.0.0",
-      "agent_affinity": ["DC", "TERMC"]
+      "agent_affinity": [
+        "DC",
+        "TERMC"
+      ],
+      "size_bytes": 11656,
+      "token_estimate": 2914.0
     }
   }
 }

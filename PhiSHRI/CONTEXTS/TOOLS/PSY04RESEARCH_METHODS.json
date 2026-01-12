@@ -1,0 +1,59 @@
+{
+  "door_code": "PSY04RESEARCH_METHODS",
+  "semantic_path": "PSYCHOLOGY.RESEARCH.METHODS",
+  "aliases": [
+    "research methods",
+    "experimental design",
+    "statistics",
+    "methodology"
+  ],
+  "context_bundle": {
+    "summary": "Psychology research methodology: Experimental (IV/DV, control, randomization), correlational, longitudinal vs cross-sectional, within vs between subjects. Effect sizes (Cohen's d, r), power analysis, replication crisis, preregistration.",
+    "prerequisites": [],
+    "related_doors": [
+      "PSY03AGE_COGNITIVE_DECLINE",
+      "PSY05CLINICAL_PATTERNS"
+    ],
+    "onboarding": {
+      "quick_start": "Correlation ≠ causation. Random assignment → causal inference. Effect size matters more than p-value. Power ≥.80. Preregister hypotheses. Replicate.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Experimental: Manipulate IV, measure DV, control confounds, random assignment enables causation",
+        "Correlational: Observe relationships, no manipulation, third variable problem, directionality problem",
+        "Longitudinal: Same participants over time, tracks change, expensive, attrition issues",
+        "Cross-sectional: Different groups at one time, cohort effects confound age effects"
+      ],
+      "known_errors": [
+        "p-hacking: Multiple comparisons, stopping rules, outcome switching - inflates false positives",
+        "Underpowered studies: Small N, large variance = unreliable estimates",
+        "WEIRD samples: Western Educated Industrialized Rich Democratic - limits generalizability",
+        "Publication bias: Positive results published, file drawer problem distorts literature"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-24T03:52:35.539323200+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "research",
+        "methodology",
+        "statistics",
+        "experiments",
+        "replication",
+        "science"
+      ],
+      "category": "TOOLS",
+      "subcategory": "RESEARCH",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "WEBC"
+      ]
+    }
+  }
+}

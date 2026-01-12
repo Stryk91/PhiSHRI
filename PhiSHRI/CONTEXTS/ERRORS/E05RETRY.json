@@ -1,11 +1,22 @@
 {
   "door_code": "E05RETRY",
   "semantic_path": "ERRORS.PATTERNS.RETRY_PATTERNS",
-  "aliases": ["retry", "retry_logic", "exponential_backoff", "jitter"],
+  "aliases": [
+    "retry",
+    "retry_logic",
+    "exponential_backoff",
+    "jitter"
+  ],
   "context_bundle": {
     "summary": "Retry patterns: Handle transient failures. Strategies: Immediate retry, Fixed delay (sleep 1s), Exponential backoff (1s, 2s, 4s, 8s), Exponential backoff + jitter (randomize delay). Patterns: Retry on specific errors (timeout, 5xx, connection), max retries (3-5), circuit breaker integration, idempotency required. Libraries: Tenacity (Python), retry (JavaScript), resilience4j (Java), go-retry (Go). Best practices: Only retry idempotent operations, set max retries, use jitter to prevent thundering herd, log retry attempts, alert on high retry rates. Avoid: Infinite retries, retrying non-transient errors (4xx), no backoff (overwhelm service).",
-    "prerequisites": ["E04TIMEOUT"],
-    "related_doors": ["E06CIRCUIT_BREAKER", "T10OBSERVABILITY", "W59INTEGRATION"],
+    "prerequisites": [
+      "E04TIMEOUT"
+    ],
+    "related_doors": [
+      "E06CIRCUIT_BREAKER",
+      "T10OBSERVABILITY",
+      "W59INTEGRATION"
+    ],
     "onboarding": {
       "quick_start": "Retry logic: Handle transient failures. Python (tenacity): from tenacity import retry, stop_after_attempt, wait_exponential; @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=1, max=10)) def fetch_data(): response = requests.get(url, timeout=10); response.raise_for_status(); return response.json(). JavaScript (retry): import retry from 'async-retry'; const data = await retry(async bail => { const res = await fetch(url); if (res.status === 404) bail(new Error('Not found')); // Don't retry 404; if (!res.ok) throw new Error('Failed'); return res.json(); }, {retries: 3, factor: 2, minTimeout: 1000, maxTimeout: 10000}). Exponential backoff: delay = min(max_delay, base_delay * 2^attempt). Jitter: delay = delay * (0.5 + random.random() * 0.5) (randomize to prevent thundering herd). Go: import 'github.com/avast/retry-go'; err := retry.Do(func() error { return fetchData() }, retry.Attempts(3), retry.Delay(1*time.Second), retry.DelayType(retry.BackOffDelay)). Best practices: Retry only idempotent operations (GET, PUT with idempotency key), don't retry client errors (400, 401, 404), use circuit breaker after repeated failures, log retry attempts with context.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
@@ -24,7 +35,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +47,29 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["retry", "exponential_backoff", "jitter", "resilience", "error_handling"],
+      "tags": [
+        "retry",
+        "exponential_backoff",
+        "jitter",
+        "resilience",
+        "error_handling"
+      ],
       "category": "ERRORS",
       "subcategory": "PATTERNS",
       "version": "1.0.0",
-      "tested_on": ["Python", "JavaScript", "Go", "Java"],
-      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+      "tested_on": [
+        "Python",
+        "JavaScript",
+        "Go",
+        "Java"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "CMDC",
+        "TERMC"
+      ],
+      "size_bytes": 4825,
+      "token_estimate": 1207.0
     }
   }
 }

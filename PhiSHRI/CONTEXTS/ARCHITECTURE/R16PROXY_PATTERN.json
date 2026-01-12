@@ -1,11 +1,21 @@
 {
   "door_code": "R16PROXY_PATTERN",
   "semantic_path": "ARCHITECTURE.PATTERNS.STRUCTURAL.PROXY",
-  "aliases": ["proxy", "surrogate", "placeholder pattern"],
+  "aliases": [
+    "proxy",
+    "surrogate",
+    "placeholder pattern"
+  ],
   "context_bundle": {
     "summary": "Proxy pattern provides surrogate or placeholder for another object to control access to it, adding layer of indirection",
-    "prerequisites": ["R01MULTI"],
-    "related_doors": ["R13DECORATOR_PATTERN", "R14ADAPTER_PATTERN", "W110LAZY_LOADING"],
+    "prerequisites": [
+      "R01MULTI"
+    ],
+    "related_doors": [
+      "R13DECORATOR_PATTERN",
+      "R14ADAPTER_PATTERN",
+      "W110LAZY_LOADING"
+    ],
     "onboarding": {
       "quick_start": "Create proxy class implementing same interface as real object to control access, add caching, or defer initialization",
       "full_context_path": "/PhiDEX/MASTER_CODEX/02_PATTERNS/DESIGN_PATTERNS_GUIDE.md",
@@ -18,7 +28,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/02_PATTERNS/DESIGN_PATTERNS_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/02_PATTERNS/DESIGN_PATTERNS_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -28,12 +40,26 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["architecture", "design pattern", "proxy", "structural"],
+      "tags": [
+        "architecture",
+        "design pattern",
+        "proxy",
+        "structural"
+      ],
       "category": "ARCHITECTURE",
       "subcategory": "PATTERNS",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11", "Linux"],
-      "agent_affinity": ["VSCC", "DC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11",
+        "Linux"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC"
+      ],
+      "size_bytes": 1631,
+      "token_estimate": 408.0
     }
   }
 }

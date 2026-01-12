@@ -1,11 +1,24 @@
 {
   "door_code": "R06EVENT_SOURCING",
   "semantic_path": "ARCHITECTURE.PATTERNS.EVENT_SOURCING",
-  "aliases": ["event_sourcing", "event_store", "cqrs", "event_driven_architecture"],
+  "aliases": [
+    "event_sourcing",
+    "event_store",
+    "cqrs",
+    "event_driven_architecture"
+  ],
   "context_bundle": {
     "summary": "Event sourcing: Store state as sequence of events (append-only log), not current state. Every state change is an event (UserRegistered, OrderPlaced, PaymentProcessed). Rebuild state by replaying events. Benefits: Complete audit trail, time travel (replay to any point), event replay for debugging, natural event-driven architecture. Often paired with CQRS (Command Query Responsibility Segregation): Separate read/write models. Event store: EventStoreDB, Kafka, custom DB table. Projections: Build read models from events. Snapshots: Periodically save state to avoid replaying all events. Challenges: Event schema evolution, eventual consistency, complexity. Use cases: Financial systems, audit logs, collaborative apps, analytics.",
-    "prerequisites": ["R04EVENT_DRIVEN", "R03MICROSERVICE", "W76OPTIMIZE_DB"],
-    "related_doors": ["W84LOGGING", "W85TRACING", "R05SERVERLESS"],
+    "prerequisites": [
+      "R04EVENT_DRIVEN",
+      "R03MICROSERVICE",
+      "W76OPTIMIZE_DB"
+    ],
+    "related_doors": [
+      "W84LOGGING",
+      "W85TRACING",
+      "R05SERVERLESS"
+    ],
     "onboarding": {
       "quick_start": "Event sourcing pattern: Events (immutable): UserRegistered {user_id, email, timestamp}, OrderPlaced {order_id, user_id, items, total}, PaymentProcessed {payment_id, order_id, amount}. Event store (simple table): CREATE TABLE events (id SERIAL, aggregate_id UUID, event_type VARCHAR, event_data JSONB, timestamp TIMESTAMPTZ, version INT). Append event: INSERT INTO events (aggregate_id, event_type, event_data, version) VALUES ('user-123', 'UserRegistered', '{\"email\": \"alice@ex.com\"}', 1). Rebuild state (replay events): events = SELECT * FROM events WHERE aggregate_id='user-123' ORDER BY version; user = User(); for event in events: user.apply(event); # user.apply(UserRegistered) → user.email = event.email. CQRS: Write side (commands) → Event store. Read side (queries) → Projection (materialized view). Projection: async def update_user_view(event): if event.type == 'UserRegistered': db.execute('INSERT INTO user_view (id, email) VALUES (?, ?)', event.user_id, event.email). EventStoreDB: from eventstoredb import EventStoreDBClient; client = EventStoreDBClient(uri='esdb://localhost:2113'); client.append_to_stream(stream_name='user-123', events=[NewEvent(type='UserRegistered', data=b'{...}')]); events = client.read_stream(stream_name='user-123'). Snapshot: Every 100 events, save current state to avoid full replay.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
@@ -24,7 +37,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +49,31 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["event_sourcing", "cqrs", "event_store", "event_driven", "audit_trail", "eventstoredb"],
+      "tags": [
+        "event_sourcing",
+        "cqrs",
+        "event_store",
+        "event_driven",
+        "audit_trail",
+        "eventstoredb"
+      ],
       "category": "ARCHITECTURE",
       "subcategory": "PATTERNS",
       "version": "1.0.0",
-      "tested_on": ["EventStoreDB", "Kafka", "PostgreSQL", "Python", "C#"],
-      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+      "tested_on": [
+        "EventStoreDB",
+        "Kafka",
+        "PostgreSQL",
+        "Python",
+        "C#"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "CMDC",
+        "TERMC"
+      ],
+      "size_bytes": 5250,
+      "token_estimate": 1313.0
     }
   }
 }

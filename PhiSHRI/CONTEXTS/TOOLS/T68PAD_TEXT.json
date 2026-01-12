@@ -1,0 +1,63 @@
+{
+  "door_code": "T68PAD_TEXT",
+  "semantic_path": "TOOLS.AUTOMATION.PAD.TEXT",
+  "aliases": [
+    "pad text",
+    "string manipulation",
+    "text parsing"
+  ],
+  "context_bundle": {
+    "summary": "PAD text actions: Parse (delimiter/position), Replace (regex support), Trim, Change Case, Get Subtext, Pad, Join, Split, Recognize Entities (email/url/phone)",
+    "prerequisites": [
+      "T59POWER_AUTOMATE_DESKTOP"
+    ],
+    "related_doors": [
+      "T60PAD_VARIABLES"
+    ],
+    "onboarding": {
+      "quick_start": "Split text by delimiter -> For each part -> Trim -> Replace patterns -> Join with new delimiter",
+      "full_context_path": "",
+      "common_patterns": [
+        "Parse text find:'delimiter' -> %ParsedParts% list",
+        "Replace text find:'pattern' replace:'new' regex:True all:True",
+        "Trim text from:Both (removes leading/trailing whitespace)",
+        "Change text case to:Upper|Lower|Title|Sentence",
+        "Get subtext from position:0 length:10 -> %Substring%",
+        "Split text delimiter:',' regex:False -> %TextList%",
+        "Join text %List% with delimiter:';' -> %JoinedText%",
+        "Recognize entities type:Email|URL|Phone in %Text% -> %Entities%"
+      ],
+      "known_errors": [
+        "Regex escape special chars: \\. \\* \\[ etc",
+        "Get subtext position is 0-based",
+        "Entity recognition not 100% accurate - validate results"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T17:10:45.036532200+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "pad",
+        "text",
+        "string",
+        "parse",
+        "regex",
+        "rpa"
+      ],
+      "category": "TOOLS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1885,
+      "token_estimate": 472.0
+    }
+  }
+}

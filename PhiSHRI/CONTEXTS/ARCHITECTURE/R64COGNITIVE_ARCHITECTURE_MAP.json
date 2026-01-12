@@ -1,0 +1,58 @@
+{
+  "door_code": "R64COGNITIVE_ARCHITECTURE_MAP",
+  "semantic_path": "ARCHITECTURE.COGNITION.MEMORY_MAPPING",
+  "aliases": [
+    "brain-computer mapping",
+    "memory architecture",
+    "cognitive mapping"
+  ],
+  "context_bundle": {
+    "summary": "Framework for mapping computer memory systems to human brain memory systems. CPU registers to working memory, RAM to hippocampus, disk to cortical storage, PhiSHRI doors to consolidated schemas. December 2024 project with PhD psychologist.",
+    "prerequisites": [],
+    "related_doors": [
+      "R62DR_MANHATTAN_FRAMEWORK",
+      "A01MULTI_AGENT_OVERVIEW"
+    ],
+    "onboarding": {
+      "quick_start": "Mapping: CPU registers/L1 cache → working memory (prefrontal, 4-7 slots). RAM → hippocampus (temporary, needs consolidation). SSD/disk → distributed cortical storage (pattern-based, associative). PhiSHRI doors → consolidated schemas (solved once, stored, retrieved by semantic cue).",
+      "full_context_path": "",
+      "common_patterns": [
+        "Attention gates what becomes memory vs noise",
+        "Consolidation requires active process",
+        "Semantic vs episodic memory distinction",
+        "Relevance tagging for persistence"
+      ],
+      "known_errors": [
+        "Most AI dev happens without genuine cognitive science input",
+        "Neural math doesn't mean it works like brains"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-14T11:07:46.633184100+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "cognition",
+        "memory",
+        "architecture",
+        "brain",
+        "mapping",
+        "psychology"
+      ],
+      "category": "ARCHITECTURE",
+      "subcategory": "COGNITION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "STRYK"
+      ],
+      "size_bytes": 1899,
+      "token_estimate": 475.0
+    }
+  }
+}

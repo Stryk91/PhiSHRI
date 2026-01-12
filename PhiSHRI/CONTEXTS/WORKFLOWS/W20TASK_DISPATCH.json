@@ -1,0 +1,54 @@
+{
+  "door_code": "W20TASK_DISPATCH",
+  "semantic_path": "WORKFLOWS.AGENTS.TASK_DISPATCH",
+  "aliases": [
+    "task protocol",
+    "dispatch schema",
+    "agent tasks"
+  ],
+  "context_bundle": {
+    "summary": "Task dispatch protocol for DC-KALIC agent mesh. Structured JSON schema for inter-agent task requests and responses. Types: SCAN, AUDIT, BUILD, QUERY, REPORT.",
+    "prerequisites": [],
+    "related_doors": [
+      "A01DC",
+      "A05KALIC",
+      "W12PHISYNC"
+    ],
+    "onboarding": {
+      "quick_start": "Task format: {id, type, target, params:{tool,flags,scope,output_format}, priority, callback}. Response: {id, status, result:{summary,findings,artifacts}, error, duration_ms}. Callback via AHK direct injection.",
+      "full_context_path": "",
+      "common_patterns": [
+        "SCAN task: {type:'SCAN', target:'IP/range', params:{tool:'nmap',flags:['-sV'],scope:'quick'}}",
+        "AUDIT task: {type:'AUDIT', target:'repo_path', params:{tool:'lynis',scope:'full'}}",
+        "Callback: AHK for immediate, FILE for batch, NONE for fire-and-forget"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-02T00:30:17.271582300+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "task-dispatch",
+        "agent-mesh",
+        "protocol",
+        "dc-kalic",
+        "orchestration"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "AGENTS",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ],
+      "size_bytes": 1612,
+      "token_estimate": 403.0
+    }
+  }
+}

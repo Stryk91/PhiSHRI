@@ -1,11 +1,22 @@
 {
   "door_code": "W04TOKEN",
   "semantic_path": "WORKFLOWS.AI.TOKEN_OPTIMIZATION",
-  "aliases": ["token_opt", "cost_reduction", "token_compression", "efficiency"],
+  "aliases": [
+    "token_opt",
+    "cost_reduction",
+    "token_compression",
+    "efficiency"
+  ],
   "context_bundle": {
     "summary": "Token optimization strategies to reduce API costs and improve response times. Includes compression techniques, efficient formatting, and cost-per-task analysis.",
-    "prerequisites": ["W02PROMPT", "W03CONTEXT"],
-    "related_doors": ["P04SHRI", "A01DC"],
+    "prerequisites": [
+      "W02PROMPT",
+      "W03CONTEXT"
+    ],
+    "related_doors": [
+      "P04SHRI",
+      "A01DC"
+    ],
     "onboarding": {
       "quick_start": "Use abbreviations, remove whitespace, compress examples. Monitor tokens per task. Target: 66% reduction vs baseline verbose prompts.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md",
@@ -26,7 +37,9 @@
       ]
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -36,12 +49,26 @@
       "confidence": 0.96,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["ai", "tokens", "cost", "optimization", "efficiency"],
+      "tags": [
+        "ai",
+        "tokens",
+        "cost",
+        "optimization",
+        "efficiency"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "AI_OPTIMIZATION",
       "version": "1.0.0",
-      "tested_on": ["Claude 4.5", "GPT-4"],
-      "agent_affinity": ["DC", "VSCC"]
+      "tested_on": [
+        "Claude 4.5",
+        "GPT-4"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 1930,
+      "token_estimate": 483.0
     }
   }
 }

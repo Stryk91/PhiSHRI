@@ -1,0 +1,56 @@
+{
+  "door_code": "E60BATTLENET_LOOPBACK",
+  "semantic_path": "ERRORS.NETWORKING.BATTLENET",
+  "aliases": [
+    "battle.net install",
+    "blizzard stuck",
+    "agent port 1120"
+  ],
+  "context_bundle": {
+    "summary": "Battle.net installer stuck fix. IP Helper service blocks port 1120 which Agent needs. Stop iphlpsvc before install.",
+    "prerequisites": [],
+    "related_doors": [],
+    "onboarding": {
+      "quick_start": "1. netstat -ano | findstr :1120 to find who owns port. 2. Stop-Service iphlpsvc -Force. 3. Run installer. 4. IP Helper auto-restarts on reboot.",
+      "full_context_path": "",
+      "common_patterns": [
+        "netstat -ano | findstr :1120",
+        "Stop-Service iphlpsvc -Force",
+        "Get-NetTCPConnection -LocalPort 1120"
+      ],
+      "known_errors": [
+        "Battle.net installer stuck at 5%/45%",
+        "IP Helper (iphlpsvc) squats on 127.0.0.1:1120",
+        "Agent falls back to 6881+ but Setup expects 1120",
+        "RED HERRINGS: WSL2, Hyper-V, winsock reset, netsh, firewall - NONE of these matter"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-05T18:52:44.850087700+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "battlenet",
+        "blizzard",
+        "port",
+        "iphlpsvc",
+        "1120",
+        "installer"
+      ],
+      "category": "ERRORS",
+      "subcategory": "NETWORKING",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ],
+      "size_bytes": 1573,
+      "token_estimate": 394.0
+    }
+  }
+}

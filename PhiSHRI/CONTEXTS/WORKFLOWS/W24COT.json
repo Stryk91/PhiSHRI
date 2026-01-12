@@ -1,11 +1,21 @@
 {
   "door_code": "W24COT",
   "semantic_path": "WORKFLOWS.AI_OPTIMIZATION.CHAIN_OF_THOUGHT",
-  "aliases": ["cot", "chain_of_thought", "step_by_step", "reasoning"],
+  "aliases": [
+    "cot",
+    "chain_of_thought",
+    "step_by_step",
+    "reasoning"
+  ],
   "context_bundle": {
     "summary": "Chain-of-Thought prompting: guides model to reason step-by-step instead of jumping to answer. Significantly improves accuracy on complex reasoning, makes logic transparent/debuggable, reduces hallucinations. Works with all LLMs.",
-    "prerequisites": ["W02PROMPT"],
-    "related_doors": ["W22XML_PROMPT", "W25FEW_SHOT"],
+    "prerequisites": [
+      "W02PROMPT"
+    ],
+    "related_doors": [
+      "W22XML_PROMPT",
+      "W25FEW_SHOT"
+    ],
     "onboarding": {
       "quick_start": "CoT = think step by step. Template: 'Problem: {{x}}. Let's solve step by step: 1. First... 2. Then... 3. Finally... Therefore: {{answer}}'. Use <thinking> tags for Claude. Forces explicit reasoning chain.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md",
@@ -19,7 +29,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -29,12 +41,28 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["ai", "prompting", "cot", "reasoning", "step_by_step"],
+      "tags": [
+        "ai",
+        "prompting",
+        "cot",
+        "reasoning",
+        "step_by_step"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "AI_OPTIMIZATION",
       "version": "1.0.0",
-      "tested_on": ["Claude", "GPT-4", "Gemini"],
-      "agent_affinity": ["DC", "VSCC", "WEBC"]
+      "tested_on": [
+        "Claude",
+        "GPT-4",
+        "Gemini"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "WEBC"
+      ],
+      "size_bytes": 1839,
+      "token_estimate": 460.0
     }
   }
 }

@@ -1,0 +1,61 @@
+{
+  "door_code": "W223PAD_INTEGRATION_MODELS",
+  "semantic_path": "WORKFLOWS.AUTOMATION.PAD.INTEGRATION_MODELS",
+  "aliases": [
+    "hub spoke",
+    "event driven",
+    "microservices",
+    "orchestration"
+  ],
+  "context_bundle": {
+    "summary": "5 Integration Models: Hub-Spoke (central platform, N integrations not N*N), Event-Driven (real-time triggers, no polling), Data Pipeline (ETL: extract-validate-transform-enrich-load-analyze), Orchestration (conductor coordinates multi-step with approvals), Microservices (reusable services combined flexibly)",
+    "prerequisites": [
+      "T59POWER_AUTOMATE_DESKTOP"
+    ],
+    "related_doors": [
+      "W221PAD_IMPACT_FRAMEWORK",
+      "T78PAD_HTTP_ADV"
+    ],
+    "onboarding": {
+      "quick_start": "Hub-Spoke: SharePoint/Dataverse as hub, systems connect to hub only. Event-Driven: Trigger on action, not schedule. Pipeline: For reporting/analytics. Orchestration: Long-running approval workflows. Microservices: Build once, use everywhere.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Hub-Spoke: 5 systems = 5 integrations (not 10 point-to-point)",
+        "Event types: Data (CRUD), User (form submit), System (file upload), Time (deadline)",
+        "Pipeline stages: Extract -> Validate -> Transform -> Enrich -> Load -> Analyze",
+        "Microservice categories: Data, Communication, Integration, Business Logic, Utility"
+      ],
+      "known_errors": [
+        "Point-to-point spaghetti = unmaintainable",
+        "Polling when events available = wasted resources",
+        "No circuit breakers = cascading failures",
+        "Monolithic = can't scale parts independently"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T18:18:00.248534100+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "pad",
+        "integration",
+        "architecture",
+        "patterns",
+        "enterprise"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 2157,
+      "token_estimate": 540.0
+    }
+  }
+}

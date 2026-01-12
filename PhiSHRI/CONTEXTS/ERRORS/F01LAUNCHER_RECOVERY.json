@@ -1,0 +1,55 @@
+{
+  "door_code": "F01LAUNCHER_RECOVERY",
+  "semantic_path": "ERRORS.CLAUDECODE.LAUNCHER",
+  "aliases": [
+    "launcher fix",
+    "claude code update",
+    "npm broke claude"
+  ],
+  "context_bundle": {
+    "summary": "Claude Code launcher wrapper fix. npm updates overwrite launcher - recreate wrapper pointing to claude-bin.",
+    "prerequisites": [],
+    "related_doors": [
+      "S00KALIC_SESSION_BOOT"
+    ],
+    "onboarding": {
+      "quick_start": "If claude command broken after update: 1. Rename symlink to claude-bin. 2. Create bash wrapper as claude. 3. Wrapper loads brain regions + shows banner.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Rename /usr/local/bin/claude to claude-bin",
+        "Create bash wrapper as claude",
+        "Wrapper shows banner, loads brain, waits for ready"
+      ],
+      "known_errors": [
+        "Claude Code npm updates OVERWRITE /usr/local/bin/claude with symlink",
+        "Wrapper disappears after update - must recreate",
+        "Original becomes /usr/local/bin/claude-bin"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-05T18:53:08.218289300+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "launcher",
+        "claudecode",
+        "npm",
+        "wrapper",
+        "update"
+      ],
+      "category": "ERRORS",
+      "subcategory": "CLAUDECODE",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "KALIC"
+      ],
+      "size_bytes": 1535,
+      "token_estimate": 384.0
+    }
+  }
+}

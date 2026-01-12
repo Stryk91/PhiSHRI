@@ -1,0 +1,50 @@
+{
+  "door_code": "E55PATH",
+  "semantic_path": "ERRORS.PATH.PowerShell_7_not_at_expected_p",
+  "aliases": [
+    "path",
+    "PowerShell 7 not at expected path"
+  ],
+  "context_bundle": {
+    "summary": "Path error: PowerShell 7 not at expected path. Wrong: /mnt/c/Program Files/PowerShell/7/pwsh.exe. Correct: Use /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe instead",
+    "prerequisites": [],
+    "related_doors": [
+      "A05KALIC",
+      "A01DC"
+    ],
+    "onboarding": {
+      "quick_start": "Use: Use /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe instead",
+      "full_context_path": "",
+      "common_patterns": [],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-02T23:19:19Z",
+      "confidence": 1.0,
+      "tags": [
+        "error",
+        "resolution",
+        "kalic",
+        "path",
+        "PowerShell 7 not at expected path"
+      ],
+      "category": "ERRORS",
+      "subcategory": "PATH",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "KALIC",
+        "DC"
+      ],
+      "source": "kalic_brain/solved_problems.json",
+      "resolved_date": "2025-12-03",
+      "size_bytes": 1265,
+      "token_estimate": 317.0
+    }
+  }
+}

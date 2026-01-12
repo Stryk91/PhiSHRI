@@ -1,0 +1,44 @@
+{
+  "door_code": "800WINMCP_SETUP",
+  "semantic_path": "TOOLS.MCP.WINDOWS_SETUP",
+  "aliases": [
+    "windows mcp setup",
+    "winmcp install",
+    "mcp windows"
+  ],
+  "context_bundle": {
+    "summary": "Windows MCP server setup. Install via cargo, configure in claude_desktop_config.json. Requires PowerShell 7+. See windows-mcp-v3.",
+    "prerequisites": [],
+    "related_doors": [
+      "800WINMCP"
+    ],
+    "onboarding": {
+      "quick_start": "",
+      "full_context_path": "",
+      "common_patterns": [],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-05T19:58:31.774742900+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "mcp",
+        "windows",
+        "setup",
+        "installation"
+      ],
+      "category": "TOOLS",
+      "subcategory": "MCP",
+      "version": "1.0.0",
+      "agent_affinity": [],
+      "size_bytes": 969,
+      "token_estimate": 243.0
+    }
+  }
+}

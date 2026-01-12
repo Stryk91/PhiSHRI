@@ -1,0 +1,59 @@
+{
+  "door_code": "W222PAD_ROI_CALC",
+  "semantic_path": "WORKFLOWS.AUTOMATION.PAD.ROI_CALCULATION",
+  "aliases": [
+    "automation roi",
+    "payback period",
+    "npv"
+  ],
+  "context_bundle": {
+    "summary": "ROI Calculation: Benefits = Time Savings + Error Reduction + Scalability + Insight Value. Costs = Dev + Maintenance + Licensing + Training. ROI = (Benefits-Costs)/Costs*100. Payback = Initial/Monthly Benefit. Typical: 2-3 month payback, 200-500% ROI Year 1.",
+    "prerequisites": [
+      "W220PAD_VALUE_PYRAMID"
+    ],
+    "related_doors": [
+      "W221PAD_IMPACT_FRAMEWORK"
+    ],
+    "onboarding": {
+      "quick_start": "Time Value = Hrs/week * 52 * (Salary+Benefits+Overhead)/2080. Error Value = Errors/yr * Cost/error. Scalability = Headcount avoided * loaded cost. Quick calc: 10 hrs/week @ $55/hr = $28,751/yr",
+      "full_context_path": "",
+      "common_patterns": [
+        "Loaded hourly = (Salary + 33% benefits + 20% overhead) / 2080",
+        "Error cost = Direct fix + Customer impact + Opportunity + Reputation",
+        "Scalability: 25% growth without automation = 2 new hires. With = 0",
+        "NPV 3yr @ 10%: Sum of discounted annual benefits minus initial"
+      ],
+      "known_errors": [
+        "Forgetting loaded cost (salary is ~65% of true cost)",
+        "Not measuring baseline before automation",
+        "Ignoring maintenance costs in ongoing",
+        "Undervaluing insight/decision value"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T18:18:00.247974900+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "pad",
+        "roi",
+        "business case",
+        "metrics",
+        "value"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1922,
+      "token_estimate": 481.0
+    }
+  }
+}

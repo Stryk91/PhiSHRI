@@ -1,11 +1,23 @@
 {
   "door_code": "W75BENCHMARK",
   "semantic_path": "WORKFLOWS.PERFORMANCE.BENCHMARKING",
-  "aliases": ["benchmarking", "benchmark", "performance_testing", "micro_benchmark", "pytest_benchmark"],
+  "aliases": [
+    "benchmarking",
+    "benchmark",
+    "performance_testing",
+    "micro_benchmark",
+    "pytest_benchmark"
+  ],
   "context_bundle": {
     "summary": "Benchmarking measures code performance: Micro-benchmarks (small functions, tight loops), macro-benchmarks (end-to-end scenarios), comparative benchmarks (before/after optimization). Tools: Python (pytest-benchmark, timeit), Java (JMH Java Microbenchmark Harness), Go (testing.B), Rust (criterion). Best practices: Warm-up iterations, statistical significance, consistent environment, measure multiple runs, avoid I/O in micro-benchmarks. Metrics: Operations/sec, latency (mean, median, p95, p99), memory allocations, GC pauses. Sorting benchmarks: QuickSort O(n log n) average, MergeSort O(n log n) worst, TimSort (Python default) optimized for real-world data.",
-    "prerequisites": ["W73PROFILING", "W74LOAD_TEST"],
-    "related_doors": ["W86METRICS", "W58UNITTEST"],
+    "prerequisites": [
+      "W73PROFILING",
+      "W74LOAD_TEST"
+    ],
+    "related_doors": [
+      "W86METRICS",
+      "W58UNITTEST"
+    ],
     "onboarding": {
       "quick_start": "Benchmarking tools: Python pytest-benchmark: pip install pytest-benchmark; def test_my_func(benchmark): result = benchmark(my_function, arg1, arg2); # Runs multiple iterations, reports stats. Python timeit: import timeit; time = timeit.timeit('my_function()', setup='from __main__ import my_function', number=10000); # 10k iterations. Java JMH: @Benchmark public void testMethod() { myFunction(); } # Annotation-based, warm-up, forking. Go: func BenchmarkMyFunc(b *testing.B) { for i := 0; i < b.N; i++ { myFunction() } }; run: go test -bench=. -benchmem. Rust Criterion: use criterion::{black_box, criterion_group, criterion_main, Criterion}; fn bench(c: &mut Criterion) { c.bench_function('my_func', |b| b.iter(|| my_function(black_box(42)))); }. Analyze: Look for regressions (>10% slowdown), compare algorithms (sort comparison: QuickSort vs MergeSort), verify optimizations improved performance.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md",
@@ -24,7 +36,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +48,31 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["benchmarking", "pytest-benchmark", "jmh", "timeit", "performance", "micro_benchmark", "criterion"],
+      "tags": [
+        "benchmarking",
+        "pytest-benchmark",
+        "jmh",
+        "timeit",
+        "performance",
+        "micro_benchmark",
+        "criterion"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "PERFORMANCE",
       "version": "1.0.0",
-      "tested_on": ["Python", "Java", "Go", "Rust"],
-      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+      "tested_on": [
+        "Python",
+        "Java",
+        "Go",
+        "Rust"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "CMDC",
+        "TERMC"
+      ],
+      "size_bytes": 4237,
+      "token_estimate": 1060.0
     }
   }
 }

@@ -1,0 +1,63 @@
+{
+  "door_code": "P20CORTEX_RESEARCH_COLLAB",
+  "semantic_path": "PROJECTS.CORTEX.DESIGN",
+  "aliases": [
+    "cortex",
+    "alana project",
+    "sister collab",
+    "research sandbox",
+    "psychology research"
+  ],
+  "context_bundle": {
+    "summary": "Isolated research collaboration environment for Alana (PhD psychology, age-related cognitive decline). Sandboxed tenant within Carbyne ecosystem - gets research multiplier benefits without system access.",
+    "prerequisites": [],
+    "related_doors": [
+      "P10CARBYNE_CLAUDE",
+      "A04WEBC"
+    ],
+    "onboarding": {
+      "quick_start": "Proton Duo subscription ($15/mo). She gets login, installs Proton Drive app, shared folder appears. Drops research requests in, gets responses back. 2TB E2E encrypted. DC monitors folder, processes via Claude API, writes responses. Zero custom transport code.",
+      "full_context_path": "",
+      "common_patterns": [
+        "TRANSPORT: Proton Drive native sync - zero custom code for file transfer",
+        "SUBSCRIPTION: Proton Duo (~$15/mo) - 2 users, 2TB shared, E2E encrypted",
+        "HER SETUP: Install Proton Drive app, login, shared folder appears in File Explorer",
+        "YOUR SETUP: Share folder with her account, folder watcher alerts DC on new files",
+        "PROCESSING: Claude API with research-focused system prompt, her context accumulates",
+        "OUTPUT: Response files appear in shared folder, sync back to her automatically"
+      ],
+      "known_errors": [
+        "Account sharing violates ToS - must use API for Claude processing",
+        "ChatGPT habits may need gentle correction",
+        "Research data may be sensitive (IRB/patient info) - Proton E2E handles this",
+        "Dec 24 target for initial pitch to Alana"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-22T01:13:23.8733276+11:00",
+      "confidence": 1.0,
+      "tags": [
+        "collaboration",
+        "research",
+        "sandbox",
+        "isolated",
+        "tenant",
+        "psychology",
+        "neuroscience",
+        "family"
+      ],
+      "category": "PROJECTS",
+      "subcategory": "CORTEX",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ]
+    }
+  }
+}

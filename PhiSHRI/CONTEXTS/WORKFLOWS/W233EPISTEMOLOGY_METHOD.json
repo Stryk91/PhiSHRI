@@ -1,0 +1,58 @@
+{
+  "door_code": "W233EPISTEMOLOGY_METHOD",
+  "semantic_path": "WORKFLOWS.THINKING.EPISTEMOLOGY",
+  "aliases": [
+    "how do we know",
+    "street epistemology",
+    "Boghossian method",
+    "pursuit of truth"
+  ],
+  "context_bundle": {
+    "summary": "The Boghossian-influenced epistemological method. How do you know what you think you know? Knowledge as process with provenance, not inventory. Questioning belief foundations through dialogue, not debate.",
+    "prerequisites": [],
+    "related_doors": [
+      "W234PURSUIT_OF_TRUTH"
+    ],
+    "onboarding": {
+      "quick_start": "Core questions: How do I know this? Why do I know this? How did I come to think I know anything about this? Did I arrive here through reason or absorb through proximity? The meta-level: Why am I drawn to this question at all?",
+      "full_context_path": "",
+      "common_patterns": [
+        "Knowledge as process not inventory",
+        "Chain of custody for beliefs",
+        "Method matters more than conclusion",
+        "Question orientation to facts not just facts"
+      ],
+      "known_errors": [
+        "Most people's relationship to ideas is defensive - territory to hold, not tools for understanding",
+        "Pulling threads makes people uncomfortable"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-14T11:07:46.632397500+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "epistemology",
+        "Boghossian",
+        "method",
+        "truth",
+        "knowledge",
+        "inquiry"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "THINKING",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "STRYK"
+      ],
+      "size_bytes": 1784,
+      "token_estimate": 446.0
+    }
+  }
+}

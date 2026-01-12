@@ -1,11 +1,24 @@
 {
   "door_code": "W124PARALLEL",
   "semantic_path": "WORKFLOWS.ORCHESTRATION.PARALLEL",
-  "aliases": ["parallel execution", "concurrent tasks", "fan-out fan-in", "parallelization"],
+  "aliases": [
+    "parallel execution",
+    "concurrent tasks",
+    "fan-out fan-in",
+    "parallelization"
+  ],
   "context_bundle": {
     "summary": "Parallel task execution pattern for running independent tasks concurrently with fan-out/fan-in aggregation to maximize throughput",
-    "prerequisites": ["W122DAG", "W123ORCHESTRATION", "W17PARALLEL"],
-    "related_doors": ["W78CONCURRENCY", "W125CHOREOGRAPHY", "W19PERF"],
+    "prerequisites": [
+      "W122DAG",
+      "W123ORCHESTRATION",
+      "W17PARALLEL"
+    ],
+    "related_doors": [
+      "W78CONCURRENCY",
+      "W125CHOREOGRAPHY",
+      "W19PERF"
+    ],
     "onboarding": {
       "quick_start": "Fan-out: Launch all independent tasks simultaneously. Fan-in: Wait for all to complete, aggregate results. Use for tasks without dependencies.",
       "full_context_path": "/PhiDEX/PhiSync/02_WORKFLOW_ORCHESTRATION/WORKFLOW_ORCHESTRATION_PATTERNS.md",
@@ -23,7 +36,9 @@
       ]
     },
     "resources": {
-      "docs": ["/PhiDEX/PhiSync/02_WORKFLOW_ORCHESTRATION/WORKFLOW_ORCHESTRATION_PATTERNS.md"],
+      "docs": [
+        "/PhiDEX/PhiSync/02_WORKFLOW_ORCHESTRATION/WORKFLOW_ORCHESTRATION_PATTERNS.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -33,12 +48,26 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["parallel", "concurrent", "fan-out", "fan-in", "throughput"],
+      "tags": [
+        "parallel",
+        "concurrent",
+        "fan-out",
+        "fan-in",
+        "throughput"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "ORCHESTRATION",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11"],
-      "agent_affinity": ["DC", "VSCC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 2007,
+      "token_estimate": 502.0
     }
   }
 }

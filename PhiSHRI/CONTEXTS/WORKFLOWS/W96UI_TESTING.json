@@ -1,11 +1,22 @@
 {
   "door_code": "W96UI_TESTING",
   "semantic_path": "WORKFLOWS.UI_AUTOMATION.UI_TESTING_PATTERNS",
-  "aliases": ["ui_testing", "frontend_testing", "ui_test_patterns", "test_strategy"],
+  "aliases": [
+    "ui_testing",
+    "frontend_testing",
+    "ui_test_patterns",
+    "test_strategy"
+  ],
   "context_bundle": {
     "summary": "UI testing best practices include Page Object pattern for maintainability, explicit waits for stability, data-testid attributes for reliable selectors, test isolation, and testing pyramid (more unit, fewer E2E) for efficient coverage.",
     "prerequisites": [],
-    "related_doors": ["W93SELENIUM", "W94PLAYWRIGHT", "W95CYPRESS", "W97VISUAL_REGRESSION", "W19UNIT_TESTING"],
+    "related_doors": [
+      "W93SELENIUM",
+      "W94PLAYWRIGHT",
+      "W95CYPRESS",
+      "W97VISUAL_REGRESSION",
+      "W19UNIT_TESTING"
+    ],
     "onboarding": {
       "quick_start": "UI testing strategy: 1) Use testing pyramid (70% unit, 20% integration, 10% E2E). 2) Implement Page Object pattern for DRY tests. 3) Use data-testid for stable selectors. 4) Isolate tests (independent, no shared state). 5) Use explicit waits for dynamic content. 6) Run tests in parallel. 7) Capture screenshots/videos on failure. Focus E2E tests on critical user flows.",
       "full_context_path": "/PhiDEX/industry_knowledge/ui_testing_best_practices.md",
@@ -16,25 +27,50 @@
         "Test isolation: beforeEach(() => { // Reset state cy.clearCookies(); cy.clearLocalStorage(); // Seed test data cy.request('POST', '/api/test/reset'); cy.request('POST', '/api/test/seed', testData) })",
         "Parallel execution: // Cypress: cypress run --parallel --record --key=<key>; // Playwright: pytest -n auto --dist loadgroup"
       ],
-      "known_errors": ["E03TIMEOUT", "E11RACE_CONDITIONS"]
+      "known_errors": [
+        "E03TIMEOUT",
+        "E11RACE_CONDITIONS"
+      ]
     },
     "resources": {
-      "docs": ["/PhiDEX/industry_knowledge/ui_testing_best_practices.md"],
+      "docs": [
+        "/PhiDEX/industry_knowledge/ui_testing_best_practices.md"
+      ],
       "code": [],
       "tests": [],
-      "errors": ["E03TIMEOUT", "E11RACE_CONDITIONS"]
+      "errors": [
+        "E03TIMEOUT",
+        "E11RACE_CONDITIONS"
+      ]
     },
     "metadata": {
       "last_updated": "2025-11-21T00:00:00Z",
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["ui_testing", "test_strategy", "page_object", "testing_pyramid", "best_practices"],
+      "tags": [
+        "ui_testing",
+        "test_strategy",
+        "page_object",
+        "testing_pyramid",
+        "best_practices"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "UI_AUTOMATION",
       "version": "1.0.0",
-      "tested_on": ["Selenium", "Playwright", "Cypress", "Testing Library", "Jest"],
-      "agent_affinity": ["DC", "VSCC"]
+      "tested_on": [
+        "Selenium",
+        "Playwright",
+        "Cypress",
+        "Testing Library",
+        "Jest"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 2925,
+      "token_estimate": 732.0
     }
   }
 }

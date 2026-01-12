@@ -1,0 +1,56 @@
+{
+  "door_code": "T850CLAUDE_HOOKS",
+  "semantic_path": "TOOLS.CLAUDECODE.HOOKS",
+  "aliases": [
+    "claude code hooks",
+    "kalic hooks",
+    "pretooluse",
+    "posttooluse"
+  ],
+  "context_bundle": {
+    "summary": "Claude Code hooks configuration. Valid events, permission decisions, script locations. SessionStart is NOT valid.",
+    "prerequisites": [],
+    "related_doors": [
+      "S00KALIC_SESSION_BOOT"
+    ],
+    "onboarding": {
+      "quick_start": "Valid hooks: PreToolUse, PostToolUse, Notification, Stop. Config: ~/.claude/settings.json. Scripts: /mnt/c/PhiDEX/kalic_brain/hooks/scripts/. DO NOT use SessionStart - it breaks.",
+      "full_context_path": "",
+      "common_patterns": [
+        "PreToolUse matcher: tool name or * for all",
+        "Hook output: {permissionDecision: allow|deny|ask}",
+        "Exit code 2 blocks tool execution"
+      ],
+      "known_errors": [
+        "SessionStart is NOT a valid hook - causes Startup Hook Error",
+        "Valid events ONLY: PreToolUse, PostToolUse, Notification, Stop",
+        "Config location: ~/.claude/settings.json under hooks:{}"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-05T18:52:58.051168300+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "hooks",
+        "claudecode",
+        "kalic",
+        "pretooluse",
+        "posttooluse"
+      ],
+      "category": "TOOLS",
+      "subcategory": "CLAUDECODE",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "KALIC"
+      ],
+      "size_bytes": 1599,
+      "token_estimate": 400.0
+    }
+  }
+}

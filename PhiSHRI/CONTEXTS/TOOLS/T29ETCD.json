@@ -61,7 +61,9 @@
         "VSCC",
         "DC",
         "KALIC"
-      ]
+      ],
+      "size_bytes": 2265,
+      "token_estimate": 567.0
     }
   }
 }

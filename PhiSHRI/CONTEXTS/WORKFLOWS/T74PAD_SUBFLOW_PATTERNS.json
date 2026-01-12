@@ -1,0 +1,61 @@
+{
+  "door_code": "T74PAD_SUBFLOW_PATTERNS",
+  "semantic_path": "WORKFLOWS.PATTERNS.PAD_SUBFLOWS",
+  "aliases": [
+    "pad patterns",
+    "subflow templates",
+    "rpa patterns"
+  ],
+  "context_bundle": {
+    "summary": "20 PAD subflow patterns: ErrorHandler, DataValidation, Logging, EmailNotification, FileBackup, DBConnectionManager, ExcelReportGenerator, WebScrapingRetry, FileConverter, RetryLogic, DataTransform, ConfigManager, BatchProcessor, CredentialManager, FileWatcher, APIRateLimiter, DataDedup, TaskChecker, DataArchival, HealthCheck",
+    "prerequisites": [
+      "T59POWER_AUTOMATE_DESKTOP",
+      "T73PAD_FLOWCONTROL"
+    ],
+    "related_doors": [
+      "W115WORKFLOW_ORCHESTRATION"
+    ],
+    "onboarding": {
+      "quick_start": "Import subflow pattern -> Customize inputs/outputs -> Call from main flow. Key: Single responsibility, error handling, logging, input validation",
+      "full_context_path": "",
+      "common_patterns": [
+        "ErrorHandler: inputs(ErrorMsg,Source,Severity) -> outputs(ErrorLogged,ErrorID) - centralized logging",
+        "DataValidation: inputs(Data,Type,Rules) -> outputs(IsValid,Errors,CleanedData)",
+        "RetryLogic: inputs(MaxAttempts,Delay,ExponentialBackoff) -> outputs(Success,AttemptsUsed,LastError)",
+        "BatchProcessor: inputs(Items,BatchSize,ProcessorSubflow) -> outputs(Processed,Failed,Errors)",
+        "HealthCheck: inputs(CheckType,Resources) -> outputs(Status,FailedChecks,Recommendations)"
+      ],
+      "known_errors": [
+        "Pass only necessary data to subflows - avoid bloat",
+        "Return consistent outputs even on error paths",
+        "Document subflow purpose and parameters in comments"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T17:10:45.041072100+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "pad",
+        "subflows",
+        "patterns",
+        "best practices",
+        "modular",
+        "rpa"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "PATTERNS",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 2189,
+      "token_estimate": 548.0
+    }
+  }
+}

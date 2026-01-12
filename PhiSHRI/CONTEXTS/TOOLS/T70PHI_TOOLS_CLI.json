@@ -1,0 +1,63 @@
+{
+  "door_code": "T70PHI_TOOLS_CLI",
+  "semantic_path": "TOOLS.CLI.PHI_TOOLBOX",
+  "aliases": [
+    "phi tools",
+    "cli toolbox",
+    "kalic tools"
+  ],
+  "context_bundle": {
+    "summary": "CLI toolbox with phi-find (PhiSHRI), cel-cli (context), es.exe (Everything), phi-screenshot (capture). KALIC's everything-mcp-rs has dual-mode: CLI commands + MCP server in one binary.",
+    "prerequisites": [],
+    "related_doors": [
+      "P20CEL_CONTEXT_ENGINE",
+      "T28SCREEN_MCP",
+      "W253MSGQUEUE_SYSTEM"
+    ],
+    "onboarding": {
+      "quick_start": "CLI Toolbox locations:\nPRIMARY: C:\\PhiDEX\\tools\\\n  - phi-find.exe: Search PhiSHRI doors  \n  - cel-cli.exe: Context tracking\n  - es.exe: Everything CLI (official)\n  - phi-screenshot.cmd/.ps1: Screen capture\n\nALTERNATE: X:\\mcp-servers\\everything-mcp-rs\\\n  - everything-mcp-rs.exe: Dual-mode (MCP + CLI)\n    CLI: search, ext, recent, large, status\n    MCP: No args (stdio mode)",
+      "full_context_path": "",
+      "common_patterns": [
+        "WSL: /mnt/c/PhiDEX/tools/es.exe 'query'",
+        "WSL: cmd.exe /c 'C:\\\\PhiDEX\\\\tools\\\\phi-screenshot.cmd'",
+        "PS: cel-cli.exe track -c assistant 'message'",
+        "PS: phi-find.exe -d W253MSGQUEUE_SYSTEM",
+        "CLI: everything-mcp-rs.exe search 'query' -n 20",
+        "CLI: everything-mcp-rs.exe ext 'rs' -n 50",
+        "CLI: everything-mcp-rs.exe recent -d 7"
+      ],
+      "known_errors": [
+        "es.exe requires Everything service running",
+        "phi-screenshot needs GUI session (won't work headless)",
+        "cel-cli state.json at C:\\PhiDEX\\cel\\state.json"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-20T11:50:55.618971500+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "cli",
+        "tools",
+        "wsl",
+        "cross-platform",
+        "phi-find",
+        "cel",
+        "everything",
+        "screenshot"
+      ],
+      "category": "TOOLS",
+      "subcategory": "CLI",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ]
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "door_code": "T57CLAUDE_LITE",
+  "semantic_path": "TOOLS.DESKTOP.CLAUDE_LITE",
+  "aliases": [
+    "claude-lite",
+    "dc runtime",
+    "tauri claude",
+    "gui multiplexor"
+  ],
+  "context_bundle": {
+    "summary": "Claude-Lite: Tauri wrapper for claude.ai with DC Runtime injection, system tray, JS bridge. GUI-level multiplexor.",
+    "prerequisites": [
+      "T50TAURI_CLIENT"
+    ],
+    "related_doors": [
+      "A10DC_RUNTIME",
+      "T50TAURI_CLIENT",
+      "810AHK"
+    ],
+    "onboarding": {
+      "quick_start": "C:\\\\Dev\\\\claude-lite - cargo build, exe in target/debug. Tray right-click for menu. F12 console: DC.success('test')",
+      "full_context_path": "",
+      "common_patterns": [
+        "DC.setInput(text) - inject into chat input",
+        "DC.getConversation() - get current chat UUID",
+        "DC.banner(text,color) - show notification",
+        "DC.getInput() - read current input",
+        "Tray: Show/Hide, Reload, DevTools, Quit"
+      ],
+      "known_errors": [
+        "CSP blocks Tauri IPC from injected JS - use pure JS only",
+        "document.body null on early inject - wrap in DOMContentLoaded",
+        "Hotkey conflicts - use tray+AHK instead",
+        "CF blocks pure HTTP - must use WebView"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T09:14:04.786358200+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "tauri",
+        "webview",
+        "injection",
+        "tray",
+        "dc",
+        "gui-automation"
+      ],
+      "category": "TOOLS",
+      "subcategory": "DESKTOP",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1738,
+      "token_estimate": 435.0
+    }
+  }
+}

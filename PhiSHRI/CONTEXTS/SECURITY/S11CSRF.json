@@ -1,11 +1,24 @@
 {
   "door_code": "S11CSRF",
   "semantic_path": "SECURITY.WEB.CSRF_PROTECTION",
-  "aliases": ["csrf", "cross_site_request_forgery", "csrf_token", "xsrf", "synchronizer_token"],
+  "aliases": [
+    "csrf",
+    "cross_site_request_forgery",
+    "csrf_token",
+    "xsrf",
+    "synchronizer_token"
+  ],
   "context_bundle": {
     "summary": "Cross-Site Request Forgery (CSRF) protection: Attacker tricks user's browser into making unauthorized state-changing requests. Tokens: Synchronizer Token (stateful, stored in session), Double Submit Cookie (stateless, token in cookie + request), Signed Double-Submit (most secure stateless, HMAC signature). Token requirements: 128+ bits, cryptographically random, unpredictable, session-bound. Implementation: Generate token server-side, embed in forms/headers, validate on submission. Defense: SameSite cookie attribute (Strict/Lax), custom headers (X-CSRF-Token), Origin/Referer validation. Combine with XSS prevention (XSS can steal CSRF tokens).",
-    "prerequisites": ["S01AES", "S06ENCRYPTION"],
-    "related_doors": ["S10CORS", "S07OAUTH", "S08JWT"],
+    "prerequisites": [
+      "S01AES",
+      "S06ENCRYPTION"
+    ],
+    "related_doors": [
+      "S10CORS",
+      "S07OAUTH",
+      "S08JWT"
+    ],
     "onboarding": {
       "quick_start": "CSRF attack: User logged into bank.com, visits evil.com, evil.com submits <form action='https://bank.com/transfer' method='POST'><input name='amount' value='1000'><input name='to' value='attacker'></form> using user's session cookie. Prevention: 1) Synchronizer Token: server generates random token, stores in session, embeds in form, validates on submit. 2) Double Submit Cookie: token in cookie + hidden field, server validates they match (stateless). 3) Signed Double-Submit: token + HMAC signature using secret key (most secure). Token generation (Python): import secrets; token = secrets.token_urlsafe(32). Form: <input type='hidden' name='csrf_token' value='{{csrf_token}}'>. Validation: if request.form['csrf_token'] != session['csrf_token']: abort(403). SameSite cookies: Set-Cookie: session=abc; SameSite=Strict (blocks all cross-site, even GET links), SameSite=Lax (blocks cross-site POST/PUT/DELETE, allows GET). Custom header: X-CSRF-Token (browsers can't set custom headers cross-origin).",
       "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md",
@@ -22,7 +35,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -32,12 +47,30 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["csrf", "cross_site_request_forgery", "csrf_token", "synchronizer_token", "double_submit", "samesite", "security"],
+      "tags": [
+        "csrf",
+        "cross_site_request_forgery",
+        "csrf_token",
+        "synchronizer_token",
+        "double_submit",
+        "samesite",
+        "security"
+      ],
       "category": "SECURITY",
       "subcategory": "WEB",
       "version": "1.0.0",
-      "tested_on": ["Web Applications", "SPAs", "APIs"],
-      "agent_affinity": ["WEBC", "VSCC", "CMDC"]
+      "tested_on": [
+        "Web Applications",
+        "SPAs",
+        "APIs"
+      ],
+      "agent_affinity": [
+        "WEBC",
+        "VSCC",
+        "CMDC"
+      ],
+      "size_bytes": 4494,
+      "token_estimate": 1124.0
     }
   }
 }

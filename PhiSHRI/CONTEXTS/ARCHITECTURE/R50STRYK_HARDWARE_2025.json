@@ -1,0 +1,61 @@
+{
+  "door_code": "R50STRYK_HARDWARE_2025",
+  "semantic_path": "ARCHITECTURE.HARDWARE.WORKSTATION",
+  "aliases": [
+    "hardware",
+    "system specs",
+    "workstation",
+    "rig",
+    "pc specs",
+    "stryk pc"
+  ],
+  "context_bundle": {
+    "summary": "STRYK workstation hardware configuration tracking. Documents current specs, upgrade path, and system considerations for the PhiVector development rig.",
+    "prerequisites": [],
+    "related_doors": [
+      "E71MCP_XDRIVE_DEPENDENCY"
+    ],
+    "onboarding": {
+      "quick_start": "Check specs: sigcon6 sig_sysinfo. GPU status: nvidia-smi (in System32). RAM slots: Get-CimInstance Win32_PhysicalMemory",
+      "full_context_path": "",
+      "common_patterns": [
+        "nvidia-smi --query-gpu=name,memory.total,memory.free,pcie.link.gen.current --format=csv",
+        "Get-CimInstance Win32_PhysicalMemory | Select BankLabel, Capacity, Speed",
+        "Get-CimInstance Win32_DiskDrive | Select Model, Size"
+      ],
+      "known_errors": [
+        "PCIe shows Gen 1 at idle - normal power saving, negotiates up under load",
+        "Z170 max PCIe 3.0 - 5070 Ti works but bottlenecked vs Gen 4/5",
+        "nvidia-smi in C:\\Windows\\System32 not NVSMI folder on newer drivers"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-10T04:35:58.397506200+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "hardware",
+        "ram",
+        "gpu",
+        "storage",
+        "network",
+        "z170",
+        "5070ti",
+        "upgrade"
+      ],
+      "category": "ARCHITECTURE",
+      "subcategory": "HARDWARE",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1768,
+      "token_estimate": 442.0
+    }
+  }
+}

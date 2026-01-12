@@ -1,11 +1,25 @@
 {
   "door_code": "T26KUBERNETES",
   "semantic_path": "TOOLS.INFRASTRUCTURE.KUBERNETES",
-  "aliases": ["Kubernetes", "K8s", "kubectl", "pods", "deployments", "orchestration"],
+  "aliases": [
+    "Kubernetes",
+    "K8s",
+    "kubectl",
+    "pods",
+    "deployments",
+    "orchestration"
+  ],
   "context_bundle": {
     "summary": "Kubernetes container orchestration for deploying, scaling, and managing containerized applications with pods, deployments, services, and ConfigMaps",
-    "prerequisites": ["T25DOCKER", "T13K8S_SECRETS"],
-    "related_doors": ["W48K8S_DEPLOY", "W49HELM", "T14TERRAFORM"],
+    "prerequisites": [
+      "T25DOCKER",
+      "T13K8S_SECRETS"
+    ],
+    "related_doors": [
+      "W48K8S_DEPLOY",
+      "W49HELM",
+      "T14TERRAFORM"
+    ],
     "onboarding": {
       "quick_start": "Define resources in YAML manifests (deployments, services, ConfigMaps). Apply with kubectl apply -f. Scale with kubectl scale. Monitor with kubectl get/describe.",
       "full_context_path": "/PhiDEX/DEPLOYMENT_ALMANAC/09_ENTERPRISE/ENTERPRISE_DEPLOYMENT_GUIDE.md",
@@ -38,12 +52,33 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["Kubernetes", "K8s", "kubectl", "orchestration", "pods", "deployments"],
+      "tags": [
+        "Kubernetes",
+        "K8s",
+        "kubectl",
+        "orchestration",
+        "pods",
+        "deployments"
+      ],
       "category": "TOOLS",
       "subcategory": "INFRASTRUCTURE",
       "version": "1.0.0",
-      "tested_on": ["Linux", "Windows", "macOS", "AWS EKS", "Azure AKS", "GKE"],
-      "agent_affinity": ["VSCC", "DC", "TERMC", "KALIC"]
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "AWS EKS",
+        "Azure AKS",
+        "GKE"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC",
+        "KALIC"
+      ],
+      "size_bytes": 2445,
+      "token_estimate": 612.0
     }
   }
 }

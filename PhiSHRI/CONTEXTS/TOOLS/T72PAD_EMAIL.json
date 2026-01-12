@@ -1,0 +1,61 @@
+{
+  "door_code": "T72PAD_EMAIL",
+  "semantic_path": "TOOLS.AUTOMATION.PAD.EMAIL",
+  "aliases": [
+    "pad email",
+    "send email",
+    "retrieve emails"
+  ],
+  "context_bundle": {
+    "summary": "PAD email actions: Send Email (SMTP), Retrieve Emails (IMAP/POP3 with filters), Process Emails (move/delete/mark). Supports attachments, HTML body, SSL",
+    "prerequisites": [
+      "T59POWER_AUTOMATE_DESKTOP"
+    ],
+    "related_doors": [
+      "T64PAD_FILES"
+    ],
+    "onboarding": {
+      "quick_start": "Send email SMTP:'smtp.server.com' port:587 SSL:True from:'x' to:'y' subject:'z' body:'msg'. Retrieve emails filter by subject -> Process (mark read/move)",
+      "full_context_path": "",
+      "common_patterns": [
+        "Send email server:'smtp.gmail.com' port:587 SSL:True from:'sender@' to:'recipient@' subject:'Subject' body:'Message' HTML:True",
+        "Retrieve emails server:'imap.gmail.com' port:993 SSL:True retrieve:Unread folder:'INBOX' -> %Emails%",
+        "For each %Email% in %Emails% -> Process attachments save to:'folder'",
+        "Process emails %Emails% operation:Move destination:'Processed'",
+        "Send email attachments:%FileList% (list of file paths)"
+      ],
+      "known_errors": [
+        "Gmail requires App Password, not account password",
+        "Port 465 for SSL, 587 for TLS/STARTTLS",
+        "Large attachments may timeout - check server limits",
+        "Some servers require specific authentication methods"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T17:10:45.038268200+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "pad",
+        "email",
+        "smtp",
+        "imap",
+        "automation",
+        "rpa"
+      ],
+      "category": "TOOLS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1951,
+      "token_estimate": 488.0
+    }
+  }
+}

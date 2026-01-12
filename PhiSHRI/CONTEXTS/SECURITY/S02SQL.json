@@ -1,11 +1,21 @@
 {
   "door_code": "S02SQL",
   "semantic_path": "SECURITY.HARDENING.SQL_INJECTION_PREVENTION",
-  "aliases": ["sql_injection", "parameterized_queries", "prepared_statements", "sql_security"],
+  "aliases": [
+    "sql_injection",
+    "parameterized_queries",
+    "prepared_statements",
+    "sql_security"
+  ],
   "context_bundle": {
     "summary": "SQL injection prevention via parameterized queries/prepared statements. Keep user input separate from SQL code. Treat input as string literals, not executable SQL. OWASP primary defense.",
-    "prerequisites": ["S01SEC"],
-    "related_doors": ["S03XSS", "S01SEC"],
+    "prerequisites": [
+      "S01SEC"
+    ],
+    "related_doors": [
+      "S03XSS",
+      "S01SEC"
+    ],
     "onboarding": {
       "quick_start": "NEVER concatenate user input into SQL. Use parameterized queries: PreparedStatement (Java), SqlCommand.Parameters (.NET), execute(?, [params]) (Python). Input becomes literal string, can't execute.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md",
@@ -26,7 +36,9 @@
       ]
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -36,12 +48,25 @@
       "confidence": 0.99,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["security", "sql_injection", "owasp", "database", "hardening"],
+      "tags": [
+        "security",
+        "sql_injection",
+        "owasp",
+        "database",
+        "hardening"
+      ],
       "category": "SECURITY",
       "subcategory": "SQL_SECURITY",
       "version": "1.0.0",
-      "tested_on": ["All platforms"],
-      "agent_affinity": ["VSCC", "KALIC"]
+      "tested_on": [
+        "All platforms"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "KALIC"
+      ],
+      "size_bytes": 2161,
+      "token_estimate": 541.0
     }
   }
 }

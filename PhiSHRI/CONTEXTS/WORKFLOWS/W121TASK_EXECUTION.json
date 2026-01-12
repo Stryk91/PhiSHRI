@@ -1,0 +1,65 @@
+{
+  "door_code": "W121TASK_EXECUTION",
+  "semantic_path": "WORKFLOWS.EXECUTION.EFFICIENT_TASK_MCP",
+  "aliases": [
+    "task_flow",
+    "mcp_execution",
+    "tool_chaining",
+    "efficient_ops"
+  ],
+  "context_bundle": {
+    "summary": "Efficient task execution via MCP tools. Core pattern: 1. Inventory available MCPs, 2. Match task requirements to tool capabilities, 3. Chain tools for complex operations, 4. Validate results. MCPs extend agent reach beyond conversation into system/network/services.",
+    "prerequisites": [
+      "T01MCP",
+      "W01COORD"
+    ],
+    "related_doors": [
+      "W120MCP_CREATION",
+      "A01ORCHESTRATOR"
+    ],
+    "onboarding": {
+      "quick_start": "Pre-task: List available MCP tools. Match: Map subtasks to specific tools. Execute: Call tools with precise parameters. Chain: Output of tool A feeds tool B. Validate: Check results before proceeding. Fallback: If tool fails, try alternative or escalate. Always prefer tool execution over manual instructions.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Search files (everything) -> Read content (windows-mcp) -> Process -> Write output",
+        "Query knowledge (phishri) -> Apply pattern -> Execute (windows-mcp)",
+        "Check status first, then proceed with operation",
+        "Batch operations: collect inputs, single tool call with array",
+        "Error recovery: check status tool, retry with adjusted params"
+      ],
+      "known_errors": [
+        "Tool timeout - break into smaller operations",
+        "Permission denied - check tool capabilities vs request",
+        "Tool not found - verify MCP server running, check config"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T09:32:57.080427700+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "execution",
+        "workflow",
+        "mcp",
+        "tools",
+        "efficiency",
+        "chaining"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "EXECUTION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "TERMC"
+      ],
+      "size_bytes": 2199,
+      "token_estimate": 550.0
+    }
+  }
+}

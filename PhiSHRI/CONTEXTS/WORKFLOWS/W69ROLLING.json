@@ -1,11 +1,22 @@
 {
   "door_code": "W69ROLLING",
   "semantic_path": "WORKFLOWS.DEPLOYMENT.ROLLING_UPDATES",
-  "aliases": ["rolling_update", "rolling_deployment", "rolling_release"],
+  "aliases": [
+    "rolling_update",
+    "rolling_deployment",
+    "rolling_release"
+  ],
   "context_bundle": {
     "summary": "Rolling update: Gradually replace old instances with new ones. Update N instances at a time (surge), wait for health checks, continue until all updated. Default Kubernetes deployment strategy. Configuration: maxSurge (extra instances during update), maxUnavailable (instances down during update). Pros: Zero downtime, gradual rollout, built-in Kubernetes. Cons: Slower than Blue/Green, mixed versions running simultaneously, complex rollback. Patterns: Recreate (stop all, start new), RollingUpdate (default), Surge (add new, remove old). Monitor during rollout, pause/resume, auto-rollback on failure.",
-    "prerequisites": ["W67BLUEGREEN", "W48K8S_DEPLOY"],
-    "related_doors": ["W68CANARY", "W46TERRAFORM", "T11CICD"],
+    "prerequisites": [
+      "W67BLUEGREEN",
+      "W48K8S_DEPLOY"
+    ],
+    "related_doors": [
+      "W68CANARY",
+      "W46TERRAFORM",
+      "T11CICD"
+    ],
     "onboarding": {
       "quick_start": "Rolling update: Replace instances incrementally. Kubernetes (default): kubectl apply -f deployment.yaml (triggers rolling update). kubectl set image deployment/myapp myapp=myapp:v2. Config: spec: strategy: type: RollingUpdate; rollingUpdate: maxSurge: 1 (1 extra pod during update), maxUnavailable: 0 (no downtime). Process: Create 1 new pod (v2), wait for ready, terminate 1 old pod (v1), repeat. Monitor: kubectl rollout status deployment/myapp. Pause: kubectl rollout pause deployment/myapp. Resume: kubectl rollout resume deployment/myapp. Rollback: kubectl rollout undo deployment/myapp (to previous version). History: kubectl rollout history deployment/myapp. Health checks critical: readinessProbe ensures new pod ready before terminating old. Strategies: maxSurge=1, maxUnavailable=0 (safest, slowest), maxSurge=25%, maxUnavailable=25% (faster, some downtime risk). Docker Swarm: docker service update --image myapp:v2 myapp. Nomad: update { max_parallel = 1; health_check = 'checks'; min_healthy_time = '30s'; healthy_deadline = '10m' }.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
@@ -22,7 +33,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -32,12 +45,28 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["rolling_update", "deployment", "kubernetes", "zero_downtime", "gradual_rollout"],
+      "tags": [
+        "rolling_update",
+        "deployment",
+        "kubernetes",
+        "zero_downtime",
+        "gradual_rollout"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "DEPLOYMENT",
       "version": "1.0.0",
-      "tested_on": ["Kubernetes", "Docker Swarm", "Nomad"],
-      "agent_affinity": ["CMDC", "VSCC", "TERMC"]
+      "tested_on": [
+        "Kubernetes",
+        "Docker Swarm",
+        "Nomad"
+      ],
+      "agent_affinity": [
+        "CMDC",
+        "VSCC",
+        "TERMC"
+      ],
+      "size_bytes": 4378,
+      "token_estimate": 1095.0
     }
   }
 }

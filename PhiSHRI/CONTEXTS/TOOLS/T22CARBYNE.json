@@ -1,0 +1,61 @@
+{
+  "door_code": "T22CARBYNE",
+  "semantic_path": "TOOLS.ORCHESTRATION.CARBYNE",
+  "aliases": [
+    "carbyne",
+    "process wrapper",
+    "daemon",
+    "orchestrator"
+  ],
+  "context_bundle": {
+    "summary": "Carbyne: Universal process wrapper and orchestrator CLI. Config-driven tool registry, daemon mode with TCP IPC (port 7777), alert system. Replaces scattered AHK/PS1/bash scripts with unified interface.",
+    "prerequisites": [
+      "W20TASK_DISPATCH"
+    ],
+    "related_doors": [
+      "A01DC",
+      "A05KALIC",
+      "W20TASK_DISPATCH"
+    ],
+    "onboarding": {
+      "quick_start": "Universal process wrapper. Binary: X:\\carbyne-cli\\target\\release\\carbyne.exe. TCP port 7777. State: C:\\PhiDEX\\carbyne\\state.json. Commands: run, wrap, list, pipe, daemon, msg, status, stop.",
+      "full_context_path": "",
+      "common_patterns": [
+        "carbyne run <tool> [args] - run configured tool",
+        "carbyne daemon <tool> - start background process",
+        "carbyne msg <tool> \"message\" - send alert/IPC",
+        "carbyne status - show daemon status and alerts",
+        "carbyne stop <tool> - kill daemon"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-03T09:20:15.848889+11:00",
+      "confidence": 1.0,
+      "tags": [
+        "carbyne",
+        "daemon",
+        "process-wrapper",
+        "orchestration",
+        "ipc",
+        "cli",
+        "rust"
+      ],
+      "category": "TOOLS",
+      "subcategory": "ORCHESTRATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ],
+      "size_bytes": 1703,
+      "token_estimate": 426.0
+    }
+  }
+}

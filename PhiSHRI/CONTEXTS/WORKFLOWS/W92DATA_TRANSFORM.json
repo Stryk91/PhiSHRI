@@ -1,11 +1,24 @@
 {
   "door_code": "W92DATA_TRANSFORM",
   "semantic_path": "WORKFLOWS.DATA_PROCESSING.DATA_TRANSFORMATION",
-  "aliases": ["transform", "data_transformation", "data_mapping", "data_enrichment", "cleansing"],
+  "aliases": [
+    "transform",
+    "data_transformation",
+    "data_mapping",
+    "data_enrichment",
+    "cleansing"
+  ],
   "context_bundle": {
     "summary": "Data transformation applies business rules to convert raw data into structured, usable format through cleansing, normalization, aggregation, enrichment, and type conversion with validation at each step.",
-    "prerequisites": ["W89DATA_VALIDATION", "E09VALIDATION_ERRORS"],
-    "related_doors": ["W87ETL", "W88STREAMING", "W91DATA_PIPELINE"],
+    "prerequisites": [
+      "W89DATA_VALIDATION",
+      "E09VALIDATION_ERRORS"
+    ],
+    "related_doors": [
+      "W87ETL",
+      "W88STREAMING",
+      "W91DATA_PIPELINE"
+    ],
     "onboarding": {
       "quick_start": "Transformation operations: 1) Cleansing: Remove nulls, duplicates, invalid data. 2) Normalization: Standardize formats (dates, currencies, addresses). 3) Aggregation: Group and calculate (sum, count, avg). 4) Enrichment: Add derived fields, lookups, calculations. 5) Type conversion: Cast to appropriate data types. Chain transformations in pipeline.",
       "full_context_path": "/PhiDEX/industry_knowledge/data_transformation_patterns.md",
@@ -16,25 +29,51 @@
         "Enrichment: def enrich(record): record['full_name'] = f\"{record['first_name']} {record['last_name']}\"; record['age'] = calculate_age(record['birthdate']); record['category'] = classify_user(record); return record",
         "Pandas transformation: df['amount'] = df['amount'].astype(float); df['date'] = pd.to_datetime(df['date']); df['name'] = df['name'].str.upper(); df['total'] = df.groupby('user_id')['amount'].transform('sum')"
       ],
-      "known_errors": ["E09VALIDATION_ERRORS", "E10SERIALIZATION_ERRORS"]
+      "known_errors": [
+        "E09VALIDATION_ERRORS",
+        "E10SERIALIZATION_ERRORS"
+      ]
     },
     "resources": {
-      "docs": ["/PhiDEX/industry_knowledge/data_transformation_patterns.md"],
+      "docs": [
+        "/PhiDEX/industry_knowledge/data_transformation_patterns.md"
+      ],
       "code": [],
       "tests": [],
-      "errors": ["E09VALIDATION_ERRORS", "E10SERIALIZATION_ERRORS"]
+      "errors": [
+        "E09VALIDATION_ERRORS",
+        "E10SERIALIZATION_ERRORS"
+      ]
     },
     "metadata": {
       "last_updated": "2025-11-21T00:00:00Z",
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["transformation", "data_mapping", "cleansing", "normalization", "enrichment", "aggregation"],
+      "tags": [
+        "transformation",
+        "data_mapping",
+        "cleansing",
+        "normalization",
+        "enrichment",
+        "aggregation"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "DATA_PROCESSING",
       "version": "1.0.0",
-      "tested_on": ["Python", "Pandas", "PySpark", "SQL", "dbt"],
-      "agent_affinity": ["DC", "VSCC"]
+      "tested_on": [
+        "Python",
+        "Pandas",
+        "PySpark",
+        "SQL",
+        "dbt"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 2911,
+      "token_estimate": 728.0
     }
   }
 }

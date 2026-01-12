@@ -1,0 +1,63 @@
+{
+  "door_code": "T27GIT_MCP",
+  "semantic_path": "TOOLS.MCP.GIT_VERSION_CONTROL",
+  "aliases": [
+    "git",
+    "version control",
+    "repo",
+    "commit"
+  ],
+  "context_bundle": {
+    "summary": "Git MCP Server - 20 tools for complete git workflow: status, log, diff, branch, commit, stash, push/pull, blame. Wraps git.exe via Process with path parameter for multi-repo ops.",
+    "prerequisites": [
+      "T01MCP",
+      "T06MCP_SETUP"
+    ],
+    "related_doors": [
+      "T25EVERYTHING_MCP",
+      "W122TOOL_CHAINING"
+    ],
+    "onboarding": {
+      "quick_start": "git_status path:C:\\Dev\\MyRepo | git_log count:10 oneline:true | git_commit message:'fix bug' all:true | git_push",
+      "full_context_path": "",
+      "common_patterns": [
+        "git_status path:repo -> git_add files:. -> git_commit",
+        "git_log -> git_show commit:abc123",
+        "git_stash action:push -> git_checkout target:main -> git_stash action:pop"
+      ],
+      "known_errors": [
+        "dubious ownership - run git config --global --add safe.directory '*'",
+        "not a git repository - check path points to repo root"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T10:55:20.625960300+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "git",
+        "version-control",
+        "mcp",
+        "repository",
+        "commit",
+        "branch",
+        "diff"
+      ],
+      "category": "TOOLS",
+      "subcategory": "MCP",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "ORCHESTRATOR"
+      ],
+      "size_bytes": 1672,
+      "token_estimate": 418.0
+    }
+  }
+}

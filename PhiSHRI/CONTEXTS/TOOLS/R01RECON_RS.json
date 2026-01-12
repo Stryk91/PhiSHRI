@@ -1,0 +1,92 @@
+{
+  "door_code": "R01RECON_RS",
+  "semantic_path": "TOOLS.RECON.RECON_RS",
+  "aliases": [
+    "recon-rs",
+    "recon",
+    "reconnaissance",
+    "dns enum",
+    "subdomain enum",
+    "port scan",
+    "web fingerprint",
+    "whois lookup"
+  ],
+  "context_bundle": {
+    "summary": "All-in-one Rust reconnaissance toolkit. Replaces: dnsenum, sublist3r, amass, whatweb, nmap (basic), whois. BINARY: X:\\mcp-servers\\recon-rs\\target\\release\\recon-rs.exe. Modules: DNS, Subdomain, Port Scan (with banner grabbing), Web Fingerprint, WHOIS.",
+    "prerequisites": [],
+    "related_doors": [
+      "R02RUSTDUCKY"
+    ],
+    "onboarding": {
+      "quick_start": "SCAN ALL: recon-rs.exe example.com -a\nDNS ONLY: recon-rs.exe example.com -d\nSUBDOMAINS: recon-rs.exe example.com -s\nPORTS: recon-rs.exe example.com -d -p\nJSON OUTPUT: recon-rs.exe example.com -a -o json",
+      "full_context_path": "X:\\mcp-servers\\recon-rs\\",
+      "common_patterns": [
+        "Full scan: recon-rs.exe domain.com -a",
+        "DNS + Ports: recon-rs.exe domain.com -d -p",
+        "Fast port scan: recon-rs.exe domain.com -d -p -t 100 --timeout 3",
+        "JSON for parsing: recon-rs.exe domain.com -a -o json",
+        "Markdown report: recon-rs.exe domain.com -a -o markdown"
+      ],
+      "known_errors": [
+        {
+          "error": "Port scan shows no results",
+          "cause": "DNS not enabled, no IP to scan",
+          "solution": "Add -d flag to enable DNS resolution first",
+          "prevention": "Always use -d with -p for port scanning"
+        },
+        {
+          "error": "WHOIS empty",
+          "cause": "Verisign server doesn't have data or domain uses privacy",
+          "solution": "Normal for many domains, WHOIS is best-effort"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [
+        "X:\\mcp-servers\\recon-rs\\README.md"
+      ],
+      "code": [
+        "X:\\mcp-servers\\recon-rs\\src\\main.rs",
+        "X:\\mcp-servers\\recon-rs\\src\\modules\\dns.rs",
+        "X:\\mcp-servers\\recon-rs\\src\\modules\\subdomain.rs",
+        "X:\\mcp-servers\\recon-rs\\src\\modules\\portscan.rs",
+        "X:\\mcp-servers\\recon-rs\\src\\modules\\web.rs",
+        "X:\\mcp-servers\\recon-rs\\src\\modules\\whois.rs"
+      ],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-27T17:30:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "recon",
+        "reconnaissance",
+        "dns",
+        "subdomain",
+        "portscan",
+        "banner",
+        "fingerprint",
+        "whois",
+        "security",
+        "pentest",
+        "rust"
+      ],
+      "category": "TOOLS",
+      "subcategory": "RECON",
+      "version": "0.1.0",
+      "tested_on": [
+        "Windows 11",
+        "WSL2"
+      ],
+      "agent_affinity": [
+        "KALIC",
+        "DC"
+      ],
+      "size_bytes": 2500,
+      "token_estimate": 625.0
+    }
+  }
+}

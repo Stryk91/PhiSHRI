@@ -1,11 +1,22 @@
 {
   "door_code": "W42TASK_SCHEDULER",
   "semantic_path": "WORKFLOWS.AUTOMATION.WINDOWS_TASK_SCHEDULER",
-  "aliases": ["task_scheduler", "scheduled_tasks", "windows_scheduler", "schtasks"],
+  "aliases": [
+    "task_scheduler",
+    "scheduled_tasks",
+    "windows_scheduler",
+    "schtasks"
+  ],
   "context_bundle": {
     "summary": "Windows Task Scheduler automation using PowerShell: New-ScheduledTaskAction (what to run), New-ScheduledTaskTrigger (when: Daily, AtStartup, AtLogon), New-ScheduledTaskSettingsSet (options), New-ScheduledTaskPrincipal (SYSTEM/user), Register-ScheduledTask. Manage with Get/Enable/Disable/Start/Stop-ScheduledTask. Triggers: -Daily -At 3AM, -Weekly -DaysOfWeek Mon,Wed,Fri, -Once -At datetime.",
-    "prerequisites": ["W40CRON", "W41SYSTEMD"],
-    "related_doors": ["W12PHISYNC", "W08FILEWATCHER"],
+    "prerequisites": [
+      "W40CRON",
+      "W41SYSTEMD"
+    ],
+    "related_doors": [
+      "W12PHISYNC",
+      "W08FILEWATCHER"
+    ],
     "onboarding": {
       "quick_start": "Task Scheduler PowerShell: $action = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument '-File C:\\script.ps1'; $trigger = New-ScheduledTaskTrigger -Daily -At 3AM; $settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -StartWhenAvailable; $principal = New-ScheduledTaskPrincipal -UserId 'SYSTEM' -LogonType ServiceAccount -RunLevel Highest; Register-ScheduledTask -TaskName 'MyTask' -Action $action -Trigger $trigger -Settings $settings -Principal $principal",
       "full_context_path": "/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md",
@@ -24,7 +35,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +47,26 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["task_scheduler", "windows", "scheduled_tasks", "automation", "powershell"],
+      "tags": [
+        "task_scheduler",
+        "windows",
+        "scheduled_tasks",
+        "automation",
+        "powershell"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "AUTOMATION",
       "version": "1.0.0",
-      "tested_on": ["Windows"],
-      "agent_affinity": ["VSCC", "DC", "CMDC"]
+      "tested_on": [
+        "Windows"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "CMDC"
+      ],
+      "size_bytes": 2777,
+      "token_estimate": 695.0
     }
   }
 }

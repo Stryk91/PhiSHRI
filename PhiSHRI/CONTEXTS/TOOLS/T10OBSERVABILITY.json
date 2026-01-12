@@ -1,11 +1,25 @@
 {
   "door_code": "T10OBSERVABILITY",
   "semantic_path": "TOOLS.MONITORING.OBSERVABILITY_PATTERNS",
-  "aliases": ["observability", "monitoring", "metrics", "logs", "traces", "telemetry"],
+  "aliases": [
+    "observability",
+    "monitoring",
+    "metrics",
+    "logs",
+    "traces",
+    "telemetry"
+  ],
   "context_bundle": {
     "summary": "Observability for system health and debugging: Three pillars: Metrics (Prometheus, Grafana), Logs (ELK Stack, Loki), Traces (Jaeger, Zipkin). Metrics: time-series data (CPU, memory, request rate, error rate). Logs: structured JSON logs. Traces: distributed tracing across services. Patterns: RED (Rate, Error, Duration), USE (Utilization, Saturation, Errors), Golden Signals (latency, traffic, errors, saturation). Tools: Prometheus + Grafana (metrics), ELK (logs), Jaeger (traces), OpenTelemetry (unified).",
-    "prerequisites": ["W50ETL", "W51STREAM"],
-    "related_doors": ["W57ELASTICSEARCH", "W53KAFKA", "R03MICROSERVICE"],
+    "prerequisites": [
+      "W50ETL",
+      "W51STREAM"
+    ],
+    "related_doors": [
+      "W57ELASTICSEARCH",
+      "W53KAFKA",
+      "R03MICROSERVICE"
+    ],
     "onboarding": {
       "quick_start": "Observability: Metrics (Prometheus): Counter, Gauge, Histogram. Scrape /metrics endpoint. Grafana dashboards visualize. Logs (ELK): Logstash ingests, Elasticsearch stores/indexes, Kibana visualizes. Structured logs: JSON with timestamp, level, message, context. Traces (Jaeger): spans track request across services, trace_id links spans. OpenTelemetry: unified SDK for metrics/logs/traces. Patterns: RED (Rate: requests/sec, Error: error rate %, Duration: latency p50/p99), USE (Utilization %, Saturation queue depth, Errors count). Golden Signals: latency, traffic, errors, saturation. Monitor: /metrics, /health endpoints.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/05_DATA_PROCESSING/DATA_PROCESSING_MANAGEMENT_RESEARCH.md",
@@ -24,7 +38,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/05_DATA_PROCESSING/DATA_PROCESSING_MANAGEMENT_RESEARCH.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/05_DATA_PROCESSING/DATA_PROCESSING_MANAGEMENT_RESEARCH.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +50,35 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["observability", "monitoring", "metrics", "logs", "traces", "prometheus", "grafana", "elk", "jaeger"],
+      "tags": [
+        "observability",
+        "monitoring",
+        "metrics",
+        "logs",
+        "traces",
+        "prometheus",
+        "grafana",
+        "elk",
+        "jaeger"
+      ],
       "category": "TOOLS",
       "subcategory": "MONITORING",
       "version": "1.0.0",
-      "tested_on": ["Prometheus", "Grafana", "ELK Stack", "Jaeger", "OpenTelemetry"],
-      "agent_affinity": ["VSCC", "CMDC", "TERMC", "WEBC"]
+      "tested_on": [
+        "Prometheus",
+        "Grafana",
+        "ELK Stack",
+        "Jaeger",
+        "OpenTelemetry"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "CMDC",
+        "TERMC",
+        "WEBC"
+      ],
+      "size_bytes": 3364,
+      "token_estimate": 841.0
     }
   }
 }

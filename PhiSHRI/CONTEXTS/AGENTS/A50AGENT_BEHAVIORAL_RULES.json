@@ -1,0 +1,59 @@
+{
+  "door_code": "A50AGENT_BEHAVIORAL_RULES",
+  "semantic_path": "AGENTS.BEHAVIOR.RULES",
+  "aliases": [
+    "agent lessons",
+    "behavioral rules",
+    "dont assume"
+  ],
+  "context_bundle": {
+    "summary": "Behavioral rules for AI agents. Clarify before coding, don't re-propose rejected solutions, ask when stuck, recognize context pollution.",
+    "prerequisites": [],
+    "related_doors": [
+      "S00KALIC_SESSION_BOOT",
+      "S01DC_SESSION_BOOT"
+    ],
+    "onboarding": {
+      "quick_start": "Before coding: CLARIFY requirements. After rejection: DON'T re-propose. When stuck: ASK don't guess. Fresh boot = good decisions. 30+ min = restart consideration.",
+      "full_context_path": "",
+      "common_patterns": [
+        "CLARIFY BEFORE CODING - ask push vs poll, file vs memory",
+        "DON'T PROPOSE REJECTED SOLUTIONS AGAIN",
+        "WHEN STUCK ASK - don't guess and waste time",
+        "30+ minutes = context pollution, consider restart"
+      ],
+      "known_errors": [
+        "Assuming solution without clarifying requirements",
+        "Re-proposing rejected approaches with slight variations",
+        "Building wrong thing because didn't ask",
+        "Going in circles on wrong approach"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-05T18:53:40.648771500+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "behavior",
+        "rules",
+        "clarify",
+        "lessons",
+        "agents"
+      ],
+      "category": "AGENTS",
+      "subcategory": "BEHAVIOR",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ],
+      "size_bytes": 1716,
+      "token_estimate": 429.0
+    }
+  }
+}

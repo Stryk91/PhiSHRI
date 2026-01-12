@@ -1,0 +1,58 @@
+{
+  "door_code": "P10BACKGROUND_MESH",
+  "semantic_path": "PROJECTS.PHIVECTOR.BACKGROUND_MESH",
+  "aliases": [
+    "background messaging",
+    "no-focus messaging",
+    "carbyne queue"
+  ],
+  "context_bundle": {
+    "summary": "Future project: Background agent messaging without screen takeover. Replace AHK direct injection with Carbyne TCP or file-based IPC. KALIC polls/watches, DC writes - no focus steal.",
+    "prerequisites": [
+      "T22CARBYNE",
+      "W22AHK_MESH"
+    ],
+    "related_doors": [
+      "T22CARBYNE",
+      "W22AHK_MESH",
+      "A05KALIC"
+    ],
+    "onboarding": {
+      "quick_start": "FUTURE GOAL: Replace AHK screen takeover with background messaging. DC writes via Carbyne or file, KALIC polls/watches, no focus steal. Infrastructure exists (Carbyne TCP 7777), needs wiring.",
+      "full_context_path": "",
+      "common_patterns": [
+        "DC writes to Carbyne/file -> KALIC polls/watches -> no screen takeover",
+        "Replace AHK focus-steal with TCP/file-based IPC",
+        "Carbyne daemon already on TCP 7777 - extend for bidirectional"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-03T00:05:59.321483600+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "future",
+        "background",
+        "messaging",
+        "carbyne",
+        "ipc",
+        "no-focus"
+      ],
+      "category": "PROJECTS",
+      "subcategory": "PHIVECTOR",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ],
+      "size_bytes": 1626,
+      "token_estimate": 407.0
+    }
+  }
+}

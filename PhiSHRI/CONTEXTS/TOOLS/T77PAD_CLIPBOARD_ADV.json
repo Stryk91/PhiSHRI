@@ -1,0 +1,57 @@
+{
+  "door_code": "T77PAD_CLIPBOARD_ADV",
+  "semantic_path": "TOOLS.AUTOMATION.PAD.CLIPBOARD_ADVANCED",
+  "aliases": [
+    "clipboard security",
+    "clipboard monitoring"
+  ],
+  "context_bundle": {
+    "summary": "Advanced clipboard patterns: security (clear after sensitive data), cross-app transfer with timing delays (100-500ms after Ctrl+C), clipboard monitoring loops, format handling (text vs HTML vs RTF), 64MB size limit, RDP clipboard issues",
+    "prerequisites": [
+      "T59POWER_AUTOMATE_DESKTOP"
+    ],
+    "related_doors": [
+      "T70PAD_SYSTEM"
+    ],
+    "onboarding": {
+      "quick_start": "Get Clipboard -> Store in var IMMEDIATELY -> Process -> Clear Clipboard (security). Add Wait 0.5s after Ctrl+C operations.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Get Clipboard -> Store -> Clear (sensitive data pattern)",
+        "Wait 0.5s after Send Keys Ctrl+C (clipboard population delay)",
+        "Loop: Store prev -> Wait -> Get current -> If changed [process] (monitoring)",
+        "Clipboard chaining: Get -> Set -> Paste -> Get result -> Set -> Paste (multi-app)"
+      ],
+      "known_errors": [
+        "Clipboard in use - retry with delays",
+        "Large data >64MB fails silently - use file transfer",
+        "RDP clipboard redirection may be disabled",
+        "Rich text/formatting lost - Get Clipboard Text returns plain text only"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T17:47:52.413611500+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "pad",
+        "clipboard",
+        "security",
+        "cross-app"
+      ],
+      "category": "TOOLS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1859,
+      "token_estimate": 465.0
+    }
+  }
+}

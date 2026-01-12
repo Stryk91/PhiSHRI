@@ -1,11 +1,24 @@
 {
   "door_code": "W60E2E",
   "semantic_path": "WORKFLOWS.TESTING.END_TO_END_TESTING",
-  "aliases": ["e2e", "end_to_end", "e2e_testing", "browser_testing", "ui_testing"],
+  "aliases": [
+    "e2e",
+    "end_to_end",
+    "e2e_testing",
+    "browser_testing",
+    "ui_testing"
+  ],
   "context_bundle": {
     "summary": "End-to-End (E2E) testing: Test complete user workflows in browser/app. Simulates real user interactions (clicks, typing, navigation). Frameworks: Playwright (recommended 2024), Cypress, Selenium, Puppeteer. Slowest tests (seconds-minutes per test), most realistic. Patterns: Page Object Model (POM), test user journeys, visual regression testing. Run in CI with headless browsers. Test critical paths: login, checkout, registration. Flaky tests common - use retry logic, explicit waits.",
-    "prerequisites": ["W58UNITTEST", "W59INTEGRATION"],
-    "related_doors": ["W07UI_AUTOMATION", "T11CICD", "W71AB_TEST"],
+    "prerequisites": [
+      "W58UNITTEST",
+      "W59INTEGRATION"
+    ],
+    "related_doors": [
+      "W07UI_AUTOMATION",
+      "T11CICD",
+      "W71AB_TEST"
+    ],
     "onboarding": {
       "quick_start": "E2E tests: Test complete user flows in browser. Playwright (recommended): npx playwright test. Test structure: test('user can login', async ({ page }) => { await page.goto('https://example.com/login'); await page.fill('#email', 'test@example.com'); await page.fill('#password', 'password123'); await page.click('button[type=submit]'); await expect(page).toHaveURL('/dashboard'); await expect(page.locator('h1')).toContainText('Welcome'); }). Selectors: CSS (#id, .class), data attributes ([data-testid='submit']), text content (text=Login). Waits: await page.waitForSelector('.loading', {state: 'hidden'}); await page.waitForLoadState('networkidle'). Page Object Model: class LoginPage { constructor(page) { this.page = page; this.emailInput = '#email'; } async login(email, pw) { await this.page.fill(this.emailInput, email); }}. Run: playwright test --headed (with browser), playwright test --project=chromium (specific browser). CI: Run headless in Docker, parallel execution, retry flaky tests (retries: 2).",
       "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
@@ -22,7 +35,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -32,12 +47,30 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["e2e", "end_to_end", "playwright", "cypress", "browser_testing", "ui_testing"],
+      "tags": [
+        "e2e",
+        "end_to_end",
+        "playwright",
+        "cypress",
+        "browser_testing",
+        "ui_testing"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "TESTING",
       "version": "1.0.0",
-      "tested_on": ["Playwright", "Cypress", "Selenium", "Puppeteer"],
-      "agent_affinity": ["WEBC", "VSCC", "CMDC"]
+      "tested_on": [
+        "Playwright",
+        "Cypress",
+        "Selenium",
+        "Puppeteer"
+      ],
+      "agent_affinity": [
+        "WEBC",
+        "VSCC",
+        "CMDC"
+      ],
+      "size_bytes": 4132,
+      "token_estimate": 1033.0
     }
   }
 }

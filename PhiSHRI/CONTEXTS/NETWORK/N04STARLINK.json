@@ -1,0 +1,88 @@
+{
+  "door_code": "N04STARLINK",
+  "semantic_path": "NETWORK.ISP.SATELLITE",
+  "aliases": [
+    "starlink",
+    "spacex",
+    "satellite internet",
+    "leo satellite",
+    "dishy"
+  ],
+  "context_bundle": {
+    "summary": "Starlink LEO satellite internet. Current speeds: 390Mbps down, 30Mbps up. Latency: 33-40ms stable (excellent for gaming). 0 jitter, 0 bufferbloat. Dish mounted on roof pole for 100% sky visibility. Top 1% Australian consumer internet.",
+    "prerequisites": [],
+    "related_doors": [
+      "N03BBR",
+      "N01WIFI7"
+    ],
+    "onboarding": {
+      "quick_start": "Starlink dish requires clear sky view. Mount high with no obstructions. LEO orbit ~550km = low latency vs GEO satellites.",
+      "full_context_path": null,
+      "common_patterns": [
+        "100% sky visibility = no dropout handoffs",
+        "BBRv2 handles variable satellite latency well",
+        "Asymmetric speeds (upload lower than download)",
+        "Latency 20-50ms typical for LEO"
+      ],
+      "known_errors": [
+        {
+          "error": "Intermittent dropouts",
+          "cause": "Obstructions (trees, buildings) blocking satellite view",
+          "solution": "Mount dish higher, use Starlink app obstruction checker",
+          "prevention": "Clear 100% sky visibility"
+        },
+        {
+          "error": "High latency spikes",
+          "cause": "Satellite handoff or congestion",
+          "solution": "Check dish alignment, may be congestion in your cell",
+          "prevention": "Clear sky view reduces handoff issues"
+        }
+      ]
+    },
+    "technical_details": {
+      "speeds": {
+        "download": "390 Mbps",
+        "upload": "30 Mbps"
+      },
+      "latency": {
+        "typical": "33-40ms",
+        "jitter": "0",
+        "bufferbloat": "0"
+      },
+      "infrastructure": {
+        "orbit": "LEO (~550km)",
+        "dish_location": "Roof pole mount",
+        "sky_visibility": "100%"
+      },
+      "comparison": {
+        "vs_nbn": "Faster than most NBN plans in Australia",
+        "vs_geo_satellite": "Much lower latency (33ms vs 600ms+)"
+      }
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-17T00:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "starlink",
+        "satellite",
+        "leo",
+        "spacex",
+        "isp",
+        "australia"
+      ],
+      "category": "NETWORK",
+      "subcategory": "ISP",
+      "version": "1.0",
+      "size_bytes": 2649,
+      "token_estimate": 663.0
+    }
+  }
+}

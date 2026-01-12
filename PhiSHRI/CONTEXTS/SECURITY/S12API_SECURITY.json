@@ -1,11 +1,27 @@
 {
   "door_code": "S12API_SECURITY",
   "semantic_path": "SECURITY.API.AUTHENTICATION_AUTHORIZATION",
-  "aliases": ["api_security", "api_auth", "api_authentication", "api_authorization", "bearer_token"],
+  "aliases": [
+    "api_security",
+    "api_auth",
+    "api_authentication",
+    "api_authorization",
+    "bearer_token"
+  ],
   "context_bundle": {
     "summary": "API security best practices: Authentication (verify identity): API keys (simple, per-app), JWT tokens (stateless, signed), OAuth 2.0 (delegated access). Authorization (verify permissions): RBAC (roles), scope-based (OAuth scopes), attribute-based. HTTPS mandatory (TLS 1.2+), rate limiting (prevent abuse: 100 req/min per IP), input validation (prevent injection), CORS config (restrict origins). Security headers: Authorization: Bearer <token>, X-API-Key. Token storage: httpOnly cookies (web), secure storage (mobile), never localStorage. Common attacks: Injection (SQL, XSS), broken auth (weak passwords, no MFA), excessive data exposure (return only needed fields), lack of rate limiting, CORS misconfiguration. OWASP API Security Top 10 (2023): Broken object level authorization, authentication, excessive data exposure, rate limiting, function level authorization, mass assignment, security misconfiguration, injection, assets management, logging.",
-    "prerequisites": ["S07OAUTH", "S08JWT", "S10CORS", "W79REST_API"],
-    "related_doors": ["S09RBAC", "S11CSRF", "W82WEBHOOKS", "E05RETRY"],
+    "prerequisites": [
+      "S07OAUTH",
+      "S08JWT",
+      "S10CORS",
+      "W79REST_API"
+    ],
+    "related_doors": [
+      "S09RBAC",
+      "S11CSRF",
+      "W82WEBHOOKS",
+      "E05RETRY"
+    ],
     "onboarding": {
       "quick_start": "API security: JWT authentication: Client sends POST /login {username, password} → Server validates → Returns JWT token. Client stores token securely. API requests: Authorization: Bearer <jwt_token>. Server validates JWT signature, checks expiration. Python (Flask-JWT-Extended): from flask_jwt_extended import JWTManager, create_access_token, jwt_required; jwt = JWTManager(app); @app.route('/login', methods=['POST']): if valid_credentials(): token = create_access_token(identity=user_id); return {'access_token': token}; @app.route('/protected'): @jwt_required() def protected(): return {'msg': 'Authenticated'}. Rate limiting (Flask-Limiter): from flask_limiter import Limiter; limiter = Limiter(app, key_func=lambda: request.remote_addr); @app.route('/api/resource'): @limiter.limit('100/minute') def resource(): return data. Input validation: from marshmallow import Schema, fields, ValidationError; class UserSchema(Schema): email = fields.Email(required=True); age = fields.Int(validate=lambda n: n > 0); try: UserSchema().load(request.json); except ValidationError as e: return {'errors': e.messages}, 400. CORS (Flask-CORS): from flask_cors import CORS; CORS(app, origins=['https://trusted-domain.com']). HTTPS enforcement: if request.scheme != 'https': return redirect(request.url.replace('http://', 'https://')). API keys: API-Key header, validate against database.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md",
@@ -24,7 +40,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +52,32 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["api_security", "authentication", "authorization", "jwt", "oauth", "rate_limiting", "input_validation", "cors"],
+      "tags": [
+        "api_security",
+        "authentication",
+        "authorization",
+        "jwt",
+        "oauth",
+        "rate_limiting",
+        "input_validation",
+        "cors"
+      ],
       "category": "SECURITY",
       "subcategory": "API",
       "version": "1.0.0",
-      "tested_on": ["Python Flask", "Node.js Express", "FastAPI", "Spring Boot"],
-      "agent_affinity": ["VSCC", "WEBC", "CMDC"]
+      "tested_on": [
+        "Python Flask",
+        "Node.js Express",
+        "FastAPI",
+        "Spring Boot"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "WEBC",
+        "CMDC"
+      ],
+      "size_bytes": 5637,
+      "token_estimate": 1410.0
     }
   }
 }

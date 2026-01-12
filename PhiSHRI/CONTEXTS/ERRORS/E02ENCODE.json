@@ -39,7 +39,7 @@
       "errors": []
     },
     "metadata": {
-      "last_updated": "2025-11-18T01:12:45.770350",
+      "last_updated": "2025-11-18T01:12:45.77035",
       "confidence": 0.95,
       "usage_count": 0,
       "success_rate": 0.0,
@@ -58,7 +58,9 @@
       ],
       "agent_affinity": [
         "ALL"
-      ]
+      ],
+      "size_bytes": 1931,
+      "token_estimate": 483.0
     }
   }
 }

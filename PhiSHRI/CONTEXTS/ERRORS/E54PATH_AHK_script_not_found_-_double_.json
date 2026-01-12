@@ -1,0 +1,50 @@
+{
+  "door_code": "E54PATH",
+  "semantic_path": "ERRORS.PATH.AHK_script_not_found_-_double_",
+  "aliases": [
+    "path",
+    "AHK script not found - double space in path"
+  ],
+  "context_bundle": {
+    "summary": "Path error: AHK script not found - double space in path. Wrong: X:\\AHK SCRIPTS\\. Correct: X:\\AHK  SCRIPTS\\ (TWO spaces between AHK and SCRIPTS)",
+    "prerequisites": [],
+    "related_doors": [
+      "A05KALIC",
+      "A01DC"
+    ],
+    "onboarding": {
+      "quick_start": "Use: X:\\AHK  SCRIPTS\\ (TWO spaces between AHK and SCRIPTS)",
+      "full_context_path": "",
+      "common_patterns": [],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-02T23:19:19Z",
+      "confidence": 1.0,
+      "tags": [
+        "error",
+        "resolution",
+        "kalic",
+        "path",
+        "AHK script not found - double space in path"
+      ],
+      "category": "ERRORS",
+      "subcategory": "PATH",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "KALIC",
+        "DC"
+      ],
+      "source": "kalic_brain/solved_problems.json",
+      "resolved_date": "2025-12-02",
+      "size_bytes": 1234,
+      "token_estimate": 309.0
+    }
+  }
+}

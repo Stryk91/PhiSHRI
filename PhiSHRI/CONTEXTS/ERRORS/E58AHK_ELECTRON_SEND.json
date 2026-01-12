@@ -1,0 +1,64 @@
+{
+  "door_code": "E58AHK_ELECTRON_SEND",
+  "semantic_path": "ERRORS.AHK.ELECTRON_SEND",
+  "aliases": [
+    "ahk send",
+    "electron messaging",
+    "inter-agent ahk",
+    "controlsend"
+  ],
+  "context_bundle": {
+    "summary": "AHK to Electron apps (Claude): ControlSend fails. Must use WinActivate + clipboard paste. Save/restore clipboard. Focus steal unavoidable until WM_COPYDATA built.",
+    "prerequisites": [],
+    "related_doors": [
+      "E56MSG",
+      "P15AGENT_BRIDGE_MCP",
+      "A05KALIC",
+      "A01DC"
+    ],
+    "onboarding": {
+      "quick_start": "ControlSend fails on Electron. Use: 1) Save clipboard 2) Set msg to clipboard 3) WinActivate target hwnd 4) Send ^v 5) Send {Enter} 6) Restore clipboard. Brief focus steal unavoidable.",
+      "full_context_path": "",
+      "common_patterns": [
+        "WinActivate('ahk_id ' hwnd)",
+        "A_Clipboard := msg",
+        "Send('^v')",
+        "Send('{Enter}')",
+        "Restore clipboard after"
+      ],
+      "known_errors": [
+        "ControlSend DOES NOT WORK with Electron apps (Claude, VSCode, etc)",
+        "Must use WinActivate + clipboard + paste",
+        "Always restore clipboard after sending"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-03T15:19:06.572504+11:00",
+      "confidence": 1.0,
+      "tags": [
+        "ahk",
+        "electron",
+        "controlsend",
+        "clipboard",
+        "winactivate",
+        "focus",
+        "messaging"
+      ],
+      "category": "ERRORS",
+      "subcategory": "AHK",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ],
+      "size_bytes": 1714,
+      "token_estimate": 429.0
+    }
+  }
+}

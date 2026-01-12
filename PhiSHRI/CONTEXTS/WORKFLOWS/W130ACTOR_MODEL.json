@@ -1,11 +1,23 @@
 {
   "door_code": "W130ACTOR_MODEL",
   "semantic_path": "WORKFLOWS.ARCHITECTURE.ACTOR_MODEL",
-  "aliases": ["actor model", "actor pattern", "message passing", "autonomous agents"],
+  "aliases": [
+    "actor model",
+    "actor pattern",
+    "message passing",
+    "autonomous agents"
+  ],
   "context_bundle": {
     "summary": "Actor model architecture where each agent is autonomous actor with private state, mailbox for messages, and behaviors for processing",
-    "prerequisites": ["W115MESSAGE_QUEUE", "R01MULTI"],
-    "related_doors": ["W131CSP", "W01COORD", "R03MICROSERVICE"],
+    "prerequisites": [
+      "W115MESSAGE_QUEUE",
+      "R01MULTI"
+    ],
+    "related_doors": [
+      "W131CSP",
+      "W01COORD",
+      "R03MICROSERVICE"
+    ],
     "onboarding": {
       "quick_start": "Model agents as actors: Private state (no shared memory), mailbox (inbox), behaviors (message handlers). Actors communicate only via messages.",
       "full_context_path": "/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md",
@@ -23,7 +35,9 @@
       ]
     },
     "resources": {
-      "docs": ["/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md"],
+      "docs": [
+        "/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -33,12 +47,27 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["actor model", "message passing", "concurrency", "distributed", "isolation"],
+      "tags": [
+        "actor model",
+        "message passing",
+        "concurrency",
+        "distributed",
+        "isolation"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "ARCHITECTURE",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11"],
-      "agent_affinity": ["DC", "VSCC", "TERMC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "TERMC"
+      ],
+      "size_bytes": 2051,
+      "token_estimate": 513.0
     }
   }
 }

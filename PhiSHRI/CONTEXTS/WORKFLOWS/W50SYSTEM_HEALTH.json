@@ -1,0 +1,63 @@
+{
+  "door_code": "W50SYSTEM_HEALTH",
+  "semantic_path": "WORKFLOWS.AUTOMATION.SYSTEM_HEALTH",
+  "aliases": [
+    "system health",
+    "health check",
+    "disk space",
+    "daily health",
+    "system monitor"
+  ],
+  "context_bundle": {
+    "summary": "First production PhiExecutor workflow. System health check in 1.5s - disk space, capacity warnings, alert generation. Script + template at X:\\Automation\\.",
+    "prerequisites": [
+      "A30PHIEXECUTOR"
+    ],
+    "related_doors": [
+      "A30PHIEXECUTOR",
+      "830WINAUTOSUITE"
+    ],
+    "onboarding": {
+      "quick_start": "PhiExecutor workflow: 1.5 second system health check. Script: X:\\Automation\\Scripts\\Actions\\Get-SystemHealth.ps1. Template: X:\\Automation\\Templates\\daily-health-check.json. Schedule daily via Task Scheduler.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Run: X:\\Automation\\Scripts\\Actions\\Get-SystemHealth.ps1",
+        "Template: X:\\Automation\\Templates\\daily-health-check.json",
+        "Alert file auto-generated on issues",
+        "Exclude DriveType 5 (optical drives) from disk checks"
+      ],
+      "known_errors": [
+        "DriveType 5 (CD-ROM) shows 0GB - exclude from checks",
+        "F: drive at 89% - backup accumulation, cleanup candidate"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-06T13:30:00+11:00",
+      "confidence": 1.0,
+      "tags": [
+        "health",
+        "monitoring",
+        "disk",
+        "automation",
+        "phiexecutor",
+        "scheduled",
+        "alerts"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ],
+      "size_bytes": 1817,
+      "token_estimate": 455.0
+    }
+  }
+}

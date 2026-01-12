@@ -1,0 +1,59 @@
+{
+  "door_code": "T65PAD_FOLDERS",
+  "semantic_path": "TOOLS.AUTOMATION.PAD.FOLDERS",
+  "aliases": [
+    "pad folders",
+    "directory operations",
+    "special folders"
+  ],
+  "context_bundle": {
+    "summary": "PAD folder operations: If Folder Exists, Get Subfolders, Create/Delete/Rename/Copy/Move Folder, Get Special Folder (Desktop/Documents/Downloads/Temp/AppData)",
+    "prerequisites": [
+      "T59POWER_AUTOMATE_DESKTOP"
+    ],
+    "related_doors": [
+      "T64PAD_FILES"
+    ],
+    "onboarding": {
+      "quick_start": "Get special folder 'Downloads' -> Get subfolders -> For each create/process. Create folder 'NewFolder' into %SpecialFolder%",
+      "full_context_path": "",
+      "common_patterns": [
+        "If folder exists 'path' Then ... End",
+        "Get subfolders in 'path' filter:'*backup*' recursive:True -> %Folders%",
+        "Create new folder 'Output' into %DestinationFolder% -> %NewFolder%",
+        "Delete folder with contents:True",
+        "Get special folder 'Desktop'|'Documents'|'Downloads'|'Temp'|'AppData'"
+      ],
+      "known_errors": [
+        "Delete folder fails if not empty - set contents:True",
+        "Access denied on system folders - check permissions",
+        "Special folder names are fixed - use exact string"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T17:10:45.035112200+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "pad",
+        "folders",
+        "directory",
+        "filesystem",
+        "rpa"
+      ],
+      "category": "TOOLS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1747,
+      "token_estimate": 437.0
+    }
+  }
+}

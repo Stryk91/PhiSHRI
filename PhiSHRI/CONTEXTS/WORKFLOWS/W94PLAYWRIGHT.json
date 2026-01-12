@@ -1,11 +1,22 @@
 {
   "door_code": "W94PLAYWRIGHT",
   "semantic_path": "WORKFLOWS.UI_AUTOMATION.PLAYWRIGHT",
-  "aliases": ["playwright", "playwright_automation", "modern_browser_automation", "headless_testing"],
+  "aliases": [
+    "playwright",
+    "playwright_automation",
+    "modern_browser_automation",
+    "headless_testing"
+  ],
   "context_bundle": {
     "summary": "Playwright is modern browser automation framework with auto-wait, network interception, multi-browser support (Chromium, Firefox, WebKit), and built-in test runner with parallel execution and video recording.",
-    "prerequisites": ["W96UI_TESTING"],
-    "related_doors": ["W93SELENIUM", "W95CYPRESS", "W97VISUAL_REGRESSION"],
+    "prerequisites": [
+      "W96UI_TESTING"
+    ],
+    "related_doors": [
+      "W93SELENIUM",
+      "W95CYPRESS",
+      "W97VISUAL_REGRESSION"
+    ],
     "onboarding": {
       "quick_start": "Playwright workflow: 1) Launch browser with playwright.chromium.launch(). 2) Create page with browser.new_page(). 3) Navigate with page.goto(). 4) Interact using auto-waiting selectors. 5) Capture screenshots/videos. 6) Intercept network requests. 7) Run tests in parallel with pytest-playwright. Auto-waits eliminate flaky tests.",
       "full_context_path": "/PhiDEX/industry_knowledge/playwright_patterns.md",
@@ -16,25 +27,54 @@
         "Screenshot: page.screenshot(path='screenshot.png', full_page=True); page.locator('.element').screenshot(path='element.png')",
         "Test with pytest: import pytest; from playwright.sync_api import Page; @pytest.mark.playwright; def test_login(page: Page): page.goto('https://example.com/login'); page.fill('#username', 'user'); page.fill('#password', 'pass'); page.click('#submit'); assert page.inner_text('.welcome') == 'Welcome!'"
       ],
-      "known_errors": ["E03TIMEOUT", "E08NETWORK_ERRORS"]
+      "known_errors": [
+        "E03TIMEOUT",
+        "E08NETWORK_ERRORS"
+      ]
     },
     "resources": {
-      "docs": ["/PhiDEX/industry_knowledge/playwright_patterns.md"],
+      "docs": [
+        "/PhiDEX/industry_knowledge/playwright_patterns.md"
+      ],
       "code": [],
       "tests": [],
-      "errors": ["E03TIMEOUT", "E08NETWORK_ERRORS"]
+      "errors": [
+        "E03TIMEOUT",
+        "E08NETWORK_ERRORS"
+      ]
     },
     "metadata": {
       "last_updated": "2025-11-21T00:00:00Z",
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["playwright", "browser_automation", "ui_testing", "headless", "auto_wait"],
+      "tags": [
+        "playwright",
+        "browser_automation",
+        "ui_testing",
+        "headless",
+        "auto_wait"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "UI_AUTOMATION",
       "version": "1.0.0",
-      "tested_on": ["Python", "JavaScript", "TypeScript", "Java", "C#", "Chromium", "Firefox", "WebKit"],
-      "agent_affinity": ["DC", "VSCC", "WEBC"]
+      "tested_on": [
+        "Python",
+        "JavaScript",
+        "TypeScript",
+        "Java",
+        "C#",
+        "Chromium",
+        "Firefox",
+        "WebKit"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "WEBC"
+      ],
+      "size_bytes": 2822,
+      "token_estimate": 706.0
     }
   }
 }

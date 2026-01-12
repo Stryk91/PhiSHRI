@@ -1,0 +1,48 @@
+{
+  "door_code": "W261PHIDEX_WOW_ADDONS",
+  "category": "WORKFLOWS",
+  "summary": "PhiDEX WoW addon suite: Masque skins, unit frames, minimap, chat styling. Dark theme with muted fel-green accents.",
+  "created": "2026-01-03",
+  "content": {
+    "purpose": "Unified UI theme for World of Warcraft retail using PhiDEX color palette",
+    "location": "Y:\\World of Warcraft\\_retail_\\Interface\\AddOns\\",
+    "addons": {
+      "Masque_PhiDEX": {
+        "type": "Masque skin plugin",
+        "variants": ["PhiDEX", "PhiDEX Flat", "PhiDEX Glow"],
+        "sizing": "32px inner (Icon, Backdrop), 36px border (Normal) = 2px soft edge"
+      },
+      "Masque_PhiDEX_Buffs": {
+        "type": "Buff frame registration",
+        "purpose": "Registers BuffFrame, DebuffFrame, TempEnchants with Masque groups"
+      },
+      "PhiDEX_UnitFrames": {
+        "slash": "/puf",
+        "targets": ["PlayerFrame", "TargetFrame", "FocusFrame", "PetFrame", "Party", "Boss"],
+        "features": ["Health color", "Low health warning at 25%", "Power colors by type", "Class color option"]
+      },
+      "PhiDEX_Minimap": {
+        "slash": "/pmm",
+        "features": ["Square shape option", "Dark border", "Hides clutter", "Scroll wheel zoom", "Right-click tracking"]
+      },
+      "PhiDEX_Chat": {
+        "slash": "/pchat",
+        "features": ["Dark backgrounds", "Themed tabs", "Styled edit box", "Adjustable alpha", "Optional fade"]
+      }
+    },
+    "color_palette": {
+      "BG_PRIMARY": [0.09, 0.10, 0.09],
+      "ACCENT_MUTED": [0.28, 0.52, 0.32],
+      "ACCENT_PRIMARY": [0.35, 0.65, 0.40],
+      "TEXT_PRIMARY": [0.88, 0.90, 0.88],
+      "BORDER_SUBTLE": [0.20, 0.25, 0.20]
+    },
+    "technical_notes": [
+      "Chat frames: Use _G[name .. 'PhiDEXBG'] not chatFrame._phidexBG for property storage",
+      "Masque: Inner elements must match size for consistent border appearance",
+      "Buff skinning requires separate addon to register frames with Masque"
+    ],
+    "related": ["IncCallout themed with same palette", "WeakAuras also themed"]
+  },
+  "aliases": ["wow addons", "phidex ui", "masque skin", "wow theme"]
+}

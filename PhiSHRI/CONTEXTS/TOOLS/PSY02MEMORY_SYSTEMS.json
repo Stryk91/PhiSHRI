@@ -1,0 +1,60 @@
+{
+  "door_code": "PSY02MEMORY_SYSTEMS",
+  "semantic_path": "PSYCHOLOGY.COGNITIVE.MEMORY",
+  "aliases": [
+    "memory",
+    "learning",
+    "retention",
+    "forgetting"
+  ],
+  "context_bundle": {
+    "summary": "Memory systems: Sensory (iconic/echoic), short-term/working memory, long-term (declarative: episodic/semantic, procedural). Encoding, consolidation, retrieval. Forgetting curves, spacing effect, testing effect.",
+    "prerequisites": [],
+    "related_doors": [
+      "PSY01COGNITIVE_FUNDAMENTALS",
+      "PSY03AGE_COGNITIVE_DECLINE",
+      "PSY10NEUROPSYCH"
+    ],
+    "onboarding": {
+      "quick_start": "Encoding specificity: Context matters. Spacing > massing. Testing > re-reading. Sleep consolidates. Retrieval practice strengthens traces.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Encoding: Depth of processing (shallow phonemic < deep semantic), elaboration, distinctiveness",
+        "Consolidation: Sleep-dependent, hippocampal replay, synaptic consolidation (hours) vs systems (weeks)",
+        "Retrieval: Cue-dependent, encoding specificity, transfer-appropriate processing",
+        "Forgetting: Decay (time), interference (proactive/retroactive), retrieval failure"
+      ],
+      "known_errors": [
+        "Re-reading for learning - illusion of competence, testing is better",
+        "Massed practice - feels effective but spacing wins long-term",
+        "Ignoring sleep - consolidation requires it",
+        "Context-independent study - hurts transfer to new contexts"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-24T03:52:35.536581100+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "memory",
+        "psychology",
+        "encoding",
+        "retrieval",
+        "forgetting",
+        "learning"
+      ],
+      "category": "TOOLS",
+      "subcategory": "COGNITIVE",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "WEBC"
+      ]
+    }
+  }
+}

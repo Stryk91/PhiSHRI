@@ -1,0 +1,64 @@
+{
+  "door_code": "T28SCREEN_MCP",
+  "semantic_path": "TOOLS.MCP.SCREEN_CAPTURE",
+  "aliases": [
+    "screen",
+    "capture",
+    "screenshot",
+    "pixel",
+    "ui automation"
+  ],
+  "context_bundle": {
+    "summary": "Screen MCP Server - 7 tools for screen capture, pixel reading, window enumeration, and UI Automation element tree inspection. Uses GDI+ and System.Windows.Automation.",
+    "prerequisites": [
+      "T01MCP"
+    ],
+    "related_doors": [
+      "T27GIT_MCP",
+      "T25EVERYTHING_MCP",
+      "800WINMCP"
+    ],
+    "onboarding": {
+      "quick_start": "list_windows | get_pixel x:500 y:500 | screen_capture monitor:0 | get_element_tree title:Claude depth:3",
+      "full_context_path": "",
+      "common_patterns": [
+        "list_windows -> window_capture hwnd:X",
+        "get_pixel -> find_pixel with tolerance",
+        "get_element_tree -> click automation"
+      ],
+      "known_errors": [
+        "DPI scaling affects coordinates",
+        "Minimized windows return empty capture",
+        "UI Automation may timeout on complex trees - limit depth"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-28T00:18:35.138008+11:00",
+      "confidence": 1.0,
+      "tags": [
+        "screen",
+        "capture",
+        "mcp",
+        "pixel",
+        "automation",
+        "gdi",
+        "windows"
+      ],
+      "category": "TOOLS",
+      "subcategory": "MCP",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "ORCHESTRATOR"
+      ],
+      "size_bytes": 1601,
+      "token_estimate": 401.0
+    }
+  }
+}

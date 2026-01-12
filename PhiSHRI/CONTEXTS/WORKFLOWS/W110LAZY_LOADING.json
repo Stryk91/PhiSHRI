@@ -1,11 +1,21 @@
 {
   "door_code": "W110LAZY_LOADING",
   "semantic_path": "WORKFLOWS.PERFORMANCE.LAZY_LOADING",
-  "aliases": ["lazy load", "deferred loading", "on-demand loading"],
+  "aliases": [
+    "lazy load",
+    "deferred loading",
+    "on-demand loading"
+  ],
   "context_bundle": {
     "summary": "Lazy loading and deferred initialization patterns for optimizing resource usage by delaying computation until required",
-    "prerequisites": ["W73PROFILING"],
-    "related_doors": ["W72CACHING", "W111CONNECTION_POOLING", "W19PERF"],
+    "prerequisites": [
+      "W73PROFILING"
+    ],
+    "related_doors": [
+      "W72CACHING",
+      "W111CONNECTION_POOLING",
+      "W19PERF"
+    ],
     "onboarding": {
       "quick_start": "Implement lazy evaluation to delay computation until result is required, avoiding unnecessary calculations for large datasets",
       "full_context_path": "/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md",
@@ -18,7 +28,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -28,12 +40,26 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["performance", "lazy loading", "optimization", "workflows"],
+      "tags": [
+        "performance",
+        "lazy loading",
+        "optimization",
+        "workflows"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "PERFORMANCE",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11", "Linux"],
-      "agent_affinity": ["VSCC", "DC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11",
+        "Linux"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC"
+      ],
+      "size_bytes": 1614,
+      "token_estimate": 404.0
     }
   }
 }

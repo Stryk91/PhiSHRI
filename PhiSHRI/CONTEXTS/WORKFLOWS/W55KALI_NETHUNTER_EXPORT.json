@@ -1,0 +1,62 @@
+{
+  "door_code": "W55KALI_NETHUNTER_EXPORT",
+  "semantic_path": "WORKFLOWS.DEPLOYMENT.KALI_NETHUNTER",
+  "aliases": [
+    "kali export",
+    "nethunter setup",
+    "portable dc",
+    "linux migration"
+  ],
+  "context_bundle": {
+    "summary": "DC portable export for Kali NetHunter. Contains PhiSHRI (552 doors), MCP server sources, SWE-Bench metrics, install.sh auto-setup script. Use fd/ripgrep instead of Everything on Linux.",
+    "prerequisites": [
+      "T01MCP"
+    ],
+    "related_doors": [
+      "T01MCP",
+      "T05MCP_ARCH",
+      "W45SWE_BENCH_LITE"
+    ],
+    "onboarding": {
+      "quick_start": "Copy C:\\DC-Export-Kali to USB. Boot NetHunter. Run: chmod +x install.sh && ./install.sh",
+      "full_context_path": "",
+      "common_patterns": [
+        "fd -e py -e rs",
+        "rg 'pattern' --type py",
+        "source ~/swe-bench/venv/bin/activate"
+      ],
+      "known_errors": [
+        "Everything MCP Windows-only - use fd/ripgrep",
+        "Screen MCP needs X11/Wayland",
+        "Windows MCP needs full Linux rewrite"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T21:35:04.380391200+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "kali",
+        "nethunter",
+        "portable",
+        "export",
+        "linux",
+        "deployment",
+        "usb"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "DEPLOYMENT",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1565,
+      "token_estimate": 392.0
+    }
+  }
+}

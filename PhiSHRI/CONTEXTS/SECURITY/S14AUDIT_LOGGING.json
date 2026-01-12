@@ -1,0 +1,42 @@
+{
+  "door_code": "S14AUDIT_LOGGING",
+  "semantic_path": "SECURITY.LOGGING.AUDIT",
+  "aliases": [
+    "audit log",
+    "security logging",
+    "audit trail"
+  ],
+  "context_bundle": {
+    "summary": "Security audit logging. Log who did what when where. Include user, action, resource, timestamp, outcome. Immutable storage.",
+    "prerequisites": [],
+    "related_doors": [],
+    "onboarding": {
+      "quick_start": "",
+      "full_context_path": "",
+      "common_patterns": [],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-05T19:58:22.363504700+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "security",
+        "audit",
+        "logging",
+        "compliance"
+      ],
+      "category": "SECURITY",
+      "subcategory": "LOGGING",
+      "version": "1.0.0",
+      "agent_affinity": [],
+      "size_bytes": 944,
+      "token_estimate": 236.0
+    }
+  }
+}

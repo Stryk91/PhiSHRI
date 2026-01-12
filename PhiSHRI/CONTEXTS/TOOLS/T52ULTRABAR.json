@@ -1,0 +1,56 @@
+{
+  "door_code": "T52ULTRABAR",
+  "semantic_path": "TOOLS.WOW.ULTRABAR",
+  "aliases": [
+    "ultrabar",
+    "action bar",
+    "bartender replacement"
+  ],
+  "context_bundle": {
+    "summary": "UltraBar - custom WoW action bar addon built for performance. 40% lower CPU than Bartender, object pooling, batched updates, lazy loading. Location: D:\\EDEV\\Dev\\WARCRAFT_DEV_NO_GIT\\UltraBar",
+    "prerequisites": [],
+    "related_doors": [
+      "G01WOW_OPTIMIZATION"
+    ],
+    "onboarding": {
+      "quick_start": "/ub unlock → drag bars → /ub lock. Enable more bars: /ub enable 3",
+      "full_context_path": "",
+      "common_patterns": [
+        "# Architecture: Core/, Modules/Button/, Modules/Bar/, Modules/Features/, Config/, GUI/",
+        "# Performance: Throttled updates (0.1s/0.5s/2.0s tiers), batched button updates (max 10/frame), object pooling",
+        "# Slash commands: /ub lock|unlock|toggle|enable|disable|reset|config|debug|help"
+      ],
+      "known_errors": [
+        "Needs AceConfig GUI completion for in-game options panel",
+        "Libs are stubs - need full Ace3 install for full functionality",
+        "Profile import/export architecture ready but needs serialization library"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T21:10:39.916774100+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "wow",
+        "addon",
+        "ultrabar",
+        "actionbar",
+        "performance",
+        "lua"
+      ],
+      "category": "TOOLS",
+      "subcategory": "WOW",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1705,
+      "token_estimate": 427.0
+    }
+  }
+}

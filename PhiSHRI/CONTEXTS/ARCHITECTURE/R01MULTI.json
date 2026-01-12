@@ -53,7 +53,9 @@
       ],
       "agent_affinity": [
         "ALL"
-      ]
+      ],
+      "size_bytes": 1805,
+      "token_estimate": 452.0
     }
   }
 }

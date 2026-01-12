@@ -1,11 +1,23 @@
 {
   "door_code": "E13CONFIGURATION_ERRORS",
   "semantic_path": "ERRORS.CONFIGURATION.ENV",
-  "aliases": ["config error", "env error", "configuration mismatch", "settings error"],
+  "aliases": [
+    "config error",
+    "env error",
+    "configuration mismatch",
+    "settings error"
+  ],
   "context_bundle": {
     "summary": "Configuration and environment errors troubleshooting for misconfigurations, missing variables, and environment-specific issues",
-    "prerequisites": ["E01PERM", "E02ENCODE"],
-    "related_doors": ["S05SECRETS", "T24NGINX", "W05RUNSPACE"],
+    "prerequisites": [
+      "E01PERM",
+      "E02ENCODE"
+    ],
+    "related_doors": [
+      "S05SECRETS",
+      "T24NGINX",
+      "W05RUNSPACE"
+    ],
     "onboarding": {
       "quick_start": "Validate configuration files, check environment variables, use configuration management tools, and implement config validation at startup",
       "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md",
@@ -19,7 +31,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -29,12 +43,27 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["errors", "configuration", "env", "settings"],
+      "tags": [
+        "errors",
+        "configuration",
+        "env",
+        "settings"
+      ],
       "category": "ERRORS",
       "subcategory": "CONFIGURATION",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11", "Linux"],
-      "agent_affinity": ["VSCC", "DC", "TERMC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11",
+        "Linux"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "TERMC"
+      ],
+      "size_bytes": 1683,
+      "token_estimate": 421.0
     }
   }
 }

@@ -1,0 +1,48 @@
+{
+  "door_code": "W260PLAYLIST_CONVERT",
+  "semantic_path": "WORKFLOWS.MEDIA.PLAYLIST_CONVERSION",
+  "aliases": [
+    "playlist import",
+    "spotify import",
+    "track list conversion"
+  ],
+  "context_bundle": {
+    "summary": "Convert text track lists to Spotify/streaming playlists using TuneMyMusic or Soundiiz web tools.",
+    "prerequisites": [],
+    "related_doors": [],
+    "onboarding": {
+      "quick_start": "Format: \"Artist - Track Title\" one per line. Go to tunemymusic.com → From Text → paste → select Spotify → authorize → done. Soundiiz.com offers better matching but requires free account.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Strip album names and durations from raw track lists",
+        "Artist - Title format gets best match rates",
+        "Remove duplicate tracks before import"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-24T05:34:37.515154600+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "spotify",
+        "playlist",
+        "music",
+        "tunemymusic",
+        "soundiiz",
+        "conversion"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "MEDIA",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ]
+    }
+  }
+}

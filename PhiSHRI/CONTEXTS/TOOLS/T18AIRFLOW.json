@@ -1,11 +1,24 @@
 {
   "door_code": "T18AIRFLOW",
   "semantic_path": "TOOLS.ORCHESTRATION.APACHE_AIRFLOW",
-  "aliases": ["airflow", "apache_airflow", "workflow_orchestration", "dag", "data_pipeline"],
+  "aliases": [
+    "airflow",
+    "apache_airflow",
+    "workflow_orchestration",
+    "dag",
+    "data_pipeline"
+  ],
   "context_bundle": {
     "summary": "Apache Airflow is workflow orchestration platform using Python DAGs (Directed Acyclic Graphs) to schedule and monitor data pipelines with operators, sensors, hooks, and XComs for task communication.",
-    "prerequisites": ["W91DATA_PIPELINE", "W100SCHEDULING"],
-    "related_doors": ["W87ETL", "W90BATCH_PROCESSING", "T14TERRAFORM"],
+    "prerequisites": [
+      "W91DATA_PIPELINE",
+      "W100SCHEDULING"
+    ],
+    "related_doors": [
+      "W87ETL",
+      "W90BATCH_PROCESSING",
+      "T14TERRAFORM"
+    ],
     "onboarding": {
       "quick_start": "Airflow workflow: 1) Install airflow with pip. 2) Initialize db with airflow db init. 3) Create DAG file in dags/ folder. 4) Define tasks using operators (PythonOperator, BashOperator, etc). 5) Set dependencies with >> or <<. 6) Start webserver (airflow webserver) and scheduler (airflow scheduler). 7) Monitor in UI at localhost:8080. Use TaskGroups for organization and pools for resource limits.",
       "full_context_path": "/PhiDEX/industry_knowledge/airflow_patterns.md",
@@ -16,25 +29,51 @@
         "Task dependencies: task_a = extract_source_a(); task_b = extract_source_b(); task_c = merge([task_a, task_b]); task_d = load(task_c); [task_a, task_b] >> task_c >> task_d",
         "Connection setup: # CLI: airflow connections add 'postgres_conn' --conn-uri 'postgresql://user:pass@host:5432/db'; # In code: from airflow.hooks.postgres_hook import PostgresHook; hook = PostgresHook(postgres_conn_id='postgres_conn')"
       ],
-      "known_errors": ["E03TIMEOUT", "E07DATABASE_ERRORS"]
+      "known_errors": [
+        "E03TIMEOUT",
+        "E07DATABASE_ERRORS"
+      ]
     },
     "resources": {
-      "docs": ["/PhiDEX/industry_knowledge/airflow_patterns.md"],
+      "docs": [
+        "/PhiDEX/industry_knowledge/airflow_patterns.md"
+      ],
       "code": [],
       "tests": [],
-      "errors": ["E03TIMEOUT", "E07DATABASE_ERRORS"]
+      "errors": [
+        "E03TIMEOUT",
+        "E07DATABASE_ERRORS"
+      ]
     },
     "metadata": {
       "last_updated": "2025-11-21T00:00:00Z",
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["airflow", "orchestration", "dag", "workflow", "data_pipeline", "scheduling"],
+      "tags": [
+        "airflow",
+        "orchestration",
+        "dag",
+        "workflow",
+        "data_pipeline",
+        "scheduling"
+      ],
       "category": "TOOLS",
       "subcategory": "ORCHESTRATION",
       "version": "1.0.0",
-      "tested_on": ["Apache Airflow 2.x", "Python 3.8+", "Docker", "Kubernetes"],
-      "agent_affinity": ["DC", "VSCC", "WEBC"]
+      "tested_on": [
+        "Apache Airflow 2.x",
+        "Python 3.8+",
+        "Docker",
+        "Kubernetes"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "WEBC"
+      ],
+      "size_bytes": 3111,
+      "token_estimate": 778.0
     }
   }
 }

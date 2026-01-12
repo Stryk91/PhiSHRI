@@ -1,11 +1,21 @@
 {
   "door_code": "D02SILENT",
   "semantic_path": "DEPLOYMENT.WINDOWS.SILENT_INSTALL",
-  "aliases": ["silent_install", "msiexec", "unattended", "quiet_mode"],
+  "aliases": [
+    "silent_install",
+    "msiexec",
+    "unattended",
+    "quiet_mode"
+  ],
   "context_bundle": {
     "summary": "Silent installation patterns for Windows using msiexec. Enterprise deployment without user interaction. Key flags: /quiet (no UI), /norestart (no auto-reboot), /L*V (verbose logging).",
-    "prerequisites": ["D01WIX"],
-    "related_doors": ["D05ENTERPRISE", "W01COORD"],
+    "prerequisites": [
+      "D01WIX"
+    ],
+    "related_doors": [
+      "D05ENTERPRISE",
+      "W01COORD"
+    ],
     "onboarding": {
       "quick_start": "msiexec /i installer.msi /quiet /norestart /L*V log.txt. Flags: /qn (no UI), /passive (progress only), /norestart (prevent reboot). Always log for troubleshooting.",
       "full_context_path": "/PhiDEX/DEPLOYMENT_ALMANAC/07_SILENT_INSTALL/SILENT_INSTALLATION_GUIDE.md",
@@ -26,7 +36,9 @@
       ]
     },
     "resources": {
-      "docs": ["/PhiDEX/DEPLOYMENT_ALMANAC/07_SILENT_INSTALL/SILENT_INSTALLATION_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/DEPLOYMENT_ALMANAC/07_SILENT_INSTALL/SILENT_INSTALLATION_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -36,12 +48,26 @@
       "confidence": 0.98,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["deployment", "silent", "msiexec", "enterprise", "automation"],
+      "tags": [
+        "deployment",
+        "silent",
+        "msiexec",
+        "enterprise",
+        "automation"
+      ],
       "category": "DEPLOYMENT",
       "subcategory": "SILENT_INSTALL",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11"],
-      "agent_affinity": ["DC", "VSCC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 2031,
+      "token_estimate": 508.0
     }
   }
 }

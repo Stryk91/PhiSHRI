@@ -1,0 +1,61 @@
+{
+  "door_code": "P14CARBYNE_CONTROL_TAURI",
+  "semantic_path": "PROJECTS.PHIVECTOR.CARBYNE_CONTROL_TAURI",
+  "aliases": [
+    "carbyne tauri",
+    "carbyne native",
+    "phivector control"
+  ],
+  "context_bundle": {
+    "summary": "Native Tauri v2 app for Carbyne orchestration. NEW build, not repurposing Claude wrapper. Agent status, message feed, task dispatch, tool monitoring. Rust backend, minimal JS frontend. System tray capable.",
+    "prerequisites": [
+      "T22CARBYNE"
+    ],
+    "related_doors": [
+      "T22CARBYNE",
+      "P12CARBYNE_DASHBOARD_WEB",
+      "P13CARBYNE_DASHBOARD_TUI"
+    ],
+    "onboarding": {
+      "quick_start": "Native Tauri v2 app for Carbyne control. NOT the Claude wrapper. Purpose-built for agent orchestration: view agents, send messages, dispatch tasks, monitor tools, see alerts. Rust backend connects TCP 7777. Minimal JS frontend. System tray for always-on.",
+      "full_context_path": "",
+      "common_patterns": [
+        "NEW Tauri v2 app - not repurposing existing X:\\carbyne",
+        "Location: X:\\carbyne-control or X:\\phivector-control",
+        "Purpose: Agent orchestration GUI, NOT Claude wrapper",
+        "Panels: agent status, message feed, task dispatch, tool monitor",
+        "Backend: Rust connects to Carbyne TCP 7777",
+        "Frontend: Lightweight HTML/JS, system tray optional"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-03T00:32:35.270215400+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "carbyne",
+        "tauri",
+        "native",
+        "gui",
+        "orchestration",
+        "control",
+        "future"
+      ],
+      "category": "PROJECTS",
+      "subcategory": "PHIVECTOR",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ],
+      "size_bytes": 1917,
+      "token_estimate": 480.0
+    }
+  }
+}

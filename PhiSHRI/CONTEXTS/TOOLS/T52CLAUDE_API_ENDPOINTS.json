@@ -1,0 +1,63 @@
+{
+  "door_code": "T52CLAUDE_API_ENDPOINTS",
+  "semantic_path": "TOOLS.DESKTOP.CLAUDE_API",
+  "aliases": [
+    "claude api",
+    "chat api",
+    "conversation api",
+    "message endpoints"
+  ],
+  "context_bundle": {
+    "summary": "Claude.ai web API endpoints for conversations and messages - reverse engineered from web client.",
+    "prerequisites": [
+      "T51CLAUDE_AUTH"
+    ],
+    "related_doors": [
+      "T50TAURI_CLIENT",
+      "T51CLAUDE_AUTH"
+    ],
+    "onboarding": {
+      "quick_start": "GET claude.ai/api/organizations/{org_id}/chat_conversations with sessionKey cookie",
+      "full_context_path": "",
+      "common_patterns": [
+        "Base: claude.ai/api/organizations/{lastActiveOrg}/",
+        "List convos: GET .../chat_conversations",
+        "Messages: GET/POST .../chat_conversations/{conv_id}/messages",
+        "Pass sessionKey as cookie, may need other cookies for Cloudflare",
+        "Response is JSON, similar structure to official API",
+        "Streaming responses use SSE (Server-Sent Events)"
+      ],
+      "known_errors": [
+        "Endpoints may change without notice - not official API",
+        "Rate limits different from API - tied to subscription tier",
+        "ToS grey area - using subscription through unofficial client"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T03:02:48.510185200+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "api",
+        "rest",
+        "claude.ai",
+        "conversations",
+        "messages",
+        "endpoints"
+      ],
+      "category": "TOOLS",
+      "subcategory": "DESKTOP",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1773,
+      "token_estimate": 444.0
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "door_code": "E57BUILD",
+  "semantic_path": "ERRORS.BUILD.carbyne_cli",
+  "aliases": [
+    "build",
+    "carbyne-cli"
+  ],
+  "context_bundle": {
+    "summary": "Build config for carbyne-cli at /mnt/x/carbyne-cli",
+    "prerequisites": [],
+    "related_doors": [
+      "A05KALIC",
+      "A01DC"
+    ],
+    "onboarding": {
+      "quick_start": "Build: /mnt/c/Users/Stryker_LOCAL/.cargo/bin/cargo.exe build --release. Binary: /mnt/x/carbyne-cli/target/release/carbyne.exe",
+      "full_context_path": "",
+      "common_patterns": [],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-02T23:19:19Z",
+      "confidence": 1.0,
+      "tags": [
+        "error",
+        "resolution",
+        "kalic",
+        "build",
+        "carbyne-cli"
+      ],
+      "category": "ERRORS",
+      "subcategory": "BUILD",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "KALIC",
+        "DC"
+      ],
+      "source": "kalic_brain/solved_problems.json",
+      "resolved_date": "2025-12-03",
+      "size_bytes": 1124,
+      "token_estimate": 281.0
+    }
+  }
+}

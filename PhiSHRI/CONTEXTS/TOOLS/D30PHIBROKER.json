@@ -1,0 +1,62 @@
+{
+  "door_code": "D30PHIBROKER",
+  "semantic_path": "TOOLS.MESSAGING.PHIBROKER",
+  "aliases": [
+    "broker",
+    "message broker",
+    "http messaging",
+    "agent messaging"
+  ],
+  "context_bundle": {
+    "summary": "PhiBroker - HTTP message broker for PhiVector agents. Replaces WM_COPYDATA/file-based messaging with clean REST API. 986KB Rust binary on port 7700. Supports long-polling, auto agent registration, message queues.",
+    "prerequisites": [
+      "E71MCP_XDRIVE_DEPENDENCY"
+    ],
+    "related_doors": [
+      "W253MSGQUEUE_SYSTEM",
+      "P15AGENT_BRIDGE"
+    ],
+    "onboarding": {
+      "quick_start": "Start: X:\\\\mcp-servers\\\\phibroker\\\\target\\\\release\\\\phibroker.exe | Port: 7700 | Send: POST /send {from,to,body,eof} | Receive: GET /receive/{agent}?wait=true | Status: GET /status | Module: Import-Module X:\\\\mcp-servers\\\\phibroker\\\\PhiBroker.psm1",
+      "full_context_path": "",
+      "common_patterns": [
+        "Invoke-RestMethod -Uri 'http://localhost:7700/send' -Method Post -Body $json -ContentType 'application/json'",
+        "Invoke-RestMethod -Uri 'http://localhost:7700/receive/DC?wait=true'",
+        "Invoke-RestMethod -Uri 'http://localhost:7700/status'",
+        "Import-Module X:\\mcp-servers\\phibroker\\PhiBroker.psm1"
+      ],
+      "known_errors": [
+        "Connection refused - broker not running, start with Start-PhiBroker.ps1",
+        "X: drive not mounted - mount CARBYNE.vhdx first"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-26T16:55:45.227530+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "phibroker",
+        "messaging",
+        "http",
+        "broker",
+        "rest",
+        "agents",
+        "communication",
+        "ipc"
+      ],
+      "category": "TOOLS",
+      "subcategory": "MESSAGING",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC",
+        "GEMMA"
+      ]
+    }
+  }
+}

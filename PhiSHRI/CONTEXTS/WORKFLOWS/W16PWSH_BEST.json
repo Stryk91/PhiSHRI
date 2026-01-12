@@ -1,11 +1,22 @@
 {
   "door_code": "W16PWSH_BEST",
   "semantic_path": "WORKFLOWS.POWERSHELL.BEST_PRACTICES",
-  "aliases": ["powershell_best", "ps7", "pwsh_optimize", "powershell_standards"],
+  "aliases": [
+    "powershell_best",
+    "ps7",
+    "pwsh_optimize",
+    "powershell_standards"
+  ],
   "context_bundle": {
     "summary": "PowerShell 7+ best practices: Security (least privilege, no hardcoded secrets), Code quality (Verb-Noun, approved verbs), Performance (pipeline, parallel ForEach, .NET methods, runspaces).",
-    "prerequisites": ["820PWSH"],
-    "related_doors": ["W05RUNSPACE", "W17PARALLEL", "S01SEC"],
+    "prerequisites": [
+      "820PWSH"
+    ],
+    "related_doors": [
+      "W05RUNSPACE",
+      "W17PARALLEL",
+      "S01SEC"
+    ],
     "onboarding": {
       "quick_start": "Security: Use SecretManagement module, no hardcoded creds. Code: Verb-Noun format, approved verbs. Performance: ForEach-Object -Parallel, .NET methods for intensive ops, runspaces for concurrency.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md",
@@ -27,7 +38,9 @@
       ]
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -37,12 +50,25 @@
       "confidence": 0.99,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["powershell", "best_practices", "performance", "security", "ps7"],
+      "tags": [
+        "powershell",
+        "best_practices",
+        "performance",
+        "security",
+        "ps7"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "POWERSHELL_ADVANCED",
       "version": "1.0.0",
-      "tested_on": ["PowerShell 7.4+"],
-      "agent_affinity": ["DC", "VSCC"]
+      "tested_on": [
+        "PowerShell 7.4+"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 2159,
+      "token_estimate": 540.0
     }
   }
 }

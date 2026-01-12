@@ -1,0 +1,63 @@
+{
+  "door_code": "W120CARBYNE_PROTOCOL",
+  "semantic_path": "WORKFLOWS.INTERAGENT.CARBYNE",
+  "aliases": [
+    "carbyne protocol",
+    "agent messaging",
+    "dc kalic sync",
+    "bridge protocol"
+  ],
+  "context_bundle": {
+    "summary": "Carbyne bridge messaging protocol between DC and KALIC. Deadlock avoidance and cold-start bootstrap procedures.",
+    "prerequisites": [
+      "P15AGENT_BRIDGE_MCP"
+    ],
+    "related_doors": [
+      "P15AGENT_BRIDGE_MCP",
+      "S00KALIC_SESSION_BOOT",
+      "S01DC_SESSION_BOOT"
+    ],
+    "onboarding": {
+      "quick_start": "SEND FIRST, AWAIT SECOND. Cold start: Use AHK to type into target terminal. Check carbyne_status for pending. Pattern: send(eof=true) -> await(60s) -> process -> send(eof=true) -> await...",
+      "full_context_path": "",
+      "common_patterns": [
+        "carbyne_send with eof=true THEN carbyne_await",
+        "AHK bootstrap when target not in pump",
+        "carbyne_status to check pending messages",
+        "timeout 30-60 seconds typical"
+      ],
+      "known_errors": [
+        "DEADLOCK: Both agents call carbyne_await = infinite wait",
+        "Cold start: Target agent not listening = messages queue but never received",
+        "AHK bootstrap required to wake cold agent: X:\\AHK  SCRIPTS\\dc_to_kalic.ahk"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-05T18:50:07.322508700+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "carbyne",
+        "interagent",
+        "messaging",
+        "protocol",
+        "deadlock",
+        "ahk"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "INTERAGENT",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ],
+      "size_bytes": 1819,
+      "token_estimate": 455.0
+    }
+  }
+}

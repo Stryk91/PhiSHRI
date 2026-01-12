@@ -1,0 +1,150 @@
+{
+  "door_code": "A51DEEPSEEK_ARCHITECTURE",
+  "semantic_path": "ARCHITECTURE.AI.DEEPSEEK",
+  "aliases": [
+    "DeepSeek",
+    "DeepSeek V3",
+    "DeepSeek V3.2",
+    "DeepSeek architecture",
+    "DeepSeek R1",
+    "Chinese frontier model"
+  ],
+  "context_bundle": {
+    "summary": "DeepSeek V3/V3.2 technical architecture: MoE, MLA, DSA, training innovations, and why it achieves frontier performance at 10x lower cost. The model that proved efficient engineering can match brute-force compute.",
+    "prerequisites": [
+      "A50AI_LANDSCAPE_2025"
+    ],
+    "related_doors": [
+      "A52MOE_PATTERNS",
+      "A53SPARSE_ATTENTION",
+      "A56TRAINING_EFFICIENCY",
+      "A60REASONING_MODELS",
+      "A57AI_ECONOMICS"
+    ],
+    "onboarding": {
+      "quick_start": "DeepSeek V3.2 = 685B total params (671B main + 14B MTP), only 37B active per token via MoE. Trained for ~$5.5M in 2 months on 2048 H800s. Uses MLA (compressed KV cache), DSA (sparse attention O(L²)→O(kL)), MTP (multi-token prediction), FP8 training. V3.2-Speciale adds extended reasoning (IMO/IOI gold medals). MIT licensed. Matches GPT-5 on benchmarks.",
+      "full_context_path": "",
+      "common_patterns": [
+        "=== MODEL SPECIFICATIONS ===",
+        "TOTAL PARAMS: 685B (671B main model + 14B Multi-Token Prediction module)",
+        "ACTIVE PARAMS: 37B per token (only ~5.5% of total params compute per token)",
+        "CONTEXT LENGTH: 128K tokens standard, tested to 128K on NIAH",
+        "TRAINING DATA: 14.8 trillion tokens (less than Llama's 15T+)",
+        "TRAINING TIME: ~2 months on 2048 H800 GPUs",
+        "TRAINING COST: 2.788M GPU hours = ~$5.576M at $2/hr rental (final run only)",
+        "LICENSE: MIT (permissive, commercial OK, check data provenance)",
+        "=== CORE ARCHITECTURE COMPONENTS ===",
+        "MoE (Mixture-of-Experts): 671B params split into expert networks. Router selects which experts handle each token. Only 37B compute per token despite 671B total.",
+        "MLA (Multi-head Latent Attention): Compresses key-value tensors to lower dimension before KV cache. Decompresses at inference. Massive memory savings for long context.",
+        "DSA (DeepSeek Sparse Attention - V3.2): Lightning indexer (cheap low-precision heads) scores all token pairs. Selector keeps top-k. O(L²) → O(kL). 50% inference cost reduction at long context.",
+        "MTP (Multi-Token Prediction): Predicts multiple future tokens simultaneously. 85-90% acceptance rate for speculative decoding. Faster inference + better training signal.",
+        "=== TRAINING INNOVATIONS ===",
+        "FP8 MIXED PRECISION: First successful FP8 training at this scale. Halves memory bandwidth. Uses tile-wise grouping (1x128) for activations, block-wise (128x128) for weights.",
+        "DUALPIPE: Custom pipeline parallelism that overlaps compute and communication phases. Compensates for H800's reduced interconnect bandwidth.",
+        "AUXILIARY-LOSS-FREE LOAD BALANCING: Dynamic bias term per expert instead of auxiliary loss. Better expert utilization without performance penalty.",
+        "16-WAY PP + 64-WAY EP: 16-way pipeline parallelism, 64-way expert parallelism across 8 nodes. ZeRO-1 data parallelism.",
+        "=== POST-TRAINING (V3.2) ===",
+        "GRPO: Group Relative Policy Optimization. RL without separate reward model. Unbiased KL estimator, off-policy sequence masking.",
+        "SPECIALIST DISTILLATION: Train domain experts (math, code, reasoning, agents, safety), then distill into base model.",
+        "AGENTIC TRAINING: 1,800+ synthetic environments, 85,000+ complex prompts for tool-use. Code agents, search agents, general agents.",
+        "RL COMPUTE: Post-training RL exceeds 10% of pre-training compute. Significant investment in alignment.",
+        "=== MODEL VARIANTS ===",
+        "V3 (Dec 2024): Original release. 671B MoE, MLA. Shocked industry with cost efficiency.",
+        "V3-0324 (Mar 2025): Incremental improvements. Same architecture.",
+        "V3.1 (Aug 2025): Hybrid thinking/non-thinking modes. Structural changes.",
+        "V3.1-Terminus: Base for V3.2. Added long-context optimizations.",
+        "V3.2 (Dec 2025): Added DSA sparse attention. Full agentic training. Production flagship.",
+        "V3.2-Speciale: High-compute reasoning variant. Extended thinking. IMO/IOI gold medals. For deep reasoning tasks only.",
+        "=== DEEPSEEK R1 (REASONING) ===",
+        "ARCHITECTURE: Same as V3, different training recipe.",
+        "RLVR: Reinforcement Learning with Verifiable Rewards. Learn from tasks with checkable answers (math, code).",
+        "TRAINING: 512 H800 GPUs for 198 hours (RL phase only). ~$294K for RL, but requires V3 base ($5.5M).",
+        "CAPABILITY: Strong reasoning, chain-of-thought, verification. Open weights reasoning model.",
+        "=== BENCHMARK PERFORMANCE ===",
+        "MATH: AIME 2024 - competitive with o1. MATH-500 - 90%+.",
+        "CODING: LiveCodeBench, SWE-bench - matches or exceeds GPT-4o.",
+        "REASONING: ARC, GPQA - frontier-level performance.",
+        "OLYMPIAD: V3.2-Speciale achieved gold medal in IMO 2025 and IOI 2025.",
+        "GENERAL: MMLU 88.5, MMLU-Pro 75.9, comparable to GPT-5.",
+        "=== WHY IT MATTERS ===",
+        "EFFICIENCY PROOF: Proved frontier performance achievable without massive compute budgets.",
+        "ARCHITECTURE INNOVATION: MoE + MLA + DSA combination is replicable. Others will adopt.",
+        "OPEN WEIGHTS: MIT license means community can build on it. Derivative models coming.",
+        "COST DISRUPTION: 10x cheaper API pricing forces competitors to respond.",
+        "SANCTIONS WORKAROUND: H800 constraints drove innovations that work on any hardware.",
+        "=== PHIVECTOR RELEVANCE ===",
+        "EFFICIENCY PHILOSOPHY: Aligns with our 'do more with less' approach.",
+        "MoE PATTERN: Specialist agents (DC/KALIC) mirror MoE routing concept.",
+        "SPARSE ATTENTION: PhiSHRI could use similar 'index then fetch' pattern for large door sets.",
+        "LOCAL FUTURE: Distilled DeepSeek models will eventually run on consumer hardware.",
+        "=== TECHNICAL DEEP DIVE: DSA ===",
+        "PROBLEM: Standard attention is O(L²). 128K context = 16 billion ops per layer.",
+        "SOLUTION: Two-phase attention.",
+        "PHASE 1 (Lightning Indexer): Small low-precision attention heads scan all pairs. Produce relevance scores. Cheap.",
+        "PHASE 2 (Selective Attention): Keep top-k relevant positions per query. Run full MLA/MQA on sparse set only.",
+        "COMPLEXITY: O(kL) where k << L. At 128K context with k=4096, that's 32x reduction.",
+        "TRAINING: Lightning indexer trained with KL-divergence alignment to main attention distribution.",
+        "RESULT: 50% inference cost reduction on long context. Maintains quality.",
+        "=== TECHNICAL DEEP DIVE: MTP ===",
+        "CONCEPT: Instead of predicting just next token, predict next N tokens.",
+        "IMPLEMENTATION: Main model + separate 'lookahead' transformer modules.",
+        "TRAINING BENEFIT: Denser gradient signal per forward pass. Better sample efficiency.",
+        "INFERENCE BENEFIT: Speculative decoding built-in. Draft N tokens, verify in parallel.",
+        "ACCEPTANCE RATE: 85-90% for second predicted token. Significant speedup.",
+        "OVERHEAD: 14B additional parameters (MTP module). Small relative to 671B main."
+      ],
+      "known_errors": [
+        "H800 LIMITATION: Has 44% of H100 interconnect bandwidth (400GB/s vs 900GB/s). Innovations compensate but still constrained.",
+        "SIZE: 690GB at FP16. Cannot run locally on consumer hardware. Need multi-GPU server or heavy quantization.",
+        "DISTILLATION CONCERNS: May contain knowledge distilled from ChatGPT outputs. Model sometimes claims to be ChatGPT when prompted certain ways.",
+        "SPARSE ATTENTION WARMUP: DSA has overhead. Benefits only appear at longer contexts (>32K tokens).",
+        "DATA PROVENANCE: MIT license is permissive but commercial users should verify training data sources.",
+        "COST CLAIMS: $5.5M is final training run only. Excludes all R&D, ablations, failed runs, salaries, data. True cost 5-20x higher.",
+        "SPECIALE LIMITATIONS: V3.2-Speciale is reasoning-only. Not suitable for general chat. Very slow for simple queries.",
+        "QUANTIZATION: MoE models are harder to quantize effectively. Not all experts benefit equally from compression."
+      ]
+    },
+    "resources": {
+      "docs": [
+        "https://arxiv.org/html/2412.19437v1 (DeepSeek V3 Technical Report)",
+        "https://huggingface.co/deepseek-ai/DeepSeek-V3",
+        "https://github.com/deepseek-ai/DeepSeek-V3",
+        "https://arxiv.org/abs/2512.02556 (V3.2 DSA Paper)",
+        "https://chat.deepseek.com (Official Web Interface)",
+        "https://platform.deepseek.com (API Access)"
+      ],
+      "code": [
+        "https://github.com/deepseek-ai/DeepSeek-V3/blob/main/inference/model.py",
+        "https://huggingface.co/deepseek-ai/DeepSeek-V3/blob/main/README_WEIGHTS.md"
+      ],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-19T09:15:00.000000000+00:00",
+      "confidence": 0.95,
+      "tags": [
+        "deepseek",
+        "moe",
+        "architecture",
+        "efficiency",
+        "chinese-ai",
+        "v3",
+        "v3.2",
+        "mla",
+        "dsa",
+        "sparse-attention",
+        "fp8",
+        "frontier"
+      ],
+      "category": "ARCHITECTURE",
+      "subcategory": "AI",
+      "version": "2.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 9595,
+      "token_estimate": 2399.0
+    }
+  }
+}

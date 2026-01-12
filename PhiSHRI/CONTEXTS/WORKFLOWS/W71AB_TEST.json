@@ -1,11 +1,23 @@
 {
   "door_code": "W71AB_TEST",
   "semantic_path": "WORKFLOWS.DEPLOYMENT.AB_TESTING",
-  "aliases": ["ab_test", "ab_testing", "split_testing", "experiment"],
+  "aliases": [
+    "ab_test",
+    "ab_testing",
+    "split_testing",
+    "experiment"
+  ],
   "context_bundle": {
     "summary": "A/B testing: Compare two variants (A=control, B=variant) to measure impact on metrics. Randomly assign users to groups, measure conversion/engagement, statistical significance. Metrics: Conversion rate, click-through rate (CTR), revenue per user, engagement time. Tools: Optimizely, VWO, Google Optimize, LaunchDarkly, GrowthBook (open-source). Patterns: 50/50 split, multivariate (A/B/C/D), multi-armed bandit. Statistical rigor: Sample size calculation, p-value <0.05, confidence interval. Duration: 1-4 weeks for significance. Avoid: Peeking at results early, multiple comparisons without correction, ignoring seasonality.",
-    "prerequisites": ["W70FEATURE_FLAG", "T10OBSERVABILITY"],
-    "related_doors": ["W68CANARY", "W01COORD", "R04EVENT_DRIVEN"],
+    "prerequisites": [
+      "W70FEATURE_FLAG",
+      "T10OBSERVABILITY"
+    ],
+    "related_doors": [
+      "W68CANARY",
+      "W01COORD",
+      "R04EVENT_DRIVEN"
+    ],
     "onboarding": {
       "quick_start": "A/B test: Compare variants to optimize metrics. Steps: 1) Define hypothesis ('Green button increases signup by 10%'), 2) Define metric (signup conversion rate), 3) Calculate sample size (5000 users per variant for 80% power), 4) Randomize users (50% control, 50% variant), 5) Run test (2-4 weeks), 6) Analyze results (t-test, confidence interval), 7) Deploy winner or iterate. Implementation: const variant = assignVariant(userId); // 'A' or 'B'; if (variant === 'A') { buttonColor = 'blue'; } else { buttonColor = 'green'; }; logEvent('button_shown', {variant}); if (userSignedUp) { logEvent('signup', {variant}); }. Analysis: const conversionA = signupsA / viewsA; const conversionB = signupsB / viewsB; const lift = (conversionB - conversionA) / conversionA * 100; Statistical significance: p < 0.05, confidence interval doesn't include 0. Tools: Optimizely (visual editor), LaunchDarkly (feature flags + experiments), GrowthBook (open-source, SQL-based). Multivariate: Test multiple variables (button color + text + position). Duration: Run until statistical significance, minimum 1 week, account for weekly patterns.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
@@ -22,7 +34,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -32,12 +46,30 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["ab_testing", "split_testing", "experiment", "optimization", "conversion", "statistics"],
+      "tags": [
+        "ab_testing",
+        "split_testing",
+        "experiment",
+        "optimization",
+        "conversion",
+        "statistics"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "DEPLOYMENT",
       "version": "1.0.0",
-      "tested_on": ["Optimizely", "LaunchDarkly", "GrowthBook", "VWO"],
-      "agent_affinity": ["WEBC", "VSCC", "CMDC"]
+      "tested_on": [
+        "Optimizely",
+        "LaunchDarkly",
+        "GrowthBook",
+        "VWO"
+      ],
+      "agent_affinity": [
+        "WEBC",
+        "VSCC",
+        "CMDC"
+      ],
+      "size_bytes": 4686,
+      "token_estimate": 1172.0
     }
   }
 }

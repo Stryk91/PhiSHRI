@@ -1,0 +1,58 @@
+{
+  "door_code": "W130LINUX_DUALBOOT",
+  "semantic_path": "WORKFLOWS.SYSTEM.DUALBOOT",
+  "aliases": [
+    "dual boot",
+    "ubuntu install",
+    "grub",
+    "linux partition"
+  ],
+  "context_bundle": {
+    "summary": "Linux dual-boot setup on STRYK system. D: drive target, GRUB bootloader, partition layout, prerequisites.",
+    "prerequisites": [],
+    "related_doors": [
+      "R70CRITICAL_PATHS"
+    ],
+    "onboarding": {
+      "quick_start": "Target: D: drive (4TB, 2.36TB free). Allocation: 100GB root, 8GB swap, rest /home. Bootloader: GRUB (UEFI+GPT ready). BEFORE INSTALL: Disable Fast Startup + hibernation. VHDX won't work for Linux boot.",
+      "full_context_path": "",
+      "common_patterns": [
+        "100GB root, 8GB swap, rest /home",
+        "Disable Fast Startup before install",
+        "Disable hibernation before install",
+        "GRUB auto-detects Windows"
+      ],
+      "known_errors": [
+        "VHDX native boot = Windows only, Linux CANNOT boot from VHDX",
+        "Windows updates may reset boot order",
+        "Fast Startup + hibernation corrupt shared partitions"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-05T18:53:55.920901300+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "linux",
+        "ubuntu",
+        "dualboot",
+        "grub",
+        "partition"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "SYSTEM",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ],
+      "size_bytes": 1598,
+      "token_estimate": 400.0
+    }
+  }
+}

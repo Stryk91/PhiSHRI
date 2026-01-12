@@ -1,11 +1,23 @@
 {
   "door_code": "W07DOTNET",
   "semantic_path": "WORKFLOWS.POWERSHELL.DOTNET_PROCESS",
-  "aliases": ["dotnet_process", "process_class", "system_diagnostics", "direct_launch"],
+  "aliases": [
+    "dotnet_process",
+    "process_class",
+    "system_diagnostics",
+    "direct_launch"
+  ],
   "context_bundle": {
     "summary": ".NET Process Class direct invocation for process spawning: [System.Diagnostics.Process]::Start(). Third method to bypass Start-Process sandbox restrictions.",
-    "prerequisites": ["820PWSH", "W05RUNSPACE", "W06WMI"],
-    "related_doors": ["A01DC", "W01COORD"],
+    "prerequisites": [
+      "820PWSH",
+      "W05RUNSPACE",
+      "W06WMI"
+    ],
+    "related_doors": [
+      "A01DC",
+      "W01COORD"
+    ],
     "onboarding": {
       "quick_start": "Use [System.Diagnostics.Process]::Start('app.exe') for direct .NET process launching. More control than WMI, bypasses PowerShell cmdlet restrictions.",
       "full_context_path": "/PhiDEX/BREAKTHROUGH.md",
@@ -26,7 +38,9 @@
       ]
     },
     "resources": {
-      "docs": ["/PhiDEX/BREAKTHROUGH.md"],
+      "docs": [
+        "/PhiDEX/BREAKTHROUGH.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -36,12 +50,26 @@
       "confidence": 0.96,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["dotnet", "process", "sandbox", "powershell", "breakthrough"],
+      "tags": [
+        "dotnet",
+        "process",
+        "sandbox",
+        "powershell",
+        "breakthrough"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "POWERSHELL_ADVANCED",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11"],
-      "agent_affinity": ["DC", "VSCC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 1942,
+      "token_estimate": 486.0
     }
   }
 }

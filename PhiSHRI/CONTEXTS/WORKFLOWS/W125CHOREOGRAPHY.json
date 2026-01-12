@@ -1,11 +1,23 @@
 {
   "door_code": "W125CHOREOGRAPHY",
   "semantic_path": "WORKFLOWS.ORCHESTRATION.CHOREOGRAPHY",
-  "aliases": ["choreography", "decentralized", "event-driven coordination", "peer-to-peer"],
+  "aliases": [
+    "choreography",
+    "decentralized",
+    "event-driven coordination",
+    "peer-to-peer"
+  ],
   "context_bundle": {
     "summary": "Decentralized workflow choreography where agents independently react to events without central coordinator, enabling emergent behavior",
-    "prerequisites": ["W119PUBSUB", "R04EVENT_DRIVEN"],
-    "related_doors": ["W123ORCHESTRATION", "W99NOTIFICATION", "R07SAGA_PATTERN"],
+    "prerequisites": [
+      "W119PUBSUB",
+      "R04EVENT_DRIVEN"
+    ],
+    "related_doors": [
+      "W123ORCHESTRATION",
+      "W99NOTIFICATION",
+      "R07SAGA_PATTERN"
+    ],
     "onboarding": {
       "quick_start": "Agents subscribe to events, react independently, publish new events. No central coordinator. Loose coupling, emergent workflow from agent interactions.",
       "full_context_path": "/PhiDEX/PhiSync/02_WORKFLOW_ORCHESTRATION/WORKFLOW_ORCHESTRATION_PATTERNS.md",
@@ -24,7 +36,9 @@
       ]
     },
     "resources": {
-      "docs": ["/PhiDEX/PhiSync/02_WORKFLOW_ORCHESTRATION/WORKFLOW_ORCHESTRATION_PATTERNS.md"],
+      "docs": [
+        "/PhiDEX/PhiSync/02_WORKFLOW_ORCHESTRATION/WORKFLOW_ORCHESTRATION_PATTERNS.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +48,29 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["choreography", "decentralized", "event-driven", "peer-to-peer", "autonomous"],
+      "tags": [
+        "choreography",
+        "decentralized",
+        "event-driven",
+        "peer-to-peer",
+        "autonomous"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "ORCHESTRATION",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11"],
-      "agent_affinity": ["DC", "VSCC", "KALIC", "WEBC", "CMDC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "KALIC",
+        "WEBC",
+        "CMDC"
+      ],
+      "size_bytes": 2147,
+      "token_estimate": 537.0
     }
   }
 }

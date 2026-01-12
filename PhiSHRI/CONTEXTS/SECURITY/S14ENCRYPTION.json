@@ -1,11 +1,22 @@
 {
   "door_code": "S14ENCRYPTION",
   "semantic_path": "SECURITY.CRYPTOGRAPHY.ENCRYPTION",
-  "aliases": ["encryption", "aes", "tls", "encryption_at_rest", "encryption_in_transit"],
+  "aliases": [
+    "encryption",
+    "aes",
+    "tls",
+    "encryption_at_rest",
+    "encryption_in_transit"
+  ],
   "context_bundle": {
     "summary": "Encryption protects data at rest (AES-256) and in transit (TLS 1.3+) using strong cryptography, secure key management with rotation, and proper initialization vectors to prevent unauthorized access per GDPR, HIPAA, PCI DSS requirements.",
-    "prerequisites": ["S13SECRETS_ROTATION"],
-    "related_doors": ["S02SQL_INJECTION", "S12API_SECURITY"],
+    "prerequisites": [
+      "S13SECRETS_ROTATION"
+    ],
+    "related_doors": [
+      "S02SQL_INJECTION",
+      "S12API_SECURITY"
+    ],
     "onboarding": {
       "quick_start": "Encryption implementation: 1) At rest: Use AES-256-GCM for symmetric encryption with unique IVs. 2) In transit: Enforce TLS 1.3+ with strong cipher suites. 3) Key management: Store keys in vault (AWS KMS, HashiCorp Vault), never hardcode. 4) Rotate keys regularly (90-day cycle). 5) Use HSTS headers for HTTPS enforcement. 6) Disable legacy protocols (SSLv3, TLS 1.0/1.1). Encrypt PII, PHI, payment data always.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md#22-authentication-security-best-practices",
@@ -19,7 +30,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -29,12 +42,33 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["encryption", "aes", "tls", "cryptography", "data_protection", "gdpr", "hipaa", "pci_dss"],
+      "tags": [
+        "encryption",
+        "aes",
+        "tls",
+        "cryptography",
+        "data_protection",
+        "gdpr",
+        "hipaa",
+        "pci_dss"
+      ],
       "category": "SECURITY",
       "subcategory": "CRYPTOGRAPHY",
       "version": "1.0.0",
-      "tested_on": ["Python cryptography", "OpenSSL", "AWS KMS", "HashiCorp Vault", "Azure Key Vault"],
-      "agent_affinity": ["DC", "VSCC", "WEBC"]
+      "tested_on": [
+        "Python cryptography",
+        "OpenSSL",
+        "AWS KMS",
+        "HashiCorp Vault",
+        "Azure Key Vault"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "WEBC"
+      ],
+      "size_bytes": 2975,
+      "token_estimate": 744.0
     }
   }
 }

@@ -1,0 +1,60 @@
+{
+  "door_code": "T62PAD_LOOPS",
+  "semantic_path": "TOOLS.AUTOMATION.PAD.LOOPS",
+  "aliases": [
+    "pad loop",
+    "pad foreach",
+    "pad iteration"
+  ],
+  "context_bundle": {
+    "summary": "PAD loop actions: Loop (counter), Loop Condition (while), For Each (collection). Exit Loop breaks, Next Loop skips. %LoopIndex% and %CurrentItem% vars",
+    "prerequisites": [
+      "T59POWER_AUTOMATE_DESKTOP"
+    ],
+    "related_doors": [
+      "T60PAD_VARIABLES",
+      "T61PAD_CONDITIONALS"
+    ],
+    "onboarding": {
+      "quick_start": "Loop from 1 to 10 step 1 -> %LoopIndex%. For each CurrentItem in %List% -> %CurrentItem%. Loop while %Condition% = True",
+      "full_context_path": "",
+      "common_patterns": [
+        "Loop from 1 to %List.Count% step 1 ... End",
+        "For each CurrentItem in %FileList% ... End",
+        "Loop while %ItemsRemaining% > 0 ... End",
+        "If %Found% = True Then Exit Loop End",
+        "If %Item% = '' Then Next Loop End (skip invalid)"
+      ],
+      "known_errors": [
+        "Infinite loop if condition never false - add Exit Loop safety",
+        "For Each %LoopIndex% is 0-based",
+        "Modifying list during For Each can cause issues"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T17:10:45.032935700+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "pad",
+        "loops",
+        "foreach",
+        "iteration",
+        "rpa"
+      ],
+      "category": "TOOLS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1667,
+      "token_estimate": 417.0
+    }
+  }
+}

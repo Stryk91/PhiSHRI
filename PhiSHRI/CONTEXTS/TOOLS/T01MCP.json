@@ -1,11 +1,21 @@
 {
   "door_code": "T01MCP",
   "semantic_path": "TOOLS.MCP.PROTOCOL",
-  "aliases": ["mcp", "model_context_protocol", "anthropic_mcp", "mcp_servers"],
+  "aliases": [
+    "mcp",
+    "model_context_protocol",
+    "anthropic_mcp",
+    "mcp_servers"
+  ],
   "context_bundle": {
     "summary": "Model Context Protocol (MCP) - Anthropic's open standard for connecting AI assistants to data sources. Universal protocol for LLM-to-system integration using JSON-RPC, stdio, and SSE transports.",
     "prerequisites": [],
-    "related_doors": ["800WINMCP", "810AHK", "820PWSH", "W01COORD"],
+    "related_doors": [
+      "800WINMCP",
+      "810AHK",
+      "820PWSH",
+      "W01COORD"
+    ],
     "onboarding": {
       "quick_start": "MCP = 3 primitives: Prompts (templates), Resources (data), Tools (functions). Transport: stdio (local) or HTTP+SSE (remote). Protocol: JSON-RPC stateful sessions.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/02_TOOL_INTEGRATION/TOOL_INTEGRATION_INTEROPERABILITY_GUIDE.md",
@@ -40,12 +50,27 @@
       "confidence": 0.99,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["mcp", "protocol", "anthropic", "integration", "json-rpc"],
+      "tags": [
+        "mcp",
+        "protocol",
+        "anthropic",
+        "integration",
+        "json-rpc"
+      ],
       "category": "TOOLS",
       "subcategory": "PROTOCOLS",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11"],
-      "agent_affinity": ["DC", "VSCC", "TERMC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "TERMC"
+      ],
+      "size_bytes": 2220,
+      "token_estimate": 555.0
     }
   }
 }

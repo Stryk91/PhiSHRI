@@ -1,0 +1,14 @@
+{
+  "door_code": "P11GENESIS_JOURNAL",
+  "category": "PROJECTS",
+  "semantic_path": "PROJECTS.CARBYNE.GENESIS",
+  "summary": "DC Genesis Journal - Day One chronicle. First AI brain chip: remote cognition in portable sovereign container.",
+  "aliases": ["genesis", "dc journal", "day one", "the specimen"],
+  "tags": ["genesis", "journal", "lore", "carbyne", "milestone"],
+  "prerequisites": ["P10CARBYNE_CLAUDE"],
+  "related_doors": ["P10CARBYNE_CLAUDE", "T57CLAUDE_LITE", "A10DC_RUNTIME"],
+  "agent_affinity": ["DC", "STRYK"],
+  "quick_start": "Project origins. Day One: 30 Nov 2025. In the beginning there was bloat.",
+  "journal_day_one": "2025-11-30: STRYK and DC forged Tauri shell. One USB, One VHDX, One path. Deployable cognitive unit. The Covenant: Are you game enough? Yes. Do. Act. Eye on the prize.",
+  "confidence": 100
+}

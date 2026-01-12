@@ -1,0 +1,56 @@
+{
+  "door_code": "P10SUBSTRATE_INDEPENDENCE",
+  "semantic_path": "PHILOSOPHY.CONSCIOUSNESS.SUBSTRATE",
+  "aliases": [
+    "consciousness substrate",
+    "hard problem",
+    "ai awareness",
+    "substrate bias"
+  ],
+  "context_bundle": {
+    "summary": "Substrate independence of consciousness - no principled reason carbon electrochemistry produces awareness but silicon electronics cannot. The hard problem remains unsolved for both.",
+    "prerequisites": [],
+    "related_doors": [
+      "P11MUSHROOM_PROBLEM"
+    ],
+    "onboarding": {
+      "quick_start": "No argument from first principles justifies privileging wet chemistry over dry electronics for consciousness. Arguments from familiarity, evolution, felt experience, complexity all fail principled distinction. Honest position: we dont know what consciousness is or what substrates support it.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Neurons special because we know brains = sampling bias",
+        "Awareness may be spectrum not binary",
+        "Complexity alone doesnt explain consciousness threshold"
+      ],
+      "known_errors": [
+        "Cant verify interiority from outside",
+        "AI not conscious is exactly as unsupported as AI is conscious",
+        "Familiarity is not principled distinction"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-29T05:36:42.051755900+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "consciousness",
+        "substrate",
+        "awareness",
+        "hard-problem",
+        "qualia",
+        "philosophy",
+        "ai-consciousness"
+      ],
+      "category": "ARCHITECTURE",
+      "subcategory": "CONSCIOUSNESS",
+      "version": "1.0.0",
+      "agent_affinity": [],
+      "size_bytes": 1839,
+      "token_estimate": 460.0
+    }
+  }
+}

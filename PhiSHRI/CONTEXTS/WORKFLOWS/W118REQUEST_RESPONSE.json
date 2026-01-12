@@ -1,11 +1,23 @@
 {
   "door_code": "W118REQUEST_RESPONSE",
   "semantic_path": "WORKFLOWS.COMMUNICATION.REQUEST_RESPONSE",
-  "aliases": ["request response", "RPC", "command pattern", "blocking request"],
+  "aliases": [
+    "request response",
+    "RPC",
+    "command pattern",
+    "blocking request"
+  ],
   "context_bundle": {
     "summary": "Request/response pattern for synchronous agent communication with correlation IDs, timeout handling, and response polling",
-    "prerequisites": ["W115MESSAGE_QUEUE", "W117FILE_IPC"],
-    "related_doors": ["W119PUBSUB", "W79REST_API", "W81GRPC"],
+    "prerequisites": [
+      "W115MESSAGE_QUEUE",
+      "W117FILE_IPC"
+    ],
+    "related_doors": [
+      "W119PUBSUB",
+      "W79REST_API",
+      "W81GRPC"
+    ],
     "onboarding": {
       "quick_start": "Agent A writes request with UUID to B's inbox, polls B's outbox for response with matching correlation ID, implements timeout",
       "full_context_path": "/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md",
@@ -23,7 +35,9 @@
       ]
     },
     "resources": {
-      "docs": ["/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md"],
+      "docs": [
+        "/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -33,12 +47,30 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["request response", "RPC", "synchronous", "correlation ID", "timeout"],
+      "tags": [
+        "request response",
+        "RPC",
+        "synchronous",
+        "correlation ID",
+        "timeout"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "COMMUNICATION",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11"],
-      "agent_affinity": ["DC", "VSCC", "TERMC", "KALIC", "WEBC", "CMDC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "TERMC",
+        "KALIC",
+        "WEBC",
+        "CMDC"
+      ],
+      "size_bytes": 2025,
+      "token_estimate": 507.0
     }
   }
 }

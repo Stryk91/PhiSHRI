@@ -1,0 +1,63 @@
+{
+  "door_code": "C01CONTEXT_RAM",
+  "semantic_path": "WORKFLOWS.CONTEXT.RAM_INDEX",
+  "aliases": [
+    "context ram",
+    "ram files",
+    "context index",
+    "detail files",
+    "conversation memory"
+  ],
+  "context_bundle": {
+    "summary": "RAM-style context index mapping PhiSHRI doors to detailed context files. When door summary insufficient, load corresponding RAM file for full detail.",
+    "prerequisites": [],
+    "related_doors": [
+      "H01ARMODAFINIL",
+      "H02PHARMACOKINETICS",
+      "H03GENERIC_PHARMA",
+      "P10SUBSTRATE_INDEPENDENCE",
+      "P11MUSHROOM_PROBLEM",
+      "P12MATTERING_FRAMEWORK"
+    ],
+    "onboarding": {
+      "quick_start": "RAM files at: C:\\Users\\Stryker_LOCAL\\Documents\\context-RAM\\. Index: H01-H03 -> Pharmacology.md | P10-P12 -> Consciousness_Philosophy.md | MCP/tools -> MCP_Infrastructure.md",
+      "full_context_path": "",
+      "common_patterns": [
+        "PhiSHRI door = compressed index (100-500 tokens)",
+        "RAM file = retrievable detail (2-5k tokens)",
+        "Load RAM only when door insufficient",
+        "context-RAM folder = session-specific detail storage"
+      ],
+      "known_errors": [
+        "RAM files are conversation-specific - may be stale",
+        "Always check door timestamp vs RAM timestamp",
+        "RAM files not portable across machines yet"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-29T05:54:57.253447700+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "context",
+        "ram",
+        "index",
+        "memory",
+        "retrieval",
+        "segments",
+        "conversation"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "CONTEXT",
+      "version": "1.0.0",
+      "agent_affinity": [],
+      "size_bytes": 1842,
+      "token_estimate": 461.0
+    }
+  }
+}

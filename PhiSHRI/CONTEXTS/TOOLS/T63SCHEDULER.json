@@ -1,0 +1,65 @@
+{
+  "door_code": "T63SCHEDULER",
+  "semantic_path": "TOOLS.SYSTEM.SCHEDULER",
+  "aliases": [
+    "scheduler",
+    "cron",
+    "tasks",
+    "schedule",
+    "timer",
+    "jobs"
+  ],
+  "context_bundle": {
+    "summary": "Scheduler MCP. Cron-like task scheduling without Windows Task Scheduler. Intervals, manual triggers, history tracking. Built by MCP Factory. Binary: X:\\mcp-servers\\scheduler-mcp\\",
+    "prerequisites": [
+      "T60MCP_FACTORY"
+    ],
+    "related_doors": [
+      "T60MCP_FACTORY",
+      "T61PROCESS_GUARD",
+      "T62NOTIFICATION"
+    ],
+    "onboarding": {
+      "quick_start": "Schedule: schedule_task(name, command, \"5m\"). List: list_tasks(). Run manually: run_now(name). History: get_task_history(name). Pause/resume: pause_task(name), resume_task(name). Remove: remove_task(name).",
+      "full_context_path": "",
+      "common_patterns": [
+        "schedule_task(name, command, interval)",
+        "list_tasks()",
+        "run_now(name)",
+        "get_task_history(name)",
+        "pause_task(name)",
+        "remove_task(name)"
+      ],
+      "known_errors": [
+        "remove_task returns no response but works",
+        "Intervals: 5m, 1h, daily@09:00, cron:*/5 * * * *"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2026-01-04T18:41:07.271875300+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "scheduler",
+        "cron",
+        "tasks",
+        "timer",
+        "automation",
+        "jobs",
+        "mcp"
+      ],
+      "category": "TOOLS",
+      "subcategory": "SYSTEM",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ]
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "door_code": "L06RUST_CONCURRENCY",
+  "semantic_path": "LANGUAGES.RUST.CONCURRENCY",
+  "aliases": [
+    "rust threads",
+    "rust mutex",
+    "rust channels",
+    "rust concurrency"
+  ],
+  "context_bundle": {
+    "summary": "Rust concurrency - threads, channels, Mutex, RwLock, Arc, Send/Sync traits, data race prevention.",
+    "prerequisites": [
+      "L03RUST_TRAITS"
+    ],
+    "related_doors": [
+      "L04RUST_ASYNC",
+      "L05RUST_UNSAFE"
+    ],
+    "onboarding": {
+      "quick_start": "thread::spawn(|| {...}) - spawn thread. mpsc::channel() - create channel. Arc<Mutex<T>> - shared mutable state. Send/Sync enforce safety.",
+      "full_context_path": "",
+      "common_patterns": [
+        "let handle = thread::spawn(move || { ... });",
+        "let (tx, rx) = mpsc::channel(); tx.send(val);",
+        "let data = Arc::new(Mutex::new(0)); data.lock().unwrap()",
+        "T: Send - safe to transfer between threads"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-29T23:23:13.374115400+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "rust",
+        "concurrency",
+        "threads",
+        "mutex",
+        "channels"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "RUST",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 1456,
+      "token_estimate": 364.0
+    }
+  }
+}

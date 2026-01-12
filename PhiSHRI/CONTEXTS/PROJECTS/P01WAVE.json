@@ -59,7 +59,9 @@
         "TERMC",
         "IDEC",
         "Junie"
-      ]
+      ],
+      "size_bytes": 1866,
+      "token_estimate": 467.0
     }
   }
 }

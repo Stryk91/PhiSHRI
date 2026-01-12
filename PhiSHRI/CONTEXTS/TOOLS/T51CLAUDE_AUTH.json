@@ -1,0 +1,61 @@
+{
+  "door_code": "T51CLAUDE_AUTH",
+  "semantic_path": "TOOLS.DESKTOP.CLAUDE_AUTH",
+  "aliases": [
+    "claude auth",
+    "sessionkey",
+    "claude login",
+    "oauth flow"
+  ],
+  "context_bundle": {
+    "summary": "Claude.ai authentication flow - Google OAuth to sessionKey cookie extraction for custom clients.",
+    "prerequisites": [],
+    "related_doors": [
+      "T50TAURI_CLIENT",
+      "T52CLAUDE_API_ENDPOINTS"
+    ],
+    "onboarding": {
+      "quick_start": "Open DevTools Network tab, login to claude.ai, copy sessionKey from cookies",
+      "full_context_path": "",
+      "common_patterns": [
+        "sessionKey format: sk-ant-sid01-{base64_token}",
+        "Key cookies: sessionKey (auth), lastActiveOrg (org UUID), anthropic-device-id, ajs_user_id",
+        "cf_clearance is Cloudflare bot protection - may need to pass",
+        "Flow: claude.ai -> Google OAuth -> redirect back -> sessionKey cookie set",
+        "Session generated fresh each Google auth, not reusable across logins",
+        "Firefox encrypts cookies (NSS/key4.db) - use own WebView instead of stealing browser cookies"
+      ],
+      "known_errors": [
+        "sessionKey expires - need re-auth flow when 401/403",
+        "Cloudflare may block if missing cf_clearance or user-agent",
+        "Google OAuth requires browser - can't do headless"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T03:02:48.509512800+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "auth",
+        "oauth",
+        "google",
+        "sessionkey",
+        "cookies",
+        "claude.ai"
+      ],
+      "category": "TOOLS",
+      "subcategory": "DESKTOP",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1829,
+      "token_estimate": 458.0
+    }
+  }
+}

@@ -1,11 +1,21 @@
 {
   "door_code": "S03INPUT_VAL",
   "semantic_path": "SECURITY.VALIDATION.INPUT_SANITIZATION",
-  "aliases": ["input_validation", "sanitization", "allowlisting", "owasp_input"],
+  "aliases": [
+    "input_validation",
+    "sanitization",
+    "allowlisting",
+    "owasp_input"
+  ],
   "context_bundle": {
     "summary": "Input validation (OWASP 2024): Allowlisting (recommended) over denylisting. Validate at syntactic (syntax) and semantic (business logic) levels. Multi-layer defense: client + server validation. Validate early in data flow. Canonicalize file paths, strip dangerous chars (../, .\\). Enforce length, type, format constraints.",
-    "prerequisites": ["S01SEC"],
-    "related_doors": ["S02SQL", "S04XSS"],
+    "prerequisites": [
+      "S01SEC"
+    ],
+    "related_doors": [
+      "S02SQL",
+      "S04XSS"
+    ],
     "onboarding": {
       "quick_start": "Input validation: Allowlist (define permitted) > Denylist. Validate syntax + semantics. Multi-layer: client & server. Checklist: validate data types, enforce max length, canonicalize paths, strip ../ \\.., use regex (carefully), validate early in flow. Framework validators preferred.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md",
@@ -20,7 +30,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -30,12 +42,25 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["security", "input_validation", "owasp", "sanitization"],
+      "tags": [
+        "security",
+        "input_validation",
+        "owasp",
+        "sanitization"
+      ],
       "category": "SECURITY",
       "subcategory": "VALIDATION",
       "version": "1.0.0",
-      "tested_on": ["Multiple languages"],
-      "agent_affinity": ["DC", "VSCC", "KALIC"]
+      "tested_on": [
+        "Multiple languages"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "KALIC"
+      ],
+      "size_bytes": 1995,
+      "token_estimate": 499.0
     }
   }
 }

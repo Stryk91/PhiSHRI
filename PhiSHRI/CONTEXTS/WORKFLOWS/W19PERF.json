@@ -1,11 +1,21 @@
 {
   "door_code": "W19PERF",
   "semantic_path": "WORKFLOWS.OPTIMIZATION.ALGORITHM_EFFICIENCY",
-  "aliases": ["big_o", "algorithm", "performance", "optimization", "complexity"],
+  "aliases": [
+    "big_o",
+    "algorithm",
+    "performance",
+    "optimization",
+    "complexity"
+  ],
   "context_bundle": {
     "summary": "Algorithm efficiency & Big O optimization. Divide-and-conquer (O(n log n)), dynamic programming (memoization), greedy algorithms. Common complexities: O(1) hash lookup, O(log n) binary search, O(n) linear, O(n²) nested loops.",
     "prerequisites": [],
-    "related_doors": ["W20MEM", "W21CACHE", "W22CONCUR"],
+    "related_doors": [
+      "W20MEM",
+      "W21CACHE",
+      "W22CONCUR"
+    ],
     "onboarding": {
       "quick_start": "Big O = time/space complexity. O(1) best (constant), O(log n) good (binary search), O(n) acceptable (linear), O(n²) bad (nested loops), O(2^n) terrible (exponential). Optimize: divide-conquer, dynamic programming, memoization.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md",
@@ -27,7 +37,9 @@
       ]
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -37,12 +49,24 @@
       "confidence": 0.98,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["performance", "big_o", "algorithms", "optimization", "complexity"],
+      "tags": [
+        "performance",
+        "big_o",
+        "algorithms",
+        "optimization",
+        "complexity"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "PERFORMANCE",
       "version": "1.0.0",
-      "tested_on": ["All platforms"],
-      "agent_affinity": ["VSCC"]
+      "tested_on": [
+        "All platforms"
+      ],
+      "agent_affinity": [
+        "VSCC"
+      ],
+      "size_bytes": 2190,
+      "token_estimate": 548.0
     }
   }
 }

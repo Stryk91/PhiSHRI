@@ -1,0 +1,59 @@
+{
+  "door_code": "R50MCP_POLITICS",
+  "semantic_path": "ARCHITECTURE.MCP.POLITICS",
+  "aliases": [
+    "mcp registry",
+    "mcp marketplace",
+    "vs code mcp"
+  ],
+  "context_bundle": {
+    "summary": "MCP registry politics: Microsoft/corporate registries favor telemetry, cloud SaaS, and data pipeline tools. Local-first MCPs absent from official registries by design.",
+    "prerequisites": [],
+    "related_doors": [
+      "T01MCP",
+      "R01LOCAL_FIRST"
+    ],
+    "onboarding": {
+      "quick_start": "Build local MCPs, don't rely on corporate registries. Your tools: Everything, Git, Screen, PhiSHRI - none would be 'approved'.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Corporate registry pattern: Telemetry + Cloud SaaS + Enterprise DBs + Microsoft services",
+        "Missing from registries: Local file tools, privacy tools, offline-capable tools",
+        "Strategy: Build and maintain own MCP ecosystem independent of registry gatekeepers"
+      ],
+      "known_errors": [
+        "VS Code MCP browser shows Microsoft's curated list - not comprehensive",
+        "Registry 'guidelines' = gatekeeping mechanism",
+        "Approved tools all have cloud/data-collection components"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T21:10:39.915921200+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "mcp",
+        "politics",
+        "microsoft",
+        "registry",
+        "local-first",
+        "cloud"
+      ],
+      "category": "ARCHITECTURE",
+      "subcategory": "MCP",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "WEBC"
+      ],
+      "size_bytes": 1756,
+      "token_estimate": 439.0
+    }
+  }
+}

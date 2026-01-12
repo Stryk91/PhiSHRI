@@ -1,11 +1,23 @@
 {
   "door_code": "W80GRAPHQL",
   "semantic_path": "WORKFLOWS.API.GRAPHQL",
-  "aliases": ["graphql", "graph_query_language", "apollo", "graphql_api"],
+  "aliases": [
+    "graphql",
+    "graph_query_language",
+    "apollo",
+    "graphql_api"
+  ],
   "context_bundle": {
     "summary": "GraphQL API pattern: Query language for APIs, single endpoint (/graphql), client specifies exact fields needed, strongly typed schema (SDL), introspection for API discovery. Operations: query (read), mutation (write), subscription (real-time). Resolvers fetch data for each field. Benefits: No over-fetching (REST returns all fields), no under-fetching (one request vs multiple REST calls), strongly typed, self-documenting. Drawbacks: Complexity (caching harder than REST), N+1 problem (use DataLoader batching), query depth attacks (limit recursion). Tools: Apollo Server (Node.js), graphene (Python), Strawberry (Python async), graphql-java. Schema: type User { id: ID!, name: String!, posts: [Post!]! }; type Query { user(id: ID!): User }.",
-    "prerequisites": ["W79REST_API", "W83PAGINATION"],
-    "related_doors": ["W81GRPC", "W76OPTIMIZE_DB", "S12API_SECURITY"],
+    "prerequisites": [
+      "W79REST_API",
+      "W83PAGINATION"
+    ],
+    "related_doors": [
+      "W81GRPC",
+      "W76OPTIMIZE_DB",
+      "S12API_SECURITY"
+    ],
     "onboarding": {
       "quick_start": "GraphQL basics: Schema (SDL): type Query { user(id: ID!): User posts(limit: Int): [Post] } type User { id: ID! name: String! email: String posts: [Post] } type Post { id: ID! title: String! author: User }. Query: query { user(id: \"123\") { name email posts { title } } } # Returns only requested fields. Python (Strawberry): import strawberry; @strawberry.type class User: name: str; email: str; @strawberry.type class Query: @strawberry.field def user(self, id: str) -> User: return db.get_user(id); schema = strawberry.Schema(query=Query). Node.js (Apollo Server): const typeDefs = gql`type Query { user(id: ID!): User }`; const resolvers = { Query: { user: (parent, args, context) => db.getUser(args.id) } }; const server = new ApolloServer({ typeDefs, resolvers }). Mutations: mutation { createUser(name: \"Alice\", email: \"alice@ex.com\") { id name } }. DataLoader (solve N+1): const userLoader = new DataLoader(ids => db.getUsersByIds(ids)); # Batches requests. Pagination: query { posts(first: 10, after: \"cursor123\") { edges { node { title } cursor } pageInfo { hasNextPage } } }.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
@@ -24,7 +36,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +48,31 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["graphql", "apollo", "strawberry", "graphene", "api", "query_language"],
+      "tags": [
+        "graphql",
+        "apollo",
+        "strawberry",
+        "graphene",
+        "api",
+        "query_language"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "API",
       "version": "1.0.0",
-      "tested_on": ["Apollo Server", "Strawberry", "Graphene", "Node.js", "Python"],
-      "agent_affinity": ["VSCC", "WEBC", "CMDC"]
+      "tested_on": [
+        "Apollo Server",
+        "Strawberry",
+        "Graphene",
+        "Node.js",
+        "Python"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "WEBC",
+        "CMDC"
+      ],
+      "size_bytes": 4595,
+      "token_estimate": 1149.0
     }
   }
 }

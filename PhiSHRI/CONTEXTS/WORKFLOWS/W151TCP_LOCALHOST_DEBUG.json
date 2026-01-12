@@ -1,0 +1,59 @@
+{
+  "door_code": "W151TCP_LOCALHOST_DEBUG",
+  "semantic_path": "WORKFLOWS.WINDOWS.TCP_LOCALHOST",
+  "aliases": [
+    "localhost debug",
+    "tcp debug",
+    "port conflict",
+    "ipc deadlock"
+  ],
+  "context_bundle": {
+    "summary": "TCP localhost debugging for IPC issues. Diagnose stuck connections, port pollution, and services causing localhost deadlocks (e.g., IncrediBuild blocking Battle.net).",
+    "prerequisites": [],
+    "related_doors": [
+      "W150WIN_SERVICE_AUDIT",
+      "R40HYPERV"
+    ],
+    "onboarding": {
+      "quick_start": "Get-NetTCPConnection -LocalAddress 127.0.0.1 | Group-Object State | identify Closing/FinWait2 buildup",
+      "full_context_path": "",
+      "common_patterns": [
+        "# Check localhost health: Get-NetTCPConnection -LocalAddress 127.0.0.1 | Group-Object State",
+        "# Find port owner: Get-Process -Id (Get-NetTCPConnection -LocalPort 31100).OwningProcess",
+        "# Listening ports: Get-NetTCPConnection -LocalAddress 127.0.0.1 -State Listen | Select LocalPort, OwningProcess"
+      ],
+      "known_errors": [
+        "IncrediBuild CoordinatorService on port 31100 causes connection leaks",
+        "Hyper-V vSwitch routes ALL traffic including localhost through virtual stack",
+        "Stuck Closing/FinWait2 connections timeout in 60-120 seconds after killing owner process"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T21:10:39.915019500+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "tcp",
+        "localhost",
+        "networking",
+        "debug",
+        "ipc",
+        "connections"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "WINDOWS",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 1858,
+      "token_estimate": 465.0
+    }
+  }
+}

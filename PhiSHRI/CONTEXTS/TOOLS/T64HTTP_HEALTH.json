@@ -1,0 +1,65 @@
+{
+  "door_code": "T64HTTP_HEALTH",
+  "semantic_path": "TOOLS.NETWORK.HTTP_HEALTH",
+  "aliases": [
+    "http_health",
+    "health_check",
+    "endpoint_monitor",
+    "uptime",
+    "http_monitor"
+  ],
+  "context_bundle": {
+    "summary": "HTTP health monitoring MCP. Endpoint checks, continuous monitoring, uptime tracking, alerts on failure. Built by MCP Factory. Binary: X:\\mcp-servers\\http-health-mcp\\ State: C:\\PhiDEX\\http-health\\",
+    "prerequisites": [
+      "T60MCP_FACTORY"
+    ],
+    "related_doors": [
+      "T60MCP_FACTORY",
+      "T61PROCESS_GUARD",
+      "T62NOTIFICATION",
+      "T63SCHEDULER"
+    ],
+    "onboarding": {
+      "quick_start": "Check: check_endpoint(url). Batch: bulk_check([urls]). Monitor: monitor_endpoint(name, url, \"1m\", true). List: list_monitors(). History: get_monitor_history(name). Pause/resume: pause_monitor(name), resume_monitor(name).",
+      "full_context_path": "",
+      "common_patterns": [
+        "check_endpoint(url)",
+        "bulk_check(urls)",
+        "monitor_endpoint(name, url, interval, alert_on_failure)",
+        "list_monitors()",
+        "get_monitor_history(name)"
+      ],
+      "known_errors": [
+        "list_monitors may timeout on first call",
+        "State persists to C:\\PhiDEX\\http-health\\"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2026-01-04T19:44:02.442684700+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "http",
+        "health",
+        "monitor",
+        "uptime",
+        "endpoint",
+        "api",
+        "network",
+        "mcp"
+      ],
+      "category": "TOOLS",
+      "subcategory": "NETWORK",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ]
+    }
+  }
+}

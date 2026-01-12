@@ -1,11 +1,26 @@
 {
   "door_code": "W78CONCURRENCY",
   "semantic_path": "WORKFLOWS.PERFORMANCE.CONCURRENCY_PATTERNS",
-  "aliases": ["concurrency", "parallelism", "async", "threads", "multiprocessing", "goroutines", "async_await"],
+  "aliases": [
+    "concurrency",
+    "parallelism",
+    "async",
+    "threads",
+    "multiprocessing",
+    "goroutines",
+    "async_await"
+  ],
   "context_bundle": {
     "summary": "Concurrency patterns enable parallel execution: Golang (worker pools limit goroutines, fan-out/fan-in parallelize then merge, context pattern for cancellation/timeout), Java (Executor framework for thread pools, Fork/Join for divide-conquer, CompletableFuture for async pipelines), async/await (Python asyncio, JavaScript Promise.all for parallel, .NET ValueTask for hot paths, C# ConfigureAwait(false) for libraries). Thread pool sizing: CPU-bound (N_CPU cores), I/O-bound (2×N_CPU or more), formula N = N_CPU × U_CPU × (1 + W/C). Lock-free algorithms: CAS (compare-and-swap), Flock system (2024 ACM), benefits in high-contention scenarios. Best practices: avoid blocking in async, minimize context switching, use task groups efficiently.",
-    "prerequisites": ["W77MEMORY_MGMT", "E04TIMEOUT"],
-    "related_doors": ["W73PROFILING", "E06CIRCUIT_BREAKER", "W86METRICS"],
+    "prerequisites": [
+      "W77MEMORY_MGMT",
+      "E04TIMEOUT"
+    ],
+    "related_doors": [
+      "W73PROFILING",
+      "E06CIRCUIT_BREAKER",
+      "W86METRICS"
+    ],
     "onboarding": {
       "quick_start": "Concurrency patterns: Python asyncio: import asyncio; async def fetch(url): async with aiohttp.ClientSession() as session: async with session.get(url) as resp: return await resp.text(); async def main(): results = await asyncio.gather(fetch(url1), fetch(url2), fetch(url3)); # Parallel. asyncio.run(main()). Go worker pool: jobs := make(chan int, 100); results := make(chan int, 100); for w := 1; w <= 5; w++ { go worker(jobs, results) }; for j := 1; j <= 100; j++ { jobs <- j }; close(jobs). Java Executor: ExecutorService executor = Executors.newFixedThreadPool(10); for (int i=0; i<100; i++) { executor.submit(() -> doWork()); }; executor.shutdown(). JavaScript Promise.all: const [result1, result2] = await Promise.all([fetch(url1), fetch(url2)]); # Parallel, not sequential. Thread pool sizing: CPU-bound = num_cpus, I/O-bound = 2 × num_cpus. Python multiprocessing (CPU-bound): from multiprocessing import Pool; with Pool(4) as p: results = p.map(cpu_intensive_func, data_list). Monitor: Thread utilization, queue depth, context switches.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md",
@@ -24,7 +39,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +51,34 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["concurrency", "async_await", "threads", "multiprocessing", "goroutines", "parallelism", "asyncio", "executor"],
+      "tags": [
+        "concurrency",
+        "async_await",
+        "threads",
+        "multiprocessing",
+        "goroutines",
+        "parallelism",
+        "asyncio",
+        "executor"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "PERFORMANCE",
       "version": "1.0.0",
-      "tested_on": ["Python", "Go", "Java", "JavaScript", ".NET", "C#"],
-      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+      "tested_on": [
+        "Python",
+        "Go",
+        "Java",
+        "JavaScript",
+        ".NET",
+        "C#"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "CMDC",
+        "TERMC"
+      ],
+      "size_bytes": 4799,
+      "token_estimate": 1200.0
     }
   }
 }

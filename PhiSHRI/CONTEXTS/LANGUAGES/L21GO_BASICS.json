@@ -46,7 +46,7 @@
       "errors": []
     },
     "metadata": {
-      "last_updated": "2025-11-21T22:48:05.773040Z",
+      "last_updated": "2025-11-21T22:48:05.77304Z",
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
@@ -67,7 +67,9 @@
         "VSCC",
         "DC",
         "TERMC"
-      ]
+      ],
+      "size_bytes": 2988,
+      "token_estimate": 747.0
     }
   }
 }

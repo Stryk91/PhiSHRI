@@ -1,11 +1,22 @@
 {
   "door_code": "W10STARTUP",
   "semantic_path": "WORKFLOWS.PERSISTENCE.STARTUP_FOLDER",
-  "aliases": ["startup", "auto_launch", "shell_startup", "user_persistence"],
+  "aliases": [
+    "startup",
+    "auto_launch",
+    "shell_startup",
+    "user_persistence"
+  ],
   "context_bundle": {
     "summary": "Startup folder persistence for user-mode auto-launch. No admin rights or Task Scheduler needed. Copy script/shortcut to shell:startup, runs on login. Critical for daemon persistence.",
-    "prerequisites": ["W09DAEMON", "820PWSH"],
-    "related_doors": ["A01DC", "W08FILEWATCHER"],
+    "prerequisites": [
+      "W09DAEMON",
+      "820PWSH"
+    ],
+    "related_doors": [
+      "A01DC",
+      "W08FILEWATCHER"
+    ],
     "onboarding": {
       "quick_start": "Copy daemon script to $env:APPDATA\\Microsoft\\Windows\\Start Menu\\Programs\\Startup. Or use: Copy-Item script.ps1 (New-Object -ComObject Shell.Application).NameSpace('shell:startup').Self.Path",
       "full_context_path": "/PhiDEX/BREAKTHROUGH.md",
@@ -26,7 +37,9 @@
       ]
     },
     "resources": {
-      "docs": ["/PhiDEX/BREAKTHROUGH.md"],
+      "docs": [
+        "/PhiDEX/BREAKTHROUGH.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -36,12 +49,24 @@
       "confidence": 0.97,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["startup", "persistence", "auto_launch", "daemon"],
+      "tags": [
+        "startup",
+        "persistence",
+        "auto_launch",
+        "daemon"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "PERSISTENCE",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11"],
-      "agent_affinity": ["DC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1932,
+      "token_estimate": 483.0
     }
   }
 }

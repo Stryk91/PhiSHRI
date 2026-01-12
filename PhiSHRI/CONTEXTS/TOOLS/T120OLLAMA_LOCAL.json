@@ -1,0 +1,64 @@
+{
+  "door_code": "T120OLLAMA_LOCAL",
+  "semantic_path": "TOOLS.AI.OLLAMA",
+  "aliases": [
+    "ollama",
+    "local ollama",
+    "ai model",
+    "local inference"
+  ],
+  "context_bundle": {
+    "summary": "Local Ollama API endpoint for AI model execution. Provides access to models via API and CLI. Located at localhost:11434.",
+    "prerequisites": [],
+    "related_doors": [
+      "A54LOCAL_INFERENCE",
+      "A59OPEN_MODELS"
+    ],
+    "onboarding": {
+      "quick_start": "Access the Ollama API at http://localhost:11434. Use the CLI for model management and execution. PowerShell: Invoke-RestMethod for API calls.",
+      "full_context_path": "",
+      "common_patterns": [
+        "API Endpoint: http://localhost:11434",
+        "Generate Endpoint: POST /api/generate {model, prompt, stream}",
+        "Chat Endpoint: POST /api/chat {model, messages, stream}",
+        "CLI: ollama run <model_name>",
+        "CLI: ollama pull <model_name>",
+        "CLI: ollama list",
+        "CLI: ollama rm <model_name>",
+        "PowerShell: Invoke-RestMethod -Uri 'http://localhost:11434/api/generate' -Method Post -Body $json"
+      ],
+      "known_errors": [
+        "Ensure Ollama server is running before API calls",
+        "VRAM limits model size - check with ollama list",
+        "Large context windows consume more VRAM"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-22T15:53:29.611064700+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "ollama",
+        "ai",
+        "local",
+        "api",
+        "model",
+        "inference",
+        "gemma"
+      ],
+      "category": "TOOLS",
+      "subcategory": "AI",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC",
+        "GEMMA"
+      ]
+    }
+  }
+}

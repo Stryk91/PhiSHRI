@@ -1,0 +1,65 @@
+{
+  "door_code": "T59POWER_AUTOMATE_DESKTOP",
+  "semantic_path": "TOOLS.AUTOMATION.POWER_AUTOMATE_DESKTOP",
+  "aliases": [
+    "PAD",
+    "power automate",
+    "RPA",
+    "desktop flows",
+    "gui automation"
+  ],
+  "context_bundle": {
+    "summary": "Microsoft Power Automate Desktop - RPA for GUI automation when scripts/CLI can't reach. 450+ connectors, recorder, no-code flows. Trigger via URL protocol or PAD.Console.Host.exe.",
+    "prerequisites": [
+      "810AHK"
+    ],
+    "related_doors": [
+      "810AHK",
+      "A01DC",
+      "T58CARBYNE_MCP_HANDLER"
+    ],
+    "onboarding": {
+      "quick_start": "Trigger: Start-Process 'ms-powerautomate:/console/flow/run?workflowName=MyFlow'. Create flows in PAD GUI, export as .robin scripts.",
+      "full_context_path": "",
+      "common_patterns": [
+        "ms-powerautomate:/console/flow/run?workflowName=[name] - URL trigger",
+        "PAD.Console.Host.exe [url] - CLI trigger",
+        "UI elements = selectors for components",
+        "Browser automation via extension or WebDriver",
+        "Logging__LogLevel__Default=None for .NET stdout suppression"
+      ],
+      "known_errors": [
+        "UIPI blocks cross-elevation automation",
+        "WebDriver can only attach to flows it launched",
+        "WindowsApps folder access denied - use URL protocol instead"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T14:49:17.514592100+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "rpa",
+        "automation",
+        "gui",
+        "microsoft",
+        "no-code",
+        "recorder",
+        "browser"
+      ],
+      "category": "TOOLS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1845,
+      "token_estimate": 462.0
+    }
+  }
+}

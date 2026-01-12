@@ -1,11 +1,24 @@
 {
   "door_code": "W84LOGGING",
   "semantic_path": "WORKFLOWS.OBSERVABILITY.STRUCTURED_LOGGING",
-  "aliases": ["logging", "structured_logging", "json_logs", "log_levels", "logger"],
+  "aliases": [
+    "logging",
+    "structured_logging",
+    "json_logs",
+    "log_levels",
+    "logger"
+  ],
   "context_bundle": {
     "summary": "Structured logging for observability: Use JSON format for machine parsing, include context (request_id, user_id, service_name), log levels (DEBUG <INFO <WARNING <ERROR <CRITICAL), centralized aggregation (ELK, Splunk, Datadog). Best practices: Never log secrets/PII, use correlation IDs across services, sample verbose logs (1% of DEBUG), buffer/batch for performance. Python: import logging; logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'). Structured (JSON): import structlog; log = structlog.get_logger(); log.info('user.login', user_id=123, ip='1.2.3.4'). Log rotation: RotatingFileHandler(maxBytes=10MB, backupCount=5). Metrics: Log volume, error rate, p95 latency from logs.",
-    "prerequisites": ["W86METRICS", "T10OBSERVABILITY"],
-    "related_doors": ["W85TRACING", "E06CIRCUIT_BREAKER", "W82WEBHOOKS"],
+    "prerequisites": [
+      "W86METRICS",
+      "T10OBSERVABILITY"
+    ],
+    "related_doors": [
+      "W85TRACING",
+      "E06CIRCUIT_BREAKER",
+      "W82WEBHOOKS"
+    ],
     "onboarding": {
       "quick_start": "Structured logging: Python standard: import logging; logger = logging.getLogger(__name__); logger.setLevel(logging.INFO); handler = logging.StreamHandler(); handler.setFormatter(logging.Formatter('{\"time\": \"%(asctime)s\", \"level\": \"%(levelname)s\", \"message\": \"%(message)s\"}')); logger.addHandler(handler); logger.info('User logged in', extra={'user_id': 123, 'ip': '1.2.3.4'}). Python structlog (better): import structlog; structlog.configure(processors=[structlog.processors.TimeStamper(fmt='iso'), structlog.processors.JSONRenderer()]); log = structlog.get_logger(); log.info('user.login', user_id=123, session_id='abc', duration_ms=250). Node.js (Winston): const winston = require('winston'); const logger = winston.createLogger({ level: 'info', format: winston.format.json(), transports: [new winston.transports.Console()] }); logger.info('User login', { userId: 123, ip: '1.2.3.4' }). Go (zap): import \"go.uber.org/zap\"; logger, _ := zap.NewProduction(); logger.Info(\"user login\", zap.Int(\"user_id\", 123), zap.String(\"ip\", \"1.2.3.4\")); defer logger.Sync(). Log levels: DEBUG (verbose, dev), INFO (important events), WARNING (unexpected but handled), ERROR (failures), CRITICAL (system down). Rotation: from logging.handlers import RotatingFileHandler; handler = RotatingFileHandler('app.log', maxBytes=10*1024*1024, backupCount=5). Correlation ID: import uuid; request_id = str(uuid.uuid4()); log.bind(request_id=request_id).info('Processing request').",
       "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
@@ -24,7 +37,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +49,32 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["logging", "structured_logging", "json", "structlog", "winston", "zap", "observability"],
+      "tags": [
+        "logging",
+        "structured_logging",
+        "json",
+        "structlog",
+        "winston",
+        "zap",
+        "observability"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "OBSERVABILITY",
       "version": "1.0.0",
-      "tested_on": ["Python", "Node.js", "Go", "Java", "ELK Stack"],
-      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+      "tested_on": [
+        "Python",
+        "Node.js",
+        "Go",
+        "Java",
+        "ELK Stack"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "CMDC",
+        "TERMC"
+      ],
+      "size_bytes": 5212,
+      "token_estimate": 1303.0
     }
   }
 }

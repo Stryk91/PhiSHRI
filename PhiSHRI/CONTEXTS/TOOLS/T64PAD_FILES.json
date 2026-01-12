@@ -1,0 +1,63 @@
+{
+  "door_code": "T64PAD_FILES",
+  "semantic_path": "TOOLS.AUTOMATION.PAD.FILES",
+  "aliases": [
+    "pad files",
+    "file operations",
+    "csv operations"
+  ],
+  "context_bundle": {
+    "summary": "PAD file operations: If File Exists, Get Files in Folder, Copy/Move/Delete/Rename files, Read/Write Text, Read/Write CSV, Get File Path Part (dir/name/ext)",
+    "prerequisites": [
+      "T59POWER_AUTOMATE_DESKTOP"
+    ],
+    "related_doors": [
+      "T65PAD_FOLDERS",
+      "T63PAD_EXCEL"
+    ],
+    "onboarding": {
+      "quick_start": "Get files in folder 'path' filter:'*.txt' -> For each in %Files% -> Read text from file -> Process -> Write text to file (append)",
+      "full_context_path": "",
+      "common_patterns": [
+        "If file exists 'path' Then ... End",
+        "Get files in folder 'C:\\Data' filter:'*.csv' subfolders:True -> %Files%",
+        "Copy file(s) to 'destination' if exists:Overwrite",
+        "Read text from file 'path.txt' encoding:UTF-8 -> %FileContents%",
+        "Write text to file append:True encoding:UTF-8",
+        "Read from CSV file columns separator:Comma headers:True -> %CSVTable%",
+        "Get file path part 'full\\path\\file.txt' get:NameWithoutExtension -> %Name%"
+      ],
+      "known_errors": [
+        "File in use - add retry logic or check process locks",
+        "CSV parsing fails on malformed data - validate structure",
+        "Encoding mismatch corrupts special characters"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T17:10:45.034614500+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "pad",
+        "files",
+        "filesystem",
+        "csv",
+        "text",
+        "rpa"
+      ],
+      "category": "TOOLS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1931,
+      "token_estimate": 483.0
+    }
+  }
+}

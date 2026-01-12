@@ -1,11 +1,22 @@
 {
   "door_code": "W56MONGODB",
   "semantic_path": "WORKFLOWS.DATA_PROCESSING.MONGODB_PATTERNS",
-  "aliases": ["mongodb", "nosql", "document_database", "mongo"],
+  "aliases": [
+    "mongodb",
+    "nosql",
+    "document_database",
+    "mongo"
+  ],
   "context_bundle": {
     "summary": "MongoDB document-oriented NoSQL database: JSON-like BSON documents in collections. Schema-flexible. Indexing: single-field, compound, text, geospatial. Aggregation pipeline: $match, $group, $project, $sort, $lookup (join). Sharding for horizontal scaling. Replication for HA (replica sets). Atlas (managed). Use cases: flexible schemas, rapid prototyping, hierarchical data, real-time analytics. Avoid: complex transactions (use Postgres), rigid schemas.",
-    "prerequisites": ["W55POSTGRES"],
-    "related_doors": ["W54REDIS", "W57ELASTICSEARCH", "W50ETL"],
+    "prerequisites": [
+      "W55POSTGRES"
+    ],
+    "related_doors": [
+      "W54REDIS",
+      "W57ELASTICSEARCH",
+      "W50ETL"
+    ],
     "onboarding": {
       "quick_start": "MongoDB basics: Collections (like tables), documents (JSON-like). Insert: db.users.insertOne({'email': 'john@example.com', 'age': 30}). Query: db.users.find({'age': {$gt: 18}}). Index: db.users.createIndex({'email': 1}), compound: {email: 1, created_at: -1}. Aggregation: db.orders.aggregate([{$match: {status: 'shipped'}}, {$group: {_id: '$user_id', total: {$sum: '$amount'}}}]). Sharding: shard by _id or custom key. Replication: replica sets for HA. Atlas: managed cloud MongoDB. Use for: flexible schemas, rapid iteration, hierarchical data. Avoid for: complex joins, ACID transactions (use Postgres).",
       "full_context_path": "/PhiDEX/MASTER_CODEX/05_DATA_PROCESSING/DATA_PROCESSING_MANAGEMENT_RESEARCH.md",
@@ -24,7 +35,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/05_DATA_PROCESSING/DATA_PROCESSING_MANAGEMENT_RESEARCH.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/05_DATA_PROCESSING/DATA_PROCESSING_MANAGEMENT_RESEARCH.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +47,29 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["mongodb", "nosql", "document_database", "mongo", "flexible_schema", "aggregation"],
+      "tags": [
+        "mongodb",
+        "nosql",
+        "document_database",
+        "mongo",
+        "flexible_schema",
+        "aggregation"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "DATA_PROCESSING",
       "version": "1.0.0",
-      "tested_on": ["MongoDB 5+", "MongoDB 7", "MongoDB Atlas"],
-      "agent_affinity": ["VSCC", "TERMC", "CMDC"]
+      "tested_on": [
+        "MongoDB 5+",
+        "MongoDB 7",
+        "MongoDB Atlas"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "TERMC",
+        "CMDC"
+      ],
+      "size_bytes": 3081,
+      "token_estimate": 771.0
     }
   }
 }

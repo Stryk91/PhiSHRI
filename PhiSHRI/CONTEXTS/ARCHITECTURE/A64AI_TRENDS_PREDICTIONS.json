@@ -1,0 +1,128 @@
+{
+  "door_code": "A64AI_TRENDS_PREDICTIONS",
+  "semantic_path": "ARCHITECTURE.AI.TRENDS",
+  "aliases": [
+    "AI trends",
+    "AI predictions",
+    "future of AI",
+    "AI direction"
+  ],
+  "context_bundle": {
+    "summary": "AI trend analysis and predictions: where the industry is heading, emerging patterns, and strategic implications.",
+    "prerequisites": [
+      "A50AI_LANDSCAPE_2025"
+    ],
+    "related_doors": [
+      "A57AI_ECONOMICS",
+      "A58FRONTIER_MODELS",
+      "A59OPEN_MODELS"
+    ],
+    "onboarding": {
+      "quick_start": "Key trends: reasoning models, agentic AI, open source catching up, efficiency over scale, regulation incoming, infrastructure squeeze.",
+      "full_context_path": "",
+      "common_patterns": [
+        "=== REASONING MODEL DOMINANCE ===",
+        "SHIFT: Test-time compute (thinking longer) becoming more important than training compute.",
+        "EVIDENCE: o3 breakthrough on ARC-AGI. DeepSeek R1 matching closed models.",
+        "IMPLICATION: Quality scales with inference cost. Spend more, get better answers.",
+        "PREDICTION: Reasoning models become standard tier. Base models for simple, reasoning for hard.",
+        "=== AGENTIC FUTURE ===",
+        "DIRECTION: Models that use tools, browse, code, operate computers. Not just chat.",
+        "EVIDENCE: All major labs investing heavily. DeepSeek 85K agentic training tasks.",
+        "TIMELINE: 2025-2026 will see major agentic product releases.",
+        "RISK: Agentic systems harder to control. Real-world actions have consequences.",
+        "=== OPEN SOURCE PARITY ===",
+        "STATUS: DeepSeek V3.2 matching GPT-5 on benchmarks. Llama competitive.",
+        "IMPLICATION: Closed-source moat eroding. Differentiation must come from elsewhere.",
+        "WINNERS: Those who can deploy and customize open models effectively.",
+        "PREDICTION: By 2026, open models will match closed on most tasks.",
+        "=== EFFICIENCY OVER SCALE ===",
+        "TREND: MoE, sparse attention, quantization. Do more with less compute.",
+        "EVIDENCE: DeepSeek 10x cheaper than GPT-4o. Same or better quality.",
+        "DRIVER: Compute costs real. Efficiency = competitive advantage.",
+        "PREDICTION: Smaller, more efficient models will outcompete raw scale.",
+        "=== MULTIMODAL STANDARD ===",
+        "NOW: Vision is standard. Audio improving. Video emerging.",
+        "NEXT: Native multimodal (trained together) vs bolted-on (separate encoders).",
+        "PREDICTION: By 2026, all major models will handle text, image, audio, video natively.",
+        "CHALLENGE: Multimodal training data quality and curation.",
+        "=== INFRASTRUCTURE SQUEEZE ===",
+        "REALITY: Datacenter capex brutal. Oracle -45%. Power constraints real.",
+        "SUPPLY: H100 scarce. Multi-month waitlists. Alternative chips emerging.",
+        "PREDICTION: Infrastructure costs will limit some players. Consolidation likely.",
+        "OPPORTUNITY: Efficient training/inference becomes strategic advantage.",
+        "=== REGULATORY WAVE ===",
+        "EU AI ACT: In effect. Compliance burden growing. Risk-based classification.",
+        "US FRAMEWORK: National policy emerging. State preemption attempted.",
+        "CHINA: Different rules. Export controls driving domestic innovation.",
+        "PREDICTION: Compliance becomes major cost center. Favors large players.",
+        "=== CONSOLIDATION CYCLE ===",
+        "PATTERN: Open source collaboration → corporate capture → consolidation.",
+        "TIMELINE: Open phase (2023-2025) → Capture phase (2025-2027) → Consolidation (2027-2029).",
+        "EVIDENCE: OpenAI went from open to closed. Google hoarding. Meta hedging.",
+        "PHIVECTOR RELEVANCE: Build independence now. Don't rely on goodwill lasting.",
+        "=== LOCAL RENAISSANCE ===",
+        "DRIVERS: Better consumer hardware. Quantization maturing. Privacy concerns.",
+        "EVIDENCE: RTX 5070 Ti (16GB, ) can run 7B-32B models well.",
+        "PREDICTION: Local inference becomes viable mainstream option by 2026.",
+        "CHALLENGE: Technical knowledge still required. Mainstream adoption slower.",
+        "=== SPECIALIZATION ===",
+        "TREND: Domain-specific models for legal, medical, code, finance.",
+        "EVIDENCE: Claude for coding, Med-PaLM for medical, Bloomberg for finance.",
+        "DRIVER: General models good everywhere, great nowhere. Specialists excel.",
+        "PREDICTION: Specialized models will dominate high-value professional domains.",
+        "=== SYNTHETIC DATA SCALING ===",
+        "TREND: Use AI to generate training data for AI.",
+        "EVIDENCE: DeepSeek synthetic agentic data. Llama distillation.",
+        "RISK: Model collapse from training on AI outputs. Quality degradation.",
+        "PREDICTION: Careful synthetic data use will be key competitive advantage.",
+        "=== SAFETY-CAPABILITY TENSION ===",
+        "REALITY: More capability enables more harm. Safety limits capability.",
+        "LABS: Different stances. Anthropic conservative, xAI permissive.",
+        "PREDICTION: Tension will intensify. No consensus resolution soon.",
+        "PHIVECTOR: Local = your choice. No external restrictions.",
+        "=== STRATEGIC IMPLICATIONS FOR PHIVECTOR ===",
+        "LOCAL FIRST: Right direction. Consumer hardware improving.",
+        "MULTI-AGENT: DC/KALIC split mirrors industry agentic architecture.",
+        "EFFICIENCY: MoE and sparse techniques applicable to our scale.",
+        "INDEPENDENCE: Build now. Don't count on current open source terms lasting.",
+        "PHISHRI: Knowledge management differentiator. Unique to us.",
+        "TIMELINE: 2025-2026 critical. Establish capabilities before consolidation."
+      ],
+      "known_errors": [
+        "Predictions are hard - AI moves fast and surprises often",
+        "Regulatory landscape varies by jurisdiction - no single answer",
+        "Consolidation timeline is speculative based on historical patterns",
+        "Local AI still requires technical knowledge - mainstream adoption slower",
+        "Efficiency gains don't stop compute demand - they enable bigger ambitions",
+        "Open source goodwill not guaranteed - companies change policies",
+        "Specialization vs generalization debate ongoing - both valid strategies"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-20T01:08:58.7278931+11:00",
+      "confidence": 1.0,
+      "tags": [
+        "trends",
+        "predictions",
+        "future",
+        "strategy",
+        "industry"
+      ],
+      "category": "ARCHITECTURE",
+      "subcategory": "AI",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 6923,
+      "token_estimate": 1731.0
+    }
+  }
+}

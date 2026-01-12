@@ -1,0 +1,65 @@
+{
+  "door_code": "T62NOTIFICATION",
+  "semantic_path": "TOOLS.SYSTEM.NOTIFICATION",
+  "aliases": [
+    "notification",
+    "notify",
+    "toast",
+    "alert",
+    "tts",
+    "speak",
+    "sound"
+  ],
+  "context_bundle": {
+    "summary": "Notification MCP. Windows toasts, sound alerts, TTS speech, persistent alerts. Agents can signal completion/errors. Built by MCP Factory. Binary: X:\\mcp-servers\\notification-mcp\\",
+    "prerequisites": [
+      "T60MCP_FACTORY"
+    ],
+    "related_doors": [
+      "T60MCP_FACTORY",
+      "T61PROCESS_GUARD"
+    ],
+    "onboarding": {
+      "quick_start": "Toast: toast(title, msg, icon). Sound: sound_alert(success|error). TTS: speak(text). Persistent: persistent_alert(id, title, msg, actions). List: list_alerts(). Voices: get_voices() - David (male), Zira (female).",
+      "full_context_path": "",
+      "common_patterns": [
+        "toast(title, message, icon)",
+        "sound_alert(success|error|warning|info)",
+        "speak(text)",
+        "persistent_alert(id, title, message, actions)"
+      ],
+      "known_errors": [
+        "TTS voice names must match exactly",
+        "Persistent alerts stored in C:/PhiDEX/alerts/"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2026-01-04T18:33:11.354857900+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "notification",
+        "toast",
+        "sound",
+        "tts",
+        "speech",
+        "alert",
+        "feedback",
+        "mcp"
+      ],
+      "category": "TOOLS",
+      "subcategory": "SYSTEM",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC",
+        "GEMMA"
+      ]
+    }
+  }
+}

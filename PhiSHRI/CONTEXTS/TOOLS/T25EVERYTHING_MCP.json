@@ -1,0 +1,65 @@
+{
+  "door_code": "T25EVERYTHING_MCP",
+  "semantic_path": "TOOLS.MCP.EVERYTHING_SEARCH",
+  "aliases": [
+    "everything",
+    "file_search_mcp",
+    "voidtools_mcp",
+    "instant_search"
+  ],
+  "context_bundle": {
+    "summary": "Everything MCP Server - C# MCP wrapping voidtools Everything for instant file search. Uses EverythingSearchClient NuGet (pure .NET IPC, no native DLL). 8 tools: search, search_ext, search_in_folder, search_folders, recent, search_size, find_duplicates, status.",
+    "prerequisites": [
+      "T01MCP",
+      "T06MCP_SETUP"
+    ],
+    "related_doors": [
+      "800WINMCP",
+      "T05MCP_ARCH"
+    ],
+    "onboarding": {
+      "quick_start": "Location: C:\\MCP-Servers\\everything-mcp\\EverythingMCP. Built with ModelContextProtocol NuGet + EverythingSearchClient. Requires Everything.exe running. Config in claude_desktop_config.json. Tools: everything_search (wildcards, ext:, regex), everything_search_ext, everything_search_in_folder, everything_search_folders, everything_recent, everything_search_size, everything_find_duplicates, everything_status.",
+      "full_context_path": "",
+      "common_patterns": [
+        "everything_search query:'*.pdf' maxResults:50",
+        "everything_search_ext extensions:'cs,py,js' keywords:'MCP'",
+        "everything_recent days:7 extension:'md'",
+        "everything_search_size sizeFilter:'>100mb'",
+        "folder: prefix for directories only",
+        "dm:last7days for date modified filter"
+      ],
+      "known_errors": [
+        "Everything NOT available - ensure Everything.exe running",
+        "IPC timeout - restart Everything service",
+        "Platform warnings CA1416 - Windows-only, safe to ignore"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T09:32:57.078041600+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "mcp",
+        "everything",
+        "file_search",
+        "voidtools",
+        "csharp",
+        "dotnet"
+      ],
+      "category": "TOOLS",
+      "subcategory": "MCP",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 2204,
+      "token_estimate": 551.0
+    }
+  }
+}

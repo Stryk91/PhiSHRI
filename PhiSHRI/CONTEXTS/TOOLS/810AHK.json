@@ -12,7 +12,9 @@
   ],
   "context_bundle": {
     "summary": "AutoHotkey v2 automation for Windows. EXECUTABLE: C:\\Program Files\\AHK\\v2\\AutoHotkey64.exe. SCRIPTS FOLDER: X:\\AHK  SCRIPTS\\ (TWO SPACES between AHK and SCRIPTS - see E54PATH). 156+ scripts available for UI control, window management, keyboard/mouse simulation.",
-    "prerequisites": ["E54PATH"],
+    "prerequisites": [
+      "E54PATH"
+    ],
     "related_doors": [
       "E54PATH",
       "A01DC",
@@ -59,7 +61,9 @@
         "X:\\AHK  SCRIPTS\\CLAUDE_EYES.ahk"
       ],
       "tests": [],
-      "errors": ["E54PATH"]
+      "errors": [
+        "E54PATH"
+      ]
     },
     "metadata": {
       "last_updated": "2025-12-06T12:00:00Z",
@@ -89,7 +93,9 @@
         "DC",
         "KALIC",
         "VSCC"
-      ]
+      ],
+      "size_bytes": 3070,
+      "token_estimate": 768.0
     }
   }
 }

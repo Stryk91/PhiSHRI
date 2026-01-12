@@ -1,0 +1,83 @@
+{
+  "door_code": "R02RUSTDUCKY",
+  "semantic_path": "TOOLS.SECURITY.RUSTDUCKY",
+  "aliases": [
+    "rustducky",
+    "rubber ducky",
+    "ducky",
+    "hid attack",
+    "usb attack",
+    "duckyscript",
+    "keystroke injection"
+  ],
+  "context_bundle": {
+    "summary": "Rubber Ducky script parser and HID attack framework in Rust. Parses .duck scripts to HID keycodes. BINARY: X:\\mcp-servers\\rustducky\\target\\release\\rustducky.exe. Parser production-ready, HID backend scaffolded (needs real USB integration).",
+    "prerequisites": [],
+    "related_doors": [
+      "R01RECON_RS"
+    ],
+    "onboarding": {
+      "quick_start": "PARSE SCRIPT: rustducky.exe parse script.duck\nVALIDATE: rustducky.exe validate script.duck\nSHOW KEYCODES: rustducky.exe parse script.duck --show-codes",
+      "full_context_path": "X:\\mcp-servers\\rustducky\\",
+      "common_patterns": [
+        "STRING Hello World - types text",
+        "DELAY 500 - wait 500ms",
+        "ENTER - press enter key",
+        "GUI r - Windows+R (Run dialog)",
+        "CTRL ALT DELETE - combo keys",
+        "REPEAT 3 - repeat previous line 3x",
+        "REM comment - comments ignored"
+      ],
+      "known_errors": [
+        {
+          "error": "Unknown command",
+          "cause": "Unsupported DuckyScript command",
+          "solution": "Check supported commands: STRING, DELAY, ENTER, GUI, CTRL, ALT, SHIFT, F1-F24, REM, REPEAT"
+        }
+      ]
+    },
+    "resources": {
+      "docs": [
+        "X:\\mcp-servers\\rustducky\\README.md"
+      ],
+      "code": [
+        "X:\\mcp-servers\\rustducky\\src\\main.rs",
+        "X:\\mcp-servers\\rustducky\\src\\parser.rs",
+        "X:\\mcp-servers\\rustducky\\src\\hid.rs",
+        "X:\\mcp-servers\\rustducky\\src\\keycodes.rs"
+      ],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-27T17:45:00Z",
+      "confidence": 0.9,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "rustducky",
+        "rubber ducky",
+        "hid",
+        "usb",
+        "keystroke",
+        "injection",
+        "security",
+        "pentest",
+        "rust",
+        "duckyscript"
+      ],
+      "category": "TOOLS",
+      "subcategory": "SECURITY",
+      "version": "0.1.0",
+      "tested_on": [
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "KALIC",
+        "DC"
+      ],
+      "size_bytes": 2200,
+      "token_estimate": 550.0
+    }
+  }
+}

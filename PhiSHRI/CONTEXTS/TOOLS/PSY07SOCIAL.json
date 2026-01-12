@@ -1,0 +1,60 @@
+{
+  "door_code": "PSY07SOCIAL",
+  "semantic_path": "PSYCHOLOGY.SOCIAL.INFLUENCE",
+  "aliases": [
+    "social psych",
+    "influence",
+    "persuasion",
+    "groups",
+    "conformity"
+  ],
+  "context_bundle": {
+    "summary": "Social psychology: Conformity (Asch), obedience (Milgram), bystander effect, cognitive dissonance, attribution theory (fundamental attribution error), social identity theory, persuasion (Cialdini's principles).",
+    "prerequisites": [],
+    "related_doors": [
+      "PSY08DEVELOPMENTAL",
+      "PSY05CLINICAL_PATTERNS"
+    ],
+    "onboarding": {
+      "quick_start": "People conform to groups, obey authority, diffuse responsibility in crowds. We explain others' behavior dispositionally, our own situationally. In-group favoritism is automatic.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Conformity: Informational (they know better) vs normative (want to fit in). Increases with group size to ~4",
+        "Obedience: Authority + gradual commitment + diffused responsibility = ordinary people do terrible things",
+        "Attribution: FAE = over-attribute to disposition, under-attribute to situation for others",
+        "Persuasion: Reciprocity, commitment/consistency, social proof, authority, liking, scarcity (Cialdini)"
+      ],
+      "known_errors": [
+        "Fundamental attribution error - we all do it, especially for out-groups",
+        "Assuming bystanders don't care - diffusion of responsibility, pluralistic ignorance",
+        "Underestimating situational power - 'I would never' is usually wrong",
+        "Ignoring in-group bias - automatic, affects even minimal groups"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-24T03:52:35.543263200+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "social",
+        "psychology",
+        "influence",
+        "conformity",
+        "persuasion",
+        "groups"
+      ],
+      "category": "TOOLS",
+      "subcategory": "SOCIAL",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "WEBC"
+      ]
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "door_code": "N03BBR",
+  "semantic_path": "NETWORK.TCP.CONGESTION",
+  "aliases": [
+    "bbr",
+    "bbrv2",
+    "bbr2",
+    "congestion control",
+    "tcp congestion",
+    "cubic",
+    "bufferbloat"
+  ],
+  "context_bundle": {
+    "summary": "BBRv2 (Bottleneck Bandwidth and Round-trip propagation time) - Google's TCP congestion control algorithm. Models network path instead of relying on packet loss. Excellent for satellite links (Starlink) and high-BDP paths. Prevents bufferbloat by not overfilling buffers.",
+    "prerequisites": [],
+    "related_doors": [
+      "N04STARLINK",
+      "N05TCPSTACK"
+    ],
+    "onboarding": {
+      "quick_start": "BBR is configured at the OS/router level. ASUS routers with Merlin firmware support BBR. Combined with router SQM/QoS for best bufferbloat prevention.",
+      "full_context_path": null,
+      "common_patterns": [
+        "BBR models bandwidth + RTT, not packet loss",
+        "Better than CUBIC for variable latency (satellite)",
+        "Keeps buffers from bloating under load",
+        "Works well with high bandwidth-delay product links"
+      ],
+      "known_errors": [
+        {
+          "error": "Bufferbloat under load",
+          "cause": "Using loss-based congestion control (CUBIC) without SQM",
+          "solution": "Enable BBR or configure router SQM/QoS",
+          "prevention": "Test with DSLReports or Waveform bufferbloat test"
+        }
+      ]
+    },
+    "technical_details": {
+      "algorithm": "BBRv2",
+      "approach": "Model-based (bandwidth + RTT estimation)",
+      "comparison": {
+        "vs_cubic": "CUBIC reacts to loss, BBR probes for bandwidth",
+        "vs_reno": "Much better throughput and latency"
+      },
+      "ideal_for": [
+        "Satellite connections (Starlink)",
+        "High latency links",
+        "Variable bandwidth paths",
+        "Long fat networks (LFN)"
+      ],
+      "current_setup": "ASUS router + BBRv2 = 0 bufferbloat"
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-17T00:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "bbr",
+        "bbrv2",
+        "congestion",
+        "tcp",
+        "bufferbloat",
+        "latency",
+        "throughput"
+      ],
+      "category": "NETWORK",
+      "subcategory": "TCP",
+      "version": "1.0",
+      "size_bytes": 2511,
+      "token_estimate": 628.0
+    }
+  }
+}

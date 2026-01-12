@@ -1,11 +1,25 @@
 {
   "door_code": "D14COMPLIANCE_SCAN",
   "semantic_path": "TOOLS.DEPLOYMENT.COMPLIANCE",
-  "aliases": ["compliance scanning", "CIS benchmark", "InSpec", "compliance policy", "security baseline", "audit"],
+  "aliases": [
+    "compliance scanning",
+    "CIS benchmark",
+    "InSpec",
+    "compliance policy",
+    "security baseline",
+    "audit"
+  ],
   "context_bundle": {
     "summary": "Compliance scanning and enforcement for CIS benchmarks, NIST, ISO 27001, HIPAA, and PCI DSS using Intune policies, Chef InSpec, and Puppet remediation",
-    "prerequisites": ["D06ENTERPRISE", "S15AUDIT_LOGGING"],
-    "related_doors": ["S18PENETRATION_TESTING", "S01SEC", "W102UNIT_TESTING"],
+    "prerequisites": [
+      "D06ENTERPRISE",
+      "S15AUDIT_LOGGING"
+    ],
+    "related_doors": [
+      "S18PENETRATION_TESTING",
+      "S01SEC",
+      "W102UNIT_TESTING"
+    ],
     "onboarding": {
       "quick_start": "Create compliance policies in Intune or MDM, use Chef InSpec profiles for automated testing, implement Puppet for drift remediation",
       "full_context_path": "/PhiDEX/DEPLOYMENT_ALMANAC/09_ENTERPRISE/ENTERPRISE_DEPLOYMENT_GUIDE.md",
@@ -38,12 +52,32 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["compliance", "CIS", "InSpec", "security baseline", "audit", "NIST", "HIPAA"],
+      "tags": [
+        "compliance",
+        "CIS",
+        "InSpec",
+        "security baseline",
+        "audit",
+        "NIST",
+        "HIPAA"
+      ],
       "category": "TOOLS",
       "subcategory": "DEPLOYMENT",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11", "macOS", "Linux", "Intune"],
-      "agent_affinity": ["DC", "VSCC", "KALIC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11",
+        "macOS",
+        "Linux",
+        "Intune"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "KALIC"
+      ],
+      "size_bytes": 2364,
+      "token_estimate": 591.0
     }
   }
 }

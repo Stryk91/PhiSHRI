@@ -1,11 +1,21 @@
 {
   "door_code": "000START",
   "semantic_path": "PROJECTS.PHISHRI.START",
-  "aliases": ["start here", "getting started", "first door", "how to use", "onboarding"],
+  "aliases": [
+    "start here",
+    "getting started",
+    "first door",
+    "how to use",
+    "onboarding"
+  ],
   "context_bundle": {
     "summary": "First-time user onboarding for PhiSHRI door system - start here if you're new to the index",
     "prerequisites": [],
-    "related_doors": ["P03PHISHRI", "W01COORD", "A01DC"],
+    "related_doors": [
+      "P03PHISHRI",
+      "W01COORD",
+      "A01DC"
+    ],
     "onboarding": {
       "quick_start": "Welcome to PhiSHRI! You're in the right place. Read this door, then INDEX.json, then navigate by door codes.",
       "full_context_path": "/PhiSHRI/HOW_TO_USE.md",
@@ -40,12 +50,29 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["onboarding", "getting started", "first door", "tutorial", "phishri"],
+      "tags": [
+        "onboarding",
+        "getting started",
+        "first door",
+        "tutorial",
+        "phishri"
+      ],
       "category": "PROJECTS",
       "subcategory": "PHISHRI",
       "version": "1.0.0",
-      "tested_on": ["All platforms"],
-      "agent_affinity": ["DC", "VSCC", "TERMC", "KALIC", "WEBC", "CMDC"]
+      "tested_on": [
+        "All platforms"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "TERMC",
+        "KALIC",
+        "WEBC",
+        "CMDC"
+      ],
+      "size_bytes": 16792,
+      "token_estimate": 4198.0
     }
   },
   "interactive_guide": {
@@ -54,32 +81,66 @@
       "options": {
         "deployment": {
           "answer": "Read doors D05-D14 for deployment patterns. Start with D05SILENT_INSTALL for basics.",
-          "next_doors": ["D05SILENT_INSTALL", "D06ENTERPRISE", "D07GPO"],
+          "next_doors": [
+            "D05SILENT_INSTALL",
+            "D06ENTERPRISE",
+            "D07GPO"
+          ],
           "parallel_read_tip": "Read D05, D06, D07, D08, D13 in a single message with parallel Read calls to reduce overhead by 30-50%"
         },
         "agent_communication": {
           "answer": "Read doors W115-W131 for agent communication. Start with W115MESSAGE_QUEUE.",
-          "next_doors": ["W115MESSAGE_QUEUE", "W116IPC", "W117FILE_IPC", "W118REQUEST_RESPONSE"]
+          "next_doors": [
+            "W115MESSAGE_QUEUE",
+            "W116IPC",
+            "W117FILE_IPC",
+            "W118REQUEST_RESPONSE"
+          ]
         },
         "security": {
           "answer": "Read doors S01-S18 for security patterns. Start with S01SEC for overview.",
-          "next_doors": ["S01SEC", "S05SECRETS", "S07ENCRYPTION", "S12RBAC"]
+          "next_doors": [
+            "S01SEC",
+            "S05SECRETS",
+            "S07ENCRYPTION",
+            "S12RBAC"
+          ]
         },
         "workflows": {
           "answer": "Read doors W01-W131 for workflow patterns. Start with W01COORD for coordination.",
-          "next_doors": ["W01COORD", "W13DAG", "W122DAG", "W123ORCHESTRATION"]
+          "next_doors": [
+            "W01COORD",
+            "W13DAG",
+            "W122DAG",
+            "W123ORCHESTRATION"
+          ]
         },
         "architecture": {
           "answer": "Read doors R01-R16 for architecture patterns. Start with R01MULTI for multi-agent systems.",
-          "next_doors": ["R01MULTI", "R03MICROSERVICE", "R04EVENT_DRIVEN", "R09FACTORY_PATTERN"]
+          "next_doors": [
+            "R01MULTI",
+            "R03MICROSERVICE",
+            "R04EVENT_DRIVEN",
+            "R09FACTORY_PATTERN"
+          ]
         },
         "tools": {
           "answer": "Read doors T01-T27 and 800-840 for development tools. Start with T01MCP for MCP servers.",
-          "next_doors": ["T01MCP", "T02VSCODE", "T25DOCKER", "T26KUBERNETES"]
+          "next_doors": [
+            "T01MCP",
+            "T02VSCODE",
+            "T25DOCKER",
+            "T26KUBERNETES"
+          ]
         },
         "errors": {
           "answer": "Read doors E01-E13 for error handling patterns. Start with E05RETRY.",
-          "next_doors": ["E01PERM", "E05RETRY", "E06CIRCUIT_BREAKER", "E12MEMORY_ERRORS"]
+          "next_doors": [
+            "E01PERM",
+            "E05RETRY",
+            "E06CIRCUIT_BREAKER",
+            "E12MEMORY_ERRORS"
+          ]
         }
       }
     },
@@ -251,12 +312,35 @@
         "Core doors contain essential patterns, extended doors are specialized"
       ],
       "examples": {
-        "deployment_core": ["D05SILENT_INSTALL", "D06ENTERPRISE"],
-        "deployment_extended": ["D07GPO", "D08AUTOPILOT", "D13NETWORK_DEPLOY"],
-        "security_core": ["S01SEC", "S05SECRETS"],
-        "security_extended": ["S07ENCRYPTION", "S09JWT", "S10CORS", "S11CSRF", "S12RBAC"],
-        "messaging_core": ["W115MESSAGE_QUEUE", "W116IPC"],
-        "messaging_extended": ["W117FILE_IPC", "W118REQUEST_RESPONSE", "W119PUBSUB"]
+        "deployment_core": [
+          "D05SILENT_INSTALL",
+          "D06ENTERPRISE"
+        ],
+        "deployment_extended": [
+          "D07GPO",
+          "D08AUTOPILOT",
+          "D13NETWORK_DEPLOY"
+        ],
+        "security_core": [
+          "S01SEC",
+          "S05SECRETS"
+        ],
+        "security_extended": [
+          "S07ENCRYPTION",
+          "S09JWT",
+          "S10CORS",
+          "S11CSRF",
+          "S12RBAC"
+        ],
+        "messaging_core": [
+          "W115MESSAGE_QUEUE",
+          "W116IPC"
+        ],
+        "messaging_extended": [
+          "W117FILE_IPC",
+          "W118REQUEST_RESPONSE",
+          "W119PUBSUB"
+        ]
       }
     },
     "tweak_4_index_vs_000start": {

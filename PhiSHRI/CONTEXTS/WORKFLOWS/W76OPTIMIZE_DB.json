@@ -1,11 +1,25 @@
 {
   "door_code": "W76OPTIMIZE_DB",
   "semantic_path": "WORKFLOWS.PERFORMANCE.DATABASE_OPTIMIZATION",
-  "aliases": ["database_optimization", "db_optimization", "query_tuning", "indexes", "query_optimization", "sql_performance"],
+  "aliases": [
+    "database_optimization",
+    "db_optimization",
+    "query_tuning",
+    "indexes",
+    "query_optimization",
+    "sql_performance"
+  ],
   "context_bundle": {
     "summary": "Database optimization improves query performance: Indexing (B-tree for range queries O(log n), Hash for equality, covering indexes include all query columns), query tuning (EXPLAIN plans, avoid SELECT *, use JOINs efficiently, limit result sets), connection pooling (reuse connections, typical pool size 2×CPU cores), caching (Redis for query results, materialized views), partitioning (horizontal by range/hash, vertical by columns), denormalization (trade storage for read speed). Tools: EXPLAIN/EXPLAIN ANALYZE (execution plans), pg_stat_statements (Postgres query stats), slow query log (MySQL). Targets: Query time <100ms, index hit ratio >95%, connection pool utilization 70-80%.",
-    "prerequisites": ["W72CACHING", "E07DATABASE_ERRORS"],
-    "related_doors": ["W86METRICS", "T10OBSERVABILITY", "W73PROFILING"],
+    "prerequisites": [
+      "W72CACHING",
+      "E07DATABASE_ERRORS"
+    ],
+    "related_doors": [
+      "W86METRICS",
+      "T10OBSERVABILITY",
+      "W73PROFILING"
+    ],
     "onboarding": {
       "quick_start": "Database optimization techniques: Indexes - CREATE INDEX idx_users_email ON users(email); # B-tree index for WHERE email='...'. Covering index: CREATE INDEX idx_users_name_email ON users(name, email); # Query: SELECT name, email FROM users WHERE name='...' uses index only. Query tuning - EXPLAIN ANALYZE SELECT * FROM orders WHERE user_id=123; # Shows execution plan, cost, actual time. Avoid: SELECT * (fetch only needed columns), N+1 queries (use JOIN), missing indexes (check seq scans). Connection pooling (Python): from sqlalchemy.pool import QueuePool; engine = create_engine('postgresql://...', poolclass=QueuePool, pool_size=10, max_overflow=20). Materialized views (Postgres): CREATE MATERIALIZED VIEW user_summary AS SELECT user_id, COUNT(*) as order_count FROM orders GROUP BY user_id; REFRESH MATERIALIZED VIEW user_summary; # Pre-computed aggregates. Partitioning (Postgres): CREATE TABLE orders_2024 PARTITION OF orders FOR VALUES FROM ('2024-01-01') TO ('2025-01-01'); # Range partition by date. Monitoring: SELECT schemaname, tablename, idx_scan, seq_scan FROM pg_stat_user_tables; # Index usage. Target: idx_scan >> seq_scan.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md",
@@ -24,7 +38,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +50,32 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["database_optimization", "indexes", "query_tuning", "sql", "postgres", "mysql", "connection_pooling", "partitioning"],
+      "tags": [
+        "database_optimization",
+        "indexes",
+        "query_tuning",
+        "sql",
+        "postgres",
+        "mysql",
+        "connection_pooling",
+        "partitioning"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "PERFORMANCE",
       "version": "1.0.0",
-      "tested_on": ["PostgreSQL", "MySQL", "SQL Server", "Oracle"],
-      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+      "tested_on": [
+        "PostgreSQL",
+        "MySQL",
+        "SQL Server",
+        "Oracle"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "CMDC",
+        "TERMC"
+      ],
+      "size_bytes": 4632,
+      "token_estimate": 1158.0
     }
   }
 }

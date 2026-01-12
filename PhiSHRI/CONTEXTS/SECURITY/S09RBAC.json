@@ -1,11 +1,24 @@
 {
   "door_code": "S09RBAC",
   "semantic_path": "SECURITY.AUTHORIZATION.ROLE_BASED_ACCESS_CONTROL",
-  "aliases": ["rbac", "role_based_access", "permissions", "authorization", "access_control"],
+  "aliases": [
+    "rbac",
+    "role_based_access",
+    "permissions",
+    "authorization",
+    "access_control"
+  ],
   "context_bundle": {
     "summary": "Role-Based Access Control (RBAC) for authorization: Users assigned to roles, roles have permissions. Entities: User (identity), Role (admin, editor, viewer), Permission (read:posts, write:users, delete:all). Patterns: Many-to-many user-role and role-permission relationships. Check permissions on every request. Deny by default. Implement at API gateway or middleware level. OWASP A01:2021 (Broken Access Control): Enforce ownership checks, disable directory listing, log access failures.",
-    "prerequisites": ["S07OAUTH", "S08JWT"],
-    "related_doors": ["A08AGENT_COORD", "S02SQL_INJECTION", "W01COORD"],
+    "prerequisites": [
+      "S07OAUTH",
+      "S08JWT"
+    ],
+    "related_doors": [
+      "A08AGENT_COORD",
+      "S02SQL_INJECTION",
+      "W01COORD"
+    ],
     "onboarding": {
       "quick_start": "RBAC model: User -> Role -> Permission. Example roles: admin (all permissions), editor (read/write), viewer (read only). Check authorization: 1) Extract user from JWT/session, 2) Get user's roles, 3) Get roles' permissions, 4) Check if required permission exists. Deny by default if permission not found. Middleware (Express): function checkPermission(required) { return (req, res, next) => { const userPerms = getUserPermissions(req.user); if (!userPerms.includes(required)) return res.status(403).json({error: 'Forbidden'}); next(); }}. Apply: app.delete('/api/users/:id', checkPermission('delete:users'), handler). Database: users table, roles table, permissions table, user_roles junction, role_permissions junction. OWASP Top 10 2021 A01: Broken Access Control is #1 vulnerability. Always check ownership (user can only access their own resources unless admin).",
       "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md",
@@ -22,7 +35,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -32,12 +47,30 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["rbac", "authorization", "access_control", "permissions", "roles", "security", "owasp"],
+      "tags": [
+        "rbac",
+        "authorization",
+        "access_control",
+        "permissions",
+        "roles",
+        "security",
+        "owasp"
+      ],
       "category": "SECURITY",
       "subcategory": "AUTHORIZATION",
       "version": "1.0.0",
-      "tested_on": ["Web APIs", "Enterprise Applications", "Microservices"],
-      "agent_affinity": ["VSCC", "CMDC", "WEBC"]
+      "tested_on": [
+        "Web APIs",
+        "Enterprise Applications",
+        "Microservices"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "CMDC",
+        "WEBC"
+      ],
+      "size_bytes": 3665,
+      "token_estimate": 917.0
     }
   }
 }

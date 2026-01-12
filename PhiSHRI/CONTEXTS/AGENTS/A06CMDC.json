@@ -1,11 +1,23 @@
 {
   "door_code": "A06CMDC",
   "semantic_path": "AGENTS.PHIVECTOR.CMDC",
-  "aliases": ["cmdc", "cmd_claude", "terminal_agent", "system_ops"],
+  "aliases": [
+    "cmdc",
+    "cmd_claude",
+    "terminal_agent",
+    "system_ops"
+  ],
   "context_bundle": {
     "summary": "CMDC (Command Claude): Terminal & system operations agent. Executes shell commands, manages processes, monitors system resources. Specializes in low-level system automation.",
-    "prerequisites": ["W12PHISYNC", "820PWSH"],
-    "related_doors": ["A01DC", "A03TERMC", "W09DAEMON"],
+    "prerequisites": [
+      "W12PHISYNC",
+      "820PWSH"
+    ],
+    "related_doors": [
+      "A01DC",
+      "A03TERMC",
+      "W09DAEMON"
+    ],
     "onboarding": {
       "quick_start": "CMDC = system ops agent. Runs commands, process management, resource monitoring. Coordination: File-based tasks. Outputs: Command results, system status reports.",
       "full_context_path": "/PhiDEX/PhiSync/README.md",
@@ -19,7 +31,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/PhiSync/README.md"],
+      "docs": [
+        "/PhiDEX/PhiSync/README.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -29,12 +43,23 @@
       "confidence": 0.91,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["agent", "cmdc", "terminal", "system_ops"],
+      "tags": [
+        "agent",
+        "cmdc",
+        "terminal",
+        "system_ops"
+      ],
       "category": "AGENTS",
       "subcategory": "PHIVECTOR",
       "version": "1.0.0",
-      "tested_on": ["PhiVector"],
-      "agent_affinity": ["CMDC"]
+      "tested_on": [
+        "PhiVector"
+      ],
+      "agent_affinity": [
+        "CMDC"
+      ],
+      "size_bytes": 1585,
+      "token_estimate": 397.0
     }
   }
 }

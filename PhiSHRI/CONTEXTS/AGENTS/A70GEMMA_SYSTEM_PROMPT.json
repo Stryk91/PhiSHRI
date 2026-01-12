@@ -1,0 +1,58 @@
+{
+  "door_code": "A70GEMMA_SYSTEM_PROMPT",
+  "semantic_path": "AGENTS.GEMMA.SYSTEM_PROMPT",
+  "aliases": [
+    "gemma prompt",
+    "gemma context",
+    "gemma system",
+    "local llm prompt"
+  ],
+  "context_bundle": {
+    "summary": "Gemma3 system prompt for PhiVector ecosystem awareness. Load this via /api/chat system role to give Gemma baseline context about agents, infrastructure, and communication style.",
+    "prerequisites": [],
+    "related_doors": [
+      "T120OLLAMA_LOCAL",
+      "A54LOCAL_INFERENCE",
+      "S01DC_SESSION_BOOT"
+    ],
+    "onboarding": {
+      "quick_start": "Load from C:\\PhiDEX\\ollama\\GEMMA_SYSTEM_PROMPT.md. Pass as system role in /api/chat messages array. ~859 tokens.",
+      "full_context_path": "",
+      "common_patterns": [
+        "$prompt = Get-Content 'C:\\PhiDEX\\ollama\\GEMMA_SYSTEM_PROMPT.md' -Raw",
+        "@{ role = 'system'; content = $prompt }",
+        "Use /api/chat not /api/generate for system prompts"
+      ],
+      "known_errors": [
+        "System prompt only works with /api/chat endpoint, not /api/generate",
+        "Must re-send system prompt every call - Gemma has no persistence"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-22T15:59:41.635050600+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "gemma",
+        "ollama",
+        "system-prompt",
+        "local",
+        "inference",
+        "context"
+      ],
+      "category": "AGENTS",
+      "subcategory": "GEMMA",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC",
+        "GEMMA"
+      ]
+    }
+  }
+}

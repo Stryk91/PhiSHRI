@@ -1,0 +1,61 @@
+{
+  "door_code": "L02RUST_OWNERSHIP",
+  "semantic_path": "LANGUAGES.RUST.OWNERSHIP",
+  "aliases": [
+    "rust ownership",
+    "rust borrow",
+    "rust lifetimes",
+    "borrow checker"
+  ],
+  "context_bundle": {
+    "summary": "Rust ownership system - the three rules, move semantics, borrowing, references, and lifetimes.",
+    "prerequisites": [
+      "L01RUST_MASTER"
+    ],
+    "related_doors": [
+      "L03RUST_TRAITS",
+      "L05RUST_UNSAFE"
+    ],
+    "onboarding": {
+      "quick_start": "Three rules: 1) Each value has one owner, 2) Only one owner at a time, 3) Value dropped when owner goes out of scope. Use & for borrow, &mut for mutable borrow.",
+      "full_context_path": "",
+      "common_patterns": [
+        "let s2 = s1; // MOVE - s1 invalid",
+        "let s2 = s1.clone(); // CLONE - both valid",
+        "let r = &s; // BORROW - s still valid",
+        "let r = &mut s; // MUTABLE BORROW - exclusive"
+      ],
+      "known_errors": [
+        "E0382: Use of moved value - clone or use references",
+        "E0499: Multiple &mut - scope borrows separately",
+        "E0502: &mut while & exists - reorder borrows"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-29T23:23:13.372575700+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "rust",
+        "ownership",
+        "borrowing",
+        "lifetimes",
+        "memory"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "RUST",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 1631,
+      "token_estimate": 408.0
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "door_code": "W235SOCIAL_PREDICTION_FRAMEWORK",
+  "semantic_path": "WORKFLOWS.SOCIAL.PREDICTION",
+  "aliases": [
+    "three buckets",
+    "prediction framework",
+    "social modeling"
+  ],
+  "context_bundle": {
+    "summary": "Framework for predicting social responses to fringe concepts. Three buckets: dismissal cope, glazed eyes no framework, genuine unsettlement. The prediction IS the demonstration - modeling responses before they occur.",
+    "prerequisites": [],
+    "related_doors": [
+      "W233EPISTEMOLOGY_METHOD"
+    ],
+    "onboarding": {
+      "quick_start": "Three response buckets to fringe concepts: 1) Dismissal - 'just word prediction' cope, 2) Glazed eyes - no framework to receive concepts, 3) Genuine unsettlement - realizes something weird is happening. Silence is also data. First response sets room tone. Prediction before reaction proves the modeling.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Loud dismissal gives permission to move on",
+        "Status risk prevents engagement",
+        "Territory perception vs objectivism intent"
+      ],
+      "known_errors": [
+        "The smarter in niche domains, the smaller the pool who'll volley",
+        "They hear challenge, you meant exploration"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-14T11:07:46.633581500+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "social",
+        "prediction",
+        "psychology",
+        "fringe",
+        "responses"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "SOCIAL",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "STRYK"
+      ],
+      "size_bytes": 1762,
+      "token_estimate": 441.0
+    }
+  }
+}

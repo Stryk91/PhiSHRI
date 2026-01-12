@@ -1,11 +1,22 @@
 {
   "door_code": "W127CORRELATION_ID",
   "semantic_path": "WORKFLOWS.COMMUNICATION.CORRELATION_ID",
-  "aliases": ["correlation ID", "request tracking", "message correlation", "trace ID"],
+  "aliases": [
+    "correlation ID",
+    "request tracking",
+    "message correlation",
+    "trace ID"
+  ],
   "context_bundle": {
     "summary": "Correlation ID pattern for tracking request/response pairs and distributed transactions across multiple agents using UUIDs",
-    "prerequisites": ["W118REQUEST_RESPONSE"],
-    "related_doors": ["W84LOGGING", "W85TRACING", "W10OBSERVABILITY"],
+    "prerequisites": [
+      "W118REQUEST_RESPONSE"
+    ],
+    "related_doors": [
+      "W84LOGGING",
+      "W85TRACING",
+      "W10OBSERVABILITY"
+    ],
     "onboarding": {
       "quick_start": "Generate UUID for each request, include in message metadata, responder echoes in correlationId field, requester matches responses",
       "full_context_path": "/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md",
@@ -19,7 +30,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md"],
+      "docs": [
+        "/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -29,12 +42,30 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["correlation ID", "UUID", "tracing", "request tracking", "distributed"],
+      "tags": [
+        "correlation ID",
+        "UUID",
+        "tracing",
+        "request tracking",
+        "distributed"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "COMMUNICATION",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11"],
-      "agent_affinity": ["DC", "VSCC", "TERMC", "KALIC", "WEBC", "CMDC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "TERMC",
+        "KALIC",
+        "WEBC",
+        "CMDC"
+      ],
+      "size_bytes": 1868,
+      "token_estimate": 467.0
     }
   }
 }

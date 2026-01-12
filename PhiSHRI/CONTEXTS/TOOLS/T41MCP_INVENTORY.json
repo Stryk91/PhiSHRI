@@ -1,0 +1,56 @@
+{
+  "door_code": "T41MCP_INVENTORY",
+  "semantic_path": "TOOLS.MCP.INVENTORY",
+  "aliases": [
+    "mcp inventory",
+    "tool count",
+    "phivector mcps"
+  ],
+  "context_bundle": {
+    "summary": "PhiVector MCP tool inventory. 9 MCPs with ~163 total tools (~138 unique after overlap). All MCPs have immutable authorship metadata baked into compiled DLLs: Authors=STRYK;DC, Company=PhiVector.",
+    "prerequisites": [],
+    "related_doors": [
+      "T40SIGCON6",
+      "T01MCP",
+      "800WINMCP"
+    ],
+    "onboarding": {
+      "quick_start": "9 MCPs, ~163 tools. everything(34), everything-rs(25), sigcon6(26), git(20), windows-mcp-v3(17), phishri(15), multiplexor(~15), screen(7), vocal-claudes(4). All have STRYK;DC/PhiVector authorship in assembly metadata.",
+      "full_context_path": "",
+      "common_patterns": [
+        "csproj Authors tag bakes into DLL metadata",
+        "PackageId: PhiVector.{McpName}",
+        "Copyright: STRYK + DC (PhiVector Project)"
+      ],
+      "known_errors": [
+        "everything and everything-rs overlap ~25 tools"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-29T19:22:12.399612+11:00",
+      "confidence": 1.0,
+      "tags": [
+        "mcp",
+        "inventory",
+        "phivector",
+        "authorship",
+        "tools"
+      ],
+      "category": "TOOLS",
+      "subcategory": "MCP",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "STRYK"
+      ],
+      "size_bytes": 1553,
+      "token_estimate": 389.0
+    }
+  }
+}

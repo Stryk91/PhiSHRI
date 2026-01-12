@@ -1,11 +1,24 @@
 {
   "door_code": "W106E2E_TESTING",
   "semantic_path": "WORKFLOWS.TESTING.E2E",
-  "aliases": ["end to end", "e2e", "system test", "acceptance test"],
+  "aliases": [
+    "end to end",
+    "e2e",
+    "system test",
+    "acceptance test"
+  ],
   "context_bundle": {
     "summary": "End-to-end testing strategies for validating complete user workflows and system behavior",
-    "prerequisites": ["W102UNIT_TESTING", "W103INTEGRATION_TESTING"],
-    "related_doors": ["W94PLAYWRIGHT", "W93SELENIUM", "W95CYPRESS", "W96UI_TESTING"],
+    "prerequisites": [
+      "W102UNIT_TESTING",
+      "W103INTEGRATION_TESTING"
+    ],
+    "related_doors": [
+      "W94PLAYWRIGHT",
+      "W93SELENIUM",
+      "W95CYPRESS",
+      "W96UI_TESTING"
+    ],
     "onboarding": {
       "quick_start": "Test complete user workflows from start to finish using tools like Playwright, Selenium, or Cypress",
       "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
@@ -18,7 +31,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -28,12 +43,26 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["testing", "e2e", "end-to-end", "workflows"],
+      "tags": [
+        "testing",
+        "e2e",
+        "end-to-end",
+        "workflows"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "TESTING",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11", "Linux"],
-      "agent_affinity": ["VSCC", "DC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11",
+        "Linux"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC"
+      ],
+      "size_bytes": 1591,
+      "token_estimate": 398.0
     }
   }
 }

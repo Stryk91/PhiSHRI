@@ -1,0 +1,60 @@
+{
+  "door_code": "F12MARKET_CONDITIONS",
+  "semantic_path": "FINANCE.CRYPTO.ANALYSIS",
+  "aliases": [
+    "market analysis",
+    "trend detection",
+    "volatility analysis"
+  ],
+  "context_bundle": {
+    "summary": "Identifying market conditions: Trend vs chop detection, volume analysis, volatility regimes, options expiry impact, liquidity assessment for bot strategy selection.",
+    "prerequisites": [],
+    "related_doors": [
+      "F10CRYPTO_MARKET_BASICS",
+      "F11TRADING_BOT_PATTERNS"
+    ],
+    "onboarding": {
+      "quick_start": "ADX >25 = trending. ADX <20 = ranging. Volume declining in range = breakout coming. Options expiry = volatility spike. Low liquidity (holidays) = avoid large positions.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Trend detection: ADX >25, price above/below MAs, higher highs/lows or lower",
+        "Chop detection: ADX <20, price oscillating around MAs, no clear structure",
+        "Volume analysis: Rising volume confirms moves, declining volume = exhaustion",
+        "Volatility regime: ATR expansion = trending, ATR contraction = ranging",
+        "Liquidity calendar: Options expiry (monthly/quarterly), holidays = thin books"
+      ],
+      "known_errors": [
+        "Using trend strategy in chop - whipsaw losses",
+        "Using range strategy in trend - missing big moves or getting stopped",
+        "Ignoring options expiry dates - unexpected volatility",
+        "Trading size too large in low liquidity - slippage kills",
+        "Confirmation bias - seeing trends that aren't there"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-24T03:49:51.022589200+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "market",
+        "analysis",
+        "volume",
+        "volatility",
+        "trend",
+        "conditions"
+      ],
+      "category": "TOOLS",
+      "subcategory": "CRYPTO",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "WEBC"
+      ]
+    }
+  }
+}

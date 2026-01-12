@@ -1,11 +1,23 @@
 {
   "door_code": "T23RABBITMQ",
   "semantic_path": "TOOLS.MESSAGING.RABBITMQ",
-  "aliases": ["rabbitmq", "amqp", "message broker", "queue"],
+  "aliases": [
+    "rabbitmq",
+    "amqp",
+    "message broker",
+    "queue"
+  ],
   "context_bundle": {
     "summary": "RabbitMQ message broker implementing AMQP protocol for reliable message queuing and routing between distributed systems",
-    "prerequisites": ["W98MESSAGE_QUEUE", "R03MICROSERVICE"],
-    "related_doors": ["T19KAFKA", "W98MESSAGE_QUEUE", "R03MICROSERVICE"],
+    "prerequisites": [
+      "W98MESSAGE_QUEUE",
+      "R03MICROSERVICE"
+    ],
+    "related_doors": [
+      "T19KAFKA",
+      "W98MESSAGE_QUEUE",
+      "R03MICROSERVICE"
+    ],
     "onboarding": {
       "quick_start": "Deploy RabbitMQ for asynchronous messaging with exchanges, queues, and routing patterns for decoupled service communication",
       "full_context_path": "/PhiDEX/MASTER_CODEX/02_TOOL_INTEGRATION/TOOL_INTEGRATION_INTEROPERABILITY_GUIDE.md",
@@ -18,7 +30,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/02_TOOL_INTEGRATION/TOOL_INTEGRATION_INTEROPERABILITY_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/02_TOOL_INTEGRATION/TOOL_INTEGRATION_INTEROPERABILITY_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -28,12 +42,28 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["tools", "rabbitmq", "messaging", "amqp", "queue"],
+      "tags": [
+        "tools",
+        "rabbitmq",
+        "messaging",
+        "amqp",
+        "queue"
+      ],
       "category": "TOOLS",
       "subcategory": "MESSAGING",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11", "Linux"],
-      "agent_affinity": ["DC", "VSCC", "TERMC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11",
+        "Linux"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "TERMC"
+      ],
+      "size_bytes": 1626,
+      "token_estimate": 407.0
     }
   }
 }

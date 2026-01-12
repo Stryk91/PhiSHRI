@@ -1,11 +1,23 @@
 {
   "door_code": "W13DAG",
   "semantic_path": "WORKFLOWS.ORCHESTRATION.DAG_WORKFLOWS",
-  "aliases": ["dag", "workflow_graph", "task_dependencies", "orchestration"],
+  "aliases": [
+    "dag",
+    "workflow_graph",
+    "task_dependencies",
+    "orchestration"
+  ],
   "context_bundle": {
     "summary": "DAG (Directed Acyclic Graph) workflows for multi-agent orchestration. Models task dependencies, ensures correct execution order, enables parallel execution of independent tasks. DC = orchestrator in PhiVector.",
-    "prerequisites": ["W12PHISYNC", "W01COORD", "R01MULTI"],
-    "related_doors": ["A01DC", "W14PARALLEL"],
+    "prerequisites": [
+      "W12PHISYNC",
+      "W01COORD",
+      "R01MULTI"
+    ],
+    "related_doors": [
+      "A01DC",
+      "W14PARALLEL"
+    ],
     "onboarding": {
       "quick_start": "DAG = task graph with dependencies. Node = task, edge = dependency. DC orchestrates: resolve dependencies, execute in order, parallelize independent tasks. No cycles allowed (acyclic).",
       "full_context_path": "/PhiDEX/PhiSync/02_WORKFLOW_ORCHESTRATION/WORKFLOW_ORCHESTRATION_PATTERNS.md",
@@ -27,7 +39,9 @@
       ]
     },
     "resources": {
-      "docs": ["/PhiDEX/PhiSync/02_WORKFLOW_ORCHESTRATION/WORKFLOW_ORCHESTRATION_PATTERNS.md"],
+      "docs": [
+        "/PhiDEX/PhiSync/02_WORKFLOW_ORCHESTRATION/WORKFLOW_ORCHESTRATION_PATTERNS.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -37,12 +51,25 @@
       "confidence": 0.97,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["dag", "orchestration", "workflow", "dependencies", "parallel"],
+      "tags": [
+        "dag",
+        "orchestration",
+        "workflow",
+        "dependencies",
+        "parallel"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "ORCHESTRATION",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11"],
-      "agent_affinity": ["DC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 2178,
+      "token_estimate": 545.0
     }
   }
 }

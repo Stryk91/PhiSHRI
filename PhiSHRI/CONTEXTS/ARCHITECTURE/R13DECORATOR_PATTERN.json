@@ -1,11 +1,20 @@
 {
   "door_code": "R13DECORATOR_PATTERN",
   "semantic_path": "ARCHITECTURE.PATTERNS.STRUCTURAL.DECORATOR",
-  "aliases": ["decorator", "wrapper", "enhancement pattern"],
+  "aliases": [
+    "decorator",
+    "wrapper",
+    "enhancement pattern"
+  ],
   "context_bundle": {
     "summary": "Decorator pattern attaches additional responsibilities to an object dynamically without modifying its structure",
-    "prerequisites": ["R01MULTI"],
-    "related_doors": ["R14ADAPTER_PATTERN", "R16PROXY_PATTERN"],
+    "prerequisites": [
+      "R01MULTI"
+    ],
+    "related_doors": [
+      "R14ADAPTER_PATTERN",
+      "R16PROXY_PATTERN"
+    ],
     "onboarding": {
       "quick_start": "Wrap objects with decorator classes that add behavior while maintaining same interface as wrapped object",
       "full_context_path": "/PhiDEX/MASTER_CODEX/02_PATTERNS/DESIGN_PATTERNS_GUIDE.md",
@@ -18,7 +27,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/02_PATTERNS/DESIGN_PATTERNS_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/02_PATTERNS/DESIGN_PATTERNS_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -28,12 +39,26 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["architecture", "design pattern", "decorator", "structural"],
+      "tags": [
+        "architecture",
+        "design pattern",
+        "decorator",
+        "structural"
+      ],
       "category": "ARCHITECTURE",
       "subcategory": "PATTERNS",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11", "Linux"],
-      "agent_affinity": ["VSCC", "DC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11",
+        "Linux"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC"
+      ],
+      "size_bytes": 1544,
+      "token_estimate": 386.0
     }
   }
 }

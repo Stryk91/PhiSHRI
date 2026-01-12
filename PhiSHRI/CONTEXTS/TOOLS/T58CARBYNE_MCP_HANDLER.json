@@ -1,0 +1,61 @@
+{
+  "door_code": "T58CARBYNE_MCP_HANDLER",
+  "semantic_path": "TOOLS.CARBYNE.MCP_HANDLER",
+  "aliases": [
+    "carbyne mcp",
+    "mcp handler",
+    "mcp client rust",
+    "dc mcp"
+  ],
+  "context_bundle": {
+    "summary": "Carbyne's Rust MCP client - spawns/manages MCP servers via JSON-RPC stdio. Supports both Rust and .NET servers with logging suppression for .NET stdout pollution.",
+    "prerequisites": [
+      "T01MCP",
+      "T57CLAUDE_LITE"
+    ],
+    "related_doors": [
+      "P10CARBYNE_CLAUDE",
+      "T50TAURI_CLIENT"
+    ],
+    "onboarding": {
+      "quick_start": "MCP client at C:\\Dev\\claude-lite\\src\\mcp\\. JS API: DC.mcp.status(), DC.mcp.tools(), DC.mcp.call(tool, args)",
+      "full_context_path": "",
+      "common_patterns": [
+        "Logging__LogLevel__Default=None suppresses .NET stdout pollution",
+        "GIT_TERMINAL_PROMPT=0 prevents git prompts",
+        "JSON-RPC request/response over stdio newline-delimited",
+        "McpManager.register() then connect_all() on startup"
+      ],
+      "known_errors": [
+        ".NET MCP SDK logs to stdout - set Logging__LogLevel__Default=None",
+        "Rust MCP servers clean, .NET needs env suppression"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-01T01:41:55.31755+11:00",
+      "confidence": 1.0,
+      "tags": [
+        "mcp",
+        "json-rpc",
+        "stdio",
+        "rust",
+        "tauri",
+        "carbyne"
+      ],
+      "category": "TOOLS",
+      "subcategory": "CARBYNE",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1669,
+      "token_estimate": 418.0
+    }
+  }
+}

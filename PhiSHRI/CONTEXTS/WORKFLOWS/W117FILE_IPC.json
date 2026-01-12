@@ -1,11 +1,23 @@
 {
   "door_code": "W117FILE_IPC",
   "semantic_path": "WORKFLOWS.COMMUNICATION.FILE_IPC",
-  "aliases": ["file IPC", "file-based communication", "file polling", "filesystem bus"],
+  "aliases": [
+    "file IPC",
+    "file-based communication",
+    "file polling",
+    "filesystem bus"
+  ],
   "context_bundle": {
     "summary": "File-based inter-process communication using filesystem as message bus with atomic operations, file locking, and polling strategies",
-    "prerequisites": ["W116IPC", "W11FILE_CMD"],
-    "related_doors": ["W115MESSAGE_QUEUE", "W08FILEWATCHER", "W12PHISYNC"],
+    "prerequisites": [
+      "W116IPC",
+      "W11FILE_CMD"
+    ],
+    "related_doors": [
+      "W115MESSAGE_QUEUE",
+      "W08FILEWATCHER",
+      "W12PHISYNC"
+    ],
     "onboarding": {
       "quick_start": "Use directory structure (agent/inbox, agent/outbox, shared/events) with atomic file writes and lock files for synchronization",
       "full_context_path": "/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md",
@@ -24,7 +36,9 @@
       ]
     },
     "resources": {
-      "docs": ["/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md"],
+      "docs": [
+        "/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +48,30 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["file IPC", "filesystem", "polling", "atomic operations", "file locks"],
+      "tags": [
+        "file IPC",
+        "filesystem",
+        "polling",
+        "atomic operations",
+        "file locks"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "COMMUNICATION",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11"],
-      "agent_affinity": ["DC", "VSCC", "TERMC", "KALIC", "WEBC", "CMDC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "TERMC",
+        "KALIC",
+        "WEBC",
+        "CMDC"
+      ],
+      "size_bytes": 2083,
+      "token_estimate": 521.0
     }
   }
 }

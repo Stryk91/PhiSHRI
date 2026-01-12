@@ -9,11 +9,15 @@
   ],
   "context_bundle": {
     "summary": "Setup guide for running SWE-bench benchmarks with PhiSHRI MCP integration. Uses SWE-ReX for sandbox execution and PhiSHRI doors for knowledge injection. Includes setup script, benchmark runner, and comparison methodology.",
-    "prerequisites": ["W80SWE_BENCH_STRATEGY"],
-    "related_doors": ["W80SWE_BENCH_STRATEGY", "F01DJANGO_PATTERNS"],
+    "prerequisites": [
+      "W80SWE_BENCH_STRATEGY"
+    ],
+    "related_doors": [
+      "W80SWE_BENCH_STRATEGY",
+      "F01DJANGO_PATTERNS"
+    ],
     "onboarding": {
       "quick_start": "Run scripts/setup-swe-bench.ps1 to install everything. Then: cd C:\\SWE-Bench && .\\activate-swe-bench.ps1 && python run_benchmark.py -n 10",
-
       "components": {
         "swe_rex": {
           "what": "Runtime interface for sandboxed shell environments from Princeton NLP",
@@ -31,11 +35,15 @@
         },
         "phishri_integration": {
           "what": "Knowledge injection via MCP",
-          "doors_used": ["W80 Strategy", "L60 Errors", "F01-F05 Frameworks", "E50-E52 Debug/Patch"],
+          "doors_used": [
+            "W80 Strategy",
+            "L60 Errors",
+            "F01-F05 Frameworks",
+            "E50-E52 Debug/Patch"
+          ],
           "impact": "Pre-loaded context reduces trial-and-error"
         }
       },
-
       "setup_steps": {
         "step_1": {
           "action": "Run setup script",
@@ -61,7 +69,6 @@
           }
         }
       },
-
       "benchmark_methodology": {
         "comparison_design": {
           "control": "Claude + standard tools, no PhiSHRI",
@@ -70,12 +77,26 @@
           "metric": "% of instances where patch passes all tests"
         },
         "door_loading_strategy": {
-          "always_load": ["W80SWE_BENCH_STRATEGY", "L60PYTHON_COMMON_ERRORS", "E52GIT_PATCH_FORMAT"],
+          "always_load": [
+            "W80SWE_BENCH_STRATEGY",
+            "L60PYTHON_COMMON_ERRORS",
+            "E52GIT_PATCH_FORMAT"
+          ],
           "repo_specific": {
-            "django/*": ["F01DJANGO_PATTERNS", "F02DJANGO_ERRORS"],
-            "pallets/flask": ["F03FLASK_PATTERNS"],
-            "psf/requests": ["L60PYTHON_COMMON_ERRORS"],
-            "*": ["F05PYTEST_PATTERNS", "E50PYTHON_DEBUG_PATTERNS"]
+            "django/*": [
+              "F01DJANGO_PATTERNS",
+              "F02DJANGO_ERRORS"
+            ],
+            "pallets/flask": [
+              "F03FLASK_PATTERNS"
+            ],
+            "psf/requests": [
+              "L60PYTHON_COMMON_ERRORS"
+            ],
+            "*": [
+              "F05PYTEST_PATTERNS",
+              "E50PYTHON_DEBUG_PATTERNS"
+            ]
           }
         },
         "expected_impact": {
@@ -84,7 +105,6 @@
           "hypothesis": "Pre-loaded patterns reduce syntax errors, wrong-file edits, and over-engineering"
         }
       },
-
       "integration_architecture": {
         "diagram": "Claude Desktop\n    │\n    ├── Windows MCP ──► Shell execution (pip, python, git)\n    │\n    ├── Everything MCP ──► File search in benchmark repos\n    │\n    ├── PhiSHRI MCP ──► Load strategy + error + framework doors\n    │\n    └── SWE-ReX (via shell) ──► Sandbox execution, test running",
         "data_flow": [
@@ -98,7 +118,6 @@
           "8. Record pass/fail"
         ]
       },
-
       "troubleshooting": {
         "python_not_found": {
           "error": "Python not found",
@@ -117,7 +136,6 @@
           "fix": "Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser"
         }
       },
-
       "results_analysis": {
         "output_format": {
           "file": "benchmark_results.json",
@@ -142,11 +160,22 @@
     "metadata": {
       "last_updated": "2025-11-27T16:00:00Z",
       "confidence": 0.95,
-      "tags": ["swe-bench", "benchmark", "setup", "swe-rex", "phishri"],
+      "tags": [
+        "swe-bench",
+        "benchmark",
+        "setup",
+        "swe-rex",
+        "phishri"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "BENCHMARKS",
       "version": "1.0.0",
-      "agent_affinity": ["DC", "TERMC"]
+      "agent_affinity": [
+        "DC",
+        "TERMC"
+      ],
+      "size_bytes": 6778,
+      "token_estimate": 1695.0
     }
   }
 }

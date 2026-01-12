@@ -1,0 +1,63 @@
+{
+  "door_code": "T80PAD_DATABASE_ADV",
+  "semantic_path": "TOOLS.AUTOMATION.PAD.DATABASE_ADVANCED",
+  "aliases": [
+    "connection string",
+    "sql injection",
+    "transactions",
+    "batch insert"
+  ],
+  "context_bundle": {
+    "summary": "Connection strings by DB type, SQL injection prevention (sanitize or stored procs), transactions (BEGIN/COMMIT/ROLLBACK in On Block Error), batch inserts (single INSERT with VALUES list), pagination (OFFSET-FETCH/LIMIT), connection pooling params",
+    "prerequisites": [
+      "T71PAD_DATABASE"
+    ],
+    "related_doors": [
+      "T70PAD_SYSTEM"
+    ],
+    "onboarding": {
+      "quick_start": "SQL Server: Server=x;Database=y;User Id=u;Password=p; | MySQL: Server=x;Database=y;Uid=u;Pwd=p; | Open once, reuse, close at end",
+      "full_context_path": "",
+      "common_patterns": [
+        "SQL Server trusted: Server=x;Database=y;Trusted_Connection=True;",
+        "Pooling: ...;Pooling=true;Min Pool Size=5;Max Pool Size=100;",
+        "Transaction: BEGIN TRAN -> [ops] -> COMMIT (or ROLLBACK in error handler)",
+        "Batch insert: INSERT INTO T VALUES (a,b),(c,d),(e,f) - single roundtrip",
+        "Pagination: SELECT * ORDER BY id OFFSET @skip ROWS FETCH NEXT @take ROWS ONLY",
+        "Stored proc: EXEC sp_Name @Param1='%Val1%', @Param2=%Val2%"
+      ],
+      "known_errors": [
+        "SQL injection: Replace ' with '' in inputs, or use stored procs",
+        "PAD Execute SQL returns FIRST result set only from multi-result procs",
+        "Open connection once, not per query in loop (massive perf hit)",
+        "Connection timeout default 15s - increase for slow networks"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T17:47:52.415479500+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "pad",
+        "database",
+        "sql",
+        "transactions",
+        "connection",
+        "security"
+      ],
+      "category": "TOOLS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 2142,
+      "token_estimate": 536.0
+    }
+  }
+}

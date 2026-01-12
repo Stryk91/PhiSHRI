@@ -1,0 +1,60 @@
+{
+  "door_code": "R70CRITICAL_PATHS",
+  "semantic_path": "ARCHITECTURE.PATHS.CRITICAL",
+  "aliases": [
+    "paths",
+    "locations",
+    "critical paths",
+    "file locations"
+  ],
+  "context_bundle": {
+    "summary": "Critical file paths and locations across the PhiVector ecosystem. Reference before assuming paths.",
+    "prerequisites": [],
+    "related_doors": [
+      "S01DC_SESSION_BOOT",
+      "S00KALIC_SESSION_BOOT",
+      "A30PHIEXECUTOR"
+    ],
+    "onboarding": {
+      "quick_start": "VHDX: F:\\\\CARBYNE.vhdx (production) mounts as X:. AHK: C:\\\\Program Files\\\\AHK\\\\v2\\\\AutoHotkey64.exe. Scripts: X:\\\\AHK  SCRIPTS\\\\. PhiExecutor: X:\\\\Automation\\\\. KALIC brain: C:\\\\PhiDEX\\\\kalic_brain\\\\. PhiSHRI: C:\\\\Users\\\\Stryker_LOCAL\\\\.phishri\\\\. Tool schemas: C:\\\\PhiDEX\\\\tool_schemas\\\\.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Everything MCP for fast file search",
+        "Test-Path before assuming exists",
+        "X: drive = F:\\CARBYNE.vhdx mounted"
+      ],
+      "known_errors": [
+        "D:\\CARBYNE_DEV.vhdx is SANDBOX not production",
+        "AHK scripts path has TWO SPACES: X:\\AHK  SCRIPTS\\",
+        "X: not mounted = 4 MCPs dead (git/mux/sigcon/carbyne)"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-05T18:49:53.454460100+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "paths",
+        "locations",
+        "vhdx",
+        "ahk",
+        "phishri",
+        "kalic"
+      ],
+      "category": "ARCHITECTURE",
+      "subcategory": "PATHS",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ],
+      "size_bytes": 1755,
+      "token_estimate": 439.0
+    }
+  }
+}

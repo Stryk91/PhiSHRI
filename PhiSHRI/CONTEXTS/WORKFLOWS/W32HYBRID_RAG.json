@@ -1,11 +1,21 @@
 {
   "door_code": "W32HYBRID_RAG",
   "semantic_path": "WORKFLOWS.AI_OPTIMIZATION.HYBRID_RAG_LONGCONTEXT",
-  "aliases": ["hybrid_rag", "rag_plus_context", "best_of_both"],
+  "aliases": [
+    "hybrid_rag",
+    "rag_plus_context",
+    "best_of_both"
+  ],
   "context_bundle": {
     "summary": "Hybrid RAG + Long-Context: Retrieve relevant chunks (RAG), pass with full doc context to LLM. Best of both worlds. 65% cost reduction (Gemini), 39% (GPT-4O). Use RAG for retrieval, long-context for cross-document reasoning. Optimal for <100K token docs with complex queries.",
-    "prerequisites": ["W30RAG", "W29CONTEXT_WINDOW"],
-    "related_doors": ["W31CHUNKING", "W04TOKEN"],
+    "prerequisites": [
+      "W30RAG",
+      "W29CONTEXT_WINDOW"
+    ],
+    "related_doors": [
+      "W31CHUNKING",
+      "W04TOKEN"
+    ],
     "onboarding": {
       "quick_start": "Hybrid = RAG retrieval + long-context processing. Step 1: RAG retrieves top chunks. Step 2: Include full document in context. Step 3: LLM reasons across both. Benefits: cost savings (65% Gemini), better cross-document synthesis. Use for docs <100K tokens with complex reasoning needs.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md",
@@ -19,7 +29,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -29,12 +41,27 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["ai", "hybrid_rag", "longcontext", "optimization"],
+      "tags": [
+        "ai",
+        "hybrid_rag",
+        "longcontext",
+        "optimization"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "AI_OPTIMIZATION",
       "version": "1.0.0",
-      "tested_on": ["Gemini", "GPT-4O", "Claude"],
-      "agent_affinity": ["DC", "VSCC", "WEBC"]
+      "tested_on": [
+        "Gemini",
+        "GPT-4O",
+        "Claude"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "WEBC"
+      ],
+      "size_bytes": 1929,
+      "token_estimate": 483.0
     }
   }
 }

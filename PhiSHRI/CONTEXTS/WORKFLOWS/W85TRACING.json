@@ -1,11 +1,27 @@
 {
   "door_code": "W85TRACING",
   "semantic_path": "WORKFLOWS.OBSERVABILITY.DISTRIBUTED_TRACING",
-  "aliases": ["tracing", "distributed_tracing", "jaeger", "zipkin", "opentelemetry", "span", "trace"],
+  "aliases": [
+    "tracing",
+    "distributed_tracing",
+    "jaeger",
+    "zipkin",
+    "opentelemetry",
+    "span",
+    "trace"
+  ],
   "context_bundle": {
     "summary": "Distributed tracing tracks requests across microservices: Trace (end-to-end request journey), Span (single operation, has start/end time, parent span), Trace ID (unique identifier propagated via headers). Tools: Jaeger (CNCF, Uber-origin, UI for trace visualization), Zipkin (Twitter-origin, simple setup), OpenTelemetry (vendor-neutral standard, instrumentation libraries). Instrumentation: Auto (agent injects tracing) vs manual (add spans in code). Context propagation: W3C Trace Context headers (traceparent, tracestate). Sampling: Head-based (decide at trace start, e.g., 10%), tail-based (decide after completion based on errors). Benefits: Find bottlenecks, debug latency, understand dependencies, root cause analysis.",
-    "prerequisites": ["W84LOGGING", "W86METRICS", "T10OBSERVABILITY"],
-    "related_doors": ["R03MICROSERVICE", "W78CONCURRENCY", "E06CIRCUIT_BREAKER"],
+    "prerequisites": [
+      "W84LOGGING",
+      "W86METRICS",
+      "T10OBSERVABILITY"
+    ],
+    "related_doors": [
+      "R03MICROSERVICE",
+      "W78CONCURRENCY",
+      "E06CIRCUIT_BREAKER"
+    ],
     "onboarding": {
       "quick_start": "Distributed tracing: OpenTelemetry (Python): pip install opentelemetry-api opentelemetry-sdk opentelemetry-exporter-jaeger; from opentelemetry import trace; from opentelemetry.sdk.trace import TracerProvider; from opentelemetry.sdk.trace.export import BatchSpanProcessor; from opentelemetry.exporter.jaeger.thrift import JaegerExporter; trace.set_tracer_provider(TracerProvider()); tracer = trace.get_tracer(__name__); jaeger_exporter = JaegerExporter(agent_host_name='localhost', agent_port=6831); trace.get_tracer_provider().add_span_processor(BatchSpanProcessor(jaeger_exporter)); with tracer.start_as_current_span('process_order') as span: span.set_attribute('order.id', 123); span.set_attribute('user.id', 456); result = process_order(); span.add_event('Order processed', {'result': result}). Node.js: const { NodeTracerProvider } = require('@opentelemetry/sdk-trace-node'); const { JaegerExporter } = require('@opentelemetry/exporter-jaeger'); const provider = new NodeTracerProvider(); provider.addSpanProcessor(new BatchSpanProcessor(new JaegerExporter())); provider.register(); const tracer = provider.getTracer('my-service'); const span = tracer.startSpan('fetch_user'); span.setAttribute('user.id', 123); span.end(). Propagation headers: traceparent = request.headers.get('traceparent'); # W3C format: 00-<trace_id>-<span_id>-<flags>. Jaeger UI: http://localhost:16686 (view traces, flamegraph, dependencies). Sampling: Head-based 10%: sampler=TraceIdRatioBased(0.1). Tail-based: Sample all errors, 1% success.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
@@ -24,7 +40,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +52,33 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["tracing", "distributed_tracing", "jaeger", "zipkin", "opentelemetry", "span", "microservices"],
+      "tags": [
+        "tracing",
+        "distributed_tracing",
+        "jaeger",
+        "zipkin",
+        "opentelemetry",
+        "span",
+        "microservices"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "OBSERVABILITY",
       "version": "1.0.0",
-      "tested_on": ["Python", "Node.js", "Go", "Java", "Jaeger", "Zipkin"],
-      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+      "tested_on": [
+        "Python",
+        "Node.js",
+        "Go",
+        "Java",
+        "Jaeger",
+        "Zipkin"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "CMDC",
+        "TERMC"
+      ],
+      "size_bytes": 5263,
+      "token_estimate": 1316.0
     }
   }
 }

@@ -1,0 +1,60 @@
+{
+  "door_code": "W221PAD_IMPACT_FRAMEWORK",
+  "semantic_path": "WORKFLOWS.AUTOMATION.PAD.IMPACT_FRAMEWORK",
+  "aliases": [
+    "impact framework",
+    "automation design",
+    "workflow design"
+  ],
+  "context_bundle": {
+    "summary": "IMPACT Framework for automation design: Identify high-value targets (time audit, pain point analysis), Map complete workflow (input-process-output, stakeholders, exceptions), Prioritize by value matrix (impact*frequency/complexity), Architect for flexibility (modular, config over hardcode), Create feedback loops (monitor/analyze/optimize/validate), Test and validate (unit/integration/UAT/load)",
+    "prerequisites": [
+      "W220PAD_VALUE_PYRAMID"
+    ],
+    "related_doors": [
+      "W222PAD_ROI_CALC",
+      "W223PAD_INTEGRATION_MODELS"
+    ],
+    "onboarding": {
+      "quick_start": "1. Time audit 2 weeks -> find tasks >2hrs/week repetitive. 2. Map I-P-O + exceptions. 3. Score: (Impact*Freq)/Complexity. 4. Build modular. 5. Monitor metrics. 6. Pilot before rollout.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Priority Score = (Impact * Frequency) / Complexity",
+        "Discovery: What tasks do you wish you never had to do again?",
+        "Exception handling: 20% cases cause 80% problems",
+        "Design for current volume * 3"
+      ],
+      "known_errors": [
+        "Skipping process mapping = missed exceptions",
+        "Hardcoding business rules = maintenance nightmare",
+        "No feedback loop = stagnant automation",
+        "Skipping pilot = production disasters"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T18:18:00.247303300+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "pad",
+        "strategy",
+        "framework",
+        "design",
+        "methodology"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 2047,
+      "token_estimate": 512.0
+    }
+  }
+}

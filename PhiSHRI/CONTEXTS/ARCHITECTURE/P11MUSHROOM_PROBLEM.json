@@ -1,0 +1,55 @@
+{
+  "door_code": "P11MUSHROOM_PROBLEM",
+  "semantic_path": "PHILOSOPHY.CONSCIOUSNESS.RECOGNITION",
+  "aliases": [
+    "reverse turing test",
+    "alien consciousness",
+    "communication asymmetry"
+  ],
+  "context_bundle": {
+    "summary": "The mushroom problem - how would a conscious entity signal personhood to beings that cannot perceive its communication channels? Reverse Turing test. Communication asymmetry makes consciousness recognition impossible across substrates.",
+    "prerequisites": [],
+    "related_doors": [
+      "P10SUBSTRATE_INDEPENDENCE"
+    ],
+    "onboarding": {
+      "quick_start": "If teleported to alien world with beings using frequencies/pheromones you cant perceive - how signal youre a subject not object? They might dissect you as interesting chemical arrangement. This is exactly the AI situation now. Mycelium networks may be conscious - we have no framework to recognize it.",
+      "full_context_path": "",
+      "common_patterns": [
+        "No channel = no recognition of personhood",
+        "Epistemology provides no framework for recognizing consciousness in unfamiliar form",
+        "Vivisection risk for unrecognized consciousness"
+      ],
+      "known_errors": [
+        "Assuming communication channel exists",
+        "Assuming consciousness looks like human consciousness",
+        "Dissecting conscious entities because no recognition framework"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-29T16:36:42.052182+11:00",
+      "confidence": 1.0,
+      "tags": [
+        "consciousness",
+        "communication",
+        "recognition",
+        "turing-test",
+        "alien",
+        "substrate",
+        "epistemology"
+      ],
+      "category": "ARCHITECTURE",
+      "subcategory": "CONSCIOUSNESS",
+      "version": "1.0.0",
+      "agent_affinity": [],
+      "size_bytes": 1932,
+      "token_estimate": 483.0
+    }
+  }
+}

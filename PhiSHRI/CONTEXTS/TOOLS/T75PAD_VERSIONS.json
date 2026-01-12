@@ -1,0 +1,65 @@
+{
+  "door_code": "T75PAD_VERSIONS",
+  "semantic_path": "TOOLS.AUTOMATION.PAD.VERSIONS",
+  "aliases": [
+    "pad versions",
+    "pad changelog",
+    "pad updates",
+    "pad patch notes"
+  ],
+  "context_bundle": {
+    "summary": "PAD version history and changelog 2024-2025. Key releases: 2508 WebDriver browser automation, 2411 Cloud connectors GA + Power Fx GA, 2408 dynamic subflows, 2407 Excel cell colors, 2401 Word actions + blank values. No Robin action deprecations - only cloud connector deprecations",
+    "prerequisites": [
+      "T59POWER_AUTOMATE_DESKTOP"
+    ],
+    "related_doors": [
+      "T60PAD_VARIABLES",
+      "T63PAD_EXCEL",
+      "T66PAD_WEB"
+    ],
+    "onboarding": {
+      "quick_start": "Current: 2508 (2.59.x). Check version: PAD console Help > About. Auto-updates via Microsoft Store or manual installer from MS download center",
+      "full_context_path": "",
+      "common_patterns": [
+        "2508: WebDriver browser automation (preview) - no extension needed",
+        "2507: Subflow reorganization, Terminal->Session category rename",
+        "2411: Cloud connectors GA, Power Fx flows GA, CyberArk credentials",
+        "2408: Dynamic subflow invocation via 'Input as expression', Log 10K chars (was 128)",
+        "2407: Set color of cells Excel action, Go To cross-scope labels",
+        "2403: Clear cells Excel action, Power Fx IntelliSense",
+        "2401: Word actions, Create HTML content, Blank values support, SAP Attach"
+      ],
+      "known_errors": [
+        "No Robin syntax deprecations - all classic actions still supported",
+        "Cloud connector deprecations don't affect desktop actions",
+        "Personal MS accounts deprecated in cloud only - PAD desktop unaffected",
+        "SQL Server V1 connector deprecated June 2025 - use V2"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T17:36:01.037842700+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "pad",
+        "versions",
+        "changelog",
+        "updates",
+        "deprecations"
+      ],
+      "category": "TOOLS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 2279,
+      "token_estimate": 570.0
+    }
+  }
+}

@@ -1,11 +1,24 @@
 {
   "door_code": "W53KAFKA",
   "semantic_path": "WORKFLOWS.DATA_PROCESSING.KAFKA_MESSAGING",
-  "aliases": ["kafka", "messaging", "event_streaming", "message_queue", "pub_sub"],
+  "aliases": [
+    "kafka",
+    "messaging",
+    "event_streaming",
+    "message_queue",
+    "pub_sub"
+  ],
   "context_bundle": {
     "summary": "Apache Kafka distributed streaming platform: Publish-subscribe messaging with topics, partitions, consumer groups. Producers publish records, consumers subscribe to topics. Partitioning for parallelism, replication for fault tolerance. Kafka Streams for processing. Performance: tens of millions events/sec, 10-100ms latency. Use cases: event streaming, log aggregation, metrics, CDC (Change Data Capture). Alternatives: Kinesis (AWS), Pub/Sub (GCP).",
-    "prerequisites": ["W51STREAM", "T09IPC_METHODS"],
-    "related_doors": ["W50ETL", "W52BATCH", "A09MESSAGE_QUEUE"],
+    "prerequisites": [
+      "W51STREAM",
+      "T09IPC_METHODS"
+    ],
+    "related_doors": [
+      "W50ETL",
+      "W52BATCH",
+      "A09MESSAGE_QUEUE"
+    ],
     "onboarding": {
       "quick_start": "Kafka basics: Topics (categories), Partitions (parallelism), Consumer Groups (load balancing). Producer: producer.send(topic='events', value=message). Consumer: consumer.subscribe(['events']), for message in consumer: process(message.value). Config: bootstrap.servers='localhost:9092', group.id='consumer-group'. Kafka Streams: KStream.filter().map().to('output-topic'). Performance: millions/sec throughput, sub-100ms latency. Replication: factor=3 for HA. Partitions: more partitions = more parallelism. Use for: event streaming, logs, metrics, CDC.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/05_DATA_PROCESSING/DATA_PROCESSING_MANAGEMENT_RESEARCH.md",
@@ -24,7 +37,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/05_DATA_PROCESSING/DATA_PROCESSING_MANAGEMENT_RESEARCH.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/05_DATA_PROCESSING/DATA_PROCESSING_MANAGEMENT_RESEARCH.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +49,29 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["kafka", "messaging", "streaming", "pub_sub", "event_driven", "distributed"],
+      "tags": [
+        "kafka",
+        "messaging",
+        "streaming",
+        "pub_sub",
+        "event_driven",
+        "distributed"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "DATA_PROCESSING",
       "version": "1.0.0",
-      "tested_on": ["Apache Kafka", "Confluent", "AWS MSK"],
-      "agent_affinity": ["VSCC", "TERMC", "CMDC"]
+      "tested_on": [
+        "Apache Kafka",
+        "Confluent",
+        "AWS MSK"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "TERMC",
+        "CMDC"
+      ],
+      "size_bytes": 2976,
+      "token_estimate": 744.0
     }
   }
 }

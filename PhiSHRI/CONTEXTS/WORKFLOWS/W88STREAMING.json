@@ -1,11 +1,27 @@
 {
   "door_code": "W88STREAMING",
   "semantic_path": "WORKFLOWS.DATA_PROCESSING.STREAM_PROCESSING",
-  "aliases": ["streaming", "stream_processing", "kafka", "flink", "spark_streaming", "real_time"],
+  "aliases": [
+    "streaming",
+    "stream_processing",
+    "kafka",
+    "flink",
+    "spark_streaming",
+    "real_time"
+  ],
   "context_bundle": {
     "summary": "Stream processing handles continuous data flows in real-time using frameworks like Apache Kafka, Flink, and Spark Streaming with windowing, stateful operations, and exactly-once semantics for reliable event processing.",
-    "prerequisites": ["W98MESSAGE_QUEUE", "W84LOGGING", "W86METRICS"],
-    "related_doors": ["W87ETL", "W91DATA_PIPELINE", "W92DATA_TRANSFORM", "T19KAFKA"],
+    "prerequisites": [
+      "W98MESSAGE_QUEUE",
+      "W84LOGGING",
+      "W86METRICS"
+    ],
+    "related_doors": [
+      "W87ETL",
+      "W91DATA_PIPELINE",
+      "W92DATA_TRANSFORM",
+      "T19KAFKA"
+    ],
     "onboarding": {
       "quick_start": "Stream processing workflow: 1) Consume from stream (Kafka topic, Kinesis). 2) Apply transformations (map, filter, aggregate) using windowing (tumbling, sliding, session). 3) Maintain state for stateful operations (joins, aggregations). 4) Produce to output stream or sink. Implement checkpointing for fault tolerance.",
       "full_context_path": "/PhiDEX/industry_knowledge/stream_processing_patterns.md",
@@ -15,25 +31,53 @@
         "Windowing (Flink): stream.keyBy(lambda x: x['user_id']).window(TumblingEventTimeWindows.of(Time.minutes(5))).aggregate(AggregateFunction()).addSink(output_sink)",
         "Exactly-once semantics: Use idempotent operations, transactional writes, and checkpointing to guarantee each event processed exactly once"
       ],
-      "known_errors": ["E08NETWORK_ERRORS", "E11RACE_CONDITIONS"]
+      "known_errors": [
+        "E08NETWORK_ERRORS",
+        "E11RACE_CONDITIONS"
+      ]
     },
     "resources": {
-      "docs": ["/PhiDEX/industry_knowledge/stream_processing_patterns.md"],
+      "docs": [
+        "/PhiDEX/industry_knowledge/stream_processing_patterns.md"
+      ],
       "code": [],
       "tests": [],
-      "errors": ["E08NETWORK_ERRORS", "E11RACE_CONDITIONS"]
+      "errors": [
+        "E08NETWORK_ERRORS",
+        "E11RACE_CONDITIONS"
+      ]
     },
     "metadata": {
       "last_updated": "2025-11-21T00:00:00Z",
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["streaming", "real_time", "kafka", "flink", "spark_streaming", "event_processing", "windowing"],
+      "tags": [
+        "streaming",
+        "real_time",
+        "kafka",
+        "flink",
+        "spark_streaming",
+        "event_processing",
+        "windowing"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "DATA_PROCESSING",
       "version": "1.0.0",
-      "tested_on": ["Apache Kafka", "Apache Flink", "Spark Streaming", "AWS Kinesis", "Azure Event Hubs"],
-      "agent_affinity": ["DC", "VSCC", "WEBC"]
+      "tested_on": [
+        "Apache Kafka",
+        "Apache Flink",
+        "Spark Streaming",
+        "AWS Kinesis",
+        "Azure Event Hubs"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "WEBC"
+      ],
+      "size_bytes": 2765,
+      "token_estimate": 692.0
     }
   }
 }

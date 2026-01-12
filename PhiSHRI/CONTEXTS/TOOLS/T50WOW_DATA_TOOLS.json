@@ -1,0 +1,81 @@
+{
+  "door_code": "T50WOW_DATA_TOOLS",
+  "semantic_path": "TOOLS.WOW.DATA_EXTRACTION",
+  "aliases": [
+    "wow data",
+    "spell database",
+    "db2 export",
+    "wow.tools.local",
+    "DBC2CSV",
+    "wago tools"
+  ],
+  "context_bundle": {
+    "summary": "WoW game data extraction tools - wow.tools.local for DB2 browsing/export, DBC2CSV for batch conversion, and wago.tools for online access. Enables programmatic spell/item/talent lookups.",
+    "prerequisites": [],
+    "related_doors": [
+      "T45WA_ENCODER_RS",
+      "P25CVARMASTER_ADDON",
+      "G01WOW_OPTIMIZATION"
+    ],
+    "onboarding": {
+      "common_patterns": [
+        "SELECT ID, Name_lang FROM SpellName WHERE Name_lang LIKE '%spell%'",
+        "SELECT * FROM v_spell_effects WHERE SpellID = 450373",
+        "SELECT * FROM Talent WHERE ID = 123",
+        "Join SpellName to SpellEffect via SpellID"
+      ],
+      "known_errors": [
+        "wow.tools.local requires .NET 10",
+        "6-8GB RAM for full DB2 browsing",
+        "Database locked if MCP has it open"
+      ],
+      "quick_start": "Spell DB: C:\\PhiDEX\\databases\\wow\\wow_spells.db (175MB, 2M rows). Tables: SpellName, Spell, SpellEffect, SpellAuraOptions, SpellMisc, SpellLabel, Talent. Views: v_spell_full, v_spell_effects. Query: SELECT * FROM SpellName WHERE Name_lang LIKE '%search%'. Tools: wow.tools.local at X:\\tools\\wow-data\\, DBC2CSV for batch conversion."
+    },
+    "resources": [
+      {
+        "path": "C:\\PhiDEX\\databases\\wow\\wow_spells.db",
+        "type": "database",
+        "description": "SQLite spell database"
+      },
+      {
+        "path": "X:\\tools\\wow-data\\wow.tools.local\\wow.tools.local.exe",
+        "type": "tool",
+        "description": "DB2 browser"
+      },
+      {
+        "path": "X:\\tools\\wow-data\\DBC2CSV\\DBC2CSV.exe",
+        "type": "tool",
+        "description": "CSV converter"
+      },
+      {
+        "type": "website",
+        "url": "https://wago.tools/db2",
+        "description": "Online DB2 browser"
+      }
+    ],
+    "metadata": {
+      "last_updated": "2026-01-02T03:50:50.281836100+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "wow",
+        "db2",
+        "dbc",
+        "spell",
+        "data",
+        "extraction",
+        "csv",
+        "wago",
+        "wow.tools",
+        "marlamin",
+        "database"
+      ],
+      "category": "TOOLS",
+      "subcategory": "WOW",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ]
+    }
+  }
+}

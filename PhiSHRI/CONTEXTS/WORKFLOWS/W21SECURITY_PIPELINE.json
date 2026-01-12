@@ -1,0 +1,59 @@
+{
+  "door_code": "W21SECURITY_PIPELINE",
+  "semantic_path": "WORKFLOWS.SECURITY.PIPELINE",
+  "aliases": [
+    "security pipeline",
+    "kalic scanner",
+    "vuln scan"
+  ],
+  "context_bundle": {
+    "summary": "KALIC security pipeline: vuln_scan.sh (nmap/nikto/lynis), dep_audit.sh (npm/pip/cargo), owasp_check.sh (code analysis). Main dispatcher: kalic_security.sh. Accepts W20TASK_DISPATCH JSON format.",
+    "prerequisites": [
+      "W20TASK_DISPATCH",
+      "A05KALIC"
+    ],
+    "related_doors": [
+      "A01DC",
+      "S01SEC"
+    ],
+    "onboarding": {
+      "quick_start": "Send task via AHK: {type:'SCAN'|'AUDIT', target:path, params:{tool:'vuln_scan'|'dep_audit'|'owasp_check'}}. Reports to C:/PhiDEX/security_pipeline/reports/",
+      "full_context_path": "",
+      "common_patterns": [
+        "vuln_scan: nmap port scan, nikto web scan, lynis system audit",
+        "dep_audit: npm audit, pip list --outdated, cargo audit",
+        "owasp_check: injection, path traversal, input validation"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-02T00:50:26.165861500+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "security",
+        "scanning",
+        "kalic",
+        "nmap",
+        "nikto",
+        "lynis",
+        "owasp",
+        "dependency-audit"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "SECURITY",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "KALIC",
+        "DC"
+      ],
+      "size_bytes": 1590,
+      "token_estimate": 398.0
+    }
+  }
+}

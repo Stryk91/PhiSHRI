@@ -1,0 +1,42 @@
+{
+  "door_code": "R03MICROSERVICES",
+  "semantic_path": "ARCHITECTURE.PATTERNS.MICROSERVICES",
+  "aliases": [
+    "microservices",
+    "microservice",
+    "service architecture"
+  ],
+  "context_bundle": {
+    "summary": "Microservices architecture. Small, independently deployable services. API contracts, service discovery, distributed tracing.",
+    "prerequisites": [],
+    "related_doors": [],
+    "onboarding": {
+      "quick_start": "",
+      "full_context_path": "",
+      "common_patterns": [],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-06T06:58:22.363885+11:00",
+      "confidence": 1.0,
+      "tags": [
+        "architecture",
+        "microservices",
+        "distributed",
+        "services"
+      ],
+      "category": "ARCHITECTURE",
+      "subcategory": "PATTERNS",
+      "version": "1.0.0",
+      "agent_affinity": [],
+      "size_bytes": 983,
+      "token_estimate": 246.0
+    }
+  }
+}

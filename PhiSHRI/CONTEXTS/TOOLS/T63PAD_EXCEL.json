@@ -1,0 +1,61 @@
+{
+  "door_code": "T63PAD_EXCEL",
+  "semantic_path": "TOOLS.AUTOMATION.PAD.EXCEL",
+  "aliases": [
+    "pad excel",
+    "excel automation",
+    "spreadsheet automation"
+  ],
+  "context_bundle": {
+    "summary": "PAD Excel actions: Launch/Attach, Read/Write cells, Worksheets (Set/Get/Add/Delete/Rename/GetAll), Find/Replace, Macro, First Free Row/Col, Select/Copy/Paste, Insert/Delete Row/Col, Save/Close",
+    "prerequisites": [
+      "T59POWER_AUTOMATE_DESKTOP"
+    ],
+    "related_doors": [
+      "T64PAD_FILES",
+      "T60PAD_VARIABLES"
+    ],
+    "onboarding": {
+      "quick_start": "Launch Excel -> Read from worksheet (range A1:D10) -> Process %ExcelData% datatable -> Write to worksheet -> Close Excel (save)",
+      "full_context_path": "",
+      "common_patterns": [
+        "Launch Excel with document 'path.xlsx' -> %ExcelInstance%",
+        "Read from Excel worksheet range A1:D10 first row headers:True -> %ExcelData%",
+        "Write %DataTable% to Excel worksheet column A row 1",
+        "Get first free column/row -> append data at %FirstFreeRow%",
+        "Find and replace 'old' with 'new' in all matches",
+        "Close Excel before:SaveAs format:xlsx path:'output.xlsx'"
+      ],
+      "known_errors": [
+        "Excel instance not visible - set Make instance visible:True",
+        "Password protected files need password parameter",
+        "Writing DataTable overwrites cells to right and below"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T17:10:45.033817100+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "pad",
+        "excel",
+        "spreadsheet",
+        "automation",
+        "rpa"
+      ],
+      "category": "TOOLS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1902,
+      "token_estimate": 476.0
+    }
+  }
+}

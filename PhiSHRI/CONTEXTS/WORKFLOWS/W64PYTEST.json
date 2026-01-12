@@ -1,11 +1,22 @@
 {
   "door_code": "W64PYTEST",
   "semantic_path": "WORKFLOWS.TESTING.PYTEST_FRAMEWORK",
-  "aliases": ["pytest", "python_testing", "py.test"],
+  "aliases": [
+    "pytest",
+    "python_testing",
+    "py.test"
+  ],
   "context_bundle": {
     "summary": "Pytest: Python testing framework with powerful features. Simple syntax (assert keyword), fixtures for setup/teardown, parametrization, plugins. Features: Auto-discovery (test_*.py), detailed failure reports, markers (@pytest.mark), parallel execution (pytest-xdist), coverage (pytest-cov). Fixtures: @pytest.fixture for reusable setup. Parametrize: @pytest.mark.parametrize for data-driven tests. Plugins: pytest-django, pytest-asyncio, pytest-mock. Run: pytest (all tests), pytest test_file.py (specific file), pytest -k 'test_name' (pattern matching), pytest -v (verbose).",
-    "prerequisites": ["W58UNITTEST"],
-    "related_doors": ["W61MOCKING", "W62TDD", "W66COVERAGE", "W59INTEGRATION"],
+    "prerequisites": [
+      "W58UNITTEST"
+    ],
+    "related_doors": [
+      "W61MOCKING",
+      "W62TDD",
+      "W66COVERAGE",
+      "W59INTEGRATION"
+    ],
     "onboarding": {
       "quick_start": "Pytest: pip install pytest. Write tests: def test_addition(): assert 1 + 1 == 2; def test_string(): assert 'hello'.upper() == 'HELLO'. Run: pytest (discovers test_*.py or *_test.py files). Fixtures: @pytest.fixture def db_connection(): conn = create_connection(); yield conn; conn.close(); def test_query(db_connection): result = db_connection.query('SELECT 1'); assert result == [(1,)]. Parametrize: @pytest.mark.parametrize('input,expected', [(2, 4), (3, 9), (0, 0)]) def test_square(input, expected): assert square(input) == expected. Markers: @pytest.mark.slow def test_heavy_computation(): ...; Run: pytest -m slow. Parallel: pytest -n auto (pytest-xdist). Coverage: pytest --cov=myapp --cov-report=html. Config: pytest.ini or pyproject.toml [tool.pytest.ini_options].",
       "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
@@ -24,7 +35,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +47,27 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["pytest", "python", "testing", "fixtures", "parametrize", "unittest"],
+      "tags": [
+        "pytest",
+        "python",
+        "testing",
+        "fixtures",
+        "parametrize",
+        "unittest"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "TESTING",
       "version": "1.0.0",
-      "tested_on": ["Python 3.8+"],
-      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+      "tested_on": [
+        "Python 3.8+"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "CMDC",
+        "TERMC"
+      ],
+      "size_bytes": 4104,
+      "token_estimate": 1026.0
     }
   }
 }

@@ -1,11 +1,24 @@
 {
   "door_code": "W12PHISYNC",
   "semantic_path": "WORKFLOWS.COORDINATION.PHISYNC_PROTOCOL",
-  "aliases": ["phisync", "multi_agent", "agent_comm", "file_ipc"],
+  "aliases": [
+    "phisync",
+    "multi_agent",
+    "agent_comm",
+    "file_ipc"
+  ],
   "context_bundle": {
     "summary": "PhiSync: Multi-agent coordination protocol for PhiVector infrastructure. File-based IPC (mandatory), async messaging, JSON serialization, correlation IDs for request/response. Prevents blocking across DC/VSCC/KALIC/WEBC/CMDC.",
-    "prerequisites": ["W01COORD", "W11FILE_CMD", "A01DC"],
-    "related_doors": ["W13DAG", "W08FILEWATCHER", "A02VSCC"],
+    "prerequisites": [
+      "W01COORD",
+      "W11FILE_CMD",
+      "A01DC"
+    ],
+    "related_doors": [
+      "W13DAG",
+      "W08FILEWATCHER",
+      "A02VSCC"
+    ],
     "onboarding": {
       "quick_start": "PhiSync = file-based IPC (agents can't communicate directly). Patterns: Command queue (real-time) or state file sync. Use correlation IDs for responses. JSON for human-readable serialization.",
       "full_context_path": "/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md",
@@ -27,7 +40,9 @@
       ]
     },
     "resources": {
-      "docs": ["/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md"],
+      "docs": [
+        "/PhiDEX/PhiSync/01_AGENT_COMMUNICATION/AGENT_COMMUNICATION_PROTOCOLS.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -37,12 +52,29 @@
       "confidence": 0.99,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["phisync", "multi_agent", "ipc", "coordination", "file_based"],
+      "tags": [
+        "phisync",
+        "multi_agent",
+        "ipc",
+        "coordination",
+        "file_based"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "COORDINATION",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11"],
-      "agent_affinity": ["DC", "VSCC", "WEBC", "KALIC", "CMDC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "WEBC",
+        "KALIC",
+        "CMDC"
+      ],
+      "size_bytes": 2265,
+      "token_estimate": 567.0
     }
   }
 }

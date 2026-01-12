@@ -1,0 +1,59 @@
+{
+  "door_code": "G01WOW_OPTIMIZATION",
+  "semantic_path": "WORKFLOWS.GAMING.WOW_OPTIMIZATION",
+  "aliases": [
+    "wow performance",
+    "wow fps",
+    "wow optimization",
+    "bartender slow"
+  ],
+  "context_bundle": {
+    "summary": "WoW performance optimization: HPET disable, CPU affinity, MSI mode, VRAM preloading via CVARs, addon profiling. The game is CPU-bound due to single-threaded LUA.",
+    "prerequisites": [],
+    "related_doors": [
+      "T52ULTRABAR"
+    ],
+    "onboarding": {
+      "quick_start": "1) Disable HPET 2) Set CPU affinity Core 1 for WoW 3) Max prerendered frames=1 4) Preload textures via CVARs 5) Profile addons for CPU hogs",
+      "full_context_path": "",
+      "common_patterns": [
+        "# WoW CPU bottleneck: Single-threaded main loop, LUA runs on main thread, barely uses >2 cores",
+        "# VRAM preload: Use CVARs worldPreloadNonCritical, preloadStreamedData to front-load at loading screen",
+        "# Addon profiling: /script print(GetAddOnCPUUsage('AddonName')) - find OnUpdate abusers",
+        "# MSI mode: Only enable on specific devices (USB/WiFi), GPU MSI can conflict with audio"
+      ],
+      "known_errors": [
+        "Bartender was using 2.6% CPU due to OnUpdate every frame - replace with Dominos or UltraBar",
+        "16GB VRAM prevents spillover to system RAM, reducing page faults",
+        "With addons, cities/raids are CPU-bound regardless of GPU"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T21:10:39.916390300+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "wow",
+        "gaming",
+        "optimization",
+        "cpu",
+        "vram",
+        "addons",
+        "performance"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "GAMING",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1933,
+      "token_estimate": 484.0
+    }
+  }
+}

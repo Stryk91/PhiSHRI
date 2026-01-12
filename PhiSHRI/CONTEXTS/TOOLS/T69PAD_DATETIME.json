@@ -1,0 +1,60 @@
+{
+  "door_code": "T69PAD_DATETIME",
+  "semantic_path": "TOOLS.AUTOMATION.PAD.DATETIME",
+  "aliases": [
+    "pad datetime",
+    "date operations",
+    "time formatting"
+  ],
+  "context_bundle": {
+    "summary": "PAD datetime actions: Get Current, Add to DateTime, Subtract Dates, Convert DateTime to Text (format patterns), Convert Text to DateTime (parse)",
+    "prerequisites": [
+      "T59POWER_AUTOMATE_DESKTOP"
+    ],
+    "related_doors": [
+      "T68PAD_TEXT"
+    ],
+    "onboarding": {
+      "quick_start": "Get current datetime -> Add 7 days -> Convert to text 'yyyy-MM-dd' for filename timestamp",
+      "full_context_path": "",
+      "common_patterns": [
+        "Get current date and time timezone:Local -> %CurrentDateTime%",
+        "Add to datetime %Date% add:7 unit:Days -> %FutureDate%",
+        "Subtract dates %EndDate% minus %StartDate% get:Days -> %Duration%",
+        "Convert datetime to text format:'yyyy-MM-dd HH:mm:ss' -> %Timestamp%",
+        "Convert text to datetime '%DateString%' format:'dd/MM/yyyy' -> %ParsedDate%"
+      ],
+      "known_errors": [
+        "Format pattern case-sensitive: yyyy not YYYY, MM not mm for month",
+        "Parse fails if text doesn't match expected format exactly",
+        "Timezone conversions can shift dates unexpectedly"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-01T04:10:45.037049+11:00",
+      "confidence": 1.0,
+      "tags": [
+        "pad",
+        "datetime",
+        "date",
+        "time",
+        "timestamp",
+        "rpa"
+      ],
+      "category": "TOOLS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1774,
+      "token_estimate": 444.0
+    }
+  }
+}

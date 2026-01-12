@@ -1,11 +1,20 @@
 {
   "door_code": "W109TEST_COVERAGE",
   "semantic_path": "WORKFLOWS.TESTING.COVERAGE",
-  "aliases": ["code coverage", "coverage", "test metrics"],
+  "aliases": [
+    "code coverage",
+    "coverage",
+    "test metrics"
+  ],
   "context_bundle": {
     "summary": "Code coverage and quality metrics for measuring test suite effectiveness and identifying untested code paths",
-    "prerequisites": ["W102UNIT_TESTING"],
-    "related_doors": ["W102UNIT_TESTING", "W108MUTATION_TESTING"],
+    "prerequisites": [
+      "W102UNIT_TESTING"
+    ],
+    "related_doors": [
+      "W102UNIT_TESTING",
+      "W108MUTATION_TESTING"
+    ],
     "onboarding": {
       "quick_start": "Use coverage tools to measure test effectiveness via line, branch, and statement coverage metrics",
       "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
@@ -18,7 +27,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -28,12 +39,26 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["testing", "coverage", "metrics", "workflows"],
+      "tags": [
+        "testing",
+        "coverage",
+        "metrics",
+        "workflows"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "TESTING",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11", "Linux"],
-      "agent_affinity": ["VSCC", "DC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11",
+        "Linux"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC"
+      ],
+      "size_bytes": 1574,
+      "token_estimate": 394.0
     }
   }
 }

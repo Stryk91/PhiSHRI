@@ -1,0 +1,61 @@
+{
+  "door_code": "W122TOOL_CHAINING",
+  "semantic_path": "WORKFLOWS.EFFICIENCY.TOOL_CHAINING",
+  "aliases": [
+    "chain",
+    "synergy",
+    "efficiency",
+    "multiplier"
+  ],
+  "context_bundle": {
+    "summary": "Multiplicative efficiency workflow chaining Everything (file discovery) + PhiSHRI (context) + Windows MCP (execution) + PowerToys (trigger). 300-600x speedup on discovery operations.",
+    "prerequisites": [
+      "T25EVERYTHING_MCP",
+      "T01MCP"
+    ],
+    "related_doors": [
+      "T26POWERTOYS_CLAUDE",
+      "R20TOOL_BACKBONE",
+      "W121TASK_EXECUTION"
+    ],
+    "onboarding": {
+      "quick_start": "Pattern: everything_search -> phishri_load -> windows execute. File discovery O(1), context O(1), execution direct.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Search files -> Load context -> Execute",
+        "PT trigger -> Bridge -> MCP -> Result"
+      ],
+      "known_errors": [
+        "Tool not available - check MCP connections",
+        "Context missing - load prerequisite doors"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T10:45:25.615490800+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "workflow",
+        "efficiency",
+        "chaining",
+        "synergy",
+        "optimization"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "EFFICIENCY",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "ORCHESTRATOR",
+        "VSCC"
+      ],
+      "size_bytes": 1579,
+      "token_estimate": 395.0
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "door_code": "W227PAD_ONBOARDING_PATTERN",
+  "semantic_path": "WORKFLOWS.AUTOMATION.PAD.PATTERNS.ONBOARDING",
+  "aliases": [
+    "employee onboarding",
+    "new hire",
+    "provisioning"
+  ],
+  "context_bundle": {
+    "summary": "Onboarding Pattern: HRIS trigger (new record) -> Pre-start (AD account, O365, equipment order, badge, training assign, welcome email) -> Day 1 (credentials, team intro, calendar) -> Week 1 (check-in surveys, training tracking) -> 30-60-90 (milestones, probation review). 5-day->2-day productivity. $187K/yr value.",
+    "prerequisites": [
+      "T59POWER_AUTOMATE_DESKTOP",
+      "W221PAD_IMPACT_FRAMEWORK"
+    ],
+    "related_doors": [
+      "T70PAD_SYSTEM",
+      "T65PAD_EMAIL"
+    ],
+    "onboarding": {
+      "quick_start": "Trigger: HRIS new hire created. 2 weeks before: Create AD, O365, order laptop, assign training, send pre-board email. Day 1: Send credentials, team notification, calendar. Week 1: Survey Day 1,3,5. 30/60/90: Milestone reminders.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Phased: Pre-start (2wk before) -> Day 1 -> Week 1 -> 30/60/90",
+        "Provisioning: AD + O365 + business apps by role template",
+        "Check-ins: Automated survey Day 1, 3, 5 to catch issues early",
+        "Escalation: Alert HR if any provisioning fails"
+      ],
+      "known_errors": [
+        "HRIS data quality issues break downstream",
+        "Role-based provisioning needs clear role->access mapping",
+        "Badge/facilities often manual - build request workflow",
+        "Manager not ready = poor experience despite automation"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T18:18:50.051431600+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "pad",
+        "onboarding",
+        "hr",
+        "employee",
+        "provisioning"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 2097,
+      "token_estimate": 525.0
+    }
+  }
+}

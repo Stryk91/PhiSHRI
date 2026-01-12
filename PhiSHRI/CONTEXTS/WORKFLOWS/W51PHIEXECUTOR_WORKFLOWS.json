@@ -1,0 +1,60 @@
+{
+  "door_code": "W51PHIEXECUTOR_WORKFLOWS",
+  "semantic_path": "WORKFLOWS.AUTOMATION.PHIEXECUTOR_COLLECTION",
+  "aliases": [
+    "phiexecutor workflows",
+    "automation workflows",
+    "phi workflows"
+  ],
+  "context_bundle": {
+    "summary": "Collection of 6 production PhiExecutor workflows built 2025-12-06. All tested and working.",
+    "workflows": {
+      "system_health": {
+        "script": "Get-SystemHealth.ps1",
+        "template": "daily-health-check.json",
+        "scheduled": "DailyHealthCheck 8AM"
+      },
+      "log_cleanup": {
+        "script": "Invoke-LogCleanup.ps1",
+        "template": "weekly-log-cleanup.json"
+      },
+      "critical_backup": {
+        "script": "Invoke-CriticalBackup.ps1",
+        "template": "daily-critical-backup.json",
+        "dest": "D:\\Backups\\PhiDEX"
+      },
+      "service_watchdog": {
+        "script": "Watch-CriticalServices.ps1",
+        "template": "service-watchdog.json",
+        "monitors": [
+          "carbyne",
+          "PhiWatcher"
+        ]
+      },
+      "network_check": {
+        "script": "Test-NetworkConnectivity.ps1",
+        "template": "network-check.json"
+      },
+      "temp_cleaner": {
+        "script": "Clear-TempFiles.ps1",
+        "template": "weekly-temp-cleanup.json",
+        "potential_freed": "3.2GB"
+      }
+    },
+    "paths": {
+      "scripts": "X:\\Automation\\Scripts\\Actions\\",
+      "templates": "X:\\Automation\\Templates\\",
+      "module": "X:\\Automation\\Scripts\\Core\\PhiExecutor.psm1"
+    },
+    "metadata": {
+      "last_updated": "2025-12-06T14:00:00+11:00",
+      "category": "WORKFLOWS",
+      "agent_affinity": [
+        "KALIC",
+        "DC"
+      ],
+      "size_bytes": 1460,
+      "token_estimate": 365.0
+    }
+  }
+}

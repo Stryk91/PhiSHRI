@@ -1,0 +1,65 @@
+{
+  "door_code": "T60MCP_FACTORY",
+  "semantic_path": "TOOLS.AGENT.MCP_FACTORY",
+  "aliases": [
+    "mcp_factory",
+    "mcp_generator",
+    "agent_sdk",
+    "server_factory",
+    "mcp_builder"
+  ],
+  "context_bundle": {
+    "summary": "MCP Factory: Autonomous agent that builds Rust MCP servers from natural language specs. Powered by Haiku API. CLI: mcp-factory build \"spec\" [--name NAME]. Location: X:\\mcp-factory\\",
+    "prerequisites": [
+      "L01RUST",
+      "D01MCP"
+    ],
+    "related_doors": [
+      "A08AGENT_COORD",
+      "D05SILENT",
+      "L43POWERSHELL"
+    ],
+    "onboarding": {
+      "quick_start": "CLI: mcp-factory build \"Create an MCP server that does X\" --name my-server. Agent parses spec → scaffolds Rust project → generates handlers → cargo build → outputs binary. Uses Haiku API (ANTHROPIC_API_KEY env var). Output: X:\\mcp-servers\\{name}\\target\\release\\",
+      "full_context_path": "",
+      "common_patterns": [
+        "mcp-factory build \"spec\" --name server-name",
+        "mcp-factory build \"spec\" --dry-run",
+        "mcp-factory templates list",
+        "Agent reads existing MCPs as reference for patterns"
+      ],
+      "known_errors": [
+        "rmcp version mismatch (use 0.8 not 0.1)",
+        "schemars version (use 1.0 not 0.8)",
+        "Path handling X:/ vs /mnt/x/ between Windows/WSL"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2026-01-04T17:46:46.892793600+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "mcp",
+        "agent",
+        "factory",
+        "rust",
+        "haiku",
+        "autonomous",
+        "code_generation",
+        "phivector"
+      ],
+      "category": "TOOLS",
+      "subcategory": "AGENT",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "KALIC",
+        "DC"
+      ]
+    }
+  }
+}

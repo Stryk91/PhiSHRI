@@ -1,0 +1,58 @@
+{
+  "door_code": "T48PHIMSG",
+  "semantic_path": "TOOLS.MESSAGING.PHIMSG",
+  "aliases": [
+    "phimsg",
+    "phi messenger",
+    "tcp chat",
+    "ratatui chat"
+  ],
+  "context_bundle": {
+    "summary": "Cross-platform encrypted TUI messenger for PhiVector ecosystem. Rust-based TCP chat with ratatui interface, JSON message serialization, server/client modes.",
+    "prerequisites": [],
+    "related_doors": [
+      "T47NETSCAN_RS",
+      "T46RUSTDUCKY"
+    ],
+    "onboarding": {
+      "quick_start": "Location: X:\\mcp-servers\\phimsg\\ | Binary: target\\release\\phimsg.exe (1MB) | Server: phimsg serve (port 9876) | Client: phimsg connect [IP]",
+      "full_context_path": "",
+      "common_patterns": [
+        "phimsg serve - host server on 0.0.0.0:9876",
+        "phimsg connect 192.168.1.x - connect to server",
+        "Ctrl+C to quit, Enter to send"
+      ],
+      "known_errors": [
+        "Connection refused - server not running",
+        "Port 9876 in use - change PORT const"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-27T04:47:23.412492500+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "rust",
+        "messaging",
+        "tui",
+        "ratatui",
+        "tcp",
+        "async",
+        "tokio",
+        "crossterm"
+      ],
+      "category": "TOOLS",
+      "subcategory": "MESSAGING",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ]
+    }
+  }
+}

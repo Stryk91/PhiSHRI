@@ -1,11 +1,24 @@
 {
   "door_code": "T14TERRAFORM",
   "semantic_path": "TOOLS.INFRASTRUCTURE.TERRAFORM",
-  "aliases": ["terraform", "iac", "infrastructure_as_code", "tf", "hcl"],
+  "aliases": [
+    "terraform",
+    "iac",
+    "infrastructure_as_code",
+    "tf",
+    "hcl"
+  ],
   "context_bundle": {
     "summary": "Terraform: Infrastructure as Code (IaC) tool for provisioning cloud resources. Declarative HCL syntax, state management (tracks real resources), providers for AWS/Azure/GCP/etc. Workflow: terraform init (download providers), terraform plan (preview changes), terraform apply (execute), terraform destroy (tear down). Resources: aws_instance, azurerm_virtual_machine, google_compute_instance. Variables for reusability, outputs for values, modules for composition. State: terraform.tfstate (local) or remote backend (S3, Terraform Cloud). Best practices: Use remote state, version providers, modularize, use workspaces for environments (dev/staging/prod), plan before apply, .tfvars for secrets (gitignored).",
-    "prerequisites": ["W76OPTIMIZE_DB", "S13SECRETS_ROTATION"],
-    "related_doors": ["T15ANSIBLE", "T13K8S_SECRETS", "R05SERVERLESS"],
+    "prerequisites": [
+      "W76OPTIMIZE_DB",
+      "S13SECRETS_ROTATION"
+    ],
+    "related_doors": [
+      "T15ANSIBLE",
+      "T13K8S_SECRETS",
+      "R05SERVERLESS"
+    ],
     "onboarding": {
       "quick_start": "Terraform basics: Install: brew install terraform (Mac) or download from terraform.io. HCL config (main.tf): terraform { required_providers { aws = { source = \"hashicorp/aws\", version = \"~> 5.0\" } } }; provider \"aws\" { region = \"us-east-1\" }; resource \"aws_instance\" \"web\" { ami = \"ami-12345678\"; instance_type = \"t2.micro\"; tags = { Name = \"WebServer\" } }. Init: terraform init; # Downloads AWS provider. Plan: terraform plan; # Shows changes (+ create, ~ modify, - destroy). Apply: terraform apply; # Creates resources, updates state. Variables (variables.tf): variable \"instance_type\" { default = \"t2.micro\" }; resource uses: instance_type = var.instance_type. Outputs (outputs.tf): output \"instance_ip\" { value = aws_instance.web.public_ip }. Remote state (backend.tf): terraform { backend \"s3\" { bucket = \"my-terraform-state\"; key = \"prod/terraform.tfstate\"; region = \"us-east-1\" } }. Modules: module \"vpc\" { source = \"./modules/vpc\"; cidr_block = \"10.0.0.0/16\" }. Destroy: terraform destroy; # Removes all managed resources.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
@@ -24,7 +37,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +49,32 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["terraform", "iac", "infrastructure", "hcl", "aws", "azure", "gcp", "provisioning"],
+      "tags": [
+        "terraform",
+        "iac",
+        "infrastructure",
+        "hcl",
+        "aws",
+        "azure",
+        "gcp",
+        "provisioning"
+      ],
       "category": "TOOLS",
       "subcategory": "INFRASTRUCTURE",
       "version": "1.0.0",
-      "tested_on": ["AWS", "Azure", "GCP", "Terraform 1.x"],
-      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+      "tested_on": [
+        "AWS",
+        "Azure",
+        "GCP",
+        "Terraform 1.x"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "CMDC",
+        "TERMC"
+      ],
+      "size_bytes": 4825,
+      "token_estimate": 1207.0
     }
   }
 }

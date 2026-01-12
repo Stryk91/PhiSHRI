@@ -1,0 +1,61 @@
+{
+  "door_code": "T58POWER_AUTOMATE_DESKTOP",
+  "semantic_path": "TOOLS.AUTOMATION.POWER_AUTOMATE",
+  "aliases": [
+    "PAD",
+    "power automate",
+    "RPA",
+    "desktop flows",
+    "gui automation"
+  ],
+  "context_bundle": {
+    "summary": "Microsoft Power Automate Desktop - RPA for GUI automation when scripts/CLI can't reach. 450+ connectors, recorder, no-code flows.",
+    "prerequisites": [],
+    "related_doors": [
+      "810AHK",
+      "T57CLAUDE_LITE"
+    ],
+    "onboarding": {
+      "quick_start": "Free on Windows 10/11. Record flows or drag-drop actions. Use for legacy apps, GUI-only tools, click-through wizards.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Recorder auto-generates action blocks from mouse/keyboard",
+        "Variables store info between actions",
+        "Loops for repetitive row-by-row tasks",
+        "Conditionals for runtime decisions",
+        "Exception handling for recovery"
+      ],
+      "known_errors": [
+        "Cloud integration requires paid license",
+        "Complex flows can be brittle if UI changes",
+        "Not for high-throughput automation"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T13:14:16.450944300+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "rpa",
+        "automation",
+        "gui",
+        "microsoft",
+        "no-code",
+        "recorder"
+      ],
+      "category": "TOOLS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1628,
+      "token_estimate": 407.0
+    }
+  }
+}

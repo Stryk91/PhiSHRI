@@ -1,11 +1,20 @@
 {
   "door_code": "W20DATA_PIPE",
   "semantic_path": "WORKFLOWS.DATA.ETL_PIPELINES",
-  "aliases": ["etl", "elt", "data_pipeline", "streaming", "batch_processing"],
+  "aliases": [
+    "etl",
+    "elt",
+    "data_pipeline",
+    "streaming",
+    "batch_processing"
+  ],
   "context_bundle": {
     "summary": "Data processing pipelines: ELT (Extract-Load-Transform) vs ETL patterns. Modern: Zero-ETL (query in place), 5-layer streaming (sources->ingestion->processing->storage->consumption). Platforms: Kafka, Kinesis, Flink for millions events/sec.",
     "prerequisites": [],
-    "related_doors": ["W21STREAM", "W22BATCH"],
+    "related_doors": [
+      "W21STREAM",
+      "W22BATCH"
+    ],
     "onboarding": {
       "quick_start": "ELT = Extract, Load, Transform (cloud-native). ETL = Extract, Transform, Load (traditional). Zero-ETL = query data in place. Streaming: Kafka (10M+ events/sec), Kinesis (AWS managed), Pub/Sub (GCP). 5 layers: sources, ingest, process, store, consume.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/05_DATA_PROCESSING/DATA_PROCESSING_MANAGEMENT_RESEARCH.md",
@@ -27,7 +36,9 @@
       ]
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/05_DATA_PROCESSING/DATA_PROCESSING_MANAGEMENT_RESEARCH.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/05_DATA_PROCESSING/DATA_PROCESSING_MANAGEMENT_RESEARCH.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -37,12 +48,27 @@
       "confidence": 0.96,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["data", "etl", "pipeline", "streaming", "kafka"],
+      "tags": [
+        "data",
+        "etl",
+        "pipeline",
+        "streaming",
+        "kafka"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "DATA_PROCESSING",
       "version": "1.0.0",
-      "tested_on": ["Kafka", "Kinesis", "Flink"],
-      "agent_affinity": ["VSCC", "WEBC"]
+      "tested_on": [
+        "Kafka",
+        "Kinesis",
+        "Flink"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "WEBC"
+      ],
+      "size_bytes": 2297,
+      "token_estimate": 575.0
     }
   }
 }

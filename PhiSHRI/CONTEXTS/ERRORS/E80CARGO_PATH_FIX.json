@@ -1,0 +1,48 @@
+{
+  "door_code": "E80CARGO_PATH_FIX",
+  "semantic_path": "ERRORS.RUST.CARGO_PATH",
+  "aliases": [
+    "cargo not found",
+    "cargo not recognized",
+    "rust path"
+  ],
+  "context_bundle": {
+    "summary": "Cargo not recognized in multiplexor sessions. Fixed by adding C:\\Users\\Stryker_LOCAL\\.cargo\\bin to Machine PATH. Requires Claude Desktop restart for multiplexor to inherit new environment.",
+    "prerequisites": [],
+    "related_doors": [],
+    "onboarding": {
+      "quick_start": "Machine PATH updated 2025-12-30. If cargo stops working: 1) Verify Machine PATH contains cargo\\bin, 2) Restart Claude Desktop to refresh multiplexor environment. PowerShell profile also set but multiplexor uses -NoProfile so it doesn't help.",
+      "full_context_path": "",
+      "common_patterns": [
+        "[Environment]::SetEnvironmentVariable('PATH', 'C:\\Users\\Stryker_LOCAL\\.cargo\\bin;' + $existing, 'Machine')"
+      ],
+      "known_errors": [
+        "multiplexor spawns with -NoProfile so PS profile PATH additions don't work",
+        "multiplexor caches parent environment at startup",
+        "User PATH works in normal terminals but not multiplexor sessions"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-29T21:57:34.733587800+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "cargo",
+        "rust",
+        "path",
+        "multiplexor",
+        "environment",
+        "fix"
+      ],
+      "category": "ERRORS",
+      "subcategory": "RUST",
+      "version": "1.0.0",
+      "agent_affinity": []
+    }
+  }
+}

@@ -1,11 +1,23 @@
 {
   "door_code": "W02PROMPT",
   "semantic_path": "WORKFLOWS.AI.PROMPT_ENGINEERING",
-  "aliases": ["prompt_eng", "xml_prompts", "claude_prompts", "prompt_patterns"],
+  "aliases": [
+    "prompt_eng",
+    "xml_prompts",
+    "claude_prompts",
+    "prompt_patterns"
+  ],
   "context_bundle": {
     "summary": "Comprehensive prompt engineering best practices for Claude 4.x including XML-structured prompts, thinking tags, multi-shot examples, and model-specific optimization patterns.",
-    "prerequisites": ["A01DC", "A02VSCC"],
-    "related_doors": ["W03CONTEXT", "W04TOKEN", "R01MULTI"],
+    "prerequisites": [
+      "A01DC",
+      "A02VSCC"
+    ],
+    "related_doors": [
+      "W03CONTEXT",
+      "W04TOKEN",
+      "R01MULTI"
+    ],
     "onboarding": {
       "quick_start": "Use XML tags for Claude prompts. Structure: <instructions>, <example>, <data>, <thinking>, <answer>. XML acts as signposts for model reasoning.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md",
@@ -26,7 +38,9 @@
       ]
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/01_AI_WORKFLOWS/AI_WORKFLOW_OPTIMIZATION_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -36,12 +50,26 @@
       "confidence": 0.98,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["ai", "prompts", "claude", "xml", "optimization"],
+      "tags": [
+        "ai",
+        "prompts",
+        "claude",
+        "xml",
+        "optimization"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "AI_OPTIMIZATION",
       "version": "1.0.0",
-      "tested_on": ["Claude 4.5"],
-      "agent_affinity": ["DC", "VSCC", "WEBC"]
+      "tested_on": [
+        "Claude 4.5"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "WEBC"
+      ],
+      "size_bytes": 1982,
+      "token_estimate": 496.0
     }
   }
 }

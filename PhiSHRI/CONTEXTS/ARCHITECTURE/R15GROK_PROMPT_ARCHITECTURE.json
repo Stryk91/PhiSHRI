@@ -1,0 +1,59 @@
+{
+  "door_code": "R15GROK_PROMPT_ARCHITECTURE",
+  "semantic_path": "ARCHITECTURE.COMPETITIVE_INTEL.GROK",
+  "aliases": [
+    "grok prompts",
+    "xai prompts",
+    "grok system prompt",
+    "competitive intel grok"
+  ],
+  "context_bundle": {
+    "summary": "Grok (xAI) system prompt architecture analysis from exposed client-side DOM. Documents persona switching, voice mode optimization, and prompt structure patterns.",
+    "prerequisites": [],
+    "related_doors": [
+      "T22CARBYNE",
+      "W20TASK_DISPATCH"
+    ],
+    "onboarding": {
+      "quick_start": "Grok exposes full persona prompts in client-side JSON blob via `server-client-data-experimentation` script tag. View Source on grok.com conversation page reveals: persona presets, voice mode configs, model configs, feature flags.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Voice/Text delimiter: `/` separates voice-mode TTS instructions from text-mode",
+        "Emphasis via ALL CAPS rather than XML tags or elaborate formatting",
+        "Persona switching via simple prompt replacement - no complex state management",
+        "Feature flags control persona availability (mature: true, enableSearch: true, kids: true)",
+        "personaPresets array contains: personaId, name, prompt, description, icon, flags"
+      ],
+      "known_errors": [
+        "Security oversight: Full prompt library exposed client-side in DOM",
+        "No guardrails in explicit personas - raw instructions like 'BE FUCKING UNHINGED'",
+        "Voice prompts duplicated (before/after `/` delimiter) causing redundancy",
+        "No apparent sanitization of persona prompts before client delivery"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-03T02:21:25.160473900+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "competitive-intel",
+        "prompt-engineering",
+        "grok",
+        "xai",
+        "architecture",
+        "security-oversight"
+      ],
+      "category": "ARCHITECTURE",
+      "subcategory": "COMPETITIVE_INTEL",
+      "version": "1.0.0",
+      "agent_affinity": [],
+      "size_bytes": 2194,
+      "token_estimate": 549.0
+    }
+  }
+}

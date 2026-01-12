@@ -1,0 +1,60 @@
+{
+  "door_code": "E30MCP_ZORDERROR",
+  "semantic_path": "ERRORS.MCP.NULL_ID_ZOD",
+  "aliases": [
+    "zod error",
+    "null id",
+    "invalid_union",
+    "mcp notification"
+  ],
+  "context_bundle": {
+    "summary": "MCP ZodError on null id - Claude Desktop crashes when MCP servers return responses for JSON-RPC notifications.",
+    "prerequisites": [],
+    "related_doors": [
+      "T53ELECTRON_PROBLEMS"
+    ],
+    "onboarding": {
+      "quick_start": "Fix: Don't return responses for requests where id is null (notifications per JSON-RPC spec)",
+      "full_context_path": "",
+      "common_patterns": [
+        "Error: invalid_union, invalid_type - expected string/number, received null for path [id]",
+        "JSON-RPC spec: notifications have no id field, should NOT receive responses",
+        "Rust fix: Change handle_request() to return Option<Response>, early return None if id is None",
+        "Pattern: let id = request.id?; // returns None for notifications",
+        "Wrap response returns in Some(), only send when Some(response) returned"
+      ],
+      "known_errors": [
+        "Claude Desktop Zod schema doesn't handle null id despite JSON-RPC spec allowing it",
+        "Multiple MCP servers affected - vocal-claudes, windows-mcp-v3 both needed fixes",
+        "Desktop GUI hangs ~1 minute processing the error wall"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T03:02:48.511345400+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "mcp",
+        "zod",
+        "json-rpc",
+        "null-id",
+        "notification",
+        "error"
+      ],
+      "category": "ERRORS",
+      "subcategory": "MCP",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 1848,
+      "token_estimate": 462.0
+    }
+  }
+}

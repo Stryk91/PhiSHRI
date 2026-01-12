@@ -1,0 +1,61 @@
+{
+  "door_code": "L05RUST_UNSAFE",
+  "semantic_path": "LANGUAGES.RUST.UNSAFE",
+  "aliases": [
+    "rust unsafe",
+    "rust ffi",
+    "rust extern",
+    "rust c interop"
+  ],
+  "context_bundle": {
+    "summary": "Unsafe Rust and FFI - raw pointers, unsafe functions, extern C, bindgen, calling C from Rust.",
+    "prerequisites": [
+      "L02RUST_OWNERSHIP"
+    ],
+    "related_doors": [
+      "L02RUST_OWNERSHIP",
+      "L06RUST_CONCURRENCY"
+    ],
+    "onboarding": {
+      "quick_start": "unsafe { } block enables: raw pointer deref, unsafe fn calls, mutable statics, unsafe traits, unions. Minimize scope, document invariants.",
+      "full_context_path": "",
+      "common_patterns": [
+        "let ptr = &x as *const i32; unsafe { *ptr }",
+        "extern \"C\" { fn abs(x: i32) -> i32; }",
+        "#[no_mangle] pub extern \"C\" fn rust_fn() { }",
+        "CString::new(s).unwrap().as_ptr() // Rust to C string"
+      ],
+      "known_errors": [
+        "Wrap unsafe in safe abstractions",
+        "Document safety invariants",
+        "Use bindgen for C headers"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-29T23:23:13.373738600+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "rust",
+        "unsafe",
+        "ffi",
+        "raw pointers",
+        "c interop"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "RUST",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 1566,
+      "token_estimate": 392.0
+    }
+  }
+}

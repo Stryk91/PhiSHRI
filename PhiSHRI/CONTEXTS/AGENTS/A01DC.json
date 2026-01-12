@@ -60,7 +60,9 @@
       ],
       "agent_affinity": [
         "DC"
-      ]
+      ],
+      "size_bytes": 1953,
+      "token_estimate": 489.0
     }
   }
 }

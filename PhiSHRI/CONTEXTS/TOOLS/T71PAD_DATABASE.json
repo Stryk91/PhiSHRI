@@ -1,0 +1,61 @@
+{
+  "door_code": "T71PAD_DATABASE",
+  "semantic_path": "TOOLS.AUTOMATION.PAD.DATABASE",
+  "aliases": [
+    "pad database",
+    "sql operations",
+    "db connection"
+  ],
+  "context_bundle": {
+    "summary": "PAD database actions: Open SQL Connection (connection string), Execute SQL Statement (SELECT/INSERT/UPDATE/DELETE), Close SQL Connection. Returns DataTable for queries",
+    "prerequisites": [
+      "T59POWER_AUTOMATE_DESKTOP"
+    ],
+    "related_doors": [
+      "T60PAD_VARIABLES"
+    ],
+    "onboarding": {
+      "quick_start": "Open SQL connection 'Server=x;Database=y;...' -> Execute SQL 'SELECT * FROM table' -> Process %QueryResult% datatable -> Close connection",
+      "full_context_path": "",
+      "common_patterns": [
+        "Open SQL connection 'Server=srv;Database=db;User Id=u;Password=p;' -> %Conn%",
+        "Execute SQL statement 'SELECT * FROM Table WHERE col=value' -> %QueryResult% %RowsAffected%",
+        "Execute SQL statement 'INSERT INTO Table VALUES(...)' -> %RowsAffected%",
+        "Execute SQL statement 'EXEC StoredProc @param=value'",
+        "Close SQL connection %Conn%"
+      ],
+      "known_errors": [
+        "Connection string format varies by database type",
+        "SQL injection risk - parameterize queries where possible",
+        "Timeout on large queries - increase timeout parameter",
+        "Always close connections to release resources"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T17:10:45.037766800+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "pad",
+        "database",
+        "sql",
+        "query",
+        "connection",
+        "rpa"
+      ],
+      "category": "TOOLS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1888,
+      "token_estimate": 472.0
+    }
+  }
+}

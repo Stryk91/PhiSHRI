@@ -1,0 +1,65 @@
+{
+  "door_code": "T66PAD_WEB",
+  "semantic_path": "TOOLS.AUTOMATION.PAD.WEB",
+  "aliases": [
+    "pad web",
+    "browser automation",
+    "api calls",
+    "rest client"
+  ],
+  "context_bundle": {
+    "summary": "PAD web automation: Launch Browser (Chrome/Firefox/Edge), Navigate, Click/Populate/Extract elements, Screenshot, Close. HTTP: Invoke Web Service (REST), Download from Web",
+    "prerequisites": [
+      "T59POWER_AUTOMATE_DESKTOP"
+    ],
+    "related_doors": [
+      "T67PAD_UI"
+    ],
+    "onboarding": {
+      "quick_start": "Launch Chrome -> Navigate to URL -> Wait for element -> Populate text field -> Click button -> Extract data -> Close browser",
+      "full_context_path": "",
+      "common_patterns": [
+        "Launch new Chrome initial URL:'https://...' window:Maximized -> %Browser%",
+        "Navigate to URL 'https://...' wait for load:True",
+        "Click link on web page using UI element selector",
+        "Populate text field emulate typing:True for dynamic forms",
+        "Extract data from web page -> %ExtractedData%",
+        "Invoke web service URL:'api/endpoint' method:POST body:'json' -> %Response%",
+        "Download from web 'fileurl' save to:'localpath'"
+      ],
+      "known_errors": [
+        "Element not found - add Wait for UI element first",
+        "Page not fully loaded - increase wait timeout",
+        "CORS blocks API calls - use server-side proxy",
+        "Browser extension required for some sites"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T17:10:45.035716200+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "pad",
+        "web",
+        "browser",
+        "http",
+        "api",
+        "rest",
+        "rpa"
+      ],
+      "category": "TOOLS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1960,
+      "token_estimate": 490.0
+    }
+  }
+}

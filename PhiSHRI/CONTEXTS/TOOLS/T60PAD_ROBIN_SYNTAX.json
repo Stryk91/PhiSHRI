@@ -1,0 +1,62 @@
+{
+  "door_code": "T60PAD_ROBIN_SYNTAX",
+  "semantic_path": "TOOLS.AUTOMATION.PAD.SYNTAX",
+  "aliases": [
+    "robin syntax",
+    "pad script",
+    "power automate script"
+  ],
+  "context_bundle": {
+    "summary": "Power Automate Desktop Robin script syntax reference for PAD v11.2511+. Covers Variables, Flow Control, System actions with correct $fx'...' PowerFx expression syntax.",
+    "prerequisites": [
+      "T59POWER_AUTOMATE_DESKTOP"
+    ],
+    "related_doors": [
+      "T59POWER_AUTOMATE_DESKTOP",
+      "T58CARBYNE_MCP_HANDLER"
+    ],
+    "onboarding": {
+      "quick_start": "Syntax: $fx'...'=PowerFx expr, ``=placeholder, =>output var, %Var%=reference. Ctrl+A→Ctrl+C in flow designer to extract working syntax.",
+      "full_context_path": "",
+      "common_patterns": [
+        "SET Var TO ``",
+        "IF `` THEN / END",
+        "LOOP FOREACH Item IN `` / END",
+        "WAIT ``",
+        "Variables.ConvertJsonToCustomObject Json: `` CustomObject=> Result"
+      ],
+      "known_errors": [
+        "Action names changed between PAD versions - extract syntax from working flows",
+        "PAD flows stored encrypted in cloud cache, not as .robin files",
+        "Paste Robin code directly into flow canvas (no import option)"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T16:56:15.338872200+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "pad",
+        "robin",
+        "powerfx",
+        "rpa",
+        "automation",
+        "syntax"
+      ],
+      "category": "TOOLS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 1753,
+      "token_estimate": 439.0
+    }
+  }
+}

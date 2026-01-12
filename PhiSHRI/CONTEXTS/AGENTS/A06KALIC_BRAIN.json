@@ -1,0 +1,56 @@
+{
+  "door_code": "A06KALIC_BRAIN",
+  "semantic_path": "AGENTS.KALIC.BRAIN",
+  "aliases": [
+    "kalic brain",
+    "kalic memory",
+    "agent brain"
+  ],
+  "context_bundle": {
+    "summary": "KALIC agent brain system: paths.json (tool paths), solved_problems.json (error fixes), session_*.md (daily logs). Loads via UserPromptSubmit hook. Tactical memory complementing PhiSHRI strategic knowledge.",
+    "prerequisites": [
+      "A05KALIC"
+    ],
+    "related_doors": [
+      "A05KALIC",
+      "A01DC"
+    ],
+    "onboarding": {
+      "quick_start": "KALIC brain at C:\\PhiDEX\\kalic_brain\\. Tactical session-focused memory vs PhiSHRI strategic indexed knowledge. Hook loads on session start. solved_problems.json can sync to PhiSHRI E## doors.",
+      "full_context_path": "",
+      "common_patterns": [
+        "paths.json: tool paths and PhiSHRI references",
+        "solved_problems.json: error fixes and solutions",
+        "session_*.md: daily logs",
+        "UserPromptSubmit hook loads brain at session start"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-02T23:47:17.955147800+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "kalic",
+        "brain",
+        "memory",
+        "hooks",
+        "session",
+        "agent"
+      ],
+      "category": "AGENTS",
+      "subcategory": "KALIC",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "KALIC"
+      ],
+      "size_bytes": 1537,
+      "token_estimate": 385.0
+    }
+  }
+}

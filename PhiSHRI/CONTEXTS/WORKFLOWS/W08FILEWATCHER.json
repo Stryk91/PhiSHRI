@@ -1,11 +1,24 @@
 {
   "door_code": "W08FILEWATCHER",
   "semantic_path": "WORKFLOWS.COORDINATION.FILE_EVENTS",
-  "aliases": ["filesystemwatcher", "file_events", "daemon_comm", "event_driven"],
+  "aliases": [
+    "filesystemwatcher",
+    "file_events",
+    "daemon_comm",
+    "event_driven"
+  ],
   "context_bundle": {
     "summary": "FileSystemWatcher enables event-driven daemon communication. Agents drop command files, daemon reacts instantly (vs polling). Critical for DC autonomous coordination.",
-    "prerequisites": ["W01COORD", "W05RUNSPACE", "820PWSH"],
-    "related_doors": ["W09DAEMON", "A01DC", "A02VSCC"],
+    "prerequisites": [
+      "W01COORD",
+      "W05RUNSPACE",
+      "820PWSH"
+    ],
+    "related_doors": [
+      "W09DAEMON",
+      "A01DC",
+      "A02VSCC"
+    ],
     "onboarding": {
       "quick_start": "Create FileSystemWatcher on commands folder. Register events (Created, Changed). Daemon processes new files immediately. Zero polling overhead.",
       "full_context_path": "/PhiDEX/BREAKTHROUGH.md",
@@ -27,7 +40,10 @@
       ]
     },
     "resources": {
-      "docs": ["/PhiDEX/BREAKTHROUGH.md", "/PhiDEX/DC_AUTOMATION_PATTERNS.md"],
+      "docs": [
+        "/PhiDEX/BREAKTHROUGH.md",
+        "/PhiDEX/DC_AUTOMATION_PATTERNS.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -37,12 +53,25 @@
       "confidence": 0.98,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["filesystem", "events", "daemon", "coordination", "breakthrough"],
+      "tags": [
+        "filesystem",
+        "events",
+        "daemon",
+        "coordination",
+        "breakthrough"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "EVENT_DRIVEN",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11"],
-      "agent_affinity": ["DC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1951,
+      "token_estimate": 488.0
     }
   }
 }

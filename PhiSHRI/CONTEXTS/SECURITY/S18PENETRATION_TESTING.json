@@ -1,11 +1,23 @@
 {
   "door_code": "S18PENETRATION_TESTING",
   "semantic_path": "SECURITY.TESTING.PENETRATION",
-  "aliases": ["pentest", "penetration testing", "security audit", "ethical hacking"],
+  "aliases": [
+    "pentest",
+    "penetration testing",
+    "security audit",
+    "ethical hacking"
+  ],
   "context_bundle": {
     "summary": "Penetration testing methodologies for identifying security vulnerabilities through authorized simulated attacks on systems",
-    "prerequisites": ["S01SEC", "W102UNIT_TESTING"],
-    "related_doors": ["S15AUDIT_LOGGING", "S01SEC", "W102UNIT_TESTING"],
+    "prerequisites": [
+      "S01SEC",
+      "W102UNIT_TESTING"
+    ],
+    "related_doors": [
+      "S15AUDIT_LOGGING",
+      "S01SEC",
+      "W102UNIT_TESTING"
+    ],
     "onboarding": {
       "quick_start": "Conduct regular security audits and penetration tests to identify vulnerabilities before attackers do, following ethical guidelines",
       "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md",
@@ -19,7 +31,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/06_SECURITY/SECURITY_HARDENING_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -29,12 +43,26 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["security", "penetration testing", "pentest", "ethical hacking"],
+      "tags": [
+        "security",
+        "penetration testing",
+        "pentest",
+        "ethical hacking"
+      ],
       "category": "SECURITY",
       "subcategory": "TESTING",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11", "Linux"],
-      "agent_affinity": ["DC", "KALIC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11",
+        "Linux"
+      ],
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ],
+      "size_bytes": 1684,
+      "token_estimate": 421.0
     }
   }
 }

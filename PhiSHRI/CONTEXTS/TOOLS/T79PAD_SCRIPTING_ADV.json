@@ -1,0 +1,62 @@
+{
+  "door_code": "T79PAD_SCRIPTING_ADV",
+  "semantic_path": "TOOLS.AUTOMATION.PAD.SCRIPTING_ADVANCED",
+  "aliases": [
+    "pad python",
+    "pad javascript",
+    "pad vbscript",
+    "when to script"
+  ],
+  "context_bundle": {
+    "summary": "When to script vs native: complex math/ML/image processing -> Python, JSON manipulation/data transform -> JavaScript, COM/AD/WMI -> VBScript. Performance: batch process in single script call, not loop of script calls",
+    "prerequisites": [
+      "T59POWER_AUTOMATE_DESKTOP"
+    ],
+    "related_doors": [
+      "T70PAD_SYSTEM"
+    ],
+    "onboarding": {
+      "quick_start": "Use native actions first. Script only for: complex math, regex beyond native, ML, image processing, COM objects, AD queries. Return JSON from scripts for easy parsing.",
+      "full_context_path": "",
+      "common_patterns": [
+        "JS data transform: items.filter().map().reduce() -> JSON.stringify(result)",
+        "Python pandas: df.groupby().agg() -> json.dumps(result)",
+        "VBScript COM: CreateObject(\"Excel.Application\") for advanced Excel ops",
+        "VBScript WMI: GetObject(\"winmgmts:\") for system info",
+        "VBScript AD: CreateObject(\"ADODB.Connection\") with ADsDSOObject provider"
+      ],
+      "known_errors": [
+        "Script per loop iteration = slow. Batch entire list in one call",
+        "Python needs --break-system-packages or venv",
+        "VBScript WScript.Echo for output, not print",
+        "Always wrap scripts in try-catch, return {success, error, data} JSON"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T17:47:52.414993800+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "pad",
+        "scripting",
+        "javascript",
+        "python",
+        "vbscript",
+        "performance"
+      ],
+      "category": "TOOLS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 2041,
+      "token_estimate": 511.0
+    }
+  }
+}

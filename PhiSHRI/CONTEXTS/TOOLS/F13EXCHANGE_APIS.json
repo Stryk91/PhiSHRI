@@ -1,0 +1,60 @@
+{
+  "door_code": "F13EXCHANGE_APIS",
+  "semantic_path": "FINANCE.CRYPTO.APIS",
+  "aliases": [
+    "exchange api",
+    "binance api",
+    "trading api"
+  ],
+  "context_bundle": {
+    "summary": "Crypto exchange API patterns: REST vs WebSocket, rate limits, authentication (HMAC), order types, common endpoints for Binance/Coinbase/Kraken/Bybit.",
+    "prerequisites": [],
+    "related_doors": [
+      "F11TRADING_BOT_PATTERNS",
+      "L02PYTHON_ASYNC"
+    ],
+    "onboarding": {
+      "quick_start": "REST for orders/account. WebSocket for real-time data. Always use HMAC auth. Respect rate limits (Binance: 1200/min). Test on testnet first.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Auth: API key + HMAC-SHA256 signature of request params with secret",
+        "Order flow: GET /account → POST /order → GET /order/{id} → DELETE /order/{id}",
+        "Market data: WebSocket subscribe to trades/orderbook/klines streams",
+        "Rate limits: Weight-based (Binance), per-endpoint (Coinbase), sliding window",
+        "Error handling: 429 = rate limited, 418 = IP banned, 1000s = exchange-specific"
+      ],
+      "known_errors": [
+        "Hitting rate limits - implement exponential backoff",
+        "Clock drift causing auth failures - sync NTP regularly",
+        "Not handling partial fills - order may fill in chunks",
+        "WebSocket disconnect without reconnect logic - missed data",
+        "Testing on mainnet - use testnet/sandbox first"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-24T03:49:51.023343500+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "api",
+        "exchange",
+        "binance",
+        "coinbase",
+        "trading",
+        "websocket"
+      ],
+      "category": "TOOLS",
+      "subcategory": "CRYPTO",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ]
+    }
+  }
+}

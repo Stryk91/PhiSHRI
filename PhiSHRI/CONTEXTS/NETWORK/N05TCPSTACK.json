@@ -1,0 +1,74 @@
+{
+  "door_code": "N05TCPSTACK",
+  "semantic_path": "NETWORK.TCP.ARCHITECTURE",
+  "aliases": [
+    "tcp stack",
+    "tcp/ip",
+    "tcpip.sys",
+    "network stack",
+    "osi model",
+    "layer 3",
+    "layer 4"
+  ],
+  "context_bundle": {
+    "summary": "TCP/IP stack is OS-level (Windows: tcpip.sys), NOT NIC-based. NIC handles Layer 1-2 (physical/data link). OS handles Layer 3-4 (IP routing, TCP congestion control). Changing NIC preserves all TCP configuration. NIC offloads assist but don't replace the stack.",
+    "prerequisites": [],
+    "related_doors": [
+      "N02OFFLOAD",
+      "N03BBR"
+    ],
+    "onboarding": {
+      "quick_start": "TCP config survives NIC change. NIC = new pipe, OS = plumbing logic. Check stack settings: netsh int tcp show global",
+      "full_context_path": null,
+      "common_patterns": [
+        "NIC: Physical signals, MAC addressing, frame TX",
+        "OS Stack: IP routing, TCP congestion, window sizing",
+        "Offloads: Hardware assist for checksums, segmentation",
+        "Driver update may reset NIC-specific settings, not stack"
+      ],
+      "known_errors": []
+    },
+    "technical_details": {
+      "layers": {
+        "nic_handles": {
+          "layer_1": "Physical (radio/electrical signals)",
+          "layer_2": "Data Link (MAC addressing, frames)"
+        },
+        "os_handles": {
+          "layer_3": "Network (IP routing)",
+          "layer_4": "Transport (TCP/UDP, congestion control)"
+        }
+      },
+      "windows_components": {
+        "kernel": "tcpip.sys",
+        "config_tool": "netsh int tcp"
+      },
+      "key_point": "New NIC inherits existing TCP configuration automatically"
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-17T00:00:00Z",
+      "confidence": 1.0,
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": [
+        "tcp",
+        "ip",
+        "stack",
+        "architecture",
+        "osi",
+        "layers"
+      ],
+      "category": "NETWORK",
+      "subcategory": "TCP",
+      "version": "1.0",
+      "size_bytes": 2196,
+      "token_estimate": 549.0
+    }
+  }
+}

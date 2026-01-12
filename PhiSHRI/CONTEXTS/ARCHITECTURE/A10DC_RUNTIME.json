@@ -1,0 +1,65 @@
+{
+  "door_code": "A10DC_RUNTIME",
+  "semantic_path": "ARCHITECTURE.AGENTS.DC_RUNTIME",
+  "aliases": [
+    "dc runtime",
+    "claude-lite os",
+    "tauri mcp host",
+    "dc environment"
+  ],
+  "context_bundle": {
+    "summary": "DC's local runtime - Tauri wrapper around claude.ai with MCP integration, JS injection, local tool access. The OS for Desktop Claude.",
+    "prerequisites": [
+      "T50TAURI_CLIENT",
+      "T56TAURI_WEBVIEW"
+    ],
+    "related_doors": [
+      "T50TAURI_CLIENT",
+      "T51CLAUDE_AUTH",
+      "E30MCP_ZORDERROR"
+    ],
+    "onboarding": {
+      "quick_start": "C:\\Dev\\claude-lite - Tauri app wrapping claude.ai with extensible Rust backend",
+      "full_context_path": "",
+      "common_patterns": [
+        "JS injection via webview.eval() for UI automation",
+        "Tauri commands exposed to webview via invoke()",
+        "MCP client in Rust backend connects to local servers",
+        "Intercept/augment requests before they hit claude.ai",
+        "PhiSHRI integration for persistent context"
+      ],
+      "known_errors": [
+        "WebView2 RAM overhead same as Edge",
+        "CF blocks pure HTTP - must use WebView",
+        "Label conflicts if tauri.conf.json defines windows"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T08:53:34.966663800+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "tauri",
+        "mcp",
+        "runtime",
+        "dc",
+        "agent",
+        "local-tools",
+        "webview"
+      ],
+      "category": "ARCHITECTURE",
+      "subcategory": "AGENTS",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1737,
+      "token_estimate": 435.0
+    }
+  }
+}

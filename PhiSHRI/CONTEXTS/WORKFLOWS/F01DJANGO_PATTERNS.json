@@ -1,0 +1,43 @@
+{
+  "door_code": "F01DJANGO_PATTERNS",
+  "semantic_path": "WORKFLOWS.PYTHON.DJANGO",
+  "aliases": [
+    "django",
+    "django patterns",
+    "python web"
+  ],
+  "context_bundle": {
+    "summary": "Django web framework patterns. MTV architecture, ORM models, class-based views, middleware, signals, management commands.",
+    "prerequisites": [],
+    "related_doors": [],
+    "onboarding": {
+      "quick_start": "",
+      "full_context_path": "",
+      "common_patterns": [],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-05T19:58:31.774346200+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "django",
+        "python",
+        "web",
+        "mvc",
+        "orm"
+      ],
+      "category": "WORKFLOWS",
+      "subcategory": "PYTHON",
+      "version": "1.0.0",
+      "agent_affinity": [],
+      "size_bytes": 943,
+      "token_estimate": 236.0
+    }
+  }
+}

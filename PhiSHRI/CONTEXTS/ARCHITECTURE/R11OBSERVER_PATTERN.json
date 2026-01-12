@@ -1,11 +1,22 @@
 {
   "door_code": "R11OBSERVER_PATTERN",
   "semantic_path": "ARCHITECTURE.PATTERNS.BEHAVIORAL.OBSERVER",
-  "aliases": ["observer", "pub sub", "event listener", "publisher subscriber"],
+  "aliases": [
+    "observer",
+    "pub sub",
+    "event listener",
+    "publisher subscriber"
+  ],
   "context_bundle": {
     "summary": "Observer pattern defines one-to-many dependency where observers are notified automatically when subject state changes",
-    "prerequisites": ["R04EVENT_DRIVEN"],
-    "related_doors": ["R04EVENT_DRIVEN", "W98MESSAGE_QUEUE", "T19KAFKA"],
+    "prerequisites": [
+      "R04EVENT_DRIVEN"
+    ],
+    "related_doors": [
+      "R04EVENT_DRIVEN",
+      "W98MESSAGE_QUEUE",
+      "T19KAFKA"
+    ],
     "onboarding": {
       "quick_start": "Subjects maintain list of observers and notify them of state changes, enabling loose coupling between components",
       "full_context_path": "/PhiDEX/MASTER_CODEX/02_PATTERNS/DESIGN_PATTERNS_GUIDE.md",
@@ -18,7 +29,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/02_PATTERNS/DESIGN_PATTERNS_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/02_PATTERNS/DESIGN_PATTERNS_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -28,12 +41,27 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["architecture", "design pattern", "observer", "behavioral", "pubsub"],
+      "tags": [
+        "architecture",
+        "design pattern",
+        "observer",
+        "behavioral",
+        "pubsub"
+      ],
       "category": "ARCHITECTURE",
       "subcategory": "PATTERNS",
       "version": "1.0.0",
-      "tested_on": ["Windows 10", "Windows 11", "Linux"],
-      "agent_affinity": ["VSCC", "DC"]
+      "tested_on": [
+        "Windows 10",
+        "Windows 11",
+        "Linux"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC"
+      ],
+      "size_bytes": 1613,
+      "token_estimate": 404.0
     }
   }
 }

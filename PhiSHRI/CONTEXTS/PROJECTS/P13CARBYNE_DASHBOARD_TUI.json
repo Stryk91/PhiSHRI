@@ -1,0 +1,58 @@
+{
+  "door_code": "P13CARBYNE_DASHBOARD_TUI",
+  "semantic_path": "PROJECTS.PHIVECTOR.CARBYNE_DASHBOARD_TUI",
+  "aliases": [
+    "carbyne tui",
+    "terminal dashboard",
+    "ratatui dashboard"
+  ],
+  "context_bundle": {
+    "summary": "Terminal TUI dashboard for Carbyne. ratatui/crossterm, split panels for agents/messages/status. Keyboard navigation. Lightweight alternative to web dashboard. Fits CLI-native workflow.",
+    "prerequisites": [
+      "T22CARBYNE"
+    ],
+    "related_doors": [
+      "T22CARBYNE",
+      "P12CARBYNE_DASHBOARD_WEB"
+    ],
+    "onboarding": {
+      "quick_start": "Terminal TUI dashboard for Carbyne. Rust with ratatui/crossterm. Split panels: agent list, message stream, task/alert status. Connects to Carbyne TCP 7777. Lightweight, no browser needed, fits CLI workflow.",
+      "full_context_path": "",
+      "common_patterns": [
+        "ratatui + crossterm for Rust TUI",
+        "Panels: agents (left), messages (center), status (right)",
+        "Keyboard nav: Tab between panels, j/k scroll, q quit",
+        "Connects to Carbyne TCP 7777 for live data"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-03T00:32:23.835903200+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "carbyne",
+        "dashboard",
+        "tui",
+        "terminal",
+        "ratatui",
+        "monitoring",
+        "future"
+      ],
+      "category": "PROJECTS",
+      "subcategory": "PHIVECTOR",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ],
+      "size_bytes": 1660,
+      "token_estimate": 415.0
+    }
+  }
+}

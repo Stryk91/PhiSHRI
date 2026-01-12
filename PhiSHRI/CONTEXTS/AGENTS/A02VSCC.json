@@ -60,7 +60,9 @@
       "agent_affinity": [
         "VSCC",
         "IDEC"
-      ]
+      ],
+      "size_bytes": 1853,
+      "token_estimate": 464.0
     }
   }
 }

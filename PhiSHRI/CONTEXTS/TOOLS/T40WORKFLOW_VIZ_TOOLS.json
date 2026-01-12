@@ -1,0 +1,77 @@
+{
+  "door_code": "T40WORKFLOW_VIZ_TOOLS",
+  "semantic_path": "TOOLS.PRODUCTIVITY.WORKFLOW_VISUALIZATION",
+  "aliases": [
+    "workflow tools",
+    "todo visualization",
+    "cron gui",
+    "task management",
+    "project tracking"
+  ],
+  "context_bundle": {
+    "summary": "Lightweight open-source TODO, cron scheduling, and workflow visualization tools for Windows developers. Covers Super Productivity, n8n, Cronicle-Edge, Taskwarrior, Wexflow, Vikunja, and integration patterns.",
+    "prerequisites": [
+      "T25EVERYTHING_MCP"
+    ],
+    "related_doors": [
+      "T18AIRFLOW",
+      "T16GRAFANA",
+      "830WINAUTOSUITE",
+      "820PWSH"
+    ],
+    "onboarding": {
+      "quick_start": "Lightest: Taskwarrior (sub-10MB) + Dkron (20-50MB) + Wexflow (256MB). Easiest Windows: Super Productivity via MS Store. Best visualization: n8n for workflows, Cronicle-Edge for cron. Install n8n: npx n8n or docker run -it --rm -p 5678:5678 n8nio/n8n",
+      "full_context_path": "",
+      "common_patterns": [
+        "Super Productivity: MS Store install, GitHub sync, Pomodoro timers, 100-150MB RAM",
+        "n8n: npx n8n or Docker, 500+ integrations, visual workflow builder, 512MB-2GB RAM",
+        "Cronicle-Edge: Docker, Windows cron replacement, live job monitoring, 50-100MB RAM",
+        "Taskwarrior: CLI-first, sub-10MB, Git hooks, WSL/Chocolatey install",
+        "Wexflow: .NET native, Windows installer, 100+ activities, 256-512MB RAM",
+        "Dkron: Single Go binary, 20-50MB, native Windows, distributed scheduling"
+      ],
+      "known_errors": [
+        "n8n node-gyp issues on Windows 11 - use Docker instead",
+        "Taskwarrior requires WSL or Chocolatey on Windows",
+        "Focalboard discontinued Sept 2023 - avoid",
+        "Heavy tools (Plane 4-8GB, OpenProject 4-8GB) overkill for solo devs"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-28T20:51:09.024613900+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "todo",
+        "workflow",
+        "cron",
+        "scheduling",
+        "visualization",
+        "productivity",
+        "windows",
+        "n8n",
+        "cronicle",
+        "taskwarrior",
+        "super-productivity",
+        "vikunja",
+        "wexflow",
+        "kanban",
+        "gantt"
+      ],
+      "category": "TOOLS",
+      "subcategory": "PRODUCTIVITY",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 2529,
+      "token_estimate": 633.0
+    }
+  }
+}

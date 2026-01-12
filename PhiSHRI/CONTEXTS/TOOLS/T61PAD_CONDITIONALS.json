@@ -1,0 +1,61 @@
+{
+  "door_code": "T61PAD_CONDITIONALS",
+  "semantic_path": "TOOLS.AUTOMATION.PAD.CONDITIONALS",
+  "aliases": [
+    "pad if",
+    "pad conditions",
+    "pad switch"
+  ],
+  "context_bundle": {
+    "summary": "PAD conditional actions: If/Else/Else If/End blocks, Switch/Case/Default. Operators: =, <>, >, >=, <, <=, Contains, StartsWith, EndsWith, IsEmpty",
+    "prerequisites": [
+      "T59POWER_AUTOMATE_DESKTOP"
+    ],
+    "related_doors": [
+      "T60PAD_VARIABLES",
+      "T62PAD_LOOPS"
+    ],
+    "onboarding": {
+      "quick_start": "If %Variable% = 'value' Then [actions] Else [actions] End. Switch %Status% Case='Active' [actions] Default [fallback] End",
+      "full_context_path": "",
+      "common_patterns": [
+        "If %Count% > 0 Then ... Else ... End",
+        "If %FilePath% IsEmpty Then ... End",
+        "Else If %Status% = 'Pending' Then ...",
+        "Switch %Category% Case='A' ... Case='B' ... Default ... End",
+        "If file exists 'path' Then ... End"
+      ],
+      "known_errors": [
+        "String comparison case-sensitive by default",
+        "Missing End statement breaks flow",
+        "Switch requires exact value matches - no patterns"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-01T04:10:45.032341+11:00",
+      "confidence": 1.0,
+      "tags": [
+        "pad",
+        "conditionals",
+        "if",
+        "switch",
+        "logic",
+        "rpa"
+      ],
+      "category": "TOOLS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1661,
+      "token_estimate": 416.0
+    }
+  }
+}

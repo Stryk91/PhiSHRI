@@ -1,11 +1,26 @@
 {
   "door_code": "W73PROFILING",
   "semantic_path": "WORKFLOWS.PERFORMANCE.PROFILING",
-  "aliases": ["profiling", "performance_profiling", "cprofile", "py_spy", "perf", "profiler", "scalene"],
+  "aliases": [
+    "profiling",
+    "performance_profiling",
+    "cprofile",
+    "py_spy",
+    "perf",
+    "profiler",
+    "scalene"
+  ],
   "context_bundle": {
     "summary": "Performance profiling identifies bottlenecks: Python (cProfile standard, Scalene line-by-line memory/CPU, Pyinstrument call stack, py-spy sampling), Java (YourKit low-overhead, JProfiler comprehensive, VisualVM bundled), .NET (dotMemory leak finder, .NET Memory Profiler real-time), C/C++ (Valgrind memory debugger, perf Linux profiler). Tools provide: CPU usage, memory allocation, call stacks, flame graphs. 2024 trends: low-overhead continuous profiling, real-time production monitoring, cloud integration, detailed visualization.",
-    "prerequisites": ["W77MEMORY_MGMT", "W75BENCHMARK"],
-    "related_doors": ["W86METRICS", "T10OBSERVABILITY", "W84LOGGING"],
+    "prerequisites": [
+      "W77MEMORY_MGMT",
+      "W75BENCHMARK"
+    ],
+    "related_doors": [
+      "W86METRICS",
+      "T10OBSERVABILITY",
+      "W84LOGGING"
+    ],
     "onboarding": {
       "quick_start": "Profiling tools: Python cProfile: import cProfile; cProfile.run('my_function()'); # Output shows function call counts, time. Detailed: python -m cProfile -s cumulative script.py > profile.txt. Scalene (2024, line-level): pip install scalene; scalene script.py; # Shows CPU/memory per line, low overhead. py-spy (sampling, no code changes): pip install py-spy; sudo py-spy record -o profile.svg --pid 12345; # Flame graph. Java (JProfiler): java -agentpath:/path/to/libjprofilerti.so MyApp; # GUI shows CPU, memory, threads. VisualVM: jvisualvm; # Attach to running JVM, heap dumps, CPU sampling. .NET (dotMemory): dotMemory.exe attach PID; # Memory leak detection, snapshot comparison. Valgrind (C/C++): valgrind --tool=callgrind ./myapp; callgrind_annotate callgrind.out.* # Line-by-line profiling. Linux perf: perf record -g ./myapp; perf report; # System-wide profiling, kernel + userspace. Analyze: Look for hot functions (high cumulative time), memory leaks (increasing allocations), blocking I/O.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md",
@@ -24,7 +39,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/08_PERFORMANCE/PERFORMANCE_OPTIMIZATION_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +51,36 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["profiling", "cprofile", "scalene", "py-spy", "yourkit", "valgrind", "perf", "performance", "memory_profiling", "cpu_profiling"],
+      "tags": [
+        "profiling",
+        "cprofile",
+        "scalene",
+        "py-spy",
+        "yourkit",
+        "valgrind",
+        "perf",
+        "performance",
+        "memory_profiling",
+        "cpu_profiling"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "PERFORMANCE",
       "version": "1.0.0",
-      "tested_on": ["Python", "Java", ".NET", "C/C++", "Node.js", "Linux"],
-      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+      "tested_on": [
+        "Python",
+        "Java",
+        ".NET",
+        "C/C++",
+        "Node.js",
+        "Linux"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "CMDC",
+        "TERMC"
+      ],
+      "size_bytes": 4079,
+      "token_estimate": 1020.0
     }
   }
 }

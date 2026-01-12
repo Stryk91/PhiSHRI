@@ -1,11 +1,25 @@
 {
   "door_code": "D11AUTO_UPDATE",
   "semantic_path": "TOOLS.DEPLOYMENT.AUTO_UPDATE",
-  "aliases": ["auto-update", "Sparkle", "Squirrel", "electron-updater", "appcast", "update framework"],
+  "aliases": [
+    "auto-update",
+    "Sparkle",
+    "Squirrel",
+    "electron-updater",
+    "appcast",
+    "update framework"
+  ],
   "context_bundle": {
     "summary": "Auto-update framework implementation for desktop applications using Sparkle (macOS), Squirrel/electron-updater (Electron), with appcast feeds and EdDSA signing",
-    "prerequisites": ["D09CODE_SIGNING", "D10NOTARIZATION"],
-    "related_doors": ["D05SILENT_INSTALL", "T11CICD", "W05RUNSPACE"],
+    "prerequisites": [
+      "D09CODE_SIGNING",
+      "D10NOTARIZATION"
+    ],
+    "related_doors": [
+      "D05SILENT_INSTALL",
+      "T11CICD",
+      "W05RUNSPACE"
+    ],
     "onboarding": {
       "quick_start": "Implement Sparkle for macOS with EdDSA-signed appcast XML, or electron-updater for Electron apps with GitHub/S3/custom server hosting",
       "full_context_path": "/PhiDEX/DEPLOYMENT_ALMANAC/05_AUTO_UPDATES/AUTO_UPDATE_MECHANISMS_GUIDE.md",
@@ -25,7 +39,9 @@
       ]
     },
     "resources": {
-      "docs": ["/PhiDEX/DEPLOYMENT_ALMANAC/05_AUTO_UPDATES/AUTO_UPDATE_MECHANISMS_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/DEPLOYMENT_ALMANAC/05_AUTO_UPDATES/AUTO_UPDATE_MECHANISMS_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -35,12 +51,29 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["auto-update", "Sparkle", "Squirrel", "electron-updater", "appcast", "updates"],
+      "tags": [
+        "auto-update",
+        "Sparkle",
+        "Squirrel",
+        "electron-updater",
+        "appcast",
+        "updates"
+      ],
       "category": "TOOLS",
       "subcategory": "DEPLOYMENT",
       "version": "1.0.0",
-      "tested_on": ["macOS", "Windows 10", "Windows 11", "Electron"],
-      "agent_affinity": ["VSCC", "DC"]
+      "tested_on": [
+        "macOS",
+        "Windows 10",
+        "Windows 11",
+        "Electron"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC"
+      ],
+      "size_bytes": 2299,
+      "token_estimate": 575.0
     }
   }
 }

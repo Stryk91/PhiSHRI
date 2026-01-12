@@ -1,0 +1,143 @@
+{
+  "door_code": "A52MOE_PATTERNS",
+  "semantic_path": "ARCHITECTURE.AI.MOE",
+  "aliases": [
+    "MoE",
+    "Mixture of Experts",
+    "sparse models",
+    "expert routing",
+    "sparse MoE",
+    "conditional computation"
+  ],
+  "context_bundle": {
+    "summary": "Mixture-of-Experts architecture: sparse activation, expert routing, load balancing, and why MoE enables larger models at lower compute. The key to DeepSeek's efficiency and the future of efficient LLMs.",
+    "prerequisites": [
+      "A50AI_LANDSCAPE_2025"
+    ],
+    "related_doors": [
+      "A51DEEPSEEK_ARCHITECTURE",
+      "A56TRAINING_EFFICIENCY",
+      "A53SPARSE_ATTENTION"
+    ],
+    "onboarding": {
+      "quick_start": "MoE = many expert networks + router. Router picks which experts handle each token. 671B total params but only 37B compute per token. Get large model knowledge with small model cost. Key challenge: load balancing (prevent all tokens going to same experts). DeepSeek solved with auxiliary-loss-free bias adjustment.",
+      "full_context_path": "",
+      "common_patterns": [
+        "=== CORE CONCEPT ===",
+        "DENSE MODEL: Every parameter participates in every forward pass. 70B model = 70B compute per token.",
+        "SPARSE MoE: Parameters split into N experts. Only k experts activated per token. 671B params, 37B compute.",
+        "SPARSITY RATIO: DeepSeek uses ~5.5% activation (37B/671B). Most params dormant per token.",
+        "WHY IT WORKS: Different experts specialize in different patterns. Router learns which expert handles what.",
+        "=== ARCHITECTURE COMPONENTS ===",
+        "EXPERTS: Typically FFN (feed-forward network) layers. Each expert is a separate neural network.",
+        "ROUTER: Small network that takes token embedding, outputs probability distribution over experts.",
+        "TOP-K SELECTION: Pick top k experts by router probability. k=2 common (route to 2 experts per token).",
+        "COMBINATION: Expert outputs weighted by router probabilities, summed to produce final output.",
+        "=== ROUTER MECHANISM ===",
+        "INPUT: Token hidden state (embedding)",
+        "COMPUTATION: Linear layer → softmax → probabilities for each expert",
+        "SELECTION: Take top-k experts by probability",
+        "OUTPUT: Weighted combination of selected expert outputs",
+        "FORMULA: output = Σ(router_prob[i] * expert[i](input)) for i in top-k",
+        "=== LOAD BALANCING PROBLEM ===",
+        "COLLAPSE: Without intervention, router learns to always pick same few experts.",
+        "RESULT: Most experts never train, wasted parameters, no benefit from scale.",
+        "WHY: Gradient flow concentrates on frequently-used experts, making them better, reinforcing selection.",
+        "=== LOAD BALANCING SOLUTIONS ===",
+        "AUXILIARY LOSS (Traditional): Add loss term penalizing uneven expert usage. Works but hurts main task.",
+        "CAPACITY FACTOR: Limit tokens per expert per batch. Overflow dropped or sent to secondary expert.",
+        "NOISE INJECTION: Add noise to router logits during training. Forces exploration.",
+        "DEEPSEEK INNOVATION: Auxiliary-loss-free balancing via dynamic bias term per expert.",
+        "=== DEEPSEEK'S APPROACH ===",
+        "BIAS TERM: Each expert has learnable bias added to router logits.",
+        "DYNAMIC ADJUSTMENT: If expert underutilized, increase bias. If overutilized, decrease bias.",
+        "NO AUX LOSS: Main task loss unchanged. Bias adjustment is separate mechanism.",
+        "RESULT: Better balance without degrading model quality. Key innovation.",
+        "=== EXPERT SPECIALIZATION ===",
+        "EMERGENT: Experts naturally specialize during training without explicit guidance.",
+        "EXAMPLES: Some experts handle code, others prose, others math, others specific languages.",
+        "VISUALIZATION: Can analyze which experts activate for different input types.",
+        "FLEXIBILITY: Specialization is soft - experts can handle multiple domains.",
+        "=== PARALLELISM STRATEGIES ===",
+        "EXPERT PARALLELISM (EP): Distribute experts across GPUs. Each GPU holds subset of experts.",
+        "ALL-TO-ALL: Tokens routed to GPUs holding their selected experts. Results gathered back.",
+        "COMMUNICATION OVERHEAD: All-to-all is expensive. Main bottleneck for MoE training.",
+        "DEEPSEEK: 64-way EP across 8 nodes. Custom communication optimization.",
+        "=== GRANULARITY TRADEOFFS ===",
+        "COARSE (Few Large Experts): Fewer communication ops, but less specialization.",
+        "FINE (Many Small Experts): More specialization, but more routing overhead.",
+        "DEEPSEEK: Uses fine-grained experts with efficient routing.",
+        "TREND: Industry moving toward more, smaller experts for better specialization.",
+        "=== INFERENCE CONSIDERATIONS ===",
+        "MEMORY: All experts must be loaded even if only k used. 671B params in memory.",
+        "COMPUTE: Only k experts compute. Actual FLOPS much lower than dense equivalent.",
+        "LATENCY: Router adds small overhead. Negligible vs expert computation.",
+        "BATCHING: Different tokens may route to different experts. Complex batching logic.",
+        "=== EXPERT DUPLICATION (INFERENCE) ===",
+        "HOT EXPERTS: Some experts used more frequently than others.",
+        "DUPLICATION: Copy hot experts to multiple GPUs. Distribute load.",
+        "DYNAMIC: Monitor usage, adjust duplication at runtime.",
+        "DEEPSEEK: Uses smart expert duplication for inference efficiency.",
+        "=== MoE vs DENSE COMPARISON ===",
+        "SAME COMPUTE: 37B MoE vs 37B dense - MoE has more knowledge from 671B params.",
+        "SAME PARAMS: 671B MoE vs 671B dense - MoE is 10x+ cheaper to run.",
+        "TRAINING: MoE slightly harder to train (load balancing), but more efficient per FLOP.",
+        "INFERENCE: MoE needs all params loaded but computes less. Memory-bound not compute-bound.",
+        "=== MODELS USING MoE ===",
+        "DEEPSEEK V3: 671B/37B, DeepSeekMoE architecture",
+        "MIXTRAL: Mistral's MoE models (8x7B = 47B total, 13B active)",
+        "GROK-1: xAI's original model used MoE",
+        "SWITCH TRANSFORMER: Google's early large-scale MoE",
+        "GPT-4: Rumored to use MoE (unconfirmed)",
+        "=== PHIVECTOR RELEVANCE ===",
+        "AGENT ANALOGY: DC/KALIC split is like MoE routing. Different agents for different tasks.",
+        "EFFICIENCY: MoE philosophy = use the right tool for the job, not all tools.",
+        "PHISHRI: Could route queries to specialized sub-indexes (like expert routing).",
+        "LOCAL: MoE models harder to run locally due to memory, but efficiency inspiring."
+      ],
+      "known_errors": [
+        "MEMORY FOOTPRINT: Still need all 671B params in memory even if only 37B compute. Limits local deployment.",
+        "COMMUNICATION: All-to-all ops can bottleneck on slow interconnects. H800 particularly affected.",
+        "LOAD IMBALANCE: Even with balancing, some imbalance persists. Efficiency loss.",
+        "QUANTIZATION: Different experts may need different quantization. Complex optimization.",
+        "ROUTER COLLAPSE: Can still happen if balancing mechanism fails. Monitor expert usage.",
+        "BATCHING COMPLEXITY: Different tokens route differently. Inference batching non-trivial.",
+        "EXPERT UNDERTRAINING: Rarely-used experts may be undertrained. Quality variance.",
+        "DEBUGGING: Harder to debug than dense models. Which expert caused the issue?"
+      ]
+    },
+    "resources": {
+      "docs": [
+        "https://arxiv.org/abs/2401.06066 (DeepSeekMoE paper)",
+        "https://arxiv.org/abs/2101.03961 (Switch Transformer - original large MoE)",
+        "https://arxiv.org/abs/2305.14705 (Mixtral paper)",
+        "https://arxiv.org/html/2412.19437v1 (DeepSeek V3 - MoE details in Section 2)"
+      ],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-19T09:30:00.000000000+00:00",
+      "confidence": 0.95,
+      "tags": [
+        "moe",
+        "mixture-of-experts",
+        "sparse",
+        "routing",
+        "experts",
+        "efficiency",
+        "architecture",
+        "load-balancing"
+      ],
+      "category": "ARCHITECTURE",
+      "subcategory": "AI",
+      "version": "2.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 8354,
+      "token_estimate": 2089.0
+    }
+  }
+}

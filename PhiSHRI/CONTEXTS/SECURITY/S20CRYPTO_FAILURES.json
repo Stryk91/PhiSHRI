@@ -1,11 +1,24 @@
 {
   "door_code": "S20CRYPTO_FAILURES",
   "semantic_path": "SECURITY.VULNERABILITIES.CRYPTOGRAPHIC_FAILURES",
-  "aliases": ["cryptographic failures", "weak encryption", "broken crypto", "insecure crypto", "crypto misuse"],
+  "aliases": [
+    "cryptographic failures",
+    "weak encryption",
+    "broken crypto",
+    "insecure crypto",
+    "crypto misuse"
+  ],
   "context_bundle": {
     "summary": "Cryptographic failures prevention: use strong algorithms (AES-256, RSA-4096, SHA-256+), avoid weak/deprecated crypto (MD5, SHA-1, DES, RC4), use secure random sources, protect keys properly, implement proper key management and rotation.",
-    "prerequisites": ["S06ENCRYPTION", "S05SECRETS"],
-    "related_doors": ["S13SECRETS_ROTATION", "S14ENCRYPTION", "S07OAUTH"],
+    "prerequisites": [
+      "S06ENCRYPTION",
+      "S05SECRETS"
+    ],
+    "related_doors": [
+      "S13SECRETS_ROTATION",
+      "S14ENCRYPTION",
+      "S07OAUTH"
+    ],
     "onboarding": {
       "quick_start": "Crypto best practices: 1) Use industry-standard libraries (OpenSSL, libsodium, Web Crypto API), 2) AES-256-GCM for encryption, 3) PBKDF2/bcrypt/Argon2 for passwords, 4) TLS 1.2+ for transport, 5) Secure random: /dev/urandom or crypto.randomBytes(), 6) Never roll your own crypto.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/06_SECURITY/ENCRYPTION_GUIDE.md",
@@ -61,12 +74,28 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["cryptography", "encryption", "weak_crypto", "owasp", "tls", "aes", "rsa"],
+      "tags": [
+        "cryptography",
+        "encryption",
+        "weak_crypto",
+        "owasp",
+        "tls",
+        "aes",
+        "rsa"
+      ],
       "category": "SECURITY",
       "subcategory": "VULNERABILITIES",
       "version": "1.0.0",
-      "tested_on": ["All platforms"],
-      "agent_affinity": ["VSCC", "DC", "WEBC"]
+      "tested_on": [
+        "All platforms"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "DC",
+        "WEBC"
+      ],
+      "size_bytes": 4070,
+      "token_estimate": 1018.0
     }
   }
 }

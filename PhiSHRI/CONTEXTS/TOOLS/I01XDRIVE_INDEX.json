@@ -1,0 +1,56 @@
+{
+  "door_code": "I01XDRIVE_INDEX",
+  "semantic_path": "TOOLS.INDEXES.XDRIVE",
+  "aliases": [
+    "x drive files",
+    "x drive index",
+    "file list x",
+    "xdrive contents",
+    "carbyne vhdx files"
+  ],
+  "context_bundle": {
+    "summary": "Complete file index of X: drive (F:\\CARBYNE.vhdx). 236,781 files/folders. Generated via Everything. Use for quick file lookups, auditing, searching without Everything running.",
+    "prerequisites": [],
+    "related_doors": [
+      "E71MCP_XDRIVE_DEPENDENCY",
+      "T25EVERYTHING_MCP"
+    ],
+    "onboarding": {
+      "quick_start": "File: X:\\X_DRIVE_INDEX_20251220.txt. One path per line. grep/rg to search. Regenerate: es.exe \"X:\\\\\" > X:\\X_DRIVE_INDEX_YYYYMMDD.txt",
+      "full_context_path": "X:\\X_DRIVE_INDEX_20251220.txt",
+      "common_patterns": [
+        "Search: grep -i 'pattern' X:\\X_DRIVE_INDEX_*.txt",
+        "Count files: wc -l X:\\X_DRIVE_INDEX_*.txt",
+        "Find by extension: grep '\\.rs$' X:\\X_DRIVE_INDEX_*.txt",
+        "Regenerate: /mnt/c/PhiDEX/tools/es.exe \"X:\\\\\" > /mnt/x/X_DRIVE_INDEX_$(date +%Y%m%d).txt"
+      ],
+      "known_errors": []
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-20T08:15:00+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "index",
+        "xdrive",
+        "files",
+        "everything",
+        "audit"
+      ],
+      "category": "TOOLS",
+      "subcategory": "INDEXES",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "KALIC",
+        "DC"
+      ],
+      "size_bytes": 236781,
+      "token_estimate": 59195
+    }
+  }
+}

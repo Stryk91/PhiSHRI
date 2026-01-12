@@ -1,11 +1,22 @@
 {
   "door_code": "W47DOCKER_COMPOSE",
   "semantic_path": "WORKFLOWS.INFRASTRUCTURE.DOCKER_COMPOSE_MULTI_CONTAINER",
-  "aliases": ["docker_compose", "compose", "multi_container", "docker"],
+  "aliases": [
+    "docker_compose",
+    "compose",
+    "multi_container",
+    "docker"
+  ],
   "context_bundle": {
     "summary": "Docker Compose multi-container orchestration: define services in docker-compose.yml with services, networks, volumes. Each service: image or build, ports, environment, depends_on, volumes. Commands: docker-compose up (start), docker-compose down (stop/remove), docker-compose logs, docker-compose ps. Networks connect containers. Volumes persist data. Use .env for secrets. Version 3.x syntax: version: '3.8'.",
-    "prerequisites": ["W46TERRAFORM"],
-    "related_doors": ["W48K8S_DEPLOY", "W49HELM", "827HHWINC#"],
+    "prerequisites": [
+      "W46TERRAFORM"
+    ],
+    "related_doors": [
+      "W48K8S_DEPLOY",
+      "W49HELM",
+      "827HHWINC#"
+    ],
     "onboarding": {
       "quick_start": "Docker Compose file structure: version: '3.8', services: web: image: nginx:latest, ports: ['80:80'], db: image: postgres:13, environment: POSTGRES_PASSWORD: secret, volumes: ['db_data:/var/lib/postgresql/data'], volumes: db_data: {}. Commands: docker-compose up -d (detached), docker-compose down (stop and remove), docker-compose logs -f web (follow logs), docker-compose exec web bash (enter container). Networks: default network created, or custom: networks: frontend: {}. Build: build: ./app or build: {context: ., dockerfile: Dockerfile.dev}.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md",
@@ -24,7 +35,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/04_SYSTEM_AUTOMATION/SYSTEM_AUTOMATION_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +47,28 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["docker", "compose", "containers", "orchestration", "multi_container"],
+      "tags": [
+        "docker",
+        "compose",
+        "containers",
+        "orchestration",
+        "multi_container"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "INFRASTRUCTURE",
       "version": "1.0.0",
-      "tested_on": ["Linux", "Windows", "macOS"],
-      "agent_affinity": ["VSCC", "TERMC", "CMDC"]
+      "tested_on": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "TERMC",
+        "CMDC"
+      ],
+      "size_bytes": 2885,
+      "token_estimate": 722.0
     }
   }
 }

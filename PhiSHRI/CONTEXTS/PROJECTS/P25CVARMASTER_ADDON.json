@@ -1,0 +1,72 @@
+{
+  "context_bundle": {
+    "prerequisites": [],
+    "resources": {
+      "code": [
+        "Y:\\World of Warcraft\\_retail_\\Interface\\AddOns\\CVarMaster\\"
+      ],
+      "docs": [],
+      "errors": [],
+      "tests": []
+    },
+    "summary": "CVarMaster WoW addon v1.0.3 - WeakAura export, profile sharing, base64 encoding. 893 CVars, GUI browser, 17 categories, combat protection.",
+    "onboarding": {
+      "full_context_path": "",
+      "known_errors": [
+        "UI scale CVars (uiScale, renderScale) require /reload to prevent instability",
+        "Combat-protected CVars blocked during combat with warning message",
+        "gxApi, gxResolution, graphicsQuality need logout to fully apply",
+        "Slash command registration must be at top level of main .lua file",
+        "OptionsSliderTemplate needed for proper slider behavior"
+      ],
+      "quick_start": "Location: X:\\dev\\CVarMaster\\ (dev), Y:\\...\\AddOns\\CVarMaster\\ (installed)\nSlash: /cvm (toggle GUI)\nVersion: 1.0.3 (WeakAura export)\nPublished: Wago.io, CurseForge\nNew 1.0.3: WeakAuraExport.lua, Base64 Utils, Profile import/export (!CVM: format), Combat warnings",
+      "common_patterns": [
+        "-- TOC: ## Interface: 110002 (TWW 11.0.2)",
+        "-- Slash at top level: SLASH_CVARMASTER1 = '/cvm'",
+        "-- Combat check: InCombatLockdown() or UnitAffectingCombat('player')",
+        "-- CVar API: GetCVar(), SetCVar(), GetCVarDefault()",
+        "-- Frame: CreateFrame('Frame', name, parent, 'BackdropTemplate')",
+        "-- Data: KnownCVars.lua (893), CombatProtected.lua (69), CVarDescriptions.lua (511)",
+        "-- WA Export: WAE:ShowExportDialog(), WAE:GenerateScript()",
+        "-- Encoded: !CVM:base64(name|cvar1=val1;cvar2=val2)"
+      ]
+    },
+    "related_doors": [
+      "G01WOW_OPTIMIZATION",
+      "W260WOW_ADDON_PUBLISH"
+    ],
+    "metadata": {
+      "category": "PROJECTS",
+      "tags": [
+        "wow",
+        "addon",
+        "cvar",
+        "gui",
+        "lua",
+        "curseforge",
+        "wago",
+        "published",
+        "combat-protection",
+        "weakaura",
+        "export"
+      ],
+      "version": "1.0.3",
+      "last_updated": "2026-01-02T04:42:11",
+      "confidence": 1.0,
+      "agent_affinity": [
+        "DC"
+      ],
+      "subcategory": "WOW"
+    }
+  },
+  "semantic_path": "PROJECTS.WOW.CVARMASTER",
+  "door_code": "P25CVARMASTER_ADDON",
+  "aliases": [
+    "cvarmaster",
+    "cvar master",
+    "wow cvar",
+    "cvar gui",
+    "cvar addon",
+    "console variables"
+  ]
+}

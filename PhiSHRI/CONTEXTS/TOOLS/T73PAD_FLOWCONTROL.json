@@ -1,0 +1,64 @@
+{
+  "door_code": "T73PAD_FLOWCONTROL",
+  "semantic_path": "TOOLS.AUTOMATION.PAD.FLOWCONTROL",
+  "aliases": [
+    "pad flow control",
+    "subflows",
+    "error handling",
+    "try catch"
+  ],
+  "context_bundle": {
+    "summary": "PAD flow control: Run Subflow (modular), Stop Flow (success/error), Wait (delay), Label/Go To (jumps), On Block Error (try-catch), Comment (docs). Subflow patterns for reuse",
+    "prerequisites": [
+      "T59POWER_AUTOMATE_DESKTOP"
+    ],
+    "related_doors": [
+      "T61PAD_CONDITIONALS",
+      "T62PAD_LOOPS"
+    ],
+    "onboarding": {
+      "quick_start": "On Block Error [risky actions] Error Handling [log & recover] End. Run Subflow 'Validator' inputs:%Data% -> outputs:%IsValid%",
+      "full_context_path": "",
+      "common_patterns": [
+        "Run subflow 'SubflowName' input variables mapping -> output variables",
+        "Stop flow end:Successfully | end:WithError message:'reason'",
+        "Wait duration:5 seconds (synchronization delay)",
+        "Label 'RetryPoint' ... Go to label 'RetryPoint'",
+        "On Block Error [actions] Error Handling [recovery] End",
+        "# Comment: Document flow logic here"
+      ],
+      "known_errors": [
+        "Subflow not found - verify name exact match",
+        "Go To creates spaghetti code - prefer structured loops",
+        "On Block Error catches all - be specific in handling",
+        "Nested subflows max ~3 levels for maintainability"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-01T04:10:45.038625+11:00",
+      "confidence": 1.0,
+      "tags": [
+        "pad",
+        "flow",
+        "subflow",
+        "error handling",
+        "control",
+        "rpa"
+      ],
+      "category": "TOOLS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1934,
+      "token_estimate": 484.0
+    }
+  }
+}

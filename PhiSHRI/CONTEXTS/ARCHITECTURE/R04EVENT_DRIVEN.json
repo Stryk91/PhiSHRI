@@ -1,11 +1,24 @@
 {
   "door_code": "R04EVENT_DRIVEN",
   "semantic_path": "ARCHITECTURE.PATTERNS.EVENT_DRIVEN_ARCHITECTURE",
-  "aliases": ["event_driven", "eda", "event_sourcing", "cqrs", "reactive"],
+  "aliases": [
+    "event_driven",
+    "eda",
+    "event_sourcing",
+    "cqrs",
+    "reactive"
+  ],
   "context_bundle": {
     "summary": "Event-Driven Architecture (EDA): Components communicate via events (state changes). Patterns: Event Sourcing (store events, not state), CQRS (Command Query Responsibility Segregation), Event Bus (Kafka, EventBridge), Pub/Sub. Benefits: loose coupling, scalability, async processing. Challenges: eventual consistency, event ordering, debugging. Use cases: microservices communication, audit logs, real-time analytics, IoT. Tools: Kafka (event streaming), EventBridge (AWS), Azure Event Grid.",
-    "prerequisites": ["R03MICROSERVICE", "W53KAFKA"],
-    "related_doors": ["W51STREAM", "A09MESSAGE_QUEUE", "W50ETL"],
+    "prerequisites": [
+      "R03MICROSERVICE",
+      "W53KAFKA"
+    ],
+    "related_doors": [
+      "W51STREAM",
+      "A09MESSAGE_QUEUE",
+      "W50ETL"
+    ],
     "onboarding": {
       "quick_start": "Event-Driven: Services publish events (UserRegistered, OrderPlaced), other services subscribe and react. Event Sourcing: store events (AccountCredited $100), rebuild state by replaying. CQRS: separate write (commands) and read (queries) models, optimize each. Event Bus: Kafka topics (order-events), services publish/subscribe. Pub/Sub: EventBridge rules route events to targets (Lambda, SQS). Benefits: decouple services, scale independently, async. Challenges: eventual consistency (order may not show immediately), debug event flows. Use for: microservices, audit trails, real-time dashboards, reactive systems. Kafka: producer.send('events', event), consumer processes.",
       "full_context_path": "/PhiDEX/MASTER_CODEX/03_ARCHITECTURE/DISTRIBUTED_SYSTEMS_ARCHITECTURE.md",
@@ -24,7 +37,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/03_ARCHITECTURE/DISTRIBUTED_SYSTEMS_ARCHITECTURE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/03_ARCHITECTURE/DISTRIBUTED_SYSTEMS_ARCHITECTURE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +49,31 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["event_driven", "eda", "event_sourcing", "cqrs", "reactive", "kafka", "async"],
+      "tags": [
+        "event_driven",
+        "eda",
+        "event_sourcing",
+        "cqrs",
+        "reactive",
+        "kafka",
+        "async"
+      ],
       "category": "ARCHITECTURE",
       "subcategory": "PATTERNS",
       "version": "1.0.0",
-      "tested_on": ["Kafka", "AWS EventBridge", "Azure Event Grid", "Redis Pub/Sub"],
-      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+      "tested_on": [
+        "Kafka",
+        "AWS EventBridge",
+        "Azure Event Grid",
+        "Redis Pub/Sub"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "CMDC",
+        "TERMC"
+      ],
+      "size_bytes": 3237,
+      "token_estimate": 810.0
     }
   }
 }

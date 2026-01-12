@@ -1,0 +1,66 @@
+{
+  "door_code": "R20TOOL_BACKBONE",
+  "semantic_path": "ARCHITECTURE.TOOLS.BACKBONE",
+  "aliases": [
+    "tool_architecture",
+    "mcp_backbone",
+    "operational_core",
+    "tool_first"
+  ],
+  "context_bundle": {
+    "summary": "Tools as operational backbone. Every non-trivial operation flows through MCP tools. Agents without tools are advisory-only. Tools bridge intent to action: file ops, search, code execution, API calls, system control. Tool availability defines agent capability ceiling.",
+    "prerequisites": [
+      "T01MCP"
+    ],
+    "related_doors": [
+      "W121TASK_EXECUTION",
+      "A01ORCHESTRATOR",
+      "T05MCP_ARCH"
+    ],
+    "onboarding": {
+      "quick_start": "Principle: If task requires action beyond text generation, it requires tools. Tool categories: File (read/write/search), System (processes/services/config), Network (fetch/API), Knowledge (search/retrieve), Execution (code/scripts). Always inventory tools before planning. No tool = cannot execute, only advise. Tool output is ground truth for next step.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Step 1 of any task: check available tools",
+        "Plan = sequence of tool calls + decision points",
+        "Tool output feeds next tool input (chaining)",
+        "Parallel tool calls when independent",
+        "Tool failure = replanning required",
+        "Advisory mode when tools unavailable for task type"
+      ],
+      "known_errors": [
+        "Attempting action without appropriate tool - falls back to instructions",
+        "Tool mismatch - wrong tool for operation type",
+        "Missing MCP - capability gap, need to build or enable"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-27T09:32:57.080861300+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "architecture",
+        "tools",
+        "mcp",
+        "operations",
+        "backbone",
+        "capability"
+      ],
+      "category": "ARCHITECTURE",
+      "subcategory": "TOOLS",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "TERMC"
+      ],
+      "size_bytes": 2210,
+      "token_estimate": 553.0
+    }
+  }
+}

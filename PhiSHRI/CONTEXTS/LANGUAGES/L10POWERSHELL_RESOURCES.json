@@ -1,0 +1,65 @@
+{
+  "door_code": "L10POWERSHELL_RESOURCES",
+  "semantic_path": "LANGUAGES.POWERSHELL.RESOURCES",
+  "aliases": [
+    "powershell resources",
+    "ps reference",
+    "pwsh links",
+    "powershell guide"
+  ],
+  "context_bundle": {
+    "summary": "PowerShell reference compendium - ss64.com (A-Z cmdlet reference), PowerShell Gallery (module repo), Pscx (community extensions - archives, junctions, hashes), PS1C (zip as PSDrive), PSScriptAnalyzer (linting), PoshCode style guide, Microsoft devblogs, ConEmu terminal, SAPIEN Studio IDE.",
+    "prerequisites": [],
+    "related_doors": [
+      "T40SIGCON6",
+      "W250CONTEXT_COMPACTOR"
+    ],
+    "onboarding": {
+      "quick_start": "Reference: ss64.com/ps (cmdlet A-Z). Gallery: powershellgallery.com. Extensions: Pscx (Install-Module Pscx). Style: github.com/PoshCode/PowerShellPracticeAndStyle. Blog: devblogs.microsoft.com/powershell. Terminal: ConEmu or Windows Terminal. IDE: SAPIEN PowerShell Studio.",
+      "full_context_path": "",
+      "common_patterns": [
+        "ss64.com/ps - A-Z cmdlet reference with aliases",
+        "Install-Module Pscx - Community Extensions (archives, junctions, hashes)",
+        "Install-Module PS1C - Mount zips as PSDrive",
+        "PSScriptAnalyzer - Linting/style checking",
+        "PoshCode/PowerShellPracticeAndStyle - Best practices guide"
+      ],
+      "known_errors": [
+        "PS1C requires PS6+",
+        "Pscx some cmdlets conflict with built-ins",
+        "ConEmu superseded by Windows Terminal for most uses"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-29T08:51:31.729251400+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "powershell",
+        "ss64",
+        "pscx",
+        "gallery",
+        "reference",
+        "style",
+        "best-practices",
+        "conemu",
+        "sapien",
+        "psscriptanalyzer"
+      ],
+      "category": "LANGUAGES",
+      "subcategory": "POWERSHELL",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "STRYK"
+      ],
+      "size_bytes": 2125,
+      "token_estimate": 532.0
+    }
+  }
+}

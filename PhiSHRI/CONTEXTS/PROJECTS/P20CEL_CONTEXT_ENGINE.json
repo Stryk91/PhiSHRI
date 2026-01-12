@@ -1,0 +1,64 @@
+{
+  "door_code": "P20CEL_CONTEXT_ENGINE",
+  "semantic_path": "PROJECTS.CEL.CONTEXT_ENGINE",
+  "aliases": [
+    "cel",
+    "context engine",
+    "context management",
+    "token tracking"
+  ],
+  "context_bundle": {
+    "summary": "Context Engine Light (CEL) - CLI tool for runtime context management. Tracks token usage, provides cel_status and cel_expand commands. Fixes 8 design holes from KALIC review.",
+    "prerequisites": [
+      "W250CONTEXT_DISCIPLINE",
+      "W251TASK_PARTITIONING"
+    ],
+    "related_doors": [
+      "W250CONTEXT_DISCIPLINE",
+      "W251TASK_PARTITIONING",
+      "E70CONTEXT_RECOVERY",
+      "S01DC_SESSION_BOOT"
+    ],
+    "onboarding": {
+      "quick_start": "CLI: C:\\PhiDEX\\cel\\cel-cli.exe\nCommands:\n- status: Check fill %, status (ok/warn/critical)\n- track -c <category> \"text\": Log tokens (user/assistant/tool)\n- truncate -c \"content\" -m <max>: Store large content\n- expand <id>: Retrieve truncated content\n- reset: New conversation\nState: C:\\PhiDEX\\cel\\state.json",
+      "full_context_path": "",
+      "common_patterns": [
+        "cel-cli.exe reset (on new session)",
+        "cel-cli.exe status (periodic check)",
+        "cel-cli.exe track -c assistant 'response' (log output)",
+        "When warn: summarize, truncate large outputs",
+        "When critical: wrap up, suggest new chat"
+      ],
+      "known_errors": [
+        "Token estimate rough until tiktoken integrated",
+        "MCP avoided due to timeout issues - using CLI",
+        "cel_state key reserved for CEL, DC uses other keys"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-19T15:51:55.798690800+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "cel",
+        "context",
+        "tokens",
+        "management",
+        "cli",
+        "p20"
+      ],
+      "category": "PROJECTS",
+      "subcategory": "CEL",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC"
+      ]
+    }
+  }
+}

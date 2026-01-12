@@ -1,0 +1,59 @@
+{
+  "door_code": "T54TAURI_PROJECT_STRUCTURE",
+  "semantic_path": "TOOLS.DESKTOP.TAURI.STRUCTURE",
+  "aliases": [
+    "tauri structure",
+    "tauri files",
+    "tauri setup"
+  ],
+  "context_bundle": {
+    "summary": "Tauri 2 project structure - required files, directories, and configuration for minimal Rust+WebView2 app.",
+    "prerequisites": [
+      "T50TAURI_CLIENT"
+    ],
+    "related_doors": [
+      "T50TAURI_CLIENT",
+      "T55TAURI_BUILD"
+    ],
+    "onboarding": {
+      "quick_start": "mkdir src-tauri; create build.rs, tauri.conf.json, Cargo.toml",
+      "full_context_path": "",
+      "common_patterns": [
+        "Root: Cargo.toml, build.rs, src/main.rs",
+        "tauri.conf.json in root or src-tauri/",
+        "build.rs just calls tauri_build::build()",
+        "edition = 2021 not 2024 for Tauri 2 compat",
+        "features = [\"devtools\"] for F12 inspector in dev"
+      ],
+      "known_errors": [
+        "edition 2024 causes resolver issues",
+        "missing build.rs = tauri_build not invoked",
+        "tauri.conf.json missing = cryptic build errors"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T07:40:57.756227900+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "tauri",
+        "rust",
+        "project-structure",
+        "build"
+      ],
+      "category": "TOOLS",
+      "subcategory": "DESKTOP",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 1544,
+      "token_estimate": 386.0
+    }
+  }
+}

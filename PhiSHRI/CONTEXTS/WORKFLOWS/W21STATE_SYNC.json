@@ -1,11 +1,24 @@
 {
   "door_code": "W21STATE_SYNC",
   "semantic_path": "WORKFLOWS.COORDINATION.STATE_SYNCHRONIZATION",
-  "aliases": ["state_sync", "consistency", "crdt", "eventual_consistency", "vector_clocks"],
+  "aliases": [
+    "state_sync",
+    "consistency",
+    "crdt",
+    "eventual_consistency",
+    "vector_clocks"
+  ],
   "context_bundle": {
     "summary": "State synchronization for multi-agent systems. File-based state in PhiVector. Eventual consistency (high performance) vs strong consistency (correctness). CRDTs for automatic conflict resolution. Vector clocks track causality. Locking prevents concurrent modification.",
-    "prerequisites": ["W12PHISYNC", "W01COORD"],
-    "related_doors": ["W22CRDT", "W13DAG", "A01DC"],
+    "prerequisites": [
+      "W12PHISYNC",
+      "W01COORD"
+    ],
+    "related_doors": [
+      "W22CRDT",
+      "W13DAG",
+      "A01DC"
+    ],
     "onboarding": {
       "quick_start": "State sync = keep agents consistent. Eventual: Temporary divergence OK, high performance. Strong: All see same state, lower performance. CRDTs: Conflict-free merges. Vector clocks: Detect causality conflicts. File-based: Atomic writes, lock files.",
       "full_context_path": "/PhiDEX/PhiSync/03_STATE_SYNCHRONIZATION/STATE_MANAGEMENT_GUIDE.md",
@@ -27,7 +40,9 @@
       ]
     },
     "resources": {
-      "docs": ["/PhiDEX/PhiSync/03_STATE_SYNCHRONIZATION/STATE_MANAGEMENT_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/PhiSync/03_STATE_SYNCHRONIZATION/STATE_MANAGEMENT_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -37,12 +52,26 @@
       "confidence": 0.98,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["state", "sync", "consistency", "crdt", "distributed"],
+      "tags": [
+        "state",
+        "sync",
+        "consistency",
+        "crdt",
+        "distributed"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "COORDINATION",
       "version": "1.0.0",
-      "tested_on": ["PhiVector"],
-      "agent_affinity": ["DC", "VSCC", "WEBC"]
+      "tested_on": [
+        "PhiVector"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC",
+        "WEBC"
+      ],
+      "size_bytes": 2298,
+      "token_estimate": 575.0
     }
   }
 }

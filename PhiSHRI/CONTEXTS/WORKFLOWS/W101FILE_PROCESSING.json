@@ -1,11 +1,25 @@
 {
   "door_code": "W101FILE_PROCESSING",
   "semantic_path": "WORKFLOWS.DATA_PROCESSING.FILE_PROCESSING",
-  "aliases": ["file_processing", "file_parsing", "csv", "json", "xml", "file_handling"],
+  "aliases": [
+    "file_processing",
+    "file_parsing",
+    "csv",
+    "json",
+    "xml",
+    "file_handling"
+  ],
   "context_bundle": {
     "summary": "File processing handles reading, parsing, and writing various file formats (CSV, JSON, XML, Excel, Parquet) with streaming for large files, encoding detection, schema validation, and error handling for malformed data.",
-    "prerequisites": ["W89DATA_VALIDATION", "W92DATA_TRANSFORM"],
-    "related_doors": ["W87ETL", "W90BATCH_PROCESSING", "E10SERIALIZATION_ERRORS"],
+    "prerequisites": [
+      "W89DATA_VALIDATION",
+      "W92DATA_TRANSFORM"
+    ],
+    "related_doors": [
+      "W87ETL",
+      "W90BATCH_PROCESSING",
+      "E10SERIALIZATION_ERRORS"
+    ],
     "onboarding": {
       "quick_start": "File processing workflow: 1) Detect encoding (UTF-8, Latin-1). 2) Stream large files to avoid memory issues. 3) Parse format-specific (CSV: pandas, JSON: json, XML: ElementTree). 4) Validate schema/structure. 5) Transform data. 6) Handle malformed rows gracefully. 7) Write output with appropriate format. Use chunking for large files and parallel processing for multiple files.",
       "full_context_path": "/PhiDEX/industry_knowledge/file_processing_patterns.md",
@@ -17,25 +31,53 @@
         "Encoding detection: import chardet; with open('file.txt', 'rb') as f: result = chardet.detect(f.read()); encoding = result['encoding']; # Then: with open('file.txt', 'r', encoding=encoding) as f: content = f.read()",
         "Error handling: try: data = pd.read_csv('data.csv') except pd.errors.ParserError as e: logger.error(f'Malformed CSV: {e}'); # Handle bad rows: data = pd.read_csv('data.csv', on_bad_lines='skip')"
       ],
-      "known_errors": ["E10SERIALIZATION_ERRORS", "E09VALIDATION_ERRORS"]
+      "known_errors": [
+        "E10SERIALIZATION_ERRORS",
+        "E09VALIDATION_ERRORS"
+      ]
     },
     "resources": {
-      "docs": ["/PhiDEX/industry_knowledge/file_processing_patterns.md"],
+      "docs": [
+        "/PhiDEX/industry_knowledge/file_processing_patterns.md"
+      ],
       "code": [],
       "tests": [],
-      "errors": ["E10SERIALIZATION_ERRORS", "E09VALIDATION_ERRORS"]
+      "errors": [
+        "E10SERIALIZATION_ERRORS",
+        "E09VALIDATION_ERRORS"
+      ]
     },
     "metadata": {
       "last_updated": "2025-11-21T00:00:00Z",
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["file_processing", "csv", "json", "xml", "excel", "parsing", "file_handling"],
+      "tags": [
+        "file_processing",
+        "csv",
+        "json",
+        "xml",
+        "excel",
+        "parsing",
+        "file_handling"
+      ],
       "category": "WORKFLOWS",
       "subcategory": "DATA_PROCESSING",
       "version": "1.0.0",
-      "tested_on": ["Python", "Pandas", "csv", "json", "ElementTree", "openpyxl"],
-      "agent_affinity": ["DC", "VSCC"]
+      "tested_on": [
+        "Python",
+        "Pandas",
+        "csv",
+        "json",
+        "ElementTree",
+        "openpyxl"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 3005,
+      "token_estimate": 752.0
     }
   }
 }

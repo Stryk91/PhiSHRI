@@ -1,0 +1,66 @@
+{
+  "door_code": "A71GEMMA_BRAIN",
+  "semantic_path": "AGENTS.GEMMA.BRAIN",
+  "aliases": [
+    "gemma brain",
+    "gemma home",
+    "gemma folder",
+    "local agent brain"
+  ],
+  "context_bundle": {
+    "summary": "GEMMA's brain and persistence system. Home folder at X:\\gemma\\ with brain file, bootstrap, conversations, scratchpad, and outputs. Since GEMMA is stateless, she outputs what to save and DC/KALIC/STRYK writes it.",
+    "prerequisites": [
+      "A70GEMMA_SYSTEM_PROMPT",
+      "T120OLLAMA_LOCAL"
+    ],
+    "related_doors": [
+      "A70GEMMA_SYSTEM_PROMPT",
+      "T120OLLAMA_LOCAL",
+      "S01DC_SESSION_BOOT",
+      "S00KALIC_SESSION_BOOT"
+    ],
+    "onboarding": {
+      "quick_start": "GEMMA's home is X:\\gemma\\. Brain at brain\\GEMMA.md, bootstrap at brain\\bootstrap.json. Load both into context at session start. GEMMA outputs updates, you write them.",
+      "full_context_path": "",
+      "common_patterns": [
+        "Brain file: X:\\gemma\\brain\\GEMMA.md",
+        "Bootstrap: X:\\gemma\\brain\\bootstrap.json",
+        "Conversations: X:\\gemma\\conversations\\YYYY-MM-DD_topic.json",
+        "GEMMA outputs what to save, DC/KALIC/STRYK writes it",
+        "Load brain + bootstrap into context at session start"
+      ],
+      "known_errors": [
+        "GEMMA cannot write files - must output JSON for others to save",
+        "X: drive must be mounted for access",
+        "No memory between calls - bootstrap is lifeline"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-12-22T16:03:13.333016300+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "gemma",
+        "brain",
+        "bootstrap",
+        "persistence",
+        "local",
+        "stateless",
+        "ollama"
+      ],
+      "category": "AGENTS",
+      "subcategory": "GEMMA",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC",
+        "KALIC",
+        "GEMMA"
+      ]
+    }
+  }
+}

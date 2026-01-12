@@ -1,11 +1,24 @@
 {
   "door_code": "T17PROMETHEUS",
   "semantic_path": "TOOLS.OBSERVABILITY.PROMETHEUS",
-  "aliases": ["prometheus", "prom", "metrics_collection", "prometheus_server", "promql"],
+  "aliases": [
+    "prometheus",
+    "prom",
+    "metrics_collection",
+    "prometheus_server",
+    "promql"
+  ],
   "context_bundle": {
     "summary": "Prometheus: Open-source monitoring and alerting system. Scrape-based pull model (scrapes /metrics endpoints), time-series database, PromQL query language, Alertmanager for notifications. Metrics types: Counter, Gauge, Histogram, Summary. Scrape config: Define targets (static_configs or service discovery), scrape_interval (15s default). PromQL: rate() for per-second rate, sum() by (label) for aggregation, histogram_quantile() for percentiles. Exporters: node_exporter (system metrics), blackbox_exporter (probing), custom exporters. Alerting rules: Define in YAML, send to Alertmanager, routes to Slack/PagerDuty/email. Service discovery: Kubernetes, Consul, EC2. Storage: Local TSDB (15-day retention default) or remote (Thanos, Cortex). Grafana for visualization.",
-    "prerequisites": ["W86METRICS", "T16GRAFANA"],
-    "related_doors": ["W84LOGGING", "W85TRACING", "T10OBSERVABILITY"],
+    "prerequisites": [
+      "W86METRICS",
+      "T16GRAFANA"
+    ],
+    "related_doors": [
+      "W84LOGGING",
+      "W85TRACING",
+      "T10OBSERVABILITY"
+    ],
     "onboarding": {
       "quick_start": "Prometheus setup: Docker: docker run -d -p 9090:9090 -v $(pwd)/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus. Config (prometheus.yml): global: {scrape_interval: 15s}; scrape_configs: - job_name: 'my-app'; static_configs: - targets: ['localhost:8000']. Access: http://localhost:9090. PromQL queries (Graph tab): rate(http_requests_total[5m]); # Requests/sec over 5min. sum by (status) (http_requests_total); # Total by status. histogram_quantile(0.95, rate(http_request_duration_seconds_bucket[5m])); # p95 latency. Alerting rule (alert.rules.yml): groups: - name: example; rules: - alert: HighErrorRate; expr: rate(http_errors_total[5m]) > 0.05; for: 5m; annotations: {summary: \"High error rate detected\"}. Load rules: prometheus.yml: rule_files: ['alert.rules.yml']. Alertmanager config (alertmanager.yml): route: {receiver: 'slack'}; receivers: - name: 'slack'; slack_configs: [{api_url: 'https://hooks.slack.com/...', channel: '#alerts'}]. Node exporter: docker run -d -p 9100:9100 prom/node-exporter; # System metrics. Scrape: - job_name: 'node'; static_configs: - targets: ['localhost:9100']. Kubernetes service discovery: - job_name: 'kubernetes-pods'; kubernetes_sd_configs: [{role: pod}]; relabel_configs: [...].",
       "full_context_path": "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md",
@@ -24,7 +37,9 @@
       "known_errors": []
     },
     "resources": {
-      "docs": ["/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/MASTER_CODEX/03_DEVELOPMENT/DEVELOPMENT_WORKFLOWS_COMPREHENSIVE_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +49,31 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["prometheus", "monitoring", "metrics", "promql", "alerting", "time_series", "observability"],
+      "tags": [
+        "prometheus",
+        "monitoring",
+        "metrics",
+        "promql",
+        "alerting",
+        "time_series",
+        "observability"
+      ],
       "category": "TOOLS",
       "subcategory": "OBSERVABILITY",
       "version": "1.0.0",
-      "tested_on": ["Prometheus 2.x", "Kubernetes", "Docker", "Linux"],
-      "agent_affinity": ["VSCC", "CMDC", "TERMC"]
+      "tested_on": [
+        "Prometheus 2.x",
+        "Kubernetes",
+        "Docker",
+        "Linux"
+      ],
+      "agent_affinity": [
+        "VSCC",
+        "CMDC",
+        "TERMC"
+      ],
+      "size_bytes": 4800,
+      "token_estimate": 1200.0
     }
   }
 }

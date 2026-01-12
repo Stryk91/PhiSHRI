@@ -1,0 +1,66 @@
+{
+  "door_code": "T70PAD_SYSTEM",
+  "semantic_path": "TOOLS.AUTOMATION.PAD.SYSTEM",
+  "aliases": [
+    "pad system",
+    "run application",
+    "powershell script",
+    "clipboard"
+  ],
+  "context_bundle": {
+    "summary": "PAD system actions: Run Application, Terminate Process, Get Running Processes, Environment Variables (Get/Set), Run DOS Command, Run PowerShell Script, Clipboard (Get/Set/Clear)",
+    "prerequisites": [
+      "T59POWER_AUTOMATE_DESKTOP"
+    ],
+    "related_doors": [
+      "L43POWERSHELL",
+      "T67PAD_UI"
+    ],
+    "onboarding": {
+      "quick_start": "Run application 'notepad.exe' args:'file.txt' wait:False -> %Process%. Run PowerShell 'Get-Process' -> %Output%",
+      "full_context_path": "",
+      "common_patterns": [
+        "Run application 'app.exe' args:'-flag value' window:Normal wait:True -> %ExitCode%",
+        "Terminate process by name:'notepad'",
+        "Get running processes -> For each check if target running",
+        "Get environment variable 'PATH' -> %EnvValue%",
+        "Set environment variable 'MYVAR' value:'data' type:User",
+        "Run PowerShell script 'code here' -> %Output% %Errors%",
+        "Get clipboard text -> %ClipboardText%",
+        "Set clipboard text %DataToShare%"
+      ],
+      "known_errors": [
+        "PowerShell execution policy may block scripts",
+        "Run as admin needed for system-level operations",
+        "Terminating process can lose unsaved data",
+        "Environment variable changes need app restart to take effect"
+      ]
+    },
+    "resources": {
+      "docs": [],
+      "code": [],
+      "tests": [],
+      "errors": []
+    },
+    "metadata": {
+      "last_updated": "2025-11-30T17:10:45.037393100+00:00",
+      "confidence": 1.0,
+      "tags": [
+        "pad",
+        "system",
+        "process",
+        "powershell",
+        "clipboard",
+        "rpa"
+      ],
+      "category": "TOOLS",
+      "subcategory": "AUTOMATION",
+      "version": "1.0.0",
+      "agent_affinity": [
+        "DC"
+      ],
+      "size_bytes": 2017,
+      "token_estimate": 505.0
+    }
+  }
+}

@@ -1,11 +1,23 @@
 {
   "door_code": "D07GPO",
   "semantic_path": "TOOLS.DEPLOYMENT.GROUP_POLICY",
-  "aliases": ["Group Policy", "GPO", "Active Directory", "policy enforcement", "LGPO"],
+  "aliases": [
+    "Group Policy",
+    "GPO",
+    "Active Directory",
+    "policy enforcement",
+    "LGPO"
+  ],
   "context_bundle": {
     "summary": "Group Policy Object management for centralized Windows configuration, security baseline enforcement, and software deployment in Active Directory environments",
-    "prerequisites": ["D06ENTERPRISE"],
-    "related_doors": ["S12RBAC", "D08AUTOPILOT", "W05RUNSPACE"],
+    "prerequisites": [
+      "D06ENTERPRISE"
+    ],
+    "related_doors": [
+      "S12RBAC",
+      "D08AUTOPILOT",
+      "W05RUNSPACE"
+    ],
     "onboarding": {
       "quick_start": "Create GPOs via Group Policy Editor, link to OUs, enforce security baselines, deploy software, and use LGPO tool for mass deployment",
       "full_context_path": "/PhiDEX/DEPLOYMENT_ALMANAC/09_ENTERPRISE/ENTERPRISE_DEPLOYMENT_GUIDE.md",
@@ -24,7 +36,9 @@
       ]
     },
     "resources": {
-      "docs": ["/PhiDEX/DEPLOYMENT_ALMANAC/09_ENTERPRISE/ENTERPRISE_DEPLOYMENT_GUIDE.md"],
+      "docs": [
+        "/PhiDEX/DEPLOYMENT_ALMANAC/09_ENTERPRISE/ENTERPRISE_DEPLOYMENT_GUIDE.md"
+      ],
       "code": [],
       "tests": [],
       "errors": []
@@ -34,12 +48,29 @@
       "confidence": 1.0,
       "usage_count": 0,
       "success_rate": 0.0,
-      "tags": ["Group Policy", "GPO", "Active Directory", "Windows", "policy", "security baseline"],
+      "tags": [
+        "Group Policy",
+        "GPO",
+        "Active Directory",
+        "Windows",
+        "policy",
+        "security baseline"
+      ],
       "category": "TOOLS",
       "subcategory": "DEPLOYMENT",
       "version": "1.0.0",
-      "tested_on": ["Windows Server 2019", "Windows Server 2022", "Windows 10", "Windows 11"],
-      "agent_affinity": ["DC", "VSCC"]
+      "tested_on": [
+        "Windows Server 2019",
+        "Windows Server 2022",
+        "Windows 10",
+        "Windows 11"
+      ],
+      "agent_affinity": [
+        "DC",
+        "VSCC"
+      ],
+      "size_bytes": 2211,
+      "token_estimate": 553.0
     }
   }
 }
