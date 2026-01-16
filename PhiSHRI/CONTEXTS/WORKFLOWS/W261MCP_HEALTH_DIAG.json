@@ -1,0 +1,51 @@
+{
+  "door_code": "W261MCP_HEALTH_DIAG",
+  "semantic_path": "WORKFLOWS.MCP.HEALTH_DIAGNOSTIC",
+  "aliases": ["mcp_health", "mcp_diagnostic", "mcp_failing", "mcp_connection_closed"],
+  "context_bundle": {
+    "summary": "MCP health diagnostic workflow for WSL/Windows MCP servers. Checks: WSL status (dmesg), X: drive, running processes, binary existence, HTTP endpoints. Common fix: restart Claude Desktop after WSL outage - no rebuilds needed if binaries exist.",
+    "prerequisites": ["T01MCP", "T06MCP_SETUP"],
+    "related_doors": ["W253MSGQUEUE_SYSTEM", "E59WM_COPYDATA_FREEZE"],
+    "onboarding": {
+      "quick_start": "MCP failing? 1) dmesg | tail -50 (check WSL errors) 2) ls /mnt/x/mcp-servers (X: accessible?) 3) PowerShell Get-Process *mcp* (what's running?) 4) Check target/release/*.exe exists 5) If binaries exist but not running = restart Claude Desktop",
+      "full_context_path": "/mnt/c/PhiDEX/msgqueue/dc/inbox/mcp_diagnostic_result.md",
+      "common_patterns": [
+        "Connection closed (-32000) = MCP not spawned, restart Claude",
+        "Request timed out (-32001) = WSL was down, restart Claude",
+        "Port not responding = HTTP server (phibroker) not started manually",
+        "DXG ioctl errors = GPU passthrough quirks, usually harmless",
+        "phibroker.exe (port 7700) is SEPARATE from phibroker-mcp.exe"
+      ],
+      "known_errors": [
+        "dxgkio_query_adapter_info: Ioctl failed - GPU passthrough, ignorable",
+        "WSL CheckConnection: getaddrinfo() failed - DNS resolution issue",
+        "WSL CheckConnection: connect() failed: 101 - Network unreachable"
+      ]
+    },
+    "diagnostic_steps": {
+      "step1_wsl": "dmesg | tail -50",
+      "step2_xdrive": "ls /mnt/x/mcp-servers",
+      "step3_processes": "PowerShell: Get-Process -Name '*mcp*','*broker*'",
+      "step4_binaries": "ls /mnt/x/mcp-servers/<name>/target/release/*.exe",
+      "step5_phibroker": "curl http://localhost:7700/health"
+    },
+    "resources": {
+      "docs": ["/mnt/c/PhiDEX/msgqueue/dc/inbox/mcp_diagnostic_result.md"],
+      "code": [],
+      "tests": [],
+      "errors": ["E59WM_COPYDATA_FREEZE"]
+    },
+    "metadata": {
+      "last_updated": "2026-01-16T07:00:00Z",
+      "confidence": 0.95,
+      "usage_count": 1,
+      "success_rate": 1.0,
+      "tags": ["mcp", "diagnostic", "health", "wsl", "troubleshooting"],
+      "category": "WORKFLOWS",
+      "subcategory": "MCP",
+      "version": "1.0.0",
+      "tested_on": ["WSL2", "Windows 11", "Claude Desktop"],
+      "agent_affinity": ["KALIC", "DC"]
+    }
+  }
+}

@@ -1,0 +1,28 @@
+#!/bin/bash
+# PhiSHRI Vector Search CLI
+# Usage: ./phishri query "your question here"
+#        ./phishri index   # rebuild index
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+VENV="$SCRIPT_DIR/.venv/bin/python"
+
+case "$1" in
+    query|q)
+        shift
+        "$VENV" "$SCRIPT_DIR/query_doors.py" "$@"
+        ;;
+    index|i)
+        "$VENV" "$SCRIPT_DIR/index_doors.py"
+        ;;
+    *)
+        echo "PhiSHRI Vector Search"
+        echo "Usage:"
+        echo "  phishri query \"your question\"  - Semantic search for doors"
+        echo "  phishri index                   - Rebuild vector index"
+        echo ""
+        echo "Examples:"
+        echo "  phishri query \"MCP connection failing\""
+        echo "  phishri query \"how to send message to DC\""
+        echo "  phishri q \"autohotkey scripts\""
+        ;;
+esac
